@@ -24,12 +24,16 @@ agent_system/
 ├── AGENTS.md            canonical context file  (CLAUDE.md → symlink)
 ├── install.sh           wires the system into Pi and/or Claude Code
 ├── .agents/skills/      canonical skills  (.claude/skills → symlink)
+│   ├── resume-state/    resume a plan-driven project from its state file
+│   ├── gate-check/      halt at human gates / irreversible actions
+│   ├── validate/        independent pass/fail checks, never coerced
+│   ├── run-log/         append-only JSONL execution log
 │   ├── plan-research/   falsifiable research planning
 │   ├── investigate/     evidence-based debugging
 │   ├── review/          pre-merge diff review
 │   ├── health/          whole-project checkup
 │   ├── ship/            test → commit → PR
-│   ├── experiment/      log a run to the ledger
+│   ├── experiment/      log a run; autonomous experiment loop
 │   ├── repro-check/     reproducibility gate
 │   ├── context-save/    persist a session handoff
 │   └── context-restore/ rebuild context on resume
@@ -57,9 +61,14 @@ The script never overwrites a real file — only absent paths or existing symlin
 - **Claude Code:** after `install.sh`, skills load from `.claude/skills/` (or
   globally) and `CLAUDE.md` is read automatically.
 
-Typical research loop: `plan-research` → `experiment` → `repro-check` →
-`review` → `ship`, with `investigate` and `health` as needed. Begin a session
-with `context-restore` and end it with `context-save`.
+Two working modes:
+- **Plan execution** — for a contract-governed program with human gates:
+  `resume-state` → `gate-check` → execute task → `validate` → `run-log`.
+- **Research & build**: `plan-research` → `experiment` → `repro-check` →
+  `review` → `ship`, with `investigate` and `health` as needed.
+
+Begin a session with `resume-state` (planned projects) or `context-restore`
+(everything else); end with `context-save`.
 
 ## Memory
 

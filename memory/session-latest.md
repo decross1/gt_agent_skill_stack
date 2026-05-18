@@ -7,19 +7,23 @@ to `DECISIONS.md`, not here.
 ---
 
 **Date:** 2026-05-18
-**Task:** Initial scaffold of the agent system.
+**Task:** Tune the framework for its primary consumer, `a_bgt_rsi`.
 
-**State:** Framework created — 9 skills in `.agents/skills/`, file-based memory in
-`memory/`, `AGENTS.md`, `install.sh`, and `README.md`. Not yet installed into
-either harness.
+**State:** 13 skills now in `.agents/skills/`. Explored
+`/home/decross1/projects/a_bgt_rsi` — a contract-governed, plan-driven research
+program. Added 4 execution-discipline skills (`resume-state`, `gate-check`,
+`validate`, `run-log`); adapted `experiment` (autonomous loop) and
+`plan-research` (design-vs-execute pointer). `AGENTS.md`, `README.md`,
+`DECISIONS.md` updated. Framework **not yet installed** into `a_bgt_rsi` (per
+user: build/tune first).
 
-**In flight:** Nothing — scaffold complete.
+**In flight:** Nothing — tuning round complete.
 
-**Next step:** Run `./install.sh` (project-local) or `./install.sh --global`,
-then point the `autoresearch` project at this system.
+**Next step:** Discuss next steps with the user. When ready, install into
+`a_bgt_rsi` (likely `install.sh --global`) and fill the `projects.md` row.
 
-**Open questions:** `autoresearch` specifics (language, framework, test runner)
-were intentionally left generic; revisit `AGENTS.md` and the `ship`/`health`
-skills once that project is wired in.
+**Open questions:** Whether to build a full autonomous `auto-experiment` skill
+for the Week-2+ autoresearch loop (deferred this round).
 
-**Pointers:** See `memory/DECISIONS.md` 2026-05-18 entry.
+**Pointers:** `memory/DECISIONS.md` 2026-05-18 entries; project context in
+`memory/a-bgt-rsi-project.md`.

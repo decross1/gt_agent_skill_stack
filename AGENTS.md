@@ -13,6 +13,18 @@ when relevant), not here.
 Located in `.agents/skills/`, each a `SKILL.md`. Tuned for rigorous,
 research-style engineering on ML / research pipelines.
 
+**Execution discipline** — for projects that execute a written plan under a
+contract with human gates:
+
+| Skill | Purpose |
+|---|---|
+| `resume-state` | Resume a plan-driven project from its state file; find the next task, honor gates. |
+| `gate-check` | Halt at human gates / human-only tasks / irreversible actions before acting. |
+| `validate` | Run validations as independent pass/fail checks; never coerce a near-miss. |
+| `run-log` | Append a structured JSONL entry per executed step — append-only, auditable. |
+
+**Research & build:**
+
 | Skill | Purpose |
 |---|---|
 | `plan-research` | Design a falsifiable plan: hypothesis, baseline, metric, smallest experiment. |
@@ -20,13 +32,19 @@ research-style engineering on ML / research pipelines.
 | `review` | Pre-merge review of a diff, including research-specific risks. |
 | `health` | Whole-project checkup with a prioritized status dashboard. |
 | `ship` | Mechanical last mile: test, commit, PR, record the decision. |
-| `experiment` | Log a run (config, seed, data, commit, metrics) to the ledger. |
+| `experiment` | Log a run to the ledger; includes the autonomous experiment loop. |
 | `repro-check` | Gate a result on reproducibility before it is trusted. |
 | `context-save` | Persist a session handoff to durable memory. |
 | `context-restore` | Rebuild context at the start of a session. |
 
-Typical research loop: `plan-research` → `experiment` → `repro-check` →
-`review` → `ship`. `investigate` and `health` run as needed.
+Two working modes:
+- **Plan execution** (a contract-governed program): `resume-state` →
+  `gate-check` → execute task → `validate` → `run-log`, repeating.
+- **Research & build**: `plan-research` → `experiment` → `repro-check` →
+  `review` → `ship`; `investigate` and `health` as needed.
+
+Use `context-restore`/`context-save` for projects without a formal plan;
+`resume-state` for those that have one.
 
 ## Memory
 
@@ -43,11 +61,20 @@ and Claude Code's memory tool operate *on top* of these; the files are canonical
 
 ## Conventions
 
-- Start a session with `context-restore`; end it with `context-save`.
+- Start a session with `resume-state` (plan-driven projects) or
+  `context-restore`; end it with `context-save`.
+- A human gate is blocking — `gate-check` before any consequential or
+  irreversible action; never clear a gate without explicit human action.
+- Validations are independent checks; a near-miss is a fail. Never coerce.
+- Log every executed step via `run-log` — append-only, observed not intended.
 - Every research result passes `repro-check` before it is trusted or shipped.
 - `DECISIONS.md` is append-only — never rewrite history; date-stamp new entries.
 - Prefer the smallest experiment that could disprove a hypothesis.
 - Never `ship` with failing or hidden tests.
+
+When the framework is used inside a project that has its own `AGENTS.md` /
+`CLAUDE.md` contract, that contract is authoritative — these skills complement
+it; they do not override it.
 
 ## Roadmap
 

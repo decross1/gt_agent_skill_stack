@@ -14,6 +14,9 @@ tested, and what would prove it wrong.
 A new experiment, model/architecture change, data-pipeline change, or any task
 where "did it work?" is non-trivial. Skip for mechanical edits.
 
+This skill is for *designing* a plan. To *execute* an already-written plan
+task-by-task from a state file, use [[resume-state]] instead.
+
 ## Procedure
 
 Work through each section. Do not skip a section — instead, write "N/A — <reason>".
