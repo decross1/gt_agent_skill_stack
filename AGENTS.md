@@ -21,6 +21,7 @@ contract with human gates:
 | `resume-state` | Resume a plan-driven project from its state file; find the next task, honor gates. |
 | `gate-check` | Halt at human gates / human-only tasks / irreversible actions before acting. |
 | `validate` | Run validations as independent pass/fail checks; never coerce a near-miss. |
+| `fallback` | Switch to a declared alternative — explicit, time-capped, logged. |
 | `run-log` | Append a structured JSONL entry per executed step — append-only, auditable. |
 
 **Research & build:**

@@ -28,6 +28,7 @@ agent_system/
 │   ├── resume-state/    resume a plan-driven project from its state file
 │   ├── gate-check/      halt at human gates / irreversible actions
 │   ├── validate/        independent pass/fail checks, never coerced
+│   ├── fallback/        explicit, time-capped, logged path switching
 │   ├── run-log/         append-only JSONL execution log
 │   ├── plan-research/   falsifiable research planning
 │   ├── investigate/     evidence-based debugging
