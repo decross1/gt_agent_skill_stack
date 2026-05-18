@@ -7,23 +7,21 @@ to `DECISIONS.md`, not here.
 ---
 
 **Date:** 2026-05-18
-**Task:** Tune the framework for its primary consumer, `a_bgt_rsi`.
+**Task:** Implement the dev-time/runtime scope boundary; begin the orchestration layer.
 
-**State:** 13 skills now in `.agents/skills/`. Explored
-`/home/decross1/projects/a_bgt_rsi` — a contract-governed, plan-driven research
-program. Added 4 execution-discipline skills (`resume-state`, `gate-check`,
-`validate`, `run-log`); adapted `experiment` (autonomous loop) and
-`plan-research` (design-vs-execute pointer). `AGENTS.md`, `README.md`,
-`DECISIONS.md` updated. Framework **not yet installed** into `a_bgt_rsi` (per
-user: build/tune first).
+**State:** Explored `a_bgt_rsi` fully (architecture, intelligence loop, Day-6
+orchestration plan). Implemented the scope boundary — `BOUNDARY.md` + sections
+in `AGENTS.md`/`README.md` + `DECISIONS.md` entry. 13 skills installed globally.
 
-**In flight:** Nothing — tuning round complete.
+**In flight:** Task #1 — building the multi-agent orchestration layer
+(`.agents/agents/` profiles + an `orchestrate` skill).
 
-**Next step:** Discuss next steps with the user. When ready, install into
-`a_bgt_rsi` (likely `install.sh --global`) and fill the `projects.md` row.
+**Next step:** Finish task #1, then tasks #2–#5 (see task list / below).
 
-**Open questions:** Whether to build a full autonomous `auto-experiment` skill
-for the Week-2+ autoresearch loop (deferred this round).
+**Open questions:** `a_bgt_rsi` stack/test-runner still unconfirmed (task #4).
 
-**Pointers:** `memory/DECISIONS.md` 2026-05-18 entries; project context in
-`memory/a-bgt-rsi-project.md`.
+**Pointers:** `memory/DECISIONS.md` 2026-05-18 entries; project + boundary
+context in `memory/a-bgt-rsi-project.md`; `BOUNDARY.md`.
+
+**Task queue:** 1 orchestration layer · 2 fallback skill · 3 auto-experiment
+skill · 4 a_bgt_rsi specifics · 5 Pi migration check.

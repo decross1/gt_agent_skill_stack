@@ -76,6 +76,22 @@ When the framework is used inside a project that has its own `AGENTS.md` /
 `CLAUDE.md` contract, that contract is authoritative — these skills complement
 it; they do not override it.
 
+## Scope boundary
+
+This framework is a **dev-time harness** — it helps a human build projects. It
+is *not* a project's own runtime agent. The word "orchestrator" names both; they
+must not be conflated:
+
+- **Dev-time** (this framework) — Claude Code / Pi helping build code.
+- **Runtime** (the project's own) — e.g. `a_bgt_rsi`'s Gemma 4 + OpenClaw +
+  NemoClaw stack, sandboxed on the DGX Spark.
+
+**Rule:** these 13 skills are dev-time only and must not be loaded into any
+project's runtime agent. The leak vector is the global `~/.pi/agent/skills/`
+directory, which a project whose runtime also runs on Pi could inherit. Such a
+project must pin its own skill discovery. Full policy and verification steps in
+`BOUNDARY.md`.
+
 ## Roadmap
 
 The intended end state is a system that understands **all projects on this

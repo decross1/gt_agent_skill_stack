@@ -37,3 +37,13 @@ not cover plan-execution discipline, which is this project's core need. The
 gstack safety roles (`/careful`/`/freeze`/`/guard`) dropped on 2026-05-18 are,
 reframed, exactly this gap. Skills stay general-purpose.
 **Supersedes:** partially revises the 2026-05-18 scaffold decision's skill set.
+
+## 2026-05-18 — Scope boundary: dev-time vs project-runtime
+**Decision:** Established that this framework is a dev-time harness only; its
+skills must not be loaded into any project's runtime agent. Added `BOUNDARY.md`
+and a `## Scope boundary` section to `AGENTS.md` / `README.md`.
+**Why:** Explored `a_bgt_rsi`'s architecture — its runtime orchestrator (Gemma 4
++ OpenClaw + NemoClaw) also runs on Pi. With the dev skills installed globally
+in `~/.pi/agent/skills/`, the apparatus runtime could inherit them. The two
+"orchestrators" (dev-time and apparatus-runtime) must stay separate.
+**Supersedes:** none

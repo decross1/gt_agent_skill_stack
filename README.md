@@ -22,6 +22,7 @@ point at the same files — edit the originals, both harnesses follow.
 ```
 agent_system/
 ├── AGENTS.md            canonical context file  (CLAUDE.md → symlink)
+├── BOUNDARY.md          dev-time vs project-runtime scope boundary
 ├── install.sh           wires the system into Pi and/or Claude Code
 ├── .agents/skills/      canonical skills  (.claude/skills → symlink)
 │   ├── resume-state/    resume a plan-driven project from its state file
@@ -75,6 +76,12 @@ Begin a session with `resume-state` (planned projects) or `context-restore`
 File-based and harness-agnostic, so nothing is lost moving between Pi and Claude
 Code. Pi's runtime `retain`/`recall` and Claude Code's memory tool work on top
 of these files; the files are canonical. `DECISIONS.md` is append-only.
+
+## Scope boundary
+
+This is a **dev-time harness** — it helps build projects; it is not a project's
+own runtime agent. These skills must not be loaded into a project's runtime
+(e.g. `a_bgt_rsi`'s sandboxed orchestrator). See `BOUNDARY.md`.
 
 ## Roadmap
 
