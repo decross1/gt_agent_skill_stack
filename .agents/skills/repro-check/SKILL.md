@@ -11,7 +11,7 @@ A result is not a result until it reproduces. This skill is the gate between
 ## When to use
 
 Before adopting an experiment's verdict, before quoting a metric in a PR or
-report, and as part of [[review]] when a diff changes results.
+report, and as part of [[code-review]] when a diff changes results.
 
 ## Checks
 

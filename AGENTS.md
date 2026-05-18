@@ -29,7 +29,7 @@ contract with human gates:
 |---|---|
 | `plan-research` | Design a falsifiable plan: hypothesis, baseline, metric, smallest experiment. |
 | `investigate` | Evidence-based debugging via a hypothesis tree — no guess-and-patch. |
-| `review` | Pre-merge review of a diff, including research-specific risks. |
+| `code-review` | Pre-merge review of a diff, including research-specific risks. |
 | `health` | Whole-project checkup with a prioritized status dashboard. |
 | `ship` | Mechanical last mile: test, commit, PR, record the decision. |
 | `experiment` | Log a run to the ledger; includes the autonomous experiment loop. |
@@ -41,7 +41,7 @@ Two working modes:
 - **Plan execution** (a contract-governed program): `resume-state` →
   `gate-check` → execute task → `validate` → `run-log`, repeating.
 - **Research & build**: `plan-research` → `experiment` → `repro-check` →
-  `review` → `ship`; `investigate` and `health` as needed.
+  `code-review` → `ship`; `investigate` and `health` as needed.
 
 Use `context-restore`/`context-save` for projects without a formal plan;
 `resume-state` for those that have one.

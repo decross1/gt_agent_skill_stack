@@ -5,7 +5,7 @@ description: Assess overall code and project health. Use for a periodic checkup 
 
 # health
 
-A whole-project checkup. Unlike [[review]] (one diff) this looks at the repo as a
+A whole-project checkup. Unlike [[code-review]] (one diff) this looks at the repo as a
 whole and reports where the rot is.
 
 ## When to use

@@ -7,11 +7,11 @@ description: Take a finished change from working code to a merged or PR-ready st
 
 The last mile: turn a reviewed change into something landed cleanly. This skill
 is mechanical on purpose — the thinking happened in [[plan-research]],
-[[investigate]], and [[review]].
+[[investigate]], and [[code-review]].
 
 ## When to use
 
-After [[review]] reports nothing blocking. Not before.
+After [[code-review]] reports nothing blocking. Not before.
 
 ## Procedure
 

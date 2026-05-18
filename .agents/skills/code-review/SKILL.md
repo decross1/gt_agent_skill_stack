@@ -1,9 +1,9 @@
 ---
-name: review
+name: code-review
 description: Review code changes before they merge. Use after implementing a change and before opening or landing a PR — checks correctness, scope, tests, and research-specific risks like silent metric changes or data leakage.
 ---
 
-# review
+# code-review
 
 A pre-merge review pass. Read the diff as an adversary: assume it is wrong and
 look for the proof.

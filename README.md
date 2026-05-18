@@ -30,7 +30,7 @@ agent_system/
 │   ├── run-log/         append-only JSONL execution log
 │   ├── plan-research/   falsifiable research planning
 │   ├── investigate/     evidence-based debugging
-│   ├── review/          pre-merge diff review
+│   ├── code-review/     pre-merge diff review
 │   ├── health/          whole-project checkup
 │   ├── ship/            test → commit → PR
 │   ├── experiment/      log a run; autonomous experiment loop
@@ -65,7 +65,7 @@ Two working modes:
 - **Plan execution** — for a contract-governed program with human gates:
   `resume-state` → `gate-check` → execute task → `validate` → `run-log`.
 - **Research & build**: `plan-research` → `experiment` → `repro-check` →
-  `review` → `ship`, with `investigate` and `health` as needed.
+  `code-review` → `ship`, with `investigate` and `health` as needed.
 
 Begin a session with `resume-state` (planned projects) or `context-restore`
 (everything else); end with `context-save`.
