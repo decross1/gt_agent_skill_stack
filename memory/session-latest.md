@@ -7,21 +7,20 @@ to `DECISIONS.md`, not here.
 ---
 
 **Date:** 2026-05-18
-**Task:** Implement the dev-time/runtime scope boundary; begin the orchestration layer.
+**Task:** Scope boundary + implement the orchestration layer and fallback skill.
 
-**State:** Explored `a_bgt_rsi` fully (architecture, intelligence loop, Day-6
-orchestration plan). Implemented the scope boundary — `BOUNDARY.md` + sections
-in `AGENTS.md`/`README.md` + `DECISIONS.md` entry. 13 skills installed globally.
+**State:** 15 skills + 4 agent profiles. Done this session: scope boundary
+(`BOUNDARY.md`); Task 1 — orchestration layer (`orchestrate` skill + planner/
+builder/experimenter/auditor profiles, install.sh wires agents); Task 2 —
+`fallback` skill. All committed and pushed (HEAD `45dbdfd`).
 
-**In flight:** Task #1 — building the multi-agent orchestration layer
-(`.agents/agents/` profiles + an `orchestrate` skill).
+**In flight:** Nothing — paused after Task 2 for a user check-in.
 
-**Next step:** Finish task #1, then tasks #2–#5 (see task list / below).
+**Next step:** Task 3 — `auto-experiment` skill (can do autonomously). Task 4 —
+fill a_bgt_rsi specifics (needs the project's stack/test-runner from the user).
+Task 5 — Pi migration check (needs Pi installed).
 
-**Open questions:** `a_bgt_rsi` stack/test-runner still unconfirmed (task #4).
+**Open questions:** a_bgt_rsi stack + test command for Task 4.
 
-**Pointers:** `memory/DECISIONS.md` 2026-05-18 entries; project + boundary
-context in `memory/a-bgt-rsi-project.md`; `BOUNDARY.md`.
-
-**Task queue:** 1 orchestration layer · 2 fallback skill · 3 auto-experiment
-skill · 4 a_bgt_rsi specifics · 5 Pi migration check.
+**Pointers:** `DECISIONS.md` 2026-05-18 entries; `BOUNDARY.md`;
+`memory/a-bgt-rsi-project.md`. Task list #1–#5.

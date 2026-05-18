@@ -42,26 +42,12 @@ Every entry records, at minimum:
 3. If the verdict resolves a planned decision, also append to
    `memory/DECISIONS.md`.
 
-## Autonomous experiment loop
+## Running a sequence unattended
 
-When running a sequence of experiments unattended (each iteration proposes a
-change, runs it, and decides whether to keep it), hold to this loop:
-
-1. **Baseline first.** The very first run is always the unmodified baseline.
-   Nothing is judged until there is a baseline number to judge against.
-2. **One change per iteration.** Form a hypothesis, make the single change it
-   implies, run within the fixed budget, measure the metric.
-3. **Keep-or-revert by the metric.** Adopt the change only if the primary
-   metric improves and no guardrail regresses; otherwise revert it cleanly.
-   Apply a [[repro-check]] before trusting a winning result.
-4. **Simplicity criterion.** All else equal, simpler wins. A tiny gain that
-   adds hacky complexity is not worth keeping; an equal-or-better result from
-   *deleting* code always is.
-5. **Log every iteration** — kept or reverted — as its own [[experiment]]
-   entry and [[run-log]] line. Reverts are data.
-6. **Respect the budget and the boundaries.** Do not exceed the time/compute
-   budget; do not modify files declared off-limits (e.g. the evaluation
-   harness); do not add dependencies unless allowed.
+This skill logs *one* experiment. To run a whole sequence autonomously — each
+iteration proposing a change, testing it, and keeping or reverting it under a
+fixed budget — use [[auto-experiment]], which drives the loop and calls back
+into this skill to log each run.
 
 ## Rule
 

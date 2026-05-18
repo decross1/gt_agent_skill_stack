@@ -33,7 +33,8 @@ contract with human gates:
 | `code-review` | Pre-merge review of a diff, including research-specific risks. |
 | `health` | Whole-project checkup with a prioritized status dashboard. |
 | `ship` | Mechanical last mile: test, commit, PR, record the decision. |
-| `experiment` | Log a run to the ledger; includes the autonomous experiment loop. |
+| `experiment` | Log a single run to the ledger (config, seed, data, metrics). |
+| `auto-experiment` | Run an unattended sequence of experiments under a fixed budget. |
 | `repro-check` | Gate a result on reproducibility before it is trusted. |
 | `context-save` | Persist a session handoff to durable memory. |
 | `context-restore` | Rebuild context at the start of a session. |

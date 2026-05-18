@@ -35,7 +35,8 @@ agent_system/
 │   ├── code-review/     pre-merge diff review
 │   ├── health/          whole-project checkup
 │   ├── ship/            test → commit → PR
-│   ├── experiment/      log a run; autonomous experiment loop
+│   ├── experiment/      log a single run to the ledger
+│   ├── auto-experiment/ unattended experiment loop under a budget
 │   ├── repro-check/     reproducibility gate
 │   ├── context-save/    persist a session handoff
 │   ├── context-restore/ rebuild context on resume
