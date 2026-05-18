@@ -37,7 +37,13 @@ agent_system/
 │   ├── experiment/      log a run; autonomous experiment loop
 │   ├── repro-check/     reproducibility gate
 │   ├── context-save/    persist a session handoff
-│   └── context-restore/ rebuild context on resume
+│   ├── context-restore/ rebuild context on resume
+│   └── orchestrate/     decompose + delegate a multi-role task
+├── .agents/agents/      dev agent profiles (.claude/agents → symlink)
+│   ├── planner.md       decompose, sequence, plan
+│   ├── builder.md       write, debug, land code
+│   ├── experimenter.md  run and log experiments
+│   └── auditor.md       independently verify work
 └── memory/
     ├── DECISIONS.md     append-only decisions log
     ├── experiments.md   experiment ledger
@@ -70,6 +76,10 @@ Two working modes:
 
 Begin a session with `resume-state` (planned projects) or `context-restore`
 (everything else); end with `context-save`.
+
+For a task that spans roles, the `orchestrate` skill decomposes it and delegates
+to the agent profiles in `.agents/agents/` (`planner`, `builder`,
+`experimenter`, `auditor`) — dev-time agents, see `BOUNDARY.md`.
 
 ## Memory
 

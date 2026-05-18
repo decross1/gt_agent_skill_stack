@@ -36,6 +36,7 @@ contract with human gates:
 | `repro-check` | Gate a result on reproducibility before it is trusted. |
 | `context-save` | Persist a session handoff to durable memory. |
 | `context-restore` | Rebuild context at the start of a session. |
+| `orchestrate` | Decompose a multi-role task, delegate to agent profiles, reconcile. |
 
 Two working modes:
 - **Plan execution** (a contract-governed program): `resume-state` →
@@ -45,6 +46,22 @@ Two working modes:
 
 Use `context-restore`/`context-save` for projects without a formal plan;
 `resume-state` for those that have one.
+
+## Agents
+
+Profiles in `.agents/agents/` — named **dev-time** agents, each a role scoped to
+a subset of the skills. The `orchestrate` skill decomposes a multi-role task and
+routes its parts to these agents.
+
+| Agent | Role | Leans on |
+|---|---|---|
+| `planner` | Decompose, sequence, design falsifiable plans | `plan-research`, `resume-state`, `gate-check` |
+| `builder` | Write, debug, and land code | `investigate`, `code-review`, `ship` |
+| `experimenter` | Run and log experiments | `experiment`, `repro-check`, `run-log` |
+| `auditor` | Independently verify work and project health | `validate`, `repro-check`, `health`, `gate-check` |
+
+These coordinate the agents that *help build* a project — they are not a
+project's own runtime agents. See `BOUNDARY.md`.
 
 ## Memory
 
