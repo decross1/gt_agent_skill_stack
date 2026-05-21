@@ -12,7 +12,7 @@ The word "orchestrator" names two different systems. They must not be conflated.
 |---|---|---|
 | **What** | Claude Code / Pi helping a human build a project | The project's own deployed agent system |
 | **Job** | Plan, write, review, ship the code | Do the project's actual work |
-| **Skills** | The 13 skills in `.agents/skills/` | The project's own skill set, if any |
+| **Skills** | The 16 skills in `.agents/skills/` | The project's own skill set, if any |
 | **Lives** | The developer's machine, dev sessions | Inside the project, often sandboxed |
 | **Example** | This framework, in a Claude Code session | `a_bgt_rsi`: Gemma 4 + OpenClaw + NemoClaw, inside the OpenShell sandbox on the DGX Spark |
 
@@ -32,7 +32,7 @@ discovers skills from several directories, including the global
 `~/.pi/agent/skills/`. `install.sh --global` populates that directory.
 
 So a project whose *runtime* also runs on Pi, on the same machine, could inherit
-these 13 dev skills into its runtime context — extra skill descriptions in a
+these 16 dev skills into its runtime context — extra skill descriptions in a
 minimal-context agent, and a small risk of a spurious invocation.
 
 ## Keeping the line

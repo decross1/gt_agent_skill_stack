@@ -1,0 +1,35 @@
+{
+  "plan": "plan.md",
+  "plan_version": 1,
+  "started_at": "2026-05-21T06:08:51Z",
+  "current_session": 2,
+  "completed_sessions": [1],
+  "completed_tasks": [
+    "s1.1_resolve_boundary_leak",
+    "s1.2_fix_doc_errors",
+    "s1.3_scaffold_harness",
+    "s1.4_ratify_plan"
+  ],
+  "gates": {
+    "pending": [],
+    "cleared": [
+      {
+        "gate": "s1.1_install_behavior_change",
+        "cleared_by": "explicit human instruction 'run session 1'",
+        "date": "2026-05-21"
+      }
+    ]
+  },
+  "harvest_watermark": {
+    "a_bgt_rsi": {
+      "run_jsonl_lines": 0,
+      "last_commit": null,
+      "last_decision": null
+    }
+  },
+  "value_metrics": {
+    "skills_hardened": [],
+    "open_gaps": null,
+    "last_harvest": null
+  }
+}

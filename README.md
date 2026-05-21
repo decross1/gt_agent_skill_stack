@@ -56,8 +56,9 @@ agent_system/
 ## Install
 
 ```bash
-./install.sh            # project-local: usable inside this repo
-./install.sh --global   # also installs skills for every project on this machine
+./install.sh             # project-local: usable inside this repo
+./install.sh --global    # also installs skills for every Claude Code project
+./install.sh --global-pi # --global plus Pi global skills (opt-in; see BOUNDARY.md)
 ./install.sh --uninstall
 ```
 

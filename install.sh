@@ -8,8 +8,9 @@
 # Nothing is copied or duplicated — edit the originals, both harnesses follow.
 #
 # Usage:
-#   ./install.sh            project-local: makes this repo usable in place
-#   ./install.sh --global   also exposes the skills to every project on this machine
+#   ./install.sh             project-local: makes this repo usable in place
+#   ./install.sh --global    also exposes skills to every Claude Code project here
+#   ./install.sh --global-pi --global plus Pi global skills (opt-in; see BOUNDARY.md)
 #   ./install.sh --uninstall remove symlinks this script created
 set -euo pipefail
 
@@ -46,13 +47,13 @@ install_local() {
 }
 
 install_global() {
-  echo "Global setup (skills available in every project on this machine):"
-  local cc="$HOME/.claude/skills" pi="$HOME/.pi/agent/skills"
-  mkdir -p "$cc" "$pi"
+  local with_pi="${1:-}"
+  echo "Global setup (skills available in every Claude Code project on this machine):"
+  local cc="$HOME/.claude/skills"
+  mkdir -p "$cc"
   for d in "$SKILLS"/*/; do
     local name; name="$(basename "$d")"
     link "$d" "$cc/$name"
-    link "$d" "$pi/$name"
   done
   # Agent profiles — Claude Code reads ~/.claude/agents/. (Pi subagent wiring is
   # harness-version-specific; see BOUNDARY.md — left as a manual step.)
@@ -62,7 +63,22 @@ install_global() {
     [ -e "$f" ] || continue
     link "$f" "$cca/$(basename "$f")"
   done
-  echo "Done. Skills + agent profiles installed globally for Claude Code; skills for Pi."
+  echo "Done. Skills + agent profiles installed globally for Claude Code."
+  # Pi global skills are OPT-IN. ~/.pi/agent/skills/ is also read by Pi *runtime*
+  # agents, so a project whose runtime runs on Pi can inherit these dev skills.
+  # See BOUNDARY.md. Only --global-pi populates it.
+  if [[ "$with_pi" == "pi" ]]; then
+    echo
+    echo "  WARNING: populating ~/.pi/agent/skills/ — Pi runtime agents on this"
+    echo "  machine can inherit these dev skills. See BOUNDARY.md before relying on it."
+    local pi="$HOME/.pi/agent/skills"
+    mkdir -p "$pi"
+    for d in "$SKILLS"/*/; do
+      local name; name="$(basename "$d")"
+      link "$d" "$pi/$name"
+    done
+    echo "  Done. Skills also installed globally for Pi."
+  fi
 }
 
 uninstall() {
@@ -83,8 +99,9 @@ uninstall() {
 }
 
 case "$MODE" in
-  local)      install_local ;;
-  --global)   install_local; echo; install_global ;;
+  local)       install_local ;;
+  --global)    install_local; echo; install_global ;;
+  --global-pi) install_local; echo; install_global pi ;;
   --uninstall) uninstall ;;
-  *) echo "Usage: ./install.sh [--global|--uninstall]" >&2; exit 1 ;;
+  *) echo "Usage: ./install.sh [--global|--global-pi|--uninstall]" >&2; exit 1 ;;
 esac

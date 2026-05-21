@@ -22,14 +22,16 @@ Format:
 **Kind:** research apparatus — contract-governed, plan-driven ML/research pipeline
 **Stack:** Python 3.12 (apparatus core); some TypeScript / TSX (UI surface).
 Runtime: vLLM-served Gemma 4 26B MoE + ChromaDB/BGE-M3 on an NVIDIA DGX Spark.
-**Test command:** _not yet established_ — no unified runner (no `pytest.ini` /
-pyproject test config); `tests/` is empty. `plan.yaml` references per-day
-validation scripts (`python3 tests/test_*.py`) that don't exist yet. Revisit
-the `ship` / `health` skills' assumptions once the test apparatus is built.
+**Test command:** no unified runner (no `pytest.ini` / pyproject test config).
+`tests/` holds 15 test files (~1,100 LOC); the Day 2–4 suites pass. `plan.yaml`
+enumerates per-day validations, run as `.venv/bin/python -m pytest tests/test_*.py`.
+`ship` / `health` still assume a single test command — adapting them to a
+runner-less, per-day-enumerated suite is on the `plan.md` backlog.
 **Notes:**
 - Has its own authoritative operating contract — `CLAUDE.md` + `plan.yaml` +
   `run_state/`. That contract wins; this framework's skills only complement it.
-- Primary consumer of this agent system. Currently Week 1, Day 1 in progress.
+- Lead consumer of this agent system. As of 2026-05-21: Week 1, Day 4 complete,
+  Day 5 in progress; 49 commits; working tree clean.
 - Its **runtime** orchestrator (Gemma 4 / OpenClaw / NemoClaw, sandboxed on the
   Spark) is a separate system from this dev-time framework — see `BOUNDARY.md`.
 - Read `PROJECT_CONTEXT.md` → `ARCHITECTURE.md` → `DECISIONS.md` → `plan.yaml`

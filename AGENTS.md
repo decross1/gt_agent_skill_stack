@@ -105,7 +105,7 @@ must not be conflated:
 - **Runtime** (the project's own) — e.g. `a_bgt_rsi`'s Gemma 4 + OpenClaw +
   NemoClaw stack, sandboxed on the DGX Spark.
 
-**Rule:** these 13 skills are dev-time only and must not be loaded into any
+**Rule:** these 16 skills are dev-time only and must not be loaded into any
 project's runtime agent. The leak vector is the global `~/.pi/agent/skills/`
 directory, which a project whose runtime also runs on Pi could inherit. Such a
 project must pin its own skill discovery. Full policy and verification steps in
