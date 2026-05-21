@@ -169,7 +169,7 @@ with the harvest. A minimum-viable arc completes at Session 6; the full arc at 2
 - **Pass-signal:** every skill carries both fields; `AGENTS.md` layer tables match
   the frontmatter exactly.
 
-**Session 5 — Rewrite `BOUNDARY.md` as a layering rule.**
+**Session 5 — Rewrite `BOUNDARY.md` as a layering rule.** ✅ *Done 2026-05-21.*
 - 5.1 Replace the blanket "dev-time only" ban with: dev-only skills (Layers B/C)
   vs. runtime-safe core (the 5 Layer-A skills). Define what `runtime-safe`
   *requires* of a skill — no assumed human, no PR/harness calls, minimal context

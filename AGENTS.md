@@ -19,8 +19,8 @@ it in one of three layers.
 Domain-agnostic execution discipline: the framework's reusable core. These five
 are the **runtime-safe core** (`runtime-safe: true`) — designated safe to embed
 in autonomously spawned / runtime agents, not only dev-time sessions. The
-rewrite that makes them fully runtime-safe (no assumed human, no dev harness)
-is scheduled for `plan.md` Session 5.
+`runtime-safe` contract they must satisfy is defined in `BOUNDARY.md`; per-skill
+conformance is verified in Phase 3.
 
 | Skill | Purpose |
 |---|---|
@@ -114,22 +114,18 @@ it; they do not override it.
 
 ## Scope boundary
 
-This framework is a **dev-time harness** — it helps a human build projects. It
-is *not* a project's own runtime agent. The word "orchestrator" names both; they
-must not be conflated:
+This framework is primarily a **dev-time harness** — it helps a human build
+projects. The word "orchestrator" names two systems that must not be conflated:
 
 - **Dev-time** (this framework) — Claude Code / Pi helping build code.
-- **Runtime** (the project's own) — e.g. `a_bgt_rsi`'s Gemma 4 + OpenClaw +
-  NemoClaw stack, sandboxed on the DGX Spark.
+- **Runtime** (the project's own) — the project's own deployed agent system.
 
-**Rule (transitional).** All 17 skills are currently dev-time only and must not
-be loaded into any project's runtime agent. Layer A — the 5 `runtime-safe: true`
-skills — is *designated* to become a runtime-safe core embeddable in spawned /
-runtime agents; `plan.md` Session 5 rewrites `BOUNDARY.md` into that layering
-rule and hardens those 5. Until then, treat all 17 as dev-time only. The leak
-vector is the global `~/.pi/agent/skills/` directory, which a project whose
-runtime also runs on Pi could inherit; such a project must pin its own skill
-discovery. Full policy and verification steps in `BOUNDARY.md`.
+**Rule.** Skills fall in two classes. **Dev-only skills** (Layers B and C) must
+never be loaded into any project's runtime agent. The **runtime-safe core** (the
+5 Layer-A skills) may be *deliberately* embedded in a spawned / runtime agent —
+never inherited by accident. The leak vector is the global `~/.pi/agent/skills/`
+directory; a project whose runtime runs on Pi must pin its own skill discovery.
+Full policy, the `runtime-safe` contract, and verification steps in `BOUNDARY.md`.
 
 ## Roadmap
 
