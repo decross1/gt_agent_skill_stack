@@ -152,7 +152,7 @@ with the harvest. A minimum-viable arc completes at Session 6; the full arc at 2
 - **Pass-signal:** `harvest` produces well-formed `feedback.jsonl` entries; the
   watermark advances; a re-run from the new watermark is idempotent (no dupes).
 
-**Session 3 — First full harvest; baseline conformance report.**
+**Session 3 — First full harvest; baseline conformance report.** ✅ *Done 2026-05-21.*
 - 3.1 Run `harvest` over all `a_bgt_rsi` history (preflight → current day).
 - 3.2 Produce the baseline conformance report: per skill, `Confirmed` /
   `Diverged` / `Gap` / `Friction` counts.
@@ -230,19 +230,44 @@ evidence.
 
 ## Backlog (re-sorted every session from `feedback.jsonl`)
 
-Seeded with findings already known from the 2026-05-21 analysis. Sessions 3+
-expand and re-rank this list.
+Re-sorted **Session 3** from harvests H001–H002 — 25 findings, see
+`memory/conformance.md`. Priority: gaps, then friction, then structural. Each
+item cites the harvest finding(s) behind it.
 
-- **gap** — `orchestrate` has no worktree / file-boundary-allow-list / `--no-ff`
-  merge protocol; `a_bgt_rsi`'s `AGENT_PLAN.md` proves the pattern works.
-- **friction** — `ship` assumes a unified test runner; `a_bgt_rsi` has none
-  (per-day tests enumerated in `plan.yaml`).
-- **friction** — `health` carries a stale "no test runner" assumption.
-- **friction** — `experiment`/`run-log` split: `a_bgt_rsi` uses one unified JSONL
-  log as both run log and experiment ledger.
-- **gap** — no skill for autonomously spawned agents (Phase 5).
-- **structural** — `memory/` does three jobs (framework-self memory, cross-project
-  registry, consumer templates) with no separation.
+**P1 — gaps (a skill is missing or silent)**
+- `orchestrate` has no parallel-worktree execution protocol — per-track
+  file-boundary allow-lists, mock isolation, pre-merge boundary verification,
+  `--no-ff` merges, completion sentinels. *(H002 orchestrate/gap)*
+- No `decision-log` skill — `a_bgt_rsi`'s `D-xxx` format (Alternatives +
+  Reversibility + supersedes-chains) shows the discipline; the framework's
+  `DECISIONS.md` format is thinner and ungoverned. *(H002 decision-log/gap)*
+- No skill for autonomously spawned agents — task contract, self-gating,
+  self-reporting, authority boundary. *(Phase 5; 2026-05-21 analysis)*
+
+**P2 — friction (a skill exists but mis-fits real use)**
+- `validate` has no protocol for a *mis-specified criterion* — `a_bgt_rsi`
+  repeatedly finds the pass_signal itself wrong. *(H002 validate/friction)*
+- `validate` / `run-log` lack a `partial_pass` verdict/status for "executed
+  correctly, a sub-check is a reported finding." *(H002 validate/friction)*
+- `run-log`'s status enum is incomplete — lacks `started` / `partial_pass`.
+  *(H001 + H002)*
+- `ship` assumes a PR flow; `a_bgt_rsi` commits to main + merges worktrees.
+  *(H002 ship/friction)*
+- `ship` / `health` assume a unified test runner; `a_bgt_rsi` has none.
+  *(H002 ship/friction)*
+- `gate-check` does not distinguish attestation-cleared from
+  verification-cleared gates. *(H001 gate-check/friction)*
+- `fallback` does not address a fallback *selection* that is itself gated.
+  *(H002 fallback/friction)*
+- `experiment` mandates a separate `experiments.md`; allow the run log to be
+  the ledger. *(H002 experiment/friction)*
+
+**P3 — structural**
+- `memory/` does three jobs (framework-self memory, cross-project registry,
+  consumer templates) with no separation. *(2026-05-21 analysis)*
+
+**Untested by `a_bgt_rsi`** — need a different consumer (Phase 4 uplift test):
+`plan-research`, `health`, `auto-experiment`, `context-save`, `context-restore`.
 
 ---
 

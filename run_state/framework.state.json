@@ -2,15 +2,18 @@
   "plan": "plan.md",
   "plan_version": 1,
   "started_at": "2026-05-21T06:08:51Z",
-  "current_session": 3,
-  "completed_sessions": [1, 2],
+  "current_session": 4,
+  "completed_sessions": [1, 2, 3],
   "completed_tasks": [
     "s1.1_resolve_boundary_leak",
     "s1.2_fix_doc_errors",
     "s1.3_scaffold_harness",
     "s1.4_ratify_plan",
     "s2.1_author_harvest_skill",
-    "s2.2_dryrun_harvest"
+    "s2.2_dryrun_harvest",
+    "s3.1_full_harvest",
+    "s3.2_conformance_report",
+    "s3.3_seed_backlog"
   ],
   "gates": {
     "pending": [],
@@ -24,14 +27,14 @@
   },
   "harvest_watermark": {
     "a_bgt_rsi": {
-      "run_jsonl_lines": 8,
-      "last_commit": null,
-      "last_decision": null
+      "run_jsonl_lines": 80,
+      "last_commit": "66246ee",
+      "last_decision": "D-025"
     }
   },
   "value_metrics": {
     "skills_hardened": [],
-    "open_gaps": 0,
-    "last_harvest": "H001"
+    "open_gaps": 2,
+    "last_harvest": "H002"
   }
 }

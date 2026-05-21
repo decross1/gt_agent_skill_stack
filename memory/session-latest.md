@@ -7,38 +7,43 @@ Durable decisions go to `DECISIONS.md`, not here.
 ---
 
 **Date:** 2026-05-21
-**Task:** `plan.md` Session 2 — build the `harvest` skill.
+**Task:** `plan.md` Session 3 — first full harvest; baseline conformance report.
 
-**State:** Session 2 complete. All tasks done, all 3 validation checks passed
+**State:** Session 3 complete. All tasks done, all 3 validation checks passed
 (none coerced).
-- 2.1 — Authored `.agents/skills/harvest/SKILL.md`: reads a consumer's trace
-  since a watermark, classifies each finding (confirmed/diverged/gap/friction)
-  against the skill it bears on, appends to `memory/feedback.jsonl`. Read-only
-  on the consumer. Now discoverable in the skills list.
-- 2.2 — Dry-run harvest `H001` over `a_bgt_rsi` `week1.run.jsonl` lines 1–8:
-  6 findings (4 confirmed, 2 friction; `run-log` ×4, `gate-check` ×2). Watermark
-  `a_bgt_rsi.run_jsonl_lines` advanced 0 → 8.
+- 3.1 — Harvest `H002` over the rest of `a_bgt_rsi` history (`week1.run.jsonl`
+  L9–80, 49 commits, `DECISIONS.md` D-001…D-025): 19 findings (11 confirmed,
+  6 friction, 2 gap). `feedback.jsonl` now 25 entries. Watermark advanced:
+  `run_jsonl_lines` 8→80, `last_commit`→`66246ee`, `last_decision`→`D-025`.
+- 3.2 — `memory/conformance.md` written: all 17 skills classified. 4 clean-
+  confirmed, 5 confirmed-with-friction, 3 gap/not-as-designed, 6 untested.
+  **`diverged` count is 0** — no skill contradicted; the framework is
+  incomplete, not wrong.
+- 3.3 — `plan.md` backlog re-sorted into P1 (3 gaps) / P2 (8 friction) /
+  P3 (1 structural), each item citing its harvest finding.
 
-Session 1 is committed (`85c7c19`). **Session 2 changes are uncommitted.**
+Sessions 1–2 committed and pushed. **Session 3 changes are uncommitted.**
 
-**In flight:** Nothing.
+**In flight:** Nothing. Phase 1 (the feedback loop) is complete — `harvest`
+built, baseline taken, backlog evidence-driven.
 
-**Next step:** Session 3 — first full harvest. Run `harvest` over the rest of
-`a_bgt_rsi` history (`week1.run.jsonl` lines 9–80, plus `git log` and
-`DECISIONS.md`), produce the baseline conformance report, seed the `plan.md`
-backlog from the findings.
+**Next step:** Phase 2 begins. Session 4 — re-layer the skills: add
+`layer: A|B|C` and `runtime-safe: true|false` frontmatter to every `SKILL.md`,
+rewrite `AGENTS.md` around the three layers.
 
 **Open questions / blockers:** None blocking.
 
 **Key context:**
-- Harvest watermark for `a_bgt_rsi`: `run_jsonl_lines = 8`; `last_commit` and
-  `last_decision` still `null` (Session 3 covers git + decisions).
-- Two `friction` findings already logged — Phase 3 hardening candidates:
-  `run-log` (status enum lacks `started`/`in_progress`) and `gate-check`
-  (no distinction between attestation-cleared and verification-cleared gates).
-- `a_bgt_rsi` run log is 80 lines (preflight → Day 5), not the 44 estimated
-  earlier.
+- Top Phase-3 targets from the baseline: `orchestrate` (gap — no parallel-
+  worktree protocol), `decision-log` (gap — skill absent), `validate`
+  (2 friction), `ship` (2 friction).
+- `a_bgt_rsi` is a *fidelity* oracle only — it confirmed accuracy but cannot
+  test uplift (it is already maximally disciplined). 6 skills are untested and
+  need a weaker second consumer (Phase 4).
+- Harvest watermark fully caught up to `a_bgt_rsi` HEAD `66246ee` / `D-025`.
+  Next harvest (Session 4+) only sees new `a_bgt_rsi` activity.
 
-**Pointers:** `plan.md`; `memory/feedback.jsonl` (6 entries, harvest H001);
-`.agents/skills/harvest/SKILL.md`; `run_state/framework.run.jsonl` (9 entries).
-HEAD `85c7c19` — Session 2 not yet committed.
+**Pointers:** `plan.md` (backlog); `memory/conformance.md` (baseline dashboard);
+`memory/feedback.jsonl` (25 findings, H001–H002);
+`run_state/framework.run.jsonl` (13 entries). HEAD `231a436` — Session 3 not
+yet committed.
