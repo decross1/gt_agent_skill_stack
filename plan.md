@@ -143,7 +143,7 @@ with the harvest. A minimum-viable arc completes at Session 6; the full arc at 2
 
 ### Phase 1 — Build the feedback loop
 
-**Session 2 — Build the `harvest` skill.**
+**Session 2 — Build the `harvest` skill.** ✅ *Done 2026-05-21.*
 - 2.1 Author `.agents/skills/harvest/SKILL.md`: read a consumer's run log + git +
   decisions since a watermark, classify per skill, append to `feedback.jsonl`,
   advance the watermark. Written generally (any consumer), with `a_bgt_rsi` as the
