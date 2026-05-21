@@ -1,5 +1,7 @@
 ---
 name: run-log
+layer: A
+runtime-safe: true
 description: Append a structured JSONL entry recording an executed step. Use after running any plan task, experiment, validation, or significant action that should be auditable — captures timestamp, identity, status, observed vs expected, and duration to an append-only log.
 ---
 

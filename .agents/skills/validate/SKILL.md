@@ -1,5 +1,7 @@
 ---
 name: validate
+layer: A
+runtime-safe: true
 description: Run a validation as a set of independent pass/fail checks. Use when a task or experiment defines explicit success criteria — checks each signal separately, reports pass or fail honestly, and never coerces a near-miss into a pass.
 ---
 

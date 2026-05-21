@@ -1,5 +1,7 @@
 ---
 name: experiment
+layer: B
+runtime-safe: false
 description: Log a research experiment run so it is traceable and comparable. Use when starting or finishing a training run, evaluation, or ablation — captures config, seed, data version, code commit, metrics, and artifact location into the experiment ledger.
 ---
 

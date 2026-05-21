@@ -1,5 +1,7 @@
 ---
 name: resume-state
+layer: A
+runtime-safe: true
 description: Resume a plan-driven project from its state file. Use at the start of a session on a project that executes a written plan task-by-task — reads the plan and state file, finds the first incomplete task, honors pending gates, and briefs before continuing.
 ---
 

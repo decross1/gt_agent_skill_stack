@@ -10,11 +10,17 @@ when relevant), not here.
 
 ## Skills
 
-Located in `.agents/skills/`, each a `SKILL.md`. Tuned for rigorous,
-research-style engineering on ML / research pipelines.
+Located in `.agents/skills/`, each a `SKILL.md`. Every skill carries two
+frontmatter fields — `layer` (A/B/C) and `runtime-safe` (true/false) — placing
+it in one of three layers.
 
-**Execution discipline** — for projects that execute a written plan under a
-contract with human gates:
+### Layer A — Core discipline
+
+Domain-agnostic execution discipline: the framework's reusable core. These five
+are the **runtime-safe core** (`runtime-safe: true`) — designated safe to embed
+in autonomously spawned / runtime agents, not only dev-time sessions. The
+rewrite that makes them fully runtime-safe (no assumed human, no dev harness)
+is scheduled for `plan.md` Session 5.
 
 | Skill | Purpose |
 |---|---|
@@ -24,7 +30,10 @@ contract with human gates:
 | `fallback` | Switch to a declared alternative — explicit, time-capped, logged. |
 | `run-log` | Append a structured JSONL entry per executed step — append-only, auditable. |
 
-**Research & build:**
+### Layer B — Research & build vertical
+
+A vertical pack for research / ML-pipeline engineering. Dev-time only
+(`runtime-safe: false`).
 
 | Skill | Purpose |
 |---|---|
@@ -36,9 +45,17 @@ contract with human gates:
 | `experiment` | Log a single run to the ledger (config, seed, data, metrics). |
 | `auto-experiment` | Run an unattended sequence of experiments under a fixed budget. |
 | `repro-check` | Gate a result on reproducibility before it is trusted. |
+
+### Layer C — Orchestration & meta
+
+Coordination and framework-internal skills. Dev-time only (`runtime-safe: false`).
+
+| Skill | Purpose |
+|---|---|
+| `orchestrate` | Decompose a multi-role task, delegate to agent profiles, reconcile. |
+| `harvest` | Score the framework's own skills against a consumer project's execution trace. |
 | `context-save` | Persist a session handoff to durable memory. |
 | `context-restore` | Rebuild context at the start of a session. |
-| `orchestrate` | Decompose a multi-role task, delegate to agent profiles, reconcile. |
 
 Two working modes:
 - **Plan execution** (a contract-governed program): `resume-state` →
@@ -105,11 +122,14 @@ must not be conflated:
 - **Runtime** (the project's own) — e.g. `a_bgt_rsi`'s Gemma 4 + OpenClaw +
   NemoClaw stack, sandboxed on the DGX Spark.
 
-**Rule:** these 16 skills are dev-time only and must not be loaded into any
-project's runtime agent. The leak vector is the global `~/.pi/agent/skills/`
-directory, which a project whose runtime also runs on Pi could inherit. Such a
-project must pin its own skill discovery. Full policy and verification steps in
-`BOUNDARY.md`.
+**Rule (transitional).** All 17 skills are currently dev-time only and must not
+be loaded into any project's runtime agent. Layer A — the 5 `runtime-safe: true`
+skills — is *designated* to become a runtime-safe core embeddable in spawned /
+runtime agents; `plan.md` Session 5 rewrites `BOUNDARY.md` into that layering
+rule and hardens those 5. Until then, treat all 17 as dev-time only. The leak
+vector is the global `~/.pi/agent/skills/` directory, which a project whose
+runtime also runs on Pi could inherit; such a project must pin its own skill
+discovery. Full policy and verification steps in `BOUNDARY.md`.
 
 ## Roadmap
 

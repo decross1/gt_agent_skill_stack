@@ -1,5 +1,7 @@
 ---
 name: fallback
+layer: A
+runtime-safe: true
 description: Select a fallback path when the primary approach fails or exceeds its time budget. Use when a task has a known alternative — applies a time cap, makes the switch explicit, logs the selection, and never lets a degraded path masquerade as the primary.
 ---
 

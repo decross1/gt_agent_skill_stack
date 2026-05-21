@@ -1,5 +1,7 @@
 ---
 name: repro-check
+layer: B
+runtime-safe: false
 description: Verify a result is reproducible before it is trusted or shipped. Use before adopting an experiment outcome, citing a number, or merging a results-changing diff — checks seeds, data versions, environment pinning, and run-to-run variance.
 ---
 

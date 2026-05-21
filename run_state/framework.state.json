@@ -2,8 +2,8 @@
   "plan": "plan.md",
   "plan_version": 1,
   "started_at": "2026-05-21T06:08:51Z",
-  "current_session": 4,
-  "completed_sessions": [1, 2, 3],
+  "current_session": 5,
+  "completed_sessions": [1, 2, 3, 4],
   "completed_tasks": [
     "s1.1_resolve_boundary_leak",
     "s1.2_fix_doc_errors",
@@ -13,7 +13,9 @@
     "s2.2_dryrun_harvest",
     "s3.1_full_harvest",
     "s3.2_conformance_report",
-    "s3.3_seed_backlog"
+    "s3.3_seed_backlog",
+    "s4.1_layer_frontmatter",
+    "s4.2_rewrite_agents_md"
   ],
   "gates": {
     "pending": [],

@@ -1,5 +1,7 @@
 ---
 name: plan-research
+layer: B
+runtime-safe: false
 description: Plan a research task with technical rigor before any code is written. Use when starting a new experiment, feature, model change, or investigation that needs a defensible design — produces a hypothesis, baseline, success metric, and the smallest experiment that could disprove it.
 ---
 

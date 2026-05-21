@@ -1,5 +1,7 @@
 ---
 name: orchestrate
+layer: C
+runtime-safe: false
 description: Decompose a larger task and delegate its parts to specialized dev agents. Use when a task spans planning, building, experimenting, and verification — it splits the work, routes each part to the right agent profile, sequences the hand-offs, and reconciles the results.
 ---
 

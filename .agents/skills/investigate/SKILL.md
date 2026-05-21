@@ -1,5 +1,7 @@
 ---
 name: investigate
+layer: B
+runtime-safe: false
 description: Systematically debug a failure, anomaly, or surprising result. Use when something is broken, a metric moved unexpectedly, a test fails intermittently, or a result looks too good or too bad — drives an evidence-based hypothesis tree instead of guess-and-check.
 ---
 

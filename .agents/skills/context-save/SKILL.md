@@ -1,5 +1,7 @@
 ---
 name: context-save
+layer: C
+runtime-safe: false
 description: Save the current working session to durable memory before ending or switching tasks. Use when wrapping up, hitting a context limit, or pausing work — writes a handoff snapshot so the next session resumes without re-deriving everything.
 ---
 

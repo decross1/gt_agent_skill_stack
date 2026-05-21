@@ -162,7 +162,7 @@ with the harvest. A minimum-viable arc completes at Session 6; the full arc at 2
 
 ### Phase 2 — Resolve identity & structure
 
-**Session 4 — Re-layer the skills.**
+**Session 4 — Re-layer the skills.** ✅ *Done 2026-05-21.*
 - 4.1 Add `layer: A|B|C` and `runtime-safe: true|false` frontmatter to every
   `SKILL.md`. No directory renames (symlinks must survive).
 - 4.2 Rewrite `AGENTS.md` to present the three layers and the runtime-safe core.
