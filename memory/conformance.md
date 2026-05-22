@@ -7,7 +7,7 @@ low-friction** description of disciplined practice. It cannot test *uplift* —
 (Phase 4).
 
 **Source:** `a_bgt_rsi` — `run_state/week1.run.jsonl`, `git log`, `DECISIONS.md`.
-**Harvests:** H001–H002 baseline (preflight→Day 4), H003 (Day 5).
+**Harvests:** H001–H002 baseline (preflight→Day 4), H003 (Day 5), H004 (Day-5 ops, 0 findings).
 **Updated:** 2026-05-22. **Findings:** 29 in `memory/feedback.jsonl` —
 17 confirmed, 10 friction, 2 gap, **0 diverged**.
 
@@ -32,7 +32,7 @@ low-friction** description of disciplined practice. It cannot test *uplift* —
 | context-restore | C | — | — | — | ⚪ untested by design (→ resume-state) |
 | orchestrate | C | 1 | 0 | 1 | 🟡 gap addressed S7, re-harvest pending |
 | harvest | C | — | — | — | ⚪ untested (framework-internal) |
-| **decision-log** | — | — | — | 1 | 🔴 absent (proposed skill) |
+| decision-log | C | — | — | 1 | 🟡 created S8 — gap addressed, untested |
 
 ## Reading
 
@@ -41,8 +41,9 @@ low-friction** description of disciplined practice. It cannot test *uplift* —
 - **🟡 Confirmed but with open friction** (6): `gate-check`, `validate`,
   `run-log`, `fallback`, `ship`, `repro-check`.
 - **🔴 / addressed gap** (3): `orchestrate` (gap addressed S7 — re-harvest
-  pending to mark hardened), `decision-log` (absent), `experiment` (exercised,
-  but never via the prescribed `experiments.md`).
+  pending to mark hardened), `decision-log` (skill created S8 — re-harvest
+  pending), `experiment` (exercised, but never via the prescribed
+  `experiments.md`).
 - **⚪ Untested by `a_bgt_rsi`** (6): `plan-research`, `health`,
   `auto-experiment`, `context-save`, `context-restore`, `harvest`. The rest
   need a weaker second consumer (Phase 4).
@@ -63,5 +64,8 @@ forward), evidence that the friction findings point the right way.
   added (file-boundary allow-lists, mock isolation, pre-merge boundary
   verification, `--no-ff` merges, completion sentinels). Resolves the H002
   `orchestrate` gap. Marked *hardened* once a re-harvest shows no regression.
+- **S8 — 2026-05-22 — `decision-log`**: new skill created (mandatory
+  Alternatives + Reversibility + supersedes-chains), resolving the H002
+  `decision-log` gap; the framework's `DECISIONS.md` template updated to match.
 
 Open findings feed the `plan.md` backlog. Updated by every `harvest`.

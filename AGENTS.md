@@ -54,6 +54,7 @@ Coordination and framework-internal skills. Dev-time only (`runtime-safe: false`
 |---|---|
 | `orchestrate` | Decompose a multi-role task, delegate to agent profiles, reconcile. |
 | `harvest` | Score the framework's own skills against a consumer project's execution trace. |
+| `decision-log` | Record a durable decision with its alternatives, rationale, and reversibility. |
 | `context-save` | Persist a session handoff to durable memory. |
 | `context-restore` | Rebuild context at the start of a session. |
 

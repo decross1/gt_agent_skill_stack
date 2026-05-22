@@ -199,6 +199,7 @@ assumption), and runtime-safe rewrites of the Layer-A core.
   are resolved — skill edited, or the finding marked a deliberate non-change with
   a reason — and a re-harvest shows no regression.
 - **Sessions done:** S7 ✅ — `orchestrate` parallel-worktree protocol (2026-05-22).
+  S8 ✅ — `decision-log` skill created (2026-05-22).
 
 ### Phase 4 — Portability & uplift
 
@@ -240,9 +241,9 @@ item cites the harvest finding(s) behind it.
   protocol (file-boundary allow-lists, mock isolation, pre-merge boundary
   verification, `--no-ff` merges, completion sentinels). Re-harvest pending to
   confirm and mark hardened. *(H002 orchestrate/gap)*
-- No `decision-log` skill — `a_bgt_rsi`'s `D-xxx` format (Alternatives +
-  Reversibility + supersedes-chains) shows the discipline; the framework's
-  `DECISIONS.md` format is thinner and ungoverned. *(H002 decision-log/gap)*
+- ✅ **addressed S8** — created the `decision-log` skill (mandatory
+  Alternatives + Reversibility + supersedes-chains); the framework's
+  `DECISIONS.md` template updated to match. *(H002 decision-log/gap)*
 - No skill for autonomously spawned agents — task contract, self-gating,
   self-reporting, authority boundary. *(Phase 5; 2026-05-21 analysis)*
 

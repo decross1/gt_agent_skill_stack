@@ -1,15 +1,17 @@
 # Decisions Log
 
 Append-only, date-stamped record of decisions and corrections. **Never rewrite or
-delete entries** — add new ones. Newest at the bottom. Each entry: what was
-decided, why, and (if it supersedes an earlier one) which.
+delete entries** — add new ones. Newest at the bottom. Each entry follows the
+decision-log skill: decision, alternatives, rationale, reversibility, supersedes.
 
 Format:
 
 ```
 ## YYYY-MM-DD — <short title>
 **Decision:** ...
-**Why:** ...
+**Alternatives:** ...
+**Rationale:** ...
+**Reversibility:** trivial | easy | medium | hard — <cost of undoing>
 **Supersedes:** <date/title, or "none">
 ```
 
