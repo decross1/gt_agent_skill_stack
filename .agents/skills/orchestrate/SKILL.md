@@ -36,7 +36,7 @@ Defined in `.agents/agents/`. Each profile is a role with a scoped set of skills
    profile. Name the part, its owner, and its done-condition.
 2. **Sequence** — order the parts; mark dependencies. Planning precedes
    building; building precedes auditing. Identify parts that can run in
-   parallel.
+   parallel — run those under the worktree protocol below.
 3. **Gate-check the plan** — before dispatching, run [[gate-check]]. If the task
    crosses a human gate or an irreversible action, halt there.
 4. **Delegate** — hand each part to its agent with: the goal, the inputs, the
@@ -48,9 +48,44 @@ Defined in `.agents/agents/`. Each profile is a role with a scoped set of skills
 6. **Log** — record the orchestration (parts, owners, outcomes) via [[run-log]];
    durable decisions to `memory/DECISIONS.md`.
 
+## Parallel parts: the worktree protocol
+
+When the decomposition has parts that can run at once (step 2), do not let them
+edit the same working tree. Give each parallel part its own **git worktree** and
+a **file-boundary allow-list** — the exact paths it may write. This keeps
+concurrent work from colliding or merging unreviewed.
+
+1. **One worktree per parallel part.** Each runs in its own `git worktree` on
+   its own branch. No two parallel parts share a checkout.
+2. **Declare a file-boundary allow-list.** Before a part starts, write down the
+   paths it owns. It writes only inside that list; shared files and another
+   part's paths are off-limits.
+3. **Isolate shared resources.** A part that does not own a scarce or stateful
+   external resource (a served model, a database, a live endpoint) uses a mock
+   or fixture. Only the owning part touches the real one — and it verifies the
+   resource is real, because a stray mock flag left in the environment will
+   silently produce fake results.
+4. **Require a completion sentinel.** A part is not ready to integrate until it
+   says so explicitly — a declared marker (e.g. `PART <name> COMPLETE`) in its
+   final commit or hand-off. No sentinel means not done.
+5. **Verify the boundary before merging.** Diff the part's branch against the
+   integration branch (`git diff --name-only`) and confirm every changed path
+   is on that part's allow-list. A path outside it is a blocking finding — the
+   merge stops and the part goes back.
+6. **Merge deliberately, verify after.** Integrate with a non-fast-forward
+   merge (`git merge --no-ff`) so each part lands as one reviewable commit.
+   Confirm the merged result matches what was reviewed, then run the sanity
+   checks. On a conflict or a failed check, revert the merge — do not patch in
+   place.
+
+Roles (above) say *who* owns a part; this protocol says *how* parts run side by
+side without corrupting each other's work.
+
 ## Rules
 
 - One part, one owner. Overlapping ownership produces conflicting work.
+- Parallel parts run in isolated git worktrees, each with a declared
+  file-boundary allow-list — never let two parts edit one tree.
 - The orchestrator does not do the parts itself — it routes and reconciles. If
   tempted to "just do this part quickly", that is a sign the decomposition is
   wrong.

@@ -2,8 +2,8 @@
   "plan": "plan.md",
   "plan_version": 1,
   "started_at": "2026-05-21T06:08:51Z",
-  "current_session": 7,
-  "completed_sessions": [1, 2, 3, 4, 5, 6],
+  "current_session": 8,
+  "completed_sessions": [1, 2, 3, 4, 5, 6, 7],
   "completed_tasks": [
     "s1.1_resolve_boundary_leak",
     "s1.2_fix_doc_errors",
@@ -20,7 +20,10 @@
     "s5.2_ratify_decision",
     "s6.1_decouple_names",
     "s6.2_neutral_examples",
-    "s6.3_core_doc_accuracy"
+    "s6.3_core_doc_accuracy",
+    "s7_harvest",
+    "s7_harden_orchestrate",
+    "s7_record_resolution"
   ],
   "gates": {
     "pending": [],
@@ -39,15 +42,15 @@
   },
   "harvest_watermark": {
     "a_bgt_rsi": {
-      "run_jsonl_lines": 80,
-      "last_commit": "66246ee",
-      "last_decision": "D-025"
+      "run_jsonl_lines": 96,
+      "last_commit": "76cf917",
+      "last_decision": "D-027"
     }
   },
   "value_metrics": {
     "skills_hardened": [],
-    "open_gaps": 2,
-    "last_harvest": "H002",
+    "open_gaps": 1,
+    "last_harvest": "H003",
     "phases_complete": [1, 2]
   }
 }

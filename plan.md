@@ -198,6 +198,7 @@ assumption), and runtime-safe rewrites of the Layer-A core.
 - **Pass-signal (per session):** the chosen skill's `Diverged`/`Friction` findings
   are resolved — skill edited, or the finding marked a deliberate non-change with
   a reason — and a re-harvest shows no regression.
+- **Sessions done:** S7 ✅ — `orchestrate` parallel-worktree protocol (2026-05-22).
 
 ### Phase 4 — Portability & uplift
 
@@ -235,9 +236,10 @@ Re-sorted **Session 3** from harvests H001–H002 — 25 findings, see
 item cites the harvest finding(s) behind it.
 
 **P1 — gaps (a skill is missing or silent)**
-- `orchestrate` has no parallel-worktree execution protocol — per-track
-  file-boundary allow-lists, mock isolation, pre-merge boundary verification,
-  `--no-ff` merges, completion sentinels. *(H002 orchestrate/gap)*
+- ✅ **addressed S7** — `orchestrate` gained a parallel-worktree execution
+  protocol (file-boundary allow-lists, mock isolation, pre-merge boundary
+  verification, `--no-ff` merges, completion sentinels). Re-harvest pending to
+  confirm and mark hardened. *(H002 orchestrate/gap)*
 - No `decision-log` skill — `a_bgt_rsi`'s `D-xxx` format (Alternatives +
   Reversibility + supersedes-chains) shows the discipline; the framework's
   `DECISIONS.md` format is thinner and ungoverned. *(H002 decision-log/gap)*
@@ -249,8 +251,9 @@ item cites the harvest finding(s) behind it.
   repeatedly finds the pass_signal itself wrong. *(H002 validate/friction)*
 - `validate` / `run-log` lack a `partial_pass` verdict/status for "executed
   correctly, a sub-check is a reported finding." *(H002 validate/friction)*
-- `run-log`'s status enum is incomplete — lacks `started` / `partial_pass`.
-  *(H001 + H002)*
+- `run-log`'s status enum is systemically incomplete — lacks `started`,
+  `partial_pass`, `escalated` (3 missing values across 3 harvests).
+  *(H001 + H002 + H003)*
 - `ship` assumes a PR flow; `a_bgt_rsi` commits to main + merges worktrees.
   *(H002 ship/friction)*
 - `ship` / `health` assume a unified test runner; `a_bgt_rsi` has none.
@@ -261,6 +264,8 @@ item cites the harvest finding(s) behind it.
   *(H002 fallback/friction)*
 - `experiment` mandates a separate `experiments.md`; allow the run log to be
   the ledger. *(H002 experiment/friction)*
+- `repro-check` has no check that a run was not silently mocked/stubbed — a
+  stray `MOCK_LLM` flag faked a result in `a_bgt_rsi`. *(H003 repro-check/friction)*
 
 **P3 — structural**
 - `memory/` does three jobs (framework-self memory, cross-project registry,

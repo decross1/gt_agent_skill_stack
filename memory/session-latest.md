@@ -6,45 +6,45 @@ Durable decisions go to `DECISIONS.md`, not here.
 
 ---
 
-**Date:** 2026-05-21
-**Task:** `plan.md` Session 6 — decouple `a_bgt_rsi`-isms from the core docs.
+**Date:** 2026-05-22
+**Task:** `plan.md` Session 7 — Phase 3 hardening: the `orchestrate` skill.
 
-**State:** Session 6 complete. All tasks done, all 3 validation checks passed.
-**Phase 2 is complete — and Sessions 1–6 are the plan's minimum-viable arc:
-the feedback loop runs and the framework's identity is resolved.**
-- Harvest step: no-op — `a_bgt_rsi` HEAD still `66246ee`.
-- 6.1 / 6.2 — Removed `a_bgt_rsi` / Gemma / OpenClaw / DGX from `BOUNDARY.md`
-  and `README.md`; examples are now project-neutral. `grep` of the 3 core docs
-  for project-isms returns 0. Project context preserved where it belongs —
-  `projects.md` (registry) and `harvest`'s worked example.
-- 6.3 (folded carry-forward) — `AGENTS.md` Memory table gains `feedback.jsonl`
-  + `conformance.md` and a dogfood note; `README` skill list gains `harvest`;
-  `README` Scope-boundary synced to the Session-5 layering rule.
+**State:** Session 7 complete. All tasks done, all 3 validation checks passed.
+- Harvest `H003` (first non-empty harvest since H002): `a_bgt_rsi` advanced
+  `66246ee`→`76cf917` (Day 5 done). 4 findings — `validate` confirmed ×2
+  (a mis-specified criterion resolved by a plan amendment, D-026, *exactly* as
+  H002's friction finding predicted), `run-log` friction (status enum now
+  systemically incomplete — `started`/`partial_pass`/`escalated`),
+  `repro-check` friction (a `MOCK_LLM` leak silently faked a run).
+  `feedback.jsonl` → 29 findings. Watermark caught up to `76cf917` / `D-027`.
+- Hardened `orchestrate`: added the **parallel-worktree protocol** (6 steps —
+  worktree per part, file-boundary allow-list, shared-resource/mock isolation,
+  completion sentinel, pre-merge boundary verification, `--no-ff` merge).
+  Resolves the H002 `orchestrate` gap. `open_gaps` 2→1.
+- Recorded the resolution: `plan.md` backlog, `conformance.md` (rebuilt for
+  H001–H003, with a Hardening log).
 
-Sessions 1–5 committed and pushed (HEAD `d26de1b`). **Session 6 changes are
+Sessions 1–6 committed and pushed (HEAD `99bfb1f`). **Session 7 changes are
 uncommitted.**
 
 **In flight:** Nothing.
 
-**Next step:** Phase 3 begins. Session 7 — feedback-driven skill hardening:
-`harvest` the latest `a_bgt_rsi` activity, then pick the highest-priority open
-finding and harden that skill. Top of the `plan.md` backlog is **P1: the
-`orchestrate` gap** (no parallel-worktree execution protocol).
+**Next step:** Session 8 — Phase 3 continues. Harvest, then pick the next
+backlog item. Top open: **`decision-log` gap** (P1 — no skill for disciplined
+decision-logging) and the `validate` friction pair (P2). `orchestrate` is
+*addressed* but not yet *hardened* — a future clean re-harvest confirms it.
 
 **Open questions / blockers:** None blocking.
 
 **Key context:**
-- **Process note:** validate check scripts mis-fired twice (Sessions 5, 6) on
-  `grep -q` chained inside `$(...)` — it yields empty vars. Write check scripts
-  with `grep -c` + integer tests instead. Both times the content was correct;
-  re-run cleanly, never coerce.
+- Process: write `validate` check scripts with `grep -c` + integer tests, never
+  `grep -q` chained inside `$(...)` (mis-fired in S5, S6; clean in S7).
 - The 5 Layer-A skills are tagged `runtime-safe: true` but not yet *rewritten*
-  to satisfy the `BOUNDARY.md` contract (e.g. `gate-check` still says "halt and
-  print"). That conformance work is Phase 3.
-- Deferred to Session 20's README rewrite: the README intro's "research-tuned"
-  identity line, and the README layout block's `memory/` + `run_state/` entries.
+  to the `BOUNDARY.md` contract — Phase 3 work.
+- `harvest` watermark for `a_bgt_rsi`: `run_jsonl_lines 96`, `last_commit
+  76cf917`, `last_decision D-027`.
 
-**Pointers:** `plan.md` (Sessions 1–6 ✅; backlog P1/P2/P3);
-`memory/conformance.md`; `memory/feedback.jsonl` (25 findings);
-`run_state/framework.run.jsonl` (27 entries). HEAD `d26de1b` — Session 6 not
-yet committed.
+**Pointers:** `plan.md` (backlog P1/P2/P3; Phase-3 sessions-done log);
+`memory/conformance.md` (29 findings, H001–H003 + Hardening log);
+`memory/feedback.jsonl`; `run_state/framework.run.jsonl` (31 entries).
+HEAD `99bfb1f` — Session 7 not yet committed.
