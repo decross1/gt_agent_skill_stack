@@ -40,7 +40,8 @@ agent_system/
 │   ├── repro-check/     reproducibility gate
 │   ├── context-save/    persist a session handoff
 │   ├── context-restore/ rebuild context on resume
-│   └── orchestrate/     decompose + delegate a multi-role task
+│   ├── orchestrate/     decompose + delegate a multi-role task
+│   └── harvest/         score the skills against a consumer's trace
 ├── .agents/agents/      dev agent profiles (.claude/agents → symlink)
 │   ├── planner.md       decompose, sequence, plan
 │   ├── builder.md       write, debug, land code
@@ -92,9 +93,11 @@ of these files; the files are canonical. `DECISIONS.md` is append-only.
 
 ## Scope boundary
 
-This is a **dev-time harness** — it helps build projects; it is not a project's
-own runtime agent. These skills must not be loaded into a project's runtime
-(e.g. `a_bgt_rsi`'s sandboxed orchestrator). See `BOUNDARY.md`.
+The framework is primarily a **dev-time harness** — it helps build projects.
+Skills fall in two classes: **dev-only** skills (Layers B and C) that must never
+enter a project's runtime agent, and a **runtime-safe core** (the 5 Layer-A
+skills) that may be deliberately embedded in a spawned or runtime agent. Full
+policy in `BOUNDARY.md`.
 
 ## Roadmap
 

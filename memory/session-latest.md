@@ -7,43 +7,44 @@ Durable decisions go to `DECISIONS.md`, not here.
 ---
 
 **Date:** 2026-05-21
-**Task:** `plan.md` Session 5 — rewrite `BOUNDARY.md` as a layering rule.
+**Task:** `plan.md` Session 6 — decouple `a_bgt_rsi`-isms from the core docs.
 
-**State:** Session 5 complete. All tasks done, all 3 validation checks passed.
-- Harvest step: no-op — `a_bgt_rsi` main HEAD still `66246ee`.
-- Gate `s5.2` (reverses the standing 2026-05-18 dev-time-only rule): **cleared
-  by explicit human "go ahead."** Recorded in `framework.state.json` and
-  `DECISIONS.md`.
-- 5.1 — `BOUNDARY.md` rewritten: blanket "all skills dev-time only" ban replaced
-  by a two-class layering rule (dev-only Layers B/C vs the runtime-safe core,
-  Layer A) plus a 5-point `runtime-safe` contract. `AGENTS.md` Scope-boundary
-  section + Layer-A forward-ref synced to match.
-- 5.2 — `DECISIONS.md` entry appended; supersedes the 2026-05-18 blanket rule.
+**State:** Session 6 complete. All tasks done, all 3 validation checks passed.
+**Phase 2 is complete — and Sessions 1–6 are the plan's minimum-viable arc:
+the feedback loop runs and the framework's identity is resolved.**
+- Harvest step: no-op — `a_bgt_rsi` HEAD still `66246ee`.
+- 6.1 / 6.2 — Removed `a_bgt_rsi` / Gemma / OpenClaw / DGX from `BOUNDARY.md`
+  and `README.md`; examples are now project-neutral. `grep` of the 3 core docs
+  for project-isms returns 0. Project context preserved where it belongs —
+  `projects.md` (registry) and `harvest`'s worked example.
+- 6.3 (folded carry-forward) — `AGENTS.md` Memory table gains `feedback.jsonl`
+  + `conformance.md` and a dogfood note; `README` skill list gains `harvest`;
+  `README` Scope-boundary synced to the Session-5 layering rule.
 
-Sessions 1–4 committed and pushed (HEAD `54e738d`). **Session 5 changes are
+Sessions 1–5 committed and pushed (HEAD `d26de1b`). **Session 6 changes are
 uncommitted.**
 
-**In flight:** Nothing. Phase 2 is 2/3 done (Sessions 4–5 of 4–6).
+**In flight:** Nothing.
 
-**Next step:** Session 6 — decouple `a_bgt_rsi`-isms from the core docs. Move
-project-specific names (Gemma 4 / OpenClaw / DGX Spark, etc.) out of `AGENTS.md`
-into `memory/projects.md`; make core-doc examples project-neutral. Also fold in
-the carry-forward: `AGENTS.md`'s Memory-section table is stale (omits
-`feedback.jsonl`, `conformance.md`, `run_state/`).
+**Next step:** Phase 3 begins. Session 7 — feedback-driven skill hardening:
+`harvest` the latest `a_bgt_rsi` activity, then pick the highest-priority open
+finding and harden that skill. Top of the `plan.md` backlog is **P1: the
+`orchestrate` gap** (no parallel-worktree execution protocol).
 
 **Open questions / blockers:** None blocking.
 
 **Key context:**
-- The `runtime-safe: true` tag on the 5 Layer-A skills is now backed by a
-  defined contract in `BOUNDARY.md`. Per-skill *conformance* to that contract is
-  Phase 3 hardening work — the skills have not yet been rewritten to guarantee
-  it (e.g. `gate-check` still says "halt and print," which a runtime-safe
-  version must turn into a structured blocked-status).
-- A Session-5 validate checker-script mis-fired (empty vars from `&&`-chained
-  command substitution); re-run cleanly confirmed 3/3 PASS — investigated, not
-  coerced. A reminder to keep validate check scripts simple.
+- **Process note:** validate check scripts mis-fired twice (Sessions 5, 6) on
+  `grep -q` chained inside `$(...)` — it yields empty vars. Write check scripts
+  with `grep -c` + integer tests instead. Both times the content was correct;
+  re-run cleanly, never coerce.
+- The 5 Layer-A skills are tagged `runtime-safe: true` but not yet *rewritten*
+  to satisfy the `BOUNDARY.md` contract (e.g. `gate-check` still says "halt and
+  print"). That conformance work is Phase 3.
+- Deferred to Session 20's README rewrite: the README intro's "research-tuned"
+  identity line, and the README layout block's `memory/` + `run_state/` entries.
 
-**Pointers:** `plan.md` (Sessions 1–5 ✅); `BOUNDARY.md` (new layering rule);
+**Pointers:** `plan.md` (Sessions 1–6 ✅; backlog P1/P2/P3);
 `memory/conformance.md`; `memory/feedback.jsonl` (25 findings);
-`run_state/framework.run.jsonl` (22 entries). HEAD `54e738d` — Session 5 not
+`run_state/framework.run.jsonl` (27 entries). HEAD `d26de1b` — Session 6 not
 yet committed.

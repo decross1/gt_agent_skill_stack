@@ -179,7 +179,7 @@ with the harvest. A minimum-viable arc completes at Session 6; the full arc at 2
 - **Pass-signal:** `BOUNDARY.md` defines both classes and the `runtime-safe`
   contract; the leak-verification section still holds for Layers B/C.
 
-**Session 6 — Decouple `a_bgt_rsi`-isms from the core.**
+**Session 6 — Decouple `a_bgt_rsi`-isms from the core.** ✅ *Done 2026-05-21.*
 - 6.1 Move project-specific names (Gemma 4 / OpenClaw / NemoClaw / DGX Spark /
   "Day 6") out of `AGENTS.md` and `BOUNDARY.md` into `memory/projects.md`.
 - 6.2 Make core-doc examples project-neutral.

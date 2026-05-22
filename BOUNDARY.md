@@ -14,7 +14,7 @@ document draws that line.
 | **What** | Claude Code / Pi helping a human build a project | The project's own deployed agent system |
 | **Job** | Plan, write, review, ship the code | Do the project's actual work |
 | **Lives** | The developer's machine, dev sessions | Inside the project, often sandboxed |
-| **Example** | This framework in a Claude Code session | `a_bgt_rsi`'s Gemma 4 + OpenClaw stack, in its sandbox |
+| **Example** | This framework in a Claude Code session | A project's own deployed multi-agent stack, in its sandbox |
 
 A developer's `code-review` skill has no business running inside a project's
 production loop. But a project's runtime agent *does* need discipline — gating,

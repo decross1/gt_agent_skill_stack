@@ -92,8 +92,14 @@ and Claude Code's memory tool operate *on top* of these; the files are canonical
 |---|---|
 | `memory/DECISIONS.md` | **Append-only, date-stamped** log of decisions and corrections. |
 | `memory/experiments.md` | Ledger of experiment runs, newest first. |
+| `memory/feedback.jsonl` | Append-only ledger of `harvest` findings — consumer-trace evidence about the skills. |
+| `memory/conformance.md` | Per-skill conformance dashboard, updated by `harvest`. |
 | `memory/session-latest.md` | Transient handoff snapshot — overwritten each session. |
 | `memory/projects.md` | Registry of projects on this machine (see Roadmap). |
+
+The framework runs its own development as a plan-driven project — `plan.md` with
+`run_state/framework.state.json` and `run_state/framework.run.jsonl`. It dogfoods
+its own Layer-A skills.
 
 ## Conventions
 
