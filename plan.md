@@ -200,6 +200,7 @@ assumption), and runtime-safe rewrites of the Layer-A core.
   a reason — and a re-harvest shows no regression.
 - **Sessions done:** S7 ✅ — `orchestrate` parallel-worktree protocol (2026-05-22).
   S8 ✅ — `decision-log` skill created (2026-05-22).
+  S9 ✅ — `validate` mis-specified-criterion protocol + `partial_pass` (2026-05-22).
 
 ### Phase 4 — Portability & uplift
 
@@ -248,10 +249,12 @@ item cites the harvest finding(s) behind it.
   self-reporting, authority boundary. *(Phase 5; 2026-05-21 analysis)*
 
 **P2 — friction (a skill exists but mis-fits real use)**
-- `validate` has no protocol for a *mis-specified criterion* — `a_bgt_rsi`
-  repeatedly finds the pass_signal itself wrong. *(H002 validate/friction)*
-- `validate` / `run-log` lack a `partial_pass` verdict/status for "executed
-  correctly, a sub-check is a reported finding." *(H002 validate/friction)*
+- ✅ **addressed S9** — `validate` gained a "When the criterion itself is
+  wrong" protocol (verify intent separately, report the criterion as
+  mis-specified, escalate, never coerce). *(H002 validate/friction)*
+- ✅ **addressed S9** (validate side) — `validate` gained a tightly-scoped
+  `partial_pass` overall verdict. The `run-log` status-enum side is still
+  open (next item). *(H002 validate/friction)*
 - `run-log`'s status enum is systemically incomplete — lacks `started`,
   `partial_pass`, `escalated` (3 missing values across 3 harvests).
   *(H001 + H002 + H003)*
