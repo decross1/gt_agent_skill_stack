@@ -18,7 +18,7 @@ low-friction** description of disciplined practice. It cannot test *uplift* —
 | resume-state | A | 1 | 0 | 0 | 🟢 confirmed, clean |
 | gate-check | A | 3 | 1 | 0 | 🟡 confirmed, 1 friction |
 | validate | A | 3 | 2 | 0 | 🟡 confirmed; 2 friction addressed S9 |
-| run-log | A | 3 | 2 | 0 | 🟡 confirmed, 2 friction |
+| run-log | A | 3 | 2 | 0 | 🟡 confirmed; 2 friction addressed S10 |
 | fallback | A | 1 | 1 | 0 | 🟡 confirmed, 1 friction |
 | plan-research | B | — | — | — | ⚪ untested (no plan-design in trace) |
 | investigate | B | 2 | 0 | 0 | 🟢 confirmed, clean |
@@ -69,6 +69,10 @@ forward), evidence that the friction findings point the right way.
   `decision-log` gap; the framework's `DECISIONS.md` template updated to match.
 - **S9 — 2026-05-22 — `validate`**: added a "When the criterion itself is
   wrong" protocol and a tightly-scoped `partial_pass` verdict, resolving both
-  H002 `validate` friction findings. (`run-log`'s status-enum side stays open.)
+  H002 `validate` friction findings.
+- **S10 — 2026-05-23 — `run-log`**: status enum expanded to 8 values, each
+  defined (`started`, `partial_pass`, `escalated` added; enum declared an
+  extensible default). Pairs with `validate`'s S9 `partial_pass` verdict and
+  resolves the systemic enum friction (H001 + H002 + H003).
 
 Open findings feed the `plan.md` backlog. Updated by every `harvest`.

@@ -26,7 +26,7 @@ project's own schema if it defines one; otherwise this default:
 {
   "timestamp": "<ISO 8601>",
   "task_id": "<identifier of the step>",
-  "status": "passed | failed | aborted | halted | skipped",
+  "status": "started | passed | partial_pass | failed | aborted | halted | escalated | skipped",
   "observable_expected": "<what success was defined as>",
   "observable_actual": "<what was observed>",
   "duration_ms": <integer>,
@@ -37,12 +37,37 @@ project's own schema if it defines one; otherwise this default:
 State transitions and fallback selections get their **own** entries, not a note
 buried in another task's line.
 
+## Status values
+
+The enum above is a default that fits typical plan-execution; a project may
+extend it, but each value should mean exactly one thing.
+
+- **`started`** — execution began. Used as a separate entry when start time
+  matters (a long-running step) or when a step may be interrupted.
+- **`passed`** — done; the declared criterion ([[validate]]) was met.
+- **`partial_pass`** — done; the work itself is correct, but a declared
+  criterion was mis-specified, reported as a finding, and escalated. Allowed
+  only in the narrow sense [[validate]] defines — never as a softer word for a
+  failed run.
+- **`failed`** — done; the declared criterion was not met. The reason lives in
+  `observable_actual`, not edited or relabelled.
+- **`aborted`** — execution stopped because a hard checkpoint failed; the
+  larger unit of work is on hold pending decision.
+- **`halted`** — execution stopped at a gate; see [[gate-check]].
+- **`escalated`** — execution paused and surfaced to a human, typically for a
+  mis-specified criterion or an ambiguous outcome. Differs from `halted` in
+  that the issue is in the criterion or interpretation, not a pre-declared
+  gate.
+- **`skipped`** — not executed (e.g. a fallback branch took the step off the
+  path). Log it anyway, with the reason.
+
 ## Rules
 
 - **Append only.** Never edit or delete a past entry. A correction is a new
   entry that references the old one.
-- **Log the failure too.** A failed, aborted, or halted step is logged with the
-  same rigor as a success — that is the point of the log.
+- **Log the failure too.** A non-passing step — `failed`, `aborted`, `halted`,
+  `escalated`, `partial_pass`, `skipped` — is logged with the same rigor as a
+  passing one. That is the point of the log.
 - **Observed, not intended.** `observable_actual` records what happened, even
   when it diverges from the plan. The log is evidence, not a narrative.
 - A fallback or time-cap breach is always its own logged event.

@@ -201,6 +201,7 @@ assumption), and runtime-safe rewrites of the Layer-A core.
 - **Sessions done:** S7 ✅ — `orchestrate` parallel-worktree protocol (2026-05-22).
   S8 ✅ — `decision-log` skill created (2026-05-22).
   S9 ✅ — `validate` mis-specified-criterion protocol + `partial_pass` (2026-05-22).
+  S10 ✅ — `run-log` status enum expanded and defined (2026-05-23).
 
 ### Phase 4 — Portability & uplift
 
@@ -252,11 +253,12 @@ item cites the harvest finding(s) behind it.
 - ✅ **addressed S9** — `validate` gained a "When the criterion itself is
   wrong" protocol (verify intent separately, report the criterion as
   mis-specified, escalate, never coerce). *(H002 validate/friction)*
-- ✅ **addressed S9** (validate side) — `validate` gained a tightly-scoped
-  `partial_pass` overall verdict. The `run-log` status-enum side is still
-  open (next item). *(H002 validate/friction)*
-- `run-log`'s status enum is systemically incomplete — lacks `started`,
-  `partial_pass`, `escalated` (3 missing values across 3 harvests).
+- ✅ **addressed S9 (validate) + S10 (run-log)** — `validate` gained a
+  tightly-scoped `partial_pass` overall verdict; `run-log`'s status enum
+  gained `partial_pass` (with `started` and `escalated`). *(H002 validate/friction)*
+- ✅ **addressed S10** — `run-log`'s status enum expanded to `started` /
+  `passed` / `partial_pass` / `failed` / `aborted` / `halted` / `escalated` /
+  `skipped`, each defined; enum declared a default a project may extend.
   *(H001 + H002 + H003)*
 - `ship` assumes a PR flow; `a_bgt_rsi` commits to main + merges worktrees.
   *(H002 ship/friction)*
