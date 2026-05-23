@@ -20,7 +20,8 @@ you want a prioritized picture rather than a single fix.
 Gather evidence before judging. Run the project's own tooling where it exists.
 
 1. **Tests** — Do they pass? How long do they take? Rough coverage of the core
-   path. Any skipped/xfail tests, any flaky ones.
+   path. Any skipped/xfail tests, any flaky ones. If the project has no unified
+   runner, the question applies to the enumerated per-unit test set.
 2. **Structure** — Oversized files/functions, tangled imports, unclear module
    boundaries, logic that belongs elsewhere.
 3. **Dependencies** — Pinned? Outdated? Unused? Anything unmaintained.

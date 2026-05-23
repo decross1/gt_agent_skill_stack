@@ -202,6 +202,7 @@ assumption), and runtime-safe rewrites of the Layer-A core.
   S8 ✅ — `decision-log` skill created (2026-05-22).
   S9 ✅ — `validate` mis-specified-criterion protocol + `partial_pass` (2026-05-22).
   S10 ✅ — `run-log` status enum expanded and defined (2026-05-23).
+  S11 ✅ — `ship` integration flow + no-unified-runner; `health` light touch (2026-05-23).
 
 ### Phase 4 — Portability & uplift
 
@@ -260,9 +261,11 @@ item cites the harvest finding(s) behind it.
   `passed` / `partial_pass` / `failed` / `aborted` / `halted` / `escalated` /
   `skipped`, each defined; enum declared a default a project may extend.
   *(H001 + H002 + H003)*
-- `ship` assumes a PR flow; `a_bgt_rsi` commits to main + merges worktrees.
-  *(H002 ship/friction)*
-- `ship` / `health` assume a unified test runner; `a_bgt_rsi` has none.
+- ✅ **addressed S11** — `ship` step 5 generalized into "Integrate" with three
+  named flows (PR-based, commit-to-main, worktree-merge); Rules use
+  "integration message" not "PR". *(H002 ship/friction)*
+- ✅ **addressed S11** — `ship` step 2 + `health` step 1 handle projects with
+  no unified runner — an enumerated per-unit test set is "the suite".
   *(H002 ship/friction)*
 - `gate-check` does not distinguish attestation-cleared from
   verification-cleared gates. *(H001 gate-check/friction)*

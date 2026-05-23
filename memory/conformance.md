@@ -24,7 +24,7 @@ low-friction** description of disciplined practice. It cannot test *uplift* —
 | investigate | B | 2 | 0 | 0 | 🟢 confirmed, clean |
 | code-review | B | 1 | 0 | 0 | 🟢 confirmed, clean |
 | health | B | — | — | — | ⚪ untested |
-| ship | B | 1 | 2 | 0 | 🟡 confirmed, 2 friction |
+| ship | B | 1 | 2 | 0 | 🟡 confirmed; 2 friction addressed S11 |
 | experiment | B | 0 | 1 | 0 | 🔴 not used as designed |
 | auto-experiment | B | — | — | — | ⚪ untested |
 | repro-check | B | 1 | 1 | 0 | 🟡 confirmed, 1 friction |
@@ -74,5 +74,10 @@ forward), evidence that the friction findings point the right way.
   defined (`started`, `partial_pass`, `escalated` added; enum declared an
   extensible default). Pairs with `validate`'s S9 `partial_pass` verdict and
   resolves the systemic enum friction (H001 + H002 + H003).
+- **S11 — 2026-05-23 — `ship`**: step 5 generalized into "Integrate" with three
+  named flows (PR-based / commit-to-main / worktree-merge); step 2 and the
+  Rules updated to drop the PR-only assumption. `ship` step 2 and `health`
+  step 1 handle the no-unified-runner case (an enumerated per-unit test set
+  is "the suite"). Resolves both H002 `ship` friction findings.
 
 Open findings feed the `plan.md` backlog. Updated by every `harvest`.

@@ -7,43 +7,44 @@ Durable decisions go to `DECISIONS.md`, not here.
 ---
 
 **Date:** 2026-05-23
-**Task:** `plan.md` Session 10 — Phase 3 hardening: `run-log`'s status enum.
+**Task:** `plan.md` Session 11 — Phase 3 hardening: `ship` (+ light `health`).
 
-**State:** Session 10 complete. All tasks done, all 3 validation checks passed.
+**State:** Session 11 complete. All tasks done, all 3 validation checks passed.
 - Harvest step: no-op — `a_bgt_rsi` HEAD still `224d284`.
-- Hardened `run-log` — resolved the systemic status-enum friction (H001 +
-  H002 + H003). Status enum expanded to 8 values
-  (`started`/`passed`/`partial_pass`/`failed`/`aborted`/`halted`/`escalated`/`skipped`)
-  with a definitions section cross-referencing `validate` (`partial_pass`) and
-  `gate-check` (`halted`). The "Log the failure too" rule now covers all
-  non-passing statuses. Enum declared an extensible default.
-- Recorded in `plan.md` backlog (run-log enum + validate/run-log `partial_pass`
-  item both marked addressed) and `conformance.md` (Hardening log S10).
+- Hardened `ship` — resolved both H002 friction findings:
+  (1) Step 5 generalized into **"Integrate"** with three named flows
+  (PR-based / commit-to-main / worktree-merge); the worktree-merge flow
+  cross-references the `orchestrate` protocol added in S7.
+  (2) Step 2 + Rules drop the PR-only / unified-runner assumptions; "the
+  suite" is the project's unified runner if it has one, otherwise the
+  enumerated per-unit test set.
+- Touched `health` step 1 to acknowledge the no-unified-runner case.
+- Recorded in `plan.md` backlog (both ship items addressed S11) and
+  `conformance.md` (Hardening log S11).
 
-Sessions 1–9 committed and pushed (HEAD `d46fcc4`). **Session 10 changes are
+Sessions 1–10 committed and pushed (HEAD `22ca109`). **Session 11 changes are
 uncommitted.**
 
 **In flight:** Nothing.
 
-**Next step:** Session 11 — Phase 3 continues. Remaining P2 friction (in
-priority order): **`ship`** (2 friction — PR-flow + no-unified-runner
-assumptions) is the next-biggest target; then `gate-check`, `fallback`,
-`experiment`, `repro-check`. After Phase 3, Phase 4 starts (Pi check + 2nd
-consumer for the uplift test).
+**Next step:** Session 12 — the last scheduled Phase 3 session. Remaining
+P2 friction, priority order: `gate-check` (attestation- vs verification-
+cleared gates), then `fallback`, `experiment`, `repro-check`. Phase 3 closes
+when all friction is addressed; Phase 4 opens with the Pi check + a second
+consumer for the uplift test.
 
 **Open questions / blockers:** None blocking.
 
 **Key context:**
 - Phase-3 hardened so far: S7 `orchestrate` · S8 `decision-log` · S9 `validate`
-  · S10 `run-log`. All *addressed*; none yet *hardened* — that requires a
-  clean re-harvest with no new friction.
-- `validate`'s `partial_pass` verdict + `run-log`'s `partial_pass` status now
-  agree — the cross-skill friction is fully resolved.
-- Use `grep -c` + integer tests for `validate` checks (the `grep -q`-in-`$()`
-  bug bit S5/S6, clean since).
+  · S10 `run-log` · S11 `ship` (+ `health` touch). All *addressed*; none yet
+  *hardened* — requires a clean re-harvest with no new friction.
+- **Checker-script lesson (S5/S6/S11):** multi-line `grep` needs
+  `tr '\n' ' ' | tr -s ' '` to flatten + squeeze before searching wrapped
+  phrases. Plain `grep -c` is fine for single-line tokens.
 
-**Pointers:** `plan.md` (backlog; Phase-3 done log S7–S10);
-`memory/conformance.md` (Hardening log S7–S10);
+**Pointers:** `plan.md` (backlog; Phase-3 done log S7–S11);
+`memory/conformance.md` (Hardening log S7–S11);
 `memory/feedback.jsonl` (29 findings, H001–H004);
-`run_state/framework.run.jsonl` (43 entries).
-HEAD `d46fcc4` — Session 10 not yet committed.
+`run_state/framework.run.jsonl` (47 entries).
+HEAD `22ca109` — Session 11 not yet committed.
