@@ -7,44 +7,58 @@ Durable decisions go to `DECISIONS.md`, not here.
 ---
 
 **Date:** 2026-05-23
-**Task:** `plan.md` Session 11 — Phase 3 hardening: `ship` (+ light `health`).
+**Task:** `plan.md` Session 12 — Phase 3 hardening: `gate-check`.
 
-**State:** Session 11 complete. All tasks done, all 3 validation checks passed.
+**State:** Session 12 complete. All tasks done, all 3 validation checks passed
+(clean checker on first run). **Phase 3's scheduled window (S7–S12) is done.**
 - Harvest step: no-op — `a_bgt_rsi` HEAD still `224d284`.
-- Hardened `ship` — resolved both H002 friction findings:
-  (1) Step 5 generalized into **"Integrate"** with three named flows
-  (PR-based / commit-to-main / worktree-merge); the worktree-merge flow
-  cross-references the `orchestrate` protocol added in S7.
-  (2) Step 2 + Rules drop the PR-only / unified-runner assumptions; "the
-  suite" is the project's unified runner if it has one, otherwise the
-  enumerated per-unit test set.
-- Touched `health` step 1 to acknowledge the no-unified-runner case.
-- Recorded in `plan.md` backlog (both ship items addressed S11) and
-  `conformance.md` (Hardening log S11).
+- Hardened `gate-check` — added a "How a gate clears" section that
+  distinguishes **attestation-cleared** (human's word is the clearance) from
+  **verification-cleared** (a defined check confirms the human's underlying
+  action); same non-negotiable rule both ways — the agent never decides the
+  condition is met. Resolves the H001 `gate-check` friction.
+- Recorded in `plan.md` backlog + Phase-3 sessions-done log and
+  `conformance.md` Hardening log.
 
-Sessions 1–10 committed and pushed (HEAD `22ca109`). **Session 11 changes are
+Sessions 1–11 committed and pushed (HEAD `7b2c2fb`). **Session 12 changes are
 uncommitted.**
 
 **In flight:** Nothing.
 
-**Next step:** Session 12 — the last scheduled Phase 3 session. Remaining
-P2 friction, priority order: `gate-check` (attestation- vs verification-
-cleared gates), then `fallback`, `experiment`, `repro-check`. Phase 3 closes
-when all friction is addressed; Phase 4 opens with the Pi check + a second
-consumer for the uplift test.
+**Phase 3 status (S7–S12, the scheduled window).** All P1 gaps and the
+top-priority P2 friction are addressed: S7 `orchestrate` gap · S8
+`decision-log` gap · S9 `validate` · S10 `run-log` · S11 `ship` (+ `health`
+touch) · S12 `gate-check`. **3 friction items remain** — `fallback`
+(selection-is-itself-gated), `experiment` (separate-ledger), `repro-check`
+(silent-mock).
+
+**Status:** **Paused after S12 for ~1 week of applied use** of the current
+setup. The 6 hardened skills (S7–S12) are *addressed* but not yet *hardened* —
+the Charter requires a clean re-harvest to mark them so. The pause is exactly
+the right test: as `a_bgt_rsi` advances over the week, the next session's
+harvest gathers the evidence.
+
+**Next session:** start with `resume-state` (will land here) → `harvest` (will
+pick up whatever `a_bgt_rsi` has done in the interim, likely a substantial
+H005+). Then either:
+- **(A)** Continue Phase 3 elasticly — Sessions 13–15 clean up the remaining
+  3 friction items (`fallback`, `experiment`, `repro-check`); then Phase 4.
+- **(B)** Open Phase 4 — Pi check + install/discovery abstraction + a second
+  consumer for the uplift test.
+
+If the re-harvest produces no new friction against an already-addressed skill,
+that skill is eligible to move to `skills_hardened`.
 
 **Open questions / blockers:** None blocking.
 
 **Key context:**
-- Phase-3 hardened so far: S7 `orchestrate` · S8 `decision-log` · S9 `validate`
-  · S10 `run-log` · S11 `ship` (+ `health` touch). All *addressed*; none yet
-  *hardened* — requires a clean re-harvest with no new friction.
-- **Checker-script lesson (S5/S6/S11):** multi-line `grep` needs
-  `tr '\n' ' ' | tr -s ' '` to flatten + squeeze before searching wrapped
-  phrases. Plain `grep -c` is fine for single-line tokens.
+- The 6 hardened skills are *addressed*, not yet *hardened* per the Charter —
+  that requires a clean re-harvest. Waiting on `a_bgt_rsi` to advance.
+- Checker pattern: `grep -c` for single-line tokens; `tr '\n' ' ' | tr -s ' '`
+  before `grep -c` for phrases that may wrap across lines.
 
-**Pointers:** `plan.md` (backlog; Phase-3 done log S7–S11);
-`memory/conformance.md` (Hardening log S7–S11);
+**Pointers:** `plan.md` (backlog; Phase-3 done log S7–S12);
+`memory/conformance.md` (Hardening log S7–S12);
 `memory/feedback.jsonl` (29 findings, H001–H004);
-`run_state/framework.run.jsonl` (47 entries).
-HEAD `22ca109` — Session 11 not yet committed.
+`run_state/framework.run.jsonl` (51 entries).
+HEAD `7b2c2fb` — Session 12 not yet committed.

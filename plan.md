@@ -203,6 +203,7 @@ assumption), and runtime-safe rewrites of the Layer-A core.
   S9 ✅ — `validate` mis-specified-criterion protocol + `partial_pass` (2026-05-22).
   S10 ✅ — `run-log` status enum expanded and defined (2026-05-23).
   S11 ✅ — `ship` integration flow + no-unified-runner; `health` light touch (2026-05-23).
+  S12 ✅ — `gate-check` attestation- vs verification-cleared gates (2026-05-23).
 
 ### Phase 4 — Portability & uplift
 
@@ -267,8 +268,9 @@ item cites the harvest finding(s) behind it.
 - ✅ **addressed S11** — `ship` step 2 + `health` step 1 handle projects with
   no unified runner — an enumerated per-unit test set is "the suite".
   *(H002 ship/friction)*
-- `gate-check` does not distinguish attestation-cleared from
-  verification-cleared gates. *(H001 gate-check/friction)*
+- ✅ **addressed S12** — `gate-check` now defines two clearance modes
+  (attestation-cleared, verification-cleared) and refines the "never silently
+  clear" rule. *(H001 gate-check/friction)*
 - `fallback` does not address a fallback *selection* that is itself gated.
   *(H002 fallback/friction)*
 - `experiment` mandates a separate `experiments.md`; allow the run log to be

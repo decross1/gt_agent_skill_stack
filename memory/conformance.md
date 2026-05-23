@@ -16,7 +16,7 @@ low-friction** description of disciplined practice. It cannot test *uplift* —
 | Skill | Layer | Conf | Fric | Gap | Status |
 |---|---|---|---|---|---|
 | resume-state | A | 1 | 0 | 0 | 🟢 confirmed, clean |
-| gate-check | A | 3 | 1 | 0 | 🟡 confirmed, 1 friction |
+| gate-check | A | 3 | 1 | 0 | 🟡 confirmed; 1 friction addressed S12 |
 | validate | A | 3 | 2 | 0 | 🟡 confirmed; 2 friction addressed S9 |
 | run-log | A | 3 | 2 | 0 | 🟡 confirmed; 2 friction addressed S10 |
 | fallback | A | 1 | 1 | 0 | 🟡 confirmed, 1 friction |
@@ -79,5 +79,10 @@ forward), evidence that the friction findings point the right way.
   Rules updated to drop the PR-only assumption. `ship` step 2 and `health`
   step 1 handle the no-unified-runner case (an enumerated per-unit test set
   is "the suite"). Resolves both H002 `ship` friction findings.
+- **S12 — 2026-05-23 — `gate-check`**: added a "How a gate clears" section
+  distinguishing **attestation-cleared** (the human's word is the clearance)
+  from **verification-cleared** (a defined check confirms the human's
+  underlying action); refined the "never silently clear" rule with a pointer.
+  Resolves the H001 `gate-check` friction.
 
 Open findings feed the `plan.md` backlog. Updated by every `harvest`.

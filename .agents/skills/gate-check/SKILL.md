@@ -45,9 +45,33 @@ unclear. When a project defines a plan or contract, run this against it.
    - Stop. Do not start adjacent un-gated work that presumes the gate passed.
 5. **If not gated** → proceed, but log the action.
 
+## How a gate clears
+
+A cleared gate is one where the human did the underlying work. The agent
+confirms this in one of two modes:
+
+- **Attestation-cleared** — there is no checkable fact, only the human's word.
+  The human explicitly says the gated work is done (e.g. a reading, a manual
+  rehearsal, a publication review). The agent records the attestation
+  verbatim — who attested and when — and does not paraphrase, summarize, or
+  re-perform the work.
+- **Verification-cleared** — the gate's condition *is* a checkable fact (the
+  credentials are present; the dependency is installed; the artifact is on
+  disk). The gate clears when that check passes. The agent runs the check and
+  records the observed result; the human's action is still what made the check
+  pass — the agent did not clear the gate, the check did.
+
+Same rule both ways: the agent never decides "the condition is met" on its
+own — it either records an attestation or runs a defined check.
+
+A check that turns out buggy or mis-specified is a finding, not a clearance —
+report it per [[validate]]'s "When the criterion itself is wrong" protocol
+and leave the gate pending.
+
 ## Rules
 
 - A gate does not bend. There is no "just this once" exception.
-- Never silently clear a gate. A gate is cleared only by explicit human action.
+- Never silently clear a gate. A gate is cleared only by explicit human action
+  — see "How a gate clears" for the two legitimate clearance modes.
 - A pending gate survives restarts — re-check the state file every session
   (see [[resume-state]]).
