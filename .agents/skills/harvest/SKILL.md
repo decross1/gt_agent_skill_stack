@@ -2,6 +2,7 @@
 name: harvest
 layer: C
 runtime-safe: false
+pack: meta
 description: Harvest feedback for the framework's own skills from a consumer project's execution trace. Use once per consumer work session — reads the consumer's run log, git history, and decision log since a stored watermark, classifies each finding against the skill it bears on, and appends to the feedback ledger. Read-only on the consumer.
 ---
 
@@ -45,9 +46,14 @@ a consumer's entire history.
    finding.
 4. **Classify each finding** by the rubric below.
 5. **Append one entry per finding** to `memory/feedback.jsonl` (shape below).
-6. **Advance the watermark** to the end of what was read; write it back to
+6. **(If the brain is wired)** For each finding, also append a `references`
+   edge in `memory/brain/edges.jsonl` from the finding's id to the
+   relevant skill page (`src_type: harvest_finding`, `dst_type: skill`).
+   Cross-link without duplicating — `feedback.jsonl` remains canonical for
+   the finding itself; the edge just makes it walkable in the graph.
+7. **Advance the watermark** to the end of what was read; write it back to
    `framework.state.json`. The watermark only ever moves forward.
-7. **Summarize** — a short per-skill conformance tally for the session briefing.
+8. **Summarize** — a short per-skill conformance tally for the session briefing.
 
 ## Classification rubric
 

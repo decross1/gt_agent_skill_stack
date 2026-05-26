@@ -1,0 +1,275 @@
+#!/usr/bin/env python3
+"""render_brain.py — render a per-day brain view.
+
+Joins framework + apparatus run-logs, narratives, and decisions into a single
+human-readable markdown view for one date. Source-of-truth files are
+read-only; the rendered output is derived and regeneratable.
+
+Sources:
+  - <agent_system>/run_state/framework.run.jsonl
+  - <a_bgt_rsi>/run_state/week1.run.jsonl
+  - <agent_system>/memory/brain/narratives.jsonl
+  - <agent_system>/memory/DECISIONS.md
+  - <a_bgt_rsi>/DECISIONS.md
+
+Output:
+  - <agent_system>/memory/brain/view/<YYYY-MM-DD>.md
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import sys
+from collections import defaultdict
+from datetime import datetime
+from pathlib import Path
+
+REPO = Path(__file__).resolve().parent.parent
+CONSUMER = REPO.parent / "a_bgt_rsi"
+
+DEFAULT_SOURCES = {
+    "framework_runlog": REPO / "run_state" / "framework.run.jsonl",
+    "consumer_runlog": CONSUMER / "run_state" / "week1.run.jsonl",
+    "narratives": REPO / "memory" / "brain" / "narratives.jsonl",
+    "framework_decisions": REPO / "memory" / "DECISIONS.md",
+    "consumer_decisions": CONSUMER / "DECISIONS.md",
+}
+
+# DECISIONS.md entries: `## YYYY-MM-DD — Title` OR `## D-NNN — Title`
+DECISION_HEADER_RE = re.compile(
+    r"^##\s+(?P<head>(?P<date>\d{4}-\d{2}-\d{2})|D-\d+)\s*[—–-]\s*(?P<title>[^\n]+)$",
+    re.MULTILINE,
+)
+DATE_IN_BODY_RE = re.compile(r"\bDate:\s*(\d{4}-\d{2}-\d{2})\b|\b(\d{4}-\d{2}-\d{2})\b")
+
+
+def load_jsonl(path: Path, day: str) -> list[dict]:
+    """Return JSONL entries whose `timestamp` starts with `day` (YYYY-MM-DD)."""
+    if not path.exists():
+        return []
+    entries: list[dict] = []
+    with path.open() as f:
+        for lineno, line in enumerate(f, 1):
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                obj = json.loads(line)
+            except json.JSONDecodeError as e:
+                print(f"warn: {path}:{lineno} malformed JSON: {e}", file=sys.stderr)
+                continue
+            ts = obj.get("timestamp", "")
+            if ts.startswith(day):
+                obj["_source_line"] = lineno
+                entries.append(obj)
+    entries.sort(key=lambda x: x.get("timestamp", ""))
+    return entries
+
+
+def load_decisions(path: Path, day: str) -> list[dict]:
+    """Return DECISIONS.md entries dated `day`.
+
+    An entry's date comes from the header itself (`## YYYY-MM-DD — …`); if the
+    header is the `D-NNN` form, fall back to a `Date:` line in the body, then
+    the first YYYY-MM-DD in the body.
+    """
+    if not path.exists():
+        return []
+    text = path.read_text()
+    headers = list(DECISION_HEADER_RE.finditer(text))
+    entries: list[dict] = []
+    for i, m in enumerate(headers):
+        start = m.end()
+        end = headers[i + 1].start() if i + 1 < len(headers) else len(text)
+        body = text[start:end].strip()
+        entry_date = m.group("date") or ""
+        if not entry_date:
+            db = DATE_IN_BODY_RE.search(body[:400])
+            entry_date = (db.group(1) or db.group(2)) if db else ""
+        if entry_date == day:
+            entries.append({
+                "head": m.group("head"),
+                "title": m.group("title").strip(),
+                "date": entry_date,
+                "body": body,
+            })
+    return entries
+
+
+def _truncate(s: str, limit: int = 800) -> str:
+    s = (s or "").strip()
+    return s if len(s) <= limit else s[:limit] + " …_(truncated; see source)_"
+
+
+def _render_narrative(n: dict) -> list[str]:
+    out = []
+    typ = n.get("type", "?")
+    agent = n.get("agent_id", "?")
+    out.append(f"_Narrative ({agent}, {typ}):_")
+    for label, key in [
+        ("Intent", "intent"),
+        ("Did", "did"),
+        ("Observed", "observed"),
+        ("Would do differently", "would_do_differently"),
+    ]:
+        val = (n.get(key) or "").strip()
+        if val:
+            out.append(f"- **{label}:** {val}")
+    if n.get("corrections_honored"):
+        out.append(f"- **Corrections honored:** {', '.join(n['corrections_honored'])}")
+    if n.get("references"):
+        out.append(f"- **References:** {', '.join(n['references'])}")
+    return out
+
+
+def render(day: str, sources: dict[str, Path]) -> tuple[str, dict[str, int]]:
+    framework_runs = load_jsonl(sources["framework_runlog"], day)
+    consumer_runs = load_jsonl(sources["consumer_runlog"], day)
+    narratives = load_jsonl(sources["narratives"], day)
+    framework_dec = load_decisions(sources["framework_decisions"], day)
+    consumer_dec = load_decisions(sources["consumer_decisions"], day)
+
+    narr_by_task: dict[str, list[dict]] = defaultdict(list)
+    for n in narratives:
+        tid = n.get("task_id", "")
+        if tid:
+            narr_by_task[tid].append(n)
+
+    lines: list[str] = []
+    lines.append(f"# Day view — {day}")
+    lines.append("")
+    lines.append(
+        "_Generated by `scripts/render_brain.py`. Sources are referenced inline; "
+        "this view is derived and regeneratable._"
+    )
+    lines.append("")
+
+    lines.append("## Summary")
+    lines.append("")
+    lines.append(f"- Framework run-log entries: {len(framework_runs)}")
+    lines.append(f"- Apparatus (a_bgt_rsi) run-log entries: {len(consumer_runs)}")
+    lines.append(f"- Narratives: {len(narratives)}")
+    lines.append(f"- Decisions (framework + apparatus): {len(framework_dec) + len(consumer_dec)}")
+    lines.append("")
+
+    lines.append("## Framework activity")
+    lines.append("")
+    if not framework_runs:
+        lines.append("_No framework run-log entries on this date._")
+        lines.append("")
+    else:
+        for r in framework_runs:
+            tid = r.get("task_id", "?")
+            lines.append(f"### `{tid}` — {r.get('status', '?')}")
+            lines.append(f"_{r.get('timestamp', '')}_")
+            lines.append("")
+            lines.append(f"- **Expected:** {(r.get('observable_expected') or '').strip()}")
+            lines.append(f"- **Observed:** {_truncate(r.get('observable_actual', ''))}")
+            if r.get("notes"):
+                lines.append(f"- **Notes:** {r['notes']}")
+            for n in narr_by_task.get(tid, []):
+                lines.append("")
+                lines.extend(_render_narrative(n))
+            lines.append("")
+
+    lines.append("## Apparatus activity (a_bgt_rsi)")
+    lines.append("")
+    if not consumer_runs:
+        lines.append("_No apparatus run-log entries on this date._")
+        lines.append("")
+    else:
+        for r in consumer_runs:
+            tid = r.get("task_id", "?")
+            day_id = r.get("day_id", "")
+            lines.append(f"### `{tid}` — {r.get('status', '?')} ({day_id})")
+            lines.append(f"_{r.get('timestamp', '')}_")
+            lines.append("")
+            lines.append(f"- **Expected:** {(r.get('observable_expected') or '').strip()}")
+            lines.append(f"- **Observed:** {_truncate(r.get('observable_actual', ''))}")
+            if r.get("fallback_taken"):
+                lines.append(f"- **Fallback taken:** {r['fallback_taken']}")
+            for n in narr_by_task.get(tid, []):
+                lines.append("")
+                lines.extend(_render_narrative(n))
+            lines.append("")
+
+    if framework_dec or consumer_dec:
+        lines.append("## Decisions made today")
+        lines.append("")
+        for d in framework_dec:
+            lines.append(f"### Framework — {d['head']} — {d['title']}")
+            lines.append("")
+            lines.append(_truncate(d["body"], 600))
+            lines.append("")
+            lines.append("_(see `agent_system/memory/DECISIONS.md` for full entry)_")
+            lines.append("")
+        for d in consumer_dec:
+            lines.append(f"### Apparatus — {d['head']} — {d['title']}")
+            lines.append("")
+            lines.append(_truncate(d["body"], 600))
+            lines.append("")
+            lines.append("_(see `a_bgt_rsi/DECISIONS.md` for full entry)_")
+            lines.append("")
+
+    joined_tids = {r.get("task_id") for r in (framework_runs + consumer_runs)}
+    orphans = [n for n in narratives if n.get("task_id") not in joined_tids]
+    if orphans:
+        lines.append("## Reflections without a paired run-log entry")
+        lines.append("")
+        for n in orphans:
+            lines.append(f"### `{n.get('task_id', '?')}` ({n.get('agent_id', '?')})")
+            lines.append(f"_{n.get('timestamp', '')}_")
+            lines.append("")
+            lines.extend(_render_narrative(n))
+            lines.append("")
+
+    lines.append("---")
+    lines.append("")
+    lines.append("## Sources")
+    lines.append("")
+    for label, p in sources.items():
+        lines.append(f"- `{label}` → `{p}` ({'ok' if p.exists() else 'missing'})")
+    lines.append("")
+
+    counts = {
+        "framework_runs": len(framework_runs),
+        "consumer_runs": len(consumer_runs),
+        "narratives": len(narratives),
+        "decisions": len(framework_dec) + len(consumer_dec),
+        "sources_present": sum(1 for p in sources.values() if p.exists()),
+        "sources_total": len(sources),
+    }
+    return "\n".join(lines), counts
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Render a per-day brain view.")
+    parser.add_argument("--day", required=True, help="Date in YYYY-MM-DD (e.g. 2026-05-23)")
+    parser.add_argument(
+        "--out",
+        default=None,
+        help="Output path (default: memory/brain/view/<day>.md)",
+    )
+    args = parser.parse_args()
+
+    try:
+        datetime.strptime(args.day, "%Y-%m-%d")
+    except ValueError:
+        parser.error(f"--day must be YYYY-MM-DD, got: {args.day}")
+
+    out_path = Path(args.out) if args.out else REPO / "memory" / "brain" / "view" / f"{args.day}.md"
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    rendered, counts = render(args.day, DEFAULT_SOURCES)
+    out_path.write_text(rendered)
+    print(f"Rendered {args.day} → {out_path}")
+    print(f"  framework_runs={counts['framework_runs']} "
+          f"consumer_runs={counts['consumer_runs']} "
+          f"narratives={counts['narratives']} "
+          f"decisions={counts['decisions']} "
+          f"sources_present={counts['sources_present']}/{counts['sources_total']}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -2,6 +2,7 @@
 name: experiment
 layer: B
 runtime-safe: false
+pack: research
 description: Log a research experiment run so it is traceable and comparable. Use when starting or finishing a training run, evaluation, or ablation — captures config, seed, data version, code commit, metrics, and artifact location into the experiment ledger.
 ---
 
@@ -43,6 +44,15 @@ Every entry records, at minimum:
    half-logged.
 3. If the verdict resolves a planned decision, also append to
    `memory/DECISIONS.md`.
+4. **(If the brain is wired)** Declare typed edges into
+   `memory/brain/edges.jsonl` so the run is walkable from neighbouring brain
+   entities. `experiments.md` remains canonical for the *run*; edges only
+   *link* it. Common edges from an experiment:
+   - `derived_from` → the hypothesis it tests
+   - `ran_under` → the config / pin / data version (a brain page for each)
+   - `produced` → an `anomaly` or `concept` it surfaced
+   - `falsified_by` / `confirms` → the prior result it resolves
+   Skip step 4 if the project does not maintain a brain.
 
 ## Running a sequence unattended
 

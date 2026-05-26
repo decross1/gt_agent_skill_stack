@@ -2,6 +2,7 @@
 name: ship
 layer: B
 runtime-safe: false
+pack: research
 description: Take a finished change from working code to a merged or PR-ready state. Use after review passes — runs tests, sanity-checks the diff, writes the commit/PR message, and records the decision.
 ---
 

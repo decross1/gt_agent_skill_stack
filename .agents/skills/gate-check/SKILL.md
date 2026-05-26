@@ -2,6 +2,7 @@
 name: gate-check
 layer: A
 runtime-safe: true
+pack: core
 description: Check for human gates, human-only tasks, and blocking conditions before a consequential action. Use before executing any plan step, irreversible operation, publication, or anything that may need human approval — it halts and prints rather than proceeding past a gate.
 ---
 

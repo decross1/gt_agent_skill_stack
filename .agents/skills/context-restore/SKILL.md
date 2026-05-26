@@ -2,6 +2,7 @@
 name: context-restore
 layer: C
 runtime-safe: false
+pack: meta
 description: Restore working context at the start of a session. Use at the beginning of a session or after a context compaction — reads the saved handoff snapshot, decisions log, and active experiments so work resumes accurately.
 ---
 
@@ -22,7 +23,12 @@ re-anchor.
    stopping point: state, in-flight work, and the next step.
 
 2. **Read the decisions log** — `memory/DECISIONS.md`. Scan recent entries so
-   prior decisions are not relitigated or contradicted.
+   prior decisions are not relitigated or contradicted. Within those entries,
+   single out the **corrections** — durable rules the agent is expected to
+   honor — and surface the last *N* unsuperseded ones (default N=5) by ID
+   and one-line summary in the briefing. A correction is a [[decision-log]]
+   entry that names a rule of practice; recognise it by an explicit
+   `correction:` flag or a title that names a rule.
 
 3. **Check active experiments** — `memory/experiments.md`. Note any run with no
    verdict — it may be running or abandoned; confirm before acting.

@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Brain — graph view</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  body { display: grid; grid-template-columns: 1fr 320px; grid-template-rows: 44px 1fr; height: 100vh; overflow: hidden; }
+  header { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; padding: 0 14px; border-bottom: 1px solid #ddd; background: #fafafa; }
+  header h1 { margin: 0; font-size: 14px; font-weight: 600; }
+  header .stat { font-size: 12px; color: #666; }
+  header .filters { display: flex; gap: 8px; margin-left: auto; flex-wrap: wrap; }
+  header label { font-size: 12px; user-select: none; display: inline-flex; align-items: center; gap: 4px; }
+  #canvas-wrap { position: relative; background: #fff; overflow: hidden; }
+  canvas { display: block; width: 100%; height: 100%; cursor: grab; }
+  canvas.dragging { cursor: grabbing; }
+  aside { border-left: 1px solid #ddd; padding: 12px 14px; overflow-y: auto; background: #f7f7f7; font-size: 12px; }
+  aside h2 { font-size: 13px; margin: 0 0 8px 0; font-weight: 600; }
+  aside .kv { margin: 4px 0; }
+  aside .kv b { color: #444; }
+  aside .neighbours { margin-top: 10px; }
+  aside .neighbours li { margin: 3px 0; }
+  aside ul { padding-left: 16px; margin: 4px 0; }
+  aside .empty { color: #888; font-style: italic; }
+  aside .page-content { margin-top: 10px; padding-top: 10px; border-top: 1px solid #ddd; font-size: 12px; }
+  aside .page-content h1 { font-size: 14px; margin: 8px 0 4px; }
+  aside .page-content h2 { font-size: 13px; margin: 8px 0 4px; }
+  aside .page-content h3 { font-size: 12px; margin: 6px 0 3px; }
+  aside .page-content code { font-family: ui-monospace, monospace; background: #eee; padding: 1px 4px; border-radius: 3px; font-size: 11px; }
+  aside .page-content pre { background: #eee; padding: 6px 8px; border-radius: 4px; overflow-x: auto; font-size: 11px; }
+  aside .page-content ul, aside .page-content ol { padding-left: 18px; }
+  aside .page-content p { margin: 4px 0; }
+  aside .page-content blockquote { border-left: 2px solid #999; padding-left: 8px; color: #555; margin: 4px 0; }
+  aside .toggle-page { display: inline-block; margin: 6px 0; font-size: 11px; cursor: pointer; user-select: none; color: #2563eb; text-decoration: underline; background: none; border: 0; padding: 0; }
+  aside .proposal-item { padding: 6px 8px; border: 1px solid #ddd; border-radius: 4px; margin: 6px 0; cursor: pointer; background: #fff; }
+  aside .proposal-item:hover { border-color: #2563eb; }
+  aside .proposal-item .pid { font-weight: 600; }
+  aside .proposal-item .verdict { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle; }
+  .v-open          { background: #fde68a; color: #92400e; }
+  .v-auto-accept,
+  .v-accepted      { background: #d1fae5; color: #065f46; }
+  .v-auto-reject,
+  .v-rejected      { background: #fee2e2; color: #991b1b; }
+  .v-human-review  { background: #dbeafe; color: #1e3a8a; }
+  header .tab-btn { font-size: 12px; padding: 4px 10px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; }
+  header .tab-btn.active { background: #2563eb; color: white; border-color: #2563eb; }
+  .legend { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+  @media (prefers-color-scheme: dark) {
+    aside .page-content code, aside .page-content pre { background: #2a2a2a; }
+    aside .page-content blockquote { color: #999; }
+    aside .proposal-item { background: #222; border-color: #444; }
+    header .tab-btn { background: #2a2a2a; color: #ddd; border-color: #444; }
+  }
+  @media (prefers-color-scheme: dark) {
+    body { background: #1a1a1a; color: #ddd; }
+    header { background: #222; border-color: #333; }
+    header .stat, aside .kv b { color: #aaa; }
+    aside { background: #181818; border-color: #333; }
+    #canvas-wrap { background: #1a1a1a; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>Brain — graph</h1>
+  <span class="stat" id="stat-nodes">nodes 0</span>
+  <span class="stat" id="stat-edges">edges 0</span>
+  <span class="stat" id="stat-dangling">dangling 0</span>
+  <span class="stat" id="stat-asof" title="data freshness — re-run scripts/project_pages.py to refresh">as of —</span>
+  <label class="stat" style="display:inline-flex; gap:4px; align-items:center;" title="filter nodes by date">
+    window:
+    <select id="date-range" style="font:12px system-ui; padding:2px 4px;">
+      <option value="all" selected>all time</option>
+      <option value="1">last 24h</option>
+      <option value="3">last 3d</option>
+      <option value="7">last 7d</option>
+      <option value="30">last 30d</option>
+    </select>
+  </label>
+  <button class="tab-btn active" id="tab-graph">Graph</button>
+  <button class="tab-btn" id="tab-proposals">Proposals (0)</button>
+  <div class="filters" id="filters"></div>
+</header>
+<div id="canvas-wrap"><canvas id="g"></canvas></div>
+<aside id="panel">
+  <h2>Select a node</h2>
+  <div class="empty">Click any node to inspect.</div>
+</aside>
+<script src="graph_data.js"></script>
+<script>
+"use strict";
+
+// ---- color palette per type --------------------------------------------------
+const TYPE_COLORS = {
+  reflection:         "#3b82f6",   // blue — agent-authored reflections
+  apparatus_event:    "#a3a3a3",   // gray — uncategorized apparatus events (fallback)
+  experiment:         "#22c55e",   // green
+  hypothesis:         "#f59e0b",   // amber
+  anomaly:            "#ef4444",   // red
+  correction:         "#a855f7",   // purple
+  decision:           "#64748b",   // slate
+  // Apparatus sub-kinds (derived in scripts/project_pages.py::kind_from_narrative)
+  iteration:          "#0ea5e9",   // sky — top-level LOOP_V0 iteration records
+  orchestrator_event: "#14b8a6",   // teal — Nara's dispatch/receipt events
+  llm_call:           "#ec4899",   // pink — vLLM wrapper calls
+  // fallback
+  _default:           "#cccccc"
+};
+function colorFor(t) { return TYPE_COLORS[t] || TYPE_COLORS._default; }
+
+// ---- load data ---------------------------------------------------------------
+const DATA = (typeof window.BRAIN_GRAPH === "object" && window.BRAIN_GRAPH) || { nodes: [], edges: [], pages: {}, proposals: [] };
+const PAGES = DATA.pages || {};
+const PROPOSALS = DATA.proposals || [];
+
+// Detect dark mode (used for canvas text + future contrast-aware bits)
+const IS_DARK = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+const nodesById = new Map();
+DATA.nodes.forEach(n => nodesById.set(n.slug, { ...n, x: 0, y: 0, vx: 0, vy: 0 }));
+
+const dangling = [];
+const edges = [];
+DATA.edges.forEach(e => {
+  const s = nodesById.get(e.src), d = nodesById.get(e.dst);
+  if (s && d) edges.push({ ...e, _s: s, _d: d });
+  else dangling.push(e);
+});
+
+document.getElementById("stat-nodes").textContent = `nodes ${nodesById.size}`;
+document.getElementById("stat-edges").textContent = `edges ${edges.length}`;
+document.getElementById("stat-dangling").textContent = `dangling ${dangling.length}`;
+document.getElementById("tab-proposals").textContent = `Proposals (${PROPOSALS.length})`;
+
+// Data-freshness stamp from the most recent timestamp in nodes/edges/proposals.
+(function setAsOf() {
+  const stamps = [];
+  for (const n of DATA.nodes) if (n.date) stamps.push(n.date);
+  for (const e of DATA.edges) if (e.timestamp) stamps.push(e.timestamp);
+  for (const p of DATA.proposals) if (p.timestamp) stamps.push(p.timestamp);
+  if (stamps.length === 0) return;
+  stamps.sort();
+  const latest = stamps[stamps.length - 1].slice(0, 10);
+  document.getElementById("stat-asof").textContent = `as of ${latest}`;
+})();
+
+// ---- filters: one checkbox per type ------------------------------------------
+// apparatus_event is OFF by default — 200+ vLLM/orchestrator calls drown out
+// the high-signal entities (decisions, anomalies, experiments, reflections).
+// Toggle it on for deep-dive debugging.
+const NOISY_TYPES = new Set(["apparatus_event"]);
+const typesSeen = new Set();
+nodesById.forEach(n => typesSeen.add(n.type));
+const enabledTypes = new Set([...typesSeen].filter(t => !NOISY_TYPES.has(t)));
+const filtersDiv = document.getElementById("filters");
+[...typesSeen].sort().forEach(t => {
+  const id = `flt-${t}`;
+  const checked = enabledTypes.has(t) ? "checked" : "";
+  const lbl = document.createElement("label");
+  lbl.innerHTML = `<input type="checkbox" id="${id}" ${checked}> <span class="legend" style="background:${colorFor(t)}"></span>${t}`;
+  filtersDiv.appendChild(lbl);
+  lbl.querySelector("input").addEventListener("change", e => {
+    if (e.target.checked) enabledTypes.add(t); else enabledTypes.delete(t);
+  });
+});
+
+// ---- time-window scrubber + last-updated stamp ------------------------------
+// Default: "all" (show everything not filtered out by type). Users can narrow.
+const DATE_NOW = new Date();
+const dateRangeSelect = document.getElementById("date-range");
+let dateWindowDays = null; // null = no date filter
+dateRangeSelect.addEventListener("change", e => {
+  const v = e.target.value;
+  dateWindowDays = v === "all" ? null : parseInt(v, 10);
+});
+
+function inDateWindow(n) {
+  if (dateWindowDays === null) return true;
+  const d = (n.date || "").slice(0, 10);
+  if (!d) return false; // dateless nodes drop when scrubbed
+  const dt = new Date(d + "T00:00:00Z");
+  const cutoff = new Date(DATE_NOW); cutoff.setUTCDate(cutoff.getUTCDate() - dateWindowDays);
+  return dt >= cutoff;
+}
+
+// ---- layout: simple force-directed (repulsion + spring) ----------------------
+const canvas = document.getElementById("g");
+const ctx = canvas.getContext("2d");
+function resize() {
+  const dpr = window.devicePixelRatio || 1;
+  const w = canvas.parentElement.clientWidth;
+  const h = canvas.parentElement.clientHeight;
+  canvas.width = w * dpr; canvas.height = h * dpr;
+  canvas.style.width = w + "px"; canvas.style.height = h + "px";
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+}
+window.addEventListener("resize", resize); resize();
+
+// Initial positions: spiral so nothing starts on top of another.
+let i = 0;
+nodesById.forEach(n => {
+  const a = i * 0.7, r = 30 + i * 6;
+  n.x = canvas.clientWidth / 2 + Math.cos(a) * r;
+  n.y = canvas.clientHeight / 2 + Math.sin(a) * r;
+  i++;
+});
+
+const REPULSE = 1800;        // node-node repulsion strength
+const SPRING_K = 0.02;       // edge spring stiffness
+const SPRING_REST = 90;      // edge rest length
+const CENTER_K = 0.005;      // weak pull to center
+const DAMP = 0.85;
+const MAX_FORCE = 30;
+
+function step() {
+  const cw = canvas.clientWidth, ch = canvas.clientHeight;
+  const list = [...nodesById.values()];
+
+  // O(n^2) repulsion — fine for small N.
+  for (let a = 0; a < list.length; a++) {
+    const A = list[a];
+    for (let b = a + 1; b < list.length; b++) {
+      const B = list[b];
+      let dx = A.x - B.x, dy = A.y - B.y;
+      let d2 = dx*dx + dy*dy;
+      if (d2 < 0.01) { dx = (Math.random() - 0.5); dy = (Math.random() - 0.5); d2 = 1; }
+      const d = Math.sqrt(d2);
+      const f = REPULSE / d2;
+      const fx = (dx / d) * f, fy = (dy / d) * f;
+      A.vx += fx; A.vy += fy;
+      B.vx -= fx; B.vy -= fy;
+    }
+  }
+  // Spring along edges.
+  for (const e of edges) {
+    const A = e._s, B = e._d;
+    const dx = B.x - A.x, dy = B.y - A.y;
+    const d = Math.sqrt(dx*dx + dy*dy) || 1;
+    const f = SPRING_K * (d - SPRING_REST);
+    const fx = (dx / d) * f, fy = (dy / d) * f;
+    A.vx += fx; A.vy += fy;
+    B.vx -= fx; B.vy -= fy;
+  }
+  // Centering.
+  for (const N of list) {
+    N.vx += (cw / 2 - N.x) * CENTER_K;
+    N.vy += (ch / 2 - N.y) * CENTER_K;
+  }
+  // Integrate.
+  for (const N of list) {
+    if (N === dragNode) { N.vx = N.vy = 0; continue; }
+    N.vx = Math.max(-MAX_FORCE, Math.min(MAX_FORCE, N.vx)) * DAMP;
+    N.vy = Math.max(-MAX_FORCE, Math.min(MAX_FORCE, N.vy)) * DAMP;
+    N.x += N.vx; N.y += N.vy;
+    N.x = Math.max(20, Math.min(cw - 20, N.x));
+    N.y = Math.max(20, Math.min(ch - 20, N.y));
+  }
+}
+
+function draw() {
+  const cw = canvas.clientWidth, ch = canvas.clientHeight;
+  ctx.clearRect(0, 0, cw, ch);
+
+  // edges first
+  ctx.lineWidth = 1.2;
+  ctx.strokeStyle = "rgba(120,120,120,0.45)";
+  for (const e of edges) {
+    if (!enabledTypes.has(e._s.type) || !enabledTypes.has(e._d.type)) continue;
+    if (!inDateWindow(e._s) || !inDateWindow(e._d)) continue;
+    ctx.beginPath();
+    ctx.moveTo(e._s.x, e._s.y);
+    ctx.lineTo(e._d.x, e._d.y);
+    ctx.stroke();
+    // tiny arrowhead near dst
+    const dx = e._d.x - e._s.x, dy = e._d.y - e._s.y;
+    const d = Math.sqrt(dx*dx + dy*dy) || 1;
+    const ax = e._d.x - (dx / d) * 9, ay = e._d.y - (dy / d) * 9;
+    const px = -dy / d, py = dx / d;
+    ctx.fillStyle = "rgba(120,120,120,0.55)";
+    ctx.beginPath();
+    ctx.moveTo(e._d.x - (dx / d) * 4, e._d.y - (dy / d) * 4);
+    ctx.lineTo(ax + px * 3, ay + py * 3);
+    ctx.lineTo(ax - px * 3, ay - py * 3);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  // nodes
+  ctx.font = "11px system-ui";
+  ctx.textBaseline = "middle";
+  for (const N of nodesById.values()) {
+    if (!enabledTypes.has(N.type)) continue;
+    if (!inDateWindow(N)) continue;
+    const r = N === selected ? 9 : 6;
+    ctx.fillStyle = colorFor(N.type);
+    ctx.beginPath();
+    ctx.arc(N.x, N.y, r, 0, Math.PI * 2);
+    ctx.fill();
+    if (N === selected || N === hovered) {
+      ctx.lineWidth = 2;
+      ctx.strokeStyle = "#000";
+      ctx.stroke();
+    }
+    // label
+    if (N === selected || N === hovered || nodesById.size <= 80) {
+      ctx.fillStyle = IS_DARK ? "rgba(230,230,230,0.92)" : "rgba(0,0,0,0.85)";
+      ctx.fillText(N.slug, N.x + r + 3, N.y);
+    }
+  }
+}
+
+// ---- interaction -------------------------------------------------------------
+let selected = null, hovered = null, dragNode = null;
+let dragStart = null;
+function pick(mx, my) {
+  let best = null, bestD2 = 144; // 12px radius
+  for (const N of nodesById.values()) {
+    if (!enabledTypes.has(N.type)) continue;
+    if (!inDateWindow(N)) continue;
+    const dx = N.x - mx, dy = N.y - my;
+    const d2 = dx*dx + dy*dy;
+    if (d2 < bestD2) { bestD2 = d2; best = N; }
+  }
+  return best;
+}
+canvas.addEventListener("mousemove", e => {
+  const r = canvas.getBoundingClientRect();
+  const mx = e.clientX - r.left, my = e.clientY - r.top;
+  if (dragNode) {
+    dragNode.x = mx; dragNode.y = my; dragNode.vx = dragNode.vy = 0;
+  } else {
+    hovered = pick(mx, my);
+  }
+});
+canvas.addEventListener("mousedown", e => {
+  const r = canvas.getBoundingClientRect();
+  const n = pick(e.clientX - r.left, e.clientY - r.top);
+  if (n) { dragNode = n; canvas.classList.add("dragging"); }
+});
+window.addEventListener("mouseup", () => {
+  if (dragNode) { selected = dragNode; updatePanel(); }
+  dragNode = null;
+  canvas.classList.remove("dragging");
+});
+
+// ---- tiny markdown renderer (headings, bold, italic, code, links, lists, blockquote) ----
+function escHTML(s) { return s.replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
+function safeHref(u) {
+  // Allowlist: http/https/file/mailto + relative + anchor + slug-link.
+  // Reject javascript:, data:, vbscript:, etc. Conservative — agent-authored
+  // page content can carry adversarial URLs even on a home-lab box.
+  u = String(u).trim();
+  if (/^(https?:|file:|mailto:|#|\/|\.\.?\/)/i.test(u)) return u;
+  if (/^[a-z0-9][a-z0-9._/-]*\.md(#.*)?$/i.test(u)) return u; // bare page refs
+  return "#";
+}
+function mdInline(s) {
+  s = escHTML(s);
+  s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
+  s = s.replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
+  s = s.replace(/(^|[\s(])\*([^*\s][^*]*?)\*/g, "$1<i>$2</i>");
+  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) =>
+    `<a href="${escHTML(safeHref(url))}">${label}</a>`);
+  return s;
+}
+function renderMarkdown(src) {
+  const out = [];
+  const lines = src.split("\n");
+  let inCode = false, inList = null, buf = [];
+  const flushPara = () => { if (buf.length) { out.push("<p>" + mdInline(buf.join(" ")) + "</p>"); buf = []; } };
+  const closeList = () => { if (inList) { out.push(`</${inList}>`); inList = null; } };
+  for (let raw of lines) {
+    if (raw.startsWith("```")) {
+      flushPara(); closeList();
+      if (!inCode) { out.push("<pre><code>"); inCode = true; } else { out.push("</code></pre>"); inCode = false; }
+      continue;
+    }
+    if (inCode) { out.push(escHTML(raw)); continue; }
+    if (!raw.trim()) { flushPara(); closeList(); continue; }
+    let m;
+    if ((m = raw.match(/^(#{1,6})\s+(.+)$/))) {
+      flushPara(); closeList();
+      const lv = m[1].length; out.push(`<h${lv}>${mdInline(m[2])}</h${lv}>`); continue;
+    }
+    if ((m = raw.match(/^>\s?(.*)$/))) {
+      flushPara(); closeList();
+      out.push(`<blockquote>${mdInline(m[1])}</blockquote>`); continue;
+    }
+    if ((m = raw.match(/^[-*]\s+(.+)$/))) {
+      flushPara();
+      if (inList !== "ul") { closeList(); out.push("<ul>"); inList = "ul"; }
+      out.push(`<li>${mdInline(m[1])}</li>`); continue;
+    }
+    if ((m = raw.match(/^\d+\.\s+(.+)$/))) {
+      flushPara();
+      if (inList !== "ol") { closeList(); out.push("<ol>"); inList = "ol"; }
+      out.push(`<li>${mdInline(m[1])}</li>`); continue;
+    }
+    buf.push(raw);
+  }
+  flushPara(); closeList();
+  return out.join("\n");
+}
+
+// ---- side-panel modes -------------------------------------------------------
+let panelMode = "node";   // "node" | "proposals" | "proposal"
+let selectedProposal = null;
+let pageExpanded = false;
+
+function tabButtons() {
+  document.getElementById("tab-graph").classList.toggle("active", panelMode === "node");
+  document.getElementById("tab-proposals").classList.toggle("active", panelMode === "proposals" || panelMode === "proposal");
+}
+document.getElementById("tab-graph").addEventListener("click", () => { panelMode = "node"; selectedProposal = null; updatePanel(); });
+document.getElementById("tab-proposals").addEventListener("click", () => { panelMode = "proposals"; selectedProposal = null; updatePanel(); });
+
+function renderProposalsList() {
+  if (PROPOSALS.length === 0) return `<h2>Proposals</h2><div class="empty">No proposals filed yet. Use the <code>propose</code> skill to file one.</div>`;
+  const parts = [`<h2>Proposals (${PROPOSALS.length})</h2>`];
+  for (const p of PROPOSALS) {
+    const verdict = p.verdict || p.status || "open";
+    parts.push(
+      `<div class="proposal-item" data-pid="${p.proposal_id}">` +
+        `<div><span class="pid">${p.proposal_id || "?"}</span>` +
+        ` <span class="verdict v-${(verdict + "").replace(/_/g, "-")}">${verdict}</span></div>` +
+        `<div style="margin-top:4px">${escHTML(p.title || "")}</div>` +
+        `<div class="kv" style="font-size:11px;color:#666">→ <code>${escHTML(p.target || "?")}</code> (${p.target_type || "?"})</div>` +
+      `</div>`
+    );
+  }
+  return parts.join("");
+}
+
+function renderProposalDetail(p) {
+  if (!p) return renderProposalsList();
+  const verdict = p.verdict || p.status || "open";
+  const parts = [
+    `<button class="toggle-page" id="back-to-list">← all proposals</button>`,
+    `<h2>${p.proposal_id} <span class="verdict v-${(verdict + "").replace(/_/g, "-")}">${verdict}</span></h2>`,
+    `<div class="kv"><b>Title:</b> ${escHTML(p.title || "")}</div>`,
+    `<div class="kv"><b>Target:</b> <code>${escHTML(p.target || "?")}</code> (${p.target_type || "?"})</div>`,
+    `<div class="kv"><b>Filed:</b> ${escHTML(p.timestamp || "")} by ${escHTML(p.agent_id || "?")}</div>`,
+  ];
+  if (p.change) parts.push(`<div class="kv"><b>Change:</b><div>${mdInline(escHTML(p.change))}</div></div>`);
+  if (p.reasoning) parts.push(`<div class="kv"><b>Reasoning:</b><div>${mdInline(escHTML(p.reasoning))}</div></div>`);
+  if (p.verdict_reasoning) parts.push(`<div class="kv"><b>Verdict reasoning:</b><div>${mdInline(escHTML(p.verdict_reasoning))}</div></div>`);
+  if (p.rule_cited) parts.push(`<div class="kv"><b>Rule cited:</b> ${p.rule_cited}</div>`);
+  if (p.references && p.references.length) {
+    parts.push(`<div class="kv"><b>References:</b><ul>`);
+    for (const r of p.references) parts.push(`<li><a href="#" data-slug="${r}">${r}</a></li>`);
+    parts.push(`</ul></div>`);
+  }
+  return parts.join("");
+}
+
+function updatePanel() {
+  tabButtons();
+  const aside = document.getElementById("panel");
+  if (panelMode === "proposals") { aside.innerHTML = renderProposalsList(); }
+  else if (panelMode === "proposal") { aside.innerHTML = renderProposalDetail(selectedProposal); }
+  else if (!selected) { aside.innerHTML = `<h2>Select a node</h2><div class="empty">Click any node to inspect.</div>`; }
+  else {
+    const outs = edges.filter(e => e._s === selected);
+    const ins  = edges.filter(e => e._d === selected);
+    const parts = [];
+    parts.push(`<h2><span class="legend" style="background:${colorFor(selected.type)}"></span>${selected.slug}</h2>`);
+    parts.push(`<div class="kv"><b>Type:</b> ${selected.type}</div>`);
+    if (selected.date) parts.push(`<div class="kv"><b>Date:</b> ${selected.date}</div>`);
+    if (selected.title && selected.title !== selected.slug) parts.push(`<div class="kv"><b>Title:</b> ${selected.title}</div>`);
+    parts.push(`<div class="kv"><b>Page:</b> <a href="../pages/${selected.slug}.md">${selected.slug}.md</a></div>`);
+    parts.push(`<button class="toggle-page" id="toggle-page-btn">${pageExpanded ? "hide page" : "show page"}</button>`);
+    if (pageExpanded && PAGES[selected.slug]) {
+      parts.push(`<div class="page-content">${renderMarkdown(PAGES[selected.slug])}</div>`);
+    }
+    parts.push(`<div class="neighbours"><b>Outgoing (${outs.length})</b><ul>`);
+    if (outs.length === 0) parts.push(`<li class="empty">none</li>`);
+    for (const e of outs) parts.push(`<li><i>${e.type}</i> → <a href="#" data-slug="${e.dst}">${e.dst}</a></li>`);
+    parts.push(`</ul></div>`);
+    parts.push(`<div class="neighbours"><b>Incoming (${ins.length})</b><ul>`);
+    if (ins.length === 0) parts.push(`<li class="empty">none</li>`);
+    for (const e of ins) parts.push(`<li><a href="#" data-slug="${e.src}">${e.src}</a> — <i>${e.type}</i></li>`);
+    parts.push(`</ul></div>`);
+    aside.innerHTML = parts.join("");
+    const tp = document.getElementById("toggle-page-btn");
+    if (tp) tp.addEventListener("click", () => { pageExpanded = !pageExpanded; updatePanel(); });
+  }
+  aside.querySelectorAll("a[data-slug]").forEach(a => a.addEventListener("click", ev => {
+    ev.preventDefault();
+    const n = nodesById.get(a.dataset.slug);
+    if (n) { panelMode = "node"; selected = n; pageExpanded = false; updatePanel(); }
+  }));
+  aside.querySelectorAll(".proposal-item").forEach(el => el.addEventListener("click", () => {
+    const pid = el.dataset.pid;
+    selectedProposal = PROPOSALS.find(p => p.proposal_id === pid);
+    panelMode = "proposal"; updatePanel();
+  }));
+  const back = document.getElementById("back-to-list");
+  if (back) back.addEventListener("click", () => { panelMode = "proposals"; selectedProposal = null; updatePanel(); });
+}
+
+// ---- animation loop ----------------------------------------------------------
+let frame = 0;
+function loop() {
+  if (frame < 600) { step(); }   // run simulation for ~10s then idle
+  draw();
+  frame++;
+  requestAnimationFrame(loop);
+}
+loop();
+</script>
+</body>
+</html>

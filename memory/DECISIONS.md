@@ -102,3 +102,70 @@ project-runtime" decision. The dev-time/runtime *distinction* that decision drew
 still stands.
 **Gate:** this decision reverses a standing rule; ratified by explicit human
 go-ahead, 2026-05-21.
+
+## 2026-05-24 — Treat 100% metrics in small-N tests as suspicious-clean
+**Decision:** When a research metric reads exactly 100% (or 0%) on a small-N
+test driven by a strongly-directive prompt, do not treat the result as
+evidence of robustness. Investigate the prompt and the N before adopting.
+**Correction:** Default to disbelieving small-N clean reads; raise N or
+soften the prompt before trusting.
+**Alternatives:** (a) trust the metric and ship — rejected, this is how
+prior-driven results get over-claimed (cf. D-028 cooperation lock-in is a
+Gemma 4 prior); (b) widen the test set silently — rejected, hides the
+methodological constraint.
+**Rationale:** Day-4 tool_call_invocation_rate=1.00 on the e2e set (see
+brain page `anomaly-tool-call-100pct`) was driven by a system prompt
+mandating tool use. A 100% metric on a small N with a strong directive
+prompt is structurally biased upward, not a robustness signal.
+**Reversibility:** trivial — single-line rule of practice, no infra
+implication.
+**Supersedes:** none
+
+## 2026-05-24 — Reconcile state-file lag against run-log during gate-armed periods
+**Decision:** When `resume-state` finds the state file's
+`completed_tasks` shorter than the run log's completed entries across a
+gate-armed window, treat the run log as canonical for the held period.
+Walk it to determine what is done; do not re-run completed work based on
+the lagging state.
+**Correction:** Trust the run log over the state file when they disagree
+across a gate-armed period.
+**Alternatives:** (a) require write-through to state during holds —
+rejected, makes the "held but working" state ambiguous (state in a hold
+should be a record of the hold, not a mutable buffer); (b) leave the
+behavior project-specific — rejected, leaves a real resume-during-hold
+recovery failure mode unguarded across projects.
+**Rationale:** H006 finding in `a_bgt_rsi` `week1.run.jsonl` L137 — 16
+day_7 task IDs were backfilled into `state.completed_tasks` AFTER the
+publication-review gate cleared at L136. During the gate-armed window
+(L125 onward), the run log had the tasks; the state file did not. A
+session that crashed and resumed during the hold would have either
+re-run completed work (trusting state) or invented an ad-hoc
+reconciliation; making the run log canonical for held periods is what
+the consumer did manually and is the rule we encode now.
+**Reversibility:** trivial — single-paragraph protocol clarification in
+`resume-state` SKILL.md; the rule of practice itself is the durable
+artifact, regenerated into `rules.md` as FR-002 by `regen_rules.py`.
+**Supersedes:** none — extends [[resume-state]] step 5.
+
+## 2026-05-24 — Defer S19-S20 uplift test pending consumer choice
+**Decision:** Defer the Phase-4 uplift test (S19-S20: onboard a second,
+less-disciplined consumer, run it with and without the runtime-safe core,
+measure audit-completeness uplift). No consumer is being chosen at this
+time; the gate `s19_choose_uplift_consumer` clears as
+*deferred-by-human-choice*. Advance to S21 (Phase 5).
+**Alternatives considered:**
+(a) Spin up a toy `latency-probe` project — rejected for now: no immediate
+    appetite, and a toy's realism is bounded.
+(b) Spin up a toy RAG eval harness — rejected for now: same reasoning.
+(c) Adopt an existing real project — rejected for now: no named candidate;
+    higher scope risk than a toy without proportional payoff today.
+(d) Proceed to Phase 5 (S21+) — **chosen.**
+**Rationale:** The Charter's uplift claim is structurally testable only
+with a less-disciplined second consumer; doing it well requires
+deliberate setup that the user is not ready to commit to today. Phase 5
+(autonomous spawned agents) does not depend on uplift evidence being
+gathered first. The deferral is recorded so v1.0 (S24) can be honest
+that uplift remains untested — or so a future session can pick it up.
+**Reversibility:** trivial — return to S19 when a consumer is named;
+all S19-S20 plan content remains in `plan.md`.
+**Supersedes:** none.

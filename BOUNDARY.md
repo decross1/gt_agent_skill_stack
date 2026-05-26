@@ -61,7 +61,16 @@ A skill is `runtime-safe: true` only if it satisfies all of:
    runtime-safe `SKILL.md` stays terse and self-contained.
 4. **No surprising side effects.** Its only writes are to its own declared log
    or state file. It never takes an irreversible action without a gate.
-5. **Closed dependency set.** It references only other runtime-safe skills.
+5. **Closed dependency set.** It does not *invoke* any non-runtime-safe skill
+   at runtime. Documentation-style references (e.g. a "Pairs with [[link]]"
+   pointer, or naming another skill for the reader's context) to
+   non-runtime-safe skills are allowed when they help comprehension;
+   what is forbidden is *procedural reliance* — the agent calling a
+   non-runtime-safe skill as part of executing this one. Falsifiable test:
+   if the referenced skill were absent from the runtime, can this skill
+   still complete its declared procedure? If yes, the reference is
+   documentation and the rule holds. If no, the dependency is procedural
+   and must point at another runtime-safe skill.
 
 Layer A skills are *designated* runtime-safe as of `plan.md` Session 5. Per-skill
 conformance to this contract is verified and hardened in Phase 3; until a skill
@@ -84,11 +93,62 @@ machine, can inherit whatever is there.
 `install.sh --global-pi` is the explicit, warned opt-in. The default keeps the
 leak closed.
 
+## The brain firewall
+
+The brain (Phase 3.5: `memory/brain/`, the `narrate` / `propose` /
+`review-proposal` / `brain-recall` skills, the `ingest_apparatus.py` /
+`render_brain.py` / `project_pages.py` / `regen_rules.py` scripts, the
+`graph.html` viewer) is a **dev-time observation and reflection substrate**.
+It has a specific, narrow relationship to apparatus runtime:
+
+- The apparatus runtime **emits into** the brain *indirectly* — its own JSONL
+  logs are read by `scripts/ingest_apparatus.py` *from the dev side*. The
+  apparatus does not import, link to, or call any brain code.
+- The apparatus runtime **never reads from** the brain. No brain skill ever
+  appears in apparatus-runtime skill discovery. No apparatus agent ever
+  invokes `brain-recall`, `propose`, or any other brain skill.
+
+**Why.** A runtime agent that reads from a developer-curated corpus *about
+itself* is a self-reference loop with no external grounding. It is exactly
+how an agent talks itself into a local optimum or amplifies a stale
+correction. The brain's value is dev-time visibility and human review —
+not runtime input.
+
+**Enforcement.** All brain skills (and every other dev-only skill) carry
+`runtime-safe: false` in their SKILL.md frontmatter. The framework's
+`install.sh` script enforces a **frontmatter-driven filter** per
+install target — any target whose filter is `runtime-safe` symlinks
+*only* skills with `runtime-safe: true`; everything else is firewalled
+out. The Pi target (`pi`) ships with `filter=runtime-safe` by default
+(see `install.sh --list-targets`).
+
+**Verification:**
+
+```sh
+./install.sh --verify-firewall              # default target: pi
+./install.sh --verify-firewall claude-code  # any other target by name
+# Expected: "✓ firewall intact" — or, if filter='all',
+# "(filter is 'all' — nothing to enforce; trivially intact)".
+```
+
+If a violation is reported, run `./install.sh --uninstall && ./install.sh
+--target pi` (or whichever target) to re-seal.
+
 ## Keeping the line
 
 **On this framework's side:**
-- `install.sh --global` installs for Claude Code only; `--global-pi` is the
-  explicit, warned opt-in; `--uninstall` removes every global symlink cleanly.
+- `install.sh` is target-driven (see `--list-targets`). Two targets are
+  registered out of the box: `claude-code` (filter=all, dev harness)
+  and `pi` (filter=runtime-safe, runtime harness). Back-compat aliases
+  `--global` → `claude-code` and `--global-pi` → `claude-code` + `pi`
+  still work.
+- Any new harness is added by appending one row to the three `TARGET_*`
+  associative arrays at the top of `install.sh`. Ad-hoc installs to an
+  unregistered path use `--target-path PATH [--filter F]` (filter
+  default: `runtime-safe`).
+- `--uninstall` removes every symlink the script created in `local` and
+  in every *registered* target. `--verify-firewall [NAME]` audits a
+  named target's filter is held; default target is `pi`.
 
 **On the project's side** (the project owns this):
 - A project whose runtime runs on Pi must **pin its own skill discovery** —

@@ -121,7 +121,8 @@ or runtime agent: `gate-check`, `validate`, `run-log`, `fallback`, `resume-state
 
 Phases 0–2 (Sessions 1–6) are **fixed** — they stand up the loop and resolve the
 framework's identity. Sessions 7+ are **feedback-driven**: order and count flex
-with the harvest. A minimum-viable arc completes at Session 6; the full arc at 20.
+with the harvest. A minimum-viable arc completes at Session 6; the full arc at
+24 (extended from 20 on 2026-05-24 to add Phase 3.5 — The Brain, S13–S16).
 
 ### Phase 0 — Stabilize & bootstrap
 
@@ -205,30 +206,105 @@ assumption), and runtime-safe rewrites of the Layer-A core.
   S11 ✅ — `ship` integration flow + no-unified-runner; `health` light touch (2026-05-23).
   S12 ✅ — `gate-check` attestation- vs verification-cleared gates (2026-05-23).
 
+### Phase 3.5 — The Brain (Sessions 13–16)
+
+A research-tuned observation + reflection + proposal-review engine. Inspired
+by gbrain (Garry Tan) but file-first, write-only on the apparatus runtime, and
+strictly dev-time (no new Layer-A skill, explicit firewall against
+inheritance into apparatus-runtime skill discovery). Full durable plan at
+`~/.claude/plans/mighty-munching-fairy.md`; this section is the sequencing
+view. Falsifiable claim: reduces files-opened to reconstruct a day's
+apparatus activity from 6+ to ≤ 1; bounded `brain-recall` reduces agent
+drift across sessions. Each phase carries a kill-switch metric.
+
+**Session 13 — Phase B0: minimal substrate.**
+- 13.1 Insert Phase 3.5 into `plan.md`; renumber Phase 4 → S17–S20 and
+  Phase 5 → S21–S24.
+- 13.2 Create `memory/brain/narratives.jsonl` (empty, append-only) +
+  `memory/brain/view/.gitkeep`.
+- 13.3 Author `.agents/skills/narrate/SKILL.md` (Layer B, runtime-safe
+  false) — end-of-task reflection writeback.
+- 13.4 Author `scripts/render_brain.py` — joins `week1.run.jsonl` +
+  `framework.run.jsonl` + `narratives.jsonl` + `DECISIONS.md` →
+  `memory/brain/view/<YYYY-MM-DD>.md`.
+- 13.5 Author `scripts/ingest_apparatus.py` — deterministic projection of
+  `a_bgt_rsi/logs/*.jsonl` into `narratives.jsonl` as `apparatus_event`
+  entries. Idempotent.
+- 13.6 Edit `resume-state` to surface last N `correction:`-flagged
+  DECISIONS.md entries in the briefing.
+- 13.7 Edit `context-restore` to surface the same.
+- 13.8 Edit `decision-log` to document the `correction:` flag convention.
+- **Deferred harvest note.** A_bgt_rsi has advanced 26 commits and 38
+  run-log lines (`5fe49b9`, week1.run.jsonl line 134) since the H004
+  watermark — Day 7 PD experiment, Week-1 retrospective attestation, Day
+  8 cleanup. Per the living-plan rule, the harvest is **deferred**, not
+  papered over — it is logged as the next session's first task (S14).
+  Rationale: the brain build is the higher-priority short-term upside the
+  user named, and `ingest_apparatus.py` will surface the new apparatus
+  activity into the rendered view as a side effect of B0 validation.
+- **Pass-signal:** `render_brain.py --day 2026-05-23` collapses ≥ 4 source
+  files (week1.run.jsonl, framework.run.jsonl, DECISIONS.md, narratives.jsonl)
+  into one view; `narrate` writes well-formed JSONL; ingest is idempotent.
+- **Kill switch:** if the rendered view isn't usable, halt before S14.
+
+**Session 14 — Phase B1: typed edges + page projection + graph visual.**
+- First: run the deferred S13 harvest (a_bgt_rsi 224d284..5fe49b9, run.jsonl
+  lines 97–134, DECISIONS up to D-027 → current).
+- Then: create `memory/brain/edges.jsonl` (append-only). Extend `narrate`
+  to declare typed edges at write-time. Author `scripts/project_pages.py`
+  (page projection). Author `memory/brain/view/graph.html` (vendored
+  visualizer). Edit `experiment` and `harvest` to emit edges.
+- **Pass-signal:** graph visualizes the Day 4 anomaly with its lineage
+  `hypothesis → experiment → anomaly → correction`; backlinks consistent;
+  no orphan edges.
+- **Kill switch:** if the graph adds no insight beyond the per-day view,
+  halt before S15.
+
+**Session 15 — Phase B2: proposal-review loop + rules.md.**
+- Create `memory/brain/proposals.jsonl` + `memory/brain/rules.md`
+  (regenerated). New skills `propose`, `review-proposal`. Author
+  `scripts/regen_rules.py` digesting `correction:`-flagged DECISIONS.md.
+  Encode auto-reject logic against active rules.
+- **Pass-signal:** ≥ 3 proposals through the loop (≥ 1 each accept /
+  reject / human-review); accepted proposals materialize as new
+  DECISIONS.md entries with `supersedes:` chains where applicable.
+- **Kill switch:** if no proposals filed in 2 sessions, remove the loop.
+
+**Session 16 — Phase B3: `brain-recall` with bounded read + firewall.**
+- New skill `.agents/skills/brain-recall/SKILL.md` (Layer B, dev-time).
+  Bounded query: top-N by `(recency × tag-match × scope)`. Active-correction
+  filter (not-superseded + `last_reviewed` window).
+- `install.sh` excludes brain skills from `--global-pi`. `BOUNDARY.md` gets
+  a new firewall section with a verification command.
+- **Pass-signal:** `brain-recall` returns ≤ K tokens per query; apparatus
+  runtime skill list contains no brain skill; firewall verification passes.
+- **Kill switch:** if no dev-time agent voluntarily invokes `brain-recall`
+  over 2 sessions, drop it.
+
 ### Phase 4 — Portability & uplift
 
-**Session 13 — Pi migration check** (the long-deferred Task 5). Verify the
+**Session 17 — Pi migration check** (the long-deferred Task 5). Verify the
 framework loads and runs in Pi; verify the runtime-safe core can be loaded into a
 Pi runtime agent without the dev-only layers.
 
-**Session 14 — Install/discovery abstraction.** Generalize `install.sh` beyond
+**Session 18 — Install/discovery abstraction.** Generalize `install.sh` beyond
 hardcoded `~/.claude` and `~/.pi` toward a discovery story for "any system."
 
-**Sessions 15–16 — Onboard a second, weaker consumer** *(Gate: human picks the
+**Sessions 19–20 — Onboard a second, weaker consumer** *(Gate: human picks the
 consumer — toy or real)*. Run it with and without the runtime-safe core; measure
 audit completeness. This is the **uplift test** `a_bgt_rsi` cannot provide.
 
 ### Phase 5 — Autonomy & generalization
 
-**Sessions 17–18 — Make "autonomously spawned agents" first-class.** A spawned
+**Sessions 21–22 — Make "autonomously spawned agents" first-class.** A spawned
 agent receives a task contract, the runtime-safe core, a self-gating protocol, a
 self-reporting protocol, and an explicit authority boundary. Likely a new
 `spawn-contract` template skill.
 
-**Session 19 — Package Layer B as an optional vertical pack** and document how to
+**Session 23 — Package Layer B as an optional vertical pack** and document how to
 add other verticals (product, data-pipeline, …).
 
-**Session 20 — v1.0.** Rewrite `README.md`/`AGENTS.md` for "any system"; final
+**Session 24 — v1.0.** Rewrite `README.md`/`AGENTS.md` for "any system"; final
 harvest; retrospective; check the Charter's decision rule against accumulated
 evidence.
 
@@ -293,7 +369,7 @@ item cites the harvest finding(s) behind it.
 |---|---|---|
 | Session 1.1 | Install-behavior change | Human nod (low stakes, reversible). |
 | Session 5.2 | Rewriting the standing dev-time-only rule | Explicit ratification + `DECISIONS.md` entry. |
-| Sessions 15–16 | Choice of the second consumer | Human selects the project. |
+| Sessions 19–20 | Choice of the second consumer | Human selects the project. |
 
 ---
 
@@ -303,4 +379,5 @@ This plan is a record, not reality. Each session reconciles it against the repo
 and against `feedback.jsonl`. When the harvest disagrees with the planned order,
 the harvest wins — surface the divergence, re-sort, and log it. The 5–20 session
 range is honored: Sessions 1–6 are the minimum viable arc (loop running, identity
-resolved); Sessions 7–20 are the feedback-driven remainder.
+resolved); Sessions 7–24 are the feedback-driven remainder (Phase 3.5 inserted
+2026-05-24, extending the original 20-session arc).

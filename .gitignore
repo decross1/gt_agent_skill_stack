@@ -2,3 +2,8 @@
 /CLAUDE.md
 /.claude/skills
 /.claude/agents
+
+# Runtime artifacts from background processes (brain HTTP server, brain watcher).
+# These are local-process state, not source — pid + log rotate per-machine.
+/run_state/brain-*.log
+/run_state/brain-*.pid

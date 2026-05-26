@@ -2,6 +2,7 @@
 name: decision-log
 layer: C
 runtime-safe: false
+pack: meta
 description: Record a durable decision so its reasoning survives. Use when a non-obvious, hard-to-reverse, or contested choice is made — captures the decision, the alternatives considered, the rationale, the reversibility, and any supersedes-link as one append-only dated entry.
 ---
 
@@ -40,6 +41,28 @@ project's own). Every entry carries, at minimum:
   needs and can least reconstruct.
 - **Supersedes** — the earlier decision this replaces, by ID or date, or
   "none".
+
+## Corrections — a tagged sub-class of decision
+
+A **correction** is a decision-log entry that names a *rule of practice* the
+agent is expected to honor going forward — distinct from an architecture
+pick, a version pin, or a one-off scope cut. Examples: "never coerce a
+validation," "merge `--no-ff` for sub-agent work," "skill discovery on Pi
+must be pinned to a project-local directory."
+
+Mark a correction with an explicit `**Correction:**` line (value: short
+imperative form) in the entry, or by a title that itself names a rule
+("Never coerce a validation"). The flag is what makes corrections
+*recallable* — [[resume-state]] and [[context-restore]] surface the last
+*N* unsuperseded corrections in their briefings, so the next agent
+invocation grounds itself in current rules without each invocation having
+to rediscover them.
+
+A correction follows the same Rules below (append-only, alternatives and
+reversibility mandatory, supersedes-chain maintained). A correction is
+*not* a softer version of a decision — it is a decision that asserts a
+rule. When a rule is later revised, the new correction supersedes the old
+one and the old one stays as the record of what was believed and when.
 
 ## Rules
 

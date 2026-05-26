@@ -2,6 +2,7 @@
 name: orchestrate
 layer: C
 runtime-safe: false
+pack: meta
 description: Decompose a larger task and delegate its parts to specialized dev agents. Use when a task spans planning, building, experimenting, and verification — it splits the work, routes each part to the right agent profile, sequences the hand-offs, and reconciles the results.
 ---
 
@@ -12,6 +13,13 @@ Each part goes to the agent profile built for it; this skill is the conductor.
 
 This is a **dev-time** skill — it orchestrates the agents that help build a
 project. It is not a project's own runtime orchestrator. See `BOUNDARY.md`.
+
+For the **autonomous-spawn case** — when a parent agent (dev-time or
+runtime) hands a task to a child that will execute *without a human in
+the loop* between dispatch and report — use [[spawn-contract]] instead.
+`orchestrate` assumes a human watching the multi-role flow; `spawn-contract`
+is the same kind of decomposition but with the human gap closed by an
+explicit, bounded, immutable contract written before the child runs.
 
 ## When to use
 
