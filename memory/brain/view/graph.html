@@ -81,6 +81,11 @@
     <button class="tab-btn" id="tab-decisions">Decisions (0)</button>
     <button class="tab-btn" id="toggle-mechanics" title="Show/hide per-iteration plumbing (orchestrator_event + llm_call). Off by default — the graph defaults to the Research view.">Mechanics</button>
     <div class="spacer"></div>
+    <select id="mode-toggle" title="Switch which sub-graph is on the canvas. Execution = agents + runs + tool calls. Self-improvement = harvest → proposal → rule. All = both (debug).">
+      <option value="execution">mode: execution</option>
+      <option value="self_improvement">mode: self-improvement</option>
+      <option value="all">mode: all</option>
+    </select>
     <select id="focus-iteration" title="Isolate the subgraph reachable from one iteration" style="max-width: 280px;">
       <option value="" selected>focus: all iterations</option>
     </select>
@@ -173,10 +178,41 @@ const DATA = (typeof window.BRAIN_GRAPH === "object" && window.BRAIN_GRAPH) || {
 const PAGES = DATA.pages || {};
 const PROPOSALS = DATA.proposals || [];
 
+// View modes — split the canvas into two purpose-built sub-graphs.
+//
+//   execution        — agents + iterations + stages + plumbing. "What ran,
+//                      by whom, with what?" Default landing view.
+//   self_improvement — harvest_finding → proposal → rule chain plus the
+//                      corrections that enact rules. "What discipline are
+//                      we adopting?" Smaller graph, denser meaning.
+//   all              — both, for debug.
+//
+// `decision` is hidden in every mode; the Decisions tab is the entry point.
+// Mode is persisted in localStorage. Changing the dropdown reloads the page —
+// simpler than dynamic re-render and the flash is acceptable for a research
+// tool. Hard-refresh-friendly: bookmark a mode by selecting it once.
+const VIEW_MODES = {
+  execution: new Set(["decision", "harvest_finding", "proposal", "rule", "correction"]),
+  self_improvement: new Set([
+    "decision",
+    "iteration", "stage", "orchestrator_event", "llm_call",
+    "reflection", "hypothesis", "anomaly", "experiment", "apparatus_event",
+  ]),
+  all: new Set(["decision"]),
+};
+const STORED_MODE = (() => {
+  try { return localStorage.getItem("brain.viewMode"); } catch (_) { return null; }
+})();
+const VIEW_MODE = (STORED_MODE && VIEW_MODES[STORED_MODE]) ? STORED_MODE : "execution";
+const GRAPH_HIDDEN_TYPES = VIEW_MODES[VIEW_MODE];
+
 // Detect dark mode (used for canvas text + future contrast-aware bits)
 const IS_DARK = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 const nodesById = new Map();
-DATA.nodes.forEach(n => nodesById.set(n.slug, { ...n, x: 0, y: 0, vx: 0, vy: 0 }));
+DATA.nodes.forEach(n => {
+  if (GRAPH_HIDDEN_TYPES.has(n.type)) return;
+  nodesById.set(n.slug, { ...n, x: 0, y: 0, vx: 0, vy: 0 });
+});
 
 const dangling = [];
 const edges = [];
@@ -213,13 +249,13 @@ document.getElementById("tab-proposals").textContent = `Proposals (${PROPOSALS.l
 //               Default OFF.
 // Types that exist in the graph but aren't listed here land in Research as a
 // safety net (new entity types appear visible by default).
+// `decision` is intentionally absent — hidden from the graph via
+// GRAPH_HIDDEN_TYPES. The Decisions tab remains the entry point for them.
 const FILTER_GROUPS = [
   { key: "research",  label: "Research",  defaultOn: true,
     types: ["iteration", "stage", "correction", "anomaly", "experiment", "hypothesis", "reflection"] },
   { key: "loop",      label: "Loop",      defaultOn: true,
     types: ["harvest_finding", "proposal", "rule"] },
-  { key: "history",   label: "History",   defaultOn: false,
-    types: ["decision"] },
   { key: "mechanics", label: "Mechanics", defaultOn: false,
     types: ["orchestrator_event", "llm_call"] },
   { key: "other",     label: "Other",     defaultOn: false,
@@ -320,6 +356,16 @@ let dateWindowDays = null; // null = no date filter
 dateRangeSelect.addEventListener("change", e => {
   const v = e.target.value;
   dateWindowDays = v === "all" ? null : parseInt(v, 10);
+});
+
+// Mode toggle — reflect the stored mode in the dropdown; on change, persist
+// and reload. Reload (rather than dynamic re-build) keeps node lookup, edge
+// indexing, and the simulation in a single coherent initial pass.
+const modeSelect = document.getElementById("mode-toggle");
+modeSelect.value = VIEW_MODE;
+modeSelect.addEventListener("change", e => {
+  try { localStorage.setItem("brain.viewMode", e.target.value); } catch (_) {}
+  location.reload();
 });
 
 function inDateWindow(n) {
