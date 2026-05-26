@@ -91,6 +91,25 @@ File-based and harness-agnostic, so nothing is lost moving between Pi and Claude
 Code. Pi's runtime `retain`/`recall` and Claude Code's memory tool work on top
 of these files; the files are canonical. `DECISIONS.md` is append-only.
 
+## Brain (Phase 3.5)
+
+Append-only JSONL substrate under `memory/brain/` (narratives, edges, proposals)
+plus deterministic projections to markdown pages and a single-file graph viewer
+at `memory/brain/view/graph.html`. Apparatus runtimes (e.g. `a_bgt_rsi`) emit
+JSONL; `scripts/ingest_apparatus.py` projects it into narratives + lineage
+edges; `scripts/project_pages.py` renders pages + the graph index;
+`scripts/render_brain.py` emits the per-day join. The brain firewall is
+strict — apparatus never reads from the brain (see `BOUNDARY.md`).
+
+Two operational scripts wrap the above with pidfile + log + lifecycle:
+
+- `scripts/serve_brain.sh` — HTTP server (default `127.0.0.1:5174`) serving
+  the graph viewer + per-day markdown. `BRAIN_BIND=0.0.0.0` for LAN.
+- `scripts/watch_brain.sh` — pure-stdlib polling daemon that fires the
+  ingest → project → render pipeline on apparatus JSONL changes
+  (debounced ~1.5s). Run `scripts/watch_brain.sh start` once and the brain
+  stays in sync.
+
 ## Scope boundary
 
 The framework is primarily a **dev-time harness** — it helps build projects.

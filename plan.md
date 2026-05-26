@@ -381,3 +381,74 @@ the harvest wins — surface the divergence, re-sort, and log it. The 5–20 ses
 range is honored: Sessions 1–6 are the minimum viable arc (loop running, identity
 resolved); Sessions 7–24 are the feedback-driven remainder (Phase 3.5 inserted
 2026-05-24, extending the original 20-session arc).
+
+---
+
+## Next horizon — post-Phase-5 sketches (2026-05-26)
+
+After the LOOP_V0 observability work + auto-ingest watcher + decisions tab landed,
+four directions are queued. Each is a sketch — what's the *smallest experiment*
+that would tell us whether it's worth building?
+
+### N1 — Sidebar UX deepening
+
+**Goal:** When a node is selected, the sidebar should answer "what was this and
+what did it lead to?" without scrolling through Outgoing/Incoming slug lists.
+**Smallest experiment:** For `stage` nodes, render a compact 1-line summary
+(worker + status + tool result key fact, e.g. *"Retrieve — passed — 10 neighbors,
+top: arxiv 2605.17662"*). Pull from the iteration's `narration_log` + the LLM
+call's `prompt_messages[-1].content[tool_role]` already in the brain. If the
+1-liner is sufficient on iter-008 (the canary), defer the larger redesign.
+**Reversibility:** trivial — sidebar render in `graph.html` only.
+
+### N2 — Verify the proposal/feedback loop is *actually* closing
+
+**Goal:** The chain is `harvest finding → propose → review-proposal verdict →
+implementation → updated rules/skills`. Today the only evidence the loop closes
+is anecdotal: P-005 and P-007 were closed manually this session, P-001/002/003
+back in S15. We have not measured: how many open proposals stagnate? Are
+auto-rejects actually rule-grounded? Does an accepted proposal lead to a code
+change within N sessions?
+**Smallest experiment:** Add a tiny report — `scripts/proposal_health.py` —
+that prints, per proposal: filed-at, days-open, verdict (if any), and (for
+accepted) whether a commit referenced its `proposal_id` in the message. Run it
+once; flag any stalled / unverified entries. If the report surfaces real gaps,
+build the harvest → proposal automation; if everything's clean, leave the loop
+manual.
+**Reversibility:** trivial — read-only script.
+
+### N3 — Framework piping into the things it spawns
+
+**Goal:** Today the framework helps Derrick build apparatuses. The next step is
+for the framework's *spawn-contract* + runtime-safe core to actually govern an
+autonomous child agent dispatched from the apparatus side. Right now
+`spawn.jsonl` only carries dev-time SP-001..003 entries (per CLAUDE.md
+boundary). The runtime path is documented but unexercised.
+**Smallest experiment:** From `a_bgt_rsi`, have Nara file ONE spawn-contract
+entry for a single LOOP_V0 worker call (e.g. `retrieve_literature`), then run
+it under the contract — done-condition, authority cap, budget. Spawn ledger
+entry lands in the brain (read by ingest); the iteration's stage node links to
+the spawn page. Validates the contract → child → reconciliation → graph flow
+end to end with no behavior change to the apparatus.
+**Reversibility:** medium — apparatus-side change in `orchestrator/nara.py`,
+revertable but needs care so the contract write isn't accidentally read by
+brain code (firewall).
+
+### N4 — Measurable brain improvement over time
+
+**Goal:** The Phase 3.5 kill-switch was "≤1 file opened to reconstruct a day's
+activity (vs 6+ before)." We hit that, but it was a one-shot win. The harder
+question: does the brain *get smarter* — i.e. do active rules + accepted
+proposals + harvest findings compound, making each subsequent session need less
+remembering? Without a metric, we can't tell.
+**Smallest experiment:** At the start of every session, the resume-state /
+context-restore skill already surfaces active corrections. Add a 3-number
+snapshot to the briefing: (a) active-rules count, (b) days since last
+human-review proposal closed, (c) median time-to-resume (clock from session
+start to first run-log entry). Track over 5 sessions; if (a) grows and (c)
+shrinks, the brain is compounding. If not, dig in.
+**Reversibility:** trivial — read-only snapshot inside an existing skill.
+
+These are not Sessions yet — they're hypotheses worth small experiments. When
+one passes its smallest-experiment bar, lift it into a numbered Session below
+**Sessions** with a falsifiable success criterion.

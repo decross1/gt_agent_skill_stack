@@ -169,3 +169,77 @@ that uplift remains untested — or so a future session can pick it up.
 **Reversibility:** trivial — return to S19 when a consumer is named;
 all S19-S20 plan content remains in `plan.md`.
 **Supersedes:** none.
+
+## 2026-05-26 — Brain UI: stage projection model (collapse dispatch+receipt+call per worker)
+**Decision:** In `scripts/project_pages.py::synthesize_stages`, collapse each
+`(iteration, tool)` triple — `loop_v0_tool_dispatch` event + `loop_v0_tool_receipt`
+event + the vLLM call they wrap — into one synthetic **`stage`** node per worker.
+Stage entities live only in `graph_data.js` / `pages/`; the underlying narratives
+and edges in `narratives.jsonl` / `edges.jsonl` are untouched. Stages get a
+per-worker color (Hypothesize/Retrieve/Novelty/Critique/Journal) so the per-
+iteration pipeline reads at a glance.
+**Alternatives considered:**
+(a) Hide mechanical nodes entirely via filter — rejected: lineage debugging
+    becomes impossible.
+(b) Emit stages into `edges.jsonl` + a new narrative type — rejected: pollutes
+    the canonical append-only ledger with derived data; re-projection would
+    require schema versioning.
+(c) Defer to per-iteration markdown rendering (no graph nodes) — rejected:
+    loses the cross-iteration comparability that the graph affords.
+**Rationale:** The user's "I can't tell what is doing what" feedback was about
+the graph being 78% mechanical noise. Stages are a *view* over the raw data —
+turning them on/off is a UI concern, not a data concern. Keeping the synthesis
+in `project_pages.py` keeps `edges.jsonl` clean (only narrate / ingest emit
+there) and means we can change the stage model without migrating data.
+**Reversibility:** trivial — delete `synthesize_stages()` and the edge filter
+in `project_pages.py::main()`. Brain reverts to the iter+event+call view.
+**Supersedes:** none.
+
+## 2026-05-26 — Brain UI: decisions removed from graph by default; dedicated tab
+**Decision:** `decision` type moves out of the **Research** filter group into a
+new **History** group with `defaultOn: false`. The graph default-hides all 40
+decision nodes. The sidebar gains a **Decisions** tab listing them newest-first
+with framework/apparatus side badge, clicking a row renders the full decision
+page in the panel. Decision nodes remain in `DATA.nodes` so cross-reference
+edges (correction `references` decision) still resolve when followed from
+another node's sidebar.
+**Alternatives considered:**
+(a) Drop decisions from `graph_data.js` entirely — rejected: breaks
+    correction→decision navigation.
+(b) Keep decisions in Research filter group, default on — rejected: 40 decision
+    nodes dominate a graph designed for iteration walking.
+(c) Show decisions only when a correction is selected — rejected: too clever,
+    surprising UX.
+**Rationale:** Decisions are durable history, not active research. A flat
+chronological list is the right interaction (`What did we decide on date X?`)
+— the graph adds nothing. Keeping them in `DATA.nodes` preserves brain
+integrity (every page is graphable on demand) without committing to drawing
+them all every render.
+**Reversibility:** trivial — move `decision` back into `FILTER_GROUPS.research`
+in `graph.html`. The tab survives the change as a bonus access path.
+**Supersedes:** none.
+
+## 2026-05-26 — Brain auto-ingest: file watcher daemon over cron
+**Decision:** `scripts/watch_brain.py` is a pure-stdlib polling daemon
+(`scripts/watch_brain.sh` lifecycle wrapper, mirrors `serve_brain.sh`). It
+polls `a_bgt_rsi/{run_state,memory,logs}/*.jsonl` mtime+size every 1s, debounces
+1.5s after the last change, then fires `ingest_apparatus.py → project_pages.py
+→ render_brain.py`. ~3s end-to-end latency from apparatus write to graph
+update.
+**Alternatives considered:**
+(a) cron every 5min (P-007's original suggestion) — rejected: 5-min lag is too
+    long for the "is anything running right now?" question, AND 95% of cron
+    fires are no-ops (wasted invocations).
+(b) Apparatus-side post-iteration hook — rejected: violates the brain firewall
+    (apparatus would have to know about the brain).
+(c) inotify / `watchfiles` dep — rejected: extra runtime dependency for a use
+    case that pure-stdlib handles fine.
+(d) systemd path unit — rejected: ties to a specific init system; less portable
+    than a shell-wrapped Python process with pidfile + log.
+**Rationale:** File-first + write-only-on-apparatus rails are non-negotiable.
+The watcher reads apparatus JSONL only, never writes back. Polling is "slower"
+than inotify but invisible at the human-feedback latency scale (~3s vs ~1s).
+Idempotent pipeline + (file,line) dedup makes spurious wakeups cheap.
+**Reversibility:** trivial — `scripts/watch_brain.sh stop` and remove the two
+files. Brain returns to manual `ingest -> project -> render` runs.
+**Supersedes:** none.

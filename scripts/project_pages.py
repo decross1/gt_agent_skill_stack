@@ -36,6 +36,15 @@ GRAPH_DATA = REPO / "memory" / "brain" / "view" / "graph_data.js"
 FW_DECISIONS = REPO / "memory" / "DECISIONS.md"
 AP_DECISIONS = CONSUMER / "DECISIONS.md"
 
+# Apparatus files read directly for stage synthesis (read-only — brain firewall).
+# loop_memory.jsonl moved from run_state/ to memory/ at some point; try both.
+CONSUMER_LOOP_MEMORY_CANDIDATES = (
+    CONSUMER / "memory" / "loop_memory.jsonl",
+    CONSUMER / "run_state" / "loop_memory.jsonl",
+)
+CONSUMER_WEEK1_RUN = CONSUMER / "run_state" / "week1.run.jsonl"
+CONSUMER_CALLS = CONSUMER / "logs" / "calls.jsonl"
+
 DECISION_HEADER_RE = re.compile(
     r"^##\s+(?P<head>(?P<date>\d{4}-\d{2}-\d{2})|D-\d+)\s*[—–-]\s*(?P<title>[^\n]+)$",
     re.MULTILINE,
@@ -231,6 +240,222 @@ def entity_from_narrative(n: dict) -> dict:
     }
 
 
+# ---------------------------------------------------------------------------
+# Stage synthesis — collapse each (iteration, tool) dispatch+receipt+call triple
+# into one `stage` node so the default Research view shows a clean per-iteration
+# pipeline (Hypothesize → Retrieve → Novelty → Critique → Journal) instead of
+# 13+ mechanical nodes per iteration. The mechanical nodes still exist as
+# apparatus_event narratives — stages reference them via derived_from edges
+# so the trace is walkable when Mechanics view is enabled.
+#
+# Reads apparatus JSONL files directly (read-only — brain firewall preserved).
+# Synthetic edges live in graph_data.js only; never written to edges.jsonl.
+# ---------------------------------------------------------------------------
+
+# Friendly names for LOOP_V0 tool-calls (workers). Lookup is non-exhaustive;
+# tools not listed fall back to title-cased identifier.
+_WORKER_PRETTY = {
+    "hypothesize": "Hypothesize",
+    "retrieve_literature": "Retrieve",
+    "query_chroma": "Retrieve",          # LOOP_V0 Part 1 alias
+    "summarize_paper": "Summarize",
+    "play_pd_match": "PD Match",
+    "novelty_classify": "Novelty",
+    "critic_loop_v0": "Critique",
+    "journal_writer": "Journal",
+    "journal_writer_stub": "Journal",    # LOOP_V0 Part 1 alias
+}
+
+
+def worker_pretty(tool: str) -> str:
+    if tool in _WORKER_PRETTY:
+        return _WORKER_PRETTY[tool]
+    return tool.replace("_", " ").title()
+
+
+def load_iteration_records() -> list[dict]:
+    """Read loop_memory.jsonl from whichever candidate path exists."""
+    for p in CONSUMER_LOOP_MEMORY_CANDIDATES:
+        if p.exists():
+            return load_jsonl(p)
+    return []
+
+
+def load_loop_v0_events() -> list[dict]:
+    """LOOP_V0 events from week1.run.jsonl (with `_lineno` for slug parity with ingest)."""
+    if not CONSUMER_WEEK1_RUN.exists():
+        return []
+    out = []
+    with CONSUMER_WEEK1_RUN.open() as f:
+        for lineno, raw in enumerate(f, 1):
+            raw = raw.strip()
+            if not raw:
+                continue
+            try:
+                o = json.loads(raw)
+            except json.JSONDecodeError:
+                continue
+            if not (isinstance(o.get("event_type"), str) and o["event_type"].startswith("loop_v0_")):
+                continue
+            o["_lineno"] = lineno
+            out.append(o)
+    return out
+
+
+def load_calls_index() -> dict[str, str]:
+    """request_id -> slug of the apparatus_event narrative for that vLLM call."""
+    idx: dict[str, str] = {}
+    if not CONSUMER_CALLS.exists():
+        return idx
+    with CONSUMER_CALLS.open() as f:
+        for lineno, raw in enumerate(f, 1):
+            raw = raw.strip()
+            if not raw:
+                continue
+            try:
+                o = json.loads(raw)
+            except json.JSONDecodeError:
+                continue
+            rid = o.get("request_id")
+            if rid:
+                # mirrors narrative_slug() for apparatus_event from calls.jsonl
+                idx[rid] = slugify(f"apparatus-{Path(CONSUMER_CALLS.name).stem}-l{lineno}")
+    return idx
+
+
+def synthesize_stages() -> tuple[list[dict], list[dict]]:
+    """Build stage entities + synthetic edges from apparatus JSONL.
+
+    For each iteration in loop_memory.jsonl, group its LOOP_V0 events by tool
+    (dispatch + receipt pairs) and synthesize one `stage` entity per tool call,
+    in the order it appeared in `tool_calls_made`.
+
+    Edges:
+      - iteration --produced--> stage
+      - stage --derived_from--> triggering vLLM call (via parent_request_id)
+      - stage --derived_from--> dispatch event + receipt event
+
+    Returns (entities, edges). Edges are synthetic — not appended to edges.jsonl.
+    """
+    iterations = load_iteration_records()
+    events = load_loop_v0_events()
+    calls_index = load_calls_index()
+
+    # Group events by (iteration_id, tool); track which iterations had a fallback.
+    by_iter_tool: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    fallback_iters: set[str] = set()
+    for ev in events:
+        iid = ev.get("iteration_id", "")
+        if ev.get("event_type") == "loop_v0_fallback":
+            fallback_iters.add(iid)
+            continue
+        tool = ev.get("tool")
+        if tool:
+            by_iter_tool[(iid, tool)].append(ev)
+
+    entities: list[dict] = []
+    edges: list[dict] = []
+
+    for it in iterations:
+        iid = it.get("iteration_id", "")
+        if not iid:
+            continue
+        iter_slug = slugify(iid)
+        tools = it.get("tool_calls_made") or []
+        narration_log = it.get("narration_log") or []
+        # First narration entry per tool (the assistant's prose before invoking it).
+        narr_by_tool: dict[str, str] = {}
+        for ne in narration_log:
+            t = ne.get("tool")
+            if t and t not in narr_by_tool:
+                narr_by_tool[t] = (ne.get("text") or "").strip()
+
+        # Count occurrences of each tool to disambiguate slugs if a tool is called twice.
+        tool_seen_count: dict[str, int] = defaultdict(int)
+        for i, tool in enumerate(tools, start=1):
+            tool_seen_count[tool] += 1
+            occurrence = tool_seen_count[tool]
+            tool_events = by_iter_tool.get((iid, tool), [])
+            dispatch = next((e for e in tool_events if e.get("event_type") == "loop_v0_tool_dispatch"), None)
+            receipt = next((e for e in tool_events if e.get("event_type") == "loop_v0_tool_receipt"), None)
+            status = (receipt or {}).get("status") or "—"
+            parent_rid = (dispatch or {}).get("parent_request_id") or (receipt or {}).get("parent_request_id")
+            ts = (dispatch or receipt or {}).get("timestamp", "")
+            date = ts[:10] if ts else (it.get("started_at") or "")[:10]
+            narr_text = narr_by_tool.get(tool, "")
+
+            stage_slug = slugify(f"stage-{iid}-{tool}-{occurrence}")
+            pretty = worker_pretty(tool)
+
+            # Build sidebar body.
+            body_parts = [
+                f"**Step {i} of {len(tools)}** — tool `{tool}` ({pretty})",
+                f"**Status:** {status}",
+            ]
+            if iid in fallback_iters and i == len(tools):
+                # A loop_v0_fallback event in an iteration most plausibly maps to the
+                # last stage (the one whose receipt errored). Mark it visibly.
+                body_parts.append("⚠️ **Fallback fired** — primary path failed; recovery path ran.")
+            if narr_text:
+                trimmed = narr_text[:500] + ("…" if len(narr_text) > 500 else "")
+                body_parts.append(f"**Reasoning (Nara's prose before this step):**\n\n{trimmed}")
+            if parent_rid:
+                body_parts.append(f"**Triggered by call:** `{parent_rid[:8]}…`")
+
+            entities.append({
+                "slug": stage_slug,
+                "type": "stage",
+                "worker": tool,           # raw worker name — graph.html colors stages by this
+                "step": i,
+                "date": date,
+                "title": f"{pretty} — {iid} (step {i})",
+                "subtitle": f"worker: {tool}",
+                "body": "\n\n".join(body_parts),
+                "source": f"loop_memory.jsonl + week1.run.jsonl",
+            })
+
+            # iteration → produced → stage (visible in Research view)
+            edges.append({
+                "timestamp": ts,
+                "src": iter_slug,
+                "src_type": "iteration",
+                "type": "produced",
+                "dst": stage_slug,
+                "dst_type": "stage",
+                "source_event": iid,
+                "agent_id": "project_pages:synthesize_stages",
+            })
+            # stage → derived_from → triggering call (Mechanics view debug path)
+            if parent_rid and parent_rid in calls_index:
+                edges.append({
+                    "timestamp": ts,
+                    "src": stage_slug,
+                    "src_type": "stage",
+                    "type": "derived_from",
+                    "dst": calls_index[parent_rid],
+                    "dst_type": "apparatus_event",
+                    "source_event": iid,
+                    "agent_id": "project_pages:synthesize_stages",
+                })
+            # stage → derived_from → dispatch/receipt event nodes
+            for ev in tool_events:
+                ev_slug = slugify(
+                    f"event-{iid}-{ev.get('event_type','')}-{tool}-l{ev['_lineno']}"
+                )
+                edges.append({
+                    "timestamp": ev.get("timestamp", ts),
+                    "src": stage_slug,
+                    "src_type": "stage",
+                    "type": "derived_from",
+                    "dst": ev_slug,
+                    "dst_type": "apparatus_event",
+                    "source_event": iid,
+                    "agent_id": "project_pages:synthesize_stages",
+                })
+
+    return entities, edges
+
+
 def entity_from_decision(d: dict) -> dict:
     return {
         "slug": d["slug"],
@@ -283,6 +508,38 @@ def main() -> int:
         e = entity_from_decision(d)
         entities[e["slug"]] = e
 
+    # Synthesize per-tool stage entities from apparatus JSONL. Stages collapse
+    # the dispatch+receipt+call triple per worker into one node so the default
+    # Research view renders a clean per-iteration pipeline. Synthetic edges
+    # live only in graph_data.js — edges.jsonl stays canonical (only narrate/
+    # ingest-emitted edges).
+    stage_entities, stage_edges = synthesize_stages()
+    for e in stage_entities:
+        entities[e["slug"]] = e
+
+    # Suppress redundant iter -> {event, call} edges where a stage already
+    # covers the destination. Otherwise the graph draws TWO arrows into each
+    # mechanical node — one from the iteration root and one from the stage —
+    # which looks like the call has two parents. The right model is hierarchy:
+    # iter -> stage -> (event | call). iter -> {iteration_start, iteration_complete,
+    # fallback} stays because those events are NOT covered by any stage.
+    stage_covered_dsts = {
+        e["dst"] for e in stage_edges
+        if e.get("type") == "derived_from"
+    }
+    filtered_canonical = []
+    suppressed = 0
+    for e in edges:
+        src = e.get("src", "")
+        dst = e.get("dst", "")
+        if (src.startswith("iter-")
+                and e.get("type") == "produced"
+                and dst in stage_covered_dsts):
+            suppressed += 1
+            continue
+        filtered_canonical.append(e)
+    edges = filtered_canonical + stage_edges
+
     # Group edges by src and dst.
     out_edges: dict[str, list[dict]] = defaultdict(list)
     in_edges: dict[str, list[dict]] = defaultdict(list)
@@ -327,13 +584,17 @@ def main() -> int:
             p.unlink()
             swept += 1
 
-    # Write slim index for the graph viewer.
+    # Write slim index for the graph viewer. `worker` + `step` are populated for
+    # stage entities only — graph.html uses `worker` to pick a per-worker color
+    # from STAGE_COLORS so the 5-stage pipeline reads at a glance.
     index_records = [
         {
             "slug": e["slug"],
             "type": e["type"],
             "date": e.get("date", ""),
             "title": e.get("title", ""),
+            **({"worker": e["worker"]} if "worker" in e else {}),
+            **({"step": e["step"]} if "step" in e else {}),
         }
         for e in entities.values()
     ]
@@ -389,7 +650,8 @@ def main() -> int:
     )
 
     print(f"projected {written} pages → {PAGES}  (swept {swept} stale)")
-    print(f"  edges: {len(edges)}  dangling: {len(dangling)}")
+    print(f"  edges: {len(edges)}  dangling: {len(dangling)}  "
+          f"suppressed: {suppressed} iter->{{event,call}} edges covered by stages")
     if dangling:
         for d in dangling[:5]:
             print(f"  dangling: src={d.get('src')} → dst={d.get('dst')}  ({d.get('_reason', 'no src/dst')})")

@@ -23,4 +23,4 @@ _Evaluate this research topic: Folk theorem and cooperation in infinitely-repeat
 
 ## Referenced by
 
-- `iter-2026-05-26-002` (apparatus_event) — **produced**
+- `stage-iter-2026-05-26-002-query-chroma-1` (stage) — **derived_from**

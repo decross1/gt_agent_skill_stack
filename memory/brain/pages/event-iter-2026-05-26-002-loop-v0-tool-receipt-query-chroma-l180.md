@@ -15,5 +15,5 @@ _loop_v0_tool_receipt for iter-2026-05-26-002_
 
 ## Referenced by
 
-- `iter-2026-05-26-002` (apparatus_event) — **produced**
 - `apparatus-calls-l4` (apparatus_event) — **produced**
+- `stage-iter-2026-05-26-002-query-chroma-1` (stage) — **derived_from**

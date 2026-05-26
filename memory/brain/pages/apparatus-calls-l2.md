@@ -23,4 +23,4 @@ _Evaluate this research topic: Tit-for-Tat dominance in repeated Prisoner's Dile
 
 ## Referenced by
 
-- `iter-2026-05-26-001` (apparatus_event) — **produced**
+- `stage-iter-2026-05-26-001-journal-writer-stub-1` (stage) — **derived_from**

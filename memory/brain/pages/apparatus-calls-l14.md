@@ -23,4 +23,4 @@ _Evaluate this research topic: Multi-LLM coordination on payoff-asymmetric joint
 
 ## Referenced by
 
-- `iter-2026-05-26-005` (apparatus_event) — **produced**
+- `stage-iter-2026-05-26-005-journal-writer-stub-1` (stage) — **derived_from**

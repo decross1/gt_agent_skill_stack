@@ -23,4 +23,4 @@ _Evaluate this research topic: n repeated games between LLM agents, cooperation 
 
 ## Referenced by
 
-- `iter-2026-05-26-004` (apparatus_event) — **produced**
+- `stage-iter-2026-05-26-004-query-chroma-1` (stage) — **derived_from**

@@ -15,5 +15,5 @@ _loop_v0_tool_receipt for iter-2026-05-26-001_
 
 ## Referenced by
 
-- `iter-2026-05-26-001` (apparatus_event) — **produced**
 - `apparatus-calls-l2` (apparatus_event) — **produced**
+- `stage-iter-2026-05-26-001-journal-writer-stub-1` (stage) — **derived_from**

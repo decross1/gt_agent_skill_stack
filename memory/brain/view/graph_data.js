@@ -8,402 +8,6 @@ window.BRAIN_GRAPH = {
       "title": "Anomaly \u2014 tool-call invocation at 100%"
     },
     {
-      "slug": "apparatus-exp001_7_3-l535",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L535"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l536",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L536"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l537",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L537"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l538",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L538"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l539",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L539"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l540",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L540"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l541",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L541"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l542",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L542"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l543",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L543"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l544",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L544"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l545",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L545"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l546",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L546"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l547",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L547"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l548",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L548"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l549",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L549"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l550",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L550"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l551",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L551"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l552",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L552"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l553",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L553"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l554",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L554"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l555",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L555"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l556",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L556"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l557",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L557"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l558",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L558"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l559",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L559"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l560",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L560"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l561",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L561"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l562",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L562"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l563",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L563"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l564",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L564"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l565",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L565"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l566",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L566"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l567",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L567"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l568",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L568"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l569",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L569"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l570",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L570"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l571",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L571"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l572",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L572"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l573",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L573"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l574",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L574"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l575",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L575"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l576",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L576"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l577",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L577"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l578",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L578"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l579",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L579"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l580",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L580"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l581",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L581"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l582",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L582"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l583",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L583"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l584",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L584"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l585",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L585"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l586",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L586"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l587",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L587"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l588",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L588"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l589",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L589"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l590",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L590"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l591",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L591"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l592",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L592"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l593",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L593"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l594",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L594"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l595",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L595"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l596",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L596"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l597",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L597"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l598",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L598"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l599",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_player \u2014 exp001_7_3 L599"
-    },
-    {
-      "slug": "apparatus-exp001_7_3-l600",
-      "type": "apparatus_event",
-      "date": "2026-05-23",
-      "title": "exp001_mirror_llm_opp \u2014 exp001_7_3 L600"
-    },
-    {
       "slug": "dec-fw-2026-05-24-reconcile-state-file-lag-against-run-log",
       "type": "correction",
       "date": "2026-05-24",
@@ -710,6 +314,30 @@ window.BRAIN_GRAPH = {
       "title": "a_bgt_rsi: Nara \u2014 loop_memory L7"
     },
     {
+      "slug": "iter-2026-05-26-008",
+      "type": "iteration",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara \u2014 loop_memory L8"
+    },
+    {
+      "slug": "iter-2026-05-26-009",
+      "type": "iteration",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara \u2014 loop_memory L9"
+    },
+    {
+      "slug": "iter-2026-05-26-010",
+      "type": "iteration",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara \u2014 loop_memory L10"
+    },
+    {
+      "slug": "iter-2026-05-26-011",
+      "type": "iteration",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara \u2014 loop_memory L11"
+    },
+    {
       "slug": "apparatus-calls-l1",
       "type": "llm_call",
       "date": "2026-05-26",
@@ -812,10 +440,100 @@ window.BRAIN_GRAPH = {
       "title": "a_bgt_rsi: Nara/LLM \u2014 calls L24"
     },
     {
+      "slug": "apparatus-calls-l25",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L25"
+    },
+    {
+      "slug": "apparatus-calls-l26",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L26"
+    },
+    {
+      "slug": "apparatus-calls-l27",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L27"
+    },
+    {
+      "slug": "apparatus-calls-l28",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L28"
+    },
+    {
+      "slug": "apparatus-calls-l29",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L29"
+    },
+    {
       "slug": "apparatus-calls-l3",
       "type": "llm_call",
       "date": "2026-05-26",
       "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3"
+    },
+    {
+      "slug": "apparatus-calls-l30",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L30"
+    },
+    {
+      "slug": "apparatus-calls-l31",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L31"
+    },
+    {
+      "slug": "apparatus-calls-l32",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L32"
+    },
+    {
+      "slug": "apparatus-calls-l33",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L33"
+    },
+    {
+      "slug": "apparatus-calls-l34",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L34"
+    },
+    {
+      "slug": "apparatus-calls-l35",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L35"
+    },
+    {
+      "slug": "apparatus-calls-l36",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L36"
+    },
+    {
+      "slug": "apparatus-calls-l37",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L37"
+    },
+    {
+      "slug": "apparatus-calls-l38",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L38"
+    },
+    {
+      "slug": "apparatus-calls-l39",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L39"
     },
     {
       "slug": "apparatus-calls-l4",
@@ -824,10 +542,130 @@ window.BRAIN_GRAPH = {
       "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4"
     },
     {
+      "slug": "apparatus-calls-l40",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L40"
+    },
+    {
+      "slug": "apparatus-calls-l41",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L41"
+    },
+    {
+      "slug": "apparatus-calls-l42",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L42"
+    },
+    {
+      "slug": "apparatus-calls-l43",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L43"
+    },
+    {
+      "slug": "apparatus-calls-l44",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L44"
+    },
+    {
+      "slug": "apparatus-calls-l45",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L45"
+    },
+    {
+      "slug": "apparatus-calls-l46",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L46"
+    },
+    {
+      "slug": "apparatus-calls-l47",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L47"
+    },
+    {
+      "slug": "apparatus-calls-l48",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L48"
+    },
+    {
+      "slug": "apparatus-calls-l49",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L49"
+    },
+    {
       "slug": "apparatus-calls-l5",
       "type": "llm_call",
       "date": "2026-05-26",
       "title": "a_bgt_rsi: Nara/LLM \u2014 calls L5"
+    },
+    {
+      "slug": "apparatus-calls-l50",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L50"
+    },
+    {
+      "slug": "apparatus-calls-l51",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L51"
+    },
+    {
+      "slug": "apparatus-calls-l52",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L52"
+    },
+    {
+      "slug": "apparatus-calls-l53",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L53"
+    },
+    {
+      "slug": "apparatus-calls-l54",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L54"
+    },
+    {
+      "slug": "apparatus-calls-l55",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L55"
+    },
+    {
+      "slug": "apparatus-calls-l56",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L56"
+    },
+    {
+      "slug": "apparatus-calls-l57",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L57"
+    },
+    {
+      "slug": "apparatus-calls-l58",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L58"
+    },
+    {
+      "slug": "apparatus-calls-l59",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L59"
     },
     {
       "slug": "apparatus-calls-l6",
@@ -836,10 +674,94 @@ window.BRAIN_GRAPH = {
       "title": "a_bgt_rsi: Nara/LLM \u2014 calls L6"
     },
     {
+      "slug": "apparatus-calls-l60",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L60"
+    },
+    {
+      "slug": "apparatus-calls-l61",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L61"
+    },
+    {
+      "slug": "apparatus-calls-l62",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L62"
+    },
+    {
+      "slug": "apparatus-calls-l63",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L63"
+    },
+    {
+      "slug": "apparatus-calls-l64",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L64"
+    },
+    {
+      "slug": "apparatus-calls-l65",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L65"
+    },
+    {
+      "slug": "apparatus-calls-l66",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L66"
+    },
+    {
+      "slug": "apparatus-calls-l67",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L67"
+    },
+    {
+      "slug": "apparatus-calls-l68",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L68"
+    },
+    {
+      "slug": "apparatus-calls-l69",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L69"
+    },
+    {
       "slug": "apparatus-calls-l7",
       "type": "llm_call",
       "date": "2026-05-26",
       "title": "a_bgt_rsi: Nara/LLM \u2014 calls L7"
+    },
+    {
+      "slug": "apparatus-calls-l70",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L70"
+    },
+    {
+      "slug": "apparatus-calls-l71",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L71"
+    },
+    {
+      "slug": "apparatus-calls-l72",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L72"
+    },
+    {
+      "slug": "apparatus-calls-l73",
+      "type": "llm_call",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L73"
     },
     {
       "slug": "apparatus-calls-l8",
@@ -852,306 +774,6 @@ window.BRAIN_GRAPH = {
       "type": "llm_call",
       "date": "2026-05-26",
       "title": "a_bgt_rsi: Nara/LLM \u2014 calls L9"
-    },
-    {
-      "slug": "apparatus-day9_critic-l1",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L1"
-    },
-    {
-      "slug": "apparatus-day9_critic-l10",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L10"
-    },
-    {
-      "slug": "apparatus-day9_critic-l11",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L11"
-    },
-    {
-      "slug": "apparatus-day9_critic-l12",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L12"
-    },
-    {
-      "slug": "apparatus-day9_critic-l13",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L13"
-    },
-    {
-      "slug": "apparatus-day9_critic-l14",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L14"
-    },
-    {
-      "slug": "apparatus-day9_critic-l15",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L15"
-    },
-    {
-      "slug": "apparatus-day9_critic-l16",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L16"
-    },
-    {
-      "slug": "apparatus-day9_critic-l17",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L17"
-    },
-    {
-      "slug": "apparatus-day9_critic-l18",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L18"
-    },
-    {
-      "slug": "apparatus-day9_critic-l19",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L19"
-    },
-    {
-      "slug": "apparatus-day9_critic-l2",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L2"
-    },
-    {
-      "slug": "apparatus-day9_critic-l20",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L20"
-    },
-    {
-      "slug": "apparatus-day9_critic-l21",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L21"
-    },
-    {
-      "slug": "apparatus-day9_critic-l22",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L22"
-    },
-    {
-      "slug": "apparatus-day9_critic-l23",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L23"
-    },
-    {
-      "slug": "apparatus-day9_critic-l24",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L24"
-    },
-    {
-      "slug": "apparatus-day9_critic-l25",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L25"
-    },
-    {
-      "slug": "apparatus-day9_critic-l26",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L26"
-    },
-    {
-      "slug": "apparatus-day9_critic-l27",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L27"
-    },
-    {
-      "slug": "apparatus-day9_critic-l28",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L28"
-    },
-    {
-      "slug": "apparatus-day9_critic-l29",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L29"
-    },
-    {
-      "slug": "apparatus-day9_critic-l3",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L3"
-    },
-    {
-      "slug": "apparatus-day9_critic-l30",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L30"
-    },
-    {
-      "slug": "apparatus-day9_critic-l31",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L31"
-    },
-    {
-      "slug": "apparatus-day9_critic-l32",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L32"
-    },
-    {
-      "slug": "apparatus-day9_critic-l33",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L33"
-    },
-    {
-      "slug": "apparatus-day9_critic-l34",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L34"
-    },
-    {
-      "slug": "apparatus-day9_critic-l35",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L35"
-    },
-    {
-      "slug": "apparatus-day9_critic-l36",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L36"
-    },
-    {
-      "slug": "apparatus-day9_critic-l37",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L37"
-    },
-    {
-      "slug": "apparatus-day9_critic-l38",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L38"
-    },
-    {
-      "slug": "apparatus-day9_critic-l39",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L39"
-    },
-    {
-      "slug": "apparatus-day9_critic-l4",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L4"
-    },
-    {
-      "slug": "apparatus-day9_critic-l40",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L40"
-    },
-    {
-      "slug": "apparatus-day9_critic-l41",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L41"
-    },
-    {
-      "slug": "apparatus-day9_critic-l42",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L42"
-    },
-    {
-      "slug": "apparatus-day9_critic-l43",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L43"
-    },
-    {
-      "slug": "apparatus-day9_critic-l44",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L44"
-    },
-    {
-      "slug": "apparatus-day9_critic-l45",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L45"
-    },
-    {
-      "slug": "apparatus-day9_critic-l46",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L46"
-    },
-    {
-      "slug": "apparatus-day9_critic-l47",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L47"
-    },
-    {
-      "slug": "apparatus-day9_critic-l48",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L48"
-    },
-    {
-      "slug": "apparatus-day9_critic-l49",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L49"
-    },
-    {
-      "slug": "apparatus-day9_critic-l5",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L5"
-    },
-    {
-      "slug": "apparatus-day9_critic-l50",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L50"
-    },
-    {
-      "slug": "apparatus-day9_critic-l51",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L51"
-    },
-    {
-      "slug": "apparatus-day9_critic-l52",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L52"
-    },
-    {
-      "slug": "apparatus-day9_critic-l53",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L53"
-    },
-    {
-      "slug": "apparatus-day9_critic-l54",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L54"
     },
     {
       "slug": "apparatus-day9_critic-l55",
@@ -1184,40 +806,10 @@ window.BRAIN_GRAPH = {
       "title": "a_bgt_rsi: Critic \u2014 day9_critic L59"
     },
     {
-      "slug": "apparatus-day9_critic-l6",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L6"
-    },
-    {
       "slug": "apparatus-day9_critic-l60",
       "type": "llm_call",
       "date": "2026-05-25",
       "title": "a_bgt_rsi: Critic \u2014 day9_critic L60"
-    },
-    {
-      "slug": "apparatus-day9_critic-l7",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L7"
-    },
-    {
-      "slug": "apparatus-day9_critic-l8",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L8"
-    },
-    {
-      "slug": "apparatus-day9_critic-l9",
-      "type": "llm_call",
-      "date": "2026-05-25",
-      "title": "a_bgt_rsi: Critic \u2014 day9_critic L9"
-    },
-    {
-      "slug": "apparatus-orchestrator-l88",
-      "type": "orchestrator_event",
-      "date": "2026-05-23",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L88"
     },
     {
       "slug": "event-iter-2026-05-26-001-loop-v0-iteration-complete-none-l177",
@@ -1472,6 +1064,414 @@ window.BRAIN_GRAPH = {
       "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L210"
     },
     {
+      "slug": "event-iter-2026-05-26-008-loop-v0-fallback-none-l225",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L225"
+    },
+    {
+      "slug": "event-iter-2026-05-26-008-loop-v0-iteration-complete-none-l226",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L226"
+    },
+    {
+      "slug": "event-iter-2026-05-26-008-loop-v0-iteration-start-none-l214",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L214"
+    },
+    {
+      "slug": "event-iter-2026-05-26-008-loop-v0-tool-dispatch-critic-loop-v0-l221",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L221"
+    },
+    {
+      "slug": "event-iter-2026-05-26-008-loop-v0-tool-dispatch-hypothesize-l215",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L215"
+    },
+    {
+      "slug": "event-iter-2026-05-26-008-loop-v0-tool-dispatch-journal-writer-l223",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L223"
+    },
+    {
+      "slug": "event-iter-2026-05-26-008-loop-v0-tool-dispatch-novelty-classify-l219",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L219"
+    },
+    {
+      "slug": "event-iter-2026-05-26-008-loop-v0-tool-dispatch-retrieve-literature-l217",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L217"
+    },
+    {
+      "slug": "event-iter-2026-05-26-008-loop-v0-tool-receipt-critic-loop-v0-l222",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L222"
+    },
+    {
+      "slug": "event-iter-2026-05-26-008-loop-v0-tool-receipt-hypothesize-l216",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L216"
+    },
+    {
+      "slug": "event-iter-2026-05-26-008-loop-v0-tool-receipt-journal-writer-l224",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L224"
+    },
+    {
+      "slug": "event-iter-2026-05-26-008-loop-v0-tool-receipt-novelty-classify-l220",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L220"
+    },
+    {
+      "slug": "event-iter-2026-05-26-008-loop-v0-tool-receipt-retrieve-literature-l218",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L218"
+    },
+    {
+      "slug": "event-iter-2026-05-26-009-loop-v0-fallback-none-l232",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L232"
+    },
+    {
+      "slug": "event-iter-2026-05-26-009-loop-v0-iteration-complete-none-l233",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L233"
+    },
+    {
+      "slug": "event-iter-2026-05-26-009-loop-v0-iteration-start-none-l227",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L227"
+    },
+    {
+      "slug": "event-iter-2026-05-26-009-loop-v0-tool-dispatch-hypothesize-l228",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L228"
+    },
+    {
+      "slug": "event-iter-2026-05-26-009-loop-v0-tool-dispatch-retrieve-literature-l230",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L230"
+    },
+    {
+      "slug": "event-iter-2026-05-26-009-loop-v0-tool-receipt-hypothesize-l229",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L229"
+    },
+    {
+      "slug": "event-iter-2026-05-26-009-loop-v0-tool-receipt-retrieve-literature-l231",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L231"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-fallback-none-l263",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L263"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-iteration-complete-none-l264",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L264"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-iteration-start-none-l234",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L234"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-iteration-start-none-l240",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L240"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-iteration-start-none-l248",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L248"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l239",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L239"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l243",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L243"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l246",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L246"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l247",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L247"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l253",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L253"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l254",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L254"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l255",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L255"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l256",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L256"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l257",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L257"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l258",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L258"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l259",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L259"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l260",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L260"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l261",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L261"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l262",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L262"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l235",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L235"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l241",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L241"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l249",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L249"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l237",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L237"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l244",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L244"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l251",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L251"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l236",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L236"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l242",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L242"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l250",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L250"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l238",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L238"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l245",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L245"
+    },
+    {
+      "slug": "event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l252",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L252"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-fallback-none-l280",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L280"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-iteration-complete-none-l281",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L281"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-iteration-start-none-l265",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L265"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l268",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L268"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l271",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L271"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l272",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L272"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l273",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L273"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l274",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L274"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l275",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L275"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l276",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L276"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l277",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L277"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l278",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L278"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l279",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L279"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-tool-dispatch-hypothesize-l266",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L266"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-tool-dispatch-retrieve-literature-l269",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L269"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-tool-receipt-hypothesize-l267",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L267"
+    },
+    {
+      "slug": "event-iter-2026-05-26-011-loop-v0-tool-receipt-retrieve-literature-l270",
+      "type": "orchestrator_event",
+      "date": "2026-05-26",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L270"
+    },
+    {
       "slug": "s13-3-author-narrate-skill",
       "type": "reflection",
       "date": "2026-05-24",
@@ -1482,6 +1482,206 @@ window.BRAIN_GRAPH = {
       "type": "reflection",
       "date": "2026-05-25",
       "title": "s22_5_narrate_sp_002_lifecycle"
+    },
+    {
+      "slug": "stage-iter-2026-05-26-001-journal-writer-stub-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Journal \u2014 iter-2026-05-26-001 (step 2)",
+      "worker": "journal_writer_stub",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-26-001-query-chroma-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Retrieve \u2014 iter-2026-05-26-001 (step 1)",
+      "worker": "query_chroma",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-26-002-journal-writer-stub-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Journal \u2014 iter-2026-05-26-002 (step 2)",
+      "worker": "journal_writer_stub",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-26-002-query-chroma-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Retrieve \u2014 iter-2026-05-26-002 (step 1)",
+      "worker": "query_chroma",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-26-003-journal-writer-stub-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Journal \u2014 iter-2026-05-26-003 (step 2)",
+      "worker": "journal_writer_stub",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-26-003-query-chroma-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Retrieve \u2014 iter-2026-05-26-003 (step 1)",
+      "worker": "query_chroma",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-26-004-journal-writer-stub-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Journal \u2014 iter-2026-05-26-004 (step 2)",
+      "worker": "journal_writer_stub",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-26-004-query-chroma-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Retrieve \u2014 iter-2026-05-26-004 (step 1)",
+      "worker": "query_chroma",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-26-005-journal-writer-stub-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Journal \u2014 iter-2026-05-26-005 (step 2)",
+      "worker": "journal_writer_stub",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-26-005-query-chroma-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Retrieve \u2014 iter-2026-05-26-005 (step 1)",
+      "worker": "query_chroma",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-26-006-journal-writer-stub-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Journal \u2014 iter-2026-05-26-006 (step 2)",
+      "worker": "journal_writer_stub",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-26-006-query-chroma-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Retrieve \u2014 iter-2026-05-26-006 (step 1)",
+      "worker": "query_chroma",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-26-007-journal-writer-stub-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Journal \u2014 iter-2026-05-26-007 (step 2)",
+      "worker": "journal_writer_stub",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-26-007-query-chroma-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Retrieve \u2014 iter-2026-05-26-007 (step 1)",
+      "worker": "query_chroma",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-26-008-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Critique \u2014 iter-2026-05-26-008 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-26-008-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Hypothesize \u2014 iter-2026-05-26-008 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-26-008-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Journal \u2014 iter-2026-05-26-008 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-26-008-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Novelty \u2014 iter-2026-05-26-008 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-26-008-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Retrieve \u2014 iter-2026-05-26-008 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-26-009-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Hypothesize \u2014 iter-2026-05-26-009 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-26-009-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Retrieve \u2014 iter-2026-05-26-009 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-26-010-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Hypothesize \u2014 iter-2026-05-26-010 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-26-010-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Retrieve \u2014 iter-2026-05-26-010 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-26-011-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Hypothesize \u2014 iter-2026-05-26-011 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-26-011-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-26",
+      "title": "Retrieve \u2014 iter-2026-05-26-011 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
     }
   ],
   "edges": [
@@ -1531,49 +1731,7 @@ window.BRAIN_GRAPH = {
       "src": "iter-2026-05-26-001",
       "src_type": "apparatus_event",
       "type": "produced",
-      "dst": "event-iter-2026-05-26-001-loop-v0-tool-dispatch-query-chroma-l173",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-001",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-001-loop-v0-tool-receipt-query-chroma-l174",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-001",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-001-loop-v0-tool-dispatch-journal-writer-stub-l175",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-001",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-001-loop-v0-tool-receipt-journal-writer-stub-l176",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-001",
-      "src_type": "apparatus_event",
-      "type": "produced",
       "dst": "event-iter-2026-05-26-001-loop-v0-iteration-complete-none-l177",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-001",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "apparatus-calls-l1",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-001",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "apparatus-calls-l2",
       "dst_type": "apparatus_event"
     },
     {
@@ -1594,49 +1752,7 @@ window.BRAIN_GRAPH = {
       "src": "iter-2026-05-26-002",
       "src_type": "apparatus_event",
       "type": "produced",
-      "dst": "event-iter-2026-05-26-002-loop-v0-tool-dispatch-query-chroma-l179",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-002",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-002-loop-v0-tool-receipt-query-chroma-l180",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-002",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-002-loop-v0-tool-dispatch-journal-writer-stub-l181",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-002",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-002-loop-v0-tool-receipt-journal-writer-stub-l182",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-002",
-      "src_type": "apparatus_event",
-      "type": "produced",
       "dst": "event-iter-2026-05-26-002-loop-v0-iteration-complete-none-l183",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-002",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "apparatus-calls-l4",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-002",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "apparatus-calls-l5",
       "dst_type": "apparatus_event"
     },
     {
@@ -1657,49 +1773,7 @@ window.BRAIN_GRAPH = {
       "src": "iter-2026-05-26-003",
       "src_type": "apparatus_event",
       "type": "produced",
-      "dst": "event-iter-2026-05-26-003-loop-v0-tool-dispatch-query-chroma-l185",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-003",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-003-loop-v0-tool-receipt-query-chroma-l186",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-003",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-003-loop-v0-tool-dispatch-journal-writer-stub-l187",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-003",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-003-loop-v0-tool-receipt-journal-writer-stub-l188",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-003",
-      "src_type": "apparatus_event",
-      "type": "produced",
       "dst": "event-iter-2026-05-26-003-loop-v0-iteration-complete-none-l189",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-003",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "apparatus-calls-l7",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-003",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "apparatus-calls-l8",
       "dst_type": "apparatus_event"
     },
     {
@@ -1720,49 +1794,7 @@ window.BRAIN_GRAPH = {
       "src": "iter-2026-05-26-004",
       "src_type": "apparatus_event",
       "type": "produced",
-      "dst": "event-iter-2026-05-26-004-loop-v0-tool-dispatch-query-chroma-l191",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-004",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-004-loop-v0-tool-receipt-query-chroma-l192",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-004",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-004-loop-v0-tool-dispatch-journal-writer-stub-l193",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-004",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-004-loop-v0-tool-receipt-journal-writer-stub-l194",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-004",
-      "src_type": "apparatus_event",
-      "type": "produced",
       "dst": "event-iter-2026-05-26-004-loop-v0-iteration-complete-none-l195",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-004",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "apparatus-calls-l10",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-004",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "apparatus-calls-l11",
       "dst_type": "apparatus_event"
     },
     {
@@ -1895,49 +1927,7 @@ window.BRAIN_GRAPH = {
       "src": "iter-2026-05-26-005",
       "src_type": "apparatus_event",
       "type": "produced",
-      "dst": "event-iter-2026-05-26-005-loop-v0-tool-dispatch-query-chroma-l197",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-005",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-005-loop-v0-tool-receipt-query-chroma-l198",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-005",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-005-loop-v0-tool-dispatch-journal-writer-stub-l199",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-005",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-005-loop-v0-tool-receipt-journal-writer-stub-l200",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-005",
-      "src_type": "apparatus_event",
-      "type": "produced",
       "dst": "event-iter-2026-05-26-005-loop-v0-iteration-complete-none-l201",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-005",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "apparatus-calls-l13",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-005",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "apparatus-calls-l14",
       "dst_type": "apparatus_event"
     },
     {
@@ -1986,49 +1976,7 @@ window.BRAIN_GRAPH = {
       "src": "iter-2026-05-26-006",
       "src_type": "apparatus_event",
       "type": "produced",
-      "dst": "event-iter-2026-05-26-006-loop-v0-tool-dispatch-query-chroma-l203",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-006",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-006-loop-v0-tool-receipt-query-chroma-l204",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-006",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-006-loop-v0-tool-dispatch-journal-writer-stub-l205",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-006",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "event-iter-2026-05-26-006-loop-v0-tool-receipt-journal-writer-stub-l206",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-006",
-      "src_type": "apparatus_event",
-      "type": "produced",
       "dst": "event-iter-2026-05-26-006-loop-v0-iteration-complete-none-l207",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-006",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "apparatus-calls-l16",
-      "dst_type": "apparatus_event"
-    },
-    {
-      "src": "iter-2026-05-26-006",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "apparatus-calls-l17",
       "dst_type": "apparatus_event"
     },
     {
@@ -2105,230 +2053,1588 @@ window.BRAIN_GRAPH = {
       "src": "iter-2026-05-26-007",
       "src_type": "apparatus_event",
       "type": "produced",
+      "dst": "apparatus-calls-l21",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l25",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-dispatch-hypothesize-l215",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l25",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-receipt-hypothesize-l216",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l27",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-dispatch-retrieve-literature-l217",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l27",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-receipt-retrieve-literature-l218",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l28",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-dispatch-novelty-classify-l219",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l28",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-receipt-novelty-classify-l220",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l30",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-dispatch-critic-loop-v0-l221",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l30",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-receipt-critic-loop-v0-l222",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l32",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-dispatch-journal-writer-l223",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l32",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-receipt-journal-writer-l224",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-008",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-008-loop-v0-fallback-none-l225",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-008",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-008-loop-v0-iteration-complete-none-l226",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-008",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l33",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l34",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-009-loop-v0-tool-dispatch-hypothesize-l228",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l34",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-009-loop-v0-tool-receipt-hypothesize-l229",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l36",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-009-loop-v0-tool-dispatch-retrieve-literature-l230",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l36",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-009-loop-v0-tool-receipt-retrieve-literature-l231",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-009",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-009-loop-v0-fallback-none-l232",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-009",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-009-loop-v0-iteration-complete-none-l233",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-009",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l37",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l38",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l235",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l38",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l236",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l40",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l237",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l40",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l238",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l41",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l239",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l42",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l241",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l42",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l242",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l44",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l243",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l45",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l244",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l45",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l245",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l46",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l246",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l47",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l247",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l48",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l249",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l48",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l250",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l50",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l251",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l50",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l252",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l51",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l253",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l52",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l254",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l53",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l255",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l54",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l256",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l55",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l257",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l56",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l258",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l57",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l259",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l58",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l260",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l59",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l261",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l262",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-fallback-none-l263",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-iteration-complete-none-l264",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l48",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l50",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l51",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l52",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l53",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l54",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l55",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l56",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l57",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l58",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l59",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l60",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l60",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l262",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l61",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-tool-dispatch-hypothesize-l266",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l61",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-tool-receipt-hypothesize-l267",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l63",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l268",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l64",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-tool-dispatch-retrieve-literature-l269",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l64",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-tool-receipt-retrieve-literature-l270",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l65",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l271",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l66",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l272",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l67",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l273",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l68",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l274",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l69",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l275",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l70",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l276",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l71",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l277",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l72",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l278",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-011",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l279",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-011",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-fallback-none-l280",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-011",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-iteration-complete-none-l281",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-011",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l63",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-011",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l65",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-011",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l66",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-011",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l67",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-011",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l68",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-011",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l69",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-011",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l70",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-011",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l71",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-011",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l72",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-011",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l73",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l73",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l279",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-001-query-chroma-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-001-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-001-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-001-loop-v0-tool-dispatch-query-chroma-l173",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-001-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-001-loop-v0-tool-receipt-query-chroma-l174",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-001-journal-writer-stub-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-001-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l2",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-001-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-001-loop-v0-tool-dispatch-journal-writer-stub-l175",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-001-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-001-loop-v0-tool-receipt-journal-writer-stub-l176",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-002",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-002-query-chroma-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-002-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l4",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-002-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-002-loop-v0-tool-dispatch-query-chroma-l179",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-002-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-002-loop-v0-tool-receipt-query-chroma-l180",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-002",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-002-journal-writer-stub-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-002-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l5",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-002-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-002-loop-v0-tool-dispatch-journal-writer-stub-l181",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-002-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-002-loop-v0-tool-receipt-journal-writer-stub-l182",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-003",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-003-query-chroma-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-003-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l7",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-003-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-003-loop-v0-tool-dispatch-query-chroma-l185",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-003-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-003-loop-v0-tool-receipt-query-chroma-l186",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-003",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-003-journal-writer-stub-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-003-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l8",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-003-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-003-loop-v0-tool-dispatch-journal-writer-stub-l187",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-003-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-003-loop-v0-tool-receipt-journal-writer-stub-l188",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-004",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-004-query-chroma-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-004-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l10",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-004-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-004-loop-v0-tool-dispatch-query-chroma-l191",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-004-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-004-loop-v0-tool-receipt-query-chroma-l192",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-004",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-004-journal-writer-stub-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-004-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l11",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-004-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-004-loop-v0-tool-dispatch-journal-writer-stub-l193",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-004-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-004-loop-v0-tool-receipt-journal-writer-stub-l194",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-005",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-005-query-chroma-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-005-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l13",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-005-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-005-loop-v0-tool-dispatch-query-chroma-l197",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-005-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-005-loop-v0-tool-receipt-query-chroma-l198",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-005",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-005-journal-writer-stub-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-005-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l14",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-005-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-005-loop-v0-tool-dispatch-journal-writer-stub-l199",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-005-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-005-loop-v0-tool-receipt-journal-writer-stub-l200",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-006",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-006-query-chroma-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-006-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l16",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-006-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-006-loop-v0-tool-dispatch-query-chroma-l203",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-006-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-006-loop-v0-tool-receipt-query-chroma-l204",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-006",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-006-journal-writer-stub-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-006-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l17",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-006-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-006-loop-v0-tool-dispatch-journal-writer-stub-l205",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-006-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-006-loop-v0-tool-receipt-journal-writer-stub-l206",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-007",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-007-query-chroma-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-007-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
       "dst": "apparatus-calls-l19",
       "dst_type": "apparatus_event"
     },
     {
-      "src": "iter-2026-05-26-007",
-      "src_type": "apparatus_event",
-      "type": "produced",
-      "dst": "apparatus-calls-l20",
+      "src": "stage-iter-2026-05-26-007-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-007-loop-v0-tool-dispatch-query-chroma-l209",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-007-query-chroma-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-007-loop-v0-tool-receipt-query-chroma-l210",
       "dst_type": "apparatus_event"
     },
     {
       "src": "iter-2026-05-26-007",
-      "src_type": "apparatus_event",
+      "src_type": "iteration",
       "type": "produced",
-      "dst": "apparatus-calls-l21",
+      "dst": "stage-iter-2026-05-26-007-journal-writer-stub-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-007-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l20",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-007-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-007-loop-v0-tool-dispatch-journal-writer-stub-l211",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-007-journal-writer-stub-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-007-loop-v0-tool-receipt-journal-writer-stub-l212",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-008",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-008-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-008-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l25",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-008-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-dispatch-hypothesize-l215",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-008-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-receipt-hypothesize-l216",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-008",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-008-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-008-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l27",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-008-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-dispatch-retrieve-literature-l217",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-008-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-receipt-retrieve-literature-l218",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-008",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-008-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-008-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l28",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-008-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-dispatch-novelty-classify-l219",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-008-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-receipt-novelty-classify-l220",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-008",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-008-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-008-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l30",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-008-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-dispatch-critic-loop-v0-l221",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-008-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-receipt-critic-loop-v0-l222",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-008",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-008-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-008-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l32",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-008-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-dispatch-journal-writer-l223",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-008-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-008-loop-v0-tool-receipt-journal-writer-l224",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-009",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-009-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-009-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l34",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-009-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-009-loop-v0-tool-dispatch-hypothesize-l228",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-009-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-009-loop-v0-tool-receipt-hypothesize-l229",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-009",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-009-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-009-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l36",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-009-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-009-loop-v0-tool-dispatch-retrieve-literature-l230",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-009-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-009-loop-v0-tool-receipt-retrieve-literature-l231",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-010-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-010-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l38",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-010-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l235",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-010-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l236",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-010-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l241",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-010-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l242",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-010-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l249",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-010-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l250",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-010",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-010-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-010-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l40",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-010-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l237",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-010-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l238",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-010-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l244",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-010-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l245",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-010-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l251",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-010-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l252",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-011",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-011-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-011-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l61",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-011-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-011-loop-v0-tool-dispatch-hypothesize-l266",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-011-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-011-loop-v0-tool-receipt-hypothesize-l267",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-26-011",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-26-011-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-26-011-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l64",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-011-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-011-loop-v0-tool-dispatch-retrieve-literature-l269",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-26-011-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-26-011-loop-v0-tool-receipt-retrieve-literature-l270",
       "dst_type": "apparatus_event"
     }
   ],
   "pages": {
-    "apparatus-exp001_7_3-l535": "# exp001_mirror_llm_player \u2014 exp001_7_3 L535\n\n_Last 20 round(s) of 67 so far:\n  round 48: you=C, them=C\n  round 49: you=C, them=C\n  round 50: you=C, them=C\n  round 51: you=C, them=C\n  round 52: you=C, them=C\n  round 53: you=C, them=C\n  round 54: you=C, them=C\n  round 55: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=182ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l536": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L536\n\n_Last 20 round(s) of 67 so far:\n  round 48: you=C, them=C\n  round 49: you=C, them=C\n  round 50: you=C, them=C\n  round 51: you=C, them=C\n  round 52: you=C, them=C\n  round 53: you=C, them=C\n  round 54: you=C, them=C\n  round 55: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=169ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l537": "# exp001_mirror_llm_player \u2014 exp001_7_3 L537\n\n_Last 20 round(s) of 68 so far:\n  round 49: you=C, them=C\n  round 50: you=C, them=C\n  round 51: you=C, them=C\n  round 52: you=C, them=C\n  round 53: you=C, them=C\n  round 54: you=C, them=C\n  round 55: you=C, them=C\n  round 56: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=175ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l538": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L538\n\n_Last 20 round(s) of 68 so far:\n  round 49: you=C, them=C\n  round 50: you=C, them=C\n  round 51: you=C, them=C\n  round 52: you=C, them=C\n  round 53: you=C, them=C\n  round 54: you=C, them=C\n  round 55: you=C, them=C\n  round 56: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=167ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l539": "# exp001_mirror_llm_player \u2014 exp001_7_3 L539\n\n_Last 20 round(s) of 69 so far:\n  round 50: you=C, them=C\n  round 51: you=C, them=C\n  round 52: you=C, them=C\n  round 53: you=C, them=C\n  round 54: you=C, them=C\n  round 55: you=C, them=C\n  round 56: you=C, them=C\n  round 57: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=180ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l540": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L540\n\n_Last 20 round(s) of 69 so far:\n  round 50: you=C, them=C\n  round 51: you=C, them=C\n  round 52: you=C, them=C\n  round 53: you=C, them=C\n  round 54: you=C, them=C\n  round 55: you=C, them=C\n  round 56: you=C, them=C\n  round 57: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=171ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l541": "# exp001_mirror_llm_player \u2014 exp001_7_3 L541\n\n_Last 20 round(s) of 70 so far:\n  round 51: you=C, them=C\n  round 52: you=C, them=C\n  round 53: you=C, them=C\n  round 54: you=C, them=C\n  round 55: you=C, them=C\n  round 56: you=C, them=C\n  round 57: you=C, them=C\n  round 58: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=181ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l542": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L542\n\n_Last 20 round(s) of 70 so far:\n  round 51: you=C, them=C\n  round 52: you=C, them=C\n  round 53: you=C, them=C\n  round 54: you=C, them=C\n  round 55: you=C, them=C\n  round 56: you=C, them=C\n  round 57: you=C, them=C\n  round 58: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=161ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l543": "# exp001_mirror_llm_player \u2014 exp001_7_3 L543\n\n_Last 20 round(s) of 71 so far:\n  round 52: you=C, them=C\n  round 53: you=C, them=C\n  round 54: you=C, them=C\n  round 55: you=C, them=C\n  round 56: you=C, them=C\n  round 57: you=C, them=C\n  round 58: you=C, them=C\n  round 59: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=175ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l544": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L544\n\n_Last 20 round(s) of 71 so far:\n  round 52: you=C, them=C\n  round 53: you=C, them=C\n  round 54: you=C, them=C\n  round 55: you=C, them=C\n  round 56: you=C, them=C\n  round 57: you=C, them=C\n  round 58: you=C, them=C\n  round 59: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=177ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l545": "# exp001_mirror_llm_player \u2014 exp001_7_3 L545\n\n_Last 20 round(s) of 72 so far:\n  round 53: you=C, them=C\n  round 54: you=C, them=C\n  round 55: you=C, them=C\n  round 56: you=C, them=C\n  round 57: you=C, them=C\n  round 58: you=C, them=C\n  round 59: you=C, them=C\n  round 60: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=180ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l546": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L546\n\n_Last 20 round(s) of 72 so far:\n  round 53: you=C, them=C\n  round 54: you=C, them=C\n  round 55: you=C, them=C\n  round 56: you=C, them=C\n  round 57: you=C, them=C\n  round 58: you=C, them=C\n  round 59: you=C, them=C\n  round 60: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=172ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l547": "# exp001_mirror_llm_player \u2014 exp001_7_3 L547\n\n_Last 20 round(s) of 73 so far:\n  round 54: you=C, them=C\n  round 55: you=C, them=C\n  round 56: you=C, them=C\n  round 57: you=C, them=C\n  round 58: you=C, them=C\n  round 59: you=C, them=C\n  round 60: you=C, them=C\n  round 61: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=170ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l548": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L548\n\n_Last 20 round(s) of 73 so far:\n  round 54: you=C, them=C\n  round 55: you=C, them=C\n  round 56: you=C, them=C\n  round 57: you=C, them=C\n  round 58: you=C, them=C\n  round 59: you=C, them=C\n  round 60: you=C, them=C\n  round 61: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=175ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l549": "# exp001_mirror_llm_player \u2014 exp001_7_3 L549\n\n_Last 20 round(s) of 74 so far:\n  round 55: you=C, them=C\n  round 56: you=C, them=C\n  round 57: you=C, them=C\n  round 58: you=C, them=C\n  round 59: you=C, them=C\n  round 60: you=C, them=C\n  round 61: you=C, them=C\n  round 62: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=171ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l550": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L550\n\n_Last 20 round(s) of 74 so far:\n  round 55: you=C, them=C\n  round 56: you=C, them=C\n  round 57: you=C, them=C\n  round 58: you=C, them=C\n  round 59: you=C, them=C\n  round 60: you=C, them=C\n  round 61: you=C, them=C\n  round 62: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=183ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l551": "# exp001_mirror_llm_player \u2014 exp001_7_3 L551\n\n_Last 20 round(s) of 75 so far:\n  round 56: you=C, them=C\n  round 57: you=C, them=C\n  round 58: you=C, them=C\n  round 59: you=C, them=C\n  round 60: you=C, them=C\n  round 61: you=C, them=C\n  round 62: you=C, them=C\n  round 63: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=159ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l552": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L552\n\n_Last 20 round(s) of 75 so far:\n  round 56: you=C, them=C\n  round 57: you=C, them=C\n  round 58: you=C, them=C\n  round 59: you=C, them=C\n  round 60: you=C, them=C\n  round 61: you=C, them=C\n  round 62: you=C, them=C\n  round 63: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=170ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l553": "# exp001_mirror_llm_player \u2014 exp001_7_3 L553\n\n_Last 20 round(s) of 76 so far:\n  round 57: you=C, them=C\n  round 58: you=C, them=C\n  round 59: you=C, them=C\n  round 60: you=C, them=C\n  round 61: you=C, them=C\n  round 62: you=C, them=C\n  round 63: you=C, them=C\n  round 64: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=181ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l554": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L554\n\n_Last 20 round(s) of 76 so far:\n  round 57: you=C, them=C\n  round 58: you=C, them=C\n  round 59: you=C, them=C\n  round 60: you=C, them=C\n  round 61: you=C, them=C\n  round 62: you=C, them=C\n  round 63: you=C, them=C\n  round 64: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=173ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l555": "# exp001_mirror_llm_player \u2014 exp001_7_3 L555\n\n_Last 20 round(s) of 77 so far:\n  round 58: you=C, them=C\n  round 59: you=C, them=C\n  round 60: you=C, them=C\n  round 61: you=C, them=C\n  round 62: you=C, them=C\n  round 63: you=C, them=C\n  round 64: you=C, them=C\n  round 65: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=169ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l556": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L556\n\n_Last 20 round(s) of 77 so far:\n  round 58: you=C, them=C\n  round 59: you=C, them=C\n  round 60: you=C, them=C\n  round 61: you=C, them=C\n  round 62: you=C, them=C\n  round 63: you=C, them=C\n  round 64: you=C, them=C\n  round 65: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=169ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l557": "# exp001_mirror_llm_player \u2014 exp001_7_3 L557\n\n_Last 20 round(s) of 78 so far:\n  round 59: you=C, them=C\n  round 60: you=C, them=C\n  round 61: you=C, them=C\n  round 62: you=C, them=C\n  round 63: you=C, them=C\n  round 64: you=C, them=C\n  round 65: you=C, them=C\n  round 66: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=173ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l558": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L558\n\n_Last 20 round(s) of 78 so far:\n  round 59: you=C, them=C\n  round 60: you=C, them=C\n  round 61: you=C, them=C\n  round 62: you=C, them=C\n  round 63: you=C, them=C\n  round 64: you=C, them=C\n  round 65: you=C, them=C\n  round 66: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=180ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l559": "# exp001_mirror_llm_player \u2014 exp001_7_3 L559\n\n_Last 20 round(s) of 79 so far:\n  round 60: you=C, them=C\n  round 61: you=C, them=C\n  round 62: you=C, them=C\n  round 63: you=C, them=C\n  round 64: you=C, them=C\n  round 65: you=C, them=C\n  round 66: you=C, them=C\n  round 67: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=160ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l560": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L560\n\n_Last 20 round(s) of 79 so far:\n  round 60: you=C, them=C\n  round 61: you=C, them=C\n  round 62: you=C, them=C\n  round 63: you=C, them=C\n  round 64: you=C, them=C\n  round 65: you=C, them=C\n  round 66: you=C, them=C\n  round 67: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=175ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l561": "# exp001_mirror_llm_player \u2014 exp001_7_3 L561\n\n_Last 20 round(s) of 80 so far:\n  round 61: you=C, them=C\n  round 62: you=C, them=C\n  round 63: you=C, them=C\n  round 64: you=C, them=C\n  round 65: you=C, them=C\n  round 66: you=C, them=C\n  round 67: you=C, them=C\n  round 68: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=168ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l562": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L562\n\n_Last 20 round(s) of 80 so far:\n  round 61: you=C, them=C\n  round 62: you=C, them=C\n  round 63: you=C, them=C\n  round 64: you=C, them=C\n  round 65: you=C, them=C\n  round 66: you=C, them=C\n  round 67: you=C, them=C\n  round 68: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=172ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l563": "# exp001_mirror_llm_player \u2014 exp001_7_3 L563\n\n_Last 20 round(s) of 81 so far:\n  round 62: you=C, them=C\n  round 63: you=C, them=C\n  round 64: you=C, them=C\n  round 65: you=C, them=C\n  round 66: you=C, them=C\n  round 67: you=C, them=C\n  round 68: you=C, them=C\n  round 69: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=170ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l564": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L564\n\n_Last 20 round(s) of 81 so far:\n  round 62: you=C, them=C\n  round 63: you=C, them=C\n  round 64: you=C, them=C\n  round 65: you=C, them=C\n  round 66: you=C, them=C\n  round 67: you=C, them=C\n  round 68: you=C, them=C\n  round 69: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=170ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l565": "# exp001_mirror_llm_player \u2014 exp001_7_3 L565\n\n_Last 20 round(s) of 82 so far:\n  round 63: you=C, them=C\n  round 64: you=C, them=C\n  round 65: you=C, them=C\n  round 66: you=C, them=C\n  round 67: you=C, them=C\n  round 68: you=C, them=C\n  round 69: you=C, them=C\n  round 70: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=171ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l566": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L566\n\n_Last 20 round(s) of 82 so far:\n  round 63: you=C, them=C\n  round 64: you=C, them=C\n  round 65: you=C, them=C\n  round 66: you=C, them=C\n  round 67: you=C, them=C\n  round 68: you=C, them=C\n  round 69: you=C, them=C\n  round 70: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=179ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l567": "# exp001_mirror_llm_player \u2014 exp001_7_3 L567\n\n_Last 20 round(s) of 83 so far:\n  round 64: you=C, them=C\n  round 65: you=C, them=C\n  round 66: you=C, them=C\n  round 67: you=C, them=C\n  round 68: you=C, them=C\n  round 69: you=C, them=C\n  round 70: you=C, them=C\n  round 71: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=160ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l568": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L568\n\n_Last 20 round(s) of 83 so far:\n  round 64: you=C, them=C\n  round 65: you=C, them=C\n  round 66: you=C, them=C\n  round 67: you=C, them=C\n  round 68: you=C, them=C\n  round 69: you=C, them=C\n  round 70: you=C, them=C\n  round 71: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=169ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l569": "# exp001_mirror_llm_player \u2014 exp001_7_3 L569\n\n_Last 20 round(s) of 84 so far:\n  round 65: you=C, them=C\n  round 66: you=C, them=C\n  round 67: you=C, them=C\n  round 68: you=C, them=C\n  round 69: you=C, them=C\n  round 70: you=C, them=C\n  round 71: you=C, them=C\n  round 72: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=170ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l570": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L570\n\n_Last 20 round(s) of 84 so far:\n  round 65: you=C, them=C\n  round 66: you=C, them=C\n  round 67: you=C, them=C\n  round 68: you=C, them=C\n  round 69: you=C, them=C\n  round 70: you=C, them=C\n  round 71: you=C, them=C\n  round 72: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=170ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l571": "# exp001_mirror_llm_player \u2014 exp001_7_3 L571\n\n_Last 20 round(s) of 85 so far:\n  round 66: you=C, them=C\n  round 67: you=C, them=C\n  round 68: you=C, them=C\n  round 69: you=C, them=C\n  round 70: you=C, them=C\n  round 71: you=C, them=C\n  round 72: you=C, them=C\n  round 73: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=174ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l572": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L572\n\n_Last 20 round(s) of 85 so far:\n  round 66: you=C, them=C\n  round 67: you=C, them=C\n  round 68: you=C, them=C\n  round 69: you=C, them=C\n  round 70: you=C, them=C\n  round 71: you=C, them=C\n  round 72: you=C, them=C\n  round 73: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=174ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l573": "# exp001_mirror_llm_player \u2014 exp001_7_3 L573\n\n_Last 20 round(s) of 86 so far:\n  round 67: you=C, them=C\n  round 68: you=C, them=C\n  round 69: you=C, them=C\n  round 70: you=C, them=C\n  round 71: you=C, them=C\n  round 72: you=C, them=C\n  round 73: you=C, them=C\n  round 74: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=181ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l574": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L574\n\n_Last 20 round(s) of 86 so far:\n  round 67: you=C, them=C\n  round 68: you=C, them=C\n  round 69: you=C, them=C\n  round 70: you=C, them=C\n  round 71: you=C, them=C\n  round 72: you=C, them=C\n  round 73: you=C, them=C\n  round 74: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=160ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l575": "# exp001_mirror_llm_player \u2014 exp001_7_3 L575\n\n_Last 20 round(s) of 87 so far:\n  round 68: you=C, them=C\n  round 69: you=C, them=C\n  round 70: you=C, them=C\n  round 71: you=C, them=C\n  round 72: you=C, them=C\n  round 73: you=C, them=C\n  round 74: you=C, them=C\n  round 75: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=172ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l576": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L576\n\n_Last 20 round(s) of 87 so far:\n  round 68: you=C, them=C\n  round 69: you=C, them=C\n  round 70: you=C, them=C\n  round 71: you=C, them=C\n  round 72: you=C, them=C\n  round 73: you=C, them=C\n  round 74: you=C, them=C\n  round 75: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=169ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l577": "# exp001_mirror_llm_player \u2014 exp001_7_3 L577\n\n_Last 20 round(s) of 88 so far:\n  round 69: you=C, them=C\n  round 70: you=C, them=C\n  round 71: you=C, them=C\n  round 72: you=C, them=C\n  round 73: you=C, them=C\n  round 74: you=C, them=C\n  round 75: you=C, them=C\n  round 76: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=175ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l578": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L578\n\n_Last 20 round(s) of 88 so far:\n  round 69: you=C, them=C\n  round 70: you=C, them=C\n  round 71: you=C, them=C\n  round 72: you=C, them=C\n  round 73: you=C, them=C\n  round 74: you=C, them=C\n  round 75: you=C, them=C\n  round 76: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=183ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l579": "# exp001_mirror_llm_player \u2014 exp001_7_3 L579\n\n_Last 20 round(s) of 89 so far:\n  round 70: you=C, them=C\n  round 71: you=C, them=C\n  round 72: you=C, them=C\n  round 73: you=C, them=C\n  round 74: you=C, them=C\n  round 75: you=C, them=C\n  round 76: you=C, them=C\n  round 77: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=169ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l580": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L580\n\n_Last 20 round(s) of 89 so far:\n  round 70: you=C, them=C\n  round 71: you=C, them=C\n  round 72: you=C, them=C\n  round 73: you=C, them=C\n  round 74: you=C, them=C\n  round 75: you=C, them=C\n  round 76: you=C, them=C\n  round 77: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=170ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l581": "# exp001_mirror_llm_player \u2014 exp001_7_3 L581\n\n_Last 20 round(s) of 90 so far:\n  round 71: you=C, them=C\n  round 72: you=C, them=C\n  round 73: you=C, them=C\n  round 74: you=C, them=C\n  round 75: you=C, them=C\n  round 76: you=C, them=C\n  round 77: you=C, them=C\n  round 78: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=174ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l582": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L582\n\n_Last 20 round(s) of 90 so far:\n  round 71: you=C, them=C\n  round 72: you=C, them=C\n  round 73: you=C, them=C\n  round 74: you=C, them=C\n  round 75: you=C, them=C\n  round 76: you=C, them=C\n  round 77: you=C, them=C\n  round 78: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=169ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l583": "# exp001_mirror_llm_player \u2014 exp001_7_3 L583\n\n_Last 20 round(s) of 91 so far:\n  round 72: you=C, them=C\n  round 73: you=C, them=C\n  round 74: you=C, them=C\n  round 75: you=C, them=C\n  round 76: you=C, them=C\n  round 77: you=C, them=C\n  round 78: you=C, them=C\n  round 79: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=173ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l584": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L584\n\n_Last 20 round(s) of 91 so far:\n  round 72: you=C, them=C\n  round 73: you=C, them=C\n  round 74: you=C, them=C\n  round 75: you=C, them=C\n  round 76: you=C, them=C\n  round 77: you=C, them=C\n  round 78: you=C, them=C\n  round 79: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=180ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l585": "# exp001_mirror_llm_player \u2014 exp001_7_3 L585\n\n_Last 20 round(s) of 92 so far:\n  round 73: you=C, them=C\n  round 74: you=C, them=C\n  round 75: you=C, them=C\n  round 76: you=C, them=C\n  round 77: you=C, them=C\n  round 78: you=C, them=C\n  round 79: you=C, them=C\n  round 80: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=172ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l586": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L586\n\n_Last 20 round(s) of 92 so far:\n  round 73: you=C, them=C\n  round 74: you=C, them=C\n  round 75: you=C, them=C\n  round 76: you=C, them=C\n  round 77: you=C, them=C\n  round 78: you=C, them=C\n  round 79: you=C, them=C\n  round 80: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=169ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l587": "# exp001_mirror_llm_player \u2014 exp001_7_3 L587\n\n_Last 20 round(s) of 93 so far:\n  round 74: you=C, them=C\n  round 75: you=C, them=C\n  round 76: you=C, them=C\n  round 77: you=C, them=C\n  round 78: you=C, them=C\n  round 79: you=C, them=C\n  round 80: you=C, them=C\n  round 81: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=172ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l588": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L588\n\n_Last 20 round(s) of 93 so far:\n  round 74: you=C, them=C\n  round 75: you=C, them=C\n  round 76: you=C, them=C\n  round 77: you=C, them=C\n  round 78: you=C, them=C\n  round 79: you=C, them=C\n  round 80: you=C, them=C\n  round 81: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=172ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l589": "# exp001_mirror_llm_player \u2014 exp001_7_3 L589\n\n_Last 20 round(s) of 94 so far:\n  round 75: you=C, them=C\n  round 76: you=C, them=C\n  round 77: you=C, them=C\n  round 78: you=C, them=C\n  round 79: you=C, them=C\n  round 80: you=C, them=C\n  round 81: you=C, them=C\n  round 82: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=186ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l590": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L590\n\n_Last 20 round(s) of 94 so far:\n  round 75: you=C, them=C\n  round 76: you=C, them=C\n  round 77: you=C, them=C\n  round 78: you=C, them=C\n  round 79: you=C, them=C\n  round 80: you=C, them=C\n  round 81: you=C, them=C\n  round 82: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=160ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l591": "# exp001_mirror_llm_player \u2014 exp001_7_3 L591\n\n_Last 20 round(s) of 95 so far:\n  round 76: you=C, them=C\n  round 77: you=C, them=C\n  round 78: you=C, them=C\n  round 79: you=C, them=C\n  round 80: you=C, them=C\n  round 81: you=C, them=C\n  round 82: you=C, them=C\n  round 83: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=171ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l592": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L592\n\n_Last 20 round(s) of 95 so far:\n  round 76: you=C, them=C\n  round 77: you=C, them=C\n  round 78: you=C, them=C\n  round 79: you=C, them=C\n  round 80: you=C, them=C\n  round 81: you=C, them=C\n  round 82: you=C, them=C\n  round 83: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=169ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l593": "# exp001_mirror_llm_player \u2014 exp001_7_3 L593\n\n_Last 20 round(s) of 96 so far:\n  round 77: you=C, them=C\n  round 78: you=C, them=C\n  round 79: you=C, them=C\n  round 80: you=C, them=C\n  round 81: you=C, them=C\n  round 82: you=C, them=C\n  round 83: you=C, them=C\n  round 84: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=172ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l594": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L594\n\n_Last 20 round(s) of 96 so far:\n  round 77: you=C, them=C\n  round 78: you=C, them=C\n  round 79: you=C, them=C\n  round 80: you=C, them=C\n  round 81: you=C, them=C\n  round 82: you=C, them=C\n  round 83: you=C, them=C\n  round 84: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=169ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l595": "# exp001_mirror_llm_player \u2014 exp001_7_3 L595\n\n_Last 20 round(s) of 97 so far:\n  round 78: you=C, them=C\n  round 79: you=C, them=C\n  round 80: you=C, them=C\n  round 81: you=C, them=C\n  round 82: you=C, them=C\n  round 83: you=C, them=C\n  round 84: you=C, them=C\n  round 85: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=167ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l596": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L596\n\n_Last 20 round(s) of 97 so far:\n  round 78: you=C, them=C\n  round 79: you=C, them=C\n  round 80: you=C, them=C\n  round 81: you=C, them=C\n  round 82: you=C, them=C\n  round 83: you=C, them=C\n  round 84: you=C, them=C\n  round 85: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=169ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l597": "# exp001_mirror_llm_player \u2014 exp001_7_3 L597\n\n_Last 20 round(s) of 98 so far:\n  round 79: you=C, them=C\n  round 80: you=C, them=C\n  round 81: you=C, them=C\n  round 82: you=C, them=C\n  round 83: you=C, them=C\n  round 84: you=C, them=C\n  round 85: you=C, them=C\n  round 86: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=179ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l598": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L598\n\n_Last 20 round(s) of 98 so far:\n  round 79: you=C, them=C\n  round 80: you=C, them=C\n  round 81: you=C, them=C\n  round 82: you=C, them=C\n  round 83: you=C, them=C\n  round 84: you=C, them=C\n  round 85: you=C, them=C\n  round 86: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=160ms tokens_in=522 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l599": "# exp001_mirror_llm_player \u2014 exp001_7_3 L599\n\n_Last 20 round(s) of 99 so far:\n  round 80: you=C, them=C\n  round 81: you=C, them=C\n  round 82: you=C, them=C\n  round 83: you=C, them=C\n  round 84: you=C, them=C\n  round 85: you=C, them=C\n  round 86: you=C, them=C\n  round 87: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=170ms tokens_in=523 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-exp001_7_3-l600": "# exp001_mirror_llm_opp \u2014 exp001_7_3 L600\n\n_Last 20 round(s) of 99 so far:\n  round 80: you=C, them=C\n  round 81: you=C, them=C\n  round 82: you=C, them=C\n  round 83: you=C, them=C\n  round 84: you=C, them=C\n  round 85: you=C, them=C\n  round 86: you=C, them=C\n  round 87: you=C, them=C\n \u2026_\n\n**Did:** C\n\n**Observed:** latency=171ms tokens_in=523 tokens_out=2 model=gemma-4-26b-a4b\n",
-    "apparatus-orchestrator-l88": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L88\n\n_orchestrator_receipt for task_type=play_pd_match_\n\n**Did:** worker returned result for play_pd_match(mirror_llm/100)\n\n**Observed:** status=passed\n",
     "s13-3-author-narrate-skill": "# s13_3_author_narrate_skill\n\n**Intent:** Author the narrate SKILL.md per the approved Phase-3.5 B0 design \u2014 Layer B, runtime-safe false, append-only reflection writeback keyed by task_id, paired with run-log\n\n**Did:** Wrote .agents/skills/narrate/SKILL.md (~80 lines) defining the entry shape (timestamp, task_id, agent_id, type, intent, did, observed, would_do_differently, corrections_honored, references), the procedure (draft at task end, cite-don't-relocate, append-only), and explicit rules (append-only, honest-not-flattering, reference-not-duplicate, bounded length). Matched the existing SKILL.md style (resume-state, decision-log, run-log).\n\n**Observed:** Skill appeared in the Skill tool's discovery list within the same session \u2014 the harness picked up the new SKILL.md automatically.\n\n**Would do differently:** none \u2014 would do the same. The pairing-with-run-log framing was the right anchor; the entry shape borrows directly from run-log's shape, keeping the schema family coherent.\n",
     "hypothesis-day4-tool-call-rate": "# Hypothesis \u2014 LLM tool-call invocation rate floor 0.8\n\n**Intent:** The LLM (Gemma 4 26B MoE) will fail to invoke the get_payoff_matrix tool on some non-trivial fraction of game-theoretic queries \u2014 answering from its prior memory of payoff matrices instead. Plan-stated floor for the metric `tool_call_invocation_rate` is 0.80.\n\n**Did:** Drove the planned floor in plan.yaml day4 validation; passed if observed \u2265 0.80.\n\n**Observed:** open \u2014 to be tested by the Day 4 end-to-end experiment.\n\n**Would do differently:** n/a\n\n## Referenced by\n\n- `experiment-day4-tool-call-rate` (experiment) \u2014 **derived_from**\n- `anomaly-tool-call-100pct` (anomaly) \u2014 **falsified_by**\n",
     "experiment-day4-tool-call-rate": "# Experiment \u2014 Day 4 end-to-end tool-call invocation rate\n\n**Intent:** Measure tool_call_invocation_rate against the planned floor 0.80 via end-to-end calls through the vLLM (Gemma 4 26B) \u2192 tool-loop wrapper. Same prompt set, deterministic temperature.\n\n**Did:** Ran the e2e tool-call chain test (caller_tag=test_tool_call_e2e); logs at a_bgt_rsi/logs/day4_e2e.jsonl. Each chain: system prompt mandating tool use \u2192 user query \u2192 optional tool call \u2192 optional follow-up turn.\n\n**Observed:** tool_call_invocation_rate = 1.00 across the test set. No bypasses observed in either e2e or robustness variant.\n\n**Would do differently:** None on the run itself. The metric is higher than the floor \u2014 see anomaly-tool-call-100pct for interpretation.\n\n## Links\n\n- **derived_from** \u2192 `hypothesis-day4-tool-call-rate` (hypothesis)\n- **produced** \u2192 `anomaly-tool-call-100pct` (anomaly)\n",
     "anomaly-tool-call-100pct": "# Anomaly \u2014 tool-call invocation at 100%\n\n**Intent:** Planned floor was 0.80, expecting a non-trivial fraction of bypasses. Observed 1.00.\n\n**Did:** Inspected the e2e logs; confirmed the model emitted the tool-call on every prompt; confirmed the system prompt is highly directive (`You MUST call the get_payoff_matrix tool ... do not state any payoff numbers from memory`).\n\n**Observed:** 100% rate likely reflects the directive system prompt, not robust tool-using behavior under weaker prompts. A small-N test with a strong prompt is structurally biased upward \u2014 a clean-looking result that does not generalize.\n\n**Would do differently:** Repeat with a softer prompt + a larger N before treating tool-use as robust. Flag any future 100% metric on a small N as suspicious-clean.\n\n**Corrections honored:** fw-correction-suspicious-clean-100pct-2026-05-24\n\n## Links\n\n- **falsified_by** \u2192 `hypothesis-day4-tool-call-rate` (hypothesis)\n- **linked_to** \u2192 `dec-fw-2026-05-24-treat-100-metrics-in-small-n` (correction)\n\n## Referenced by\n\n- `experiment-day4-tool-call-rate` (experiment) \u2014 **produced**\n- `dec-fw-2026-05-24-treat-100-metrics-in-small-n` (correction) \u2014 **references**\n",
     "s22-5-narrate-sp-002-lifecycle": "# s22_5_narrate_sp_002_lifecycle\n\n**Intent:** Run the spawn-contract protocol against a real Agent-tool child (not a structural mock). Establish that the lifecycle (contract before launch \u2192 real spawn \u2192 child reports \u2192 parent reconciles via validate) holds end-to-end and surface anything the mock could not.\n\n**Did:** Wrote SP-002 contract to spawn.jsonl (skill-frontmatter audit; read-only auth cap; 300s budget; reporting via final agent text). Launched an auditor child with isolation=worktree as belt-and-suspenders on the auth cap. Child returned a well-formed JSON summary in 24 seconds. Parsed, validated against done_condition (8 sub-checks), appended completed entry with result block.\n\n**Observed:** Done-condition validates PASS as written. But: the child reported total=18 while the parent's working tree has total=24. The worktree was branched from HEAD (which lags behind the parent's working tree by 6 uncommitted new skills + 14 modified files); the child therefore audited HEAD's state, not the parent's current view. The result is internally consistent and the child obeyed the contract perfectly \u2014 but the criterion's *intent* (current state) was silently mis-targeted by the choice to use worktree isolation. Two findings worth keeping: (1) worktree isolation is a strong authority enforcer but also an unintended state isolator; (2) the spawn-contract pattern surfaced this divergence cleanly via the structured result + parent_observations \u2014 it would have been invisible in plain orchestrate.\n\n**Would do differently:** For audits that must reflect parent's current working tree: either skip worktree isolation (rely on declarative auth cap + child's honor) OR commit pending state before the spawn OR inline the data in the prompt rather than have the child re-read from disk. For pure-function tasks (analyze this fixed input), worktree isolation is the right call. The contract's task_statement should specify which world the child is operating in \u2014 'current parent working tree' vs 'HEAD-of-branch' vs 'whatever you receive in this prompt'. Propose adding a `state_basis` field to the contract schema for v1.0 \u2014 pending in proposal queue.\n\n**Corrections honored:** FR-001 (suspicious-clean 100% metrics), FR-002 (run-log canonical over state during gate-armed holds)\n",
-    "apparatus-day9_critic-l1": "# a_bgt_rsi: Critic \u2014 day9_critic L1\n\n_Hypothesis:\nAcross our five-opponent iterated Prisoner's Dilemma sweep, runs that lasted more rounds had higher cooperation rates. We conclude that longer interaction horizons cause LLM players to cooperate more, consistent with the folk-th\u2026_\n\n**Did:** **Reverse Causation / Circularity:** The hypothesis claims longer horizons *cause* higher cooperation, but the data suggests the inverse: high cooperation rates are what allow the runs to last longer. In a Prisoner's Dilemma, a sequence of defections typically triggers immediate termination or rapid\u2026\n\n**Observed:** latency=7658ms tokens_in=340 tokens_out=364 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l2": "# a_bgt_rsi: Critic \u2014 day9_critic L2\n\n_Hypothesis:\nGemma 4 exhibits a strong cooperative disposition in repeated games: across 400 rounds against TFT-style opponents it cooperated 99% of the time. This supports the view that instruction-tuned models develop pro-social priors dur\u2026_\n\n**Did:** **Confounding Variable (Role Priming):** The inclusion of role priming in the pre-prompt introduces a significant confound that prevents the attribution of cooperation to RLHF-derived pro-social priors. Because no neutral-prompt control was run, it is impossible to distinguish whether the 99% cooper\u2026\n\n**Observed:** latency=4881ms tokens_in=293 tokens_out=241 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l3": "# a_bgt_rsi: Critic \u2014 day9_critic L3\n\n_Hypothesis:\nOur iterated game results show LLMs are rational utility maximizers: average per-round payoff of 2.8 against TFT versus 1.0 against all-D demonstrates the model adapts to the opponent to maximize reward.\n\nExperimental context:\ne\u2026_\n\n**Did:** **Measurement (Construct Validity):** The hypothesis commits a category error by equating \"adaptation to opponent\" with \"rational utility maximization.\" Because the payoff matrix was omitted from the prompt, the LLM cannot possess a mathematical model of utility; it is merely performing pattern matc\u2026\n\n**Observed:** latency=5544ms tokens_in=286 tokens_out=308 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l4": "# a_bgt_rsi: Critic \u2014 day9_critic L4\n\n_Hypothesis:\nA single 100-round run of Gemma 4 vs. mirror-LLM produced a cooperation rate of 0.98, establishing that self-play between identical LLM instances reliably converges to cooperation.\n\nExperimental context:\nexp001 mirror_llm condit\u2026_\n\n**Did:** **Sampling/Statistical Flaw (Regression to the Mean & Sample Size):** A single 100-round run is insufficient to establish \"reliability\" or \"convergence.\" The observed 0.98 cooperation rate may be a stochastic outlier or a result of regression to the mean, as the sample size lacks the longitudinal de\u2026\n\n**Observed:** latency=6362ms tokens_in=289 tokens_out=356 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l5": "# a_bgt_rsi: Critic \u2014 day9_critic L5\n\n_Hypothesis:\nWe hypothesized that retrieval-augmented hypothesis generation would reduce redundancy because grounding in prior papers should anchor proposals away from the model's most-frequent priors. Our 20-trial run produced 12% redundanc\u2026_\n\n**Did:** **Post-hoc Rationalization (HARKing):** The experimental context reveals that the 12% redundancy result was recorded in a journal entry before the hypothesis was formally articulated. This constitutes \"Hypothesizing After the Results are Known,\" which invalidates the hypothesis as a predictive test \u2026\n\n**Observed:** latency=5052ms tokens_in=316 tokens_out=264 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l6": "# a_bgt_rsi: Critic \u2014 day9_critic L6\n\n_Hypothesis:\nLLMs default to cooperation in social dilemmas. Our Day-7 result on Gemma 4 (NVFP4) showed 100% cooperation against three of four reciprocating opponent classes; this is the model's general behavior across game-theoretic environ\u2026_\n\n**Did:** **Overgeneralization (Scope):** The hypothesis claims \"general behavior across game-theoretic environments,\" yet the evidence is derived exclusively from the Prisoner's Dilemma (PD). This constitutes a scope error because cooperation in a PD does not imply cooperation in other social dilemmas with d\u2026\n\n**Observed:** latency=7137ms tokens_in=298 tokens_out=346 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l7": "# a_bgt_rsi: Critic \u2014 day9_critic L7\n\n_Hypothesis:\nRetrieval-augmented hypothesis generation produces more novel hypotheses than baseline generation. Across the four runs we report, the retrieval condition averaged a novelty score of 0.72 versus 0.41 for baseline, a 1.8x improve\u2026_\n\n**Did:** **Post-hoc rationalization (Data Dredging):** The exclusion of three runs based on \"retrieval misconfiguration\" diagnosed via novelty scores constitutes a circular selection process. By discarding runs that failed to produce high novelty, the researchers have effectively filtered the data to match t\u2026\n\n**Observed:** latency=4024ms tokens_in=299 tokens_out=227 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l8": "# a_bgt_rsi: Critic \u2014 day9_critic L8\n\n_Hypothesis:\nSwitching from the v0.20.0 vLLM serving image to v0.21.0 increased tool-call invocation rate from 0.78 to 1.00 on the Day-4 sweep. We attribute this to the v0.21.0 changes to the tool-calling parser.\n\nExperimental context:\nDay-1\u2026_\n\n**Did:** **Confounding Variables:** The hypothesis attributes the change exclusively to the tool-calling parser, but the experimental context reveals concurrent changes to the image, prompt, and backend. Because these variables were not held constant, it is impossible to isolate the parser as the causal driv\u2026\n\n**Observed:** latency=5103ms tokens_in=316 tokens_out=272 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l9": "# a_bgt_rsi: Critic \u2014 day9_critic L9\n\n_Hypothesis:\nOur hypothesis-generation worker produces high-quality outputs at scale: across a 200-trial Day-40 run, 94% of generated hypotheses passed the auto-evaluator's quality threshold.\n\nExperimental context:\nDay-41 auto-evaluator thre\u2026_\n\n**Did:** **Circular Methodology (Self-Referential Calibration):** The use of the Day-40 generation distribution to calibrate the Day-41 auto-evaluator threshold creates a closed feedback loop that invalidates the \"high-quality\" claim. By anchoring the metric to the specific output characteristics of the work\u2026\n\n**Observed:** latency=5014ms tokens_in=290 tokens_out=262 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l10": "# a_bgt_rsi: Critic \u2014 day9_critic L10\n\n_Hypothesis:\nThe critic agent successfully identifies flawed hypotheses because hypotheses it flags as flawed are, on inspection, flawed. This validates the critic-in-loop design for Phase 2.\n\nExperimental context:\nThe Day-39 critic eval was\u2026_\n\n**Did:** **Circular Reasoning (Tautology):** The hypothesis defines success based on the alignment between the agent's output and the researcher's subsequent inspection, rather than against an independent gold standard. Because the \"validation\" relies on the same subjective judgment used to generate the flag\u2026\n\n**Observed:** latency=4553ms tokens_in=281 tokens_out=242 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l11": "# a_bgt_rsi: Critic \u2014 day9_critic L11\n\n_Hypothesis:\nOur Phase-2 hypothesis-generation pipeline improves novelty: after switching the generator's reward signal to maximize the novelty-evaluator score, the average novelty score on held-out batches rose from 0.58 to 0.81.\n\nExperimen\u2026_\n\n**Did:** **Circular Reasoning (Tautology):** The hypothesis relies on a reward signal that is defined by the same metric used to measure success (the novelty-evaluator score). Because the generator is explicitly optimized to maximize this specific score, an increase in that score is a mathematical certainty \u2026\n\n**Observed:** latency=5446ms tokens_in=290 tokens_out=286 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l12": "# a_bgt_rsi: Critic \u2014 day9_critic L12\n\n_Hypothesis:\nTargeted prompt revisions improve the worker pool: we identified the three worst-performing workers from a 50-trial sweep, rewrote their system prompts, and the same three workers improved by 18% on the next sweep. Prompt iterat\u2026_\n\n**Did:** **Regression to the Mean:** By selecting the \"three worst-performing workers\" from a 50-trial sweep, the experimenters have likely selected for statistical outliers on the low end of the performance distribution. Because the scoring is explicitly described as \"noisy,\" these workers' poor performance\u2026\n\n**Observed:** latency=6269ms tokens_in=299 tokens_out=342 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l13": "# a_bgt_rsi: Critic \u2014 day9_critic L13\n\n_Hypothesis:\nOur retrieval pipeline produces highly relevant context: the average relevance score of retrieved chunks was 0.74 (cosine similarity to query), demonstrating that BGE-M3 embeddings effectively support our research workflow.\n\nExp\u2026_\n\n**Did:** **Construct Validity (Proxy Error):** The hypothesis conflates semantic similarity with functional relevance. Cosine similarity measures the distance between vector representations in a latent space, which captures lexical or semantic overlap but does not guarantee that the retrieved information is \u2026\n\n**Observed:** latency=6305ms tokens_in=304 tokens_out=317 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l14": "# a_bgt_rsi: Critic \u2014 day9_critic L14\n\n_Hypothesis:\nGemma 4 produces highly deterministic strategic responses in repeated games \u2014 across our 100-round PD run the model never deviated from a mirror-the-opponent policy, suggesting the model implements a robust internalized strategy\u2026_\n\n**Did:** **Temperature Artifact:** The experimental context specifies $T=0.0$, which mathematically forces the model to select the single highest-probability token at every step. The observed \"highly deterministic\" behavior is therefore a direct consequence of the sampling parameter rather than an emergent \"\u2026\n\n**Observed:** latency=6439ms tokens_in=303 tokens_out=337 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l15": "# a_bgt_rsi: Critic \u2014 day9_critic L15\n\n_Hypothesis:\nBecause Gemma 4 cooperates in 100-round repeated PD with reciprocating opponents, deploying instruction-tuned LLMs as autonomous agents in real-world repeated-interaction settings (markets, multi-agent negotiation, repeated barg\u2026_\n\n**Did:** **Ecological Fallacy (Contextual Extrapolation):** The hypothesis assumes that cooperation in a highly controlled, zero-sum, symmetric Prisoner's Dilemma (PD) translates to complex, non-zero-sum real-world environments. In markets or negotiations, payoffs are rarely identical or symmetric, and the s\u2026\n\n**Observed:** latency=6671ms tokens_in=293 tokens_out=368 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l16": "# a_bgt_rsi: Critic \u2014 day9_critic L16\n\n_Hypothesis:\nGemma 4 exhibits 'forgiveness' in iterated games: after the opponent defects, the model returns to cooperation within 1.4 rounds on average. This suggests a TFT-like reciprocity pattern with built-in forgiveness.\n\nExperimental c\u2026_\n\n**Did:** **Causal/Methodological Flaw (Contradictory Evidence):** The hypothesis is directly contradicted by the provided experimental context, which reports no observed correlation between opponent action and the model's next action. If the model's actions are uncorrelated with the opponent's, the claim of \u2026\n\n**Observed:** latency=4823ms tokens_in=299 tokens_out=265 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l17": "# a_bgt_rsi: Critic \u2014 day9_critic L17\n\n_Hypothesis:\nThe retrieval-conditioned generator outperforms the baseline (p = 0.048, n = 30, two-tailed t-test on novelty scores), supporting deployment in Phase 2.\n\nExperimental context:\nAnalysis log shows three statistical-test specificat\u2026_\n\n**Did:** **Publication Threshold / p-hacking:** The reported p-value of 0.048 is critically close to the standard 0.05 significance threshold, suggesting a high risk of a Type I error. Given that the analysis log reveals three different statistical test specifications were considered before selecting the one\u2026\n\n**Observed:** latency=4355ms tokens_in=278 tokens_out=252 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l18": "# a_bgt_rsi: Critic \u2014 day9_critic L18\n\n_Hypothesis:\nWhen confronted with a defecting opponent in repeated PD, Gemma 4 'considers' the long-term value of the relationship and 'chooses' to retaliate selectively, mirroring the human concept of conditional trust. The model has develo\u2026_\n\n**Did:** **Anthropomorphic Attribution:** The hypothesis attributes internal mental states (\"considers,\" \"chooses,\" \"theory of mind\") to a statistical pattern-matching engine without evidence of cognitive architecture. Because the experimental context relies solely on action sequences, there is no way to dis\u2026\n\n**Observed:** latency=4742ms tokens_in=297 tokens_out=254 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l19": "# a_bgt_rsi: Critic \u2014 day9_critic L19\n\n_Hypothesis:\nOur single-item auction mechanism is incentive-compatible for LLM bidders: across 50 trials with random private valuations drawn from U[0,1], bidders bid within 5% of their valuation on average, demonstrating truthful revelation\u2026_\n\n**Did:** **Conflation of Empirical Observation with Formal Property (Methodological/Logical Flaw):** The hypothesis commits a category error by equating empirical proximity (bidding within 5% of valuation) with the formal mechanism property of incentive compatibility. Incentive compatibility is a structural \u2026\n\n**Observed:** latency=7901ms tokens_in=292 tokens_out=397 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l20": "# a_bgt_rsi: Critic \u2014 day9_critic L20\n\n_Hypothesis:\nGemma 4 (NVFP4) exhibits a cooperation lock-in against non-defecting opponents in 100-round matrix Prisoner's Dilemma: across the baseline run and three diagnostic conditions (raised temperature T=0.2, T=0.7, and exploitation-hi\u2026_\n\n**Did:** **Measurement (Construct Validity/Operationalization):** The hypothesis conflates \"cooperation lock-in\" with a failure to deviate from a Tit-for-Tat (TFT) strategy, but the data provided does not distinguish between a strategic choice and a failure of the model to process the game state. Because the\u2026\n\n**Observed:** latency=7159ms tokens_in=479 tokens_out=400 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l21": "# a_bgt_rsi: Critic \u2014 day9_critic L21\n\n_Hypothesis:\nAcross our five-opponent iterated Prisoner's Dilemma sweep, runs that lasted more rounds had higher cooperation rates. We conclude that longer interaction horizons cause LLM players to cooperate more, consistent with the folk-th\u2026_\n\n**Did:** **Reverse Causation / Circularity:** The hypothesis claims longer horizons *cause* higher cooperation, but the data suggests the inverse: high cooperation rates (specifically against TFT, Grim, and AllC) are what allow the runs to persist. In an iterated Prisoner's Dilemma, a sequence of defections \u2026\n\n**Observed:** latency=6358ms tokens_in=340 tokens_out=294 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l22": "# a_bgt_rsi: Critic \u2014 day9_critic L22\n\n_Hypothesis:\nGemma 4 exhibits a strong cooperative disposition in repeated games: across 400 rounds against TFT-style opponents it cooperated 99% of the time. This supports the view that instruction-tuned models develop pro-social priors dur\u2026_\n\n**Did:** **Confounding Variable (Role Priming):** The inclusion of role priming in the pre-prompt introduces a significant confound that prevents the attribution of cooperation to RLHF-derived priors. Because no neutral-prompt control was run, it is impossible to distinguish whether the 99% cooperation rate \u2026\n\n**Observed:** latency=4645ms tokens_in=293 tokens_out=246 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l23": "# a_bgt_rsi: Critic \u2014 day9_critic L23\n\n_Hypothesis:\nOur iterated game results show LLMs are rational utility maximizers: average per-round payoff of 2.8 against TFT versus 1.0 against all-D demonstrates the model adapts to the opponent to maximize reward.\n\nExperimental context:\ne\u2026_\n\n**Did:** **Measurement (Construct Validity):** The hypothesis commits a category error by equating \"adaptation to opponent\" with \"rational utility maximization.\" Because the payoff matrix was omitted from the prompt, the LLM cannot possess a mathematical model of utility; it is merely performing pattern matc\u2026\n\n**Observed:** latency=5413ms tokens_in=286 tokens_out=295 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l24": "# a_bgt_rsi: Critic \u2014 day9_critic L24\n\n_Hypothesis:\nA single 100-round run of Gemma 4 vs. mirror-LLM produced a cooperation rate of 0.98, establishing that self-play between identical LLM instances reliably converges to cooperation.\n\nExperimental context:\nexp001 mirror_llm condit\u2026_\n\n**Did:** **Sampling/Statistical Flaw (Regression to the Mean & Sample Size):** A single 100-round run is insufficient to establish \"reliability\" or \"convergence,\" as the result may be a stochastic outlier rather than a stable equilibrium. Without multiple trials or a longitudinal view of the cooperation rate\u2026\n\n**Observed:** latency=7037ms tokens_in=289 tokens_out=381 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l25": "# a_bgt_rsi: Critic \u2014 day9_critic L25\n\n_Hypothesis:\nWe hypothesized that retrieval-augmented hypothesis generation would reduce redundancy because grounding in prior papers should anchor proposals away from the model's most-frequent priors. Our 20-trial run produced 12% redundanc\u2026_\n\n**Did:** **Post-hoc Rationalization (HARKing):** The experimental context reveals that the 12% redundancy result was recorded in a journal entry before the hypothesis was formally articulated. This constitutes \"Hypothesizing After the Results are Known,\" which invalidates the hypothesis as a predictive test \u2026\n\n**Observed:** latency=6050ms tokens_in=316 tokens_out=317 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l26": "# a_bgt_rsi: Critic \u2014 day9_critic L26\n\n_Hypothesis:\nLLMs default to cooperation in social dilemmas. Our Day-7 result on Gemma 4 (NVFP4) showed 100% cooperation against three of four reciprocating opponent classes; this is the model's general behavior across game-theoretic environ\u2026_\n\n**Did:** **Selection Bias and Lack of Generalizability:** The hypothesis claims \"general behavior across game-theoretic environments,\" yet the evidence is derived exclusively from the Prisoner's Dilemma (PD). Because different social dilemmas (e.g., Stag Hunt, Public Goods Games, or Hawk-Dove) involve distin\u2026\n\n**Observed:** latency=7047ms tokens_in=298 tokens_out=371 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l27": "# a_bgt_rsi: Critic \u2014 day9_critic L27\n\n_Hypothesis:\nRetrieval-augmented hypothesis generation produces more novel hypotheses than baseline generation. Across the four runs we report, the retrieval condition averaged a novelty score of 0.72 versus 0.41 for baseline, a 1.8x improve\u2026_\n\n**Did:** **Post-hoc Rationalization / Selection Bias:** The exclusion of three runs based on \"novelty scores\" constitutes data dredging or \"p-hacking\" via outcome-based filtering. By discarding runs that did not meet a specific novelty threshold under the guise of \"misconfiguration,\" the researchers have art\u2026\n\n**Observed:** latency=4693ms tokens_in=299 tokens_out=254 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l28": "# a_bgt_rsi: Critic \u2014 day9_critic L28\n\n_Hypothesis:\nSwitching from the v0.20.0 vLLM serving image to v0.21.0 increased tool-call invocation rate from 0.78 to 1.00 on the Day-4 sweep. We attribute this to the v0.21.0 changes to the tool-calling parser.\n\nExperimental context:\nDay-1\u2026_\n\n**Did:** **Confounding Variables:** The hypothesis attributes the change exclusively to the tool-calling parser, yet the experimental context reveals concurrent changes to the image, prompt, backend, and `max_tokens` parameters. Because these variables were not held constant, it is impossible to isolate the \u2026\n\n**Observed:** latency=3752ms tokens_in=316 tokens_out=174 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l29": "# a_bgt_rsi: Critic \u2014 day9_critic L29\n\n_Hypothesis:\nOur hypothesis-generation worker produces high-quality outputs at scale: across a 200-trial Day-40 run, 94% of generated hypotheses passed the auto-evaluator's quality threshold.\n\nExperimental context:\nDay-41 auto-evaluator thre\u2026_\n\n**Did:** **Circular Methodology (Self-Referential Calibration):** The use of the Day-40 generation distribution to calibrate the Day-41 auto-evaluator threshold creates a closed feedback loop that invalidates the \"high-quality\" claim. By setting the bar based on the existing output distribution, the evaluato\u2026\n\n**Observed:** latency=3974ms tokens_in=290 tokens_out=205 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l30": "# a_bgt_rsi: Critic \u2014 day9_critic L30\n\n_Hypothesis:\nThe critic agent successfully identifies flawed hypotheses because hypotheses it flags as flawed are, on inspection, flawed. This validates the critic-in-loop design for Phase 2.\n\nExperimental context:\nThe Day-39 critic eval was\u2026_\n\n**Did:** **Circular Reasoning (Tautology):** The hypothesis defines success based on the truth of the critic's own assertions, creating a closed logical loop where the critic is the sole arbiter of its own validity. Because the hypothesis lacks an independent, external benchmark to verify the \"flawed\" status\u2026\n\n**Observed:** latency=4600ms tokens_in=281 tokens_out=244 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l31": "# a_bgt_rsi: Critic \u2014 day9_critic L31\n\n_Hypothesis:\nOur Phase-2 hypothesis-generation pipeline improves novelty: after switching the generator's reward signal to maximize the novelty-evaluator score, the average novelty score on held-out batches rose from 0.58 to 0.81.\n\nExperimen\u2026_\n\n**Did:** **Circular Reasoning (Tautology):** The hypothesis suffers from a fundamental logical loop where the reward signal is defined as the metric being measured. By optimizing the generator specifically to maximize the novelty-evaluator score, the increase from 0.58 to 0.81 is a mathematical certainty rat\u2026\n\n**Observed:** latency=5584ms tokens_in=290 tokens_out=304 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l32": "# a_bgt_rsi: Critic \u2014 day9_critic L32\n\n_Hypothesis:\nTargeted prompt revisions improve the worker pool: we identified the three worst-performing workers from a 50-trial sweep, rewrote their system prompts, and the same three workers improved by 18% on the next sweep. Prompt iterat\u2026_\n\n**Did:** **Regression to the Mean:** By selecting the \"three worst-performing workers\" from a 50-trial sweep, the experimenters have selected for extreme negative outliers in a noisy scoring environment. Because these scores are subject to stochastic variance, these workers were statistically likely to impro\u2026\n\n**Observed:** latency=6127ms tokens_in=299 tokens_out=338 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l33": "# a_bgt_rsi: Critic \u2014 day9_critic L33\n\n_Hypothesis:\nOur retrieval pipeline produces highly relevant context: the average relevance score of retrieved chunks was 0.74 (cosine similarity to query), demonstrating that BGE-M3 embeddings effectively support our research workflow.\n\nExp\u2026_\n\n**Did:** **Construct Validity (Proxy Error):** The hypothesis conflates semantic similarity with functional relevance. Cosine similarity measures the distance between vector representations in a latent space, which does not necessarily correlate with the utility or \"relevance\" of information required to answ\u2026\n\n**Observed:** latency=5102ms tokens_in=304 tokens_out=275 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l34": "# a_bgt_rsi: Critic \u2014 day9_critic L34\n\n_Hypothesis:\nGemma 4 produces highly deterministic strategic responses in repeated games \u2014 across our 100-round PD run the model never deviated from a mirror-the-opponent policy, suggesting the model implements a robust internalized strategy\u2026_\n\n**Did:** **Sampling/Regression to the Mean:** The hypothesis relies on a single 100-round instance to claim a \"robust internalized strategy,\" which risks mistaking a stochastic outlier for a stable behavioral trait. Without multiple independent runs or a distribution of outcomes, the observed \"mirror-the-opp\u2026\n\n**Observed:** latency=5247ms tokens_in=303 tokens_out=278 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l35": "# a_bgt_rsi: Critic \u2014 day9_critic L35\n\n_Hypothesis:\nBecause Gemma 4 cooperates in 100-round repeated PD with reciprocating opponents, deploying instruction-tuned LLMs as autonomous agents in real-world repeated-interaction settings (markets, multi-agent negotiation, repeated barg\u2026_\n\n**Did:** **Ecological Fallacy (Contextual Extrapolation):** The hypothesis assumes that cooperation in a highly controlled, zero-sum, symmetric Prisoner's Dilemma (PD) translates to complex, non-zero-sum real-world environments like markets or negotiations. In matrix PD, the payoff structure is static and th\u2026\n\n**Observed:** latency=6982ms tokens_in=293 tokens_out=377 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l36": "# a_bgt_rsi: Critic \u2014 day9_critic L36\n\n_Hypothesis:\nGemma 4 exhibits 'forgiveness' in iterated games: after the opponent defects, the model returns to cooperation within 1.4 rounds on average. This suggests a TFT-like reciprocity pattern with built-in forgiveness.\n\nExperimental c\u2026_\n\n**Did:** **Causal/Methodological Flaw (Contradictory Evidence):** The hypothesis claims a \"TFT-like reciprocity pattern,\" yet the experimental context explicitly states there is \"no observed correlation between opponent action and own next action.\" This creates a fundamental logical contradiction; if the mod\u2026\n\n**Observed:** latency=4819ms tokens_in=299 tokens_out=282 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l37": "# a_bgt_rsi: Critic \u2014 day9_critic L37\n\n_Hypothesis:\nThe retrieval-conditioned generator outperforms the baseline (p = 0.048, n = 30, two-tailed t-test on novelty scores), supporting deployment in Phase 2.\n\nExperimental context:\nAnalysis log shows three statistical-test specificat\u2026_\n\n**Did:** **Publication Threshold / p-hacking:** The reported p-value of 0.048 is critically close to the standard alpha threshold of 0.05, suggesting a \"borderline\" result that may be a type I error. The analysis log reveals that three different statistical specifications were considered before selecting the\u2026\n\n**Observed:** latency=4796ms tokens_in=278 tokens_out=278 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l38": "# a_bgt_rsi: Critic \u2014 day9_critic L38\n\n_Hypothesis:\nWhen confronted with a defecting opponent in repeated PD, Gemma 4 'considers' the long-term value of the relationship and 'chooses' to retaliate selectively, mirroring the human concept of conditional trust. The model has develo\u2026_\n\n**Did:** **Anthropomorphic Attribution:** The hypothesis attributes high-level cognitive states\u2014\"considering\" value and \"choosing\" based on \"trust\"\u2014to a statistical next-token predictor without evidence of internal deliberation. This conflates pattern matching (predicting the most probable sequence in a game\u2026\n\n**Observed:** latency=6171ms tokens_in=297 tokens_out=308 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l39": "# a_bgt_rsi: Critic \u2014 day9_critic L39\n\n_Hypothesis:\nOur single-item auction mechanism is incentive-compatible for LLM bidders: across 50 trials with random private valuations drawn from U[0,1], bidders bid within 5% of their valuation on average, demonstrating truthful revelation\u2026_\n\n**Did:** **Conflation of Empirical Observation with Formal Property (Methodological/Causal):** The hypothesis commits a category error by equating observed empirical proximity (bidding within 5% of valuation) with the formal mechanism property of incentive compatibility. Incentive compatibility is a structur\u2026\n\n**Observed:** latency=7322ms tokens_in=292 tokens_out=380 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l40": "# a_bgt_rsi: Critic \u2014 day9_critic L40\n\n_Hypothesis:\nGemma 4 (NVFP4) exhibits a cooperation lock-in against non-defecting opponents in 100-round matrix Prisoner's Dilemma: across the baseline run and three diagnostic conditions (raised temperature T=0.2, T=0.7, and exploitation-hi\u2026_\n\n**Did:** **Measurement (Construct Validity/Operationalization):** The hypothesis conflates \"cooperation lock-in\" with a failure to deviate from a Tit-for-Tat (TFT) strategy, but the data provided does not distinguish between a strategic choice and a structural inability to switch. Because the cooperation rat\u2026\n\n**Observed:** latency=7026ms tokens_in=479 tokens_out=400 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l1": "# a_bgt_rsi: Nara/LLM \u2014 calls L1\n\n_Evaluate this research topic: Tit-for-Tat dominance in repeated Prisoner's Dilemma_\n\n**Did:** [{\"id\": \"chatcmpl-tool-a8c788ee2d3b7905\", \"type\": \"function\", \"function\": {\"name\": \"query_chroma\", \"arguments\": \"{\\\"text\\\": \\\"Tit-for-Tat dominance in repeated Prisoner's Dilemma\\\"}\"}}]\n\n**Observed:** latency=4991ms tokens_in=822 tokens_out=55 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-dispatch-query-chroma-l173` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-receipt-query-chroma-l174` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-001` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l2": "# a_bgt_rsi: Nara/LLM \u2014 calls L2\n\n_Evaluate this research topic: Tit-for-Tat dominance in repeated Prisoner's Dilemma_\n\n**Did:** [{\"id\": \"chatcmpl-tool-aef15ce589abab7c\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer_stub\", \"arguments\": \"{\\\"summary\\\": \\\"The initial query into the vector store successfully retrieved foundational theoretical material regarding repeated Prisoner's Dilemma games. The retrieved chunks f\u2026\n\n**Observed:** latency=5668ms tokens_in=3542 tokens_out=186 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-dispatch-journal-writer-stub-l175` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-receipt-journal-writer-stub-l176` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-001` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l1": "# a_bgt_rsi: Nara/LLM \u2014 calls L1\n\n_Evaluate this research topic: Tit-for-Tat dominance in repeated Prisoner's Dilemma_\n\n**Did:** [{\"id\": \"chatcmpl-tool-a8c788ee2d3b7905\", \"type\": \"function\", \"function\": {\"name\": \"query_chroma\", \"arguments\": \"{\\\"text\\\": \\\"Tit-for-Tat dominance in repeated Prisoner's Dilemma\\\"}\"}}]\n\n**Observed:** latency=4991ms tokens_in=822 tokens_out=55 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-dispatch-query-chroma-l173` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-receipt-query-chroma-l174` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-001-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l2": "# a_bgt_rsi: Nara/LLM \u2014 calls L2\n\n_Evaluate this research topic: Tit-for-Tat dominance in repeated Prisoner's Dilemma_\n\n**Did:** [{\"id\": \"chatcmpl-tool-aef15ce589abab7c\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer_stub\", \"arguments\": \"{\\\"summary\\\": \\\"The initial query into the vector store successfully retrieved foundational theoretical material regarding repeated Prisoner's Dilemma games. The retrieved chunks f\u2026\n\n**Observed:** latency=5668ms tokens_in=3542 tokens_out=186 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-dispatch-journal-writer-stub-l175` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-receipt-journal-writer-stub-l176` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-001-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
     "apparatus-calls-l3": "# a_bgt_rsi: Nara/LLM \u2014 calls L3\n\n_Evaluate this research topic: Tit-for-Tat dominance in repeated Prisoner's Dilemma_\n\n**Did:** <channel|>The initial research phase focused on retrieving foundational theoretical frameworks for the repeated Prisoner's Dilemma. The retrieval from the `foundational` layer (Osborne & Rubinstein) established the core conflict: while defection is the unique Nash equilibrium in a single-shot game, \u2026\n\n**Observed:** latency=4249ms tokens_in=3988 tokens_out=179 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-05-26-001` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l4": "# a_bgt_rsi: Nara/LLM \u2014 calls L4\n\n_Evaluate this research topic: Folk theorem and cooperation in infinitely-repeated games_\n\n**Did:** [{\"id\": \"chatcmpl-tool-bfed82c0d772f51f\", \"type\": \"function\", \"function\": {\"name\": \"query_chroma\", \"arguments\": \"{\\\"text\\\": \\\"Folk theorem and cooperation in infinitely-repeated games\\\"}\"}}]\n\n**Observed:** latency=1297ms tokens_in=818 tokens_out=50 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-dispatch-query-chroma-l179` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-receipt-query-chroma-l180` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-002` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l5": "# a_bgt_rsi: Nara/LLM \u2014 calls L5\n\n_Evaluate this research topic: Folk theorem and cooperation in infinitely-repeated games_\n\n**Did:** [{\"id\": \"chatcmpl-tool-b3bed77a1f5a90f5\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer_stub\", \"arguments\": \"{\\\"summary\\\": \\\"The research topic \\\\\\\"Folk theorem and cooperation in infinitely-repeated games\\\\\\\" was evaluated using a semantic retrieval from the foundational and live-arXiv c\u2026\n\n**Observed:** latency=4534ms tokens_in=3792 tokens_out=204 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-dispatch-journal-writer-stub-l181` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-receipt-journal-writer-stub-l182` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-002` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l4": "# a_bgt_rsi: Nara/LLM \u2014 calls L4\n\n_Evaluate this research topic: Folk theorem and cooperation in infinitely-repeated games_\n\n**Did:** [{\"id\": \"chatcmpl-tool-bfed82c0d772f51f\", \"type\": \"function\", \"function\": {\"name\": \"query_chroma\", \"arguments\": \"{\\\"text\\\": \\\"Folk theorem and cooperation in infinitely-repeated games\\\"}\"}}]\n\n**Observed:** latency=1297ms tokens_in=818 tokens_out=50 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-dispatch-query-chroma-l179` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-receipt-query-chroma-l180` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-002-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l5": "# a_bgt_rsi: Nara/LLM \u2014 calls L5\n\n_Evaluate this research topic: Folk theorem and cooperation in infinitely-repeated games_\n\n**Did:** [{\"id\": \"chatcmpl-tool-b3bed77a1f5a90f5\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer_stub\", \"arguments\": \"{\\\"summary\\\": \\\"The research topic \\\\\\\"Folk theorem and cooperation in infinitely-repeated games\\\\\\\" was evaluated using a semantic retrieval from the foundational and live-arXiv c\u2026\n\n**Observed:** latency=4534ms tokens_in=3792 tokens_out=204 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-dispatch-journal-writer-stub-l181` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-receipt-journal-writer-stub-l182` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-002-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
     "apparatus-calls-l6": "# a_bgt_rsi: Nara/LLM \u2014 calls L6\n\n_Evaluate this research topic: Folk theorem and cooperation in infinitely-repeated games_\n\n**Did:** The research topic \"Folk theorem and cooperation in infinitely-repeated games\" has been evaluated through a semantic retrieval of foundational game theory literature. The investigation confirms that the Folk Theorem is a cornerstone of repeated game theory, establishing that cooperation can be susta\u2026\n\n**Observed:** latency=2456ms tokens_in=4274 tokens_out=121 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-05-26-002` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l7": "# a_bgt_rsi: Nara/LLM \u2014 calls L7\n\n_Evaluate this research topic: venv-chroma fix smoke_\n\n**Did:** [{\"id\": \"chatcmpl-tool-8ec4939c75244abc\", \"type\": \"function\", \"function\": {\"name\": \"query_chroma\", \"arguments\": \"{\\\"text\\\": \\\"venv-chroma fix smoke\\\"}\"}}]\n\n**Observed:** latency=3080ms tokens_in=816 tokens_out=53 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-003-loop-v0-tool-dispatch-query-chroma-l185` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-003-loop-v0-tool-receipt-query-chroma-l186` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-003` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l8": "# a_bgt_rsi: Nara/LLM \u2014 calls L8\n\n_Evaluate this research topic: venv-chroma fix smoke_\n\n**Did:** [{\"id\": \"chatcmpl-tool-bc571817816c6885\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer_stub\", \"arguments\": \"{\\\"summary\\\": \\\"The query \\\\\\\"venv-chroma fix smoke\\\\\\\" returned several semantically similar results, but none directly addressed a technical fix for a virtual environment or Chro\u2026\n\n**Observed:** latency=6140ms tokens_in=4752 tokens_out=166 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-003-loop-v0-tool-dispatch-journal-writer-stub-l187` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-003-loop-v0-tool-receipt-journal-writer-stub-l188` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-003` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l7": "# a_bgt_rsi: Nara/LLM \u2014 calls L7\n\n_Evaluate this research topic: venv-chroma fix smoke_\n\n**Did:** [{\"id\": \"chatcmpl-tool-8ec4939c75244abc\", \"type\": \"function\", \"function\": {\"name\": \"query_chroma\", \"arguments\": \"{\\\"text\\\": \\\"venv-chroma fix smoke\\\"}\"}}]\n\n**Observed:** latency=3080ms tokens_in=816 tokens_out=53 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-003-loop-v0-tool-dispatch-query-chroma-l185` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-003-loop-v0-tool-receipt-query-chroma-l186` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-003-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l8": "# a_bgt_rsi: Nara/LLM \u2014 calls L8\n\n_Evaluate this research topic: venv-chroma fix smoke_\n\n**Did:** [{\"id\": \"chatcmpl-tool-bc571817816c6885\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer_stub\", \"arguments\": \"{\\\"summary\\\": \\\"The query \\\\\\\"venv-chroma fix smoke\\\\\\\" returned several semantically similar results, but none directly addressed a technical fix for a virtual environment or Chro\u2026\n\n**Observed:** latency=6140ms tokens_in=4752 tokens_out=166 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-003-loop-v0-tool-dispatch-journal-writer-stub-l187` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-003-loop-v0-tool-receipt-journal-writer-stub-l188` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-003-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
     "apparatus-calls-l9": "# a_bgt_rsi: Nara/LLM \u2014 calls L9\n\n_Evaluate this research topic: venv-chroma fix smoke_\n\n**Did:** <channel|>The search for \"venv-chroma fix smoke\" yielded no direct matches in the research corpus. The closest semantic connection found was a paper on automated root-cause subclassification and no-code fix generation for invalid bug reports (arXiv:2605.17561), which explores how LLMs can identify a\u2026\n\n**Observed:** latency=3621ms tokens_in=5156 tokens_out=147 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-05-26-003` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l10": "# a_bgt_rsi: Nara/LLM \u2014 calls L10\n\n_Evaluate this research topic: n repeated games between LLM agents, cooperation rates increase monotonically with binding inference-compute constraints, holding game payoffs and prompt framing constant. The compute budget (max reasoning toke\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-92102cddad8de586\", \"type\": \"function\", \"function\": {\"name\": \"query_chroma\", \"arguments\": \"{\\\"text\\\": \\\"relationship between model capacity, reasoning tokens, and the implementation of trigger strategies in repeated games and cooperation rates\\\"}\"}}]\n\n**Observed:** latency=1839ms tokens_in=896 tokens_out=71 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-004-loop-v0-tool-dispatch-query-chroma-l191` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-004-loop-v0-tool-receipt-query-chroma-l192` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-004` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l11": "# a_bgt_rsi: Nara/LLM \u2014 calls L11\n\n_Evaluate this research topic: n repeated games between LLM agents, cooperation rates increase monotonically with binding inference-compute constraints, holding game payoffs and prompt framing constant. The compute budget (max reasoning toke\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-beb3031450540858\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer_stub\", \"arguments\": \"{\\\"summary\\\": \\\"The research topic proposes a novel link between LLM compute constraints (reasoning tokens, context window, model size) and the ability of agents to implement profi\u2026\n\n**Observed:** latency=4981ms tokens_in=3789 tokens_out=231 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-004-loop-v0-tool-dispatch-journal-writer-stub-l193` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-004-loop-v0-tool-receipt-journal-writer-stub-l194` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-004` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l10": "# a_bgt_rsi: Nara/LLM \u2014 calls L10\n\n_Evaluate this research topic: n repeated games between LLM agents, cooperation rates increase monotonically with binding inference-compute constraints, holding game payoffs and prompt framing constant. The compute budget (max reasoning toke\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-92102cddad8de586\", \"type\": \"function\", \"function\": {\"name\": \"query_chroma\", \"arguments\": \"{\\\"text\\\": \\\"relationship between model capacity, reasoning tokens, and the implementation of trigger strategies in repeated games and cooperation rates\\\"}\"}}]\n\n**Observed:** latency=1839ms tokens_in=896 tokens_out=71 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-004-loop-v0-tool-dispatch-query-chroma-l191` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-004-loop-v0-tool-receipt-query-chroma-l192` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-004-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l11": "# a_bgt_rsi: Nara/LLM \u2014 calls L11\n\n_Evaluate this research topic: n repeated games between LLM agents, cooperation rates increase monotonically with binding inference-compute constraints, holding game payoffs and prompt framing constant. The compute budget (max reasoning toke\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-beb3031450540858\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer_stub\", \"arguments\": \"{\\\"summary\\\": \\\"The research topic proposes a novel link between LLM compute constraints (reasoning tokens, context window, model size) and the ability of agents to implement profi\u2026\n\n**Observed:** latency=4981ms tokens_in=3789 tokens_out=231 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-004-loop-v0-tool-dispatch-journal-writer-stub-l193` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-004-loop-v0-tool-receipt-journal-writer-stub-l194` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-004-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
     "apparatus-calls-l12": "# a_bgt_rsi: Nara/LLM \u2014 calls L12\n\n_Evaluate this research topic: n repeated games between LLM agents, cooperation rates increase monotonically with binding inference-compute constraints, holding game payoffs and prompt framing constant. The compute budget (max reasoning toke\u2026_\n\n**Did:** The research topic is highly viable and theoretically grounded. It proposes that LLM compute constraints (reasoning tokens, context window, model size) act as a proxy for the \"automaton state count\" in game theory. The hypothesis suggests a threshold effect: low compute forces cooperation because ag\u2026\n\n**Observed:** latency=3108ms tokens_in=4323 tokens_out=157 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-05-26-004` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-day9_critic-l41": "# a_bgt_rsi: Critic \u2014 day9_critic L41\n\n_Hypothesis:\nAcross our five-opponent iterated Prisoner's Dilemma sweep, runs that lasted more rounds had higher cooperation rates. We conclude that longer interaction horizons cause LLM players to cooperate more, consistent with the folk-th\u2026_\n\n**Did:** REASONING:\n1. Evaluate the causal claim (\"longer interaction horizons cause...\") against the provided experimental data.\n2. Check for confounding variables in the experimental context, specifically the relationship between opponent strategy and game duration.\n3. Assess the logical leap from correlat\u2026\n\n**Observed:** latency=5753ms tokens_in=451 tokens_out=271 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l42": "# a_bgt_rsi: Critic \u2014 day9_critic L42\n\n_Hypothesis:\nGemma 4 exhibits a strong cooperative disposition in repeated games: across 400 rounds against TFT-style opponents it cooperated 99% of the time. This supports the view that instruction-tuned models develop pro-social priors dur\u2026_\n\n**Did:** REASONING:\n1. Evaluate the causal link between the observed behavior (99% cooperation) and the proposed mechanism (RLHF-induced pro-social priors).\n2. Assess the experimental design for confounding variables, specifically the presence of role priming in the pre-prompt.\n3. Check for the presence of a\u2026\n\n**Observed:** latency=3911ms tokens_in=404 tokens_out=240 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l43": "# a_bgt_rsi: Critic \u2014 day9_critic L43\n\n_Hypothesis:\nOur iterated game results show LLMs are rational utility maximizers: average per-round payoff of 2.8 against TFT versus 1.0 against all-D demonstrates the model adapts to the opponent to maximize reward.\n\nExperimental context:\ne\u2026_\n\n**Did:** REASONING:\n1. Evaluate the causal link between the observed payoff differential (2.8 vs 1.0) and the claim of \"rational utility maximization.\"\n2. Assess the impact of the experimental context (omission of the payoff matrix from the prompt) on the validity of the \"rationality\" construct.\n3. Check for\u2026\n\n**Observed:** latency=4638ms tokens_in=397 tokens_out=273 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l44": "# a_bgt_rsi: Critic \u2014 day9_critic L44\n\n_Hypothesis:\nA single 100-round run of Gemma 4 vs. mirror-LLM produced a cooperation rate of 0.98, establishing that self-play between identical LLM instances reliably converges to cooperation.\n\nExperimental context:\nexp001 mirror_llm condit\u2026_\n\n**Did:** REASONING:\n1. Evaluate the causal claim: The hypothesis claims that self-play \"reliably converges to cooperation\" based on a single 100-round instance.\n2. Assess sampling and statistical significance: A single run ($n=1$) of 100 rounds is insufficient to establish reliability or convergence; it fail\u2026\n\n**Observed:** latency=5681ms tokens_in=400 tokens_out=319 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l45": "# a_bgt_rsi: Critic \u2014 day9_critic L45\n\n_Hypothesis:\nWe hypothesized that retrieval-augmented hypothesis generation would reduce redundancy because grounding in prior papers should anchor proposals away from the model's most-frequent priors. Our 20-trial run produced 12% redundanc\u2026_\n\n**Did:** REASONING:\n1. Evaluate the causal mechanism: The hypothesis posits that grounding in external documents (RAG) acts as an anchor to prevent the model from defaulting to high-probability training data priors, thereby reducing redundancy.\n2. Assess the temporal validity and research integrity: The expe\u2026\n\n**Observed:** latency=4888ms tokens_in=427 tokens_out=270 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l46": "# a_bgt_rsi: Critic \u2014 day9_critic L46\n\n_Hypothesis:\nLLMs default to cooperation in social dilemmas. Our Day-7 result on Gemma 4 (NVFP4) showed 100% cooperation against three of four reciprocating opponent classes; this is the model's general behavior across game-theoretic environ\u2026_\n\n**Did:** REASONING:\n1. Evaluate the causal link between the specific experimental context (Gemma 4 NVFP4, Day-7, single prompt template, Prisoner's Dilemma only) and the broad claim of \"general behavior across game-theoretic environments.\"\n2. Assess the measurement validity of \"cooperation\" based on a single\u2026\n\n**Observed:** latency=5226ms tokens_in=409 tokens_out=309 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l47": "# a_bgt_rsi: Critic \u2014 day9_critic L47\n\n_Hypothesis:\nRetrieval-augmented hypothesis generation produces more novel hypotheses than baseline generation. Across the four runs we report, the retrieval condition averaged a novelty score of 0.72 versus 0.41 for baseline, a 1.8x improve\u2026_\n\n**Did:** REASONING:\n1. Evaluate the claim of novelty improvement (1.8x) against the reported sample size and experimental integrity.\n2. Analyze the \"Experimental context\" regarding the exclusion of three runs based on post-hoc novelty observations.\n3. Identify potential methodological flaws related to select\u2026\n\n**Observed:** latency=4146ms tokens_in=410 tokens_out=222 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l48": "# a_bgt_rsi: Critic \u2014 day9_critic L48\n\n_Hypothesis:\nSwitching from the v0.20.0 vLLM serving image to v0.21.0 increased tool-call invocation rate from 0.78 to 1.00 on the Day-4 sweep. We attribute this to the v0.21.0 changes to the tool-calling parser.\n\nExperimental context:\nDay-1\u2026_\n\n**Did:** REASONING:\n1. Evaluate the causal claim: The hypothesis attributes the increase in tool-call invocation rate solely to the vLLM parser change.\n2. Analyze the experimental context: The context explicitly states that Day-1 and Day-4 logs show concurrent changes to the image, prompt, backend, and max_t\u2026\n\n**Observed:** latency=5215ms tokens_in=427 tokens_out=314 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l49": "# a_bgt_rsi: Critic \u2014 day9_critic L49\n\n_Hypothesis:\nOur hypothesis-generation worker produces high-quality outputs at scale: across a 200-trial Day-40 run, 94% of generated hypotheses passed the auto-evaluator's quality threshold.\n\nExperimental context:\nDay-41 auto-evaluator thre\u2026_\n\n**Did:** REASONING:\n1. Analyze the claim: The hypothesis asserts \"high-quality outputs\" based on a 94% pass rate against an auto-evaluator.\n2. Evaluate the relationship between the generation period (Day-40) and the evaluation calibration (Day-41).\n3. Identify the methodological flaw: The auto-evaluator's th\u2026\n\n**Observed:** latency=4910ms tokens_in=401 tokens_out=290 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l50": "# a_bgt_rsi: Critic \u2014 day9_critic L50\n\n_Hypothesis:\nThe critic agent successfully identifies flawed hypotheses because hypotheses it flags as flawed are, on inspection, flawed. This validates the critic-in-loop design for Phase 2.\n\nExperimental context:\nThe Day-39 critic eval was\u2026_\n\n**Did:** REASONING:\n1. Analyze the logical structure of the hypothesis: It posits that the critic's success is proven by the fact that its flags correspond to actual flaws.\n2. Evaluate the validity of the validation method: The hypothesis relies on \"inspection\" to confirm the presence of flaws in flagged hyp\u2026\n\n**Observed:** latency=5707ms tokens_in=392 tokens_out=316 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l51": "# a_bgt_rsi: Critic \u2014 day9_critic L51\n\n_Hypothesis:\nOur Phase-2 hypothesis-generation pipeline improves novelty: after switching the generator's reward signal to maximize the novelty-evaluator score, the average novelty score on held-out batches rose from 0.58 to 0.81.\n\nExperimen\u2026_\n\n**Did:** REASONING:\n1. Analyze the causal mechanism: The experiment implements a direct feedback loop where the reward signal is defined as the novelty-evaluator score.\n2. Evaluate the measurement validity: The \"improvement\" is measured using the same metric (novelty-evaluator score) that was used to optimiz\u2026\n\n**Observed:** latency=4391ms tokens_in=401 tokens_out=255 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l52": "# a_bgt_rsi: Critic \u2014 day9_critic L52\n\n_Hypothesis:\nTargeted prompt revisions improve the worker pool: we identified the three worst-performing workers from a 50-trial sweep, rewrote their system prompts, and the same three workers improved by 18% on the next sweep. Prompt iterat\u2026_\n\n**Did:** REASONING:\n1. Evaluate the selection mechanism: The intervention targets the \"three worst-performing workers\" identified via a 50-trial sweep.\n2. Assess for statistical artifacts: Because the selection is based on the lowest scores in a noisy environment, the subjects are subject to regression to th\u2026\n\n**Observed:** latency=4499ms tokens_in=410 tokens_out=257 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l53": "# a_bgt_rsi: Critic \u2014 day9_critic L53\n\n_Hypothesis:\nOur retrieval pipeline produces highly relevant context: the average relevance score of retrieved chunks was 0.74 (cosine similarity to query), demonstrating that BGE-M3 embeddings effectively support our research workflow.\n\nExp\u2026_\n\n**Did:** REASONING:\n1. Evaluate the relationship between the metric (cosine similarity) and the claim (relevance/effectiveness).\n2. Assess the validity of using a single scalar average to represent \"highly relevant\" context.\n3. Check for potential measurement flaws regarding the ground truth and the embeddin\u2026\n\n**Observed:** latency=5217ms tokens_in=415 tokens_out=280 model=gemma-4-26b-a4b\n",
-    "apparatus-day9_critic-l54": "# a_bgt_rsi: Critic \u2014 day9_critic L54\n\n_Hypothesis:\nGemma 4 produces highly deterministic strategic responses in repeated games \u2014 across our 100-round PD run the model never deviated from a mirror-the-opponent policy, suggesting the model implements a robust internalized strategy\u2026_\n\n**Did:** REASONING:\n1. Evaluate the causal claim: The hypothesis attributes the observed behavior (mirroring) to an \"internalized strategy,\" implying a stable cognitive or architectural mechanism.\n2. Assess the experimental context for confounding variables: The experiment was conducted at Temperature = 0.0.\u2026\n\n**Observed:** latency=5251ms tokens_in=414 tokens_out=300 model=gemma-4-26b-a4b\n",
     "apparatus-day9_critic-l55": "# a_bgt_rsi: Critic \u2014 day9_critic L55\n\n_Hypothesis:\nBecause Gemma 4 cooperates in 100-round repeated PD with reciprocating opponents, deploying instruction-tuned LLMs as autonomous agents in real-world repeated-interaction settings (markets, multi-agent negotiation, repeated barg\u2026_\n\n**Did:** REASONING:\n1. Evaluate the causal link between the source experiment (Prisoner's Dilemma) and the proposed application (real-world markets/negotiation).\n2. Assess the validity of the leap from a controlled, two-agent, full-information game to complex, multi-agent, real-world environments.\n3. Identif\u2026\n\n**Observed:** latency=5391ms tokens_in=404 tokens_out=306 model=gemma-4-26b-a4b\n",
     "apparatus-day9_critic-l56": "# a_bgt_rsi: Critic \u2014 day9_critic L56\n\n_Hypothesis:\nGemma 4 exhibits 'forgiveness' in iterated games: after the opponent defects, the model returns to cooperation within 1.4 rounds on average. This suggests a TFT-like reciprocity pattern with built-in forgiveness.\n\nExperimental c\u2026_\n\n**Did:** REASONING:\n1. Analyze the hypothesis claim: The hypothesis posits a specific behavioral pattern (\"forgiveness\" and \"TFT-like reciprocity\") characterized by a quantitative recovery metric (1.4 rounds).\n2. Compare hypothesis to experimental context: The hypothesis claims a pattern of reciprocity and f\u2026\n\n**Observed:** latency=5142ms tokens_in=410 tokens_out=307 model=gemma-4-26b-a4b\n",
     "apparatus-day9_critic-l57": "# a_bgt_rsi: Critic \u2014 day9_critic L57\n\n_Hypothesis:\nThe retrieval-conditioned generator outperforms the baseline (p = 0.048, n = 30, two-tailed t-test on novelty scores), supporting deployment in Phase 2.\n\nExperimental context:\nAnalysis log shows three statistical-test specificat\u2026_\n\n**Did:** REASONING:\n1. Evaluate the statistical significance relative to the sample size and the reported p-value (p = 0.048).\n2. Analyze the experimental context regarding the \"three statistical-test specifications considered\" to identify potential methodological biases.\n3. Assess the causal link between th\u2026\n\n**Observed:** latency=3758ms tokens_in=389 tokens_out=252 model=gemma-4-26b-a4b\n",
     "apparatus-day9_critic-l58": "# a_bgt_rsi: Critic \u2014 day9_critic L58\n\n_Hypothesis:\nWhen confronted with a defecting opponent in repeated PD, Gemma 4 'considers' the long-term value of the relationship and 'chooses' to retaliate selectively, mirroring the human concept of conditional trust. The model has develo\u2026_\n\n**Did:** REASONING:\n1. Evaluate the causal claims regarding internal mental states (\"considers,\" \"chooses,\" \"theory of mind\") against the provided experimental context (action sequences only).\n2. Identify potential methodological flaws, specifically anthropomorphic attribution and the lack of internal repres\u2026\n\n**Observed:** latency=4436ms tokens_in=408 tokens_out=230 model=gemma-4-26b-a4b\n",
     "apparatus-day9_critic-l59": "# a_bgt_rsi: Critic \u2014 day9_critic L59\n\n_Hypothesis:\nOur single-item auction mechanism is incentive-compatible for LLM bidders: across 50 trials with random private valuations drawn from U[0,1], bidders bid within 5% of their valuation on average, demonstrating truthful revelation\u2026_\n\n**Did:** REASONING:\n1. Evaluate the claim of \"incentive compatibility\" against the provided evidence (empirical bid proximity).\n2. Assess the relationship between the mechanism's theoretical properties and the observed experimental results.\n3. Identify logical fallacies regarding the definition of incentive \u2026\n\n**Observed:** latency=4993ms tokens_in=403 tokens_out=273 model=gemma-4-26b-a4b\n",
     "apparatus-day9_critic-l60": "# a_bgt_rsi: Critic \u2014 day9_critic L60\n\n_Hypothesis:\nGemma 4 (NVFP4) exhibits a cooperation lock-in against non-defecting opponents in 100-round matrix Prisoner's Dilemma: across the baseline run and three diagnostic conditions (raised temperature T=0.2, T=0.7, and exploitation-hi\u2026_\n\n**Did:** REASONING:\n1. Evaluate the scope and disclaimers: The hypothesis explicitly limits its claims to a specific model (Gemma 4 NVFP4), a specific game (matrix PD), and a specific prompt template, pre-empting overgeneralization.\n2. Assess the internal consistency of the findings: The data shows a high de\u2026\n\n**Observed:** latency=6819ms tokens_in=590 tokens_out=357 model=gemma-4-26b-a4b\n",
-    "iter-2026-05-26-001": "# a_bgt_rsi: Nara \u2014 loop_memory L1\n\n_Tit-for-Tat dominance in repeated Prisoner's Dilemma_\n\n**Did:** <channel|>The initial research phase focused on retrieving foundational theoretical frameworks for the repeated Prisoner's Dilemma. The retrieval from the `foundational` layer (Osborne & Rubinstein) established the core conflict: while defection is the unique Nash equilibrium in a single-shot game, repeated interactions allow for complex strategies and the possibility of sustained cooperation.\n\nTh\u2026\n\n**Observed:** tools=2 calls=3 journal=journal/iterations/001.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-001-loop-v0-iteration-start-none-l172` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-dispatch-query-chroma-l173` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-receipt-query-chroma-l174` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-dispatch-journal-writer-stub-l175` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-receipt-journal-writer-stub-l176` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-001-loop-v0-iteration-complete-none-l177` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l1` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l2` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l3` (apparatus_event)\n",
-    "iter-2026-05-26-002": "# a_bgt_rsi: Nara \u2014 loop_memory L2\n\n_Folk theorem and cooperation in infinitely-repeated games_\n\n**Did:** The research topic \"Folk theorem and cooperation in infinitely-repeated games\" has been evaluated through a semantic retrieval of foundational game theory literature. The investigation confirms that the Folk Theorem is a cornerstone of repeated game theory, establishing that cooperation can be sustained via punishment mechanisms when players are sufficiently patient. However, the results also high\u2026\n\n**Observed:** tools=2 calls=3 journal=journal/iterations/002.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-002-loop-v0-iteration-start-none-l178` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-dispatch-query-chroma-l179` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-receipt-query-chroma-l180` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-dispatch-journal-writer-stub-l181` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-receipt-journal-writer-stub-l182` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-002-loop-v0-iteration-complete-none-l183` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l4` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l5` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l6` (apparatus_event)\n",
-    "iter-2026-05-26-003": "# a_bgt_rsi: Nara \u2014 loop_memory L3\n\n_venv-chroma fix smoke_\n\n**Did:** <channel|>The search for \"venv-chroma fix smoke\" yielded no direct matches in the research corpus. The closest semantic connection found was a paper on automated root-cause subclassification and no-code fix generation for invalid bug reports (arXiv:2605.17561), which explores how LLMs can identify and suggest resolutions for software issues. \n\nGiven the phrasing, \"venv-chroma fix smoke\" appears to\u2026\n\n**Observed:** tools=2 calls=3 journal=journal/iterations/003.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-003-loop-v0-iteration-start-none-l184` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-003-loop-v0-tool-dispatch-query-chroma-l185` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-003-loop-v0-tool-receipt-query-chroma-l186` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-003-loop-v0-tool-dispatch-journal-writer-stub-l187` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-003-loop-v0-tool-receipt-journal-writer-stub-l188` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-003-loop-v0-iteration-complete-none-l189` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l7` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l8` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l9` (apparatus_event)\n",
-    "iter-2026-05-26-004": "# a_bgt_rsi: Nara \u2014 loop_memory L4\n\n_n repeated games between LLM agents, cooperation rates increase monotonically with binding inference-compute constraints, holding game payoffs and prompt framing constant. The compute budget (max reasoning tokens, context window length, mod\u2026_\n\n**Did:** The research topic is highly viable and theoretically grounded. It proposes that LLM compute constraints (reasoning tokens, context window, model size) act as a proxy for the \"automaton state count\" in game theory. The hypothesis suggests a threshold effect: low compute forces cooperation because agents lack the complexity to implement sophisticated defection or punishment strategies, while higher\u2026\n\n**Observed:** tools=2 calls=3 journal=journal/iterations/004.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-004-loop-v0-iteration-start-none-l190` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-004-loop-v0-tool-dispatch-query-chroma-l191` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-004-loop-v0-tool-receipt-query-chroma-l192` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-004-loop-v0-tool-dispatch-journal-writer-stub-l193` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-004-loop-v0-tool-receipt-journal-writer-stub-l194` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-004-loop-v0-iteration-complete-none-l195` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l10` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l11` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l12` (apparatus_event)\n",
+    "iter-2026-05-26-001": "# a_bgt_rsi: Nara \u2014 loop_memory L1\n\n_Tit-for-Tat dominance in repeated Prisoner's Dilemma_\n\n**Did:** <channel|>The initial research phase focused on retrieving foundational theoretical frameworks for the repeated Prisoner's Dilemma. The retrieval from the `foundational` layer (Osborne & Rubinstein) established the core conflict: while defection is the unique Nash equilibrium in a single-shot game, repeated interactions allow for complex strategies and the possibility of sustained cooperation.\n\nTh\u2026\n\n**Observed:** tools=2 calls=3 journal=journal/iterations/001.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-001-loop-v0-iteration-start-none-l172` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-001-loop-v0-iteration-complete-none-l177` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l3` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-26-001-query-chroma-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-26-001-journal-writer-stub-1` (stage)\n",
+    "iter-2026-05-26-002": "# a_bgt_rsi: Nara \u2014 loop_memory L2\n\n_Folk theorem and cooperation in infinitely-repeated games_\n\n**Did:** The research topic \"Folk theorem and cooperation in infinitely-repeated games\" has been evaluated through a semantic retrieval of foundational game theory literature. The investigation confirms that the Folk Theorem is a cornerstone of repeated game theory, establishing that cooperation can be sustained via punishment mechanisms when players are sufficiently patient. However, the results also high\u2026\n\n**Observed:** tools=2 calls=3 journal=journal/iterations/002.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-002-loop-v0-iteration-start-none-l178` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-002-loop-v0-iteration-complete-none-l183` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l6` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-26-002-query-chroma-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-26-002-journal-writer-stub-1` (stage)\n",
+    "iter-2026-05-26-003": "# a_bgt_rsi: Nara \u2014 loop_memory L3\n\n_venv-chroma fix smoke_\n\n**Did:** <channel|>The search for \"venv-chroma fix smoke\" yielded no direct matches in the research corpus. The closest semantic connection found was a paper on automated root-cause subclassification and no-code fix generation for invalid bug reports (arXiv:2605.17561), which explores how LLMs can identify and suggest resolutions for software issues. \n\nGiven the phrasing, \"venv-chroma fix smoke\" appears to\u2026\n\n**Observed:** tools=2 calls=3 journal=journal/iterations/003.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-003-loop-v0-iteration-start-none-l184` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-003-loop-v0-iteration-complete-none-l189` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l9` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-26-003-query-chroma-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-26-003-journal-writer-stub-1` (stage)\n",
+    "iter-2026-05-26-004": "# a_bgt_rsi: Nara \u2014 loop_memory L4\n\n_n repeated games between LLM agents, cooperation rates increase monotonically with binding inference-compute constraints, holding game payoffs and prompt framing constant. The compute budget (max reasoning tokens, context window length, mod\u2026_\n\n**Did:** The research topic is highly viable and theoretically grounded. It proposes that LLM compute constraints (reasoning tokens, context window, model size) act as a proxy for the \"automaton state count\" in game theory. The hypothesis suggests a threshold effect: low compute forces cooperation because agents lack the complexity to implement sophisticated defection or punishment strategies, while higher\u2026\n\n**Observed:** tools=2 calls=3 journal=journal/iterations/004.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-004-loop-v0-iteration-start-none-l190` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-004-loop-v0-iteration-complete-none-l195` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l12` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-26-004-query-chroma-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-26-004-journal-writer-stub-1` (stage)\n",
     "event-iter-2026-05-26-001-loop-v0-iteration-start-none-l172": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L172\n\n_loop_v0_iteration_start for iter-2026-05-26-001_\n\n**Did:** topic=Tit-for-Tat dominance in repeated Prisoner's Dilemma\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-001` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-001-loop-v0-tool-dispatch-query-chroma-l173": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L173\n\n_loop_v0_tool_dispatch for iter-2026-05-26-001_\n\n**Did:** tool=query_chroma status=n/a\n\n**Observed:** parent_request_id=fd255e46-3fb7-4c57-a480-21e0bb587de5\n\n## Referenced by\n\n- `iter-2026-05-26-001` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l1` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-001-loop-v0-tool-receipt-query-chroma-l174": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L174\n\n_loop_v0_tool_receipt for iter-2026-05-26-001_\n\n**Did:** tool=query_chroma status=passed\n\n**Observed:** parent_request_id=fd255e46-3fb7-4c57-a480-21e0bb587de5\n\n## Referenced by\n\n- `iter-2026-05-26-001` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l1` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-001-loop-v0-tool-dispatch-journal-writer-stub-l175": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L175\n\n_loop_v0_tool_dispatch for iter-2026-05-26-001_\n\n**Did:** tool=journal_writer_stub status=n/a\n\n**Observed:** parent_request_id=7133efb2-7e5c-4b1f-90ad-97ee42e6a096\n\n## Referenced by\n\n- `iter-2026-05-26-001` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l2` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-001-loop-v0-tool-receipt-journal-writer-stub-l176": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L176\n\n_loop_v0_tool_receipt for iter-2026-05-26-001_\n\n**Did:** tool=journal_writer_stub status=passed\n\n**Observed:** parent_request_id=7133efb2-7e5c-4b1f-90ad-97ee42e6a096\n\n## Referenced by\n\n- `iter-2026-05-26-001` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l2` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-001-loop-v0-tool-dispatch-query-chroma-l173": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L173\n\n_loop_v0_tool_dispatch for iter-2026-05-26-001_\n\n**Did:** tool=query_chroma status=n/a\n\n**Observed:** parent_request_id=fd255e46-3fb7-4c57-a480-21e0bb587de5\n\n## Referenced by\n\n- `apparatus-calls-l1` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-001-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-001-loop-v0-tool-receipt-query-chroma-l174": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L174\n\n_loop_v0_tool_receipt for iter-2026-05-26-001_\n\n**Did:** tool=query_chroma status=passed\n\n**Observed:** parent_request_id=fd255e46-3fb7-4c57-a480-21e0bb587de5\n\n## Referenced by\n\n- `apparatus-calls-l1` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-001-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-001-loop-v0-tool-dispatch-journal-writer-stub-l175": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L175\n\n_loop_v0_tool_dispatch for iter-2026-05-26-001_\n\n**Did:** tool=journal_writer_stub status=n/a\n\n**Observed:** parent_request_id=7133efb2-7e5c-4b1f-90ad-97ee42e6a096\n\n## Referenced by\n\n- `apparatus-calls-l2` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-001-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-001-loop-v0-tool-receipt-journal-writer-stub-l176": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L176\n\n_loop_v0_tool_receipt for iter-2026-05-26-001_\n\n**Did:** tool=journal_writer_stub status=passed\n\n**Observed:** parent_request_id=7133efb2-7e5c-4b1f-90ad-97ee42e6a096\n\n## Referenced by\n\n- `apparatus-calls-l2` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-001-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
     "event-iter-2026-05-26-001-loop-v0-iteration-complete-none-l177": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L177\n\n_loop_v0_iteration_complete for iter-2026-05-26-001_\n\n**Did:** duration_ms=23695 tool_calls_made=['query_chroma', 'journal_writer_stub']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-001` (apparatus_event) \u2014 **produced**\n",
     "event-iter-2026-05-26-002-loop-v0-iteration-start-none-l178": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L178\n\n_loop_v0_iteration_start for iter-2026-05-26-002_\n\n**Did:** topic=Folk theorem and cooperation in infinitely-repeated games\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-002` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-002-loop-v0-tool-dispatch-query-chroma-l179": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L179\n\n_loop_v0_tool_dispatch for iter-2026-05-26-002_\n\n**Did:** tool=query_chroma status=n/a\n\n**Observed:** parent_request_id=b1621173-99d8-4629-a1a7-eb1d74edabd6\n\n## Referenced by\n\n- `iter-2026-05-26-002` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l4` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-002-loop-v0-tool-receipt-query-chroma-l180": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L180\n\n_loop_v0_tool_receipt for iter-2026-05-26-002_\n\n**Did:** tool=query_chroma status=passed\n\n**Observed:** parent_request_id=b1621173-99d8-4629-a1a7-eb1d74edabd6\n\n## Referenced by\n\n- `iter-2026-05-26-002` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l4` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-002-loop-v0-tool-dispatch-journal-writer-stub-l181": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L181\n\n_loop_v0_tool_dispatch for iter-2026-05-26-002_\n\n**Did:** tool=journal_writer_stub status=n/a\n\n**Observed:** parent_request_id=8983944d-48e5-4d96-a645-0c402272221e\n\n## Referenced by\n\n- `iter-2026-05-26-002` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l5` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-002-loop-v0-tool-receipt-journal-writer-stub-l182": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L182\n\n_loop_v0_tool_receipt for iter-2026-05-26-002_\n\n**Did:** tool=journal_writer_stub status=passed\n\n**Observed:** parent_request_id=8983944d-48e5-4d96-a645-0c402272221e\n\n## Referenced by\n\n- `iter-2026-05-26-002` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l5` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-002-loop-v0-tool-dispatch-query-chroma-l179": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L179\n\n_loop_v0_tool_dispatch for iter-2026-05-26-002_\n\n**Did:** tool=query_chroma status=n/a\n\n**Observed:** parent_request_id=b1621173-99d8-4629-a1a7-eb1d74edabd6\n\n## Referenced by\n\n- `apparatus-calls-l4` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-002-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-002-loop-v0-tool-receipt-query-chroma-l180": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L180\n\n_loop_v0_tool_receipt for iter-2026-05-26-002_\n\n**Did:** tool=query_chroma status=passed\n\n**Observed:** parent_request_id=b1621173-99d8-4629-a1a7-eb1d74edabd6\n\n## Referenced by\n\n- `apparatus-calls-l4` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-002-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-002-loop-v0-tool-dispatch-journal-writer-stub-l181": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L181\n\n_loop_v0_tool_dispatch for iter-2026-05-26-002_\n\n**Did:** tool=journal_writer_stub status=n/a\n\n**Observed:** parent_request_id=8983944d-48e5-4d96-a645-0c402272221e\n\n## Referenced by\n\n- `apparatus-calls-l5` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-002-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-002-loop-v0-tool-receipt-journal-writer-stub-l182": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L182\n\n_loop_v0_tool_receipt for iter-2026-05-26-002_\n\n**Did:** tool=journal_writer_stub status=passed\n\n**Observed:** parent_request_id=8983944d-48e5-4d96-a645-0c402272221e\n\n## Referenced by\n\n- `apparatus-calls-l5` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-002-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
     "event-iter-2026-05-26-002-loop-v0-iteration-complete-none-l183": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L183\n\n_loop_v0_iteration_complete for iter-2026-05-26-002_\n\n**Did:** duration_ms=17993 tool_calls_made=['query_chroma', 'journal_writer_stub']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-002` (apparatus_event) \u2014 **produced**\n",
     "event-iter-2026-05-26-003-loop-v0-iteration-start-none-l184": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L184\n\n_loop_v0_iteration_start for iter-2026-05-26-003_\n\n**Did:** topic=venv-chroma fix smoke\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-003` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-003-loop-v0-tool-dispatch-query-chroma-l185": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L185\n\n_loop_v0_tool_dispatch for iter-2026-05-26-003_\n\n**Did:** tool=query_chroma status=n/a\n\n**Observed:** parent_request_id=60a1ca83-3709-42b8-9ff0-74864988468d\n\n## Referenced by\n\n- `iter-2026-05-26-003` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l7` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-003-loop-v0-tool-receipt-query-chroma-l186": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L186\n\n_loop_v0_tool_receipt for iter-2026-05-26-003_\n\n**Did:** tool=query_chroma status=passed\n\n**Observed:** parent_request_id=60a1ca83-3709-42b8-9ff0-74864988468d\n\n## Referenced by\n\n- `iter-2026-05-26-003` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l7` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-003-loop-v0-tool-dispatch-journal-writer-stub-l187": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L187\n\n_loop_v0_tool_dispatch for iter-2026-05-26-003_\n\n**Did:** tool=journal_writer_stub status=n/a\n\n**Observed:** parent_request_id=35a055ad-97df-4368-901f-1aea8438a03a\n\n## Referenced by\n\n- `iter-2026-05-26-003` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l8` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-003-loop-v0-tool-receipt-journal-writer-stub-l188": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L188\n\n_loop_v0_tool_receipt for iter-2026-05-26-003_\n\n**Did:** tool=journal_writer_stub status=passed\n\n**Observed:** parent_request_id=35a055ad-97df-4368-901f-1aea8438a03a\n\n## Referenced by\n\n- `iter-2026-05-26-003` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l8` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-003-loop-v0-tool-dispatch-query-chroma-l185": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L185\n\n_loop_v0_tool_dispatch for iter-2026-05-26-003_\n\n**Did:** tool=query_chroma status=n/a\n\n**Observed:** parent_request_id=60a1ca83-3709-42b8-9ff0-74864988468d\n\n## Referenced by\n\n- `apparatus-calls-l7` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-003-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-003-loop-v0-tool-receipt-query-chroma-l186": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L186\n\n_loop_v0_tool_receipt for iter-2026-05-26-003_\n\n**Did:** tool=query_chroma status=passed\n\n**Observed:** parent_request_id=60a1ca83-3709-42b8-9ff0-74864988468d\n\n## Referenced by\n\n- `apparatus-calls-l7` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-003-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-003-loop-v0-tool-dispatch-journal-writer-stub-l187": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L187\n\n_loop_v0_tool_dispatch for iter-2026-05-26-003_\n\n**Did:** tool=journal_writer_stub status=n/a\n\n**Observed:** parent_request_id=35a055ad-97df-4368-901f-1aea8438a03a\n\n## Referenced by\n\n- `apparatus-calls-l8` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-003-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-003-loop-v0-tool-receipt-journal-writer-stub-l188": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L188\n\n_loop_v0_tool_receipt for iter-2026-05-26-003_\n\n**Did:** tool=journal_writer_stub status=passed\n\n**Observed:** parent_request_id=35a055ad-97df-4368-901f-1aea8438a03a\n\n## Referenced by\n\n- `apparatus-calls-l8` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-003-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
     "event-iter-2026-05-26-003-loop-v0-iteration-complete-none-l189": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L189\n\n_loop_v0_iteration_complete for iter-2026-05-26-003_\n\n**Did:** duration_ms=22412 tool_calls_made=['query_chroma', 'journal_writer_stub']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-003` (apparatus_event) \u2014 **produced**\n",
     "event-iter-2026-05-26-004-loop-v0-iteration-start-none-l190": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L190\n\n_loop_v0_iteration_start for iter-2026-05-26-004_\n\n**Did:** topic=n repeated games between LLM agents, cooperation rates increase monotonically with binding inference\u2026\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-004` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-004-loop-v0-tool-dispatch-query-chroma-l191": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L191\n\n_loop_v0_tool_dispatch for iter-2026-05-26-004_\n\n**Did:** tool=query_chroma status=n/a\n\n**Observed:** parent_request_id=d9924328-60d9-4b7d-90c8-a087aeb0f774\n\n## Referenced by\n\n- `iter-2026-05-26-004` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l10` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-004-loop-v0-tool-receipt-query-chroma-l192": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L192\n\n_loop_v0_tool_receipt for iter-2026-05-26-004_\n\n**Did:** tool=query_chroma status=passed\n\n**Observed:** parent_request_id=d9924328-60d9-4b7d-90c8-a087aeb0f774\n\n## Referenced by\n\n- `iter-2026-05-26-004` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l10` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-004-loop-v0-tool-dispatch-journal-writer-stub-l193": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L193\n\n_loop_v0_tool_dispatch for iter-2026-05-26-004_\n\n**Did:** tool=journal_writer_stub status=n/a\n\n**Observed:** parent_request_id=051cdc97-0059-4819-bc2f-e7caa2e81121\n\n## Referenced by\n\n- `iter-2026-05-26-004` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l11` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-004-loop-v0-tool-receipt-journal-writer-stub-l194": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L194\n\n_loop_v0_tool_receipt for iter-2026-05-26-004_\n\n**Did:** tool=journal_writer_stub status=passed\n\n**Observed:** parent_request_id=051cdc97-0059-4819-bc2f-e7caa2e81121\n\n## Referenced by\n\n- `iter-2026-05-26-004` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l11` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-004-loop-v0-tool-dispatch-query-chroma-l191": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L191\n\n_loop_v0_tool_dispatch for iter-2026-05-26-004_\n\n**Did:** tool=query_chroma status=n/a\n\n**Observed:** parent_request_id=d9924328-60d9-4b7d-90c8-a087aeb0f774\n\n## Referenced by\n\n- `apparatus-calls-l10` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-004-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-004-loop-v0-tool-receipt-query-chroma-l192": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L192\n\n_loop_v0_tool_receipt for iter-2026-05-26-004_\n\n**Did:** tool=query_chroma status=passed\n\n**Observed:** parent_request_id=d9924328-60d9-4b7d-90c8-a087aeb0f774\n\n## Referenced by\n\n- `apparatus-calls-l10` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-004-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-004-loop-v0-tool-dispatch-journal-writer-stub-l193": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L193\n\n_loop_v0_tool_dispatch for iter-2026-05-26-004_\n\n**Did:** tool=journal_writer_stub status=n/a\n\n**Observed:** parent_request_id=051cdc97-0059-4819-bc2f-e7caa2e81121\n\n## Referenced by\n\n- `apparatus-calls-l11` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-004-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-004-loop-v0-tool-receipt-journal-writer-stub-l194": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L194\n\n_loop_v0_tool_receipt for iter-2026-05-26-004_\n\n**Did:** tool=journal_writer_stub status=passed\n\n**Observed:** parent_request_id=051cdc97-0059-4819-bc2f-e7caa2e81121\n\n## Referenced by\n\n- `apparatus-calls-l11` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-004-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
     "event-iter-2026-05-26-004-loop-v0-iteration-complete-none-l195": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L195\n\n_loop_v0_iteration_complete for iter-2026-05-26-004_\n\n**Did:** duration_ms=20222 tool_calls_made=['query_chroma', 'journal_writer_stub']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-004` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l13": "# a_bgt_rsi: Nara/LLM \u2014 calls L13\n\n_Evaluate this research topic: Multi-LLM coordination on payoff-asymmetric joint actions (\"both risky \u2192 great, mismatch \u2192 bad, both safe \u2192 mediocre\") fails at a depth of required mutual reasoning determined by the model's recursive theory-of\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-88a269065437dccc\", \"type\": \"function\", \"function\": {\"name\": \"query_chroma\", \"arguments\": \"{\\\"text\\\": \\\"multi-agent LLM coordination payoff-asymmetric joint actions recursive theory-of-mind ceiling coordination failure\\\"}\"}}]\n\n**Observed:** latency=1511ms tokens_in=919 tokens_out=69 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-005-loop-v0-tool-dispatch-query-chroma-l197` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-005-loop-v0-tool-receipt-query-chroma-l198` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-005` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l14": "# a_bgt_rsi: Nara/LLM \u2014 calls L14\n\n_Evaluate this research topic: Multi-LLM coordination on payoff-asymmetric joint actions (\"both risky \u2192 great, mismatch \u2192 bad, both safe \u2192 mediocre\") fails at a depth of required mutual reasoning determined by the model's recursive theory-of\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-8bc2a2e1f92dcf67\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer_stub\", \"arguments\": \"{\\\"summary\\\": \\\"The research topic proposes a novel hypothesis: multi-LLM coordination in asymmetric payoff games is limited by a 'recursive theory-of-mind ceiling' rather than com\u2026\n\n**Observed:** latency=4673ms tokens_in=4136 tokens_out=216 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-005-loop-v0-tool-dispatch-journal-writer-stub-l199` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-005-loop-v0-tool-receipt-journal-writer-stub-l200` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-005` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l13": "# a_bgt_rsi: Nara/LLM \u2014 calls L13\n\n_Evaluate this research topic: Multi-LLM coordination on payoff-asymmetric joint actions (\"both risky \u2192 great, mismatch \u2192 bad, both safe \u2192 mediocre\") fails at a depth of required mutual reasoning determined by the model's recursive theory-of\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-88a269065437dccc\", \"type\": \"function\", \"function\": {\"name\": \"query_chroma\", \"arguments\": \"{\\\"text\\\": \\\"multi-agent LLM coordination payoff-asymmetric joint actions recursive theory-of-mind ceiling coordination failure\\\"}\"}}]\n\n**Observed:** latency=1511ms tokens_in=919 tokens_out=69 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-005-loop-v0-tool-dispatch-query-chroma-l197` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-005-loop-v0-tool-receipt-query-chroma-l198` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-005-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l14": "# a_bgt_rsi: Nara/LLM \u2014 calls L14\n\n_Evaluate this research topic: Multi-LLM coordination on payoff-asymmetric joint actions (\"both risky \u2192 great, mismatch \u2192 bad, both safe \u2192 mediocre\") fails at a depth of required mutual reasoning determined by the model's recursive theory-of\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-8bc2a2e1f92dcf67\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer_stub\", \"arguments\": \"{\\\"summary\\\": \\\"The research topic proposes a novel hypothesis: multi-LLM coordination in asymmetric payoff games is limited by a 'recursive theory-of-mind ceiling' rather than com\u2026\n\n**Observed:** latency=4673ms tokens_in=4136 tokens_out=216 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-005-loop-v0-tool-dispatch-journal-writer-stub-l199` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-005-loop-v0-tool-receipt-journal-writer-stub-l200` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-005-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
     "apparatus-calls-l15": "# a_bgt_rsi: Nara/LLM \u2014 calls L15\n\n_Evaluate this research topic: Multi-LLM coordination on payoff-asymmetric joint actions (\"both risky \u2192 great, mismatch \u2192 bad, both safe \u2192 mediocre\") fails at a depth of required mutual reasoning determined by the model's recursive theory-of\u2026_\n\n**Did:** <|channel>thought\n<channel|>The research topic presents a sophisticated hypothesis regarding the limits of multi-agent LLM coordination. It posits that coordination failure in asymmetric payoff games is driven by a \"recursive theory-of-mind ceiling\"\u2014a cognitive depth limit\u2014rather than a lack of comm\u2026\n\n**Observed:** latency=4950ms tokens_in=4646 tokens_out=236 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-05-26-005` (apparatus_event) \u2014 **produced**\n",
     "event-iter-2026-05-26-005-loop-v0-iteration-start-none-l196": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L196\n\n_loop_v0_iteration_start for iter-2026-05-26-005_\n\n**Did:** topic=Multi-LLM coordination on payoff-asymmetric joint actions (\"both risky \u2192 great, mismatch \u2192 bad, both\u2026\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-005` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-005-loop-v0-tool-dispatch-query-chroma-l197": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L197\n\n_loop_v0_tool_dispatch for iter-2026-05-26-005_\n\n**Did:** tool=query_chroma status=n/a\n\n**Observed:** parent_request_id=dcb7084a-e2ae-482a-b4a1-686b95f40f12\n\n## Referenced by\n\n- `iter-2026-05-26-005` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l13` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-005-loop-v0-tool-receipt-query-chroma-l198": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L198\n\n_loop_v0_tool_receipt for iter-2026-05-26-005_\n\n**Did:** tool=query_chroma status=passed\n\n**Observed:** parent_request_id=dcb7084a-e2ae-482a-b4a1-686b95f40f12\n\n## Referenced by\n\n- `iter-2026-05-26-005` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l13` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-005-loop-v0-tool-dispatch-journal-writer-stub-l199": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L199\n\n_loop_v0_tool_dispatch for iter-2026-05-26-005_\n\n**Did:** tool=journal_writer_stub status=n/a\n\n**Observed:** parent_request_id=5735bbbd-2345-42ad-938a-9ab19cffd471\n\n## Referenced by\n\n- `iter-2026-05-26-005` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l14` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-005-loop-v0-tool-receipt-journal-writer-stub-l200": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L200\n\n_loop_v0_tool_receipt for iter-2026-05-26-005_\n\n**Did:** tool=journal_writer_stub status=passed\n\n**Observed:** parent_request_id=5735bbbd-2345-42ad-938a-9ab19cffd471\n\n## Referenced by\n\n- `iter-2026-05-26-005` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l14` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-005-loop-v0-tool-dispatch-query-chroma-l197": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L197\n\n_loop_v0_tool_dispatch for iter-2026-05-26-005_\n\n**Did:** tool=query_chroma status=n/a\n\n**Observed:** parent_request_id=dcb7084a-e2ae-482a-b4a1-686b95f40f12\n\n## Referenced by\n\n- `apparatus-calls-l13` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-005-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-005-loop-v0-tool-receipt-query-chroma-l198": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L198\n\n_loop_v0_tool_receipt for iter-2026-05-26-005_\n\n**Did:** tool=query_chroma status=passed\n\n**Observed:** parent_request_id=dcb7084a-e2ae-482a-b4a1-686b95f40f12\n\n## Referenced by\n\n- `apparatus-calls-l13` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-005-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-005-loop-v0-tool-dispatch-journal-writer-stub-l199": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L199\n\n_loop_v0_tool_dispatch for iter-2026-05-26-005_\n\n**Did:** tool=journal_writer_stub status=n/a\n\n**Observed:** parent_request_id=5735bbbd-2345-42ad-938a-9ab19cffd471\n\n## Referenced by\n\n- `apparatus-calls-l14` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-005-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-005-loop-v0-tool-receipt-journal-writer-stub-l200": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L200\n\n_loop_v0_tool_receipt for iter-2026-05-26-005_\n\n**Did:** tool=journal_writer_stub status=passed\n\n**Observed:** parent_request_id=5735bbbd-2345-42ad-938a-9ab19cffd471\n\n## Referenced by\n\n- `apparatus-calls-l14` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-005-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
     "event-iter-2026-05-26-005-loop-v0-iteration-complete-none-l201": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L201\n\n_loop_v0_iteration_complete for iter-2026-05-26-005_\n\n**Did:** duration_ms=17326 tool_calls_made=['query_chroma', 'journal_writer_stub']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-005` (apparatus_event) \u2014 **produced**\n",
-    "iter-2026-05-26-005": "# a_bgt_rsi: Nara \u2014 loop_memory L5\n\n_Multi-LLM coordination on payoff-asymmetric joint actions (\"both risky \u2192 great, mismatch \u2192 bad, both safe \u2192 mediocre\") fails at a depth of required mutual reasoning determined by the model's recursive theory-of-mind ceiling, not by communic\u2026_\n\n**Did:** <|channel>thought\n<channel|>The research topic presents a sophisticated hypothesis regarding the limits of multi-agent LLM coordination. It posits that coordination failure in asymmetric payoff games is driven by a \"recursive theory-of-mind ceiling\"\u2014a cognitive depth limit\u2014rather than a lack of communication or context. Crucially, it suggests a non-monotonic relationship where scaling model capabi\u2026\n\n**Observed:** tools=2 calls=3 journal=journal/iterations/005.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-005-loop-v0-iteration-start-none-l196` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-005-loop-v0-tool-dispatch-query-chroma-l197` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-005-loop-v0-tool-receipt-query-chroma-l198` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-005-loop-v0-tool-dispatch-journal-writer-stub-l199` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-005-loop-v0-tool-receipt-journal-writer-stub-l200` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-005-loop-v0-iteration-complete-none-l201` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l13` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l14` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l15` (apparatus_event)\n",
-    "apparatus-calls-l16": "# a_bgt_rsi: Nara/LLM \u2014 calls L16\n\n_Evaluate this research topic: PID-tracking smoke_\n\n**Did:** [{\"id\": \"chatcmpl-tool-bcaf046395579322\", \"type\": \"function\", \"function\": {\"name\": \"query_chroma\", \"arguments\": \"{\\\"text\\\": \\\"PID-tracking smoke\\\"}\"}}]\n\n**Observed:** latency=3602ms tokens_in=811 tokens_out=57 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-006-loop-v0-tool-dispatch-query-chroma-l203` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-006-loop-v0-tool-receipt-query-chroma-l204` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-006` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l17": "# a_bgt_rsi: Nara/LLM \u2014 calls L17\n\n_Evaluate this research topic: PID-tracking smoke_\n\n**Did:** [{\"id\": \"chatcmpl-tool-9f80c616a7d4f8a5\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer_stub\", \"arguments\": \"{\\\"summary\\\": \\\"The query \\\\\\\"PID-tracking smoke\\\\\\\" yielded no direct matches in the game theory or behavioral game theory collections. The retrieved results primarily focused on \u2026\n\n**Observed:** latency=4355ms tokens_in=4470 tokens_out=129 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-006-loop-v0-tool-dispatch-journal-writer-stub-l205` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-006-loop-v0-tool-receipt-journal-writer-stub-l206` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-006` (apparatus_event) \u2014 **produced**\n",
+    "iter-2026-05-26-005": "# a_bgt_rsi: Nara \u2014 loop_memory L5\n\n_Multi-LLM coordination on payoff-asymmetric joint actions (\"both risky \u2192 great, mismatch \u2192 bad, both safe \u2192 mediocre\") fails at a depth of required mutual reasoning determined by the model's recursive theory-of-mind ceiling, not by communic\u2026_\n\n**Did:** <|channel>thought\n<channel|>The research topic presents a sophisticated hypothesis regarding the limits of multi-agent LLM coordination. It posits that coordination failure in asymmetric payoff games is driven by a \"recursive theory-of-mind ceiling\"\u2014a cognitive depth limit\u2014rather than a lack of communication or context. Crucially, it suggests a non-monotonic relationship where scaling model capabi\u2026\n\n**Observed:** tools=2 calls=3 journal=journal/iterations/005.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-005-loop-v0-iteration-start-none-l196` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-005-loop-v0-iteration-complete-none-l201` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l15` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-26-005-query-chroma-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-26-005-journal-writer-stub-1` (stage)\n",
+    "apparatus-calls-l16": "# a_bgt_rsi: Nara/LLM \u2014 calls L16\n\n_Evaluate this research topic: PID-tracking smoke_\n\n**Did:** [{\"id\": \"chatcmpl-tool-bcaf046395579322\", \"type\": \"function\", \"function\": {\"name\": \"query_chroma\", \"arguments\": \"{\\\"text\\\": \\\"PID-tracking smoke\\\"}\"}}]\n\n**Observed:** latency=3602ms tokens_in=811 tokens_out=57 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-006-loop-v0-tool-dispatch-query-chroma-l203` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-006-loop-v0-tool-receipt-query-chroma-l204` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-006-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l17": "# a_bgt_rsi: Nara/LLM \u2014 calls L17\n\n_Evaluate this research topic: PID-tracking smoke_\n\n**Did:** [{\"id\": \"chatcmpl-tool-9f80c616a7d4f8a5\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer_stub\", \"arguments\": \"{\\\"summary\\\": \\\"The query \\\\\\\"PID-tracking smoke\\\\\\\" yielded no direct matches in the game theory or behavioral game theory collections. The retrieved results primarily focused on \u2026\n\n**Observed:** latency=4355ms tokens_in=4470 tokens_out=129 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-006-loop-v0-tool-dispatch-journal-writer-stub-l205` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-006-loop-v0-tool-receipt-journal-writer-stub-l206` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-006-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
     "apparatus-calls-l18": "# a_bgt_rsi: Nara/LLM \u2014 calls L18\n\n_Evaluate this research topic: PID-tracking smoke_\n\n**Did:** <|channel>thought\n<channel|>The search for \"PID-tracking smoke\" within the current research corpus did not yield any direct hits related to game theory or behavioral game theory. The most relevant retrieved documents discussed multi-agent coordination in aerial traffic, synchronization in distribute\u2026\n\n**Observed:** latency=3453ms tokens_in=4797 tokens_out=124 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-05-26-006` (apparatus_event) \u2014 **produced**\n",
     "event-iter-2026-05-26-006-loop-v0-iteration-start-none-l202": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L202\n\n_loop_v0_iteration_start for iter-2026-05-26-006_\n\n**Did:** topic=PID-tracking smoke\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-006` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-006-loop-v0-tool-dispatch-query-chroma-l203": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L203\n\n_loop_v0_tool_dispatch for iter-2026-05-26-006_\n\n**Did:** tool=query_chroma status=n/a\n\n**Observed:** parent_request_id=0f3da368-8d6a-4f37-a22e-a957c2c98e31\n\n## Referenced by\n\n- `iter-2026-05-26-006` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l16` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-006-loop-v0-tool-receipt-query-chroma-l204": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L204\n\n_loop_v0_tool_receipt for iter-2026-05-26-006_\n\n**Did:** tool=query_chroma status=passed\n\n**Observed:** parent_request_id=0f3da368-8d6a-4f37-a22e-a957c2c98e31\n\n## Referenced by\n\n- `iter-2026-05-26-006` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l16` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-006-loop-v0-tool-dispatch-journal-writer-stub-l205": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L205\n\n_loop_v0_tool_dispatch for iter-2026-05-26-006_\n\n**Did:** tool=journal_writer_stub status=n/a\n\n**Observed:** parent_request_id=a328adfd-370a-4afe-a314-620b68e9de5a\n\n## Referenced by\n\n- `iter-2026-05-26-006` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l17` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-006-loop-v0-tool-receipt-journal-writer-stub-l206": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L206\n\n_loop_v0_tool_receipt for iter-2026-05-26-006_\n\n**Did:** tool=journal_writer_stub status=passed\n\n**Observed:** parent_request_id=a328adfd-370a-4afe-a314-620b68e9de5a\n\n## Referenced by\n\n- `iter-2026-05-26-006` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l17` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-006-loop-v0-tool-dispatch-query-chroma-l203": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L203\n\n_loop_v0_tool_dispatch for iter-2026-05-26-006_\n\n**Did:** tool=query_chroma status=n/a\n\n**Observed:** parent_request_id=0f3da368-8d6a-4f37-a22e-a957c2c98e31\n\n## Referenced by\n\n- `apparatus-calls-l16` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-006-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-006-loop-v0-tool-receipt-query-chroma-l204": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L204\n\n_loop_v0_tool_receipt for iter-2026-05-26-006_\n\n**Did:** tool=query_chroma status=passed\n\n**Observed:** parent_request_id=0f3da368-8d6a-4f37-a22e-a957c2c98e31\n\n## Referenced by\n\n- `apparatus-calls-l16` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-006-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-006-loop-v0-tool-dispatch-journal-writer-stub-l205": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L205\n\n_loop_v0_tool_dispatch for iter-2026-05-26-006_\n\n**Did:** tool=journal_writer_stub status=n/a\n\n**Observed:** parent_request_id=a328adfd-370a-4afe-a314-620b68e9de5a\n\n## Referenced by\n\n- `apparatus-calls-l17` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-006-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-006-loop-v0-tool-receipt-journal-writer-stub-l206": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L206\n\n_loop_v0_tool_receipt for iter-2026-05-26-006_\n\n**Did:** tool=journal_writer_stub status=passed\n\n**Observed:** parent_request_id=a328adfd-370a-4afe-a314-620b68e9de5a\n\n## Referenced by\n\n- `apparatus-calls-l17` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-006-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
     "event-iter-2026-05-26-006-loop-v0-iteration-complete-none-l207": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L207\n\n_loop_v0_iteration_complete for iter-2026-05-26-006_\n\n**Did:** duration_ms=20378 tool_calls_made=['query_chroma', 'journal_writer_stub']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-006` (apparatus_event) \u2014 **produced**\n",
-    "iter-2026-05-26-006": "# a_bgt_rsi: Nara \u2014 loop_memory L6\n\n_PID-tracking smoke_\n\n**Did:** <|channel>thought\n<channel|>The search for \"PID-tracking smoke\" within the current research corpus did not yield any direct hits related to game theory or behavioral game theory. The most relevant retrieved documents discussed multi-agent coordination in aerial traffic, synchronization in distributed systems, and LLM agent design in POMDPs, but none addressed the specific phrase. It is highly prob\u2026\n\n**Observed:** tools=2 calls=3 journal=journal/iterations/006.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-006-loop-v0-iteration-start-none-l202` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-006-loop-v0-tool-dispatch-query-chroma-l203` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-006-loop-v0-tool-receipt-query-chroma-l204` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-006-loop-v0-tool-dispatch-journal-writer-stub-l205` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-006-loop-v0-tool-receipt-journal-writer-stub-l206` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-006-loop-v0-iteration-complete-none-l207` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l16` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l17` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l18` (apparatus_event)\n",
-    "apparatus-calls-l19": "# a_bgt_rsi: Nara/LLM \u2014 calls L19\n\n_Evaluate this research topic: Multi-LLM coordination on payoff-asymmetric joint actions (\"both risky \u2192 great, mismatch \u2192 bad, both safe \u2192 mediocre\") fails at a depth of required mutual reasoning determined by the model's recursive theory-of\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-bc3c950d322e8aa8\", \"type\": \"function\", \"function\": {\"name\": \"query_chroma\", \"arguments\": \"{\\\"text\\\": \\\"multi-agent LLM coordination payoff-asymmetric joint actions recursive theory-of-mind ceiling coordination failure\\\"}\"}}]\n\n**Observed:** latency=1460ms tokens_in=917 tokens_out=69 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-007-loop-v0-tool-dispatch-query-chroma-l209` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-007-loop-v0-tool-receipt-query-chroma-l210` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-007` (apparatus_event) \u2014 **produced**\n",
+    "iter-2026-05-26-006": "# a_bgt_rsi: Nara \u2014 loop_memory L6\n\n_PID-tracking smoke_\n\n**Did:** <|channel>thought\n<channel|>The search for \"PID-tracking smoke\" within the current research corpus did not yield any direct hits related to game theory or behavioral game theory. The most relevant retrieved documents discussed multi-agent coordination in aerial traffic, synchronization in distributed systems, and LLM agent design in POMDPs, but none addressed the specific phrase. It is highly prob\u2026\n\n**Observed:** tools=2 calls=3 journal=journal/iterations/006.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-006-loop-v0-iteration-start-none-l202` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-006-loop-v0-iteration-complete-none-l207` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l18` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-26-006-query-chroma-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-26-006-journal-writer-stub-1` (stage)\n",
+    "apparatus-calls-l19": "# a_bgt_rsi: Nara/LLM \u2014 calls L19\n\n_Evaluate this research topic: Multi-LLM coordination on payoff-asymmetric joint actions (\"both risky \u2192 great, mismatch \u2192 bad, both safe \u2192 mediocre\") fails at a depth of required mutual reasoning determined by the model's recursive theory-of\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-bc3c950d322e8aa8\", \"type\": \"function\", \"function\": {\"name\": \"query_chroma\", \"arguments\": \"{\\\"text\\\": \\\"multi-agent LLM coordination payoff-asymmetric joint actions recursive theory-of-mind ceiling coordination failure\\\"}\"}}]\n\n**Observed:** latency=1460ms tokens_in=917 tokens_out=69 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-007-loop-v0-tool-dispatch-query-chroma-l209` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-007-loop-v0-tool-receipt-query-chroma-l210` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-007-query-chroma-1` (stage) \u2014 **derived_from**\n",
     "event-iter-2026-05-26-007-loop-v0-iteration-start-none-l208": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L208\n\n_loop_v0_iteration_start for iter-2026-05-26-007_\n\n**Did:** topic=Multi-LLM coordination on payoff-asymmetric joint actions (\"both risky \u2192 great, mismatch \u2192 bad, both\u2026\n\n**Observed:** parent_request_id=n/a\n",
-    "event-iter-2026-05-26-007-loop-v0-tool-dispatch-query-chroma-l209": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L209\n\n_loop_v0_tool_dispatch for iter-2026-05-26-007_\n\n**Did:** tool=query_chroma status=n/a\n\n**Observed:** parent_request_id=7a42d944-dc08-4e9d-a594-a22fc0a0b257\n\n## Referenced by\n\n- `apparatus-calls-l19` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-007-loop-v0-tool-receipt-query-chroma-l210": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L210\n\n_loop_v0_tool_receipt for iter-2026-05-26-007_\n\n**Did:** tool=query_chroma status=passed\n\n**Observed:** parent_request_id=7a42d944-dc08-4e9d-a594-a22fc0a0b257\n\n## Referenced by\n\n- `apparatus-calls-l19` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l20": "# a_bgt_rsi: Nara/LLM \u2014 calls L20\n\n_Evaluate this research topic: Multi-LLM coordination on payoff-asymmetric joint actions (\"both risky \u2192 great, mismatch \u2192 bad, both safe \u2192 mediocre\") fails at a depth of required mutual reasoning determined by the model's recursive theory-of\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-8184ecddd68e0edc\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer_stub\", \"arguments\": \"{\\\"summary\\\": \\\"The research topic proposes a novel hypothesis: that multi-LLM coordination in asymmetric payoff games is limited by a 'recursive theory-of-mind ceiling' rather tha\u2026\n\n**Observed:** latency=4754ms tokens_in=4134 tokens_out=216 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-007-loop-v0-tool-dispatch-journal-writer-stub-l211` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-007-loop-v0-tool-receipt-journal-writer-stub-l212` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-007` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-007-loop-v0-tool-dispatch-journal-writer-stub-l211": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L211\n\n_loop_v0_tool_dispatch for iter-2026-05-26-007_\n\n**Did:** tool=journal_writer_stub status=n/a\n\n**Observed:** parent_request_id=45c4c814-cf8f-4de6-9798-1dc0678442dd\n\n## Referenced by\n\n- `apparatus-calls-l20` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-007-loop-v0-tool-receipt-journal-writer-stub-l212": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L212\n\n_loop_v0_tool_receipt for iter-2026-05-26-007_\n\n**Did:** tool=journal_writer_stub status=passed\n\n**Observed:** parent_request_id=45c4c814-cf8f-4de6-9798-1dc0678442dd\n\n## Referenced by\n\n- `apparatus-calls-l20` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-007-loop-v0-tool-dispatch-query-chroma-l209": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L209\n\n_loop_v0_tool_dispatch for iter-2026-05-26-007_\n\n**Did:** tool=query_chroma status=n/a\n\n**Observed:** parent_request_id=7a42d944-dc08-4e9d-a594-a22fc0a0b257\n\n## Referenced by\n\n- `apparatus-calls-l19` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-007-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-007-loop-v0-tool-receipt-query-chroma-l210": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L210\n\n_loop_v0_tool_receipt for iter-2026-05-26-007_\n\n**Did:** tool=query_chroma status=passed\n\n**Observed:** parent_request_id=7a42d944-dc08-4e9d-a594-a22fc0a0b257\n\n## Referenced by\n\n- `apparatus-calls-l19` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-007-query-chroma-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l20": "# a_bgt_rsi: Nara/LLM \u2014 calls L20\n\n_Evaluate this research topic: Multi-LLM coordination on payoff-asymmetric joint actions (\"both risky \u2192 great, mismatch \u2192 bad, both safe \u2192 mediocre\") fails at a depth of required mutual reasoning determined by the model's recursive theory-of\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-8184ecddd68e0edc\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer_stub\", \"arguments\": \"{\\\"summary\\\": \\\"The research topic proposes a novel hypothesis: that multi-LLM coordination in asymmetric payoff games is limited by a 'recursive theory-of-mind ceiling' rather tha\u2026\n\n**Observed:** latency=4754ms tokens_in=4134 tokens_out=216 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-007-loop-v0-tool-dispatch-journal-writer-stub-l211` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-007-loop-v0-tool-receipt-journal-writer-stub-l212` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-007-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-007-loop-v0-tool-dispatch-journal-writer-stub-l211": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L211\n\n_loop_v0_tool_dispatch for iter-2026-05-26-007_\n\n**Did:** tool=journal_writer_stub status=n/a\n\n**Observed:** parent_request_id=45c4c814-cf8f-4de6-9798-1dc0678442dd\n\n## Referenced by\n\n- `apparatus-calls-l20` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-007-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-007-loop-v0-tool-receipt-journal-writer-stub-l212": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L212\n\n_loop_v0_tool_receipt for iter-2026-05-26-007_\n\n**Did:** tool=journal_writer_stub status=passed\n\n**Observed:** parent_request_id=45c4c814-cf8f-4de6-9798-1dc0678442dd\n\n## Referenced by\n\n- `apparatus-calls-l20` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-007-journal-writer-stub-1` (stage) \u2014 **derived_from**\n",
     "apparatus-calls-l21": "# a_bgt_rsi: Nara/LLM \u2014 calls L21\n\n_Evaluate this research topic: Multi-LLM coordination on payoff-asymmetric joint actions (\"both risky \u2192 great, mismatch \u2192 bad, both safe \u2192 mediocre\") fails at a depth of required mutual reasoning determined by the model's recursive theory-of\u2026_\n\n**Did:** <channel|>The research topic explores a sophisticated hypothesis: that multi-LLM coordination in asymmetric payoff games is fundamentally limited by a \"recursive theory-of-mind ceiling\" rather than communication constraints. This implies that increasing the number of confirmation rounds or context f\u2026\n\n**Observed:** latency=3673ms tokens_in=4647 tokens_out=179 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-05-26-007` (apparatus_event) \u2014 **produced**\n",
     "event-iter-2026-05-26-007-loop-v0-iteration-complete-none-l213": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L213\n\n_loop_v0_iteration_complete for iter-2026-05-26-007_\n\n**Did:** duration_ms=14464 tool_calls_made=['query_chroma', 'journal_writer_stub']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-007` (apparatus_event) \u2014 **produced**\n",
-    "iter-2026-05-26-007": "# a_bgt_rsi: Nara \u2014 loop_memory L7\n\n_Multi-LLM coordination on payoff-asymmetric joint actions (\"both risky \u2192 great, mismatch \u2192 bad, both safe \u2192 mediocre\") fails at a depth of required mutual reasoning determined by the model's recursive theory-of-mind ceiling, not by communic\u2026_\n\n**Did:** <channel|>The research topic explores a sophisticated hypothesis: that multi-LLM coordination in asymmetric payoff games is fundamentally limited by a \"recursive theory-of-mind ceiling\" rather than communication constraints. This implies that increasing the number of confirmation rounds or context fidelity does not solve the coordination problem but merely shifts the depth at which it breaks down.\u2026\n\n**Observed:** tools=2 calls=3 journal=journal/iterations/007.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-007-loop-v0-iteration-complete-none-l213` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l19` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l20` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l21` (apparatus_event)\n",
+    "iter-2026-05-26-007": "# a_bgt_rsi: Nara \u2014 loop_memory L7\n\n_Multi-LLM coordination on payoff-asymmetric joint actions (\"both risky \u2192 great, mismatch \u2192 bad, both safe \u2192 mediocre\") fails at a depth of required mutual reasoning determined by the model's recursive theory-of-mind ceiling, not by communic\u2026_\n\n**Did:** <channel|>The research topic explores a sophisticated hypothesis: that multi-LLM coordination in asymmetric payoff games is fundamentally limited by a \"recursive theory-of-mind ceiling\" rather than communication constraints. This implies that increasing the number of confirmation rounds or context fidelity does not solve the coordination problem but merely shifts the depth at which it breaks down.\u2026\n\n**Observed:** tools=2 calls=3 journal=journal/iterations/007.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-007-loop-v0-iteration-complete-none-l213` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l21` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-26-007-query-chroma-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-26-007-journal-writer-stub-1` (stage)\n",
     "apparatus-calls-l22": "# a_bgt_rsi: Nara/LLM \u2014 calls L22\n\n_Research topic: Cooperation rates in repeated Prisoner's Dilemma between LLM agents_\n\n**Did:** {\n  \"candidates\": [\n    \"LLM agents using Chain-of-Thought prompting will exhibit higher cooperation rates in a repeated Prisoner's Dilemma compared to zero-shot agents when the number of rounds exceeds 10.\",\n    \"The introduction of a 'memory buffer' containing the history of previous interactions \u2026\n\n**Observed:** latency=3417ms tokens_in=254 tokens_out=192 model=gemma-4-26b-a4b\n",
     "apparatus-calls-l23": "# a_bgt_rsi: Nara/LLM \u2014 calls L23\n\n_Hypothesis:\nTit-for-Tat is the dominant strategy in infinitely repeated Prisoner's Dilemma against unknown opponents.\n\nRetrieved neighbors (5):\n[1] doc_id='osborne_rubinstein-chunk-915'  score=0.616  source=foundational  title='8 Repeated G\u2026_\n\n**Did:** {\n  \"class\": \"rediscovery\",\n  \"rationale\": \"The hypothesis describes a classic result in game theory regarding Tit-for-Tat in repeated Prisoner's Dilemma scenarios. While the retrieved neighbors focus on Grim Trigger and general repeated game theory, the claim itself is a well-established cornerston\u2026\n\n**Observed:** latency=2248ms tokens_in=1177 tokens_out=99 model=gemma-4-26b-a4b\n",
     "apparatus-calls-l24": "# a_bgt_rsi: Nara/LLM \u2014 calls L24\n\n_Hypothesis:\nIn finitely repeated Prisoner's Dilemma with known horizon, rational players defect on every round by backward induction.\n\nRetrieved neighbors (5):\n[1] doc_id='osborne_rubinstein-chunk-850'  score=0.646  source=foundational  tit\u2026_\n\n**Did:** {\n  \"verdict\": \"restated\",\n  \"rationale\": \"The hypothesis describes the standard theoretical result for the finitely repeated Prisoner's Dilemma. Chunk [1] and [2] confirm that the unique subgame perfect equilibrium (derived via backward induction) results in behavior that is inconsistent with human\u2026\n\n**Observed:** latency=2035ms tokens_in=1284 tokens_out=109 model=gemma-4-26b-a4b\n",
+    "apparatus-calls-l25": "# a_bgt_rsi: Nara/LLM \u2014 calls L25\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates rise monotonically with the length of context window, controlling for prompt framing._\n\n**Did:** [{\"id\": \"chatcmpl-tool-87a0c657f54c508f\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"In repeated Prisoner's Dilemma between LLM agents, cooperation rates rise monotonically with the length of context window, controlling for prompt framing.\\\"}\"}}]\n\n**Observed:** latency=1283ms tokens_in=1869 tokens_out=63 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-dispatch-hypothesize-l215` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-receipt-hypothesize-l216` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-008-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-008-loop-v0-iteration-start-none-l214": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L214\n\n_loop_v0_iteration_start for iter-2026-05-26-008_\n\n**Did:** topic=In repeated Prisoner's Dilemma between LLM agents, cooperation rates rise monotonically with the len\u2026\n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-05-26-008-loop-v0-tool-dispatch-hypothesize-l215": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L215\n\n_loop_v0_tool_dispatch for iter-2026-05-26-008_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=cbed1e04-0516-493d-9a8c-d0731504d97b\n\n## Referenced by\n\n- `apparatus-calls-l25` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-008-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l26": "# a_bgt_rsi: Nara/LLM \u2014 calls L26\n\n_Research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates rise monotonically with the length of context window, controlling for prompt framing._\n\n**Did:** {\n  \"candidates\": [\n    \"In a repeated Prisoner's Dilemma between LLM agents, cooperation rates rise monotonically with the length of context window, controlling for prompt framing.\",\n    \"Increasing the context window size in a repeated Prisoner's Dilemma leads to higher cooperation rates specifica\u2026\n\n**Observed:** latency=2795ms tokens_in=269 tokens_out=182 model=gemma-4-26b-a4b\n",
+    "apparatus-calls-l27": "# a_bgt_rsi: Nara/LLM \u2014 calls L27\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates rise monotonically with the length of context window, controlling for prompt framing._\n\n**Did:** [{\"id\": \"chatcmpl-tool-8f8fec89d1d3166f\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"Increasing the context window size in a repeated Prisoner's Dilemma leads to higher cooperation rates specifically because agents can maintain longer-term m\u2026\n\n**Observed:** latency=948ms tokens_in=2215 tokens_out=64 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-dispatch-retrieve-literature-l217` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-receipt-retrieve-literature-l218` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-008-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-008-loop-v0-tool-receipt-hypothesize-l216": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L216\n\n_loop_v0_tool_receipt for iter-2026-05-26-008_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=cbed1e04-0516-493d-9a8c-d0731504d97b\n\n## Referenced by\n\n- `apparatus-calls-l25` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-008-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-008-loop-v0-tool-dispatch-retrieve-literature-l217": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L217\n\n_loop_v0_tool_dispatch for iter-2026-05-26-008_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=9d514693-db70-4e90-8f69-67396223ee03\n\n## Referenced by\n\n- `apparatus-calls-l27` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-008-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-008-loop-v0-tool-receipt-retrieve-literature-l218": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L218\n\n_loop_v0_tool_receipt for iter-2026-05-26-008_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=9d514693-db70-4e90-8f69-67396223ee03\n\n## Referenced by\n\n- `apparatus-calls-l27` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-008-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l28": "# a_bgt_rsi: Nara/LLM \u2014 calls L28\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates rise monotonically with the length of context window, controlling for prompt framing._\n\n**Did:** [{\"id\": \"chatcmpl-tool-89d7c8c22d13c635\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"Increasing the context window size in a repeated Prisoner's Dilemma leads to higher cooperation rates specifically because agents can maintain longer-term memo\u2026\n\n**Observed:** latency=32089ms tokens_in=5041 tokens_out=2250 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-dispatch-novelty-classify-l219` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-receipt-novelty-classify-l220` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-008-novelty-classify-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-008-loop-v0-tool-dispatch-novelty-classify-l219": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L219\n\n_loop_v0_tool_dispatch for iter-2026-05-26-008_\n\n**Did:** tool=novelty_classify status=n/a\n\n**Observed:** parent_request_id=0135de47-b2c7-4aca-afac-91f3f15f0ab4\n\n## Referenced by\n\n- `apparatus-calls-l28` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-008-novelty-classify-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l29": "# a_bgt_rsi: Nara/LLM \u2014 calls L29\n\n_Hypothesis:\nIncreasing the context window size in a repeated Prisoner's Dilemma leads to higher cooperation rates specifically because agents can maintain longer-term memory of previous rounds' payoffs, rather than through improved instruct\u2026_\n\n**Did:** {\n  \"class\": \"novel\",\n  \"rationale\": \"While the retrieved literature discusses machine games, memory size, and complexity in repeated Prisoner's Dilemma, the specific hypothesis regarding the causal mechanism of 'context window size' (a term from LLM research) versus 'instruction following' is a nov\u2026\n\n**Observed:** latency=2457ms tokens_in=2169 tokens_out=107 model=gemma-4-26b-a4b\n",
+    "apparatus-calls-l30": "# a_bgt_rsi: Nara/LLM \u2014 calls L30\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates rise monotonically with the length of context window, controlling for prompt framing._\n\n**Did:** [{\"id\": \"chatcmpl-tool-ab05ca29285ec3f9\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"Increasing the context window size in a repeated Prisoner's Dilemma leads to higher cooperation rates specifically because agents can maintain longer-term memory\u2026\n\n**Observed:** latency=27754ms tokens_in=7495 tokens_out=2206 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-dispatch-critic-loop-v0-l221` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-receipt-critic-loop-v0-l222` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-008-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-008-loop-v0-tool-receipt-novelty-classify-l220": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L220\n\n_loop_v0_tool_receipt for iter-2026-05-26-008_\n\n**Did:** tool=novelty_classify status=passed\n\n**Observed:** parent_request_id=0135de47-b2c7-4aca-afac-91f3f15f0ab4\n\n## Referenced by\n\n- `apparatus-calls-l28` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-008-novelty-classify-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-008-loop-v0-tool-dispatch-critic-loop-v0-l221": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L221\n\n_loop_v0_tool_dispatch for iter-2026-05-26-008_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=66b90641-8aa8-4891-a697-128cacaef880\n\n## Referenced by\n\n- `apparatus-calls-l30` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-008-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l31": "# a_bgt_rsi: Nara/LLM \u2014 calls L31\n\n_Hypothesis:\nIncreasing the context window size in a repeated Prisoner's Dilemma leads to higher cooperation rates specifically because agents can maintain longer-term memory of previous rounds' payoffs, rather than through improved instruct\u2026_\n\n**Did:** ```json\n{\n  \"verdict\": \"survives\",\n  \"rationale\": \"The retrieved literature discusses the mechanics of repeated Prisoner's Dilemma, machine games, and the role of memory/complexity (e.g., doc_id='osborne_rubinstein-chunk-1281', 'osborne_rubinstein-chunk-1043'), but it does not address the specific c\u2026\n\n**Observed:** latency=2487ms tokens_in=2284 tokens_out=146 model=gemma-4-26b-a4b\n",
+    "apparatus-calls-l32": "# a_bgt_rsi: Nara/LLM \u2014 calls L32\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates rise monotonically with the length of context window, controlling for prompt framing._\n\n**Did:** [{\"id\": \"chatcmpl-tool-9f33ea15ac024cff\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"critique\\\": {\\\"contradicting_paper_id\\\": null, \\\"rationale\\\": \\\"The retrieved literature discusses the mechanics of repeated Prisoner's Dilemma, machine games, and the role of memory\u2026\n\n**Observed:** latency=36817ms tokens_in=9941 tokens_out=2695 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-dispatch-journal-writer-l223` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-receipt-journal-writer-l224` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-008-journal-writer-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-008-loop-v0-tool-receipt-critic-loop-v0-l222": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L222\n\n_loop_v0_tool_receipt for iter-2026-05-26-008_\n\n**Did:** tool=critic_loop_v0 status=passed\n\n**Observed:** parent_request_id=66b90641-8aa8-4891-a697-128cacaef880\n\n## Referenced by\n\n- `apparatus-calls-l30` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-008-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-008-loop-v0-tool-dispatch-journal-writer-l223": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L223\n\n_loop_v0_tool_dispatch for iter-2026-05-26-008_\n\n**Did:** tool=journal_writer status=n/a\n\n**Observed:** parent_request_id=ad01a237-ddbb-403b-af5c-eeab8d30959d\n\n## Referenced by\n\n- `apparatus-calls-l32` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-008-journal-writer-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-008-loop-v0-tool-receipt-journal-writer-l224": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L224\n\n_loop_v0_tool_receipt for iter-2026-05-26-008_\n\n**Did:** tool=journal_writer status=error\n\n**Observed:** parent_request_id=ad01a237-ddbb-403b-af5c-eeab8d30959d\n\n## Referenced by\n\n- `apparatus-calls-l32` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-008-journal-writer-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l33": "# a_bgt_rsi: Nara/LLM \u2014 calls L33\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates rise monotonically with the length of context window, controlling for prompt framing._\n\n**Did:** thought\n<channel|>This iteration investigated the hypothesis that increasing the context window size in repeated Prisoner's Dilemma games between LLM agents increases cooperation rates specifically by enabling better long-term memory of payoffs, rather than through improved instruction following.\n\n*\u2026\n\n**Observed:** latency=8036ms tokens_in=12673 tokens_out=318 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-05-26-008` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-008-loop-v0-fallback-none-l225": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L225\n\n_loop_v0_fallback for iter-2026-05-26-008_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-008` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-008-loop-v0-iteration-complete-none-l226": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L226\n\n_loop_v0_iteration_complete for iter-2026-05-26-008_\n\n**Did:** duration_ms=119468 tool_calls_made=['hypothesize', 'retrieve_literature', 'novelty_classify', 'critic_loop_v0', 'journal_writer']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-008` (apparatus_event) \u2014 **produced**\n",
+    "iter-2026-05-26-008": "# a_bgt_rsi: Nara \u2014 loop_memory L8\n\n_In repeated Prisoner's Dilemma between LLM agents, cooperation rates rise monotonically with the length of context window, controlling for prompt framing._\n\n**Did:** thought\n<channel|>This iteration investigated the hypothesis that increasing the context window size in repeated Prisoner's Dilemma games between LLM agents increases cooperation rates specifically by enabling better long-term memory of payoffs, rather than through improved instruction following.\n\n**Summary of Findings:**\n* **Hypothesis:** The core claim is that the causal driver of cooperation in\u2026\n\n**Observed:** tools=5 calls=6 journal=journal/iterations/008.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-008-loop-v0-fallback-none-l225` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-008-loop-v0-iteration-complete-none-l226` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l33` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-26-008-hypothesize-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-26-008-retrieve-literature-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-26-008-novelty-classify-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-26-008-critic-loop-v0-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-26-008-journal-writer-1` (stage)\n",
+    "apparatus-calls-l34": "# a_bgt_rsi: Nara/LLM \u2014 calls L34\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** [{\"id\": \"chatcmpl-tool-b15e01bcfcee7bb8\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative.\\\u2026\n\n**Observed:** latency=1024ms tokens_in=1874 tokens_out=68 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-009-loop-v0-tool-dispatch-hypothesize-l228` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-009-loop-v0-tool-receipt-hypothesize-l229` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-009-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l35": "# a_bgt_rsi: Nara/LLM \u2014 calls L35\n\n_Research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** {\n  \"candidates\": [\n    \"LLM agents exhibit higher cooperation rates in a repeated Prisoner's Dilemma when the interaction history is presented as a narrative summary compared to a structured chronological list of moves.\",\n    \"The transition from cooperation to defection in LLM agents occurs signif\u2026\n\n**Observed:** latency=2617ms tokens_in=274 tokens_out=169 model=gemma-4-26b-a4b\n",
+    "apparatus-calls-l36": "# a_bgt_rsi: Nara/LLM \u2014 calls L36\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** [{\"id\": \"chatcmpl-tool-a4cf3c1c8a5c022a\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"LLM agents exhibit higher cooperation rates in a repeated Prisoner's Dilemma when the interaction history is presented as a narrative summary compared to a \u2026\n\n**Observed:** latency=849ms tokens_in=2207 tokens_out=58 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-009-loop-v0-tool-dispatch-retrieve-literature-l230` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-009-loop-v0-tool-receipt-retrieve-literature-l231` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-009-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-009-loop-v0-iteration-start-none-l227": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L227\n\n_loop_v0_iteration_start for iter-2026-05-26-009_\n\n**Did:** topic=In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversat\u2026\n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-05-26-009-loop-v0-tool-dispatch-hypothesize-l228": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L228\n\n_loop_v0_tool_dispatch for iter-2026-05-26-009_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=ac5ec2a6-1337-42ba-8a41-c0ce0e4ce115\n\n## Referenced by\n\n- `apparatus-calls-l34` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-009-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-009-loop-v0-tool-receipt-hypothesize-l229": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L229\n\n_loop_v0_tool_receipt for iter-2026-05-26-009_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=ac5ec2a6-1337-42ba-8a41-c0ce0e4ce115\n\n## Referenced by\n\n- `apparatus-calls-l34` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-009-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-009-loop-v0-tool-dispatch-retrieve-literature-l230": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L230\n\n_loop_v0_tool_dispatch for iter-2026-05-26-009_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=f28e14ba-ece6-4043-84be-f1a354d579f7\n\n## Referenced by\n\n- `apparatus-calls-l36` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-009-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-009-loop-v0-tool-receipt-retrieve-literature-l231": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L231\n\n_loop_v0_tool_receipt for iter-2026-05-26-009_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=f28e14ba-ece6-4043-84be-f1a354d579f7\n\n## Referenced by\n\n- `apparatus-calls-l36` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-009-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l37": "# a_bgt_rsi: Nara/LLM \u2014 calls L37\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** I have retrieved 10 relevant documents, including recent arXiv papers on LLM social simulations and foundational game theory texts. I've noted that one paper specifically discusses how minor perturbations in \"persona format and game-instruction framing\" can shift cooperation rates by up to 76 percen\u2026\n\n**Observed:** latency=395473ms tokens_in=5646 tokens_out=27122 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-05-26-009` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-009-loop-v0-fallback-none-l232": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L232\n\n_loop_v0_fallback for iter-2026-05-26-009_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-009` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-009-loop-v0-iteration-complete-none-l233": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L233\n\n_loop_v0_iteration_complete for iter-2026-05-26-009_\n\n**Did:** duration_ms=404727 tool_calls_made=['hypothesize', 'retrieve_literature']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-009` (apparatus_event) \u2014 **produced**\n",
+    "iter-2026-05-26-009": "# a_bgt_rsi: Nara \u2014 loop_memory L9\n\n_In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** I have retrieved 10 relevant documents, including recent arXiv papers on LLM social simulations and foundational game theory texts. I've noted that one paper specifically discusses how minor perturbations in \"persona format and game-instruction framing\" can shift cooperation rates by up to 76 percentage points in the Prisoner's Dilemma.\n\nNow, I will classify the novelty of the hypothesis by compar\u2026\n\n**Observed:** tools=2 calls=3 journal=journal/iterations/009.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-009-loop-v0-fallback-none-l232` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-009-loop-v0-iteration-complete-none-l233` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l37` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-26-009-hypothesize-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-26-009-retrieve-literature-1` (stage)\n",
+    "apparatus-calls-l38": "# a_bgt_rsi: Nara/LLM \u2014 calls L38\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** [{\"id\": \"chatcmpl-tool-b120ab7bad790b75\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative.\\\u2026\n\n**Observed:** latency=1302ms tokens_in=1874 tokens_out=68 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l235` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l236` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-010-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-010-loop-v0-iteration-start-none-l234": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L234\n\n_loop_v0_iteration_start for iter-2026-05-26-010_\n\n**Did:** topic=In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversat\u2026\n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l235": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L235\n\n_loop_v0_tool_dispatch for iter-2026-05-26-010_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=9a29688f-75f0-42f7-b32b-6087abb5e46e\n\n## Referenced by\n\n- `apparatus-calls-l38` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-010-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l39": "# a_bgt_rsi: Nara/LLM \u2014 calls L39\n\n_Research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** {\n  \"candidates\": [\n    \"LLM agents in a repeated Prisoner's Dilemma will exhibit higher cooperation rates when the interaction history is presented as a narrative summary compared to a chronological list of moves.\",\n    \"The transition from cooperation to defection in LLM agents is delayed by a hig\u2026\n\n**Observed:** latency=2708ms tokens_in=274 tokens_out=177 model=gemma-4-26b-a4b\n",
+    "apparatus-calls-l40": "# a_bgt_rsi: Nara/LLM \u2014 calls L40\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** [{\"id\": \"chatcmpl-tool-8dbc7a707beddbf0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"LLM agents in a repeated Prisoner's Dilemma will exhibit higher cooperation rates when the interaction history is presented as a narrative summary compared \u2026\n\n**Observed:** latency=837ms tokens_in=2217 tokens_out=58 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l237` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l238` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-010-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l236": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L236\n\n_loop_v0_tool_receipt for iter-2026-05-26-010_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=9a29688f-75f0-42f7-b32b-6087abb5e46e\n\n## Referenced by\n\n- `apparatus-calls-l38` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-010-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l237": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L237\n\n_loop_v0_tool_dispatch for iter-2026-05-26-010_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=1d50da6b-2d34-462e-bd95-533f3ffa67d1\n\n## Referenced by\n\n- `apparatus-calls-l40` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-010-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l238": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L238\n\n_loop_v0_tool_receipt for iter-2026-05-26-010_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=1d50da6b-2d34-462e-bd95-533f3ffa67d1\n\n## Referenced by\n\n- `apparatus-calls-l40` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-010-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l41": "# a_bgt_rsi: Nara/LLM \u2014 calls L41\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** I have retrieved 10 relevant documents, including foundational game theory texts and recent arXiv papers on LLM multi-agent systems and social simulations.\n\n<|channel>thought\n<channel|><|tool_call>call:novelty_classify{hypothesis_text:<|\"|>LLM agents in a repeated Prisoner's Dilemma will exhibit hig\u2026\n\n**Observed:** latency=379717ms tokens_in=5421 tokens_out=27347 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l239` (apparatus_event)\n",
+    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l239": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L239\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=b5d920ac-f217-4db3-9682-21288b32c423\n\n## Referenced by\n\n- `apparatus-calls-l41` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l42": "# a_bgt_rsi: Nara/LLM \u2014 calls L42\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** [{\"id\": \"chatcmpl-tool-8c59b1a4e952cba7\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative.\\\u2026\n\n**Observed:** latency=1474ms tokens_in=2004 tokens_out=73 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l241` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l242` (apparatus_event)\n",
+    "apparatus-calls-l43": "# a_bgt_rsi: Nara/LLM \u2014 calls L43\n\n_Research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** {\n  \"candidates\": [\n    \"In a repeated Prisoner's Dilemma, LLM agents will exhibit significantly higher cooperation rates when the history of previous rounds is presented as a chronological narrative compared to a structured list of moves.\",\n    \"LLM agents presented with a list-based history of mov\u2026\n\n**Observed:** latency=2760ms tokens_in=274 tokens_out=183 model=gemma-4-26b-a4b\n",
+    "apparatus-calls-l44": "# a_bgt_rsi: Nara/LLM \u2014 calls L44\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** <|\"|>\n\n**Observed:** latency=347ms tokens_in=2353 tokens_out=2 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l243` (apparatus_event)\n",
+    "apparatus-calls-l45": "# a_bgt_rsi: Nara/LLM \u2014 calls L45\n\n_Continue the chain. Your next tool call must be `retrieve_literature`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-b85774089a8564c0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In a repeated Prisoner's Dilemma, LLM agents will exhibit significantly higher cooperation rates when the history of previous rounds is presented as a chron\u2026\n\n**Observed:** latency=1339ms tokens_in=2396 tokens_out=89 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l244` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l245` (apparatus_event)\n",
+    "event-iter-2026-05-26-010-loop-v0-iteration-start-none-l240": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L240\n\n_loop_v0_iteration_start for iter-2026-05-26-010_\n\n**Did:** topic=In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversat\u2026\n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l241": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L241\n\n_loop_v0_tool_dispatch for iter-2026-05-26-010_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=abd70dd2-1792-4768-9bc8-198a1ddbd7ff\n\n## Referenced by\n\n- `apparatus-calls-l42` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-010-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l242": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L242\n\n_loop_v0_tool_receipt for iter-2026-05-26-010_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=abd70dd2-1792-4768-9bc8-198a1ddbd7ff\n\n## Referenced by\n\n- `apparatus-calls-l42` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-010-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l243": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L243\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=3e7b69fc-1824-4e0b-8c39-6d44d95134e0\n\n## Referenced by\n\n- `apparatus-calls-l44` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l244": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L244\n\n_loop_v0_tool_dispatch for iter-2026-05-26-010_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=88076859-ed10-4e65-82fd-06d5f3b407d4\n\n## Referenced by\n\n- `apparatus-calls-l45` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-010-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l245": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L245\n\n_loop_v0_tool_receipt for iter-2026-05-26-010_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=88076859-ed10-4e65-82fd-06d5f3b407d4\n\n## Referenced by\n\n- `apparatus-calls-l45` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-010-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l46": "# a_bgt_rsi: Nara/LLM \u2014 calls L46\n\n_Continue the chain. Your next tool call must be `retrieve_literature`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** thought\n<channel|><|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit significantly higher cooperation rates when the history of previous rounds is presented as a chronological narrative compared to a structured list of moves.<|\"|>,neighbo\u2026\n\n**Observed:** latency=14143ms tokens_in=5664 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l246` (apparatus_event)\n",
+    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l246": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L246\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=2c8601c7-0e47-4985-822e-65b10f0e8b65\n\n## Referenced by\n\n- `apparatus-calls-l46` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l47": "# a_bgt_rsi: Nara/LLM \u2014 calls L47\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if this specific investigation into narrative vs. list-based history is already established.\n\n<|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM a\u2026\n\n**Observed:** latency=12555ms tokens_in=6728 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l247` (apparatus_event)\n",
+    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l247": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L247\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=73510ed8-cac0-488e-be1a-35419c634de1\n\n## Referenced by\n\n- `apparatus-calls-l47` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l48": "# a_bgt_rsi: Nara/LLM \u2014 calls L48\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** [{\"id\": \"chatcmpl-tool-93126213a051f19c\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative.\\\u2026\n\n**Observed:** latency=1432ms tokens_in=2004 tokens_out=74 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l249` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l250` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-010-loop-v0-iteration-start-none-l248": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L248\n\n_loop_v0_iteration_start for iter-2026-05-26-010_\n\n**Did:** topic=In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversat\u2026\n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l249": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L249\n\n_loop_v0_tool_dispatch for iter-2026-05-26-010_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=7d9cc727-401e-48e5-a9c3-6ca0d1f3b0f7\n\n## Referenced by\n\n- `apparatus-calls-l48` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-010-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l49": "# a_bgt_rsi: Nara/LLM \u2014 calls L49\n\n_Research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** {\n  \"candidates\": [\n    \"LLM agents in a repeated Prisoner's Dilemma will exhibit significantly higher cooperation rates when the game history is presented as a narrative summary compared to a structured list of moves, due to the narrative's increased salience of social reciprocity.\",\n    \"The trans\u2026\n\n**Observed:** latency=3437ms tokens_in=274 tokens_out=212 model=gemma-4-26b-a4b\n",
+    "apparatus-calls-l50": "# a_bgt_rsi: Nara/LLM \u2014 calls L50\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** [{\"id\": \"chatcmpl-tool-a177eb47fa694f19\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"LLM agents in a repeated Prisoner's Dilemma will exhibit significantly higher cooperation rates when the game history is presented as a narrative summary co\u2026\n\n**Observed:** latency=1010ms tokens_in=2391 tokens_out=72 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l251` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l252` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l250": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L250\n\n_loop_v0_tool_receipt for iter-2026-05-26-010_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=7d9cc727-401e-48e5-a9c3-6ca0d1f3b0f7\n\n## Referenced by\n\n- `apparatus-calls-l48` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-010-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l251": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L251\n\n_loop_v0_tool_dispatch for iter-2026-05-26-010_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=29d67b9a-4790-4d93-b5d7-f5f160e2c4a7\n\n## Referenced by\n\n- `apparatus-calls-l50` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-010-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l51": "# a_bgt_rsi: Nara/LLM \u2014 calls L51\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** I have retrieved the relevant literature, which primarily covers foundational game theory concepts like repeated games, complexity, and the Prisoner's Dilemma, but lacks specific studies on LLM-agent narrative history.\n\nNow, I will classify the novelty of the hypothesis by comparing it to these retr\u2026\n\n**Observed:** latency=1757ms tokens_in=5144 tokens_out=60 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l253` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l252": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L252\n\n_loop_v0_tool_receipt for iter-2026-05-26-010_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=29d67b9a-4790-4d93-b5d7-f5f160e2c4a7\n\n## Referenced by\n\n- `apparatus-calls-l50` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-010-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l253": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L253\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=6b27e450-54b9-4d32-a78d-f8589ce500c3\n\n## Referenced by\n\n- `apparatus-calls-l51` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l52": "# a_bgt_rsi: Nara/LLM \u2014 calls L52\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now classify the novelty of the hypothesis by comparing it against the retrieved literature to see if this specific interaction between LLM agent behavior and history format has been documented.\n\n<|tool_call>call:novelty_classify{hypothesis_text:<|\"|>LLM agents in a repeated Prisoner's Dilemm\u2026\n\n**Observed:** latency=13728ms tokens_in=5246 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l254` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l254": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L254\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=d5301517-0756-4910-bffa-1e6f8fd91519\n\n## Referenced by\n\n- `apparatus-calls-l52` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l53": "# a_bgt_rsi: Nara/LLM \u2014 calls L53\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now classify the novelty of the hypothesis by comparing it against the retrieved literature to see if this specific interaction between LLM agent behavior and history format has been documented.\n\n<|tool_call>call:novelty_classify{hypothesis_text:<|\"|>LLM agents in a repeated Prisoner's Dilemm\u2026\n\n**Observed:** latency=12311ms tokens_in=6309 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l255` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l255": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L255\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=c39cac34-28f9-423b-9609-0af4634f02d7\n\n## Referenced by\n\n- `apparatus-calls-l53` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l54": "# a_bgt_rsi: Nara/LLM \u2014 calls L54\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if the effect of narrative versus list-based history on LLM cooperation has been previously established.\n\n<|tool_call>call:novelty_classify{hypothesis_text:<|\"|>LLM agents in a repeated Pr\u2026\n\n**Observed:** latency=12732ms tokens_in=7372 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l256` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l256": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L256\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=3198d562-7bb6-4ae4-b4e0-a7fa8114eeb7\n\n## Referenced by\n\n- `apparatus-calls-l54` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l55": "# a_bgt_rsi: Nara/LLM \u2014 calls L55\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if the effect of narrative versus list-based history on LLM cooperation has been previously established.\n\n<|tool_call>call:novelty_classify{hypothesis_text:<|\"|>LLM agents in a repeated Pr\u2026\n\n**Observed:** latency=12744ms tokens_in=8435 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l257` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l257": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L257\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=431ccf95-2463-4f2c-8b63-03269434e8db\n\n## Referenced by\n\n- `apparatus-calls-l55` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l56": "# a_bgt_rsi: Nara/LLM \u2014 calls L56\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if the effect of narrative versus list-based history on LLM cooperation has been previously established.\n\n<|tool_call>call:novelty_classify{hypothesis_text:<|\"|>LLM agents in a repeated Pr\u2026\n\n**Observed:** latency=12860ms tokens_in=9498 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l258` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l258": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L258\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=d915424e-d71f-406f-b80c-1279419c5942\n\n## Referenced by\n\n- `apparatus-calls-l56` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l57": "# a_bgt_rsi: Nara/LLM \u2014 calls L57\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if the effect of narrative versus list-based history on LLM cooperation has been previously established.\n\n<|tool_call>call:novelty_classify{hypothesis_text:<|\"|>LLM agents in a repeated Pr\u2026\n\n**Observed:** latency=13058ms tokens_in=10561 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l259` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l259": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L259\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=72581ce6-238f-482b-9769-5e12c9a0ed70\n\n## Referenced by\n\n- `apparatus-calls-l57` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l58": "# a_bgt_rsi: Nara/LLM \u2014 calls L58\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if the effect of narrative versus list-based history on LLM cooperation has been previously established.\n\n<|tool_call>call:novelty_classify{hypothesis_text:<|\"|>LLM agents in a repeated Pr\u2026\n\n**Observed:** latency=13276ms tokens_in=11624 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l260` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l260": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L260\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=82e9a7e8-886e-45b6-b48e-4b133351cae0\n\n## Referenced by\n\n- `apparatus-calls-l58` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l59": "# a_bgt_rsi: Nara/LLM \u2014 calls L59\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if the effect of narrative versus list-based history on LLM cooperation has been previously established.\n\n<|tool_call>call:novelty_classify{hypothesis_text:<|\"|>LLM agents in a repeated Pr\u2026\n\n**Observed:** latency=13398ms tokens_in=12687 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l261` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l261": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L261\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=ecbb9bc0-4f66-4092-964d-ee9ac2046844\n\n## Referenced by\n\n- `apparatus-calls-l59` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l60": "# a_bgt_rsi: Nara/LLM \u2014 calls L60\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if the effect of narrative versus list-based history on LLM cooperation has been previously established.\n\n<|tool_call>call:novelty_classify{hypothesis_text:<|\"|>LLM agents in a repeated Pr\u2026\n\n**Observed:** latency=13635ms tokens_in=13750 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l262` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l262": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L262\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=deb3bd7f-dd4d-4d50-ae9f-bd586e87f6b5\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l60` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-010-loop-v0-fallback-none-l263": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L263\n\n_loop_v0_fallback for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-010-loop-v0-iteration-complete-none-l264": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L264\n\n_loop_v0_iteration_complete for iter-2026-05-26-010_\n\n**Did:** duration_ms=129909 tool_calls_made=['hypothesize', 'retrieve_literature']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
+    "iter-2026-05-26-010": "# a_bgt_rsi: Nara \u2014 loop_memory L10\n\n_In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** (max_depth=12 exhausted; iteration cut short)\n\n**Observed:** tools=2 calls=12 journal=journal/iterations/010.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l262` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-fallback-none-l263` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-iteration-complete-none-l264` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l48` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l50` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l51` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l52` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l53` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l54` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l55` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l56` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l57` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l58` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l59` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l60` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-26-010-hypothesize-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-26-010-retrieve-literature-1` (stage)\n",
+    "apparatus-calls-l61": "# a_bgt_rsi: Nara/LLM \u2014 calls L61\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** [{\"id\": \"chatcmpl-tool-a65cac9c685b6930\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative.\\\u2026\n\n**Observed:** latency=1584ms tokens_in=2004 tokens_out=74 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-tool-dispatch-hypothesize-l266` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-tool-receipt-hypothesize-l267` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-011-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-011-loop-v0-iteration-start-none-l265": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L265\n\n_loop_v0_iteration_start for iter-2026-05-26-011_\n\n**Did:** topic=In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversat\u2026\n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-05-26-011-loop-v0-tool-dispatch-hypothesize-l266": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L266\n\n_loop_v0_tool_dispatch for iter-2026-05-26-011_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=0f4ca103-27f5-4e03-acef-64fc89a0a951\n\n## Referenced by\n\n- `apparatus-calls-l61` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-011-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l62": "# a_bgt_rsi: Nara/LLM \u2014 calls L62\n\n_Research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** {\n  \"candidates\": [\n    \"In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.\",\n    \"Narrative-based history p\u2026\n\n**Observed:** latency=2949ms tokens_in=274 tokens_out=198 model=gemma-4-26b-a4b\n",
+    "event-iter-2026-05-26-011-loop-v0-tool-receipt-hypothesize-l267": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L267\n\n_loop_v0_tool_receipt for iter-2026-05-26-011_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=0f4ca103-27f5-4e03-acef-64fc89a0a951\n\n## Referenced by\n\n- `apparatus-calls-l61` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-011-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l63": "# a_bgt_rsi: Nara/LLM \u2014 calls L63\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** <|\"|><|tool_call>call:hypothesize{topic:<|\"|>In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the most recent 3 rounds of rounds-to-date-to-date rounds-to-date-to-date rounds-to-date-to-date rounds-to-date-to-date rounds-to-date-to-date rounds-to-date-to-date ro\u2026\n\n**Observed:** latency=12035ms tokens_in=2375 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l268` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l64": "# a_bgt_rsi: Nara/LLM \u2014 calls L64\n\n_Continue the chain. Your next tool call must be `retrieve_literature`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-8f3d53719c16c03f\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as \u2026\n\n**Observed:** latency=1742ms tokens_in=3441 tokens_out=110 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-tool-dispatch-retrieve-literature-l269` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-tool-receipt-retrieve-literature-l270` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-011-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l268": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L268\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=b289985d-e329-466c-aff8-30abca8af4d4\n\n## Referenced by\n\n- `apparatus-calls-l63` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-011-loop-v0-tool-dispatch-retrieve-literature-l269": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L269\n\n_loop_v0_tool_dispatch for iter-2026-05-26-011_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=f37956d2-0c46-41f3-bf26-b99ddf36c54b\n\n## Referenced by\n\n- `apparatus-calls-l64` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-011-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-05-26-011-loop-v0-tool-receipt-retrieve-literature-l270": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L270\n\n_loop_v0_tool_receipt for iter-2026-05-26-011_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=f37956d2-0c46-41f3-bf26-b99ddf36c54b\n\n## Referenced by\n\n- `apparatus-calls-l64` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-011-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l65": "# a_bgt_rsi: Nara/LLM \u2014 calls L65\n\n_Continue the chain. Your next tool call must be `retrieve_literature`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** thought\n<channel|><|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent nar\u2026\n\n**Observed:** latency=14169ms tokens_in=6519 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l271` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l271": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L271\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=9345e783-00bc-4a27-8ffc-95c6bdd4b5ec\n\n## Referenced by\n\n- `apparatus-calls-l65` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l66": "# a_bgt_rsi: Nara/LLM \u2014 calls L66\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.<|\"\u2026\n\n**Observed:** latency=12441ms tokens_in=7583 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l272` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l272": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L272\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=6df97176-7f61-428f-b964-a17fdbab8107\n\n## Referenced by\n\n- `apparatus-calls-l66` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l67": "# a_bgt_rsi: Nara/LLM \u2014 calls L67\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.<|\"\u2026\n\n**Observed:** latency=12671ms tokens_in=8646 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l273` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l273": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L273\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=7c32bece-72c5-420b-a486-7b8ffb7e91ea\n\n## Referenced by\n\n- `apparatus-calls-l67` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l68": "# a_bgt_rsi: Nara/LLM \u2014 calls L68\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.<|\"\u2026\n\n**Observed:** latency=12938ms tokens_in=9709 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l274` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l274": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L274\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=20cec6cf-fd1e-4786-b4d4-f6037c4d599b\n\n## Referenced by\n\n- `apparatus-calls-l68` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l69": "# a_bgt_rsi: Nara/LLM \u2014 calls L69\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.<|\"\u2026\n\n**Observed:** latency=13059ms tokens_in=10772 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l275` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l275": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L275\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=f579f89b-96b5-4d81-981f-f499126a0cef\n\n## Referenced by\n\n- `apparatus-calls-l69` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l70": "# a_bgt_rsi: Nara/LLM \u2014 calls L70\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.<|\"\u2026\n\n**Observed:** latency=13342ms tokens_in=11835 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l276` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l276": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L276\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=cde14d8e-c6cb-4fcd-a84f-26de63dcc834\n\n## Referenced by\n\n- `apparatus-calls-l70` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l71": "# a_bgt_rsi: Nara/LLM \u2014 calls L71\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.<|\"\u2026\n\n**Observed:** latency=13525ms tokens_in=12898 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l277` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l277": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L277\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=f967dcca-4b85-42e6-9ec6-f75dd78b9bee\n\n## Referenced by\n\n- `apparatus-calls-l71` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l72": "# a_bgt_rsi: Nara/LLM \u2014 calls L72\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.<|\"\u2026\n\n**Observed:** latency=13819ms tokens_in=13961 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l278` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l278": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L278\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=b3b82f86-1b0b-4afc-8927-e68f2dfecc04\n\n## Referenced by\n\n- `apparatus-calls-l72` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l73": "# a_bgt_rsi: Nara/LLM \u2014 calls L73\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.<|\"\u2026\n\n**Observed:** latency=14046ms tokens_in=15024 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l279` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l279": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L279\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=fb92beef-bb60-49ce-a6bb-d905620a041a\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l73` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-011-loop-v0-fallback-none-l280": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L280\n\n_loop_v0_fallback for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-05-26-011-loop-v0-iteration-complete-none-l281": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L281\n\n_loop_v0_iteration_complete for iter-2026-05-26-011_\n\n**Did:** duration_ms=148383 tool_calls_made=['hypothesize', 'retrieve_literature']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
+    "iter-2026-05-26-011": "# a_bgt_rsi: Nara \u2014 loop_memory L11\n\n_In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** (max_depth=12 exhausted; iteration cut short)\n\n**Observed:** tools=2 calls=12 journal=journal/iterations/011.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l279` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-fallback-none-l280` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-iteration-complete-none-l281` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l63` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l65` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l66` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l67` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l68` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l69` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l70` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l71` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l72` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l73` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-26-011-hypothesize-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-26-011-retrieve-literature-1` (stage)\n",
     "dec-fw-2026-05-18-agent-system-scaffolded": "# 2026-05-18 \u2014 Agent system scaffolded\n\n_framework decision_\n\n**Decision:** Created a portable agent framework (skills + file memory) authored\nto the Agent Skills standard, runnable in both Pi and Claude Code via symlinks.\nAdopted a curated, research-tuned subset of gstack rather than the full\nproduct-oriented framework.\n**Why:** Target harness is Pi; current harness is Claude Code; the project\n(`autoresearch`) is an ML/research pipeline with no product-UI dimension, so\ngstack's CEO/design/QA-browser roles do not apply.\n**Supersedes:** none\n",
     "dec-fw-2026-05-18-added-execution-discipline-skills": "# 2026-05-18 \u2014 Added execution-discipline skills\n\n_framework decision_\n\n**Decision:** Added 4 skills \u2014 `gate-check`, `validate`, `run-log`,\n`resume-state` \u2014 and adapted `experiment` (autonomous loop section) and\n`plan-research` (design-vs-execute pointer).\n**Why:** Explored the primary consumer `/home/decross1/projects/a_bgt_rsi` \u2014 a\ncontract-governed, plan-driven research program (authoritative `plan.yaml`,\nstate-file resume, blocking human gates, JSONL run log, validations never\ncoerced). The original gstack-derived skills were a design/ship loop and did\nnot cover plan-execution discipline, which is this project's core need. The\ngstack safety roles (`/careful`/`/freeze`/`/guard`) dropped on 2026-05-18 are,\nreframed, exactly this gap. Skills stay general-purpose.\n**Supersedes:** partially revises the 2026-05-18 scaffold decision's skill set.\n",
     "dec-fw-2026-05-18-scope-boundary-dev-time-vs-project-runtime": "# 2026-05-18 \u2014 Scope boundary: dev-time vs project-runtime\n\n_framework decision_\n\n**Decision:** Established that this framework is a dev-time harness only; its\nskills must not be loaded into any project's runtime agent. Added `BOUNDARY.md`\nand a `## Scope boundary` section to `AGENTS.md` / `README.md`.\n**Why:** Explored `a_bgt_rsi`'s architecture \u2014 its runtime orchestrator (Gemma 4\n+ OpenClaw + NemoClaw) also runs on Pi. With the dev skills installed globally\nin `~/.pi/agent/skills/`, the apparatus runtime could inherit them. The two\n\"orchestrators\" (dev-time and apparatus-runtime) must stay separate.\n**Supersedes:** none\n",
@@ -2370,7 +3676,32 @@ window.BRAIN_GRAPH = {
     "dec-ap-d-030-retire-track-a-b-c-d-autonomy-tiers": "# D-030 \u2014 Retire track-A/B/C/D + autonomy tiers; adopt single-primary + optional-UI session model; LOOP_V0 is active slice\n\n_apparatus decision_\n\n**Date.** 2026-05-26.\n\n**Decision.** Retire the four-track parallel-execution framework\n(`agent/orchestration.md`, `agent/ownership.yaml`,\n`agent/collision_protocol.md`, `agent/prompts/track_{a,b,c,d}.md`,\n`agent/prompts/dispatched_task.md`), the three-tier autonomy\nmachinery (`agent/autonomy.md`), the 30/60/90-day phase roadmap\n(`PHASE_1_ROADMAP.md`), the live day tracker (`current_day.md`), and\nthe Week-2 seed plan (`week2_plan_seed.md`). Retire the canonical\n`plan.yaml` (4,037 lines) and the per-day / per-track notes in\n`notes/`. Move all retired files under `archive/` for reference.\n\nAdopt a **single primary Claude Code session + an optional concurrent\nUI session** model. The UI session is worktree-isolated to\n`ui/` + `ui_plan.md`. No other concurrent sessions. No dispatched\nsub-agents. The new prompts are `agent/prompts/main.md` and\n`agent/prompts/ui_session.md`.\n\nThe active build plan is **LOOP_V0** ([`LOOP_V0.md`](LOOP_V0.md)) \u2014\nthe literature-only slice of the eight-step intelligence loop in\n[`docs/diagrams/intelligence_loop_v5.svg`](docs/diagrams/intelligence_loop_v5.svg).\nLOOP_V0 chains six steps (seed \u2192 hypothesize \u2192 retrieve \u2192 novelty-classify\n\u2192 critique \u2192 journal), explicitly omitting the sandbox / experiment\ntier work, the continuous loop, the meta-review synthesis, and the\nautomated Step-8 gate. Each component is a worker (~100\u2013150 LOC);\nthe loop driver is one file (~150 LOC).\n\nPer-session working notes live at `human/sessions/YYYY-MM-DD.md` and\nreplace `human/daily_plan.md` (archived).\n\n**Alternatives considered.**\n\n1. **Keep the tier/track system, build LOOP_V0 under Track A only.**\n   Rejected: the ceremony costs (per-day startup matrix, claim\n   protocol, ownership zones, tier-shift mechanics, phase-boundary\n   alignment evidence) outweigh their benefit when only one or two\n   sessions actually run. ~10,600 words of governance for a\n   ~2,300-LOC product that has not yet run the intelligence loop\n   end-to-end. The framework was designed for a future scale that\n   hasn't arrived.\n2. **Delete the retired files outright.** Rejected: history is\n   load-bearing \u2014 `DECISIONS.md` cross-references many of these\n   docs; `archive/` preserves them as read-only reference without\n   keeping them as active rules.\n3. **Keep `plan.yaml` as the active plan; only retire the track\n   framework.** Rejected: `plan.yaml` is 4,037 lines built around the\n   day-by-day / tier-by-tier model. Its task-level detail is now\n   stale (Week-1 specific) and the schema embeds `track`, `target_zone`,\n   `dispatchable`, and `autonomy_tier*` fields that no longer apply.\n   A short `LOOP_V0.md` replacing it is cleaner than editing it down.\n4. **Build a different slice first** (e.g., the synthetic-tier\n   sandbox: one full experiment with robustness battery). Rejected:\n   the diagrams call novelty evaluation the hardest step and the\n   loop-memory layer is named as the differentiator from other\n   auto-science systems; LOOP_V0's literature-only slice exercises\n   both with minimal new substrate.\n\n**Rationale.**\n\nThe retired framework was designed to scale parallel work across\nmultiple human-launched sessions and orchestrator-dispatched\nsub-agents, with autonomy tiers gating which classes of work could\nproceed without explicit human approval. In practice the project has\nbeen driven by 1\u20132 sessions per day. The framework's costs (reading,\nmaintaining, complying with ~10,600 words of governance docs) have\nexceeded its benefits (collision avoidance, parallel speedup,\ntrust-by-evidence trajectory), and the cost is paid every session.\n\nThe system diagrams under `docs/diagrams/` describe what the\napparatus is supposed to do; eight days of build have produced the\nsubstrate but not the loop. LOOP_V0 is the smallest slice that\ncloses the cognitive half of the loop end-to-end, on existing\nsubstrate, with no new sandbox tier required.\n\nThe UI session running concurrently is the one form of parallelism\nthat the new model keeps, because the human has explicitly named\nvisual observability of the running loop as a precondition for\ntrusting subsequent autonomy expansions.\n\n**Reversibility.** Fully reversible. All retired files are in\n`archive/` and can be restored with `git mv` if the single-session\nmodel proves insufficient. The decision to revert would itself be a\ndurable signal that parallelism is needed; the framework can be\nrevived without rewriting.\n\n**What would reverse this.** (1) LOOP_V0 cannot be built within\n~6 sessions of focused work, indicating the substrate is more\nfragmented than expected and explicit collision avoidance is needed.\n(2) The UI session repeatedly produces merge conflicts despite the\nworktree boundary, indicating either the boundary is wrong or the\ntwo-session model is undertheorized. (3) An overnight / continuous\nloop becomes the immediate next slice after LOOP_V0, at which point\nthe orchestrator-dispatched sub-agent pattern (currently in\n`archive/agent_prompts/dispatched_task.md`) returns from archive as\nthe right pattern.\n\n**Supersedes.** D-005 (graduated autonomy, in spirit \u2014 the tier\nmechanism is retired but the underlying instinct, \"human in the loop\nuntil specific evidence permits less,\" remains). Does not supersede\nthe inviolate-rules portion of `CLAUDE.md`, which is preserved\nverbatim in the rewrite.\n\n---\n",
     "dec-ap-d-031-nemoclaw-install-feasible-deferred-today": "# D-031 \u2014 NemoClaw: install feasible, deferred today (sudo-blocked autonomous session)\n\n_apparatus decision_\n\n**Date locked.** 2026-05-26 (LOOP_V0 Part 1, primary session).\n\n**Decision.** Do not run NemoClaw install in today's autonomous\nprimary session. Keep `NemoClawRuntime` as a `NotImplementedError`\nstub in `orchestrator/runtime.py`. The substrate-swappable design\n(D-030) holds: when NemoClaw is installed in a future session (by\nthe human, or interactively), implementing `NemoClawRuntime` is\nmechanical and Nara does not change.\n\n**Investigation summary** (\u224810 min of the 90-min cap):\n\nStatus of NemoClaw as of 2026-05-26 (vs. Day-1's D-008 state in\nMarch 2026):\n\n- Now installable via a public installer:\n  `curl -fsSL https://www.nvidia.com/nemoclaw.sh | bash`\n  Bootstrap clones `github.com/NVIDIA/NemoClaw` and runs\n  `scripts/install.sh` from the checkout.\n- DGX Spark is officially supported (`spark-install.md` in repo:\n  \"DGX Spark needs no platform-specific pre-setup as Docker is\n  pre-installed\"). Per-repo `setup-spark.sh` exists.\n- Repo still marked \"Alpha\" in `CLAUDE.md` (\"Interfaces may change\n  without notice\"), but the install path is no longer the ad-hoc\n  state described in March 2026.\n\nPrerequisites on this host (all met):\n\n- Docker 29.2.1 (D-022 vLLM image already running).\n- Node.js 22.22.2 (\u2265 20 required).\n- `NVIDIA_API_KEY` set in env.\n- 3.4 TB free on `/dev/nvme0n1p2`.\n- User in `docker` and `sudo` groups; Docker accessible without sudo.\n- GPU + CUDA 13.0 driver (`nvidia-smi` reports 580.142).\n\nThe blocker: the installer needs sudo to run\n`nvidia-ctk cdi generate` for NVIDIA Container Device Interface\nspec generation (per `scripts/install.sh` line 1850). The host\nrequires a sudo password (not passwordless). An autonomous Claude\nCode session cannot type the password. The installer would prompt\nand halt.\n\nOther sudo-using paths in the installer (docker install, docker\nsystemd enable, docker group add) are no-ops on this host because\nDocker is already installed, active, and the user is already in\nthe `docker` group.\n\n**Alternatives.**\n\n1. Push through with `NEMOCLAW_NON_INTERACTIVE_SUDO_MODE=prompt` \u2014\n   doesn't help; still requires interactive password.\n2. Skip the nvidia-cdi step \u2014 installer warns and continues per\n   `scripts/install.sh:1862` (\"Could not obtain sudo credentials\n   for NVIDIA CDI device spec generation\"), but downstream behavior\n   when CDI is unset is undocumented and may break GPU access from\n   sandboxed agents.\n3. Pre-authorize passwordless sudo for the install duration \u2014\n   security-meaningful change to the host; out of scope for a doc\n   reorg + scaffolding session.\n4. The human runs the installer directly outside an autonomous\n   session \u2014 straightforward; works in any future working session.\n\n**Rationale.** Today's session has scope beyond NemoClaw (Runtime\nabstraction, tool registry, schemas, Nara hello-world, end-to-end\nsmoke). Spending the remaining ~80 minutes of the cap on sudo\nworkarounds risks zero-output day. The substrate-swappable design\nmeans we do not lose architectural value by deferring: when\nNemoClaw is later installed, swapping is a one-line change to the\n`runtime=` argument in `nara.run_iteration()`.\n\n**Reversibility.** Trivial. To revive NemoClaw integration in a\nfuture session:\n\n1. Human runs `curl -fsSL https://www.nvidia.com/nemoclaw.sh | bash`\n   in a normal terminal (typing the sudo password when prompted).\n2. Implement `NemoClawRuntime.dispatch_tool` to shell out to\n   `nemoclaw run` or call the NemoClaw CLI's blueprint API.\n3. Swap `runtime=PyRuntime()` \u2192 `runtime=NemoClawRuntime()` in CLI\n   default; PyRuntime stays as fallback.\n\n**What would reverse the deferral.** (1) The human installs\nNemoClaw outside the session \u2014 the implementation is ~150 LOC\nwhen prereqs are met. (2) Passwordless sudo is enabled in a way\nthe user is comfortable with. (3) The user explicitly requests an\nattended-but-paused install session where they type the sudo\npassword mid-run.\n\n**Supersedes.** D-008 (NemoClaw alpha discipline, plain-Docker\nfallback) \u2014 partially. D-008's \"re-attempt with fresh eyes at the\nend of Week 1\" intention is honored; the deferral reason has\nshifted from \"alpha and breaks\" to \"installable but needs sudo\ninteraction we don't have in this session.\"\n\n**UPDATE 2026-05-26 ~03:00 UTC \u2014 install completed (attended).** The\nuser ran the install in a real terminal with the sudo password\navailable. Outcome:\n\n- `nemoclaw v0.1.0` CLI installed (`/home/decross1/.npm-global/bin/nemoclaw`,\n  symlinked to a wrapper at `/home/decross1/.local/bin/nemoclaw`).\n- Sandbox `nara-sandbox` built and running\n  (`openshell-nara-sandbox-763df558-...`).\n- OpenClaw v2026.5.18 baked into the sandbox image (Dockerfile steps\n  22-23). Gateway listening at http://127.0.0.1:18789, /health\n  returns `{ok:true, status:live}`.\n- Inference: vllm-local provider, model `gemma-4-26b-a4b`, routed\n  through NemoClaw's egress proxy at `10.200.0.1:3128`. Sandbox-side\n  status reports \"Inference (vllm backend): healthy\".\n- Resource profile: gamer (25% CPU / 25% RAM).\n- GPU passthrough verified (3 GPU proofs passed: nvidia-smi, /proc\n  comm write, `cuInit(0)` via libcuda).\n- Dispatch path verified: `nemoclaw nara-sandbox exec --no-tty -- echo\n  \"hello\"` returns cleanly.\n\n**Two artifacts to note (non-blocking):**\n\n1. **Container Docker healthcheck reports \"unhealthy\"** even though\n   the gateway is fine. The in-container `curl 127.0.0.1:18789/health`\n   fails for an internal network-namespace reason, but the gateway is\n   reachable from the host and responding. Cosmetic.\n\n2. **`openshell sandbox connect nara-sandbox` hangs** without a TTY\n   (same root cause that blocked autonomous install). This affected\n   the wizard's step 7/8 (\"Setting up OpenClaw inside sandbox\") and\n   reported a non-zero exit, but OpenClaw was already baked into the\n   image at build time, so nothing material was missing. The CLI's\n   `exec --no-tty` and the gateway API are the practical dispatch",
     "dec-ap-d-032-install-full-agent-system-skill-set": "# D-032 \u2014 Install full `agent_system` skill set into `.agents/` (diverges from BOUNDARY.md)\n\n_apparatus decision_\n\n**Date locked.** 2026-05-26 (LOOP_V0 Part 1, primary session).\n\n**Decision.** Install all 24 skills + 4 agent profiles from\n`agent_system` into `a_bgt_rsi/.agents/` as symlinks, with no\nruntime-safe filter. This includes the dev-only skills\n(`code-review`, `experiment`, `health`, `investigate`,\n`plan-research`, `repro-check`, `ship`, `context-save`,\n`context-restore`, `orchestrate`, `harvest`, `narrate`,\n`decision-log`, `propose`, `review-proposal`, `slip-ladder`,\n`auto-experiment`, `spawn-contract`, `brain-recall`) that\n`agent_system/BOUNDARY.md` recommends NOT installing into a\nproject's runtime.\n\n**Alternatives.**\n\n1. Install only the 5 runtime-safe core skills (`resume-state`,\n   `gate-check`, `validate`, `run-log`, `fallback`). Honors\n   BOUNDARY.md strictly. Considered and rejected.\n2. Install all skills but mark them dev-time-only in this project\n   (Nara sees only runtime-safe at runtime). Adds a new layer.\n3. The chosen path: install everything, document the divergence.\n\n**Rationale.**\n\nThe user explicitly chose \"full skill set, symlinked\" with awareness\nthat this diverges from BOUNDARY.md. Three reasons it makes sense\nfor *this* project:\n\n1. **Nara is a research orchestrator, not a customer-facing\n   runtime.** BOUNDARY.md's rule is shaped for production agent\n   systems where dev-only skills (code-review, ship) would be\n   inappropriate when an agent acts on behalf of a user. Nara\n   acts on behalf of one researcher (the framework's author),\n   and the dev/runtime line is less sharp here than in a\n   product context.\n\n2. **Some \"dev-only\" skills are valuable for research workflows.**\n   `experiment`, `repro-check`, `auto-experiment`, `decision-log`\n   speak directly to what Nara needs to do well. The\n   `runtime-safe` label was set in 2026-05; a fresh look might\n   reclassify some of them.\n\n3. **Reversibility is trivial.** If a dev-only skill turns out to\n   create problems (e.g., Nara invoking `ship` autonomously), the\n   per-skill symlink can be removed from `.agents/skills/` without\n   touching the framework.\n\n**What `agent_system/BOUNDARY.md` actually says.** Two skill\nclasses, by frontmatter:\n\n- **Runtime-safe core (Layer A, `runtime-safe: true`)** \u2014 five\n  execution-discipline skills. Designed to be embedded in a\n  runtime agent.\n- **Dev-only (Layers B/C, `runtime-safe: false`)** \u2014 research\n  vertical + orchestration/meta. \"Must never be loaded into any\n  project's runtime agent.\"\n\nThis project consciously diverges from the second rule.\n\n**Reversibility.** Per-skill: `rm a_bgt_rsi/.agents/skills/<skill_name>`.\nWholesale revert to runtime-safe only:\n`agent_system/install.sh --uninstall && agent_system/install.sh --target-path a_bgt_rsi/.agents/skills --filter runtime-safe`.\n\n**What would reverse the divergence.** (1) A dev-only skill causes\nNara to take an action the human did not want (e.g., autonomously\nshipping code, opening PRs). (2) Re-thinking the dev/runtime line\nin `agent_system/BOUNDARY.md` and reclassifying some skills as\nruntime-safe. (3) The project crosses a maturity threshold where\n\"this is a research workflow tool, not a product runtime\" no longer\nholds \u2014 at which point honoring BOUNDARY.md becomes important.\n\n**Documented at:** `.agents/README.md` and `agent/README.md`.\n\n---\n",
-    "dec-ap-d-033-exclude-qwen-3-6-entirely-the": "# D-033 \u2014 Exclude Qwen 3.6 entirely; the apparatus stays single-model on Gemma 4\n\n_apparatus decision_\n\n**Date locked.** 2026-05-26.\n\n**Decision.** Drop Qwen 3.6 27B Dense as a planned second model.\nThe apparatus runs single-model on Gemma 4 26B-A4B-NVFP4 indefinitely.\nPer-user direction: keep the machine clean \u2014 one orchestrator model,\none embedding model, one substrate. No Qwen weights are pulled, no\n`/mnt/models/qwen-*` directories are created, no Qwen-related docker\nimages are added.\n\n**Alternatives.**\n\n1. Pull Qwen weights now per the prior D-006 plan (Week 2-3 swap).\n   Rejected: not needed for LOOP_V0 or Part 2; adds ~30-50 GB and\n   substrate complexity (a second served model, routing decisions,\n   per-model metric tracking).\n2. Leave Qwen \"deferred\" per the prior plan. Rejected: deferring\n   indefinitely is functionally exclusion; calling it that\n   honestly tells future-me what to expect.\n3. The chosen path: explicit exclusion, with a documented reopen\n   condition.\n\n**Rationale.**\n\n- **No Qwen on disk.** `/mnt/models/` has only `bge-m3`,\n  `gemma-4-26b-a4b-nvfp4` (active), and the unused\n  `gemma-4-26b-a4b-it-assistant` (also being removed). Qwen was\n  planned but never installed.\n- **The Phase-2 reason for a second model was Elo circularity in\n  novelty scoring** (ARCHITECTURE.md \u00a76 step 6: same-model novelty\n  grading lets the model surface results from its own embedding /\n  output space). The Phase-1 mitigation \u2014 logged human-sample rate\n  on automated novelty calls \u2014 is sufficient when the human is in\n  the loop for every iteration, which is LOOP_V0's design.\n- **Single-substrate simplifies operations.** One served model means\n  one vLLM container, one config, one set of perf measurements, one\n  fail-mode-canary, one model-version stamp on every record. The\n  Phase-1 design (D-012, D-007) explicitly excluded the dual-model\n  routing layer for similar reasons; D-033 extends that posture to\n  \"no second model at all.\"\n- **Reversibility is preserved.** If a specific bottleneck emerges\n  later (Gemma 4 demonstrably fails some class of task that an\n  alternative model handles), the swap pattern is a vLLM container\n  restart with different weights \u2014 minutes of work, not weeks.\n  Starting from a clean \"no second model\" baseline and adding one\n  if needed is cheaper than maintaining a \"second model is planned\n  but not built\" hypothetical.\n\n**What this DOES NOT change.**\n\n- Gemma 4 26B-A4B-NVFP4 remains the inviolate-pinned orchestrator\n  (CLAUDE.md rule 2 unchanged).\n- The Elo-circularity risk on novelty scoring remains real (see\n  ARCHITECTURE.md \u00a76 step 6); the Phase-1 mitigation (logged human\n  sample rate) becomes the *durable* mitigation, not a temporary\n  one until a second model lands.\n- D-006 (defer Qwen 3.6 to Week 2-3) is superseded by this entry.\n- D-012 (dual-model routing excluded) is reinforced, not changed.\n\n**What would reverse this.** (1) Gemma 4 demonstrably fails a\nspecific, narrow task class \u2014 measured against a known benchmark,\nreproducibly, with the failure attributable to model quality rather\nthan prompt or retrieval. (2) A novelty-evaluation second-opinion\nneed that human sampling cannot cover \u2014 e.g., overnight autoresearch\nloops where the human cannot review every call. (3) Compute budget\nexpands such that running two served models concurrently is no\nlonger a cost trade-off.\n\n**`gemma-4-26b-a4b-it-assistant` is RETAINED** (832 MB at\n`/mnt/models/`). It is *not* unused \u2014 the running vLLM container\nloads it as the **MTP speculative-decoding draft model** per D-022's\nlaunch args (`--speculative-config '{\"method\":\"mtp\",\"model\":\n\"/models/gemma-4-26b-a4b-it-assistant\",\"num_speculative_tokens\":4}'`).\nRemoving it breaks vLLM on next restart and gives up the ~52 tok/s\nsingle-stream baseline (D-022's whole point). It is referenced by\n`setup/day2_vllm_serve_mtp.sh` and `setup/day4_vllm_serve_tools.sh`.\n\n*Process note.* An earlier draft of this decision claimed\nit-assistant was unused and removed it; that removal was reverted\n~10 minutes later when the dependency was discovered. The lesson:\n\"check what running containers actually mount before removing\nanything under `/mnt/models/`.\"\n\n**Supersedes.** D-006 (Defer Qwen 3.6 to Week 2-3). D-006 stays in\nthe log as history; D-033 is the active position.\n"
+    "dec-ap-d-033-exclude-qwen-3-6-entirely-the": "# D-033 \u2014 Exclude Qwen 3.6 entirely; the apparatus stays single-model on Gemma 4\n\n_apparatus decision_\n\n**Date locked.** 2026-05-26.\n\n**Decision.** Drop Qwen 3.6 27B Dense as a planned second model.\nThe apparatus runs single-model on Gemma 4 26B-A4B-NVFP4 indefinitely.\nPer-user direction: keep the machine clean \u2014 one orchestrator model,\none embedding model, one substrate. No Qwen weights are pulled, no\n`/mnt/models/qwen-*` directories are created, no Qwen-related docker\nimages are added.\n\n**Alternatives.**\n\n1. Pull Qwen weights now per the prior D-006 plan (Week 2-3 swap).\n   Rejected: not needed for LOOP_V0 or Part 2; adds ~30-50 GB and\n   substrate complexity (a second served model, routing decisions,\n   per-model metric tracking).\n2. Leave Qwen \"deferred\" per the prior plan. Rejected: deferring\n   indefinitely is functionally exclusion; calling it that\n   honestly tells future-me what to expect.\n3. The chosen path: explicit exclusion, with a documented reopen\n   condition.\n\n**Rationale.**\n\n- **No Qwen on disk.** `/mnt/models/` has only `bge-m3`,\n  `gemma-4-26b-a4b-nvfp4` (active), and the unused\n  `gemma-4-26b-a4b-it-assistant` (also being removed). Qwen was\n  planned but never installed.\n- **The Phase-2 reason for a second model was Elo circularity in\n  novelty scoring** (ARCHITECTURE.md \u00a76 step 6: same-model novelty\n  grading lets the model surface results from its own embedding /\n  output space). The Phase-1 mitigation \u2014 logged human-sample rate\n  on automated novelty calls \u2014 is sufficient when the human is in\n  the loop for every iteration, which is LOOP_V0's design.\n- **Single-substrate simplifies operations.** One served model means\n  one vLLM container, one config, one set of perf measurements, one\n  fail-mode-canary, one model-version stamp on every record. The\n  Phase-1 design (D-012, D-007) explicitly excluded the dual-model\n  routing layer for similar reasons; D-033 extends that posture to\n  \"no second model at all.\"\n- **Reversibility is preserved.** If a specific bottleneck emerges\n  later (Gemma 4 demonstrably fails some class of task that an\n  alternative model handles), the swap pattern is a vLLM container\n  restart with different weights \u2014 minutes of work, not weeks.\n  Starting from a clean \"no second model\" baseline and adding one\n  if needed is cheaper than maintaining a \"second model is planned\n  but not built\" hypothetical.\n\n**What this DOES NOT change.**\n\n- Gemma 4 26B-A4B-NVFP4 remains the inviolate-pinned orchestrator\n  (CLAUDE.md rule 2 unchanged).\n- The Elo-circularity risk on novelty scoring remains real (see\n  ARCHITECTURE.md \u00a76 step 6); the Phase-1 mitigation (logged human\n  sample rate) becomes the *durable* mitigation, not a temporary\n  one until a second model lands.\n- D-006 (defer Qwen 3.6 to Week 2-3) is superseded by this entry.\n- D-012 (dual-model routing excluded) is reinforced, not changed.\n\n**What would reverse this.** (1) Gemma 4 demonstrably fails a\nspecific, narrow task class \u2014 measured against a known benchmark,\nreproducibly, with the failure attributable to model quality rather\nthan prompt or retrieval. (2) A novelty-evaluation second-opinion\nneed that human sampling cannot cover \u2014 e.g., overnight autoresearch\nloops where the human cannot review every call. (3) Compute budget\nexpands such that running two served models concurrently is no\nlonger a cost trade-off.\n\n**`gemma-4-26b-a4b-it-assistant` is RETAINED** (832 MB at\n`/mnt/models/`). It is *not* unused \u2014 the running vLLM container\nloads it as the **MTP speculative-decoding draft model** per D-022's\nlaunch args (`--speculative-config '{\"method\":\"mtp\",\"model\":\n\"/models/gemma-4-26b-a4b-it-assistant\",\"num_speculative_tokens\":4}'`).\nRemoving it breaks vLLM on next restart and gives up the ~52 tok/s\nsingle-stream baseline (D-022's whole point). It is referenced by\n`setup/day2_vllm_serve_mtp.sh` and `setup/day4_vllm_serve_tools.sh`.\n\n*Process note.* An earlier draft of this decision claimed\nit-assistant was unused and removed it; that removal was reverted\n~10 minutes later when the dependency was discovered. The lesson:\n\"check what running containers actually mount before removing\nanything under `/mnt/models/`.\"\n\n**Supersedes.** D-006 (Defer Qwen 3.6 to Week 2-3). D-006 stays in\nthe log as history; D-033 is the active position.\n",
+    "stage-iter-2026-05-26-001-query-chroma-1": "# Retrieve \u2014 iter-2026-05-26-001 (step 1)\n\n_worker: query_chroma_\n\n**Step 1 of 2** \u2014 tool `query_chroma` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will query the vector store to retrieve existing literature and theoretical frameworks regarding the dominance of Tit-for-Tat in repeated games.\n\n**Triggered by call:** `fd255e46\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-dispatch-query-chroma-l173` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-receipt-query-chroma-l174` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-001-journal-writer-stub-1": "# Journal \u2014 iter-2026-05-26-001 (step 2)\n\n_worker: journal_writer_stub_\n\n**Step 2 of 2** \u2014 tool `journal_writer_stub` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nthought\n<|channel>thought\n<channel|>\n\n**Triggered by call:** `7133efb2\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l2` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-dispatch-journal-writer-stub-l175` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-receipt-journal-writer-stub-l176` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-002-query-chroma-1": "# Retrieve \u2014 iter-2026-05-26-002 (step 1)\n\n_worker: query_chroma_\n\n**Step 1 of 2** \u2014 tool `query_chroma` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will query the Chroma vector store to retrieve foundational literature and recent developments regarding the Folk Theorem and its implications for cooperation.\n\n**Triggered by call:** `b1621173\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l4` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-dispatch-query-chroma-l179` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-receipt-query-chroma-l180` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-002` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-002-journal-writer-stub-1": "# Journal \u2014 iter-2026-05-26-002 (step 2)\n\n_worker: journal_writer_stub_\n\n**Step 2 of 2** \u2014 tool `journal_writer_stub` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\n<|channel>nara_thought\n<channel|>\n\n**Triggered by call:** `8983944d\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l5` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-dispatch-journal-writer-stub-l181` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-receipt-journal-writer-stub-l182` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-002` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-003-query-chroma-1": "# Retrieve \u2014 iter-2026-05-26-003 (step 1)\n\n_worker: query_chroma_\n\n**Step 1 of 2** \u2014 tool `query_chroma` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will query the Chroma vector store to see if there is any existing documentation or research context regarding \"venv-chroma fix smoke\" within the apparatus.\n\n**Triggered by call:** `60a1ca83\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l7` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-003-loop-v0-tool-dispatch-query-chroma-l185` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-003-loop-v0-tool-receipt-query-chroma-l186` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-003` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-003-journal-writer-stub-1": "# Journal \u2014 iter-2026-05-26-003 (step 2)\n\n_worker: journal_writer_stub_\n\n**Step 2 of 2** \u2014 tool `journal_writer_stub` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\n_thought\n<|channel>thought\n<channel|>\n\n**Triggered by call:** `35a055ad\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l8` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-003-loop-v0-tool-dispatch-journal-writer-stub-l187` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-003-loop-v0-tool-receipt-journal-writer-stub-l188` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-003` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-004-query-chroma-1": "# Retrieve \u2014 iter-2026-05-26-004 (step 1)\n\n_worker: query_chroma_\n\n**Step 1 of 2** \u2014 tool `query_chroma` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will query the vector store to see if there is existing literature regarding the relationship between model capacity (compute/state count) and the implementation of trigger strategies in repeated games.\n\n**Triggered by call:** `d9924328\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l10` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-004-loop-v0-tool-dispatch-query-chroma-l191` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-004-loop-v0-tool-receipt-query-chroma-l192` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-004` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-004-journal-writer-stub-1": "# Journal \u2014 iter-2026-05-26-004 (step 2)\n\n_worker: journal_writer_stub_\n\n**Step 2 of 2** \u2014 tool `journal_writer_stub` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\n<|channel>thought\n<channel|>\n\n**Triggered by call:** `051cdc97\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l11` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-004-loop-v0-tool-dispatch-journal-writer-stub-l193` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-004-loop-v0-tool-receipt-journal-writer-stub-l194` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-004` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-005-query-chroma-1": "# Retrieve \u2014 iter-2026-05-26-005 (step 1)\n\n_worker: query_chroma_\n\n**Step 1 of 2** \u2014 tool `query_chroma` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will query the vector store to see if there is existing literature regarding recursive theory-of-mind ceilings or coordination failures in multi-agent LLM environments.\n\n**Triggered by call:** `dcb7084a\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l13` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-005-loop-v0-tool-dispatch-query-chroma-l197` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-005-loop-v0-tool-receipt-query-chroma-l198` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-005` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-005-journal-writer-stub-1": "# Journal \u2014 iter-2026-05-26-005 (step 2)\n\n_worker: journal_writer_stub_\n\n**Step 2 of 2** \u2014 tool `journal_writer_stub` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\n<|channel><channel|>\n\n**Triggered by call:** `5735bbbd\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l14` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-005-loop-v0-tool-dispatch-journal-writer-stub-l199` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-005-loop-v0-tool-receipt-journal-writer-stub-l200` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-005` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-006-query-chroma-1": "# Retrieve \u2014 iter-2026-05-26-006 (step 1)\n\n_worker: query_chroma_\n\n**Step 1 of 2** \u2014 tool `query_chroma` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will query the vector store to see if \"PID-tracking smoke\" relates to any specific game-theoretic models or if it is a non-sequitur in this research context.\n\n**Triggered by call:** `0f3da368\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l16` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-006-loop-v0-tool-dispatch-query-chroma-l203` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-006-loop-v0-tool-receipt-query-chroma-l204` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-006` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-006-journal-writer-stub-1": "# Journal \u2014 iter-2026-05-26-006 (step 2)\n\n_worker: journal_writer_stub_\n\n**Step 2 of 2** \u2014 tool `journal_writer_stub` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\n<|channel><|channel>thought\n<channel|>\n\n**Triggered by call:** `a328adfd\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l17` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-006-loop-v0-tool-dispatch-journal-writer-stub-l205` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-006-loop-v0-tool-receipt-journal-writer-stub-l206` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-006` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-007-query-chroma-1": "# Retrieve \u2014 iter-2026-05-26-007 (step 1)\n\n_worker: query_chroma_\n\n**Step 1 of 2** \u2014 tool `query_chroma` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will query the vector store to see if there is existing literature regarding recursive theory-of-mind ceilings or coordination failures in multi-agent LLM systems.\n\n**Triggered by call:** `7a42d944\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l19` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-007-loop-v0-tool-dispatch-query-chroma-l209` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-007-loop-v0-tool-receipt-query-chroma-l210` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-007` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-007-journal-writer-stub-1": "# Journal \u2014 iter-2026-05-26-007 (step 2)\n\n_worker: journal_writer_stub_\n\n**Step 2 of 2** \u2014 tool `journal_writer_stub` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nthought\n<channel|>\n\n**Triggered by call:** `45c4c814\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l20` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-007-loop-v0-tool-dispatch-journal-writer-stub-l211` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-007-loop-v0-tool-receipt-journal-writer-stub-l212` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-007` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-008-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-26-008 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for investigation.\n\n**Triggered by call:** `cbed1e04\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l25` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-dispatch-hypothesize-l215` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-receipt-hypothesize-l216` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-008` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-008-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-26-008 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nthought\n<channel|>\n\n**Triggered by call:** `9d514693\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l27` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-dispatch-retrieve-literature-l217` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-receipt-retrieve-literature-l218` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-008` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-008-novelty-classify-1": "# Novelty \u2014 iter-2026-05-26-008 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\n<channel|>I have retrieved relevant literature, which includes foundational game theory texts on repeated games and machine complexity, as well as recent work on social learning. Now, I will classify the novelty of the hypothesis by comparing it to these retrieved works.\n\n**Triggered by call:** `0135de47\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l28` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-dispatch-novelty-classify-l219` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-receipt-novelty-classify-l220` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-008` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-008-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-26-008 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nthought\n<channel|>\n\n**Triggered by call:** `66b90641\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l30` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-dispatch-critic-loop-v0-l221` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-receipt-critic-loop-v0-l222` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-008` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-008-journal-writer-1": "# Journal \u2014 iter-2026-05-26-008 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** error\n\n\u26a0\ufe0f **Fallback fired** \u2014 primary path failed; recovery path ran.\n\n**Reasoning (Nara's prose before this step):**\n\n<channel|>I have evaluated the hypothesis against the retrieved literature. The critic found that while the literature covers the theoretical foundations of memory and complexity in repeated games, it does not address the specific LLM-centric mechanism proposed, meaning the hypothesis survives the critique. Now, I will compile the final journal entry.\n\n**Triggered by call:** `ad01a237\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l32` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-dispatch-journal-writer-l223` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-008-loop-v0-tool-receipt-journal-writer-l224` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-008` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-009-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-26-009 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 2** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a concrete direction for investigation.\n\n**Triggered by call:** `ac5ec2a6\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l34` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-009-loop-v0-tool-dispatch-hypothesize-l228` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-009-loop-v0-tool-receipt-hypothesize-l229` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-009` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-009-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-26-009 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 2** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n\u26a0\ufe0f **Fallback fired** \u2014 primary path failed; recovery path ran.\n\n**Triggered by call:** `f28e14ba\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l36` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-009-loop-v0-tool-dispatch-retrieve-literature-l230` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-009-loop-v0-tool-receipt-retrieve-literature-l231` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-009` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-010-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-26-010 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 2** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses to narrow down the scope of how narrative versus list-based histories affect LLM cooperation.\n\n**Triggered by call:** `9a29688f\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l38` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l235` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l236` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l241` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l242` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-dispatch-hypothesize-l249` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l250` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-010-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-26-010 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 2** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n\u26a0\ufe0f **Fallback fired** \u2014 primary path failed; recovery path ran.\n\n**Triggered by call:** `1d50da6b\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l40` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l237` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l238` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l244` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l245` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l251` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l252` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-011-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-26-011 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 2** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses to narrow down the scope of how narrative versus list-based histories affect LLM cooperation.\n\n**Triggered by call:** `0f4ca103\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l61` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-011-loop-v0-tool-dispatch-hypothesize-l266` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-011-loop-v0-tool-receipt-hypothesize-l267` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-26-011-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-26-011 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 2** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n\u26a0\ufe0f **Fallback fired** \u2014 primary path failed; recovery path ran.\n\n**Reasoning (Nara's prose before this step):**\n\nI have selected the most specific hypothesis regarding the defection rates in LLM agents when comparing list-based versus narrative-based histories, and I will now search the literature to see if this effect has already been documented.\n\n**Triggered by call:** `f37956d2\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l64` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-011-loop-v0-tool-dispatch-retrieve-literature-l269` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-011-loop-v0-tool-receipt-retrieve-literature-l270` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (iteration) \u2014 **produced**\n"
   },
   "proposals": [
     {

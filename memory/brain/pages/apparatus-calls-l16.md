@@ -23,4 +23,4 @@ _Evaluate this research topic: PID-tracking smoke_
 
 ## Referenced by
 
-- `iter-2026-05-26-006` (apparatus_event) — **produced**
+- `stage-iter-2026-05-26-006-query-chroma-1` (stage) — **derived_from**

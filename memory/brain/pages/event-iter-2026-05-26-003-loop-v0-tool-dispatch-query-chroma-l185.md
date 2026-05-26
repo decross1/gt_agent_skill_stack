@@ -15,5 +15,5 @@ _loop_v0_tool_dispatch for iter-2026-05-26-003_
 
 ## Referenced by
 
-- `iter-2026-05-26-003` (apparatus_event) — **produced**
 - `apparatus-calls-l7` (apparatus_event) — **produced**
+- `stage-iter-2026-05-26-003-query-chroma-1` (stage) — **derived_from**

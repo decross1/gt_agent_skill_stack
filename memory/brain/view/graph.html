@@ -7,12 +7,18 @@
   :root { color-scheme: light dark; }
   * { box-sizing: border-box; }
   html, body { margin: 0; height: 100%; font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  body { display: grid; grid-template-columns: 1fr 320px; grid-template-rows: 44px 1fr; height: 100vh; overflow: hidden; }
-  header { grid-column: 1 / -1; display: flex; align-items: center; gap: 12px; padding: 0 14px; border-bottom: 1px solid #ddd; background: #fafafa; }
+  body { display: grid; grid-template-columns: 1fr 320px; grid-template-rows: auto 1fr; height: 100vh; overflow: hidden; }
+  header { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px; padding: 8px 14px; border-bottom: 1px solid #ddd; background: #fafafa; }
+  header .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
   header h1 { margin: 0; font-size: 14px; font-weight: 600; }
-  header .stat { font-size: 12px; color: #666; }
-  header .filters { display: flex; gap: 8px; margin-left: auto; flex-wrap: wrap; }
+  header .spacer { flex: 1; }
+  header .filters { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
   header label { font-size: 12px; user-select: none; display: inline-flex; align-items: center; gap: 4px; }
+  header select { font: 12px system-ui; padding: 3px 6px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; }
+  aside { display: flex; flex-direction: column; }
+  aside .panel-body { flex: 1; min-height: 0; }
+  aside .panel-footer { border-top: 1px solid #ddd; padding-top: 8px; margin-top: 8px; font-size: 11px; color: #888; display: flex; flex-wrap: wrap; gap: 10px; }
+  aside .panel-footer .stat { white-space: nowrap; }
   #canvas-wrap { position: relative; background: #fff; overflow: hidden; }
   canvas { display: block; width: 100%; height: 100%; cursor: grab; }
   canvas.dragging { cursor: grabbing; }
@@ -44,6 +50,8 @@
   .v-auto-reject,
   .v-rejected      { background: #fee2e2; color: #991b1b; }
   .v-human-review  { background: #dbeafe; color: #1e3a8a; }
+  .v-framework     { background: #e0e7ff; color: #3730a3; }
+  .v-apparatus     { background: #fef3c7; color: #92400e; }
   header .tab-btn { font-size: 12px; padding: 4px 10px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; }
   header .tab-btn.active { background: #2563eb; color: white; border-color: #2563eb; }
   .legend { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
@@ -56,37 +64,48 @@
   @media (prefers-color-scheme: dark) {
     body { background: #1a1a1a; color: #ddd; }
     header { background: #222; border-color: #333; }
-    header .stat, aside .kv b { color: #aaa; }
+    header select { background: #2a2a2a; color: #ddd; border-color: #444; }
+    aside .kv b { color: #aaa; }
     aside { background: #181818; border-color: #333; }
+    aside .panel-footer { color: #888; border-top-color: #333; }
     #canvas-wrap { background: #1a1a1a; }
   }
 </style>
 </head>
 <body>
 <header>
-  <h1>Brain — graph</h1>
-  <span class="stat" id="stat-nodes">nodes 0</span>
-  <span class="stat" id="stat-edges">edges 0</span>
-  <span class="stat" id="stat-dangling">dangling 0</span>
-  <span class="stat" id="stat-asof" title="data freshness — re-run scripts/project_pages.py to refresh">as of —</span>
-  <label class="stat" style="display:inline-flex; gap:4px; align-items:center;" title="filter nodes by date">
-    window:
-    <select id="date-range" style="font:12px system-ui; padding:2px 4px;">
-      <option value="all" selected>all time</option>
-      <option value="1">last 24h</option>
-      <option value="3">last 3d</option>
-      <option value="7">last 7d</option>
-      <option value="30">last 30d</option>
+  <div class="row">
+    <h1>Brain — graph</h1>
+    <button class="tab-btn active" id="tab-graph">Graph</button>
+    <button class="tab-btn" id="tab-proposals">Proposals (0)</button>
+    <button class="tab-btn" id="tab-decisions">Decisions (0)</button>
+    <button class="tab-btn" id="toggle-mechanics" title="Show/hide per-iteration plumbing (orchestrator_event + llm_call). Off by default — the graph defaults to the Research view.">Mechanics</button>
+    <div class="spacer"></div>
+    <select id="focus-iteration" title="Isolate the subgraph reachable from one iteration" style="max-width: 280px;">
+      <option value="" selected>focus: all iterations</option>
     </select>
-  </label>
-  <button class="tab-btn active" id="tab-graph">Graph</button>
-  <button class="tab-btn" id="tab-proposals">Proposals (0)</button>
-  <div class="filters" id="filters"></div>
+    <select id="date-range" title="Filter nodes by date">
+      <option value="all" selected>window: all time</option>
+      <option value="1">window: last 24h</option>
+      <option value="3">window: last 3d</option>
+      <option value="7">window: last 7d</option>
+      <option value="30">window: last 30d</option>
+    </select>
+  </div>
+  <div class="row filters" id="filters"></div>
 </header>
 <div id="canvas-wrap"><canvas id="g"></canvas></div>
 <aside id="panel">
-  <h2>Select a node</h2>
-  <div class="empty">Click any node to inspect.</div>
+  <div class="panel-body" id="panel-body">
+    <h2>Select a node</h2>
+    <div class="empty">Click any node to inspect.</div>
+  </div>
+  <div class="panel-footer">
+    <span class="stat" id="stat-nodes">nodes —</span>
+    <span class="stat" id="stat-edges">edges —</span>
+    <span class="stat" id="stat-dangling">dangling —</span>
+    <span class="stat" id="stat-asof" title="data freshness — re-run scripts/project_pages.py to refresh">as of —</span>
+  </div>
 </aside>
 <script src="graph_data.js"></script>
 <script>
@@ -103,12 +122,47 @@ const TYPE_COLORS = {
   decision:           "#64748b",   // slate
   // Apparatus sub-kinds (derived in scripts/project_pages.py::kind_from_narrative)
   iteration:          "#0ea5e9",   // sky — top-level LOOP_V0 iteration records
-  orchestrator_event: "#14b8a6",   // teal — Nara's dispatch/receipt events
-  llm_call:           "#ec4899",   // pink — vLLM wrapper calls
+  stage:              "#8b5cf6",   // violet — fallback when a stage's worker isn't in STAGE_COLORS
+  orchestrator_event: "#14b8a6",   // teal — Nara's dispatch/receipt events (mechanics view)
+  llm_call:           "#ec4899",   // pink — vLLM wrapper calls (mechanics view)
   // fallback
   _default:           "#cccccc"
 };
-function colorFor(t) { return TYPE_COLORS[t] || TYPE_COLORS._default; }
+
+// Per-worker color for `stage` nodes — same dimension as TYPE_COLORS, finer
+// grain. Stages share one filter checkbox; an inline legend renders these
+// swatches so the user can read the 5-stage pipeline at a glance. Aliases
+// (Part 1 names) map to the same hue as the canonical Part 2 worker.
+const STAGE_COLORS = {
+  hypothesize:         "#c084fc",   // light purple — generative / idea formation
+  retrieve_literature: "#06b6d4",   // cyan — information gathering
+  query_chroma:        "#06b6d4",   // alias (LOOP_V0 Part 1)
+  novelty_classify:    "#84cc16",   // lime — assessment / classification
+  critic_loop_v0:      "#f97316",   // orange — challenge / objection
+  journal_writer:      "#94a3b8",   // slate-light — closing / archival
+  journal_writer_stub: "#94a3b8",   // alias (LOOP_V0 Part 1)
+  summarize_paper:     "#fbbf24",   // gold
+  play_pd_match:       "#dc2626",   // crimson — game-theory pop
+};
+// Pretty labels for the stage-color legend (parallel keys to STAGE_COLORS, but
+// only one entry per canonical worker — aliases reuse the same row).
+const STAGE_LEGEND = [
+  ["hypothesize",         "Hypothesize"],
+  ["retrieve_literature", "Retrieve"],
+  ["novelty_classify",    "Novelty"],
+  ["critic_loop_v0",      "Critique"],
+  ["journal_writer",      "Journal"],
+];
+
+function colorFor(node) {
+  // Accept either a string type (legacy callers) or a full node object.
+  if (typeof node === "string") return TYPE_COLORS[node] || TYPE_COLORS._default;
+  if (!node) return TYPE_COLORS._default;
+  if (node.type === "stage" && node.worker && STAGE_COLORS[node.worker]) {
+    return STAGE_COLORS[node.worker];
+  }
+  return TYPE_COLORS[node.type] || TYPE_COLORS._default;
+}
 
 // ---- load data ---------------------------------------------------------------
 const DATA = (typeof window.BRAIN_GRAPH === "object" && window.BRAIN_GRAPH) || { nodes: [], edges: [], pages: {}, proposals: [] };
@@ -145,25 +199,112 @@ document.getElementById("tab-proposals").textContent = `Proposals (${PROPOSALS.l
   document.getElementById("stat-asof").textContent = `as of ${latest}`;
 })();
 
-// ---- filters: one checkbox per type ------------------------------------------
-// apparatus_event is OFF by default — 200+ vLLM/orchestrator calls drown out
-// the high-signal entities (decisions, anomalies, experiments, reflections).
-// Toggle it on for deep-dive debugging.
-const NOISY_TYPES = new Set(["apparatus_event"]);
+// ---- filters: grouped by category --------------------------------------------
+// Three categories, rendered as labeled rows so the header reads cleanly:
+//   Research  — the story (iterations, decisions, corrections, anomalies,
+//               experiments, hypotheses, reflections, stages). Default ON.
+//   Mechanics — per-iteration plumbing (orchestrator_event, llm_call).
+//               Default OFF — the Mechanics button in the header flips both.
+//   Other     — catch-all (apparatus_event: legacy + uncategorized).
+//               Default OFF.
+// Types that exist in the graph but aren't listed here land in Research as a
+// safety net (new entity types appear visible by default).
+const FILTER_GROUPS = [
+  { key: "research",  label: "Research",  defaultOn: true,
+    types: ["iteration", "stage", "correction", "anomaly", "experiment", "hypothesis", "reflection"] },
+  { key: "history",   label: "History",   defaultOn: false,
+    types: ["decision"] },
+  { key: "mechanics", label: "Mechanics", defaultOn: false,
+    types: ["orchestrator_event", "llm_call"] },
+  { key: "other",     label: "Other",     defaultOn: false,
+    types: ["apparatus_event"] },
+];
+const MECHANICS_TYPES = FILTER_GROUPS.find(g => g.key === "mechanics").types;
 const typesSeen = new Set();
 nodesById.forEach(n => typesSeen.add(n.type));
-const enabledTypes = new Set([...typesSeen].filter(t => !NOISY_TYPES.has(t)));
+
+// Assign each seen type to a group (default to research if unrecognized).
+const typeGroup = new Map();
+for (const g of FILTER_GROUPS) for (const t of g.types) typeGroup.set(t, g);
+for (const t of typesSeen) if (!typeGroup.has(t)) typeGroup.set(t, FILTER_GROUPS[0]);
+
+const enabledTypes = new Set(
+  [...typesSeen].filter(t => typeGroup.get(t).defaultOn)
+);
 const filtersDiv = document.getElementById("filters");
-[...typesSeen].sort().forEach(t => {
-  const id = `flt-${t}`;
-  const checked = enabledTypes.has(t) ? "checked" : "";
-  const lbl = document.createElement("label");
-  lbl.innerHTML = `<input type="checkbox" id="${id}" ${checked}> <span class="legend" style="background:${colorFor(t)}"></span>${t}`;
-  filtersDiv.appendChild(lbl);
-  lbl.querySelector("input").addEventListener("change", e => {
-    if (e.target.checked) enabledTypes.add(t); else enabledTypes.delete(t);
+const typeCheckboxes = new Map(); // type -> <input>
+
+function renderFilters() {
+  filtersDiv.innerHTML = "";
+  for (const g of FILTER_GROUPS) {
+    const typesInGroup = g.types.filter(t => typesSeen.has(t));
+    if (typesInGroup.length === 0) continue;
+    const row = document.createElement("span");
+    row.className = "filter-group";
+    row.style.cssText = "display:inline-flex;align-items:center;gap:6px;margin-right:14px;";
+    const head = document.createElement("span");
+    head.style.cssText = "font-size:11px;color:#888;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;";
+    head.textContent = g.label;
+    row.appendChild(head);
+    for (const t of typesInGroup) {
+      const id = `flt-${t}`;
+      const checked = enabledTypes.has(t) ? "checked" : "";
+      const lbl = document.createElement("label");
+      lbl.innerHTML = `<input type="checkbox" id="${id}" ${checked}> <span class="legend" style="background:${colorFor(t)}"></span>${t}`;
+      row.appendChild(lbl);
+      const input = lbl.querySelector("input");
+      typeCheckboxes.set(t, input);
+      input.addEventListener("change", e => {
+        if (e.target.checked) enabledTypes.add(t); else enabledTypes.delete(t);
+        refreshMechanicsButton();
+      });
+    }
+    filtersDiv.appendChild(row);
+  }
+  // Per-worker stage legend (only if stages are present + visible).
+  if (typesSeen.has("stage")) {
+    const legend = document.createElement("span");
+    legend.className = "stage-legend";
+    legend.style.cssText = "display:inline-flex;align-items:center;gap:8px;margin-left:8px;padding-left:10px;border-left:1px solid #ddd;";
+    const head = document.createElement("span");
+    head.style.cssText = "font-size:11px;color:#888;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;";
+    head.textContent = "Stage";
+    legend.appendChild(head);
+    for (const [worker, pretty] of STAGE_LEGEND) {
+      const swatch = document.createElement("span");
+      swatch.style.cssText = "display:inline-flex;align-items:center;gap:3px;font-size:12px;color:#666;";
+      swatch.innerHTML = `<span class="legend" style="background:${STAGE_COLORS[worker]}"></span>${pretty}`;
+      legend.appendChild(swatch);
+    }
+    filtersDiv.appendChild(legend);
+  }
+}
+renderFilters();
+
+// ---- Mechanics preset toggle -------------------------------------------------
+// Single-click flip of orchestrator_event + llm_call together. Active state
+// reflects whether *both* mechanical kinds are currently enabled.
+const mechBtn = document.getElementById("toggle-mechanics");
+function mechanicsAllOn() {
+  return MECHANICS_TYPES.every(t => enabledTypes.has(t));
+}
+function refreshMechanicsButton() {
+  if (!mechBtn) return;
+  mechBtn.classList.toggle("active", mechanicsAllOn());
+}
+if (mechBtn) {
+  mechBtn.addEventListener("click", () => {
+    const turnOn = !mechanicsAllOn();
+    for (const t of MECHANICS_TYPES) {
+      if (!typesSeen.has(t)) continue;
+      if (turnOn) enabledTypes.add(t); else enabledTypes.delete(t);
+      const cb = typeCheckboxes.get(t);
+      if (cb) cb.checked = turnOn;
+    }
+    refreshMechanicsButton();
   });
-});
+  refreshMechanicsButton();
+}
 
 // ---- time-window scrubber + last-updated stamp ------------------------------
 // Default: "all" (show everything not filtered out by type). Users can narrow.
@@ -182,6 +323,48 @@ function inDateWindow(n) {
   const dt = new Date(d + "T00:00:00Z");
   const cutoff = new Date(DATE_NOW); cutoff.setUTCDate(cutoff.getUTCDate() - dateWindowDays);
   return dt >= cutoff;
+}
+
+// ---- focus-on-iteration picker ----------------------------------------------
+// Populate the dropdown from iteration nodes (newest first by slug — slugs
+// already encode date + counter). Selecting one BFS's outgoing edges from
+// the iteration and limits the visible set to the reachable subgraph. This
+// keeps the focused iteration AND its stages/events/calls/journal visible,
+// without losing the mechanics-view debug path when toggled on.
+const focusSelect = document.getElementById("focus-iteration");
+let focusVisibleSlugs = null;   // null = no focus
+function computeFocusReachable(rootSlug) {
+  const reachable = new Set([rootSlug]);
+  const queue = [rootSlug];
+  while (queue.length) {
+    const cur = queue.shift();
+    for (const e of edges) {
+      if (e.src === cur && !reachable.has(e.dst)) {
+        reachable.add(e.dst);
+        queue.push(e.dst);
+      }
+    }
+  }
+  return reachable;
+}
+function inFocus(node) {
+  if (!focusVisibleSlugs) return true;
+  return focusVisibleSlugs.has(node.slug);
+}
+if (focusSelect) {
+  // Populate options: iteration nodes, newest first (slug suffix is -NNN counter).
+  const iters = DATA.nodes.filter(n => n.type === "iteration");
+  iters.sort((a, b) => b.slug.localeCompare(a.slug));
+  for (const it of iters) {
+    const opt = document.createElement("option");
+    opt.value = it.slug;
+    opt.textContent = it.slug + (it.title && it.title !== it.slug ? "  —  " + it.title.replace(/^a_bgt_rsi:\s*Nara\s*—\s*/, "").slice(0, 60) : "");
+    focusSelect.appendChild(opt);
+  }
+  focusSelect.addEventListener("change", e => {
+    const v = e.target.value;
+    focusVisibleSlugs = v ? computeFocusReachable(v) : null;
+  });
 }
 
 // ---- layout: simple force-directed (repulsion + spring) ----------------------
@@ -268,6 +451,7 @@ function draw() {
   for (const e of edges) {
     if (!enabledTypes.has(e._s.type) || !enabledTypes.has(e._d.type)) continue;
     if (!inDateWindow(e._s) || !inDateWindow(e._d)) continue;
+    if (!inFocus(e._s) || !inFocus(e._d)) continue;
     ctx.beginPath();
     ctx.moveTo(e._s.x, e._s.y);
     ctx.lineTo(e._d.x, e._d.y);
@@ -292,8 +476,9 @@ function draw() {
   for (const N of nodesById.values()) {
     if (!enabledTypes.has(N.type)) continue;
     if (!inDateWindow(N)) continue;
+    if (!inFocus(N)) continue;
     const r = N === selected ? 9 : 6;
-    ctx.fillStyle = colorFor(N.type);
+    ctx.fillStyle = colorFor(N);
     ctx.beginPath();
     ctx.arc(N.x, N.y, r, 0, Math.PI * 2);
     ctx.fill();
@@ -318,6 +503,7 @@ function pick(mx, my) {
   for (const N of nodesById.values()) {
     if (!enabledTypes.has(N.type)) continue;
     if (!inDateWindow(N)) continue;
+    if (!inFocus(N)) continue;
     const dx = N.x - mx, dy = N.y - my;
     const d2 = dx*dx + dy*dy;
     if (d2 < bestD2) { bestD2 = d2; best = N; }
@@ -404,16 +590,32 @@ function renderMarkdown(src) {
 }
 
 // ---- side-panel modes -------------------------------------------------------
-let panelMode = "node";   // "node" | "proposals" | "proposal"
+let panelMode = "node";   // "node" | "proposals" | "proposal" | "decisions" | "decision"
 let selectedProposal = null;
+let selectedDecisionSlug = null;
 let pageExpanded = false;
+
+// Decisions live in DATA.nodes (so cross-reference edges from corrections still
+// resolve), but the graph default-hides them via the "history" filter group.
+// The dedicated Decisions tab is the primary entry point for browsing them.
+const DECISION_NODES = DATA.nodes.filter(n => n.type === "decision");
+DECISION_NODES.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+document.getElementById("tab-decisions").textContent = `Decisions (${DECISION_NODES.length})`;
 
 function tabButtons() {
   document.getElementById("tab-graph").classList.toggle("active", panelMode === "node");
   document.getElementById("tab-proposals").classList.toggle("active", panelMode === "proposals" || panelMode === "proposal");
+  document.getElementById("tab-decisions").classList.toggle("active", panelMode === "decisions" || panelMode === "decision");
 }
-document.getElementById("tab-graph").addEventListener("click", () => { panelMode = "node"; selectedProposal = null; updatePanel(); });
-document.getElementById("tab-proposals").addEventListener("click", () => { panelMode = "proposals"; selectedProposal = null; updatePanel(); });
+document.getElementById("tab-graph").addEventListener("click", () => {
+  panelMode = "node"; selectedProposal = null; selectedDecisionSlug = null; updatePanel();
+});
+document.getElementById("tab-proposals").addEventListener("click", () => {
+  panelMode = "proposals"; selectedProposal = null; selectedDecisionSlug = null; updatePanel();
+});
+document.getElementById("tab-decisions").addEventListener("click", () => {
+  panelMode = "decisions"; selectedProposal = null; selectedDecisionSlug = null; updatePanel();
+});
 
 function renderProposalsList() {
   if (PROPOSALS.length === 0) return `<h2>Proposals</h2><div class="empty">No proposals filed yet. Use the <code>propose</code> skill to file one.</div>`;
@@ -421,13 +623,59 @@ function renderProposalsList() {
   for (const p of PROPOSALS) {
     const verdict = p.verdict || p.status || "open";
     parts.push(
-      `<div class="proposal-item" data-pid="${p.proposal_id}">` +
-        `<div><span class="pid">${p.proposal_id || "?"}</span>` +
-        ` <span class="verdict v-${(verdict + "").replace(/_/g, "-")}">${verdict}</span></div>` +
+      `<div class="proposal-item" data-pid="${escHTML(p.proposal_id || "")}">` +
+        `<div><span class="pid">${escHTML(p.proposal_id || "?")}</span>` +
+        ` <span class="verdict v-${escHTML((verdict + "").replace(/_/g, "-"))}">${escHTML(verdict)}</span></div>` +
         `<div style="margin-top:4px">${escHTML(p.title || "")}</div>` +
-        `<div class="kv" style="font-size:11px;color:#666">→ <code>${escHTML(p.target || "?")}</code> (${p.target_type || "?"})</div>` +
+        `<div class="kv" style="font-size:11px;color:#666">→ <code>${escHTML(p.target || "?")}</code> (${escHTML(p.target_type || "?")})</div>` +
       `</div>`
     );
+  }
+  return parts.join("");
+}
+
+function renderDecisionsList() {
+  if (DECISION_NODES.length === 0) {
+    return `<h2>Decisions</h2><div class="empty">No decisions recorded yet. Use the <code>decision-log</code> skill to record one.</div>`;
+  }
+  const parts = [`<h2>Decisions (${DECISION_NODES.length})</h2>`,
+    `<div class="empty" style="font-style:normal;margin:4px 0 8px;font-size:11px;">Newest first. Click any row for the full text.</div>`];
+  for (const d of DECISION_NODES) {
+    // Slugs follow project_pages.py: dec-fw-* (framework) vs dec-ap-* (apparatus).
+    const side = d.slug.startsWith("dec-fw") ? "framework" : "apparatus";
+    parts.push(
+      `<div class="proposal-item" data-decision-slug="${d.slug}">` +
+        `<div><span class="pid">${d.date || "—"}</span>` +
+        ` <span class="verdict v-${side}">${side}</span></div>` +
+        `<div style="margin-top:4px">${escHTML(d.title || d.slug)}</div>` +
+      `</div>`
+    );
+  }
+  return parts.join("");
+}
+
+function renderDecisionDetail(slug) {
+  const node = nodesById.get(slug);
+  if (!node) return renderDecisionsList();
+  const side = slug.startsWith("dec-fw") ? "framework" : "apparatus";
+  const page = PAGES[slug] || "";
+  const parts = [
+    `<button class="toggle-page" id="back-to-decisions">← all decisions</button>`,
+    `<h2>${escHTML(node.title || slug)} <span class="verdict v-${side}">${side}</span></h2>`,
+    `<div class="kv"><b>Date:</b> ${node.date || "—"}</div>`,
+    `<div class="kv"><b>Slug:</b> <code>${slug}</code></div>`,
+  ];
+  if (page) {
+    parts.push(`<div class="page-content">${renderMarkdown(page)}</div>`);
+  } else {
+    parts.push(`<div class="empty">No page content available.</div>`);
+  }
+  // Backlinks — corrections / proposals / experiments that reference this decision.
+  const ins = edges.filter(e => e._d && e._d.slug === slug);
+  if (ins.length) {
+    parts.push(`<div class="neighbours"><b>Referenced by (${ins.length})</b><ul>`);
+    for (const e of ins) parts.push(`<li><a href="#" data-slug="${e.src}">${e.src}</a> — <i>${e.type}</i></li>`);
+    parts.push(`</ul></div>`);
   }
   return parts.join("");
 }
@@ -437,18 +685,20 @@ function renderProposalDetail(p) {
   const verdict = p.verdict || p.status || "open";
   const parts = [
     `<button class="toggle-page" id="back-to-list">← all proposals</button>`,
-    `<h2>${p.proposal_id} <span class="verdict v-${(verdict + "").replace(/_/g, "-")}">${verdict}</span></h2>`,
+    `<h2>${escHTML(p.proposal_id || "")} <span class="verdict v-${escHTML((verdict + "").replace(/_/g, "-"))}">${escHTML(verdict)}</span></h2>`,
     `<div class="kv"><b>Title:</b> ${escHTML(p.title || "")}</div>`,
-    `<div class="kv"><b>Target:</b> <code>${escHTML(p.target || "?")}</code> (${p.target_type || "?"})</div>`,
+    `<div class="kv"><b>Target:</b> <code>${escHTML(p.target || "?")}</code> (${escHTML(p.target_type || "?")})</div>`,
     `<div class="kv"><b>Filed:</b> ${escHTML(p.timestamp || "")} by ${escHTML(p.agent_id || "?")}</div>`,
   ];
-  if (p.change) parts.push(`<div class="kv"><b>Change:</b><div>${mdInline(escHTML(p.change))}</div></div>`);
-  if (p.reasoning) parts.push(`<div class="kv"><b>Reasoning:</b><div>${mdInline(escHTML(p.reasoning))}</div></div>`);
-  if (p.verdict_reasoning) parts.push(`<div class="kv"><b>Verdict reasoning:</b><div>${mdInline(escHTML(p.verdict_reasoning))}</div></div>`);
-  if (p.rule_cited) parts.push(`<div class="kv"><b>Rule cited:</b> ${p.rule_cited}</div>`);
+  // mdInline() already escapes HTML internally — passing pre-escaped input
+  // double-escapes (harmless but redundant). Pass raw and let mdInline handle.
+  if (p.change) parts.push(`<div class="kv"><b>Change:</b><div>${mdInline(p.change)}</div></div>`);
+  if (p.reasoning) parts.push(`<div class="kv"><b>Reasoning:</b><div>${mdInline(p.reasoning)}</div></div>`);
+  if (p.verdict_reasoning) parts.push(`<div class="kv"><b>Verdict reasoning:</b><div>${mdInline(p.verdict_reasoning)}</div></div>`);
+  if (p.rule_cited) parts.push(`<div class="kv"><b>Rule cited:</b> ${escHTML(p.rule_cited)}</div>`);
   if (p.references && p.references.length) {
     parts.push(`<div class="kv"><b>References:</b><ul>`);
-    for (const r of p.references) parts.push(`<li><a href="#" data-slug="${r}">${r}</a></li>`);
+    for (const r of p.references) parts.push(`<li><a href="#" data-slug="${escHTML(r)}">${escHTML(r)}</a></li>`);
     parts.push(`</ul></div>`);
   }
   return parts.join("");
@@ -456,15 +706,18 @@ function renderProposalDetail(p) {
 
 function updatePanel() {
   tabButtons();
-  const aside = document.getElementById("panel");
-  if (panelMode === "proposals") { aside.innerHTML = renderProposalsList(); }
-  else if (panelMode === "proposal") { aside.innerHTML = renderProposalDetail(selectedProposal); }
-  else if (!selected) { aside.innerHTML = `<h2>Select a node</h2><div class="empty">Click any node to inspect.</div>`; }
+  // Write into #panel-body so the sticky #panel-footer (graph stats) survives.
+  const body = document.getElementById("panel-body");
+  if (panelMode === "proposals") { body.innerHTML = renderProposalsList(); }
+  else if (panelMode === "proposal") { body.innerHTML = renderProposalDetail(selectedProposal); }
+  else if (panelMode === "decisions") { body.innerHTML = renderDecisionsList(); }
+  else if (panelMode === "decision") { body.innerHTML = renderDecisionDetail(selectedDecisionSlug); }
+  else if (!selected) { body.innerHTML = `<h2>Select a node</h2><div class="empty">Click any node to inspect.</div>`; }
   else {
     const outs = edges.filter(e => e._s === selected);
     const ins  = edges.filter(e => e._d === selected);
     const parts = [];
-    parts.push(`<h2><span class="legend" style="background:${colorFor(selected.type)}"></span>${selected.slug}</h2>`);
+    parts.push(`<h2><span class="legend" style="background:${colorFor(selected)}"></span>${selected.slug}</h2>`);
     parts.push(`<div class="kv"><b>Type:</b> ${selected.type}</div>`);
     if (selected.date) parts.push(`<div class="kv"><b>Date:</b> ${selected.date}</div>`);
     if (selected.title && selected.title !== selected.slug) parts.push(`<div class="kv"><b>Title:</b> ${selected.title}</div>`);
@@ -481,22 +734,28 @@ function updatePanel() {
     if (ins.length === 0) parts.push(`<li class="empty">none</li>`);
     for (const e of ins) parts.push(`<li><a href="#" data-slug="${e.src}">${e.src}</a> — <i>${e.type}</i></li>`);
     parts.push(`</ul></div>`);
-    aside.innerHTML = parts.join("");
+    body.innerHTML = parts.join("");
     const tp = document.getElementById("toggle-page-btn");
     if (tp) tp.addEventListener("click", () => { pageExpanded = !pageExpanded; updatePanel(); });
   }
-  aside.querySelectorAll("a[data-slug]").forEach(a => a.addEventListener("click", ev => {
+  body.querySelectorAll("a[data-slug]").forEach(a => a.addEventListener("click", ev => {
     ev.preventDefault();
     const n = nodesById.get(a.dataset.slug);
     if (n) { panelMode = "node"; selected = n; pageExpanded = false; updatePanel(); }
   }));
-  aside.querySelectorAll(".proposal-item").forEach(el => el.addEventListener("click", () => {
+  body.querySelectorAll(".proposal-item[data-pid]").forEach(el => el.addEventListener("click", () => {
     const pid = el.dataset.pid;
     selectedProposal = PROPOSALS.find(p => p.proposal_id === pid);
     panelMode = "proposal"; updatePanel();
   }));
+  body.querySelectorAll(".proposal-item[data-decision-slug]").forEach(el => el.addEventListener("click", () => {
+    selectedDecisionSlug = el.dataset.decisionSlug;
+    panelMode = "decision"; updatePanel();
+  }));
   const back = document.getElementById("back-to-list");
   if (back) back.addEventListener("click", () => { panelMode = "proposals"; selectedProposal = null; updatePanel(); });
+  const backDec = document.getElementById("back-to-decisions");
+  if (backDec) backDec.addEventListener("click", () => { panelMode = "decisions"; selectedDecisionSlug = null; updatePanel(); });
 }
 
 // ---- animation loop ----------------------------------------------------------

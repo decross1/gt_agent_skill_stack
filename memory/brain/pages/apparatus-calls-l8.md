@@ -23,4 +23,4 @@ _Evaluate this research topic: venv-chroma fix smoke_
 
 ## Referenced by
 
-- `iter-2026-05-26-003` (apparatus_event) — **produced**
+- `stage-iter-2026-05-26-003-journal-writer-stub-1` (stage) — **derived_from**

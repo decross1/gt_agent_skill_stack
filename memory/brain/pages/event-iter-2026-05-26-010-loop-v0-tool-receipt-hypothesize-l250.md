@@ -1,0 +1,19 @@
+---
+slug: "event-iter-2026-05-26-010-loop-v0-tool-receipt-hypothesize-l250"
+type: "orchestrator_event"
+date: "2026-05-26"
+source: "week1.run.jsonl:250"
+---
+
+# a_bgt_rsi: Nara/Orchestrator — week1.run L250
+
+_loop_v0_tool_receipt for iter-2026-05-26-010_
+
+**Did:** tool=hypothesize status=passed
+
+**Observed:** parent_request_id=7d9cc727-401e-48e5-a9c3-6ca0d1f3b0f7
+
+## Referenced by
+
+- `apparatus-calls-l48` (apparatus_event) — **produced**
+- `stage-iter-2026-05-26-010-hypothesize-1` (stage) — **derived_from**
