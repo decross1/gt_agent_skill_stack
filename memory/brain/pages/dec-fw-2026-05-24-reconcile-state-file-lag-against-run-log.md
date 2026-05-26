@@ -3,6 +3,8 @@ slug: "dec-fw-2026-05-24-reconcile-state-file-lag-against-run-log"
 type: "correction"
 date: "2026-05-24"
 source: "memory/DECISIONS.md"
+edges:
+  - {type: enacts, dst: "rule-fr-002", dst_type: "rule"}
 ---
 
 # 2026-05-24 — Reconcile state-file lag against run-log during gate-armed periods
@@ -33,3 +35,7 @@ the consumer did manually and is the rule we encode now.
 `resume-state` SKILL.md; the rule of practice itself is the durable
 artifact, regenerated into `rules.md` as FR-002 by `regen_rules.py`.
 **Supersedes:** none — extends [[resume-state]] step 5.
+
+## Links
+
+- **enacts** → `rule-fr-002` (rule)

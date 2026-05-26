@@ -125,6 +125,10 @@ const TYPE_COLORS = {
   stage:              "#8b5cf6",   // violet — fallback when a stage's worker isn't in STAGE_COLORS
   orchestrator_event: "#14b8a6",   // teal — Nara's dispatch/receipt events (mechanics view)
   llm_call:           "#ec4899",   // pink — vLLM wrapper calls (mechanics view)
+  // Self-improvement loop (synthesized in scripts/project_pages.py::synthesize_loop_entities)
+  harvest_finding:    "#6366f1",   // indigo — raw signal from harvest passes
+  proposal:           "#fbbf24",   // amber-light — candidate change in flight
+  rule:               "#10b981",   // emerald — settled active discipline
   // fallback
   _default:           "#cccccc"
 };
@@ -212,6 +216,8 @@ document.getElementById("tab-proposals").textContent = `Proposals (${PROPOSALS.l
 const FILTER_GROUPS = [
   { key: "research",  label: "Research",  defaultOn: true,
     types: ["iteration", "stage", "correction", "anomaly", "experiment", "hypothesis", "reflection"] },
+  { key: "loop",      label: "Loop",      defaultOn: true,
+    types: ["harvest_finding", "proposal", "rule"] },
   { key: "history",   label: "History",   defaultOn: false,
     types: ["decision"] },
   { key: "mechanics", label: "Mechanics", defaultOn: false,

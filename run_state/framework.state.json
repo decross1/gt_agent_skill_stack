@@ -119,7 +119,13 @@
     "s23_5_3_time_window_scrubber",
     "s23_5_4_validate",
     "s23_5_5_file_deeper_backlog",
-    "s23_5_6_state_update"
+    "s23_5_6_state_update",
+    "n2_p006_proposal_health_script",
+    "n2_p006_baseline_report_run",
+    "n2_p006_project_pages_loop_entities",
+    "n2_p006_graph_html_loop_filter",
+    "n2_p006_close_p006",
+    "n2_p006_state_update"
   ],
   "gates": {
     "pending": [],
@@ -156,6 +162,7 @@
     "phase_3_5_progress": "B0 ✅, B1 ✅, B2 ✅, B3 ✅ — COMPLETE",
     "phase_4_progress": "S17 Pi-readiness audit ✅, S18 install/discovery abstraction ✅; S19-S20 uplift test DEFERRED 2026-05-24 by human choice (gate cleared as deferred)",
     "phase_5_progress": "S21 spawn-contract ✅; S22 real autonomous spawn ✅ (→ P-004 open); S23 vertical packs ✅ (pack-aware install on backlog); S23.5 brain UX cleanup ✅ (apparatus filtered default, dark-mode contrast, time scrubber, freshness stamp — 3 new open proposals: P-005 agent-view, P-006 feedback-loop, P-007 live-ish); S24 v1.0 pending",
+    "horizon_progress": "N2 ✅ proposal_health.py baseline run (kill-switch clear: 50% accepted-uncommitted, all auto-rejects cite rules); P-006 ✅ harvest_finding/proposal/rule promoted to first-class graph nodes with chain edges (harvest→propose, decision→enacts→rule, proposal→auto_rejected_by→rule); N1, N3, N4 pending; P-004 deferred to N3",
     "runtime_safe_core": ["fallback","gate-check","resume-state","run-log","validate","spawn-contract"]
   },
   "deferred": {

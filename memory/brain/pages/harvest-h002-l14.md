@@ -1,0 +1,22 @@
+---
+slug: "harvest-h002-l14"
+type: "harvest_finding"
+date: "2026-05-21"
+source: "memory/feedback.jsonl"
+---
+
+# H002 — fallback:friction
+
+_week1.run.jsonl L17 vs L25_
+
+**Source skill:** `fallback`
+
+**Class:** friction
+
+**Ref:** week1.run.jsonl L17 vs L25
+
+**Source project:** a_bgt_rsi
+
+**Evidence:** L17's fallback selection was 'human-approved' before being taken; L25's auto-branched from D-008's pre-declaration. fallback treats taking a declared fallback as the agent's call once triggered; it does not address that the fallback selection may itself be gated on human approval.
+
+**Plan candidate:** fallback: note that a fallback selection may itself be a gated action (run gate-check on the switch), distinct from an auto-branch off a pre-declaration.

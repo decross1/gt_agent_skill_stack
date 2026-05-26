@@ -216,6 +216,12 @@
     "title": "D-033 \u2014 Exclude Qwen 3.6 entirely; the apparatus stays single-model on Gemma 4"
   },
   {
+    "slug": "dec-ap-d-034-path-b-selective-sub-agent-migration-reference-p",
+    "type": "decision",
+    "date": "2026-05-26",
+    "title": "D-034 \u2014 Path-B selective sub-agent migration; reference-passing is the next architectural fix"
+  },
+  {
     "slug": "dec-fw-2026-05-18-added-execution-discipline-skills",
     "type": "decision",
     "date": "2026-05-18",
@@ -258,10 +264,280 @@
     "title": "2026-05-24 \u2014 Defer S19-S20 uplift test pending consumer choice"
   },
   {
+    "slug": "dec-fw-2026-05-26-brain-auto-ingest-file-watcher-daemon",
+    "type": "decision",
+    "date": "2026-05-26",
+    "title": "2026-05-26 \u2014 Brain auto-ingest: file watcher daemon over cron"
+  },
+  {
+    "slug": "dec-fw-2026-05-26-brain-ui-decisions-removed-from",
+    "type": "decision",
+    "date": "2026-05-26",
+    "title": "2026-05-26 \u2014 Brain UI: decisions removed from graph by default; dedicated tab"
+  },
+  {
+    "slug": "dec-fw-2026-05-26-brain-ui-stage-projection-model",
+    "type": "decision",
+    "date": "2026-05-26",
+    "title": "2026-05-26 \u2014 Brain UI: stage projection model (collapse dispatch+receipt+call per worker)"
+  },
+  {
     "slug": "experiment-day4-tool-call-rate",
     "type": "experiment",
     "date": "2026-05-20",
     "title": "Experiment \u2014 Day 4 end-to-end tool-call invocation rate"
+  },
+  {
+    "slug": "harvest-h001-l1",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H001 \u2014 run-log:confirmed"
+  },
+  {
+    "slug": "harvest-h001-l2",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H001 \u2014 run-log:confirmed"
+  },
+  {
+    "slug": "harvest-h001-l3",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H001 \u2014 run-log:confirmed"
+  },
+  {
+    "slug": "harvest-h001-l4",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H001 \u2014 run-log:friction"
+  },
+  {
+    "slug": "harvest-h001-l5",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H001 \u2014 gate-check:confirmed"
+  },
+  {
+    "slug": "harvest-h001-l6",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H001 \u2014 gate-check:friction"
+  },
+  {
+    "slug": "harvest-h002-l10",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 validate:confirmed"
+  },
+  {
+    "slug": "harvest-h002-l11",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 validate:friction"
+  },
+  {
+    "slug": "harvest-h002-l12",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 validate:friction"
+  },
+  {
+    "slug": "harvest-h002-l13",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 fallback:confirmed"
+  },
+  {
+    "slug": "harvest-h002-l14",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 fallback:friction"
+  },
+  {
+    "slug": "harvest-h002-l15",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 investigate:confirmed"
+  },
+  {
+    "slug": "harvest-h002-l16",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 investigate:confirmed"
+  },
+  {
+    "slug": "harvest-h002-l17",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 code-review:confirmed"
+  },
+  {
+    "slug": "harvest-h002-l18",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 ship:confirmed"
+  },
+  {
+    "slug": "harvest-h002-l19",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 ship:friction"
+  },
+  {
+    "slug": "harvest-h002-l20",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 ship:friction"
+  },
+  {
+    "slug": "harvest-h002-l21",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 experiment:friction"
+  },
+  {
+    "slug": "harvest-h002-l22",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 repro-check:confirmed"
+  },
+  {
+    "slug": "harvest-h002-l23",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 orchestrate:gap"
+  },
+  {
+    "slug": "harvest-h002-l24",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 orchestrate:confirmed"
+  },
+  {
+    "slug": "harvest-h002-l25",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 decision-log:gap"
+  },
+  {
+    "slug": "harvest-h002-l7",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 resume-state:confirmed"
+  },
+  {
+    "slug": "harvest-h002-l8",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 gate-check:confirmed"
+  },
+  {
+    "slug": "harvest-h002-l9",
+    "type": "harvest_finding",
+    "date": "2026-05-21",
+    "title": "H002 \u2014 gate-check:confirmed"
+  },
+  {
+    "slug": "harvest-h003-l26",
+    "type": "harvest_finding",
+    "date": "2026-05-22",
+    "title": "H003 \u2014 validate:confirmed"
+  },
+  {
+    "slug": "harvest-h003-l27",
+    "type": "harvest_finding",
+    "date": "2026-05-22",
+    "title": "H003 \u2014 validate:confirmed"
+  },
+  {
+    "slug": "harvest-h003-l28",
+    "type": "harvest_finding",
+    "date": "2026-05-22",
+    "title": "H003 \u2014 run-log:friction"
+  },
+  {
+    "slug": "harvest-h003-l29",
+    "type": "harvest_finding",
+    "date": "2026-05-22",
+    "title": "H003 \u2014 repro-check:friction"
+  },
+  {
+    "slug": "harvest-h005-l30",
+    "type": "harvest_finding",
+    "date": "2026-05-24",
+    "title": "H005 \u2014 run-log:friction"
+  },
+  {
+    "slug": "harvest-h005-l31",
+    "type": "harvest_finding",
+    "date": "2026-05-24",
+    "title": "H005 \u2014 run-log:diverged"
+  },
+  {
+    "slug": "harvest-h005-l32",
+    "type": "harvest_finding",
+    "date": "2026-05-24",
+    "title": "H005 \u2014 fallback:gap"
+  },
+  {
+    "slug": "harvest-h005-l33",
+    "type": "harvest_finding",
+    "date": "2026-05-24",
+    "title": "H005 \u2014 orchestrate:friction"
+  },
+  {
+    "slug": "harvest-h005-l34",
+    "type": "harvest_finding",
+    "date": "2026-05-24",
+    "title": "H005 \u2014 gate-check:confirmed"
+  },
+  {
+    "slug": "harvest-h005-l35",
+    "type": "harvest_finding",
+    "date": "2026-05-24",
+    "title": "H005 \u2014 decision-log:confirmed"
+  },
+  {
+    "slug": "harvest-h006-l36",
+    "type": "harvest_finding",
+    "date": "2026-05-24",
+    "title": "H006 \u2014 gate-check:confirmed"
+  },
+  {
+    "slug": "harvest-h006-l37",
+    "type": "harvest_finding",
+    "date": "2026-05-24",
+    "title": "H006 \u2014 resume-state:friction"
+  },
+  {
+    "slug": "harvest-h007-l38",
+    "type": "harvest_finding",
+    "date": "2026-05-25",
+    "title": "H007 \u2014 run-log:friction"
+  },
+  {
+    "slug": "harvest-h007-l39",
+    "type": "harvest_finding",
+    "date": "2026-05-25",
+    "title": "H007 \u2014 validate:confirmed"
+  },
+  {
+    "slug": "harvest-h007-l40",
+    "type": "harvest_finding",
+    "date": "2026-05-25",
+    "title": "H007 \u2014 gate-check:confirmed"
+  },
+  {
+    "slug": "harvest-h007-l41",
+    "type": "harvest_finding",
+    "date": "2026-05-25",
+    "title": "H007 \u2014 decision-log:confirmed"
+  },
+  {
+    "slug": "harvest-h007-l42",
+    "type": "harvest_finding",
+    "date": "2026-05-25",
+    "title": "H007 \u2014 orchestrate:confirmed"
   },
   {
     "slug": "hypothesis-day4-tool-call-rate",
@@ -1470,6 +1746,48 @@
     "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L270"
   },
   {
+    "slug": "proposal-p-001",
+    "type": "proposal",
+    "date": "2026-05-24",
+    "title": "P-001 \u2014 Add reverse `linked_to` edge anomaly\u2192correction for symmetry"
+  },
+  {
+    "slug": "proposal-p-002",
+    "type": "proposal",
+    "date": "2026-05-24",
+    "title": "P-002 \u2014 Trust the 100% tool_call_invocation_rate as evidence of robust tool-using behavior"
+  },
+  {
+    "slug": "proposal-p-003",
+    "type": "proposal",
+    "date": "2026-05-24",
+    "title": "P-003 \u2014 New Layer-B skill: `slip-ladder` for bounded deadline extensions"
+  },
+  {
+    "slug": "proposal-p-004",
+    "type": "proposal",
+    "date": "2026-05-25",
+    "title": "P-004 \u2014 Add `state_basis` field to spawn-contract contract block"
+  },
+  {
+    "slug": "proposal-p-005",
+    "type": "proposal",
+    "date": "2026-05-25",
+    "title": "P-005 \u2014 Agent-centric view: group/color graph by agent_id"
+  },
+  {
+    "slug": "proposal-p-006",
+    "type": "proposal",
+    "date": "2026-05-25",
+    "title": "P-006 \u2014 Feedback-loop visibility: harvest findings as first-class graph nodes"
+  },
+  {
+    "slug": "proposal-p-007",
+    "type": "proposal",
+    "date": "2026-05-25",
+    "title": "P-007 \u2014 Live-ish brain: cron-driven ingest + regen + auto-refresh"
+  },
+  {
     "slug": "s13-3-author-narrate-skill",
     "type": "reflection",
     "date": "2026-05-24",
@@ -1480,6 +1798,18 @@
     "type": "reflection",
     "date": "2026-05-25",
     "title": "s22_5_narrate_sp_002_lifecycle"
+  },
+  {
+    "slug": "rule-fr-001",
+    "type": "rule",
+    "date": "2026-05-24",
+    "title": "FR-001 \u2014 Treat 100% metrics in small-N tests as suspicious-clean"
+  },
+  {
+    "slug": "rule-fr-002",
+    "type": "rule",
+    "date": "2026-05-24",
+    "title": "FR-002 \u2014 Reconcile state-file lag against run-log during gate-armed periods"
   },
   {
     "slug": "stage-iter-2026-05-26-001-journal-writer-stub-1",

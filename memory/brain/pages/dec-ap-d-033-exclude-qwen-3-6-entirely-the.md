@@ -93,3 +93,5 @@ anything under `/mnt/models/`."
 
 **Supersedes.** D-006 (Defer Qwen 3.6 to Week 2-3). D-006 stays in
 the log as history; D-033 is the active position.
+
+---

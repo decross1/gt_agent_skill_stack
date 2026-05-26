@@ -35,6 +35,8 @@ INDEX = REPO / "memory" / "brain" / "view" / "index.json"
 GRAPH_DATA = REPO / "memory" / "brain" / "view" / "graph_data.js"
 FW_DECISIONS = REPO / "memory" / "DECISIONS.md"
 AP_DECISIONS = CONSUMER / "DECISIONS.md"
+FEEDBACK = REPO / "memory" / "feedback.jsonl"
+RULES_MD = REPO / "memory" / "brain" / "rules.md"
 
 # Apparatus files read directly for stage synthesis (read-only — brain firewall).
 # loop_memory.jsonl moved from run_state/ to memory/ at some point; try both.
@@ -456,6 +458,239 @@ def synthesize_stages() -> tuple[list[dict], list[dict]]:
     return entities, edges
 
 
+# ---------------------------------------------------------------------------
+# Loop projection — promote harvest findings, proposals, and active rules to
+# first-class graph nodes. Edges synthesized here close P-006: the
+# harvest_finding → proposal → decision → rule chain is now traversable.
+#
+# Synthetic edges live in graph_data.js only — edges.jsonl stays canonical.
+# ---------------------------------------------------------------------------
+
+RULE_HEADER_RE = re.compile(r"^###\s+(?P<id>FR-\d+|AR-\d+)\s+—\s+(?P<title>[^\n]+)$", re.MULTILINE)
+RULE_SOURCE_RE = re.compile(r"^- \*\*Source decision:\*\*\s+`(?P<date>\d{4}-\d{2}-\d{2})`", re.MULTILINE)
+
+
+def load_rules() -> list[dict]:
+    """Parse rules.md into one record per active rule."""
+    if not RULES_MD.exists():
+        return []
+    text = RULES_MD.read_text()
+    headers = list(RULE_HEADER_RE.finditer(text))
+    out = []
+    for i, m in enumerate(headers):
+        start = m.end()
+        end = headers[i + 1].start() if i + 1 < len(headers) else len(text)
+        body = text[start:end].strip()
+        rule_id = m.group("id")
+        title = m.group("title").strip()
+        date_m = RULE_SOURCE_RE.search(body)
+        date = date_m.group("date") if date_m else ""
+        side = "framework" if rule_id.startswith("FR-") else "apparatus"
+        out.append({
+            "rule_id": rule_id,
+            "title": title,
+            "body": body,
+            "date": date,
+            "side": side,
+        })
+    return out
+
+
+def synthesize_loop_entities(
+    fw_dec: list[dict],
+    ap_dec: list[dict],
+) -> tuple[list[dict], list[dict]]:
+    """Project harvest findings, proposals, and rules; synthesize their edges.
+
+    Returns (entities, edges). Edges are synthetic — not appended to edges.jsonl.
+
+    Edge model:
+      - harvest_finding --becomes--> proposal      (proposal.references cites feedback.jsonl:HXXX)
+      - proposal --produces--> decision            (proposal.decision_id set)
+      - proposal --auto_rejected_by--> rule        (verdict=auto-reject, rule_cited set)
+      - decision --enacts--> rule                  (rule.Source decision date matches a decision's date+correction flag)
+    """
+    entities: list[dict] = []
+    edges: list[dict] = []
+
+    # --- harvest findings -------------------------------------------------
+    feedback_rows = load_jsonl(FEEDBACK)
+    finding_slug_by_hid: dict[str, str] = {}
+    for f in feedback_rows:
+        hid = f.get("harvest_id")
+        if not hid:
+            continue
+        # Each finding can appear multiple times (one per evidence line).
+        # Slug by harvest_id + source line so duplicates don't collide.
+        line = f.get("_source_line", 0)
+        slug = slugify(f"harvest-{hid}-l{line}")
+        # First occurrence per hid wins for the canonical edge target.
+        finding_slug_by_hid.setdefault(hid, slug)
+        ev = (f.get("evidence") or "").strip()
+        plan_candidate = (f.get("plan_candidate") or "").strip()
+        body_parts = [
+            f"**Source skill:** `{f.get('skill','')}`",
+            f"**Class:** {f.get('class','')}",
+            f"**Ref:** {f.get('ref','')}",
+            f"**Source project:** {f.get('source','')}",
+            f"**Evidence:** {ev}",
+        ]
+        if plan_candidate:
+            body_parts.append(f"**Plan candidate:** {plan_candidate}")
+        entities.append({
+            "slug": slug,
+            "type": "harvest_finding",
+            "date": f.get("date", ""),
+            "title": f"{hid} — {f.get('skill','')}:{f.get('class','')}",
+            "subtitle": f.get("ref", ""),
+            "body": "\n\n".join(body_parts),
+            "source": "memory/feedback.jsonl",
+        })
+
+    # --- proposals --------------------------------------------------------
+    proposals = load_jsonl(PROPOSALS)
+    # latest entry per proposal_id is the current view
+    proposal_latest: dict[str, dict] = {}
+    proposal_first: dict[str, dict] = {}
+    for p in sorted(proposals, key=lambda r: r.get("timestamp", "")):
+        pid = p.get("proposal_id")
+        if not pid:
+            continue
+        proposal_first.setdefault(pid, p)
+        proposal_latest[pid] = p
+
+    proposal_slug_by_pid: dict[str, str] = {}
+    for pid, latest in proposal_latest.items():
+        first = proposal_first[pid]
+        slug = slugify(f"proposal-{pid}")
+        proposal_slug_by_pid[pid] = slug
+        verdict = latest.get("verdict") or "open"
+        body_parts = [
+            f"**Verdict:** `{verdict}`",
+            f"**Target:** {first.get('target_type','?')} → `{first.get('target','?')}`",
+            f"**Change:** {first.get('change','')}",
+            f"**Reasoning:** {first.get('reasoning','')}",
+        ]
+        if first.get("references"):
+            body_parts.append(
+                "**References:** " + ", ".join(f"`{r}`" for r in first["references"])
+            )
+        if latest.get("rule_cited"):
+            body_parts.append(f"**Rule cited:** `{latest['rule_cited']}`")
+        if latest.get("verdict_reasoning"):
+            body_parts.append(f"**Verdict reasoning:** {latest['verdict_reasoning']}")
+        if latest.get("decision_id"):
+            body_parts.append(f"**Decision id:** `{latest['decision_id']}`")
+        entities.append({
+            "slug": slug,
+            "type": "proposal",
+            "date": (first.get("timestamp") or "")[:10],
+            "title": f"{pid} — {first.get('title','')}",
+            "subtitle": f"agent: {first.get('agent_id','')}",
+            "body": "\n\n".join(body_parts),
+            "source": "memory/brain/proposals.jsonl",
+        })
+
+        # harvest_finding -becomes-> proposal
+        for ref in first.get("references") or []:
+            if not isinstance(ref, str):
+                continue
+            if ref.startswith("feedback.jsonl:"):
+                hid = ref.split(":", 1)[1]
+                src_slug = finding_slug_by_hid.get(hid)
+                if src_slug:
+                    edges.append({
+                        "timestamp": first.get("timestamp", ""),
+                        "src": src_slug,
+                        "src_type": "harvest_finding",
+                        "type": "becomes",
+                        "dst": slug,
+                        "dst_type": "proposal",
+                        "source_event": f"loop_chain:{pid}",
+                        "agent_id": "project_pages:synthesize_loop_entities",
+                    })
+
+        # proposal -produces-> decision
+        dec_id = latest.get("decision_id")
+        if dec_id:
+            # decision_id may be a date "2026-05-24" or a "D-NNN" form; both
+            # were used as the head in DECISION_HEADER_RE. Find the matching
+            # decision slug by scanning fw_dec + ap_dec for that head.
+            for d in fw_dec + ap_dec:
+                if d.get("head") == dec_id:
+                    edges.append({
+                        "timestamp": latest.get("timestamp", ""),
+                        "src": slug,
+                        "src_type": "proposal",
+                        "type": "produces",
+                        "dst": d["slug"],
+                        "dst_type": d["type"],  # decision or correction
+                        "source_event": f"loop_chain:{pid}",
+                        "agent_id": "project_pages:synthesize_loop_entities",
+                    })
+
+    # --- rules ------------------------------------------------------------
+    rules = load_rules()
+    rule_slug_by_id: dict[str, str] = {}
+    for r in rules:
+        slug = slugify(f"rule-{r['rule_id']}")
+        rule_slug_by_id[r["rule_id"]] = slug
+        entities.append({
+            "slug": slug,
+            "type": "rule",
+            "date": r["date"],
+            "title": f"{r['rule_id']} — {r['title']}",
+            "subtitle": f"{r['side']} active rule",
+            "body": r["body"],
+            "source": "memory/brain/rules.md (derived from DECISIONS.md)",
+        })
+
+        # decision -enacts-> rule. Match by date AND title — multiple
+        # correction-flagged decisions can share a date, so date alone fans
+        # out into a cartesian product. The rule's title comes verbatim from
+        # the source decision's header in DECISIONS.md.
+        if r["date"]:
+            pool = fw_dec if r["side"] == "framework" else ap_dec
+            r_title_norm = r["title"].strip().lower()
+            for d in pool:
+                if (d.get("date") == r["date"]
+                        and d.get("type") == "correction"
+                        and d.get("title", "").strip().lower() == r_title_norm):
+                    edges.append({
+                        "timestamp": r["date"] + "T00:00:00Z",
+                        "src": d["slug"],
+                        "src_type": "correction",
+                        "type": "enacts",
+                        "dst": slug,
+                        "dst_type": "rule",
+                        "source_event": f"loop_chain:rule:{r['rule_id']}",
+                        "agent_id": "project_pages:synthesize_loop_entities",
+                    })
+
+    # --- proposal -auto_rejected_by-> rule -------------------------------
+    for pid, latest in proposal_latest.items():
+        if latest.get("verdict") != "auto-reject":
+            continue
+        cited = latest.get("rule_cited")
+        if not cited:
+            continue
+        rule_slug = rule_slug_by_id.get(cited)
+        if not rule_slug:
+            continue
+        edges.append({
+            "timestamp": latest.get("timestamp", ""),
+            "src": proposal_slug_by_pid[pid],
+            "src_type": "proposal",
+            "type": "auto_rejected_by",
+            "dst": rule_slug,
+            "dst_type": "rule",
+            "source_event": f"loop_chain:{pid}",
+            "agent_id": "project_pages:synthesize_loop_entities",
+        })
+
+    return entities, edges
+
+
 def entity_from_decision(d: dict) -> dict:
     return {
         "slug": d["slug"],
@@ -517,6 +752,12 @@ def main() -> int:
     for e in stage_entities:
         entities[e["slug"]] = e
 
+    # Synthesize loop entities — harvest_finding, proposal, rule — and the
+    # edges that make harvest→propose→decide→rule traversable in the graph.
+    loop_entities, loop_edges = synthesize_loop_entities(fw_dec, ap_dec)
+    for e in loop_entities:
+        entities[e["slug"]] = e
+
     # Suppress redundant iter -> {event, call} edges where a stage already
     # covers the destination. Otherwise the graph draws TWO arrows into each
     # mechanical node — one from the iteration root and one from the stage —
@@ -538,7 +779,7 @@ def main() -> int:
             suppressed += 1
             continue
         filtered_canonical.append(e)
-    edges = filtered_canonical + stage_edges
+    edges = filtered_canonical + stage_edges + loop_edges
 
     # Group edges by src and dst.
     out_edges: dict[str, list[dict]] = defaultdict(list)
@@ -559,7 +800,7 @@ def main() -> int:
 
     if args.dry_run:
         print(f"DRY RUN — would render {len(entities)} pages "
-              f"({apparatus_count} apparatus_event seen, cap={args.apparatus_pages_cap})")
+              f"({len(apparatus_narrs)} apparatus_event seen, cap={args.apparatus_pages_cap})")
         print(f"  edges: {len(edges)}  dangling: {len(dangling)}")
         return 0
 

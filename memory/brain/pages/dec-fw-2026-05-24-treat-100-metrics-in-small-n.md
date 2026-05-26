@@ -5,6 +5,7 @@ date: "2026-05-24"
 source: "memory/DECISIONS.md"
 edges:
   - {type: references, dst: "anomaly-tool-call-100pct", dst_type: "anomaly"}
+  - {type: enacts, dst: "rule-fr-001", dst_type: "rule"}
 ---
 
 # 2026-05-24 — Treat 100% metrics in small-N tests as suspicious-clean
@@ -31,6 +32,7 @@ implication.
 ## Links
 
 - **references** → `anomaly-tool-call-100pct` (anomaly)
+- **enacts** → `rule-fr-001` (rule)
 
 ## Referenced by
 
