@@ -96,6 +96,7 @@
       <option value="7">window: last 7d</option>
       <option value="30">window: last 30d</option>
     </select>
+    <label title="Hide nodes that have zero edges in the current view — strips drifting unconnected dots so clusters read clearly. Default on in self-improvement mode."><input type="checkbox" id="toggle-hide-isolated"> hide isolated</label>
   </div>
   <div class="row filters" id="filters"></div>
 </header>
@@ -384,6 +385,28 @@ modeSelect.addEventListener("change", e => {
   location.reload();
 });
 
+// Hide-isolated toggle — strips nodes that have zero edges under the current
+// filters. Default ON in self_improvement (lots of unconnected run_log_entry
+// nodes); OFF in execution/all (where positional context matters more). The
+// user can flip per-mode; we persist per-mode so each mode has its own
+// memory of the preference.
+const STORED_HIDE_ISOLATED_KEY = `brain.hideIsolated.${VIEW_MODE}`;
+const STORED_HIDE_ISOLATED = (() => {
+  try { return localStorage.getItem(STORED_HIDE_ISOLATED_KEY); } catch (_) { return null; }
+})();
+let hideIsolated;
+if (STORED_HIDE_ISOLATED === "true") hideIsolated = true;
+else if (STORED_HIDE_ISOLATED === "false") hideIsolated = false;
+else hideIsolated = (VIEW_MODE === "self_improvement");  // default
+const hideIsolatedBox = document.getElementById("toggle-hide-isolated");
+if (hideIsolatedBox) {
+  hideIsolatedBox.checked = hideIsolated;
+  hideIsolatedBox.addEventListener("change", e => {
+    hideIsolated = e.target.checked;
+    try { localStorage.setItem(STORED_HIDE_ISOLATED_KEY, String(hideIsolated)); } catch (_) {}
+  });
+}
+
 function inDateWindow(n) {
   if (dateWindowDays === null) return true;
   const d = (n.date || "").slice(0, 10);
@@ -410,6 +433,28 @@ function computeFocusReachable(rootSlug) {
       if (e.src === cur && !reachable.has(e.dst)) {
         reachable.add(e.dst);
         queue.push(e.dst);
+      }
+    }
+  }
+  return reachable;
+}
+// Cluster focus — bidirectional BFS from a node. Returns every node in the
+// connected component (following edges in either direction). Used by the
+// "Focus this cluster" button on the node-detail panel — answers "what is
+// this node related to?" by hiding everything not in its component.
+function computeClusterReachable(rootSlug) {
+  const reachable = new Set([rootSlug]);
+  const queue = [rootSlug];
+  while (queue.length) {
+    const cur = queue.shift();
+    for (const e of edges) {
+      if (e.src === cur && !reachable.has(e.dst)) {
+        reachable.add(e.dst);
+        queue.push(e.dst);
+      }
+      if (e.dst === cur && !reachable.has(e.src)) {
+        reachable.add(e.src);
+        queue.push(e.src);
       }
     }
   }
@@ -509,17 +554,46 @@ function step() {
   }
 }
 
+// Predicates split out so the draw loop and the pick loop agree on
+// visibility, and the hide-isolated pass can reuse the same gating.
+function nodePassesGating(N) {
+  if (!enabledTypes.has(N.type)) return false;
+  if (!inDateWindow(N)) return false;
+  if (!inFocus(N)) return false;
+  return true;
+}
+function edgePassesGating(e) {
+  return nodePassesGating(e._s) && nodePassesGating(e._d);
+}
+// Recomputed per render frame so the toggle takes effect immediately.
+// Contains every node touched by at least one visible edge — anything not in
+// this set is isolated under the current filters.
+let connectedNodes = new Set();
+function recomputeConnected() {
+  connectedNodes = new Set();
+  for (const e of edges) {
+    if (!edgePassesGating(e)) continue;
+    connectedNodes.add(e._s.slug);
+    connectedNodes.add(e._d.slug);
+  }
+}
+function isVisible(N) {
+  if (!nodePassesGating(N)) return false;
+  if (hideIsolated && !connectedNodes.has(N.slug)) return false;
+  return true;
+}
+
 function draw() {
   const cw = canvas.clientWidth, ch = canvas.clientHeight;
   ctx.clearRect(0, 0, cw, ch);
+
+  recomputeConnected();
 
   // edges first
   ctx.lineWidth = 1.2;
   ctx.strokeStyle = "rgba(120,120,120,0.45)";
   for (const e of edges) {
-    if (!enabledTypes.has(e._s.type) || !enabledTypes.has(e._d.type)) continue;
-    if (!inDateWindow(e._s) || !inDateWindow(e._d)) continue;
-    if (!inFocus(e._s) || !inFocus(e._d)) continue;
+    if (!edgePassesGating(e)) continue;
     ctx.beginPath();
     ctx.moveTo(e._s.x, e._s.y);
     ctx.lineTo(e._d.x, e._d.y);
@@ -542,9 +616,7 @@ function draw() {
   ctx.font = "11px system-ui";
   ctx.textBaseline = "middle";
   for (const N of nodesById.values()) {
-    if (!enabledTypes.has(N.type)) continue;
-    if (!inDateWindow(N)) continue;
-    if (!inFocus(N)) continue;
+    if (!isVisible(N)) continue;
     const r = N === selected ? 9 : 6;
     ctx.fillStyle = colorFor(N);
     ctx.beginPath();
@@ -569,9 +641,7 @@ let dragStart = null;
 function pick(mx, my) {
   let best = null, bestD2 = 144; // 12px radius
   for (const N of nodesById.values()) {
-    if (!enabledTypes.has(N.type)) continue;
-    if (!inDateWindow(N)) continue;
-    if (!inFocus(N)) continue;
+    if (!isVisible(N)) continue;
     const dx = N.x - mx, dy = N.y - my;
     const d2 = dx*dx + dy*dy;
     if (d2 < bestD2) { bestD2 = d2; best = N; }
@@ -812,6 +882,15 @@ function updatePanel() {
     if (selected.date) parts.push(`<div class="kv"><b>Date:</b> ${selected.date}</div>`);
     if (selected.title && selected.title !== selected.slug) parts.push(`<div class="kv"><b>Title:</b> ${selected.title}</div>`);
     parts.push(`<div class="kv"><b>Page:</b> <a href="../pages/${selected.slug}.md">${selected.slug}.md</a></div>`);
+    // Cluster focus / clear focus. Two paths: if there's no active focus,
+    // offer "focus this cluster" (bidirectional BFS from this node). If
+    // there IS an active focus, offer to clear it. Mutually exclusive so the
+    // button always reads cleanly.
+    if (focusVisibleSlugs) {
+      parts.push(`<button class="toggle-page" id="clear-focus-btn" style="background:#fee2e2;border-radius:3px;padding:2px 8px;border:1px solid #fca5a5;color:#991b1b;">× clear focus (${focusVisibleSlugs.size} nodes)</button>`);
+    } else {
+      parts.push(`<button class="toggle-page" id="focus-cluster-btn" style="background:#dbeafe;border-radius:3px;padding:2px 8px;border:1px solid #93c5fd;color:#1e3a8a;">⌖ focus this cluster</button>`);
+    }
     parts.push(`<button class="toggle-page" id="toggle-page-btn">${pageExpanded ? "hide page" : "show page"}</button>`);
     if (pageExpanded && PAGES[selected.slug]) {
       parts.push(`<div class="page-content">${renderMarkdown(PAGES[selected.slug])}</div>`);
@@ -827,6 +906,21 @@ function updatePanel() {
     body.innerHTML = parts.join("");
     const tp = document.getElementById("toggle-page-btn");
     if (tp) tp.addEventListener("click", () => { pageExpanded = !pageExpanded; updatePanel(); });
+    const fc = document.getElementById("focus-cluster-btn");
+    if (fc) fc.addEventListener("click", () => {
+      focusVisibleSlugs = computeClusterReachable(selected.slug);
+      // Match dropdown to "all iterations" since the focus is now node-driven
+      // rather than iteration-driven; the dropdown's iteration option no
+      // longer reflects what's on screen.
+      if (focusSelect) focusSelect.value = "";
+      updatePanel();
+    });
+    const clf = document.getElementById("clear-focus-btn");
+    if (clf) clf.addEventListener("click", () => {
+      focusVisibleSlugs = null;
+      if (focusSelect) focusSelect.value = "";
+      updatePanel();
+    });
   }
   body.querySelectorAll("a[data-slug]").forEach(a => a.addEventListener("click", ev => {
     ev.preventDefault();
