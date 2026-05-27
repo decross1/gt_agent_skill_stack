@@ -54,12 +54,41 @@
   .v-apparatus     { background: #fef3c7; color: #92400e; }
   header .tab-btn { font-size: 12px; padding: 4px 10px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; }
   header .tab-btn.active { background: #2563eb; color: white; border-color: #2563eb; }
+  header .toggle-label { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; padding: 4px 9px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; user-select: none; }
+  header .toggle-label input { margin: 0; }
+  header .toggle-label.checked { background: #ecfdf5; border-color: #10b981; color: #065f46; }
   .legend { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+  /* Panel-side action buttons (focus, clear, show-page). One styling base, modifier classes for color tone. */
+  aside .action-btn { display: inline-block; margin: 6px 4px 6px 0; font-size: 11px; padding: 3px 9px; border-radius: 3px; cursor: pointer; user-select: none; background: #fff; border: 1px solid #ccc; color: #333; font-weight: 500; }
+  aside .action-btn:hover { background: #f3f4f6; }
+  aside .action-btn.primary { background: #eff6ff; border-color: #93c5fd; color: #1e3a8a; }
+  aside .action-btn.primary:hover { background: #dbeafe; }
+  aside .action-btn.warn    { background: #fef2f2; border-color: #fca5a5; color: #991b1b; }
+  aside .action-btn.warn:hover { background: #fee2e2; }
+  /* Cluster summary card — appears when focus is active. */
+  aside .cluster-card { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px; padding: 8px 10px; margin: 4px 0 10px 0; font-size: 11px; }
+  aside .cluster-card h3 { margin: 0 0 4px 0; font-size: 12px; font-weight: 600; color: #0c4a6e; }
+  aside .cluster-card .pill { display: inline-block; padding: 1px 6px; border-radius: 8px; background: #fff; border: 1px solid #bae6fd; font-size: 10px; margin: 2px 3px 2px 0; }
+  aside .cluster-card .highlight { padding: 3px 0; border-top: 1px dashed #bae6fd; }
+  aside .cluster-card .highlight:first-of-type { border-top: 0; }
+  aside .cluster-card .highlight .label { color: #0c4a6e; font-weight: 600; }
   @media (prefers-color-scheme: dark) {
     aside .page-content code, aside .page-content pre { background: #2a2a2a; }
     aside .page-content blockquote { color: #999; }
     aside .proposal-item { background: #222; border-color: #444; }
     header .tab-btn { background: #2a2a2a; color: #ddd; border-color: #444; }
+    header .toggle-label { background: #2a2a2a; color: #ddd; border-color: #444; }
+    header .toggle-label.checked { background: #064e3b; border-color: #10b981; color: #6ee7b7; }
+    aside .action-btn { background: #2a2a2a; color: #ddd; border-color: #444; }
+    aside .action-btn:hover { background: #333; }
+    aside .action-btn.primary { background: #1e3a5f; border-color: #3b82f6; color: #93c5fd; }
+    aside .action-btn.primary:hover { background: #1e3a5f; }
+    aside .action-btn.warn    { background: #4a1a1a; border-color: #ef4444; color: #fca5a5; }
+    aside .action-btn.warn:hover { background: #4a1a1a; }
+    aside .cluster-card { background: #0c2a3d; border-color: #0c4a6e; color: #cbd5e1; }
+    aside .cluster-card h3 { color: #93c5fd; }
+    aside .cluster-card .pill { background: #1e293b; border-color: #334155; color: #cbd5e1; }
+    aside .cluster-card .highlight .label { color: #93c5fd; }
   }
   @media (prefers-color-scheme: dark) {
     body { background: #1a1a1a; color: #ddd; }
@@ -96,7 +125,7 @@
       <option value="7">window: last 7d</option>
       <option value="30">window: last 30d</option>
     </select>
-    <label title="Hide nodes that have zero edges in the current view — strips drifting unconnected dots so clusters read clearly. Default on in self-improvement mode."><input type="checkbox" id="toggle-hide-isolated"> hide isolated</label>
+    <label class="toggle-label" id="toggle-hide-isolated-label" title="Hide nodes that have zero edges in the current view — strips drifting unconnected dots so clusters read clearly. Default on in self-improvement mode."><input type="checkbox" id="toggle-hide-isolated"> hide isolated</label>
   </div>
   <div class="row filters" id="filters"></div>
 </header>
@@ -399,11 +428,17 @@ if (STORED_HIDE_ISOLATED === "true") hideIsolated = true;
 else if (STORED_HIDE_ISOLATED === "false") hideIsolated = false;
 else hideIsolated = (VIEW_MODE === "self_improvement");  // default
 const hideIsolatedBox = document.getElementById("toggle-hide-isolated");
+const hideIsolatedLabel = document.getElementById("toggle-hide-isolated-label");
+function reflectHideIsolated() {
+  if (hideIsolatedLabel) hideIsolatedLabel.classList.toggle("checked", hideIsolated);
+}
 if (hideIsolatedBox) {
   hideIsolatedBox.checked = hideIsolated;
+  reflectHideIsolated();
   hideIsolatedBox.addEventListener("change", e => {
     hideIsolated = e.target.checked;
     try { localStorage.setItem(STORED_HIDE_ISOLATED_KEY, String(hideIsolated)); } catch (_) {}
+    reflectHideIsolated();
   });
 }
 
@@ -745,6 +780,74 @@ function tabButtons() {
   document.getElementById("tab-proposals").classList.toggle("active", panelMode === "proposals" || panelMode === "proposal");
   document.getElementById("tab-decisions").classList.toggle("active", panelMode === "decisions" || panelMode === "decision");
 }
+
+// Cluster summary card — describes the set of nodes currently in focus.
+// Auto-generated from cluster contents: type counts, date span, edge-type
+// counts, and short named highlights of structurally important nodes
+// (rules, corrections, proposals, findings, spawns, agents, skills).
+// Returns "" when no focus is active.
+function renderClusterCard() {
+  if (!focusVisibleSlugs || focusVisibleSlugs.size === 0) return "";
+  const slugs = focusVisibleSlugs;
+  const nodes = [];
+  slugs.forEach(s => { const n = nodesById.get(s); if (n) nodes.push(n); });
+  const inEdges = edges.filter(e => slugs.has(e._s.slug) && slugs.has(e._d.slug));
+  // type counts
+  const typeCounts = {};
+  for (const N of nodes) typeCounts[N.type] = (typeCounts[N.type] || 0) + 1;
+  // edge counts
+  const edgeCounts = {};
+  for (const E of inEdges) edgeCounts[E.type] = (edgeCounts[E.type] || 0) + 1;
+  // date span
+  const dates = nodes.map(n => (n.date || "").slice(0, 10)).filter(Boolean).sort();
+  const span = dates.length ? (dates[0] === dates[dates.length-1] ? dates[0] : `${dates[0]} → ${dates[dates.length-1]}`) : "—";
+
+  // Highlight selection — priority order, capped count per type so a big
+  // cluster doesn't flood the card. The intent is "what is this cluster
+  // *about*", not a node listing.
+  const PRIORITY = ["rule","correction","proposal","spawn","harvest_finding","agent","skill","reflection","anomaly","hypothesis","experiment","iteration","run_log_entry"];
+  const PER_TYPE_CAP = { rule: 3, correction: 3, proposal: 5, spawn: 3, harvest_finding: 4, agent: 4, skill: 5, reflection: 3, anomaly: 3, hypothesis: 3, experiment: 3, iteration: 3, run_log_entry: 3 };
+  const highlights = [];
+  for (const t of PRIORITY) {
+    const ofType = nodes.filter(n => n.type === t);
+    if (!ofType.length) continue;
+    const cap = PER_TYPE_CAP[t] || 3;
+    for (const N of ofType.slice(0, cap)) {
+      const title = (N.title || N.slug).replace(/^Agent\s+—\s+/, "").slice(0, 70);
+      highlights.push({ type: t, slug: N.slug, label: title });
+    }
+    if (ofType.length > cap) highlights.push({ type: t, slug: null, label: `…and ${ofType.length - cap} more ${t}` });
+  }
+
+  let html = `<div class="cluster-card"><h3>Cluster — ${nodes.length} node${nodes.length===1?"":"s"}, ${inEdges.length} edge${inEdges.length===1?"":"s"}</h3>`;
+  html += `<div class="kv"><b>Spans:</b> ${span}</div>`;
+  // type pills
+  html += `<div style="margin:4px 0;">`;
+  const typeOrder = Object.keys(typeCounts).sort((a,b) => typeCounts[b] - typeCounts[a]);
+  for (const t of typeOrder) {
+    html += `<span class="pill"><span class="legend" style="background:${colorFor(t)}"></span>${typeCounts[t]} ${t}</span>`;
+  }
+  html += `</div>`;
+  // edge type counts as inline text
+  if (Object.keys(edgeCounts).length) {
+    const edgeStr = Object.entries(edgeCounts).sort((a,b) => b[1]-a[1]).map(([t,c]) => `<i>${t}</i> ${c}`).join(" · ");
+    html += `<div style="margin:4px 0;color:#0c4a6e;"><b>Connections:</b> ${edgeStr}</div>`;
+  }
+  // highlights
+  if (highlights.length) {
+    html += `<div style="margin-top:6px;">`;
+    for (const h of highlights) {
+      if (h.slug) {
+        html += `<div class="highlight"><span class="label">${h.type}:</span> <a href="#" data-slug="${h.slug}">${h.label}</a></div>`;
+      } else {
+        html += `<div class="highlight" style="color:#64748b;font-style:italic;">${h.label}</div>`;
+      }
+    }
+    html += `</div>`;
+  }
+  html += `</div>`;
+  return html;
+}
 document.getElementById("tab-graph").addEventListener("click", () => {
   panelMode = "node"; selectedProposal = null; selectedDecisionSlug = null; updatePanel();
 });
@@ -850,11 +953,23 @@ function updatePanel() {
   else if (panelMode === "proposal") { body.innerHTML = renderProposalDetail(selectedProposal); }
   else if (panelMode === "decisions") { body.innerHTML = renderDecisionsList(); }
   else if (panelMode === "decision") { body.innerHTML = renderDecisionDetail(selectedDecisionSlug); }
-  else if (!selected) { body.innerHTML = `<h2>Select a node</h2><div class="empty">Click any node to inspect.</div>`; }
+  else if (!selected) {
+    // No node selected — but if focus is active, the cluster card is
+    // still worth showing so the user has context for what they're
+    // looking at on the canvas.
+    const clusterCard = renderClusterCard();
+    const clearBtn = focusVisibleSlugs
+      ? `<button class="action-btn warn" id="clear-focus-btn">× clear focus</button>`
+      : "";
+    body.innerHTML = clusterCard + `<h2>Select a node</h2><div class="empty">Click any node to inspect.</div>` + clearBtn;
+  }
   else {
     const outs = edges.filter(e => e._s === selected);
     const ins  = edges.filter(e => e._d === selected);
     const parts = [];
+    // Cluster summary at the top when a focus is active — describes the
+    // visible subgraph independent of which node is currently selected.
+    parts.push(renderClusterCard());
     parts.push(`<h2><span class="legend" style="background:${colorFor(selected)}"></span>${selected.slug}</h2>`);
     // One-line summary for stage nodes — answers "what did this step do?"
     // without making the user toggle the page body. Parses the page content
@@ -882,16 +997,18 @@ function updatePanel() {
     if (selected.date) parts.push(`<div class="kv"><b>Date:</b> ${selected.date}</div>`);
     if (selected.title && selected.title !== selected.slug) parts.push(`<div class="kv"><b>Title:</b> ${selected.title}</div>`);
     parts.push(`<div class="kv"><b>Page:</b> <a href="../pages/${selected.slug}.md">${selected.slug}.md</a></div>`);
-    // Cluster focus / clear focus. Two paths: if there's no active focus,
-    // offer "focus this cluster" (bidirectional BFS from this node). If
-    // there IS an active focus, offer to clear it. Mutually exclusive so the
-    // button always reads cleanly.
+    // Action row — cluster focus / clear focus + show/hide page. Cluster
+    // focus is bidirectional BFS from the selected node; clear-focus is
+    // shown when a focus (from any source — this button or the focus
+    // dropdown) is active.
+    parts.push(`<div style="margin:8px 0 4px 0;">`);
     if (focusVisibleSlugs) {
-      parts.push(`<button class="toggle-page" id="clear-focus-btn" style="background:#fee2e2;border-radius:3px;padding:2px 8px;border:1px solid #fca5a5;color:#991b1b;">× clear focus (${focusVisibleSlugs.size} nodes)</button>`);
+      parts.push(`<button class="action-btn warn" id="clear-focus-btn">× clear focus (${focusVisibleSlugs.size} nodes)</button>`);
     } else {
-      parts.push(`<button class="toggle-page" id="focus-cluster-btn" style="background:#dbeafe;border-radius:3px;padding:2px 8px;border:1px solid #93c5fd;color:#1e3a8a;">⌖ focus this cluster</button>`);
+      parts.push(`<button class="action-btn primary" id="focus-cluster-btn">⌖ focus this cluster</button>`);
     }
-    parts.push(`<button class="toggle-page" id="toggle-page-btn">${pageExpanded ? "hide page" : "show page"}</button>`);
+    parts.push(`<button class="action-btn" id="toggle-page-btn">${pageExpanded ? "hide page" : "show page"}</button>`);
+    parts.push(`</div>`);
     if (pageExpanded && PAGES[selected.slug]) {
       parts.push(`<div class="page-content">${renderMarkdown(PAGES[selected.slug])}</div>`);
     }
@@ -906,22 +1023,26 @@ function updatePanel() {
     body.innerHTML = parts.join("");
     const tp = document.getElementById("toggle-page-btn");
     if (tp) tp.addEventListener("click", () => { pageExpanded = !pageExpanded; updatePanel(); });
-    const fc = document.getElementById("focus-cluster-btn");
-    if (fc) fc.addEventListener("click", () => {
-      focusVisibleSlugs = computeClusterReachable(selected.slug);
-      // Match dropdown to "all iterations" since the focus is now node-driven
-      // rather than iteration-driven; the dropdown's iteration option no
-      // longer reflects what's on screen.
-      if (focusSelect) focusSelect.value = "";
-      updatePanel();
-    });
-    const clf = document.getElementById("clear-focus-btn");
-    if (clf) clf.addEventListener("click", () => {
-      focusVisibleSlugs = null;
-      if (focusSelect) focusSelect.value = "";
-      updatePanel();
-    });
   }
+  // Focus / clear-focus listeners — wired here (outside the selected
+  // branch) because the no-selection branch can also render the clear
+  // button.
+  const fc = document.getElementById("focus-cluster-btn");
+  if (fc) fc.addEventListener("click", () => {
+    if (!selected) return;
+    focusVisibleSlugs = computeClusterReachable(selected.slug);
+    // Match dropdown to "all iterations" since the focus is now
+    // node-driven rather than iteration-driven; the dropdown's
+    // iteration option no longer reflects what's on screen.
+    if (focusSelect) focusSelect.value = "";
+    updatePanel();
+  });
+  const clf = document.getElementById("clear-focus-btn");
+  if (clf) clf.addEventListener("click", () => {
+    focusVisibleSlugs = null;
+    if (focusSelect) focusSelect.value = "";
+    updatePanel();
+  });
   body.querySelectorAll("a[data-slug]").forEach(a => a.addEventListener("click", ev => {
     ev.preventDefault();
     const n = nodesById.get(a.dataset.slug);
