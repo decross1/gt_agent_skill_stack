@@ -1,5 +1,29 @@
 [
   {
+    "slug": "agent-claude-code-main",
+    "type": "agent",
+    "date": "2026-05-20",
+    "title": "Agent \u2014 claude-code-main"
+  },
+  {
+    "slug": "agent-day9-critic",
+    "type": "agent",
+    "date": "2026-05-25",
+    "title": "Agent \u2014 day9_critic"
+  },
+  {
+    "slug": "agent-human-decross1",
+    "type": "agent",
+    "date": "2026-05-24",
+    "title": "Agent \u2014 human:decross1"
+  },
+  {
+    "slug": "agent-nara",
+    "type": "agent",
+    "date": "2026-05-23",
+    "title": "Agent \u2014 nara"
+  },
+  {
     "slug": "anomaly-tool-call-100pct",
     "type": "anomaly",
     "date": "2026-05-20",
@@ -16,6 +40,12 @@
     "type": "correction",
     "date": "2026-05-24",
     "title": "2026-05-24 \u2014 Treat 100% metrics in small-N tests as suspicious-clean"
+  },
+  {
+    "slug": "dec-fw-2026-05-27-run-log-schema-agent-required-and",
+    "type": "correction",
+    "date": "2026-05-27",
+    "title": "2026-05-27 \u2014 run-log schema: agent (required) and skill_used (optional)"
   },
   {
     "slug": "dec-ap-d-001-hardware-dgx-spark-single-unit",
@@ -220,6 +250,12 @@
     "type": "decision",
     "date": "2026-05-26",
     "title": "D-034 \u2014 Path-B selective sub-agent migration; reference-passing is the next architectural fix"
+  },
+  {
+    "slug": "dec-ap-d-035-multi-backend-wrapper-substrate-qwen3-6-27b",
+    "type": "decision",
+    "date": "2026-05-26",
+    "title": "D-035 \u2014 Multi-backend wrapper substrate; Qwen3.6-27B + Anthropic API onboarded; supersedes D-033"
   },
   {
     "slug": "dec-fw-2026-05-18-added-execution-discipline-skills",
@@ -1810,6 +1846,156 @@
     "type": "rule",
     "date": "2026-05-24",
     "title": "FR-002 \u2014 Reconcile state-file lag against run-log during gate-armed periods"
+  },
+  {
+    "slug": "rule-fr-003",
+    "type": "rule",
+    "date": "2026-05-27",
+    "title": "FR-003 \u2014 run-log schema: agent (required) and skill_used (optional)"
+  },
+  {
+    "slug": "skill-auto-experiment",
+    "type": "skill",
+    "date": "",
+    "title": "auto-experiment \u2014 Layer B / research"
+  },
+  {
+    "slug": "skill-brain-recall",
+    "type": "skill",
+    "date": "",
+    "title": "brain-recall \u2014 Layer B / brain"
+  },
+  {
+    "slug": "skill-code-review",
+    "type": "skill",
+    "date": "",
+    "title": "code-review \u2014 Layer B / research"
+  },
+  {
+    "slug": "skill-context-restore",
+    "type": "skill",
+    "date": "",
+    "title": "context-restore \u2014 Layer C / meta"
+  },
+  {
+    "slug": "skill-context-save",
+    "type": "skill",
+    "date": "",
+    "title": "context-save \u2014 Layer C / meta"
+  },
+  {
+    "slug": "skill-decision-log",
+    "type": "skill",
+    "date": "",
+    "title": "decision-log \u2014 Layer C / meta"
+  },
+  {
+    "slug": "skill-experiment",
+    "type": "skill",
+    "date": "",
+    "title": "experiment \u2014 Layer B / research"
+  },
+  {
+    "slug": "skill-fallback",
+    "type": "skill",
+    "date": "",
+    "title": "fallback \u2014 Layer A / core"
+  },
+  {
+    "slug": "skill-gate-check",
+    "type": "skill",
+    "date": "",
+    "title": "gate-check \u2014 Layer A / core"
+  },
+  {
+    "slug": "skill-harvest",
+    "type": "skill",
+    "date": "",
+    "title": "harvest \u2014 Layer C / meta"
+  },
+  {
+    "slug": "skill-health",
+    "type": "skill",
+    "date": "",
+    "title": "health \u2014 Layer B / research"
+  },
+  {
+    "slug": "skill-investigate",
+    "type": "skill",
+    "date": "",
+    "title": "investigate \u2014 Layer B / research"
+  },
+  {
+    "slug": "skill-narrate",
+    "type": "skill",
+    "date": "",
+    "title": "narrate \u2014 Layer B / brain"
+  },
+  {
+    "slug": "skill-orchestrate",
+    "type": "skill",
+    "date": "",
+    "title": "orchestrate \u2014 Layer C / meta"
+  },
+  {
+    "slug": "skill-plan-research",
+    "type": "skill",
+    "date": "",
+    "title": "plan-research \u2014 Layer B / research"
+  },
+  {
+    "slug": "skill-propose",
+    "type": "skill",
+    "date": "",
+    "title": "propose \u2014 Layer B / brain"
+  },
+  {
+    "slug": "skill-repro-check",
+    "type": "skill",
+    "date": "",
+    "title": "repro-check \u2014 Layer B / research"
+  },
+  {
+    "slug": "skill-resume-state",
+    "type": "skill",
+    "date": "",
+    "title": "resume-state \u2014 Layer A / core"
+  },
+  {
+    "slug": "skill-review-proposal",
+    "type": "skill",
+    "date": "",
+    "title": "review-proposal \u2014 Layer B / brain"
+  },
+  {
+    "slug": "skill-run-log",
+    "type": "skill",
+    "date": "",
+    "title": "run-log \u2014 Layer A / core"
+  },
+  {
+    "slug": "skill-ship",
+    "type": "skill",
+    "date": "",
+    "title": "ship \u2014 Layer B / research"
+  },
+  {
+    "slug": "skill-slip-ladder",
+    "type": "skill",
+    "date": "",
+    "title": "slip-ladder \u2014 Layer B / core"
+  },
+  {
+    "slug": "skill-spawn-contract",
+    "type": "skill",
+    "date": "",
+    "title": "spawn-contract \u2014 Layer A / core"
+  },
+  {
+    "slug": "skill-validate",
+    "type": "skill",
+    "date": "",
+    "title": "validate \u2014 Layer A / core"
   },
   {
     "slug": "stage-iter-2026-05-26-001-journal-writer-stub-1",

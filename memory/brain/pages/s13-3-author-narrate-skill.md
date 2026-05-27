@@ -14,3 +14,7 @@ source: "memory/brain/narratives.jsonl"
 **Observed:** Skill appeared in the Skill tool's discovery list within the same session — the harness picked up the new SKILL.md automatically.
 
 **Would do differently:** none — would do the same. The pairing-with-run-log framing was the right anchor; the entry shape borrows directly from run-log's shape, keeping the schema family coherent.
+
+## Referenced by
+
+- `agent-claude-code-main` (agent) — **authored**

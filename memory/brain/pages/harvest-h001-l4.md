@@ -3,6 +3,8 @@ slug: "harvest-h001-l4"
 type: "harvest_finding"
 date: "2026-05-21"
 source: "memory/feedback.jsonl"
+edges:
+  - {type: about, dst: "skill-run-log", dst_type: "skill"}
 ---
 
 # H001 — run-log:friction
@@ -20,3 +22,7 @@ _week1.run.jsonl L1 task=day_1_start_
 **Evidence:** The entry uses status='started' for a session-start marker. run-log's status enum is passed|failed|aborted|halted|skipped — it does not anticipate start/in-progress markers that real run logs use.
 
 **Plan candidate:** run-log: state the status enum is a non-exhaustive default, or add 'started'/'in_progress'.
+
+## Links
+
+- **about** → `skill-run-log` (skill)

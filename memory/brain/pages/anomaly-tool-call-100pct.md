@@ -29,3 +29,4 @@ edges:
 
 - `experiment-day4-tool-call-rate` (experiment) — **produced**
 - `dec-fw-2026-05-24-treat-100-metrics-in-small-n` (correction) — **references**
+- `agent-claude-code-main` (agent) — **authored**

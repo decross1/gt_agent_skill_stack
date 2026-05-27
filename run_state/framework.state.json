@@ -125,7 +125,17 @@
     "n2_p006_project_pages_loop_entities",
     "n2_p006_graph_html_loop_filter",
     "n2_p006_close_p006",
-    "n2_p006_state_update"
+    "n2_p006_state_update",
+    "s24a_hide_decisions_from_graph",
+    "s24a_mode_toggle_execution_self_improvement_all",
+    "s24a_run_log_schema_agent_skill_used",
+    "s24a_canonicalize_agent_function",
+    "s24a_project_agent_skill_entities",
+    "s24a_parse_finding_ref_to_file_line",
+    "s24a_force_keep_referenced_apparatus_events",
+    "s24a_graph_html_actors_group_typecolors",
+    "s24a_decision_run_log_schema_correction",
+    "s24a_validate"
   ],
   "gates": {
     "pending": [],
@@ -162,7 +172,7 @@
     "phase_3_5_progress": "B0 ✅, B1 ✅, B2 ✅, B3 ✅ — COMPLETE",
     "phase_4_progress": "S17 Pi-readiness audit ✅, S18 install/discovery abstraction ✅; S19-S20 uplift test DEFERRED 2026-05-24 by human choice (gate cleared as deferred)",
     "phase_5_progress": "S21 spawn-contract ✅; S22 real autonomous spawn ✅ (→ P-004 open); S23 vertical packs ✅ (pack-aware install on backlog); S23.5 brain UX cleanup ✅ (apparatus filtered default, dark-mode contrast, time scrubber, freshness stamp — 3 new open proposals: P-005 agent-view, P-006 feedback-loop, P-007 live-ish); S24 v1.0 pending",
-    "horizon_progress": "N2 ✅ proposal_health.py baseline run (kill-switch clear: 50% accepted-uncommitted, all auto-rejects cite rules); P-006 ✅ harvest_finding/proposal/rule promoted to first-class graph nodes with chain edges (harvest→propose, decision→enacts→rule, proposal→auto_rejected_by→rule); N1, N3, N4 pending; P-004 deferred to N3",
+    "horizon_progress": "N2 ✅ proposal_health.py baseline run (kill-switch clear: 50% accepted-uncommitted, all auto-rejects cite rules); P-006 ✅ harvest_finding/proposal/rule promoted to first-class graph nodes with chain edges (harvest→propose, decision→enacts→rule, proposal→auto_rejected_by→rule); S24a ✅ run-log schema extended with `agent` (required) + `skill_used` (optional) per FR-003; agent and skill projected as first-class entities (4 agents: nara/claude-code-main/day9_critic/human:decross1; 24 skills) with edges agent→ran→iteration, agent→authored→reflection, harvest_finding→about→skill, proposal→targets→skill; observed_in edges mechanically ready but limited by ingest strict-mode (pre-LOOP_V0 task records aren't projected as narratives — known limitation, separate decision); N1, N3, N4 pending; P-004 deferred to N3",
     "runtime_safe_core": ["fallback","gate-check","resume-state","run-log","validate","spawn-contract"]
   },
   "deferred": {

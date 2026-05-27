@@ -27,6 +27,8 @@ project's own schema if it defines one; otherwise this default:
 {
   "timestamp": "<ISO 8601>",
   "task_id": "<identifier of the step>",
+  "agent": "<who executed this step — e.g. nara, claude-code-main, human:decross1>",
+  "skill_used": "<optional: framework skill this step is part of — e.g. validate, fallback>",
   "status": "started | passed | partial_pass | failed | aborted | halted | escalated | skipped",
   "observable_expected": "<what success was defined as>",
   "observable_actual": "<what was observed>",
@@ -34,6 +36,17 @@ project's own schema if it defines one; otherwise this default:
   "notes": "<optional: fallback taken, gate reached, deviation>"
 }
 ```
+
+`agent` is the entity that ran the step — a runtime agent in a consumer
+system (e.g. `nara`), a dev-time agent (`claude-code-main`), or a human
+(`human:<id>`). It's how observability stitches a multi-agent run together:
+without it, the log is anonymous-by-task-id and the brain can't see "who used
+what skill, when, and to what outcome."
+
+`skill_used` is optional and present only when the step is a phase of a
+framework skill (a [[validate]] check, a [[fallback]] selection, a
+[[gate-check]] halt). Task-completion entries that aren't skill invocations
+omit it.
 
 State transitions and fallback selections get their **own** entries, not a note
 buried in another task's line.
@@ -71,6 +84,11 @@ extend it, but each value should mean exactly one thing.
   passing one. That is the point of the log.
 - **Observed, not intended.** `observable_actual` records what happened, even
   when it diverges from the plan. The log is evidence, not a narrative.
+- **Name the agent.** Every entry carries `agent`. Anonymous logs prevent the
+  brain from attributing skill use to a specific actor, which breaks the
+  harvest → propose → rule feedback loop. Backfill via known per-file mapping
+  for entries written before this rule existed (no rewrite of history; the
+  inference is per-consumer at read time).
 - A fallback or time-cap breach is always its own logged event.
 
 ## Pairing

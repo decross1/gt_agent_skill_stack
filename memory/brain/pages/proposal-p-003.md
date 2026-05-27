@@ -3,6 +3,8 @@ slug: "proposal-p-003"
 type: "proposal"
 date: "2026-05-24"
 source: "memory/brain/proposals.jsonl"
+edges:
+  - {type: targets, dst: "skill-slip-ladder", dst_type: "skill"}
 ---
 
 # P-003 — New Layer-B skill: `slip-ladder` for bounded deadline extensions
@@ -20,6 +22,10 @@ _agent: claude-code-main_
 **References:** `feedback.jsonl:H006`, `fallback`
 
 **Verdict reasoning:** Approved by the user 2026-05-24 with the wording 'accept slip-ladder as a new skill'. Authored as .agents/skills/slip-ladder/SKILL.md (Layer B, runtime-safe false — matches the original proposal). Constructed to satisfy the runtime-safe contract (no human required, no PR/harness call, append-only logging, closed dependency set) so a future Layer-A promotion is a frontmatter flip if a runtime use-case emerges. Six-rung skeleton: declare cap + per-slip budget + resolution criterion + diagnostic-variant tag upfront; each slip is its own logged event; cap-exceeded → escalated, never more slips.
+
+## Links
+
+- **targets** → `skill-slip-ladder` (skill)
 
 ## Referenced by
 

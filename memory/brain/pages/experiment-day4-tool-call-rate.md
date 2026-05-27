@@ -22,3 +22,7 @@ edges:
 
 - **derived_from** → `hypothesis-day4-tool-call-rate` (hypothesis)
 - **produced** → `anomaly-tool-call-100pct` (anomaly)
+
+## Referenced by
+
+- `agent-claude-code-main` (agent) — **authored**

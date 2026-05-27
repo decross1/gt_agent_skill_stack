@@ -134,6 +134,9 @@ const TYPE_COLORS = {
   harvest_finding:    "#6366f1",   // indigo — raw signal from harvest passes
   proposal:           "#fbbf24",   // amber-light — candidate change in flight
   rule:               "#10b981",   // emerald — settled active discipline
+  // Agent + skill (synthesized in scripts/project_pages.py::synthesize_agent_skill_entities)
+  agent:              "#0d9488",   // deep teal — a decision-making actor (nara, claude-code-main, …)
+  skill:              "#7c3aed",   // royal purple — a framework skill used by agents
   // fallback
   _default:           "#cccccc"
 };
@@ -192,11 +195,17 @@ const PROPOSALS = DATA.proposals || [];
 // simpler than dynamic re-render and the flash is acceptable for a research
 // tool. Hard-refresh-friendly: bookmark a mode by selecting it once.
 const VIEW_MODES = {
+  // Execution mode shows agents + their runs + framework skills they use.
+  // Self-improvement loop entities (findings/proposals/rules) are hidden.
   execution: new Set(["decision", "harvest_finding", "proposal", "rule", "correction"]),
+  // Self-improvement mode shows the framework's meta-loop. Skill is shared
+  // with execution mode because it sits at the join — agents invoke it,
+  // findings audit it, proposals target it.
   self_improvement: new Set([
     "decision",
     "iteration", "stage", "orchestrator_event", "llm_call",
     "reflection", "hypothesis", "anomaly", "experiment", "apparatus_event",
+    "agent",
   ]),
   all: new Set(["decision"]),
 };
@@ -252,6 +261,8 @@ document.getElementById("tab-proposals").textContent = `Proposals (${PROPOSALS.l
 // `decision` is intentionally absent — hidden from the graph via
 // GRAPH_HIDDEN_TYPES. The Decisions tab remains the entry point for them.
 const FILTER_GROUPS = [
+  { key: "actors",    label: "Actors",    defaultOn: true,
+    types: ["agent", "skill"] },
   { key: "research",  label: "Research",  defaultOn: true,
     types: ["iteration", "stage", "correction", "anomaly", "experiment", "hypothesis", "reflection"] },
   { key: "loop",      label: "Loop",      defaultOn: true,

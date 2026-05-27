@@ -5,6 +5,7 @@ date: "2026-05-24"
 source: "memory/feedback.jsonl"
 edges:
   - {type: becomes, dst: "proposal-p-003", dst_type: "proposal"}
+  - {type: about, dst: "skill-gate-check", dst_type: "skill"}
 ---
 
 # H006 — gate-check:confirmed
@@ -24,3 +25,4 @@ _week1.run.jsonl L136 task=day7_publication_review_gate_cleared_
 ## Links
 
 - **becomes** → `proposal-p-003` (proposal)
+- **about** → `skill-gate-check` (skill)

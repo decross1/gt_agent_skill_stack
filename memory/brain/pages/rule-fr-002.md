@@ -14,10 +14,6 @@ across a gate-armed period.
 - **Source decision:** `2026-05-24` (2026-05-24)
 - **Supersedes:** none — extends [[resume-state]] step 5.
 
-## Apparatus rules
-
-_No `**Correction:**`-flagged decisions in apparatus decision log._
-
 ## Referenced by
 
 - `dec-fw-2026-05-24-reconcile-state-file-lag-against-run-log` (correction) — **enacts**

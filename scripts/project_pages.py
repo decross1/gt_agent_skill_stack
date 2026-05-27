@@ -21,7 +21,7 @@ import argparse
 import json
 import re
 import sys
-from collections import defaultdict
+from collections import Counter, defaultdict
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -166,6 +166,33 @@ def render_page(entity: dict, outgoing: list[dict], incoming: list[dict]) -> str
             lines.append(f"- `{e['src']}` ({e.get('src_type', '?')}) — **{e['type']}**")
         lines.append("")
     return "\n".join(lines)
+
+
+# Canonical agent mapping. The raw `agent_id` field is used by ingest for
+# fine-grained event classification ("nara:loop_v0_tool_dispatch"); the
+# canonical id collapses sub-event labels back to the actual decision-maker.
+# A "real agent" here means: an entity that uses framework skills or makes
+# decisions on its own. Tools, simulated PD players, test labels, and
+# pipeline artifacts return None — they get no agent entity.
+def canonicalize_agent(raw_id: str | None) -> str | None:
+    if not raw_id:
+        return None
+    r = raw_id.strip()
+    if r == "nara" or r == "nara.run_iteration" or r.startswith("nara:"):
+        return "nara"
+    if r.startswith("orchestrator:"):
+        # older-format Nara apparatus events from logs/orchestrator.jsonl
+        return "nara"
+    if r == "day9_critic" or r.startswith("day9_critic_"):
+        return "day9_critic"
+    if r == "claude-code-main":
+        return "claude-code-main"
+    if r.startswith("human:"):
+        return r  # keep distinct human identities intact
+    # Tools mis-tagged as agents, PD simulated strategies, test sweep labels,
+    # and pipeline artifacts (ingest_apparatus, unknown_apparatus,
+    # project_pages:synthesize_*) are not real agents.
+    return None
 
 
 # Apparatus narratives all carry `type: apparatus_event` in the JSONL — that
@@ -468,6 +495,68 @@ def synthesize_stages() -> tuple[list[dict], list[dict]]:
 
 RULE_HEADER_RE = re.compile(r"^###\s+(?P<id>FR-\d+|AR-\d+)\s+—\s+(?P<title>[^\n]+)$", re.MULTILINE)
 RULE_SOURCE_RE = re.compile(r"^- \*\*Source decision:\*\*\s+`(?P<date>\d{4}-\d{2}-\d{2})`", re.MULTILINE)
+SKILL_FRONTMATTER_RE = re.compile(r"^---\n(.*?)\n---", re.DOTALL)
+REF_FILENAME_RE = re.compile(r"([A-Za-z0-9_]+(?:\.[A-Za-z0-9_]+)*\.jsonl)")
+REF_LINE_RANGE_RE = re.compile(r"L(\d+)\s*-\s*L?(\d+)")
+REF_LINE_SINGLE_RE = re.compile(r"L(\d+)")
+
+
+def parse_finding_ref(ref: str) -> list[tuple[str, int]]:
+    """Parse a harvest_finding `ref` string into (filename, lineno) tuples.
+
+    Ref shapes vary: 'week1.run.jsonl L2', 'week1.run.jsonl L2->L3',
+    'week1.run.jsonl L54-L60,L79-L80', 'week1.run.jsonl L34 day7.1→7.2'.
+    Strategy: find first filename, then extract every L<num> + L<a>-L<b>
+    range that appears after it. The caller resolves (file, lineno) to a
+    slug by looking up the pre-computed narrative _slug (set during ingest)
+    — apparatus narratives don't follow a single naming convention, so a
+    regex-derived slug can't be assumed to match.
+    """
+    if not ref:
+        return []
+    fm = REF_FILENAME_RE.search(ref)
+    if not fm:
+        return []
+    fname = fm.group(1)
+    after = ref[fm.end():]
+    line_nums: set[int] = set()
+    for m in REF_LINE_RANGE_RE.finditer(after):
+        a, b = int(m.group(1)), int(m.group(2))
+        if a <= b:
+            line_nums.update(range(a, b + 1))
+    for m in REF_LINE_SINGLE_RE.finditer(after):
+        line_nums.add(int(m.group(1)))
+    return [(fname, n) for n in sorted(line_nums)]
+
+
+def load_skills() -> list[dict]:
+    """Enumerate framework skills from .agents/skills/*/SKILL.md frontmatter."""
+    skills_dir = REPO / ".agents" / "skills"
+    if not skills_dir.exists():
+        return []
+    out: list[dict] = []
+    for d in sorted(skills_dir.iterdir()):
+        skill_md = d / "SKILL.md"
+        if not skill_md.is_file():
+            continue
+        text = skill_md.read_text()
+        m = SKILL_FRONTMATTER_RE.match(text)
+        if not m:
+            continue
+        fm_text = m.group(1)
+        meta: dict[str, str] = {}
+        for line in fm_text.split("\n"):
+            if ":" in line and not line.startswith(" "):
+                k, _, v = line.partition(":")
+                meta[k.strip()] = v.strip()
+        out.append({
+            "name": meta.get("name", d.name),
+            "layer": meta.get("layer", "?"),
+            "runtime_safe": meta.get("runtime-safe", "false"),
+            "pack": meta.get("pack", "?"),
+            "description": meta.get("description", "").strip().strip('"'),
+        })
+    return out
 
 
 def load_rules() -> list[dict]:
@@ -691,6 +780,233 @@ def synthesize_loop_entities(
     return entities, edges
 
 
+# ---------------------------------------------------------------------------
+# Agent + skill projection — S24a.
+#
+# `agent`: the entity that ran a step. Today projected from narrative
+# agent_ids via canonicalize_agent() (filters out tools, simulated players,
+# pipeline artifacts). The forward path is run-log entries carrying an
+# explicit `agent` field per the updated [[run-log]] schema; the projector
+# will read those once consumers backfill.
+#
+# `skill`: a framework skill, enumerated from .agents/skills/*/SKILL.md.
+# Findings, proposals, and rules link in via about/targets/governs edges.
+#
+# Edges:
+#   agent --ran--> iteration         (one per iteration owned by this agent)
+#   agent --authored--> reflection   (one per reflection by this agent)
+#   harvest_finding --about--> skill (one per finding)
+#   proposal --targets--> skill      (when proposal.target_type == "skill")
+# ---------------------------------------------------------------------------
+
+def synthesize_agent_skill_entities(
+    narratives: list[dict],
+    proposals: list[dict],
+    feedback_rows: list[dict],
+    valid_apparatus_slugs: set[str] | None = None,
+    slug_by_file_line: dict[tuple[str, int], str] | None = None,
+) -> tuple[list[dict], list[dict]]:
+    entities: list[dict] = []
+    edges: list[dict] = []
+
+    # ---- skills ---------------------------------------------------------
+    skills = load_skills()
+    skill_slug_by_name: dict[str, str] = {}
+    for s in skills:
+        slug = slugify(f"skill-{s['name']}")
+        skill_slug_by_name[s["name"]] = slug
+        runtime_tag = "runtime-safe" if str(s["runtime_safe"]).lower() == "true" else "dev-time"
+        body = "\n\n".join([
+            f"**Layer:** {s['layer']}",
+            f"**Pack:** {s['pack']}",
+            f"**Runtime safety:** {runtime_tag}",
+            f"**Description:** {s['description']}",
+        ])
+        entities.append({
+            "slug": slug,
+            "type": "skill",
+            "date": "",
+            "title": f"{s['name']} — Layer {s['layer']} / {s['pack']}",
+            "subtitle": runtime_tag,
+            "body": body,
+            "source": f".agents/skills/{s['name']}/SKILL.md",
+        })
+
+    # ---- agents (canonicalized from narrative agent_ids) ----------------
+    canonical_counts: Counter = Counter()
+    canonical_first_seen: dict[str, str] = {}
+    raw_by_canonical: dict[str, set[str]] = defaultdict(set)
+    for n in narratives:
+        c = canonicalize_agent(n.get("agent_id"))
+        if not c:
+            continue
+        canonical_counts[c] += 1
+        raw_by_canonical[c].add((n.get("agent_id") or "").strip())
+        ts = n.get("timestamp", "")
+        if ts and (c not in canonical_first_seen or ts < canonical_first_seen[c]):
+            canonical_first_seen[c] = ts
+    # Also pick up agents from proposals (e.g. human:decross1 as a verdict author).
+    for p in proposals:
+        c = canonicalize_agent(p.get("agent_id"))
+        if not c:
+            continue
+        canonical_counts[c] += 1
+        raw_by_canonical[c].add((p.get("agent_id") or "").strip())
+        ts = p.get("timestamp", "")
+        if ts and (c not in canonical_first_seen or ts < canonical_first_seen[c]):
+            canonical_first_seen[c] = ts
+
+    agent_slug_by_canonical: dict[str, str] = {}
+    for canonical, count in canonical_counts.most_common():
+        slug = slugify(f"agent-{canonical}")
+        agent_slug_by_canonical[canonical] = slug
+        raw_labels = ", ".join(sorted(raw_by_canonical[canonical]))
+        first = canonical_first_seen.get(canonical, "")[:10]
+        body = "\n\n".join([
+            f"**Canonical agent id:** `{canonical}`",
+            f"**Raw labels seen in narratives:** {raw_labels}",
+            f"**Total narratives:** {count}",
+            f"**First seen:** {first or 'unknown'}",
+        ])
+        entities.append({
+            "slug": slug,
+            "type": "agent",
+            "date": first,
+            "title": f"Agent — {canonical}",
+            "subtitle": f"{count} narratives across {len(raw_by_canonical[canonical])} raw label(s)",
+            "body": body,
+            "source": "derived from agent_id across narratives + proposals",
+        })
+
+    # ---- agent → ran → iteration edges ---------------------------------
+    # Only emit for iteration-shaped apparatus events (loop_memory.jsonl entries)
+    # — these are the high-level "this agent ran one research loop" anchors.
+    for n in narratives:
+        if n.get("type") != "apparatus_event":
+            continue
+        src_file = (n.get("_source") or {}).get("file", "")
+        if src_file != "loop_memory.jsonl":
+            continue
+        canonical = canonicalize_agent(n.get("agent_id"))
+        if not canonical:
+            continue
+        agent_slug = agent_slug_by_canonical.get(canonical)
+        iter_slug = narrative_slug(n)
+        if not agent_slug:
+            continue
+        edges.append({
+            "timestamp": n.get("timestamp", ""),
+            "src": agent_slug,
+            "src_type": "agent",
+            "type": "ran",
+            "dst": iter_slug,
+            "dst_type": "iteration",
+            "source_event": f"agent_link:{canonical}",
+            "agent_id": "project_pages:synthesize_agent_skill_entities",
+        })
+
+    # ---- agent → authored → reflection edges ---------------------------
+    for n in narratives:
+        if n.get("type") != "reflection":
+            continue
+        canonical = canonicalize_agent(n.get("agent_id"))
+        if not canonical:
+            continue
+        agent_slug = agent_slug_by_canonical.get(canonical)
+        if not agent_slug:
+            continue
+        edges.append({
+            "timestamp": n.get("timestamp", ""),
+            "src": agent_slug,
+            "src_type": "agent",
+            "type": "authored",
+            "dst": narrative_slug(n),
+            "dst_type": "reflection",
+            "source_event": f"agent_link:{canonical}",
+            "agent_id": "project_pages:synthesize_agent_skill_entities",
+        })
+
+    # ---- harvest_finding → about → skill edges -------------------------
+    # Each finding cites a skill by name; map to skill slug if it exists.
+    for f in feedback_rows:
+        hid = f.get("harvest_id")
+        skill_name = (f.get("skill") or "").strip()
+        if not hid or not skill_name:
+            continue
+        skill_slug = skill_slug_by_name.get(skill_name)
+        if not skill_slug:
+            continue  # finding cites a skill the framework doesn't have (yet)
+        line = f.get("_source_line", 0)
+        finding_slug = slugify(f"harvest-{hid}-l{line}")
+        edges.append({
+            "timestamp": (f.get("date") or "") + "T00:00:00Z",
+            "src": finding_slug,
+            "src_type": "harvest_finding",
+            "type": "about",
+            "dst": skill_slug,
+            "dst_type": "skill",
+            "source_event": f"agent_link:{hid}:{skill_name}",
+            "agent_id": "project_pages:synthesize_agent_skill_entities",
+        })
+
+    # ---- proposal → targets → skill edges ------------------------------
+    proposal_first: dict[str, dict] = {}
+    for p in sorted(proposals, key=lambda r: r.get("timestamp", "")):
+        pid = p.get("proposal_id")
+        if not pid:
+            continue
+        proposal_first.setdefault(pid, p)
+    for pid, first in proposal_first.items():
+        if (first.get("target_type") or "").strip() != "skill":
+            continue
+        target = (first.get("target") or "").strip()
+        skill_slug = skill_slug_by_name.get(target)
+        if not skill_slug:
+            continue
+        edges.append({
+            "timestamp": first.get("timestamp", ""),
+            "src": slugify(f"proposal-{pid}"),
+            "src_type": "proposal",
+            "type": "targets",
+            "dst": skill_slug,
+            "dst_type": "skill",
+            "source_event": f"agent_link:{pid}",
+            "agent_id": "project_pages:synthesize_agent_skill_entities",
+        })
+
+    # ---- harvest_finding → observed_in → apparatus_event edges --------
+    # Parse the `ref` text to find specific run-log lines the finding cites,
+    # turn those into apparatus_event slugs, and emit edges only when the
+    # target slug exists in the projected entity set. Apparatus events that
+    # aged out of the page cap aren't drawn anyway, so emitting dangling
+    # edges just clutters the projector output without helping the graph.
+    valid = valid_apparatus_slugs or set()
+    slug_idx = slug_by_file_line or {}
+    for f in feedback_rows:
+        hid = f.get("harvest_id")
+        ref = (f.get("ref") or "").strip()
+        if not hid or not ref:
+            continue
+        line = f.get("_source_line", 0)
+        finding_slug = slugify(f"harvest-{hid}-l{line}")
+        for fname, lineno in parse_finding_ref(ref):
+            dst_slug = slug_idx.get((fname, lineno))
+            if not dst_slug or dst_slug not in valid:
+                continue
+            edges.append({
+                "timestamp": (f.get("date") or "") + "T00:00:00Z",
+                "src": finding_slug,
+                "src_type": "harvest_finding",
+                "type": "observed_in",
+                "dst": dst_slug,
+                "dst_type": "apparatus_event",
+                "source_event": f"agent_link:{hid}:ref",
+                "agent_id": "project_pages:synthesize_agent_skill_entities",
+            })
+
+    return entities, edges
+
+
 def entity_from_decision(d: dict) -> dict:
     return {
         "slug": d["slug"],
@@ -726,12 +1042,38 @@ def main() -> int:
     # Apparatus events are FIFO-capped to keep pages/ scannable. Newer matters
     # more than older for daily use — sort apparatus narratives by timestamp
     # descending and take the first N. Non-apparatus narratives all get pages.
+    #
+    # Exception: any apparatus event referenced by a harvest finding's `ref`
+    # field is force-kept regardless of cap. Otherwise findings dating back
+    # to H001 (2026-05-21) would orphan into the void — observed_in edges
+    # would never resolve.
     entities: dict[str, dict] = {}
     apparatus_narrs = [n for n in narratives if n.get("type") == "apparatus_event"]
     apparatus_narrs.sort(key=lambda n: n.get("timestamp", ""), reverse=True)
     apparatus_kept = apparatus_narrs[:args.apparatus_pages_cap]
     kept_apparatus_lines = {(n.get("_source", {}).get("file"), n.get("_source", {}).get("line"))
                             for n in apparatus_kept}
+
+    # Force-keep apparatus events that harvest findings cite, regardless of
+    # cap. Without this, findings dated H001 (2026-05-21) would orphan into
+    # the void — their observed_in edges would never resolve to an entity.
+    feedback_for_force_keep = load_jsonl(FEEDBACK)
+    referenced_file_lines: set[tuple[str, int]] = set()
+    for f in feedback_for_force_keep:
+        ref = (f.get("ref") or "").strip()
+        for tup in parse_finding_ref(ref):
+            referenced_file_lines.add(tup)
+    if referenced_file_lines:
+        forced = 0
+        for n in apparatus_narrs:
+            src = n.get("_source", {})
+            key = (src.get("file"), src.get("line"))
+            if key in referenced_file_lines and key not in kept_apparatus_lines:
+                kept_apparatus_lines.add(key)
+                forced += 1
+        if forced:
+            print(f"  force-kept {forced} apparatus events referenced by findings")
+
     for n in narratives:
         if n.get("type") == "apparatus_event":
             src = n.get("_source", {})
@@ -758,6 +1100,36 @@ def main() -> int:
     for e in loop_entities:
         entities[e["slug"]] = e
 
+    # Synthesize agent + skill entities. Agents derive from canonicalized
+    # narrative agent_ids; skills enumerate from .agents/skills. Edges link
+    # findings/proposals to skills and findings to apparatus events.
+    feedback_rows_for_link = feedback_for_force_keep  # reuse the load
+    proposals_for_link = load_jsonl(PROPOSALS)
+    # Build the set of projected apparatus_event slugs so observed_in edges
+    # only target events that survived the apparatus_pages_cap.
+    apparatus_slugs = {
+        slug for slug, e in entities.items()
+        if e.get("type") in ("apparatus_event", "orchestrator_event", "llm_call", "iteration")
+    }
+    # Build a (filename, line) -> slug index so the synthesizer can resolve
+    # finding refs against the actual narrative _slug field (which doesn't
+    # follow a single regex-derivable convention across apparatus files).
+    slug_by_file_line: dict[tuple[str, int], str] = {}
+    for n in narratives:
+        if n.get("type") != "apparatus_event":
+            continue
+        src = n.get("_source", {})
+        key = (src.get("file"), src.get("line"))
+        if key[0] and key[1] is not None:
+            slug_by_file_line[key] = narrative_slug(n)
+    agent_skill_entities, agent_skill_edges = synthesize_agent_skill_entities(
+        narratives, proposals_for_link, feedback_rows_for_link,
+        valid_apparatus_slugs=apparatus_slugs,
+        slug_by_file_line=slug_by_file_line,
+    )
+    for e in agent_skill_entities:
+        entities[e["slug"]] = e
+
     # Suppress redundant iter -> {event, call} edges where a stage already
     # covers the destination. Otherwise the graph draws TWO arrows into each
     # mechanical node — one from the iteration root and one from the stage —
@@ -779,7 +1151,7 @@ def main() -> int:
             suppressed += 1
             continue
         filtered_canonical.append(e)
-    edges = filtered_canonical + stage_edges + loop_edges
+    edges = filtered_canonical + stage_edges + loop_edges + agent_skill_edges
 
     # Group edges by src and dst.
     out_edges: dict[str, list[dict]] = defaultdict(list)

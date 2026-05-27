@@ -16,3 +16,7 @@ source: "memory/brain/narratives.jsonl"
 **Would do differently:** For audits that must reflect parent's current working tree: either skip worktree isolation (rely on declarative auth cap + child's honor) OR commit pending state before the spawn OR inline the data in the prompt rather than have the child re-read from disk. For pure-function tasks (analyze this fixed input), worktree isolation is the right call. The contract's task_statement should specify which world the child is operating in — 'current parent working tree' vs 'HEAD-of-branch' vs 'whatever you receive in this prompt'. Propose adding a `state_basis` field to the contract schema for v1.0 — pending in proposal queue.
 
 **Corrections honored:** FR-001 (suspicious-clean 100% metrics), FR-002 (run-log canonical over state during gate-armed holds)
+
+## Referenced by
+
+- `agent-claude-code-main` (agent) — **authored**
