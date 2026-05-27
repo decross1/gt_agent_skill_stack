@@ -5,6 +5,10 @@ date: "2026-05-21"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-validate", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-1-day1-block2-docker-config-l14", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-1-day1-block2-vllm-serve-l21", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-3-day3-block2-chroma-install-l48", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-3-day3-block2-needle-haystack-l51", dst_type: "run_log_entry"}
 ---
 
 # H002 — validate:friction
@@ -26,3 +30,7 @@ _week1.run.jsonl L14,L21,L48,L51_
 ## Links
 
 - **about** → `skill-validate` (skill)
+- **observed_in** → `runlog-day-1-day1-block2-docker-config-l14` (run_log_entry)
+- **observed_in** → `runlog-day-1-day1-block2-vllm-serve-l21` (run_log_entry)
+- **observed_in** → `runlog-day-3-day3-block2-chroma-install-l48` (run_log_entry)
+- **observed_in** → `runlog-day-3-day3-block2-needle-haystack-l51` (run_log_entry)

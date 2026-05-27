@@ -5,6 +5,7 @@ date: "2026-05-21"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-validate", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-4-day4-end-of-day-artifacts-l76", dst_type: "run_log_entry"}
 ---
 
 # H002 — validate:friction
@@ -26,3 +27,4 @@ _week1.run.jsonl L76 task=day4_end_of_day_artifacts_
 ## Links
 
 - **about** → `skill-validate` (skill)
+- **observed_in** → `runlog-day-4-day4-end-of-day-artifacts-l76` (run_log_entry)

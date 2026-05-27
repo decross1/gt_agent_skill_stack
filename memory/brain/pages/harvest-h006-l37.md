@@ -5,6 +5,7 @@ date: "2026-05-24"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-resume-state", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-7-day7-state-close-out-and-advance-to-day-8-l137", dst_type: "run_log_entry"}
 ---
 
 # H006 — resume-state:friction
@@ -26,3 +27,4 @@ _week1.run.jsonl L137 task=day7_state_close_out_and_advance_to_day_8_
 ## Links
 
 - **about** → `skill-resume-state` (skill)
+- **observed_in** → `runlog-day-7-day7-state-close-out-and-advance-to-day-8-l137` (run_log_entry)

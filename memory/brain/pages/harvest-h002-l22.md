@@ -5,6 +5,8 @@ date: "2026-05-21"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-repro-check", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-2-day2-block2-50call-sweep-l39", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-4-day4-post-review-b1-fix-l77", dst_type: "run_log_entry"}
 ---
 
 # H002 — repro-check:confirmed
@@ -24,3 +26,5 @@ _week1.run.jsonl L39,L77; DECISIONS.md D-017,D-022_
 ## Links
 
 - **about** → `skill-repro-check` (skill)
+- **observed_in** → `runlog-day-2-day2-block2-50call-sweep-l39` (run_log_entry)
+- **observed_in** → `runlog-day-4-day4-post-review-b1-fix-l77` (run_log_entry)

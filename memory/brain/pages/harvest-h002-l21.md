@@ -5,6 +5,7 @@ date: "2026-05-21"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-experiment", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-4-day4-block2-robustness-l74", dst_type: "run_log_entry"}
 ---
 
 # H002 — experiment:friction
@@ -26,3 +27,4 @@ _week1.run.jsonl L74 metric field; DECISIONS.md D-021_
 ## Links
 
 - **about** → `skill-experiment` (skill)
+- **observed_in** → `runlog-day-4-day4-block2-robustness-l74` (run_log_entry)

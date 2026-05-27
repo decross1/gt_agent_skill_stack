@@ -5,6 +5,7 @@ date: "2026-05-22"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-validate", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-5-day5-block2-ml-intern-router-l85", dst_type: "run_log_entry"}
 ---
 
 # H003 — validate:confirmed
@@ -24,3 +25,4 @@ _week1.run.jsonl L85 task=day5_block2_ml_intern_router_
 ## Links
 
 - **about** → `skill-validate` (skill)
+- **observed_in** → `runlog-day-5-day5-block2-ml-intern-router-l85` (run_log_entry)

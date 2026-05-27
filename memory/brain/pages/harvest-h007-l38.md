@@ -5,6 +5,10 @@ date: "2026-05-25"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-run-log", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-8-day-start-l138", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-8-retrospective-recorded-l149", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-8-tier-shift-l150", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-8-day-end-l154", dst_type: "run_log_entry"}
 ---
 
 # H007 — run-log:friction
@@ -26,3 +30,7 @@ _week1.run.jsonl L138,L149,L150,L154_
 ## Links
 
 - **about** → `skill-run-log` (skill)
+- **observed_in** → `runlog-day-8-day-start-l138` (run_log_entry)
+- **observed_in** → `runlog-day-8-retrospective-recorded-l149` (run_log_entry)
+- **observed_in** → `runlog-day-8-tier-shift-l150` (run_log_entry)
+- **observed_in** → `runlog-day-8-day-end-l154` (run_log_entry)

@@ -5,6 +5,12 @@ date: "2026-05-24"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-run-log", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-7-day7-block2-strategies-and-llm-agent-l114", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-7-slip-declared-l117", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-7-slip-declared-l119", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-7-slip-declared-l121", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-7-slip-resolved-l123", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-7-day7-publication-review-gate-l125", dst_type: "run_log_entry"}
 ---
 
 # H005 — run-log:friction
@@ -26,3 +32,9 @@ _week1.run.jsonl L114,L117,L119,L121,L123,L125_
 ## Links
 
 - **about** → `skill-run-log` (skill)
+- **observed_in** → `runlog-day-7-day7-block2-strategies-and-llm-agent-l114` (run_log_entry)
+- **observed_in** → `runlog-day-7-slip-declared-l117` (run_log_entry)
+- **observed_in** → `runlog-day-7-slip-declared-l119` (run_log_entry)
+- **observed_in** → `runlog-day-7-slip-declared-l121` (run_log_entry)
+- **observed_in** → `runlog-day-7-slip-resolved-l123` (run_log_entry)
+- **observed_in** → `runlog-day-7-day7-publication-review-gate-l125` (run_log_entry)

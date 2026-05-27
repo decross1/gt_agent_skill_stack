@@ -6,6 +6,7 @@ source: "memory/feedback.jsonl"
 edges:
   - {type: becomes, dst: "proposal-p-003", dst_type: "proposal"}
   - {type: about, dst: "skill-gate-check", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-7-day7-publication-review-gate-cleared-l136", dst_type: "run_log_entry"}
 ---
 
 # H006 — gate-check:confirmed
@@ -26,3 +27,4 @@ _week1.run.jsonl L136 task=day7_publication_review_gate_cleared_
 
 - **becomes** → `proposal-p-003` (proposal)
 - **about** → `skill-gate-check` (skill)
+- **observed_in** → `runlog-day-7-day7-publication-review-gate-cleared-l136` (run_log_entry)

@@ -5,6 +5,7 @@ date: "2026-05-24"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-run-log", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-7-rectify-malformed-run-log-lines-l131", dst_type: "run_log_entry"}
 ---
 
 # H005 — run-log:diverged
@@ -26,3 +27,4 @@ _week1.run.jsonl L131 task=rectify_malformed_run_log_lines_
 ## Links
 
 - **about** → `skill-run-log` (skill)
+- **observed_in** → `runlog-day-7-rectify-malformed-run-log-lines-l131` (run_log_entry)

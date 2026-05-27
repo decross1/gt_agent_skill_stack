@@ -5,6 +5,7 @@ date: "2026-05-22"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-run-log", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-5-day5-block2-pipeline-implementation-l88", dst_type: "run_log_entry"}
 ---
 
 # H003 — run-log:friction
@@ -26,3 +27,4 @@ _week1.run.jsonl L88 task=day5_block2_pipeline_implementation_
 ## Links
 
 - **about** → `skill-run-log` (skill)
+- **observed_in** → `runlog-day-5-day5-block2-pipeline-implementation-l88` (run_log_entry)

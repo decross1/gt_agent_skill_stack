@@ -5,6 +5,8 @@ date: "2026-05-21"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-ship", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-2-day2-end-of-day-artifacts-l44", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-3-5-day3-5-end-of-day-artifacts-l69", dst_type: "run_log_entry"}
 ---
 
 # H002 — ship:confirmed
@@ -24,3 +26,5 @@ _week1.run.jsonl L44,L69_
 ## Links
 
 - **about** → `skill-ship` (skill)
+- **observed_in** → `runlog-day-2-day2-end-of-day-artifacts-l44` (run_log_entry)
+- **observed_in** → `runlog-day-3-5-day3-5-end-of-day-artifacts-l69` (run_log_entry)

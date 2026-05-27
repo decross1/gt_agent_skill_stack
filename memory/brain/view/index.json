@@ -20,7 +20,7 @@
   {
     "slug": "agent-nara",
     "type": "agent",
-    "date": "2026-05-23",
+    "date": "2026-05-17",
     "title": "Agent \u2014 nara"
   },
   {
@@ -1854,6 +1854,930 @@
     "title": "FR-003 \u2014 run-log schema: agent (required) and skill_used (optional)"
   },
   {
+    "slug": "runlog-day-1-day-1-start-l1",
+    "type": "run_log_entry",
+    "date": "2026-05-17",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1"
+  },
+  {
+    "slug": "runlog-day-1-day1-block1-problemset-l10",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L10"
+  },
+  {
+    "slug": "runlog-day-1-day1-block1-reading-l9",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L9"
+  },
+  {
+    "slug": "runlog-day-1-day1-block2-bench-l23",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L23"
+  },
+  {
+    "slug": "runlog-day-1-day1-block2-bench-l24",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L24"
+  },
+  {
+    "slug": "runlog-day-1-day1-block2-docker-config-l13",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L13"
+  },
+  {
+    "slug": "runlog-day-1-day1-block2-docker-config-l14",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L14"
+  },
+  {
+    "slug": "runlog-day-1-day1-block2-firmware-l12",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L12"
+  },
+  {
+    "slug": "runlog-day-1-day1-block2-nemoclaw-fallback-l26",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L26"
+  },
+  {
+    "slug": "runlog-day-1-day1-block2-nemoclaw-router-l25",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L25"
+  },
+  {
+    "slug": "runlog-day-1-day1-block2-unbox-l11",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L11"
+  },
+  {
+    "slug": "runlog-day-1-day1-block2-vllm-serve-l15",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L15"
+  },
+  {
+    "slug": "runlog-day-1-day1-block2-vllm-serve-l16",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L16"
+  },
+  {
+    "slug": "runlog-day-1-day1-block2-vllm-serve-l17",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L17"
+  },
+  {
+    "slug": "runlog-day-1-day1-block2-vllm-serve-l18",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L18"
+  },
+  {
+    "slug": "runlog-day-1-day1-block2-vllm-serve-l19",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L19"
+  },
+  {
+    "slug": "runlog-day-1-day1-block2-vllm-serve-l20",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L20"
+  },
+  {
+    "slug": "runlog-day-1-day1-block2-vllm-serve-l21",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L21"
+  },
+  {
+    "slug": "runlog-day-1-day1-block3-journal-l27",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L27"
+  },
+  {
+    "slug": "runlog-day-1-day1-end-of-day-artifacts-l28",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L28"
+  },
+  {
+    "slug": "runlog-day-1-preflight-credentials-staged-l2",
+    "type": "run_log_entry",
+    "date": "2026-05-17",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L2"
+  },
+  {
+    "slug": "runlog-day-1-preflight-credentials-staged-l3",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L3"
+  },
+  {
+    "slug": "runlog-day-1-preflight-failure-walkthroughs-l7",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L7"
+  },
+  {
+    "slug": "runlog-day-1-preflight-physical-setup-l8",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L8"
+  },
+  {
+    "slug": "runlog-day-1-preflight-software-prestaged-l4",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L4"
+  },
+  {
+    "slug": "runlog-day-1-preflight-software-prestaged-l6",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L6"
+  },
+  {
+    "slug": "runlog-day-1-state-transition-l22",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L22"
+  },
+  {
+    "slug": "runlog-day-1-state-transition-l5",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L5"
+  },
+  {
+    "slug": "runlog-day-2-day2-ambient-l42",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L42"
+  },
+  {
+    "slug": "runlog-day-2-day2-block1-problemset-l31",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L31"
+  },
+  {
+    "slug": "runlog-day-2-day2-block1-reading-l30",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L30"
+  },
+  {
+    "slug": "runlog-day-2-day2-block2-50call-sweep-l34",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L34"
+  },
+  {
+    "slug": "runlog-day-2-day2-block2-50call-sweep-l39",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L39"
+  },
+  {
+    "slug": "runlog-day-2-day2-block2-jsonl-schema-l32",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L32"
+  },
+  {
+    "slug": "runlog-day-2-day2-block2-wrapper-implementation-l33",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L33"
+  },
+  {
+    "slug": "runlog-day-2-day2-block3-journal-l43",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L43"
+  },
+  {
+    "slug": "runlog-day-2-day2-block3-reading-l41",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L41"
+  },
+  {
+    "slug": "runlog-day-2-day2-end-of-day-artifacts-l44",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L44"
+  },
+  {
+    "slug": "runlog-day-2-day2-throughput-investigation-l37",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L37"
+  },
+  {
+    "slug": "runlog-day-2-day2-throughput-mtp-enablement-l38",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L38"
+  },
+  {
+    "slug": "runlog-day-2-state-transition-l29",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L29"
+  },
+  {
+    "slug": "runlog-day-2-state-transition-l35",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L35"
+  },
+  {
+    "slug": "runlog-day-2-state-transition-l36",
+    "type": "run_log_entry",
+    "date": "2026-05-18",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L36"
+  },
+  {
+    "slug": "runlog-day-2-state-transition-l40",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L40"
+  },
+  {
+    "slug": "runlog-day-3-5-day3-5-block2-events-schema-l66",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L66"
+  },
+  {
+    "slug": "runlog-day-3-5-day3-5-block2-retrieval-context-field-l65",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L65"
+  },
+  {
+    "slug": "runlog-day-3-5-day3-5-block2-wrapper-retrieval-passthrough-l67",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L67"
+  },
+  {
+    "slug": "runlog-day-3-5-day3-5-block3-claudemd-prose-l61",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L61"
+  },
+  {
+    "slug": "runlog-day-3-5-day3-5-block3-claudemd-prose-l68",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L68"
+  },
+  {
+    "slug": "runlog-day-3-5-day3-5-end-of-day-artifacts-l69",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L69"
+  },
+  {
+    "slug": "runlog-day-3-5-merge-track-b-schemas-l64",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L64"
+  },
+  {
+    "slug": "runlog-day-3-adversarial-review-integration-l57",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L57"
+  },
+  {
+    "slug": "runlog-day-3-day3-block1-problemset-l47",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L47"
+  },
+  {
+    "slug": "runlog-day-3-day3-block1-reading-l46",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L46"
+  },
+  {
+    "slug": "runlog-day-3-day3-block2-chroma-install-l48",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L48"
+  },
+  {
+    "slug": "runlog-day-3-day3-block2-chunking-and-ingest-script-l49",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L49"
+  },
+  {
+    "slug": "runlog-day-3-day3-block2-full-ingest-l50",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L50"
+  },
+  {
+    "slug": "runlog-day-3-day3-block2-needle-haystack-l51",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L51"
+  },
+  {
+    "slug": "runlog-day-3-day3-needle-characterization-l52",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L52"
+  },
+  {
+    "slug": "runlog-day-3-merge-track-b-l58",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L58"
+  },
+  {
+    "slug": "runlog-day-3-merge-track-c-l59",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L59"
+  },
+  {
+    "slug": "runlog-day-3-merge-track-d-l60",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L60"
+  },
+  {
+    "slug": "runlog-day-3-state-transition-l45",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L45"
+  },
+  {
+    "slug": "runlog-day-3-state-transition-l53",
+    "type": "run_log_entry",
+    "date": "2026-05-19",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L53"
+  },
+  {
+    "slug": "runlog-day-3-track-review-track-b-l54",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L54"
+  },
+  {
+    "slug": "runlog-day-3-track-review-track-c-l55",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L55"
+  },
+  {
+    "slug": "runlog-day-3-track-review-track-d-l56",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L56"
+  },
+  {
+    "slug": "runlog-day-4-day4-block1-problemset-l63",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L63"
+  },
+  {
+    "slug": "runlog-day-4-day4-block1-reading-l62",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L62"
+  },
+  {
+    "slug": "runlog-day-4-day4-block2-e2e-test-l73",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L73"
+  },
+  {
+    "slug": "runlog-day-4-day4-block2-mock-tool-l70",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L70"
+  },
+  {
+    "slug": "runlog-day-4-day4-block2-robustness-l74",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L74"
+  },
+  {
+    "slug": "runlog-day-4-day4-block2-wrapper-tools-l71",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L71"
+  },
+  {
+    "slug": "runlog-day-4-day4-block3-journal-l75",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L75"
+  },
+  {
+    "slug": "runlog-day-4-day4-end-of-day-artifacts-l76",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L76"
+  },
+  {
+    "slug": "runlog-day-4-day4-post-review-b1-fix-l77",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L77"
+  },
+  {
+    "slug": "runlog-day-4-day4-post-review-nits-l78",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L78"
+  },
+  {
+    "slug": "runlog-day-4-day4-vllm-restart-for-tool-calling-l72",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L72"
+  },
+  {
+    "slug": "runlog-day-4-merge-track-c-day4-pd-strategies-l79",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L79"
+  },
+  {
+    "slug": "runlog-day-4-merge-track-d-day4-ui-sync-l80",
+    "type": "run_log_entry",
+    "date": "2026-05-20",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L80"
+  },
+  {
+    "slug": "runlog-day-5-day4-carryover-resolution-l82",
+    "type": "run_log_entry",
+    "date": "2026-05-21",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L82"
+  },
+  {
+    "slug": "runlog-day-5-day5-ambient-l94",
+    "type": "run_log_entry",
+    "date": "2026-05-21",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L94"
+  },
+  {
+    "slug": "runlog-day-5-day5-block1-problemset-l84",
+    "type": "run_log_entry",
+    "date": "2026-05-21",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L84"
+  },
+  {
+    "slug": "runlog-day-5-day5-block1-reading-l83",
+    "type": "run_log_entry",
+    "date": "2026-05-21",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L83"
+  },
+  {
+    "slug": "runlog-day-5-day5-block2-ml-intern-router-l85",
+    "type": "run_log_entry",
+    "date": "2026-05-21",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L85"
+  },
+  {
+    "slug": "runlog-day-5-day5-block2-pipeline-fallback-l87",
+    "type": "run_log_entry",
+    "date": "2026-05-21",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L87"
+  },
+  {
+    "slug": "runlog-day-5-day5-block2-pipeline-implementation-l88",
+    "type": "run_log_entry",
+    "date": "2026-05-21",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L88"
+  },
+  {
+    "slug": "runlog-day-5-day5-block2-pipeline-implementation-l90",
+    "type": "run_log_entry",
+    "date": "2026-05-21",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L90"
+  },
+  {
+    "slug": "runlog-day-5-day5-block2-retrieval-test-l91",
+    "type": "run_log_entry",
+    "date": "2026-05-21",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L91"
+  },
+  {
+    "slug": "runlog-day-5-day5-block3-journal-l92",
+    "type": "run_log_entry",
+    "date": "2026-05-21",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L92"
+  },
+  {
+    "slug": "runlog-day-5-day5-block3-reading-l93",
+    "type": "run_log_entry",
+    "date": "2026-05-21",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L93"
+  },
+  {
+    "slug": "runlog-day-5-day5-end-of-day-artifacts-l96",
+    "type": "run_log_entry",
+    "date": "2026-05-21",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L96"
+  },
+  {
+    "slug": "runlog-day-5-merge-track-c-day5-inspect-run-l95",
+    "type": "run_log_entry",
+    "date": "2026-05-21",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L95"
+  },
+  {
+    "slug": "runlog-day-5-merge-track-d-day5-ui-sync-l89",
+    "type": "run_log_entry",
+    "date": "2026-05-21",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L89"
+  },
+  {
+    "slug": "runlog-day-5-state-transition-l81",
+    "type": "run_log_entry",
+    "date": "2026-05-21",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L81"
+  },
+  {
+    "slug": "runlog-day-5-state-transition-l86",
+    "type": "run_log_entry",
+    "date": "2026-05-21",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L86"
+  },
+  {
+    "slug": "runlog-day-6-day6-ambient-l108",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L108"
+  },
+  {
+    "slug": "runlog-day-6-day6-block1-problemset-l100",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L100"
+  },
+  {
+    "slug": "runlog-day-6-day6-block1-reading-l98",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L98"
+  },
+  {
+    "slug": "runlog-day-6-day6-block1-reading-l99",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L99"
+  },
+  {
+    "slug": "runlog-day-6-day6-block2-inspect-run-cli-l105",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L105"
+  },
+  {
+    "slug": "runlog-day-6-day6-block2-orchestrator-router-l102",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L102"
+  },
+  {
+    "slug": "runlog-day-6-day6-block2-orchestrator-with-fallback-l103",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L103"
+  },
+  {
+    "slug": "runlog-day-6-day6-block2-robustness-mini-l104",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L104"
+  },
+  {
+    "slug": "runlog-day-6-day6-block2-worker-contract-l101",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L101"
+  },
+  {
+    "slug": "runlog-day-6-day6-block3-journal-l107",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L107"
+  },
+  {
+    "slug": "runlog-day-6-day6-block3-reading-l106",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L106"
+  },
+  {
+    "slug": "runlog-day-6-day6-end-of-day-artifacts-l109",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L109"
+  },
+  {
+    "slug": "runlog-day-6-day6-start-l97",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L97"
+  },
+  {
+    "slug": "runlog-day-7-d028-locked-cooperation-lockin-and-no-publish-disposition-l135",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L135"
+  },
+  {
+    "slug": "runlog-day-7-day7-1-block2-run-experiment-l118",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L118"
+  },
+  {
+    "slug": "runlog-day-7-day7-2-block2-run-experiment-l120",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L120"
+  },
+  {
+    "slug": "runlog-day-7-day7-3-block2-run-experiment-l122",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L122"
+  },
+  {
+    "slug": "runlog-day-7-day7-ambient-l128",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L128"
+  },
+  {
+    "slug": "runlog-day-7-day7-block1-reading-l111",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L111"
+  },
+  {
+    "slug": "runlog-day-7-day7-block2-openspiel-up-l112",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L112"
+  },
+  {
+    "slug": "runlog-day-7-day7-block2-precompute-expected-range-l115",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L115"
+  },
+  {
+    "slug": "runlog-day-7-day7-block2-quicklook-l124",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L124"
+  },
+  {
+    "slug": "runlog-day-7-day7-block2-run-experiment-l116",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L116"
+  },
+  {
+    "slug": "runlog-day-7-day7-block2-strategies-and-llm-agent-l113",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L113"
+  },
+  {
+    "slug": "runlog-day-7-day7-block2-strategies-and-llm-agent-l114",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L114"
+  },
+  {
+    "slug": "runlog-day-7-day7-block3-journal-weekly-synthesis-l126",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L126"
+  },
+  {
+    "slug": "runlog-day-7-day7-block3-reading-l127",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L127"
+  },
+  {
+    "slug": "runlog-day-7-day7-publication-review-gate-cleared-l136",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L136"
+  },
+  {
+    "slug": "runlog-day-7-day7-publication-review-gate-l125",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L125"
+  },
+  {
+    "slug": "runlog-day-7-day7-start-l110",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L110"
+  },
+  {
+    "slug": "runlog-day-7-day7-state-close-out-and-advance-to-day-8-l137",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L137"
+  },
+  {
+    "slug": "runlog-day-7-day8-entry-cleanup-stray-files-l134",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L134"
+  },
+  {
+    "slug": "runlog-day-7-merge-track-b-day7-tools-tests-l129",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L129"
+  },
+  {
+    "slug": "runlog-day-7-merge-track-c-day7-cron-sla-l130",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L130"
+  },
+  {
+    "slug": "runlog-day-7-merge-track-d-day7-eod-l133",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L133"
+  },
+  {
+    "slug": "runlog-day-7-rectify-malformed-run-log-lines-l131",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L131"
+  },
+  {
+    "slug": "runlog-day-7-retrospective-recorded-l132",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L132"
+  },
+  {
+    "slug": "runlog-day-7-slip-declared-l117",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L117"
+  },
+  {
+    "slug": "runlog-day-7-slip-declared-l119",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L119"
+  },
+  {
+    "slug": "runlog-day-7-slip-declared-l121",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L121"
+  },
+  {
+    "slug": "runlog-day-7-slip-resolved-l123",
+    "type": "run_log_entry",
+    "date": "2026-05-23",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L123"
+  },
+  {
+    "slug": "runlog-day-8-d029-ownership-yaml-v2-l141",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L141"
+  },
+  {
+    "slug": "runlog-day-8-day-end-l154",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L154"
+  },
+  {
+    "slug": "runlog-day-8-day-start-l138",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L138"
+  },
+  {
+    "slug": "runlog-day-8-day8-block2-draft-day8-plan-l139",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L139"
+  },
+  {
+    "slug": "runlog-day-8-day8-block2-merge-track-b-schemas-l143",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L143"
+  },
+  {
+    "slug": "runlog-day-8-day8-block2-merge-track-c-fixtures-l144",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L144"
+  },
+  {
+    "slug": "runlog-day-8-day8-block2-merge-track-d-ui-v1-l142",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L142"
+  },
+  {
+    "slug": "runlog-day-8-day8-block2-ui-v1-verification-l146",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L146"
+  },
+  {
+    "slug": "runlog-day-8-day8-block2-verify-concurrency-infra-l140",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L140"
+  },
+  {
+    "slug": "runlog-day-8-day8-block2-week2-unlock-attestation-l147",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L147"
+  },
+  {
+    "slug": "runlog-day-8-day8-block2-week2-unlock-attestation-l148",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L148"
+  },
+  {
+    "slug": "runlog-day-8-day8-block3-journal-l152",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L152"
+  },
+  {
+    "slug": "runlog-day-8-day8-carryover-verifier-naming-drift-l151",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L151"
+  },
+  {
+    "slug": "runlog-day-8-day8-end-of-day-artifacts-l153",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L153"
+  },
+  {
+    "slug": "runlog-day-8-post-merge-concurrency-infra-check-l145",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L145"
+  },
+  {
+    "slug": "runlog-day-8-retrospective-recorded-l149",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L149"
+  },
+  {
+    "slug": "runlog-day-8-tier-shift-l150",
+    "type": "run_log_entry",
+    "date": "2026-05-24",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L150"
+  },
+  {
     "slug": "skill-auto-experiment",
     "type": "skill",
     "date": "",
@@ -1996,6 +2920,18 @@
     "type": "skill",
     "date": "",
     "title": "validate \u2014 Layer A / core"
+  },
+  {
+    "slug": "spawn-sp-001",
+    "type": "spawn",
+    "date": "2026-05-25",
+    "title": "SP-001 \u2014 count_brain_edges"
+  },
+  {
+    "slug": "spawn-sp-002",
+    "type": "spawn",
+    "date": "2026-05-25",
+    "title": "SP-002 \u2014 sp_002_skill_frontmatter_audit"
   },
   {
     "slug": "stage-iter-2026-05-26-001-journal-writer-stub-1",

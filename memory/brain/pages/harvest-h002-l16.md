@@ -5,6 +5,8 @@ date: "2026-05-21"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-investigate", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-2-day2-throughput-investigation-l37", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-3-day3-needle-characterization-l52", dst_type: "run_log_entry"}
 ---
 
 # H002 — investigate:confirmed
@@ -24,3 +26,5 @@ _week1.run.jsonl L37,L52_
 ## Links
 
 - **about** → `skill-investigate` (skill)
+- **observed_in** → `runlog-day-2-day2-throughput-investigation-l37` (run_log_entry)
+- **observed_in** → `runlog-day-3-day3-needle-characterization-l52` (run_log_entry)

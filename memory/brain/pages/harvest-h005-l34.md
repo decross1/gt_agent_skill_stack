@@ -5,6 +5,8 @@ date: "2026-05-24"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-gate-check", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-7-day7-publication-review-gate-l125", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-7-retrospective-recorded-l132", dst_type: "run_log_entry"}
 ---
 
 # H005 — gate-check:confirmed
@@ -24,3 +26,5 @@ _week1.run.jsonl L125 (gate_armed) + L132 (retrospective_recorded, attestation)_
 ## Links
 
 - **about** → `skill-gate-check` (skill)
+- **observed_in** → `runlog-day-7-day7-publication-review-gate-l125` (run_log_entry)
+- **observed_in** → `runlog-day-7-retrospective-recorded-l132` (run_log_entry)

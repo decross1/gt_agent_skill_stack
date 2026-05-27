@@ -5,6 +5,7 @@ date: "2026-05-22"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-repro-check", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-5-day5-block2-pipeline-implementation-l90", dst_type: "run_log_entry"}
 ---
 
 # H003 — repro-check:friction
@@ -26,3 +27,4 @@ _week1.run.jsonl L90 task=day5_block2_pipeline_implementation_
 ## Links
 
 - **about** → `skill-repro-check` (skill)
+- **observed_in** → `runlog-day-5-day5-block2-pipeline-implementation-l90` (run_log_entry)

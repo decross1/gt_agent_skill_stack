@@ -5,6 +5,8 @@ date: "2026-05-25"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-gate-check", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-8-day8-block2-week2-unlock-attestation-l147", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-8-day8-block2-week2-unlock-attestation-l148", dst_type: "run_log_entry"}
 ---
 
 # H007 — gate-check:confirmed
@@ -24,3 +26,5 @@ _week1.run.jsonl L147 (gate_armed) + L148 (passed)_
 ## Links
 
 - **about** → `skill-gate-check` (skill)
+- **observed_in** → `runlog-day-8-day8-block2-week2-unlock-attestation-l147` (run_log_entry)
+- **observed_in** → `runlog-day-8-day8-block2-week2-unlock-attestation-l148` (run_log_entry)

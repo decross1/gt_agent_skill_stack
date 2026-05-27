@@ -37,6 +37,7 @@ FW_DECISIONS = REPO / "memory" / "DECISIONS.md"
 AP_DECISIONS = CONSUMER / "DECISIONS.md"
 FEEDBACK = REPO / "memory" / "feedback.jsonl"
 RULES_MD = REPO / "memory" / "brain" / "rules.md"
+SPAWN_LEDGER = REPO / "run_state" / "spawn.jsonl"
 
 # Apparatus files read directly for stage synthesis (read-only — brain firewall).
 # loop_memory.jsonl moved from run_state/ to memory/ at some point; try both.
@@ -209,12 +210,19 @@ def kind_from_narrative(n: dict) -> tuple[str, str]:
       iteration          — LOOP_V0 iteration record (one per research iteration)
       orchestrator_event — Nara's loop_v0_* events (tool_dispatch/receipt, start/complete)
       llm_call           — a vLLM wrapper call (one per request_id)
+      run_log_entry      — a canonical [[run-log]] task record (task_id + status + observable_*)
       apparatus_event    — catch-all fallback for unrecognized apparatus shapes
     """
     agent_id = (n.get("agent_id") or "").strip()
     src_file = (n.get("_source") or {}).get("file", "")
     consumer = "a_bgt_rsi"
+    slug = (n.get("_slug") or "")
 
+    # Run-log task records carry a `runlog-` slug prefix (set by
+    # ingest_apparatus::project_run_log_entry). They predate LOOP_V0 in
+    # week1.run.jsonl and are the primary signal harvest findings cite.
+    if slug.startswith("runlog-"):
+        return ("run_log_entry", f"{consumer}: Nara")
     if src_file == "loop_memory.jsonl" or agent_id == "nara":
         return ("iteration", f"{consumer}: Nara")
     if src_file == "week1.run.jsonl" or agent_id.startswith("nara:") or agent_id.startswith("orchestrator:"):
@@ -999,10 +1007,100 @@ def synthesize_agent_skill_entities(
                 "src_type": "harvest_finding",
                 "type": "observed_in",
                 "dst": dst_slug,
-                "dst_type": "apparatus_event",
+                "dst_type": "run_log_entry",
                 "source_event": f"agent_link:{hid}:ref",
                 "agent_id": "project_pages:synthesize_agent_skill_entities",
             })
+
+    return entities, edges
+
+
+# ---------------------------------------------------------------------------
+# Spawn ledger projection — N3 framework side.
+#
+# Each spawn_id can have multiple entries (status transitions). Collapse to
+# the latest per spawn_id for the entity body; preserve all entries' edges.
+#
+# Edges:
+#   spawn --executed_by--> agent (canonicalized from contract or default)
+#   spawn --uses--> skill         (one per skill in contract.skill_subset)
+#   run_log_entry --spawned--> spawn (parent_task_id maps to a run-log slug if present)
+# ---------------------------------------------------------------------------
+
+def synthesize_spawn_entities(
+    skill_slug_by_name: dict[str, str],
+    agent_slug_by_canonical: dict[str, str],
+) -> tuple[list[dict], list[dict]]:
+    if not SPAWN_LEDGER.exists():
+        return [], []
+    rows = load_jsonl(SPAWN_LEDGER)
+    # Latest entry per spawn_id wins for the displayed state.
+    latest: dict[str, dict] = {}
+    first: dict[str, dict] = {}
+    for r in sorted(rows, key=lambda r: r.get("timestamp", "")):
+        sid = r.get("spawn_id")
+        if not sid:
+            continue
+        first.setdefault(sid, r)
+        latest[sid] = r
+
+    entities: list[dict] = []
+    edges: list[dict] = []
+    for sid, latest_row in latest.items():
+        first_row = first[sid]
+        contract = (first_row.get("contract") or {})
+        status = latest_row.get("status", "?")
+        slug = slugify(f"spawn-{sid}")
+        body_parts = [
+            f"**Status:** `{status}`",
+            f"**Parent task:** `{first_row.get('parent_task_id','?')}`",
+            f"**Child task:** `{first_row.get('child_task_id','?')}`",
+            f"**Task statement:** {contract.get('task_statement','')}",
+            f"**Done condition:** {contract.get('done_condition','')}",
+        ]
+        if contract.get("state_basis"):
+            body_parts.append(f"**State basis:** `{contract['state_basis']}`")
+        if contract.get("skill_subset"):
+            body_parts.append(
+                "**Skill subset:** " + ", ".join(f"`{s}`" for s in contract["skill_subset"])
+            )
+        if contract.get("authority_cap"):
+            body_parts.append(f"**Authority cap:** {contract['authority_cap']}")
+        budget = contract.get("budget") or {}
+        if budget:
+            body_parts.append(
+                f"**Budget:** wall_time={budget.get('wall_time_seconds')}s "
+                f"iterations={budget.get('iterations')} cost_usd={budget.get('cost_usd')}"
+            )
+        result = latest_row.get("result") or {}
+        if result.get("done_condition_check"):
+            body_parts.append(f"**Done condition check:** `{result['done_condition_check']}`")
+        if result.get("child_summary"):
+            body_parts.append(f"**Child summary:** {result['child_summary'][:400]}")
+        entities.append({
+            "slug": slug,
+            "type": "spawn",
+            "date": (first_row.get("timestamp") or "")[:10],
+            "title": f"{sid} — {first_row.get('child_task_id','spawn')}",
+            "subtitle": f"status: {status}",
+            "body": "\n\n".join(body_parts),
+            "source": "run_state/spawn.jsonl",
+        })
+
+        # spawn -uses-> skill (one per skill_subset entry)
+        for s_name in contract.get("skill_subset") or []:
+            sk = skill_slug_by_name.get(s_name)
+            if sk:
+                edges.append({
+                    "timestamp": first_row.get("timestamp", ""),
+                    "src": slug,
+                    "src_type": "spawn",
+                    "type": "uses",
+                    "dst": sk,
+                    "dst_type": "skill",
+                    "source_event": f"spawn:{sid}",
+                    "agent_id": "project_pages:synthesize_spawn_entities",
+                })
 
     return entities, edges
 
@@ -1043,14 +1141,23 @@ def main() -> int:
     # more than older for daily use — sort apparatus narratives by timestamp
     # descending and take the first N. Non-apparatus narratives all get pages.
     #
+    # Run-log task records (slug prefix `runlog-`) are primary signal — they
+    # don't compete for the apparatus_pages_cap; all are projected. The cap
+    # only governs noisier mechanical events (orchestrator_event, llm_call).
+    #
     # Exception: any apparatus event referenced by a harvest finding's `ref`
     # field is force-kept regardless of cap. Otherwise findings dating back
     # to H001 (2026-05-21) would orphan into the void — observed_in edges
     # would never resolve.
     entities: dict[str, dict] = {}
     apparatus_narrs = [n for n in narratives if n.get("type") == "apparatus_event"]
-    apparatus_narrs.sort(key=lambda n: n.get("timestamp", ""), reverse=True)
-    apparatus_kept = apparatus_narrs[:args.apparatus_pages_cap]
+    runlog_narrs = [n for n in apparatus_narrs if (n.get("_slug") or "").startswith("runlog-")]
+    event_narrs = [n for n in apparatus_narrs if not (n.get("_slug") or "").startswith("runlog-")]
+    event_narrs.sort(key=lambda n: n.get("timestamp", ""), reverse=True)
+    apparatus_kept = event_narrs[:args.apparatus_pages_cap] + runlog_narrs
+    # rebind for the rest of main() — the "apparatus_narrs" name is still
+    # used below by the force-keep / referenced-by-findings block.
+    apparatus_narrs = apparatus_kept + [n for n in event_narrs[args.apparatus_pages_cap:]]
     kept_apparatus_lines = {(n.get("_source", {}).get("file"), n.get("_source", {}).get("line"))
                             for n in apparatus_kept}
 
@@ -1109,7 +1216,8 @@ def main() -> int:
     # only target events that survived the apparatus_pages_cap.
     apparatus_slugs = {
         slug for slug, e in entities.items()
-        if e.get("type") in ("apparatus_event", "orchestrator_event", "llm_call", "iteration")
+        if e.get("type") in ("apparatus_event", "orchestrator_event", "llm_call",
+                              "iteration", "run_log_entry")
     }
     # Build a (filename, line) -> slug index so the synthesizer can resolve
     # finding refs against the actual narrative _slug field (which doesn't
@@ -1128,6 +1236,28 @@ def main() -> int:
         slug_by_file_line=slug_by_file_line,
     )
     for e in agent_skill_entities:
+        entities[e["slug"]] = e
+
+    # Spawn ledger entities + edges (run_state/spawn.jsonl). Cheap projection:
+    # one entity per spawn_id with edges to its skill_subset.
+    skill_slug_by_name = {
+        e["slug"].removeprefix("skill-"): e["slug"]
+        for e in agent_skill_entities if e["type"] == "skill"
+    }
+    # Rebuild via slugify since removeprefix gives back the slug not the
+    # original skill name (e.g. "run-log" not "run_log") — fix by mapping.
+    skill_slug_by_name = {}
+    for skill_meta in load_skills():
+        nm = skill_meta["name"]
+        skill_slug_by_name[nm] = slugify(f"skill-{nm}")
+    agent_slug_by_canonical = {
+        e["slug"].removeprefix("agent-"): e["slug"]
+        for e in agent_skill_entities if e["type"] == "agent"
+    }
+    spawn_entities, spawn_edges = synthesize_spawn_entities(
+        skill_slug_by_name, agent_slug_by_canonical,
+    )
+    for e in spawn_entities:
         entities[e["slug"]] = e
 
     # Suppress redundant iter -> {event, call} edges where a stage already
@@ -1151,7 +1281,7 @@ def main() -> int:
             suppressed += 1
             continue
         filtered_canonical.append(e)
-    edges = filtered_canonical + stage_edges + loop_edges + agent_skill_edges
+    edges = filtered_canonical + stage_edges + loop_edges + agent_skill_edges + spawn_edges
 
     # Group edges by src and dst.
     out_edges: dict[str, list[dict]] = defaultdict(list)

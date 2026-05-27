@@ -5,6 +5,14 @@ date: "2026-05-24"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-fallback", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-7-day7-block2-run-experiment-l116", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-7-slip-declared-l117", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-7-day7-1-block2-run-experiment-l118", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-7-slip-declared-l119", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-7-day7-2-block2-run-experiment-l120", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-7-slip-declared-l121", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-7-day7-3-block2-run-experiment-l122", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-7-slip-resolved-l123", dst_type: "run_log_entry"}
 ---
 
 # H005 — fallback:gap
@@ -26,3 +34,11 @@ _week1.run.jsonl L116-L123 (slip ladder day7.1/7.2/7.3 → resolved)_
 ## Links
 
 - **about** → `skill-fallback` (skill)
+- **observed_in** → `runlog-day-7-day7-block2-run-experiment-l116` (run_log_entry)
+- **observed_in** → `runlog-day-7-slip-declared-l117` (run_log_entry)
+- **observed_in** → `runlog-day-7-day7-1-block2-run-experiment-l118` (run_log_entry)
+- **observed_in** → `runlog-day-7-slip-declared-l119` (run_log_entry)
+- **observed_in** → `runlog-day-7-day7-2-block2-run-experiment-l120` (run_log_entry)
+- **observed_in** → `runlog-day-7-slip-declared-l121` (run_log_entry)
+- **observed_in** → `runlog-day-7-day7-3-block2-run-experiment-l122` (run_log_entry)
+- **observed_in** → `runlog-day-7-slip-resolved-l123` (run_log_entry)

@@ -5,6 +5,7 @@ date: "2026-05-25"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-validate", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-8-day8-block2-verify-concurrency-infra-l140", dst_type: "run_log_entry"}
 ---
 
 # H007 — validate:confirmed
@@ -24,3 +25,4 @@ _week1.run.jsonl L140 task=day8_block2_verify_concurrency_infra_
 ## Links
 
 - **about** → `skill-validate` (skill)
+- **observed_in** → `runlog-day-8-day8-block2-verify-concurrency-infra-l140` (run_log_entry)

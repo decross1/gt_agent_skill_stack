@@ -158,6 +158,31 @@ def project_generic(src: dict) -> dict:
     }
 
 
+# Run-log task-record shape: task_id + status + observable_* — matches the
+# canonical [[run-log]] entry schema. Distinct from loop_v0_* events that
+# carry event_type. Used to project pre-LOOP_V0 day-task records from
+# week1.run.jsonl (L1-L171) so harvest findings can edge into them.
+def project_run_log_entry(src: dict, lineno: int) -> dict:
+    task_id = src.get("task_id", "")
+    status = src.get("status", "")
+    day_id = src.get("day_id", "")
+    task_slug = _slugify(task_id) if task_id else f"l{lineno}"
+    # Slug carries day_id + task_id + lineno so a task run multiple times
+    # (failed → passed) gets distinct slugs across its lifecycle entries.
+    return {
+        "agent_id": src.get("agent") or "nara",  # forward path: agent field
+        "task_id": task_id or f"week1_L{lineno}",
+        "intent": _trim(src.get("observable_expected") or "", 200),
+        "did": _trim(src.get("observable_actual") or "", 240),
+        "observed": (
+            f"status={status} day={day_id} "
+            f"duration_ms={src.get('duration_ms', 0)} "
+            f"fallback={src.get('fallback_taken', None)}"
+        ),
+        "_slug": _slugify(f"runlog-{day_id}-{task_slug}-l{lineno}"),
+    }
+
+
 def project(src: dict, lineno: int, strict: bool) -> dict | None:
     """Dispatch to the right projection. Returns None to skip (state-dir strict mode)."""
     if "iteration_id" in src and "seed" in src and "nara_summary" in src:
@@ -168,6 +193,12 @@ def project(src: dict, lineno: int, strict: bool) -> dict | None:
         return project_orchestrator(src)
     if "prompt_messages" in src and "completion" in src:
         return project_vllm_call(src)
+    # Run-log task records — has task_id + status + observable_*. Allowed even
+    # in strict mode: these are the brain's primary signal per the
+    # `[[run-log]]` schema; skipping them in strict-mode broke observed_in.
+    if (src.get("task_id") and src.get("status")
+            and ("observable_actual" in src or "observable_expected" in src)):
+        return project_run_log_entry(src, lineno)
     if strict:
         return None
     return project_generic(src)

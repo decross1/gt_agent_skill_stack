@@ -135,7 +135,15 @@
     "s24a_force_keep_referenced_apparatus_events",
     "s24a_graph_html_actors_group_typecolors",
     "s24a_decision_run_log_schema_correction",
-    "s24a_validate"
+    "s24a_validate",
+    "p1_loosen_ingest_run_log_entries",
+    "p1_runlog_pages_no_cap_competition",
+    "n1_stage_sidebar_1liner",
+    "n3_p004_state_basis_on_spawn_contract",
+    "n3_project_spawn_entities",
+    "n3_close_p004",
+    "n4_brain_snapshot_script",
+    "n4_resume_state_briefing_step"
   ],
   "gates": {
     "pending": [],
@@ -172,7 +180,7 @@
     "phase_3_5_progress": "B0 ✅, B1 ✅, B2 ✅, B3 ✅ — COMPLETE",
     "phase_4_progress": "S17 Pi-readiness audit ✅, S18 install/discovery abstraction ✅; S19-S20 uplift test DEFERRED 2026-05-24 by human choice (gate cleared as deferred)",
     "phase_5_progress": "S21 spawn-contract ✅; S22 real autonomous spawn ✅ (→ P-004 open); S23 vertical packs ✅ (pack-aware install on backlog); S23.5 brain UX cleanup ✅ (apparatus filtered default, dark-mode contrast, time scrubber, freshness stamp — 3 new open proposals: P-005 agent-view, P-006 feedback-loop, P-007 live-ish); S24 v1.0 pending",
-    "horizon_progress": "N2 ✅ proposal_health.py baseline run (kill-switch clear: 50% accepted-uncommitted, all auto-rejects cite rules); P-006 ✅ harvest_finding/proposal/rule promoted to first-class graph nodes with chain edges (harvest→propose, decision→enacts→rule, proposal→auto_rejected_by→rule); S24a ✅ run-log schema extended with `agent` (required) + `skill_used` (optional) per FR-003; agent and skill projected as first-class entities (4 agents: nara/claude-code-main/day9_critic/human:decross1; 24 skills) with edges agent→ran→iteration, agent→authored→reflection, harvest_finding→about→skill, proposal→targets→skill; observed_in edges mechanically ready but limited by ingest strict-mode (pre-LOOP_V0 task records aren't projected as narratives — known limitation, separate decision); N1, N3, N4 pending; P-004 deferred to N3",
+    "horizon_progress": "N2 ✅ proposal_health.py; P-006 ✅ loop entities; S24a ✅ run-log schema (agent + skill_used → FR-003) + agent/skill projection; Phase 1 ✅ ingest loosened — run_log_entry projected (154 from week1.run.jsonl L1-L171), observed_in coverage 38/42 findings; N1 ✅ stage 1-liner; N3 ✅ P-004 closed (state_basis on spawn-contract), 2 spawn entities projected with uses→skill edges; N4 ✅ scripts/brain_snapshot.py + resume-state briefing step 8; remaining horizon: none queued — next is harvest pass to test feedback loop on this work",
     "runtime_safe_core": ["fallback","gate-check","resume-state","run-log","validate","spawn-contract"]
   },
   "deferred": {

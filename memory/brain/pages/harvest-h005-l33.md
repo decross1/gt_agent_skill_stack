@@ -5,6 +5,7 @@ date: "2026-05-24"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-orchestrate", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-7-merge-track-d-day7-eod-l133", dst_type: "run_log_entry"}
 ---
 
 # H005 — orchestrate:friction
@@ -26,3 +27,4 @@ _week1.run.jsonl L133 task=merge_track_d_day7_eod_
 ## Links
 
 - **about** → `skill-orchestrate` (skill)
+- **observed_in** → `runlog-day-7-merge-track-d-day7-eod-l133` (run_log_entry)

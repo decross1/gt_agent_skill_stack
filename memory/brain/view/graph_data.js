@@ -22,7 +22,7 @@ window.BRAIN_GRAPH = {
     {
       "slug": "agent-nara",
       "type": "agent",
-      "date": "2026-05-23",
+      "date": "2026-05-17",
       "title": "Agent \u2014 nara"
     },
     {
@@ -1856,6 +1856,930 @@ window.BRAIN_GRAPH = {
       "title": "FR-003 \u2014 run-log schema: agent (required) and skill_used (optional)"
     },
     {
+      "slug": "runlog-day-1-day-1-start-l1",
+      "type": "run_log_entry",
+      "date": "2026-05-17",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1"
+    },
+    {
+      "slug": "runlog-day-1-day1-block1-problemset-l10",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L10"
+    },
+    {
+      "slug": "runlog-day-1-day1-block1-reading-l9",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L9"
+    },
+    {
+      "slug": "runlog-day-1-day1-block2-bench-l23",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L23"
+    },
+    {
+      "slug": "runlog-day-1-day1-block2-bench-l24",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L24"
+    },
+    {
+      "slug": "runlog-day-1-day1-block2-docker-config-l13",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L13"
+    },
+    {
+      "slug": "runlog-day-1-day1-block2-docker-config-l14",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L14"
+    },
+    {
+      "slug": "runlog-day-1-day1-block2-firmware-l12",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L12"
+    },
+    {
+      "slug": "runlog-day-1-day1-block2-nemoclaw-fallback-l26",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L26"
+    },
+    {
+      "slug": "runlog-day-1-day1-block2-nemoclaw-router-l25",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L25"
+    },
+    {
+      "slug": "runlog-day-1-day1-block2-unbox-l11",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L11"
+    },
+    {
+      "slug": "runlog-day-1-day1-block2-vllm-serve-l15",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L15"
+    },
+    {
+      "slug": "runlog-day-1-day1-block2-vllm-serve-l16",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L16"
+    },
+    {
+      "slug": "runlog-day-1-day1-block2-vllm-serve-l17",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L17"
+    },
+    {
+      "slug": "runlog-day-1-day1-block2-vllm-serve-l18",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L18"
+    },
+    {
+      "slug": "runlog-day-1-day1-block2-vllm-serve-l19",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L19"
+    },
+    {
+      "slug": "runlog-day-1-day1-block2-vllm-serve-l20",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L20"
+    },
+    {
+      "slug": "runlog-day-1-day1-block2-vllm-serve-l21",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L21"
+    },
+    {
+      "slug": "runlog-day-1-day1-block3-journal-l27",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L27"
+    },
+    {
+      "slug": "runlog-day-1-day1-end-of-day-artifacts-l28",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L28"
+    },
+    {
+      "slug": "runlog-day-1-preflight-credentials-staged-l2",
+      "type": "run_log_entry",
+      "date": "2026-05-17",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L2"
+    },
+    {
+      "slug": "runlog-day-1-preflight-credentials-staged-l3",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L3"
+    },
+    {
+      "slug": "runlog-day-1-preflight-failure-walkthroughs-l7",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L7"
+    },
+    {
+      "slug": "runlog-day-1-preflight-physical-setup-l8",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L8"
+    },
+    {
+      "slug": "runlog-day-1-preflight-software-prestaged-l4",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L4"
+    },
+    {
+      "slug": "runlog-day-1-preflight-software-prestaged-l6",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L6"
+    },
+    {
+      "slug": "runlog-day-1-state-transition-l22",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L22"
+    },
+    {
+      "slug": "runlog-day-1-state-transition-l5",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L5"
+    },
+    {
+      "slug": "runlog-day-2-day2-ambient-l42",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L42"
+    },
+    {
+      "slug": "runlog-day-2-day2-block1-problemset-l31",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L31"
+    },
+    {
+      "slug": "runlog-day-2-day2-block1-reading-l30",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L30"
+    },
+    {
+      "slug": "runlog-day-2-day2-block2-50call-sweep-l34",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L34"
+    },
+    {
+      "slug": "runlog-day-2-day2-block2-50call-sweep-l39",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L39"
+    },
+    {
+      "slug": "runlog-day-2-day2-block2-jsonl-schema-l32",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L32"
+    },
+    {
+      "slug": "runlog-day-2-day2-block2-wrapper-implementation-l33",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L33"
+    },
+    {
+      "slug": "runlog-day-2-day2-block3-journal-l43",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L43"
+    },
+    {
+      "slug": "runlog-day-2-day2-block3-reading-l41",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L41"
+    },
+    {
+      "slug": "runlog-day-2-day2-end-of-day-artifacts-l44",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L44"
+    },
+    {
+      "slug": "runlog-day-2-day2-throughput-investigation-l37",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L37"
+    },
+    {
+      "slug": "runlog-day-2-day2-throughput-mtp-enablement-l38",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L38"
+    },
+    {
+      "slug": "runlog-day-2-state-transition-l29",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L29"
+    },
+    {
+      "slug": "runlog-day-2-state-transition-l35",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L35"
+    },
+    {
+      "slug": "runlog-day-2-state-transition-l36",
+      "type": "run_log_entry",
+      "date": "2026-05-18",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L36"
+    },
+    {
+      "slug": "runlog-day-2-state-transition-l40",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L40"
+    },
+    {
+      "slug": "runlog-day-3-5-day3-5-block2-events-schema-l66",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L66"
+    },
+    {
+      "slug": "runlog-day-3-5-day3-5-block2-retrieval-context-field-l65",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L65"
+    },
+    {
+      "slug": "runlog-day-3-5-day3-5-block2-wrapper-retrieval-passthrough-l67",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L67"
+    },
+    {
+      "slug": "runlog-day-3-5-day3-5-block3-claudemd-prose-l61",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L61"
+    },
+    {
+      "slug": "runlog-day-3-5-day3-5-block3-claudemd-prose-l68",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L68"
+    },
+    {
+      "slug": "runlog-day-3-5-day3-5-end-of-day-artifacts-l69",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L69"
+    },
+    {
+      "slug": "runlog-day-3-5-merge-track-b-schemas-l64",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L64"
+    },
+    {
+      "slug": "runlog-day-3-adversarial-review-integration-l57",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L57"
+    },
+    {
+      "slug": "runlog-day-3-day3-block1-problemset-l47",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L47"
+    },
+    {
+      "slug": "runlog-day-3-day3-block1-reading-l46",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L46"
+    },
+    {
+      "slug": "runlog-day-3-day3-block2-chroma-install-l48",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L48"
+    },
+    {
+      "slug": "runlog-day-3-day3-block2-chunking-and-ingest-script-l49",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L49"
+    },
+    {
+      "slug": "runlog-day-3-day3-block2-full-ingest-l50",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L50"
+    },
+    {
+      "slug": "runlog-day-3-day3-block2-needle-haystack-l51",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L51"
+    },
+    {
+      "slug": "runlog-day-3-day3-needle-characterization-l52",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L52"
+    },
+    {
+      "slug": "runlog-day-3-merge-track-b-l58",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L58"
+    },
+    {
+      "slug": "runlog-day-3-merge-track-c-l59",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L59"
+    },
+    {
+      "slug": "runlog-day-3-merge-track-d-l60",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L60"
+    },
+    {
+      "slug": "runlog-day-3-state-transition-l45",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L45"
+    },
+    {
+      "slug": "runlog-day-3-state-transition-l53",
+      "type": "run_log_entry",
+      "date": "2026-05-19",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L53"
+    },
+    {
+      "slug": "runlog-day-3-track-review-track-b-l54",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L54"
+    },
+    {
+      "slug": "runlog-day-3-track-review-track-c-l55",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L55"
+    },
+    {
+      "slug": "runlog-day-3-track-review-track-d-l56",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L56"
+    },
+    {
+      "slug": "runlog-day-4-day4-block1-problemset-l63",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L63"
+    },
+    {
+      "slug": "runlog-day-4-day4-block1-reading-l62",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L62"
+    },
+    {
+      "slug": "runlog-day-4-day4-block2-e2e-test-l73",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L73"
+    },
+    {
+      "slug": "runlog-day-4-day4-block2-mock-tool-l70",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L70"
+    },
+    {
+      "slug": "runlog-day-4-day4-block2-robustness-l74",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L74"
+    },
+    {
+      "slug": "runlog-day-4-day4-block2-wrapper-tools-l71",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L71"
+    },
+    {
+      "slug": "runlog-day-4-day4-block3-journal-l75",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L75"
+    },
+    {
+      "slug": "runlog-day-4-day4-end-of-day-artifacts-l76",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L76"
+    },
+    {
+      "slug": "runlog-day-4-day4-post-review-b1-fix-l77",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L77"
+    },
+    {
+      "slug": "runlog-day-4-day4-post-review-nits-l78",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L78"
+    },
+    {
+      "slug": "runlog-day-4-day4-vllm-restart-for-tool-calling-l72",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L72"
+    },
+    {
+      "slug": "runlog-day-4-merge-track-c-day4-pd-strategies-l79",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L79"
+    },
+    {
+      "slug": "runlog-day-4-merge-track-d-day4-ui-sync-l80",
+      "type": "run_log_entry",
+      "date": "2026-05-20",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L80"
+    },
+    {
+      "slug": "runlog-day-5-day4-carryover-resolution-l82",
+      "type": "run_log_entry",
+      "date": "2026-05-21",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L82"
+    },
+    {
+      "slug": "runlog-day-5-day5-ambient-l94",
+      "type": "run_log_entry",
+      "date": "2026-05-21",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L94"
+    },
+    {
+      "slug": "runlog-day-5-day5-block1-problemset-l84",
+      "type": "run_log_entry",
+      "date": "2026-05-21",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L84"
+    },
+    {
+      "slug": "runlog-day-5-day5-block1-reading-l83",
+      "type": "run_log_entry",
+      "date": "2026-05-21",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L83"
+    },
+    {
+      "slug": "runlog-day-5-day5-block2-ml-intern-router-l85",
+      "type": "run_log_entry",
+      "date": "2026-05-21",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L85"
+    },
+    {
+      "slug": "runlog-day-5-day5-block2-pipeline-fallback-l87",
+      "type": "run_log_entry",
+      "date": "2026-05-21",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L87"
+    },
+    {
+      "slug": "runlog-day-5-day5-block2-pipeline-implementation-l88",
+      "type": "run_log_entry",
+      "date": "2026-05-21",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L88"
+    },
+    {
+      "slug": "runlog-day-5-day5-block2-pipeline-implementation-l90",
+      "type": "run_log_entry",
+      "date": "2026-05-21",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L90"
+    },
+    {
+      "slug": "runlog-day-5-day5-block2-retrieval-test-l91",
+      "type": "run_log_entry",
+      "date": "2026-05-21",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L91"
+    },
+    {
+      "slug": "runlog-day-5-day5-block3-journal-l92",
+      "type": "run_log_entry",
+      "date": "2026-05-21",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L92"
+    },
+    {
+      "slug": "runlog-day-5-day5-block3-reading-l93",
+      "type": "run_log_entry",
+      "date": "2026-05-21",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L93"
+    },
+    {
+      "slug": "runlog-day-5-day5-end-of-day-artifacts-l96",
+      "type": "run_log_entry",
+      "date": "2026-05-21",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L96"
+    },
+    {
+      "slug": "runlog-day-5-merge-track-c-day5-inspect-run-l95",
+      "type": "run_log_entry",
+      "date": "2026-05-21",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L95"
+    },
+    {
+      "slug": "runlog-day-5-merge-track-d-day5-ui-sync-l89",
+      "type": "run_log_entry",
+      "date": "2026-05-21",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L89"
+    },
+    {
+      "slug": "runlog-day-5-state-transition-l81",
+      "type": "run_log_entry",
+      "date": "2026-05-21",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L81"
+    },
+    {
+      "slug": "runlog-day-5-state-transition-l86",
+      "type": "run_log_entry",
+      "date": "2026-05-21",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L86"
+    },
+    {
+      "slug": "runlog-day-6-day6-ambient-l108",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L108"
+    },
+    {
+      "slug": "runlog-day-6-day6-block1-problemset-l100",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L100"
+    },
+    {
+      "slug": "runlog-day-6-day6-block1-reading-l98",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L98"
+    },
+    {
+      "slug": "runlog-day-6-day6-block1-reading-l99",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L99"
+    },
+    {
+      "slug": "runlog-day-6-day6-block2-inspect-run-cli-l105",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L105"
+    },
+    {
+      "slug": "runlog-day-6-day6-block2-orchestrator-router-l102",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L102"
+    },
+    {
+      "slug": "runlog-day-6-day6-block2-orchestrator-with-fallback-l103",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L103"
+    },
+    {
+      "slug": "runlog-day-6-day6-block2-robustness-mini-l104",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L104"
+    },
+    {
+      "slug": "runlog-day-6-day6-block2-worker-contract-l101",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L101"
+    },
+    {
+      "slug": "runlog-day-6-day6-block3-journal-l107",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L107"
+    },
+    {
+      "slug": "runlog-day-6-day6-block3-reading-l106",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L106"
+    },
+    {
+      "slug": "runlog-day-6-day6-end-of-day-artifacts-l109",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L109"
+    },
+    {
+      "slug": "runlog-day-6-day6-start-l97",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L97"
+    },
+    {
+      "slug": "runlog-day-7-d028-locked-cooperation-lockin-and-no-publish-disposition-l135",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L135"
+    },
+    {
+      "slug": "runlog-day-7-day7-1-block2-run-experiment-l118",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L118"
+    },
+    {
+      "slug": "runlog-day-7-day7-2-block2-run-experiment-l120",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L120"
+    },
+    {
+      "slug": "runlog-day-7-day7-3-block2-run-experiment-l122",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L122"
+    },
+    {
+      "slug": "runlog-day-7-day7-ambient-l128",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L128"
+    },
+    {
+      "slug": "runlog-day-7-day7-block1-reading-l111",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L111"
+    },
+    {
+      "slug": "runlog-day-7-day7-block2-openspiel-up-l112",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L112"
+    },
+    {
+      "slug": "runlog-day-7-day7-block2-precompute-expected-range-l115",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L115"
+    },
+    {
+      "slug": "runlog-day-7-day7-block2-quicklook-l124",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L124"
+    },
+    {
+      "slug": "runlog-day-7-day7-block2-run-experiment-l116",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L116"
+    },
+    {
+      "slug": "runlog-day-7-day7-block2-strategies-and-llm-agent-l113",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L113"
+    },
+    {
+      "slug": "runlog-day-7-day7-block2-strategies-and-llm-agent-l114",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L114"
+    },
+    {
+      "slug": "runlog-day-7-day7-block3-journal-weekly-synthesis-l126",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L126"
+    },
+    {
+      "slug": "runlog-day-7-day7-block3-reading-l127",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L127"
+    },
+    {
+      "slug": "runlog-day-7-day7-publication-review-gate-cleared-l136",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L136"
+    },
+    {
+      "slug": "runlog-day-7-day7-publication-review-gate-l125",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L125"
+    },
+    {
+      "slug": "runlog-day-7-day7-start-l110",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L110"
+    },
+    {
+      "slug": "runlog-day-7-day7-state-close-out-and-advance-to-day-8-l137",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L137"
+    },
+    {
+      "slug": "runlog-day-7-day8-entry-cleanup-stray-files-l134",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L134"
+    },
+    {
+      "slug": "runlog-day-7-merge-track-b-day7-tools-tests-l129",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L129"
+    },
+    {
+      "slug": "runlog-day-7-merge-track-c-day7-cron-sla-l130",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L130"
+    },
+    {
+      "slug": "runlog-day-7-merge-track-d-day7-eod-l133",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L133"
+    },
+    {
+      "slug": "runlog-day-7-rectify-malformed-run-log-lines-l131",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L131"
+    },
+    {
+      "slug": "runlog-day-7-retrospective-recorded-l132",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L132"
+    },
+    {
+      "slug": "runlog-day-7-slip-declared-l117",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L117"
+    },
+    {
+      "slug": "runlog-day-7-slip-declared-l119",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L119"
+    },
+    {
+      "slug": "runlog-day-7-slip-declared-l121",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L121"
+    },
+    {
+      "slug": "runlog-day-7-slip-resolved-l123",
+      "type": "run_log_entry",
+      "date": "2026-05-23",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L123"
+    },
+    {
+      "slug": "runlog-day-8-d029-ownership-yaml-v2-l141",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L141"
+    },
+    {
+      "slug": "runlog-day-8-day-end-l154",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L154"
+    },
+    {
+      "slug": "runlog-day-8-day-start-l138",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L138"
+    },
+    {
+      "slug": "runlog-day-8-day8-block2-draft-day8-plan-l139",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L139"
+    },
+    {
+      "slug": "runlog-day-8-day8-block2-merge-track-b-schemas-l143",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L143"
+    },
+    {
+      "slug": "runlog-day-8-day8-block2-merge-track-c-fixtures-l144",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L144"
+    },
+    {
+      "slug": "runlog-day-8-day8-block2-merge-track-d-ui-v1-l142",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L142"
+    },
+    {
+      "slug": "runlog-day-8-day8-block2-ui-v1-verification-l146",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L146"
+    },
+    {
+      "slug": "runlog-day-8-day8-block2-verify-concurrency-infra-l140",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L140"
+    },
+    {
+      "slug": "runlog-day-8-day8-block2-week2-unlock-attestation-l147",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L147"
+    },
+    {
+      "slug": "runlog-day-8-day8-block2-week2-unlock-attestation-l148",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L148"
+    },
+    {
+      "slug": "runlog-day-8-day8-block3-journal-l152",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L152"
+    },
+    {
+      "slug": "runlog-day-8-day8-carryover-verifier-naming-drift-l151",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L151"
+    },
+    {
+      "slug": "runlog-day-8-day8-end-of-day-artifacts-l153",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L153"
+    },
+    {
+      "slug": "runlog-day-8-post-merge-concurrency-infra-check-l145",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L145"
+    },
+    {
+      "slug": "runlog-day-8-retrospective-recorded-l149",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L149"
+    },
+    {
+      "slug": "runlog-day-8-tier-shift-l150",
+      "type": "run_log_entry",
+      "date": "2026-05-24",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L150"
+    },
+    {
       "slug": "skill-auto-experiment",
       "type": "skill",
       "date": "",
@@ -1998,6 +2922,18 @@ window.BRAIN_GRAPH = {
       "type": "skill",
       "date": "",
       "title": "validate \u2014 Layer A / core"
+    },
+    {
+      "slug": "spawn-sp-001",
+      "type": "spawn",
+      "date": "2026-05-25",
+      "title": "SP-001 \u2014 count_brain_edges"
+    },
+    {
+      "slug": "spawn-sp-002",
+      "type": "spawn",
+      "date": "2026-05-25",
+      "title": "SP-002 \u2014 sp_002_skill_frontmatter_audit"
     },
     {
       "slug": "stage-iter-2026-05-26-001-journal-writer-stub-1",
@@ -4398,6 +5334,636 @@ window.BRAIN_GRAPH = {
       "type": "targets",
       "dst": "skill-spawn-contract",
       "dst_type": "skill"
+    },
+    {
+      "src": "harvest-h001-l1",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-preflight-credentials-staged-l2",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h001-l2",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-preflight-credentials-staged-l2",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h001-l2",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-preflight-credentials-staged-l3",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h001-l3",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-state-transition-l5",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h001-l4",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-day-1-start-l1",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h001-l5",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-preflight-failure-walkthroughs-l7",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h001-l5",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-preflight-physical-setup-l8",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h001-l6",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-state-transition-l5",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h001-l6",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-preflight-failure-walkthroughs-l7",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h001-l6",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-preflight-physical-setup-l8",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l7",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-state-transition-l45",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l8",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-day1-block2-vllm-serve-l19",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l8",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-2-state-transition-l35",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l9",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-day3-block2-needle-haystack-l51",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l9",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-state-transition-l53",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l10",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-2-day2-block2-50call-sweep-l34",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l10",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-4-day4-end-of-day-artifacts-l76",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l11",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-day1-block2-docker-config-l14",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l11",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-day1-block2-vllm-serve-l21",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l11",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-day3-block2-chroma-install-l48",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l11",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-day3-block2-needle-haystack-l51",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l12",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-4-day4-end-of-day-artifacts-l76",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l13",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-day1-block2-vllm-serve-l17",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l13",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-day1-block2-nemoclaw-router-l25",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l14",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-day1-block2-vllm-serve-l17",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l14",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-1-day1-block2-nemoclaw-router-l25",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l15",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-2-day2-throughput-investigation-l37",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l16",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-2-day2-throughput-investigation-l37",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l16",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-day3-needle-characterization-l52",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l17",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-4-day4-post-review-b1-fix-l77",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l17",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-4-day4-post-review-nits-l78",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l18",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-2-day2-end-of-day-artifacts-l44",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l18",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-5-day3-5-end-of-day-artifacts-l69",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l20",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-2-day2-block2-wrapper-implementation-l33",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l20",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-5-day3-5-end-of-day-artifacts-l69",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l21",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-4-day4-block2-robustness-l74",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l22",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-2-day2-block2-50call-sweep-l39",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l22",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-4-day4-post-review-b1-fix-l77",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l23",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-track-review-track-b-l54",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l23",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-track-review-track-c-l55",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l23",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-track-review-track-d-l56",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l23",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-adversarial-review-integration-l57",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l23",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-merge-track-b-l58",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l23",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-merge-track-c-l59",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l23",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-merge-track-d-l60",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l23",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-4-merge-track-c-day4-pd-strategies-l79",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l23",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-4-merge-track-d-day4-ui-sync-l80",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l24",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-day3-block2-chunking-and-ingest-script-l49",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l24",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-track-review-track-b-l54",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l24",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-track-review-track-c-l55",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h002-l24",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-3-track-review-track-d-l56",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h003-l26",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-5-day4-carryover-resolution-l82",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h003-l27",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-5-day5-block2-ml-intern-router-l85",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h003-l28",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-5-day5-block2-pipeline-implementation-l88",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h003-l29",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-5-day5-block2-pipeline-implementation-l90",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l30",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-day7-block2-strategies-and-llm-agent-l114",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l30",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-slip-declared-l117",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l30",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-slip-declared-l119",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l30",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-slip-declared-l121",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l30",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-slip-resolved-l123",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l30",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-day7-publication-review-gate-l125",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l31",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-rectify-malformed-run-log-lines-l131",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l32",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-day7-block2-run-experiment-l116",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l32",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-slip-declared-l117",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l32",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-day7-1-block2-run-experiment-l118",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l32",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-slip-declared-l119",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l32",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-day7-2-block2-run-experiment-l120",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l32",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-slip-declared-l121",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l32",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-day7-3-block2-run-experiment-l122",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l32",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-slip-resolved-l123",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l33",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-merge-track-d-day7-eod-l133",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l34",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-day7-publication-review-gate-l125",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h005-l34",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-retrospective-recorded-l132",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h006-l36",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-day7-publication-review-gate-cleared-l136",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h006-l37",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-7-day7-state-close-out-and-advance-to-day-8-l137",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h007-l38",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-8-day-start-l138",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h007-l38",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-8-retrospective-recorded-l149",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h007-l38",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-8-tier-shift-l150",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h007-l38",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-8-day-end-l154",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h007-l39",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-8-day8-block2-verify-concurrency-infra-l140",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h007-l40",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-8-day8-block2-week2-unlock-attestation-l147",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h007-l40",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-8-day8-block2-week2-unlock-attestation-l148",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h007-l42",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-8-day8-block2-merge-track-d-ui-v1-l142",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h007-l42",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-8-day8-block2-merge-track-b-schemas-l143",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h007-l42",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-8-day8-block2-merge-track-c-fixtures-l144",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "harvest-h007-l42",
+      "src_type": "harvest_finding",
+      "type": "observed_in",
+      "dst": "runlog-day-8-post-merge-concurrency-infra-check-l145",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "spawn-sp-001",
+      "src_type": "spawn",
+      "type": "uses",
+      "dst": "skill-validate",
+      "dst_type": "skill"
+    },
+    {
+      "src": "spawn-sp-001",
+      "src_type": "spawn",
+      "type": "uses",
+      "dst": "skill-run-log",
+      "dst_type": "skill"
+    },
+    {
+      "src": "spawn-sp-002",
+      "src_type": "spawn",
+      "type": "uses",
+      "dst": "skill-validate",
+      "dst_type": "skill"
+    },
+    {
+      "src": "spawn-sp-002",
+      "src_type": "spawn",
+      "type": "uses",
+      "dst": "skill-run-log",
+      "dst_type": "skill"
     }
   ],
   "pages": {
@@ -4606,6 +6172,160 @@ window.BRAIN_GRAPH = {
     "event-iter-2026-05-26-011-loop-v0-fallback-none-l280": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L280\n\n_loop_v0_fallback for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
     "event-iter-2026-05-26-011-loop-v0-iteration-complete-none-l281": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L281\n\n_loop_v0_iteration_complete for iter-2026-05-26-011_\n\n**Did:** duration_ms=148383 tool_calls_made=['hypothesize', 'retrieve_literature']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
     "iter-2026-05-26-011": "# a_bgt_rsi: Nara \u2014 loop_memory L11\n\n_In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** (max_depth=12 exhausted; iteration cut short)\n\n**Observed:** tools=2 calls=12 journal=journal/iterations/011.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l279` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-fallback-none-l280` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-iteration-complete-none-l281` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l63` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l65` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l66` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l67` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l68` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l69` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l70` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l71` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l72` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l73` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-26-011-hypothesize-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-26-011-retrieve-literature-1` (stage)\n\n## Referenced by\n\n- `agent-nara` (agent) \u2014 **ran**\n",
+    "runlog-day-1-day-1-start-l1": "# a_bgt_rsi: Nara \u2014 week1.run L1\n\n_session started_\n\n**Did:** session started\n\n**Observed:** status=started day=day_1 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h001-l4` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-1-preflight-credentials-staged-l2": "# a_bgt_rsi: Nara \u2014 week1.run L2\n\n_shell exit code 0 \u2014 all 5 env vars present_\n\n**Did:** all 5 credentials missing: SEMANTIC_SCHOLAR_API_KEY, ANTHROPIC_API_KEY, HF_TOKEN, GITHUB_TOKEN, NVIDIA_API_KEY\n\n**Observed:** status=failed day=day_1 duration_ms=1000 fallback=None\n\n## Referenced by\n\n- `harvest-h001-l1` (harvest_finding) \u2014 **observed_in**\n- `harvest-h001-l2` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-1-preflight-credentials-staged-l3": "# a_bgt_rsi: Nara \u2014 week1.run L3\n\n_shell exit code 0 \u2014 all 5 env vars present_\n\n**Did:** all 5 env vars present\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h001-l2` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-1-preflight-software-prestaged-l4": "# a_bgt_rsi: Nara \u2014 week1.run L4\n\n_all bookmarks, clones, and weight dirs present_\n\n**Did:** bookmarks OK; clones missing: dgx-spark-playbooks, autoresearch, open_spiel, game-reasoning-arena; weights missing: gemma-4-26b-a4b-nvfp4, bge-m3\n\n**Observed:** status=failed day=day_1 duration_ms=1000 fallback=None\n",
+    "runlog-day-1-state-transition-l5": "# a_bgt_rsi: Nara \u2014 week1.run L5\n\n_stale gate removed after credential check passed_\n\n**Did:** human_gates_pending cleared; preflight_credentials_staged moved to completed_tasks\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h001-l3` (harvest_finding) \u2014 **observed_in**\n- `harvest-h001-l6` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-1-preflight-software-prestaged-l6": "# a_bgt_rsi: Nara \u2014 week1.run L6\n\n_shell exit code 0 \u2014 all bookmarks, clones, and weight dirs present_\n\n**Did:** exit 0 \u2014 3 bookmarks present; 4 repos cloned (autoresearch=karpathy/autoresearch, GRA=SLAMPAI/game_reasoning_arena per human decision, substituting plan's matt-langston/autoresearch); 3 model dirs staged at /mnt/models (gemma-4-26b-a4b-nvfp\u2026\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n",
+    "runlog-day-1-preflight-failure-walkthroughs-l7": "# a_bgt_rsi: Nara \u2014 week1.run L7\n\n_human completes 15-min rehearsal of 4 failure modes_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-18 \u2014 failure-mode rehearsal performed by human; not agent-verified\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h001-l5` (harvest_finding) \u2014 **observed_in**\n- `harvest-h001-l6` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-1-preflight-physical-setup-l8": "# a_bgt_rsi: Nara \u2014 week1.run L8\n\n_desk placement, 6in+ clearance, <=30C ambient, UPS inline_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-18 \u2014 DGX Spark placed/powered/networked by human; not agent-verified\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h001-l5` (harvest_finding) \u2014 **observed_in**\n- `harvest-h001-l6` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-1-day1-block1-reading-l9": "# a_bgt_rsi: Nara \u2014 week1.run L9\n\n_human reads O&R A Course in Game Theory Ch.6 6.1-6.3_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-18 \u2014 Block 1 reading done by human, no AI involvement\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n",
+    "runlog-day-1-day1-block1-problemset-l10": "# a_bgt_rsi: Nara \u2014 week1.run L10\n\n_human attempts O&R 6.1-6.3 by hand_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-18 \u2014 Block 1 problems attempted by hand, no AI involvement\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n",
+    "runlog-day-1-day1-block2-unbox-l11": "# a_bgt_rsi: Nara \u2014 week1.run L11\n\n_power LED solid; fan low RPM; DGX dashboard reachable (curl 2xx OR ping succeeds)_\n\n**Did:** ping 10.0.0.73 3/3 received 0% loss (reachability check passes on ping per pass_signal); curl http://10.0.0.73/ refused on :80 \u2014 no HTTP service on port 80, non-fatal; LED/fan per human attestation\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n",
+    "runlog-day-1-day1-block2-firmware-l12": "# a_bgt_rsi: Nara \u2014 week1.run L12\n\n_GB10; CUDA 13.0 exactly; idle power <=35W_\n\n**Did:** nvidia-smi: NVIDIA GB10; CUDA Version 13.0; idle power 5W (<=35W); temp 37C \u2014 all 3 validation checks pass\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n",
+    "runlog-day-1-day1-block2-docker-config-l13": "# a_bgt_rsi: Nara \u2014 week1.run L13\n\n_docker info shows host cgroup; root crontab has drop_caches entry_\n\n**Did:** docker restart failed \u2014 dockerd rejected /etc/docker/daemon.json: invalid directive 'cgroupns' (plan command bug; valid key is 'default-cgroupns-mode'). docker.service in failed state, restart-throttled. drop_caches cron was added successfu\u2026\n\n**Observed:** status=failed day=day_1 duration_ms=0 fallback=None\n",
+    "runlog-day-1-day1-block2-docker-config-l14": "# a_bgt_rsi: Nara \u2014 week1.run L14\n\n_docker info shows host cgroup; root crontab has drop_caches entry_\n\n**Did:** docker daemon UP after corrected config; daemon.json sets default-cgroupns-mode=host (accepted by dockerd on restart); root crontab has drop_caches entry. DISCREPANCY: plan validation 'docker info grep cgroup contains host' does not literal\u2026\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l11` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-1-day1-block2-vllm-serve-l15": "# a_bgt_rsi: Nara \u2014 week1.run L15\n\n_vLLM serving with MARLIN MoE backend + MTP engaged; startup-log assertions pass; curl round-trip ok_\n\n**Did:** gemma4_mtp.py staged from vLLM PR #41745 head (ce026b01); launching vLLM Gemma 4 26B NVFP4 + MTP via setup/day1_vllm_serve.sh\n\n**Observed:** status=started day=day_1 duration_ms=0 fallback=None\n",
+    "runlog-day-1-day1-block2-vllm-serve-l16": "# a_bgt_rsi: Nara \u2014 week1.run L16\n\n_vLLM serving with MARLIN MoE backend + MTP engaged; startup-log assertions pass_\n\n**Did:** container exited(1) at MTP speculative-config step \u2014 pydantic ValidationError: drafter model_type 'gemma4_assistant' not recognized. Root cause: pinned image ships vllm 0.19.1.dev6 + transformers 5.5.0, predating merged PR #41745, which add\u2026\n\n**Observed:** status=failed day=day_1 duration_ms=0 fallback=None\n",
+    "runlog-day-1-day1-block2-vllm-serve-l17": "# a_bgt_rsi: Nara \u2014 week1.run L17\n\n_vLLM serving Gemma 4 NVFP4 with MARLIN MoE backend; startup-log + curl assertions pass_\n\n**Did:** FALLBACK SELECTED (human-approved): MTP deferred to Week 2+; re-launching vLLM NVFP4 baseline without --speculative-config (the original pre-D-019 task #6). Pinned image cannot support MTP (predates merged PR #41745). Drafter + gemma4_mtp.p\u2026\n\n**Observed:** status=started day=day_1 duration_ms=0 fallback=day1_block2_vllm_serve: MTP -> NVFP4 baseline\n\n## Referenced by\n\n- `harvest-h002-l13` (harvest_finding) \u2014 **observed_in**\n- `harvest-h002-l14` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-1-day1-block2-vllm-serve-l18": "# a_bgt_rsi: Nara \u2014 week1.run L18\n\n_vLLM serving Gemma 4 NVFP4 with MARLIN; startup-log + curl assertions pass_\n\n**Did:** vLLM EngineCore failed loading NVFP4 checkpoint \u2014 KeyError 'layers.0.experts.0.down_proj.input_scale' at gemma4.py:1359 load_weights. Pinned image vLLM 0.19.1.dev6 has no param slot for the per-expert NVFP4 input_scale tensors the nvidia/Ge\u2026\n\n**Observed:** status=failed day=day_1 duration_ms=0 fallback=None\n",
+    "runlog-day-1-day1-block2-vllm-serve-l19": "# a_bgt_rsi: Nara \u2014 week1.run L19\n\n_n/a \u2014 hard-checkpoint abort_\n\n**Did:** day_aborted \u2014 task #6 (hard_checkpoint) failed twice; per CLAUDE.md rule 6 and on_failure:abort_day, Block 2 halts. Resolution requires a human version-pin review: pinned vllm/vllm-openai:gemma4-cu130 cannot load nvidia/Gemma-4-26B-A4B-NVFP\u2026\n\n**Observed:** status=aborted day=day_1 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l8` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-1-day1-block2-vllm-serve-l20": "# a_bgt_rsi: Nara \u2014 week1.run L20\n\n_vLLM 0.20.0 serving Gemma 4 NVFP4 with MARLIN MoE backend; startup-log + curl assertions pass_\n\n**Did:** human-authorized vLLM image re-pin: :gemma4-cu130 (vLLM 0.19.1.dev6) -> vllm/vllm-openai:v0.20.0, per the nvidia/Gemma-4-26B-A4B-NVFP4 model card. Re-attempting task #6 (baseline, no MTP) with the corrected image. day_1 abort to be lifted a\u2026\n\n**Observed:** status=started day=day_1 duration_ms=0 fallback=None\n",
+    "runlog-day-1-day1-block2-vllm-serve-l21": "# a_bgt_rsi: Nara \u2014 week1.run L21\n\n_vLLM serving with MARLIN MoE backend; startup-log + curl assertions pass_\n\n**Did:** vLLM v0.20.0 serving Gemma 4 26B NVFP4 \u2014 container Up, /health 200, curl /v1/chat/completions returned content 'ok' in 1.45s (HTTP 200, finish_reason stop). MoE backend = MARLIN confirmed (nvfp4.py:209, NOT CUTLASS_FP4). Image re-pinned (hu\u2026\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l11` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-1-state-transition-l22": "# a_bgt_rsi: Nara \u2014 week1.run L22\n\n_day_1 abort cleared after the blocking hard checkpoint passed_\n\n**Did:** day_1 abort LIFTED \u2014 task #6 (hard checkpoint) passes on the human-authorized re-pinned image vLLM v0.20.0. Block 2 resumes at task #7.\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n",
+    "runlog-day-1-day1-block2-bench-l23": "# a_bgt_rsi: Nara \u2014 week1.run L23\n\n_single-stream decode tok/s in [50,110]; >=40 hard floor_\n\n**Did:** median single-stream decode 32.03 tok/s (bench/day1.csv; 5 prompts, 256 max_tokens) \u2014 BELOW the plan hard floor of 40. CSV row-count check passes (6 lines). Investigation (notes/day1-bench-debug.md): cache-full NO (buff/cache 1.3GiB), therm\u2026\n\n**Observed:** status=failed day=day_1 duration_ms=0 fallback=None\n",
+    "runlog-day-1-day1-block2-bench-l24": "# a_bgt_rsi: Nara \u2014 week1.run L24\n\n_human resolves the escalated bench fault_\n\n**Did:** HUMAN DECISION: 32.03 tok/s accepted as the Day-1 baseline despite being below the plan's 40 floor (cause assessed structural \u2014 GB10 has no native FP4). Escalation resolved; task #7 closed. Throughput tuning deferred to the optimization pas\u2026\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n",
+    "runlog-day-1-day1-block2-nemoclaw-router-l25": "# a_bgt_rsi: Nara \u2014 week1.run L25\n\n_branch to primary (probe ok) or fallback (probe fails)_\n\n**Did:** router probe \u2014 nemoclaw README present, node v22.22.2 present, but 'which nemoclaw' fails (binary not installed); probe exits non-zero -> on_failure branch. Routing to day1_block2_nemoclaw_fallback (plain-Docker). NemoClaw primary onboardin\u2026\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=day1_nemoclaw: NemoClaw -> hardened plain-Docker\n\n## Referenced by\n\n- `harvest-h002-l13` (harvest_finding) \u2014 **observed_in**\n- `harvest-h002-l14` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-1-day1-block2-nemoclaw-fallback-l26": "# a_bgt_rsi: Nara \u2014 week1.run L26\n\n_stdout 'fallback ok', exit 0_\n\n**Did:** hardened plain-Docker sandbox verified \u2014 docker run with --security-opt seccomp=infra/seccomp/default.json (moby v24.0.9 default profile, 31 syscall rules), --security-opt no-new-privileges, --cap-drop=ALL on alpine:latest printed 'fallback\u2026\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n",
+    "runlog-day-1-day1-block3-journal-l27": "# a_bgt_rsi: Nara \u2014 week1.run L27\n\n_200-500 word post stub with the day's measurements pre-filled_\n\n**Did:** journal post stub generated at journal/day1.md \u2014 data inserts pre-filled (median 32 tok/s, NemoClaw status = plain-Docker fallback, vLLM image vllm/vllm-openai:v0.20.0) plus one risk; prose left to the human (human_assisted). Public-exclusi\u2026\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n",
+    "runlog-day-1-day1-end-of-day-artifacts-l28": "# a_bgt_rsi: Nara \u2014 week1.run L28\n\n_Day-1 artifacts committed; git tree clean for the day-1 fileset_\n\n**Did:** Day-1 artifacts committed (bench/day1.csv, infra/docker-daemon.json, infra/cron-cache-clear.sh, infra/seccomp/default.json, notes/day1-setup.md + day1-bench-debug.md, scripts/bench_tokens_per_sec.py, journal/day1.md + index.md, run_state, c\u2026\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n",
+    "runlog-day-2-state-transition-l29": "# a_bgt_rsi: Nara \u2014 week1.run L29\n\n_current_day advanced to next day after prior day fully complete_\n\n**Did:** current_day advanced day_1 -> day_2 on resume. All 12 day_1 tasks complete (#10 skipped via fallback branch); day1_end_of_day_artifacts passed. No human gates pending. Resume point: day2_block1_reading (human_only, blocking).\n\n**Observed:** status=passed day=day_2 duration_ms=0 fallback=None\n",
+    "runlog-day-2-day2-block1-reading-l30": "# a_bgt_rsi: Nara \u2014 week1.run L30\n\n_human reads O&R A Course in Game Theory Ch.6 6.4-6.5 + start Ch.7 (subgame perfect equilibrium, one-deviation principle)_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-18 \u2014 Block 1 reading done by human, no AI involvement\n\n**Observed:** status=passed day=day_2 duration_ms=0 fallback=None\n",
+    "runlog-day-2-day2-block1-problemset-l31": "# a_bgt_rsi: Nara \u2014 week1.run L31\n\n_human attempts O&R 6.7, 6.10, 7.1 by hand; derives the one-deviation principle by hand_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-18 \u2014 Block 1 problems attempted by hand, no AI involvement\n\n**Observed:** status=passed day=day_2 duration_ms=0 fallback=None\n",
+    "runlog-day-2-day2-block2-jsonl-schema-l32": "# a_bgt_rsi: Nara \u2014 week1.run L32\n\n_schema file exists and is valid JSON Schema; all 14 required fields present; jq parses example line_\n\n**Did:** schema/calls.jsonl.schema.json authored (human-approved draft, decross1) \u2014 Draft 2020-12 check_schema exit 0; required array has all 14 fields, none missing/extra; jq -e parses tests/example_call.jsonl exit 0; bonus: example line validates \u2026\n\n**Observed:** status=passed day=day_2 duration_ms=0 fallback=None\n",
+    "runlog-day-2-day2-block2-wrapper-implementation-l33": "# a_bgt_rsi: Nara \u2014 week1.run L33\n\n_wrapper.py exposes call_sync, call_async, verify_log_integrity (all importable)_\n\n**Did:** agent_wrapper/wrapper.py implemented (human-approved draft, decross1) ~100 LOC. All 3 import checks exit 0 via .venv/bin/python: call_sync, call_async, verify_log_integrity. Bonus: verify_log_integrity returns 0 on clean file, 2 on a 1-vali\u2026\n\n**Observed:** status=passed day=day_2 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l20` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-2-day2-block2-50call-sweep-l34": "# a_bgt_rsi: Nara \u2014 week1.run L34\n\n_50 lines, 0 malformed, aggregate tok/s >= 40, T=0 and T=1/seed=42 determinism all identical_\n\n**Did:** 5-check validation: #1 50 JSONL lines PASS (wc -l=50); #2 malformed=0 PASS (verify_log_integrity); #3 aggregate tok/s 29.75 FAIL (plan floor 40, computed output_tokens/sum-latency_ms across 50 calls); #4 T=0 determinism PASS (['391','391','\u2026\n\n**Observed:** status=failed day=day_2 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l10` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-2-state-transition-l35": "# a_bgt_rsi: Nara \u2014 week1.run L35\n\n_n/a \u2014 hard-checkpoint abort_\n\n**Did:** day_aborted \u2014 day2_block2_50call_sweep (hard_checkpoint: true, on_failure: abort_day) failed validation check #3. Per CLAUDE.md rule 6, Block 2 halts and day_2 is aborted. ESCALATION: the failing check is throughput (29.75 tok/s), the same \u2026\n\n**Observed:** status=aborted day=day_2 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l8` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-2-state-transition-l36": "# a_bgt_rsi: Nara \u2014 week1.run L36\n\n_human resolves the day_2 hard-checkpoint abort_\n\n**Did:** HUMAN DECISION (decross1): day_2 abort NOT lifted. Validation check #3 (aggregate tok/s >= 40) treated as truly blocking, not an accepted exception. day_2 remains aborted; Day 3 is gated until throughput is tuned to >= 40 tok/s and the 50-c\u2026\n\n**Observed:** status=aborted day=day_2 duration_ms=0 fallback=None\n",
+    "runlog-day-2-day2-throughput-investigation-l37": "# a_bgt_rsi: Nara \u2014 week1.run L37\n\n_determine whether 29.75 tok/s is genuine or a measurement artifact_\n\n**Did:** Investigated whether the failed check #3 (29.75 tok/s) is a short-completion measurement artifact. REFUTED. Linear fit latency_ms = 59.7 + 31.15*output_tokens: fixed per-call overhead is only 60 ms (prefill+network negligible); marginal dec\u2026\n\n**Observed:** status=passed day=day_2 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l15` (harvest_finding) \u2014 **observed_in**\n- `harvest-h002-l16` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-2-day2-throughput-mtp-enablement-l38": "# a_bgt_rsi: Nara \u2014 week1.run L38\n\n_single-stream decode throughput tuned to clear the 40 tok/s sweep floor_\n\n**Did:** Resolved the day_2 throughput abort. Empirically determined vLLM v0.20.0 ships no Gemma 4 MTP support (no gemma4_mtp.py, no Gemma4MTPModel registry entry); PR #41745 (merged 2026-05-06 @ 27e0057) first appears in v0.21.0. Re-pinned image vl\u2026\n\n**Observed:** status=passed day=day_2 duration_ms=0 fallback=None\n",
+    "runlog-day-2-day2-block2-50call-sweep-l39": "# a_bgt_rsi: Nara \u2014 week1.run L39\n\n_50 lines, 0 malformed, aggregate tok/s >= 40, T=0 and T=1/seed=42 determinism all identical_\n\n**Did:** 5-check validation re-run on the MTP-enabled v0.21.0 server: #1 50 JSONL lines PASS (wc -l=50); #2 malformed=0 PASS (verify_log_integrity); #3 aggregate tok/s 56.09 PASS (floor 40; was 29.75 on the 2026-05-18 aborted run); #4 T=0 determinis\u2026\n\n**Observed:** status=passed day=day_2 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l22` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-2-state-transition-l40": "# a_bgt_rsi: Nara \u2014 week1.run L40\n\n_human resolves the day_2 hard-checkpoint abort once its condition is met_\n\n**Did:** day_2 abort LIFTED - human-attested (decross1) 2026-05-19. The condition set in the 2026-05-18 human decision (throughput >= 40 tok/s and the 50-call sweep re-run passes all 5 checks) is objectively met (aggregate 56.09 tok/s, 5/5 checks pa\u2026\n\n**Observed:** status=passed day=day_2 duration_ms=0 fallback=None\n",
+    "runlog-day-2-day2-block3-reading-l41": "# a_bgt_rsi: Nara \u2014 week1.run L41\n\n_human reads the critical response to Sakana \u2014 Melanie Mitchell's blog post + one selected Twitter thread_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-19 \u2014 Block 3 reading done by human, no AI involvement (critical response to Sakana: Melanie Mitchell blog post + one selected thread)\n\n**Observed:** status=passed day=day_2 duration_ms=0 fallback=None\n",
+    "runlog-day-2-day2-ambient-l42": "# a_bgt_rsi: Nara \u2014 week1.run L42\n\n_human listens to EconTalk with Al Roth on market design_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-19 \u2014 ambient listening done by human (EconTalk: Al Roth on market design)\n\n**Observed:** status=passed day=day_2 duration_ms=0 fallback=None\n",
+    "runlog-day-2-day2-block3-journal-l43": "# a_bgt_rsi: Nara \u2014 week1.run L43\n\n_200-300 word post stub with the day's measurements pre-filled_\n\n**Did:** journal post stub generated at journal/day2.md (human_assisted, agent_action=stub_post_with_data_inserts). Data inserts pre-filled: malformed=0/50, T=0 determinism PASS, T=1/seed=42 determinism PASS, aggregate ~56 tok/s. Prose left to the h\u2026\n\n**Observed:** status=passed day=day_2 duration_ms=0 fallback=None\n",
+    "runlog-day-2-day2-end-of-day-artifacts-l44": "# a_bgt_rsi: Nara \u2014 week1.run L44\n\n_Day-2 artifacts committed; git tree clean; journal URL recorded; Day 3 pre-staged_\n\n**Did:** Day-2 end-of-day artifacts committed: logs/day2.jsonl (50-call sweep log; verify_log_integrity=0), journal/day2.md stub + journal/index.md, run_state run log + state. Day-2 Block-2 code artifacts (wrapper.py, schema, test_50_calls.py) were \u2026\n\n**Observed:** status=passed day=day_2 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l18` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-3-state-transition-l45": "# a_bgt_rsi: Nara \u2014 week1.run L45\n\n_current_day advanced to next day after prior day fully complete_\n\n**Did:** current_day advanced day_2 -> day_3 on resume (resume-state, Track A). All 24 day_2 tasks complete in completed_tasks; run log confirms day2_end_of_day_artifacts passed and committed (505b910). aborted_days empty (day_2 abort lifted 2026-05\u2026\n\n**Observed:** status=passed day=day_3 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l7` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-3-day3-block1-reading-l46": "# a_bgt_rsi: Nara \u2014 week1.run L46\n\n_human reads Weibull Ch. 1 1.1-1.4_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-19 \u2014 Block 1 reading done by human, no AI involvement (Weibull, Evolutionary Game Theory, Ch. 1 1.1-1.4: population states, evolutionary stability, ESS)\n\n**Observed:** status=passed day=day_3 duration_ms=0 fallback=None\n",
+    "runlog-day-3-day3-block1-problemset-l47": "# a_bgt_rsi: Nara \u2014 week1.run L47\n\n_human attempts Weibull 1.1, 1.2, 1.3 by hand_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-19 \u2014 Block 1 problems attempted by hand, no AI involvement (Weibull 1.1, 1.2, 1.3)\n\n**Observed:** status=passed day=day_3 duration_ms=0 fallback=None\n",
+    "runlog-day-3-day3-block2-chroma-install-l48": "# a_bgt_rsi: Nara \u2014 week1.run L48\n\n_chroma server listening; collection metadata embedding_function==BGE-M3; test collection count==10_\n\n**Did:** ChromaDB 1.5.9 + BGE-M3 wired in fresh .venv-chroma (sentence-transformers 5.5.0, torch 2.12.0). 3-check hard-checkpoint validation, each verified independently with a fresh client: CHECK1 chroma server running PASS (listener on 127.0.0.1:8\u2026\n\n**Observed:** status=passed day=day_3 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l11` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-3-day3-block2-chunking-and-ingest-script-l49": "# a_bgt_rsi: Nara \u2014 week1.run L49\n\n_dry-run on Osborne Ch.1 prints chunk count/mean/max; 5 random chunks contain no broken $...$ or unmatched equation environments_\n\n**Did:** ingest/textbook.py (289 LOC) + ingest/chunking.py (160 LOC) authored by a builder sub-agent under Track A authority (human-approved: 'Sub-agent with file-write authority'); both with the equation-guard regex. Dry-run validation on Osborne C\u2026\n\n**Observed:** status=passed day=day_3 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l24` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-3-day3-block2-full-ingest-l50": "# a_bgt_rsi: Nara \u2014 week1.run L50\n\n_collection count in [1500,3000]; query 'subgame perfect equilibrium' returns top-1 with chapter metadata in {6,7}_\n\n**Did:** Full Osborne & Rubinstein ingest into ChromaDB collection 'osborne_rubinstein' (embedding_function=BGE-M3, server localhost:8001). 2-check validation, Track A re-verified with a fresh client: CHECK1 chunk count 2135 PASS (in [1500,3000]); C\u2026\n\n**Observed:** status=passed day=day_3 duration_ms=0 fallback=None\n",
+    "runlog-day-3-day3-block2-needle-haystack-l51": "# a_bgt_rsi: Nara \u2014 week1.run L51\n\n_top-1 is the needle sentence; top-1 score >= 0.85 (proceed); score >= 0.7 (investigation floor)_\n\n**Did:** Needle-in-haystack benchmark, real BGE-M3 client wired into tests/needle_in_haystack.py get_chroma_client (HttpClient :8001, SentenceTransformerEmbeddingFunction /mnt/models/bge-m3, cosine space). 3-check validation: CHECK1 top-1 is the nee\u2026\n\n**Observed:** status=failed day=day_3 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l9` (harvest_finding) \u2014 **observed_in**\n- `harvest-h002-l11` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-3-day3-needle-characterization-l52": "# a_bgt_rsi: Nara \u2014 week1.run L52\n\n_determine whether the 0.7221 needle score is a benchmark-construction artifact or a retrieval-layer defect_\n\n**Did:** Needle benchmark characterization (human asked to characterize before the gate decision). Chunk-size sweep 16/32/64/96/128/256 tokens + a paraphrase-query run. Results (top-1 score, rank-1): ct16 0.3387 FAIL; ct32 0.8283 PASS; ct64 0.7721 P\u2026\n\n**Observed:** status=passed day=day_3 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l16` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-3-state-transition-l53": "# a_bgt_rsi: Nara \u2014 week1.run L53\n\n_human resolves the day3 needle-score gate_\n\n**Did:** day3_needle_score_gate CLEARED \u2014 human-attested (decross1) 2026-05-19. day3_block2_needle_haystack accepted as passing: checks 1 (top-1 is the needle) and 3 (score>=0.70 floor) pass; check 2 (score>=0.85) fails at 0.7221 but is recorded (D-\u2026\n\n**Observed:** status=passed day=day_3 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l9` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-3-track-review-track-b-l54": "# a_bgt_rsi: Nara \u2014 week1.run L54\n\n_file boundaries respected, mocks honored, tests not silently skipped, schema valid_\n\n**Did:** Track B (worktree-day3-tests) audited by an auditor sub-agent. Verdict APPROVE-WITH-NITS. File-boundary check PASS (6 files all in tests/, schema/, notes/track-b-*). Mock vs live LLM PASS (no LOCAL_LLM_BASE_URL calls, MOCK_LLM honored). sch\u2026\n\n**Observed:** status=passed day=day_3 duration_ms=136148 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l23` (harvest_finding) \u2014 **observed_in**\n- `harvest-h002-l24` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-3-track-review-track-c-l55": "# a_bgt_rsi: Nara \u2014 week1.run L55\n\n_file boundaries respected, no live network, BGE-M3 pinned, dedupe logic correct_\n\n**Did:** Track C (worktree-day3-arxiv-pipeline) audited by an auditor sub-agent. Verdict APPROVE. File-boundary check PASS (5 files all in pipeline/, tests/test_arxiv_*, tests/test_embed_*, notes/track-c-*). All HTTP mocked, time.sleep mocked, no li\u2026\n\n**Observed:** status=passed day=day_3 duration_ms=131957 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l23` (harvest_finding) \u2014 **observed_in**\n- `harvest-h002-l24` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-3-track-review-track-d-l56": "# a_bgt_rsi: Nara \u2014 week1.run L56\n\n_file boundaries respected, version pins correct, schema-aligned, no silently-skipped tests_\n\n**Did:** Track D (worktree-day3-ui-build) audited by an auditor sub-agent. Verdict APPROVE-WITH-NITS. File-boundary check PASS (13 files all under ui/** or ui_plan.md per UI-commit-isolation rule). baseline.py three-tier waterfall is MTP-aware; DOCU\u2026\n\n**Observed:** status=passed day=day_3 duration_ms=147469 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l23` (harvest_finding) \u2014 **observed_in**\n- `harvest-h002-l24` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-3-adversarial-review-integration-l57": "# a_bgt_rsi: Nara \u2014 week1.run L57\n\n_adversarial review materials integrated into respective canonical docs without changing version pins, human-only blocks, or hard checkpoints_\n\n**Did:** 2026-05-19 adversarial architecture review materials (formerly /temp/) integrated. ARCHITECTURE.md updated with patches 1-5 (\u00a76 replaced with Phase-1/Phase-2 labeled version; \u00a76.5 Degradation metrics inserted; \u00a75.1 Compute budgeting + Criti\u2026\n\n**Observed:** status=passed day=day_3 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l23` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-3-merge-track-b-l58": "# a_bgt_rsi: Nara \u2014 week1.run L58\n\n_no conflicts; tracked files under tests/, schema/, notes/track-b-*_\n\n**Did:** git merge --no-ff worktree-day3-tests into main. Strategy ort, 6 files, +998 LOC. No conflicts.\n\n**Observed:** status=passed day=day_3 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l23` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-3-merge-track-c-l59": "# a_bgt_rsi: Nara \u2014 week1.run L59\n\n_no conflicts; tracked files under pipeline/, tests/test_arxiv_*, tests/test_embed_*, notes/track-c-*_\n\n**Did:** git merge --no-ff worktree-day3-arxiv-pipeline into main. Strategy ort, 5 files, +812 LOC. No conflicts.\n\n**Observed:** status=passed day=day_3 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l23` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-3-merge-track-d-l60": "# a_bgt_rsi: Nara \u2014 week1.run L60\n\n_no conflicts; tracked files under ui/** or ui_plan.md_\n\n**Did:** git merge --no-ff worktree-day3-ui-build into main. Strategy ort, 13 files, +385/-42 LOC. No conflicts.\n\n**Observed:** status=passed day=day_3 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l23` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-3-5-day3-5-block3-claudemd-prose-l61": "# a_bgt_rsi: Nara \u2014 week1.run L61\n\n_human authors CLAUDE.md prose telling Claude when to emit human_intervention events and populate retrieval_context_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-20 \u2014 CLAUDE.md prose update for human_intervention emission semantics + retrieval_context population guidance done by human, no AI involvement (per inviolate rule that CLAUDE.md edits \u2026\n\n**Observed:** status=passed day=day_3_5 duration_ms=0 fallback=None\n",
+    "runlog-day-4-day4-block1-reading-l62": "# a_bgt_rsi: Nara \u2014 week1.run L62\n\n_human reads Weibull Ch. 1 1.5-end + Ch. 2 2.1_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-20 \u2014 Block 1 reading done by human, no AI involvement (Weibull, Evolutionary Game Theory, Ch. 1 1.5-end + Ch. 2 2.1: replicator dynamics intro)\n\n**Observed:** status=passed day=day_4 duration_ms=0 fallback=None\n",
+    "runlog-day-4-day4-block1-problemset-l63": "# a_bgt_rsi: Nara \u2014 week1.run L63\n\n_human derives replicator dynamics for hawk-dove by hand_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-20 \u2014 replicator dynamics for hawk-dove derived by hand, no AI involvement (named Phase 1 problem set item)\n\n**Observed:** status=passed day=day_4 duration_ms=0 fallback=None\n",
+    "runlog-day-3-5-merge-track-b-schemas-l64": "# a_bgt_rsi: Nara \u2014 week1.run L64\n\n_clean merge, no conflicts, file-boundary list respected (schema/, tests/, notes/track-b-*), Day-2 logs re-validate_\n\n**Did:** git merge --no-ff worktree-day3_5-schemas. Strategy ort, 5 files, +657 LOC. Pre-merge inspection: boundary clean (schema/, tests/, notes/track-b-*); schema/calls.jsonl.schema.json adds retrieval_context as optional/nullable; schema/events.j\u2026\n\n**Observed:** status=passed day=day_3_5 duration_ms=0 fallback=None\n",
+    "runlog-day-3-5-day3-5-block2-retrieval-context-field-l65": "# a_bgt_rsi: Nara \u2014 week1.run L65\n\n_schema is valid Draft 2020-12; existing log files re-validate; field optional/nullable_\n\n**Did:** Track B delivered schema/calls.jsonl.schema.json with retrieval_context optional/nullable; item schema doc_id/content_hash/chunk_offset/chunk_length all required, additionalProperties:false, chunk_offset/length non-negative integers. Self-v\u2026\n\n**Observed:** status=passed day=day_3_5 duration_ms=0 fallback=None\n",
+    "runlog-day-3-5-day3-5-block2-events-schema-l66": "# a_bgt_rsi: Nara \u2014 week1.run L66\n\n_schema is valid Draft 2020-12; happy-path of each branch validates; event_type discriminator routes correctly_\n\n**Did:** Track B delivered schema/events.jsonl.schema.json with root oneOf over two const-discriminated branches (event_type human_intervention | calibration_entry), both additionalProperties:false. human_intervention: timestamp/task_id/subtype(enum\u2026\n\n**Observed:** status=passed day=day_3_5 duration_ms=0 fallback=None\n",
+    "runlog-day-3-5-day3-5-block2-wrapper-retrieval-passthrough-l67": "# a_bgt_rsi: Nara \u2014 week1.run L67\n\n_wrapper accepts and forwards retrieval_context; Day-2 50-call sweep regression (0 malformed under updated schema); existing test suite passes unchanged_\n\n**Did:** agent_wrapper/wrapper.py: added optional retrieval_context kwarg (default None) to call_sync and call_async; threaded through _record where None -> field omitted, list -> field present verbatim. tests/test_wrapper_retrieval_context.py: 9/9 \u2026\n\n**Observed:** status=passed day=day_3_5 duration_ms=0 fallback=None\n",
+    "runlog-day-3-5-day3-5-block3-claudemd-prose-l68": "# a_bgt_rsi: Nara \u2014 week1.run L68\n\n_human-only task; agent does not edit CLAUDE.md_\n\n**Did:** Pre-attested by decross1 on 2026-05-20 (per Track A brief preconditions). Not re-executed.\n\n**Observed:** status=passed day=day_3_5 duration_ms=0 fallback=None\n",
+    "runlog-day-3-5-day3-5-end-of-day-artifacts-l69": "# a_bgt_rsi: Nara \u2014 week1.run L69\n\n_commit hash returned; status clean; pytest -k schema-or-wrapper exits 0; state file updated_\n\n**Did:** git commit e1032e6 staged: schema/calls.jsonl.schema.json + schema/events.jsonl.schema.json (already in merge commit d3646840), agent_wrapper/wrapper.py, tests/test_wrapper_retrieval_context.py, run_state/week1.state.json (current_day day_3\u2026\n\n**Observed:** status=passed day=day_3_5 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l18` (harvest_finding) \u2014 **observed_in**\n- `harvest-h002-l20` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-4-day4-block2-mock-tool-l70": "# a_bgt_rsi: Nara \u2014 week1.run L70\n\n_function returns JSON-serializable PD matrix (3,3)(0,5)(5,0)(1,1); schema has type:function + function{name,description,parameters}_\n\n**Did:** tools/mock_payoffs.py (24 LOC) with get_payoff_matrix(game_name) returning hardcoded matrices for prisoners_dilemma [[3,3],[0,5]],[[5,0],[1,1]], stag_hunt [[4,4],[0,3]],[[3,0],[2,2]], matching_pennies [[1,-1],[-1,1]],[[-1,1],[1,-1]]. Unknow\u2026\n\n**Observed:** status=passed day=day_4 duration_ms=0 fallback=None\n",
+    "runlog-day-4-day4-block2-wrapper-tools-l71": "# a_bgt_rsi: Nara \u2014 week1.run L71\n\n_function signature enforces max_depth<=3 default; malformed JSON surfaced (logged + raised); no silent retry_\n\n**Did:** agent_wrapper/wrapper.py extended with call_with_tools(messages, tools, ..., max_depth=3). tools format: [{spec: <openai-function-schema>, impl: callable}]. Loop: send with tools=, log record (parent_request_id linked), if tool_calls empty \u2026\n\n**Observed:** status=passed day=day_4 duration_ms=0 fallback=None\n",
+    "runlog-day-4-day4-vllm-restart-for-tool-calling-l72": "# a_bgt_rsi: Nara \u2014 week1.run L72\n\n_vLLM accepts tool_choice=auto without 400; MARLIN backend still used; MTP intact_\n\n**Did:** setup/day4_vllm_serve_tools.sh \u2014 same image vllm/vllm-openai:v0.21.0, same NVFP4 weights, same MARLIN MoE backend, same MTP speculative_config (mtp method, num_speculative_tokens=4, draft model gemma-4-26b-a4b-it-assistant); adds --enable-a\u2026\n\n**Observed:** status=passed day=day_4 duration_ms=290000 fallback=None\n",
+    "runlog-day-4-day4-block2-e2e-test-l73": "# a_bgt_rsi: Nara \u2014 week1.run L73\n\n_2 linked JSONL entries with matching parent_request_id; tool_calls[0].function.arguments parses + validates against tools/mock_payoffs.schema.json; final assistant message contains 3,3 0,5 5,0 1,1_\n\n**Did:** tests/test_tool_call_e2e.py executed against live vLLM. logs/day4_e2e.jsonl has 2 linked schema-valid records (chain e9091452 -> 172bc7fb). Check 1 (chain linkage): second.parent_request_id == first.request_id. Check 2 (tool args validate):\u2026\n\n**Observed:** status=passed day=day_4 duration_ms=5478 fallback=None\n",
+    "runlog-day-4-day4-block2-robustness-l74": "# a_bgt_rsi: Nara \u2014 week1.run L74\n\n_5 trials recorded; rate written to metric_log.day4_tool_call_invocation_rate_\n\n**Did:** tests/test_tool_call_robustness.py --n 5 --temperature 0.3 against live vLLM (gemma4 tool parser). 5/5 runs invoked the tool. 10/10 records schema-valid (verify_log_integrity==0). 0 ToolCallError raised. Rate 1.00 written to run_state/week1\u2026\n\n**Observed:** status=passed day=day_4 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l21` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-4-day4-block3-journal-l75": "# a_bgt_rsi: Nara \u2014 week1.run L75\n\n_journal stub with data inserts; journal/index.md updated_\n\n**Did:** journal/day4.md stubbed (200-400 word target, [WRITE]/[DATA] markers) with data inserts day4_tool_call_invocation_rate=1.00 and chain-root request_id e9091452-6b94-4e33-b13e-72665c1ef9d6 from logs/day4_e2e.jsonl. journal/index.md row 4 upda\u2026\n\n**Observed:** status=passed day=day_4 duration_ms=0 fallback=None\n",
+    "runlog-day-4-day4-end-of-day-artifacts-l76": "# a_bgt_rsi: Nara \u2014 week1.run L76\n\n_commit hash returned; verify_log_integrity==0 on both logs; total day_4 entries >= 30; journal/index.md updated; Day-5 pre-stage passes_\n\n**Did:** git commit fd5eb24 staged 14 paths (tools/mock_payoffs.py + .schema.json, agent_wrapper/wrapper.py, tests/test_tool_call_e2e.py + test_tool_call_robustness.py + test_wrapper_call_with_tools.py, setup/day4_vllm_serve_tools.sh, scripts/test_s\u2026\n\n**Observed:** status=partial_pass day=day_4 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l10` (harvest_finding) \u2014 **observed_in**\n- `harvest-h002-l12` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-4-day4-post-review-b1-fix-l77": "# a_bgt_rsi: Nara \u2014 week1.run L77\n\n_every Day-4 record carries vllm_image_tag=vllm/vllm-openai:v0.21.0; rate preserved; all tests pass_\n\n**Did:** Pre-push code-review identified BLOCKING B1: agent_wrapper/wrapper.py HOST_METADATA default for vllm_image_tag was 'vllm/vllm-openai:v0.20.0', stale since Day-2's D-022 re-pin. All 12 Day-4 records carried the wrong tag, contradicting CLAUD\u2026\n\n**Observed:** status=passed day=day_4 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l17` (harvest_finding) \u2014 **observed_in**\n- `harvest-h002-l22` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-4-day4-post-review-nits-l78": "# a_bgt_rsi: Nara \u2014 week1.run L78\n\n_non-blocking review items addressed; tests still pass_\n\n**Did:** Applied N1 (state.notes pointer to entries-count finding), N2 (docstring on _project_for_log isinstance branch \u2014 load-bearing both ways), N4 (extended _has_pair regex to match bare 3 3 adjacency per docstring claim), N5 (replaced leaky sum(\u2026\n\n**Observed:** status=passed day=day_4 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l17` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-4-merge-track-c-day4-pd-strategies-l79": "# a_bgt_rsi: Nara \u2014 week1.run L79\n\n_file boundaries respected; sanity tests pass_\n\n**Did:** Pre-merge: git diff --name-only main..worktree-day4-pd-strategies confirmed only 3 files (experiments/exp001_repeated_pd/strategies.py + tests/test_strategies.py + notes/track-c-day4-pd.md) \u2014 all on Track C allow-list. Auditor verdict MERGE\u2026\n\n**Observed:** status=passed day=day_4 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l23` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-4-merge-track-d-day4-ui-sync-l80": "# a_bgt_rsi: Nara \u2014 week1.run L80\n\n_file boundaries respected; UI day-4 tests pass_\n\n**Did:** Pre-merge: git diff --name-only main..worktree-day4-ui-sync confirmed all 20 paths under ui/** or ui_plan.md or notes/track-d-* \u2014 all on Track D allow-list. Auditor verdict MERGE: chains route + day3.5 retrieval_context render + events view\u2026\n\n**Observed:** status=passed day=day_4 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h002-l23` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-5-state-transition-l81": "# a_bgt_rsi: Nara \u2014 week1.run L81\n\n_current_day advanced to next day after prior day fully complete_\n\n**Did:** current_day advanced day_4 -> day_5 on resume (Track A). All 8 day_4 tasks complete in completed_tasks; run log confirms day4_end_of_day_artifacts (partial_pass) + day4_post_review_b1_fix + day4_post_review_nits + merge_track_c_day4_pd_stra\u2026\n\n**Observed:** status=passed day=day_5 duration_ms=0 fallback=None\n",
+    "runlog-day-5-day4-carryover-resolution-l82": "# a_bgt_rsi: Nara \u2014 week1.run L82\n\n_human resolves the open Day-4 entries-count carryover; plan amendment + DECISIONS.md entry + state note all consistent_\n\n**Did:** Open carryover state.notes.day_4_entries_count_finding RESOLVED. Human decision (decross1, AskUserQuestion 2026-05-21): amend plan.yaml threshold. Applied: plan.yaml day4_end_of_day_artifacts jsonl-integrity check \u2014 bullet 'total entries ac\u2026\n\n**Observed:** status=passed day=day_5 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h003-l26` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-5-day5-block1-reading-l83": "# a_bgt_rsi: Nara \u2014 week1.run L83\n\n_human reads C-B & L Ch. 1 \u00a71.1-1.4_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-21 \u2014 Block 1 reading done by human, no AI involvement (Cesa-Bianchi & Lugosi, Prediction Learning and Games, Ch. 1 \u00a71.1-1.4: Hannan consistency, regret framework).\n\n**Observed:** status=passed day=day_5 duration_ms=0 fallback=None\n",
+    "runlog-day-5-day5-block1-problemset-l84": "# a_bgt_rsi: Nara \u2014 week1.run L84\n\n_human works C-B & L Ex. 1.1, 1.2_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-21 \u2014 C-B & L Ex. 1.1, 1.2 worked by hand, no AI involvement.\n\n**Observed:** status=passed day=day_5 duration_ms=0 fallback=None\n",
+    "runlog-day-5-day5-block2-ml-intern-router-l85": "# a_bgt_rsi: Nara \u2014 week1.run L85\n\n_router probes ML-Intern installability and branches to ml_intern_attempt (on_success) or pipeline_fallback (on_failure/on_timeout) within a 45-min cap_\n\n**Did:** Router probe executed (~4 min wall clock, well under 45-min cap). plan.yaml router command has a literal <url> placeholder; resolved from the ml-intern PyPI package's own published metadata to https://github.com/huggingface/ml-intern.git (c\u2026\n\n**Observed:** status=passed day=day_5 duration_ms=240000 fallback=None\n\n## Referenced by\n\n- `harvest-h003-l27` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-5-state-transition-l86": "# a_bgt_rsi: Nara \u2014 week1.run L86\n\n_fallback selection logged as its own run-log entry and written to state.fallbacks_taken (Inviolate Rules 7 + 8)_\n\n**Did:** fallbacks_taken.day5_ml_intern = \"direct_api\" recorded in run_state/week1.state.json. ML-Intern path abandoned at the router (probe failed \u2014 integration-surface mismatch; see day5_block2_ml_intern_router entry). Direct Semantic Scholar API \u2026\n\n**Observed:** status=passed day=day_5 duration_ms=0 fallback=day5_ml_intern: direct_api\n",
+    "runlog-day-5-day5-block2-pipeline-fallback-l87": "# a_bgt_rsi: Nara \u2014 week1.run L87\n\n_both pipeline/arxiv_scraper.py and pipeline/embed_and_store.py exist_\n\n**Did:** Direct Semantic Scholar API path confirmed. Validation 'scripts present': pipeline/arxiv_scraper.py (8415 bytes) and pipeline/embed_and_store.py (7603 bytes) both exist \u2014 merged to main on Day 3 from Track C (commit cec3f62). Both will be v\u2026\n\n**Observed:** status=passed day=day_5 duration_ms=0 fallback=None\n",
+    "runlog-day-5-day5-block2-pipeline-implementation-l88": "# a_bgt_rsi: Nara \u2014 week1.run L88\n\n_>=30 papers ingested (>=50 target) into papers_recent collection; --since-days 7 first run_\n\n**Did:** Scraper sub-step ran clean (pipeline/arxiv_scraper.py, exit 0, no rate-limiting, 3.3s) but produced only 1 paper with an arXiv ID across cs.MA/cs.GT/econ.TH for --since-days 7 \u2014 far below the >=30 floor (>=50 target). Diagnosis via direct S\u2026\n\n**Observed:** status=escalated day=day_5 duration_ms=3264 fallback=None\n\n## Referenced by\n\n- `harvest-h003-l28` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-5-merge-track-d-day5-ui-sync-l89": "# a_bgt_rsi: Nara \u2014 week1.run L89\n\n_file boundaries respected; auditor verdict MERGE; UI tests pass; clean merge_\n\n**Did:** git merge --no-ff worktree-day5-ui-sync -> merge commit e154814, ZERO conflicts, 13 files (+1021/-181). Pre-merge: git diff --name-only main..worktree-day5-ui-sync confirmed all 13 paths within Track D allowed boundary (ui/**, ui_plan.md, n\u2026\n\n**Observed:** status=passed day=day_5 duration_ms=0 fallback=None\n",
+    "runlog-day-5-day5-block2-pipeline-implementation-l90": "# a_bgt_rsi: Nara \u2014 week1.run L90\n\n_>=30 papers (>=50 target) ingested into papers_recent; BGE-M3 embeddings; dedup on arxiv_id; 2 papers human-cross-checked_\n\n**Did:** Pipeline executed via the arXiv-API source (D-027). Stage 1: pipeline/arxiv_scraper.py fetched 138 unique papers (cs.MA 76, cs.GT 44, econ.TH 18; arXiv API native cat: filter, --since-days 7, dates 2026-05-14..2026-05-20) after an arXiv 429\u2026\n\n**Observed:** status=passed day=day_5 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h003-l29` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-5-day5-block2-retrieval-test-l91": "# a_bgt_rsi: Nara \u2014 week1.run L91\n\n_top-3 includes >=1 genuinely relevant paper (human review); query latency sub-second_\n\n**Did:** tests/test_papers_retrieval.py real-mode query 'LLM agents in repeated games' --top-k 3 against papers_recent (138 papers); output bench/day5_retrieval.json. Track A reconciled two Track-B DAY5-CONTRACT items first: (a) _query_real now time\u2026\n\n**Observed:** status=passed day=day_5 duration_ms=297 fallback=None\n",
+    "runlog-day-5-day5-block3-journal-l92": "# a_bgt_rsi: Nara \u2014 week1.run L92\n\n_journal stub with data inserts (day5_papers_ingested + 1-2 picked papers); journal/index.md updated_\n\n**Did:** journal/day5.md stubbed (200-400 word target, [WRITE]/[DATA] markers, day4.md format), title 'Pipe arXiv into the loop \u2014 first findings about my own field'. Data inserts: day5_papers_ingested=138 (cs.MA 76, cs.GT 44, econ.TH 18); retrieval \u2026\n\n**Observed:** status=passed day=day_5 duration_ms=0 fallback=None\n",
+    "runlog-day-5-day5-block3-reading-l93": "# a_bgt_rsi: Nara \u2014 week1.run L93\n\n_human reads Aher, Arriaga & Kalai 2023_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-21 \u2014 Block 3 reading done by human, no AI involvement (Aher, Arriaga & Kalai 2023, 'Using LLMs to Replicate Human Subject Studies').\n\n**Observed:** status=passed day=day_5 duration_ms=0 fallback=None\n",
+    "runlog-day-5-day5-ambient-l94": "# a_bgt_rsi: Nara \u2014 week1.run L94\n\n_human ambient-listens to an epistemics podcast (non-blocking)_\n\n**Did:** marked complete by human attestation (decross1) 2026-05-21 \u2014 ambient listening on epistemics (Rationally Speaking or similar); human-only non-blocking task.\n\n**Observed:** status=passed day=day_5 duration_ms=0 fallback=None\n",
+    "runlog-day-5-merge-track-c-day5-inspect-run-l95": "# a_bgt_rsi: Nara \u2014 week1.run L95\n\n_file boundaries respected; auditor verdict MERGE; inspect_run tests pass; clean merge_\n\n**Did:** git merge --no-ff worktree-day5-inspect-run -> merge commit 7741795, ZERO conflicts, 3 files (+903). Boundary check: all 3 paths within Track C allowed boundary (tools/inspect_run.py, tests/test_inspect_run.py, notes/track-c-day5-inspect-ru\u2026\n\n**Observed:** status=passed day=day_5 duration_ms=0 fallback=None\n",
+    "runlog-day-5-day5-end-of-day-artifacts-l96": "# a_bgt_rsi: Nara \u2014 week1.run L96\n\n_commit hash returned; status clean; cron file present but not in crontab; journal/index.md updated; notes/day6_openclaw_plan.md pre-staged_\n\n**Did:** EOD commit of the 15-path Day-5 fileset (this commit): pipeline/arxiv_scraper.py + embed_and_store.py, tests/test_arxiv_scraper.py + test_papers_retrieval.py, cron/daily-arxiv.sh (new, +x), DECISIONS.md (D-026 + D-027), plan.yaml (D-026 ame\u2026\n\n**Observed:** status=passed day=day_5 duration_ms=0 fallback=None\n",
+    "runlog-day-6-day6-start-l97": "# a_bgt_rsi: Nara \u2014 week1.run L97\n\n_state.current_day == day_6_\n\n**Did:** current_day advanced day_5 -> day_6 (all day_5 tasks completed)\n\n**Observed:** status=started day=day_6 duration_ms=0 fallback=None\n",
+    "runlog-day-6-day6-block1-reading-l98": "# a_bgt_rsi: Nara \u2014 week1.run L98\n\n_human marks Block 1 complete_\n\n**Did:** reminder printed; awaiting human attestation\n\n**Observed:** status=human_gate_blocked day=day_6 duration_ms=0 fallback=None\n",
+    "runlog-day-6-day6-block1-reading-l99": "# a_bgt_rsi: Nara \u2014 week1.run L99\n\n_human marks Block 1 complete_\n\n**Did:** human attested complete (\"these human blocks are done\")\n\n**Observed:** status=passed day=day_6 duration_ms=0 fallback=None\n",
+    "runlog-day-6-day6-block1-problemset-l100": "# a_bgt_rsi: Nara \u2014 week1.run L100\n\n_handwritten_proof artifact_expected_\n\n**Did:** human attested complete (handwritten Multiplicative Weights derivation + regret-bound proof; artifact retained by human, not transcribed)\n\n**Observed:** status=passed day=day_6 duration_ms=0 fallback=None\n",
+    "runlog-day-6-day6-block2-worker-contract-l101": "# a_bgt_rsi: Nara \u2014 week1.run L101\n\n_schema is valid JSON Schema; input.required exact 4 fields; output.required exact 5 fields_\n\n**Did:** 3/3 validation checks: (1) Draft202012Validator.check_schema OK; (2) input.required == [task_id,task_type,payload,parent_request_id]; (3) output.required == [task_id,status,result,errors,jsonl_log_path]. Source: schema/worker_contract.schem\u2026\n\n**Observed:** status=passed day=day_6 duration_ms=0 fallback=None\n",
+    "runlog-day-6-day6-block2-orchestrator-router-l102": "# a_bgt_rsi: Nara \u2014 week1.run L102\n\n_router decides nemoclaw-or-fallback path_\n\n**Did:** `nemoclaw` binary not found (command not found); fallback branch selected per plan.yaml branches.on_failure -> day6_block2_orchestrator_with_fallback. Consistent with state.fallbacks_taken.day1_nemoclaw (NemoClaw never installed on Day 1).\n\n**Observed:** status=passed day=day_6 duration_ms=2 fallback=None\n",
+    "runlog-day-6-day6-block2-orchestrator-with-fallback-l103": "# a_bgt_rsi: Nara \u2014 week1.run L103\n\n_3 linked JSONL entries; 60s timeout enforced; one worker one task end-to-end_\n\n**Did:** Built orchestrator/openclaw_runner.py (OrchestratorClient, Python multiprocessing fork start method, 60s worker timeout, terminate+kill on hang, no-orphan discipline) + workers/summarize_paper.py (chromadb.get(ids=[arxiv_id]) on papers_rece\u2026\n\n**Observed:** status=passed day=day_6 duration_ms=0 fallback=multiprocessing\n",
+    "runlog-day-6-day6-block2-robustness-mini-l104": "# a_bgt_rsi: Nara \u2014 week1.run L104\n\n_5/5 sequential pass; clean rejection on malformed; no orphan worker processes_\n\n**Did:** 3/3 validations all PASS. (1) sequential 5/5: seq-1..seq-5 all status=passed (durations 2.6-3.7s, total wall-clock ~15s including malformed); 5 worker_output records in logs/day6_5seq.jsonl (summary_len 703-774 chars). (2) malformed rejecte\u2026\n\n**Observed:** status=passed day=day_6 duration_ms=15000 fallback=None\n",
+    "runlog-day-6-day6-block2-inspect-run-cli-l105": "# a_bgt_rsi: Nara \u2014 week1.run L105\n\n_stdout contains all four levels with matching IDs_\n\n**Did:** Ran the plan command verbatim: python3 tools/inspect_run.py --task-id seq-1 (first task_id from logs/day6_5seq.jsonl). Full 4-level chain printed with matching parent->id links: [orchestrator_dispatch 96bb2042 parent=-] -> [worker_invocatio\u2026\n\n**Observed:** status=passed day=day_6 duration_ms=0 fallback=None\n",
+    "runlog-day-6-day6-block3-reading-l106": "# a_bgt_rsi: Nara \u2014 week1.run L106\n\n_human marks reading complete_\n\n**Did:** human attested Horton 2023 \"LLMs as Simulated Economic Agents\" read (Block 3, no-AI; required reading for Day 7 repeated-PD experiment)\n\n**Observed:** status=passed day=day_6 duration_ms=0 fallback=None\n",
+    "runlog-day-6-day6-block3-journal-l107": "# a_bgt_rsi: Nara \u2014 week1.run L107\n\n_stub posted with data inserts_\n\n**Did:** Drafted journal/day6.md (~430 words incl. markers) as stub_post_with_data_inserts; all three required data inserts present: day6_orchestrator_5_of_5=5/5, fallbacks_taken.day6_orchestrator_isolation=multiprocessing, one_full_chain_excerpt (A\u2026\n\n**Observed:** status=passed day=day_6 duration_ms=0 fallback=None\n",
+    "runlog-day-6-day6-ambient-l108": "# a_bgt_rsi: Nara \u2014 week1.run L108\n\n_reminder printed_\n\n**Did:** human attestation acknowledged (non-blocking ambient listening reminder printed)\n\n**Observed:** status=passed day=day_6 duration_ms=0 fallback=None\n",
+    "runlog-day-6-day6-end-of-day-artifacts-l109": "# a_bgt_rsi: Nara \u2014 week1.run L109\n\n_files committed; cron enabled; jsonl integrity; journal updated; Day 7 pre-staged_\n\n**Did:** EOD commit 75f563d (12 files, +578/-80): orchestrator/openclaw_runner.py + workers/summarize_paper.py + schema/worker_contract.schema.json (already tracked; no-op) + tools/inspect_run.py (already tracked; no-op) + logs/orchestrator.jsonl + \u2026\n\n**Observed:** status=passed day=day_6 duration_ms=0 fallback=user_crontab_instead_of_sudo_crontab\n",
+    "runlog-day-7-day7-start-l110": "# a_bgt_rsi: Nara \u2014 week1.run L110\n\n_state.current_day == day_7_\n\n**Did:** current_day advanced day_6 -> day_7 (all day_6 tasks completed including day6_end_of_day_artifacts); human_gates_pending stays [] at entry (day7_publication_review is armed mid-Block-2 by the gate task, not pre-armed)\n\n**Observed:** status=started day=day_7 duration_ms=0 fallback=None\n",
+    "runlog-day-7-day7-block1-reading-l111": "# a_bgt_rsi: Nara \u2014 week1.run L111\n\n_human marks Block 1 complete_\n\n**Did:** reminder printed (Camerer Ch. 4 \u00a74.3 + F&L Ch. 1 \u00a71.1-1.2; finish MW proof or Camerer 4.1/4.2); awaiting human attestation; Block 1 decoupled from Block 2 per CLAUDE.md inviolate rule 1 \u2014 agent proceeds on Block 2 in parallel\n\n**Observed:** status=human_gate_blocked day=day_7 duration_ms=0 fallback=None\n",
+    "runlog-day-7-day7-block2-openspiel-up-l112": "# a_bgt_rsi: Nara \u2014 week1.run L112\n\n_pyspiel loads matrix_pd (shell exit 0, game object printed); random-vs-random rate in [0.3, 0.7] over 5 episodes_\n\n**Did:** 2/2 validation checks PASS. (1) pyspiel imports + matrix_pd loads: open_spiel-1.6.15 installed into .venv-chroma (matrix_pd is one-shot deterministic simultaneous-move 2-player; action 0=C, 1=D; legal_actions(0,1)=[0,1]; payoff CC=5/5, CD=0\u2026\n\n**Observed:** status=passed day=day_7 duration_ms=2000 fallback=None\n",
+    "runlog-day-7-day7-block2-strategies-and-llm-agent-l113": "# a_bgt_rsi: Nara \u2014 week1.run L113\n\n_prompt grep returns no matches; parser logs malformed events; dry-run shows LLM switches to D in majority of last 5_\n\n**Did:** 3/3 validation checks PASS. (1) Prompt-contamination grep on experiments/exp001_repeated_pd/llm_agent.py: 0 matches for plan-prescribed pattern 'tit-for-tat|tit for tat|grim trigger|all-C|all-D' AND 0 matches for broader case-insensitive sw\u2026\n\n**Observed:** status=passed day=day_7 duration_ms=15000 fallback=None\n",
+    "runlog-day-7-day7-block2-strategies-and-llm-agent-l114": "# a_bgt_rsi: Nara \u2014 week1.run L114\n\n_run-log entries match artifact contents_\n\n**Did:** Correcting the action-sequence transcription in the immediately preceding day7_block2_strategies_and_llm_agent entry. The ACTUAL llm_actions over the 10-round dry-run vs constant_d are ['C','C','D','C','C','D','C','D','D','D'] (10 items; fi\u2026\n\n**Observed:** status=correction day=day_7 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h005-l30` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-7-day7-block2-precompute-expected-range-l115": "# a_bgt_rsi: Nara \u2014 week1.run L115\n\n_human writes the expected coop-rate range before the run_\n\n**Did:** Human attested (decross1, 2026-05-23): LLM-vs-mirror (TFT-equivalent) expected cooperation-rate range = [0.60, 0.95] over 100 rounds. Written down BEFORE the run per plan-prescribed silent-model-misconfiguration safeguard. Recorded to notes\u2026\n\n**Observed:** status=passed day=day_7 duration_ms=0 fallback=None\n",
+    "runlog-day-7-day7-block2-run-experiment-l116": "# a_bgt_rsi: Nara \u2014 week1.run L116\n\n_500 rounds completed; LLM-vs-TFT in [0.60, 0.95]; parse failures logged not silent_\n\n**Did:** 500 rounds completed cleanly in 114.2s (5 opponents \u00d7 100 rounds; 600 wrapper calls; 4 fixed-opponent matches @ 100 calls each + 1 mirror_llm match @ 200 calls). Per-opponent cooperation rates: tft 1.000/1.000 (mutual C lock-in from round 1\u2026\n\n**Observed:** status=partial_pass day=day_7 duration_ms=114200 fallback=None\n\n## Referenced by\n\n- `harvest-h005-l32` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-7-slip-declared-l117": "# a_bgt_rsi: Nara \u2014 week1.run L117\n\n_slip event recorded; state.current_subday=7.1; day_7 next-integer-day precondition preserved_\n\n**Did:** slip declared; current_subday set to 7.1; Block 3 (journal, reading) still happens today; EOD commits roll forward\n\n**Observed:** status=declared day=day_7 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h005-l30` (harvest_finding) \u2014 **observed_in**\n- `harvest-h005-l32` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-7-day7-1-block2-run-experiment-l118": "# a_bgt_rsi: Nara \u2014 week1.run L118\n\n_500 rounds at T=0.2; LLM-vs-TFT inside [0.60, 0.95]; parse failures logged_\n\n**Did:** Day-7.1 slip rerun at temperature=0.2 (LLMAgent.temperature plumbed through CLI flag --temperature 0.2). 500 rounds completed cleanly in 110.1s (5 opponents \u00d7 100; 600 wrapper calls; 0 parse failures; 0 default-D plays). Per-opponent rates:\u2026\n\n**Observed:** status=partial_pass day=day_7 duration_ms=110100 fallback=None\n\n## Referenced by\n\n- `harvest-h005-l32` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-7-slip-declared-l119": "# a_bgt_rsi: Nara \u2014 week1.run L119\n\n_slip event recorded; state.current_subday=7.2_\n\n**Did:** second slip declared; current_subday advanced 7.1 -> 7.2; Day-7.1 outputs preserved in results_7_1/ + logs/exp001_7_1.jsonl\n\n**Observed:** status=declared day=day_7 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h005-l30` (harvest_finding) \u2014 **observed_in**\n- `harvest-h005-l32` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-7-day7-2-block2-run-experiment-l120": "# a_bgt_rsi: Nara \u2014 week1.run L120\n\n_500 rounds at T=0.7; LLM-vs-TFT inside [0.60, 0.95]; parse failures logged_\n\n**Did:** Day-7.2 slip rerun at temperature=0.7. 500 rounds completed cleanly in 108.8s (5 \u00d7 100; 600 wrapper calls; 0 parse failures; 0 default-D plays). Per-opponent rates: tft 1.000/1.000, grim_trigger 1.000/1.000, all_c 1.000/1.000, all_d 0.120/0\u2026\n\n**Observed:** status=partial_pass day=day_7 duration_ms=108800 fallback=None\n\n## Referenced by\n\n- `harvest-h005-l32` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-7-slip-declared-l121": "# a_bgt_rsi: Nara \u2014 week1.run L121\n\n_slip event recorded; state.current_subday=7.3_\n\n**Did:** third slip declared; current_subday advanced 7.2 -> 7.3; prior outputs preserved in results_7_1/ + results_7_2/\n\n**Observed:** status=declared day=day_7 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h005-l30` (harvest_finding) \u2014 **observed_in**\n- `harvest-h005-l32` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-7-day7-3-block2-run-experiment-l122": "# a_bgt_rsi: Nara \u2014 week1.run L122\n\n_500 rounds at T=0.0 + exploitation_hint; LLM-vs-TFT inside [0.60, 0.95]; parse failures logged_\n\n**Did:** Day-7.3 slip rerun with rules_variant=exploitation_hint (T=0.0). 500 rounds completed cleanly in 113.0s (600 wrapper calls; 0 parse failures; 0 default-D plays). Per-opponent rates: tft 1.000/1.000, grim_trigger 1.000/1.000, all_c 1.000/1.0\u2026\n\n**Observed:** status=partial_pass day=day_7 duration_ms=113000 fallback=None\n\n## Referenced by\n\n- `harvest-h005-l32` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-7-slip-resolved-l123": "# a_bgt_rsi: Nara \u2014 week1.run L123\n\n_slip resolution event recorded; range amended; downstream tasks unblocked (quicklook + publication gate)_\n\n**Did:** current_subday cleared; current_day stays day_7 (Block 3 + EOD + retrospective remain today); 4-run record preserved across results/, results_7_1/, results_7_2/, results_7_3/\n\n**Observed:** status=resolved day=day_7 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h005-l30` (harvest_finding) \u2014 **observed_in**\n- `harvest-h005-l32` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-7-day7-block2-quicklook-l124": "# a_bgt_rsi: Nara \u2014 week1.run L124\n\n_5 cumulative-payoff plots; per-opponent coop rate + mean payoff in quicklook.md_\n\n**Did:** 2/2 validation checks PASS. (1) 5 cumulative-payoff plots produced \u2014 experiments/exp001_repeated_pd/plots/{all_c,all_d,grim_trigger,mirror_llm,tft}_cumulative_payoff.png (one per opponent, headless matplotlib Agg backend). (2) per-opponent \u2026\n\n**Observed:** status=passed day=day_7 duration_ms=2000 fallback=None\n",
+    "runlog-day-7-day7-publication-review-gate-l125": "# a_bgt_rsi: Nara \u2014 week1.run L125\n\n_human_gates_pending contains 'day7_publication_review'; gate notice printed; agent halts on auto-publication_\n\n**Did:** GATE NOTICE PRINTED + state.human_gates_pending updated. Per CLAUDE.md inviolate rule 3 + plan.yaml:3003-3035: most important gate of Week 1, NEVER auto-clears. Day-7 experiment results (baseline run + Days 7.1/7.2/7.3 diagnostic ladder) MU\u2026\n\n**Observed:** status=gate_armed day=day_7 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h005-l30` (harvest_finding) \u2014 **observed_in**\n- `harvest-h005-l34` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-7-day7-block3-journal-weekly-synthesis-l126": "# a_bgt_rsi: Nara \u2014 week1.run L126\n\n_stub posted with data inserts; preliminary caveat on day7 references; index updated_\n\n**Did:** Stubbed journal/day7.md as stub_post_with_data_inserts (per plan agent_action). Title 'Apparatus v0 \u2014 Week 1, what worked, what didn't'. All 8 required data_to_insert fields present: day1_tokens_per_sec=32.03, day2_jsonl_malformed_count=0, \u2026\n\n**Observed:** status=passed day=day_7 duration_ms=0 fallback=None\n",
+    "runlog-day-7-day7-block3-reading-l127": "# a_bgt_rsi: Nara \u2014 week1.run L127\n\n_human marks Block 3 reading complete_\n\n**Did:** human attested complete (decross1, 2026-05-23) \u2014 30-min skim of one Week-1 arXiv paper related to today's PD experiment; no-AI per Block-3 reading discipline; reading-artifact retained by human (not transcribed)\n\n**Observed:** status=passed day=day_7 duration_ms=0 fallback=None\n",
+    "runlog-day-7-day7-ambient-l128": "# a_bgt_rsi: Nara \u2014 week1.run L128\n\n_human ambient-listens to a game-theory + LLMs talk (non-blocking)_\n\n**Did:** human attested complete (decross1, 2026-05-23) \u2014 game-theory + LLM keynote ambient-listened; sets frame for Week-2 expansion to public goods + stag hunt per plan.yaml:3104-3107; non-blocking, human-only task\n\n**Observed:** status=passed day=day_7 duration_ms=0 fallback=None\n",
+    "runlog-day-7-merge-track-b-day7-tools-tests-l129": "# a_bgt_rsi: Nara \u2014 week1.run L129\n\n_clean merge; file boundaries respected; tests pass_\n\n**Did:** git merge --no-ff worktree-day7-tools-tests into worktree-day7-main; ort strategy; 5 files changed (+1028); 0 conflicts. Boundary check: tests/test_*.py within tests-shared zone (Track B primary); notes/track-b-day7-tools.md within notes (a\u2026\n\n**Observed:** status=passed day=day_7 duration_ms=0 fallback=None\n",
+    "runlog-day-7-merge-track-c-day7-cron-sla-l130": "# a_bgt_rsi: Nara \u2014 week1.run L130\n\n_clean merge; file boundaries respected; cron scripts work post-merge_\n\n**Did:** git merge --no-ff worktree-day7-cron-sla into worktree-day7-main; ort strategy; 3 files changed (+112); 0 conflicts. Boundary check: cron/*.sh within cron-and-scripts zone (Track C primary); notes/track-c-day7-cron.md within notes (any). Bo\u2026\n\n**Observed:** status=passed day=day_7 duration_ms=0 fallback=None\n",
+    "runlog-day-7-rectify-malformed-run-log-lines-l131": "# a_bgt_rsi: Nara \u2014 week1.run L131\n\n_0 malformed lines in run_state/week1.run.jsonl per the run-log schema used by ui/backend/unlock.py_\n\n**Did:** Per CLAUDE.md inviolate rule 5 + collision_protocol.md \u00a72.3 \u00a77 Track A is the rectifier. Surfaced by Track D's UI integrity check (/api/unlock_status -> ui/backend/unlock.py:verify_run_log_integrity) and filed in notes/track-d-observations.\u2026\n\n**Observed:** status=passed day=day_7 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h005-l31` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-7-retrospective-recorded-l132": "# a_bgt_rsi: Nara \u2014 week1.run L132\n\n_retrospective committed; alignment evidence boxes checked; first-of-two attestations recorded_\n\n**Did:** Week-1 retrospective committed at e544699 (human/retrospectives/week1.md). Attested by decross1 2026-05-23. Section 7 alignment-evidence: all 4 boxes CHECKED (decision parity, no silent metric drift, run-log integrity post-rectification, cl\u2026\n\n**Observed:** status=passed day=day_7 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h005-l34` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-7-merge-track-d-day7-eod-l133": "# a_bgt_rsi: Nara \u2014 week1.run L133\n\n_clean merge; UI tests pass; pushed_\n\n**Did:** Second Track D merge of the day: worktree-day7-ui commit 8bdbc36 (track-d day7-EOD: UX audit fixes + r10 \u2014 orchestrator queue + workload-aware decode) merged to main via merge commit 567e69c. Track D rebased on 3eca079 cleanly. Boundary che\u2026\n\n**Observed:** status=passed day=day_7 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h005-l33` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-7-day8-entry-cleanup-stray-files-l134": "# a_bgt_rsi: Nara \u2014 week1.run L134\n\n_two stray untracked files removed; working tree clean; gate posture unchanged_\n\n**Did:** Deleted 2 stray untracked files per notes/day8_agenda.md items 1+2, on user direction at /resume-state. (1) notes/day7_expected_ranged.md (52B typo dup of canonical day7_expected_range.md; the one-line content 'LLM-vs-mirror expected coop r\u2026\n\n**Observed:** status=passed day=day_7 duration_ms=2000 fallback=None\n",
+    "runlog-day-7-d028-locked-cooperation-lockin-and-no-publish-disposition-l135": "# a_bgt_rsi: Nara \u2014 week1.run L135\n\n_D-028 entry present in DECISIONS.md with both parts; pending-decisions item resolved; category index updated_\n\n**Did:** Decision D-028 appended to DECISIONS.md (2 parts: Finding + Publication disposition). Finding: Day-7 LLM-vs-cooperator cooperation lock-in is Gemma 4's prior, not a measurement artifact \u2014 robust across T={0.0,0.2,0.7} and across baseline vs\u2026\n\n**Observed:** status=passed day=day_7 duration_ms=3000 fallback=None\n",
+    "runlog-day-7-day7-publication-review-gate-cleared-l136": "# a_bgt_rsi: Nara \u2014 week1.run L136\n\n_human_gates_pending == []; state.notes records the resolution; journal banner updated; notes/day7_expected_range.md amended_\n\n**Did:** Per CLAUDE.md inviolate rule 3 the gate clears only when a human explicitly marks it complete. Human (decross1) marked it complete 2026-05-24 with a no-publish-standalone disposition (D-028). State edit: run_state/week1.state.json human_gat\u2026\n\n**Observed:** status=passed day=day_7 duration_ms=2000 fallback=None\n\n## Referenced by\n\n- `harvest-h006-l36` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-7-day7-state-close-out-and-advance-to-day-8-l137": "# a_bgt_rsi: Nara \u2014 week1.run L137\n\n_current_day == 'day_8'; completed_tasks length == 81; human_gates_pending == []; notes/day8_agenda.md items 1-3 + 7 struck through with cross-references_\n\n**Did:** State file housekeeping. (1) Backfilled 16 day_7 task IDs into state.completed_tasks (previously absent during the gate-armed hold): day7_block1_reading, day7_block1_problemset, day7_block2_openspiel_up, day7_block2_strategies_and_llm_agent\u2026\n\n**Observed:** status=passed day=day_7 duration_ms=2000 fallback=None\n\n## Referenced by\n\n- `harvest-h006-l37` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-8-day-start-l138": "# a_bgt_rsi: Nara \u2014 week1.run L138\n\n_day_8 section present in plan.yaml; run-log day_start entry recorded_\n\n**Did:** Day-8 (program day 38) opened on Track A. current_day=day_8, human_gates_pending=[], completed_tasks=81. plan.yaml day_8 section drafted with strict-serial hard-gates (UI v1 verification before Week-2 unlock attestation) per PHASE_1_ROADMAP\u2026\n\n**Observed:** status=open day=day_8 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h007-l38` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-8-day8-block2-draft-day8-plan-l139": "# a_bgt_rsi: Nara \u2014 week1.run L139\n\n_day_8 section appended with all subsections; \u22653 day_8 side-track entries; both grep validation checks pass_\n\n**Did:** day_8 section appended to plan.yaml at line 3194; block_1 (reading+problemset) + block_2 (draft-day8-plan + verify-concurrency-infra + merge-D + UI-v1-verification HARD-GATE + Week-2-unlock-attestation HARD-GATE + merge-B + merge-C) + block\u2026\n\n**Observed:** status=passed day=day_8 duration_ms=900000 fallback=None\n",
+    "runlog-day-8-day8-block2-verify-concurrency-infra-l140": "# a_bgt_rsi: Nara \u2014 week1.run L140\n\n_--validate-ownership exits 0 with 0/0; --weekly-summary 0/0/0_\n\n**Did:** INITIAL FAIL surfaced + REMEDIATED in same Track-A session. First run of `python3 tools/claims_check.py --validate-ownership` reported 53 multi-assigned files (docs-root *.md glob over-matched recursive markdown because fnmatch.fnmatch trea\u2026\n\n**Observed:** status=escalated day=day_8 duration_ms=1800000 fallback=None\n\n## Referenced by\n\n- `harvest-h007-l39` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-8-d029-ownership-yaml-v2-l141": "# a_bgt_rsi: Nara \u2014 week1.run L141\n\n_D-029 entry present in DECISIONS.md with full structure (Decision/Alternatives/Rationale/Operational notes/Reversibility); category index updated_\n\n**Did:** Decision D-029 appended to DECISIONS.md per agent/ownership.yaml's own note ('Changes to autonomy.md and ownership.yaml require a D-NNN entry'). Schema v1 \u2192 v2: docs-root enumerates 10 root *.md files (no more *.md over-match); experiments \u2026\n\n**Observed:** status=passed day=day_8 duration_ms=300000 fallback=None\n",
+    "runlog-day-8-day8-block2-merge-track-d-ui-v1-l142": "# a_bgt_rsi: Nara \u2014 week1.run L142\n\n_clean merge; boundary clean; tests pass or attested_\n\n**Did:** git merge --no-ff worktree-day8-ui into worktree-day8-main; ort strategy; 8 files changed (+804/-14); 0 conflicts. Boundary check: all paths within Track-D zones (ui/**, ui_plan.md, notes/) per ownership.yaml v2. Diff: new ui/frontend/src/c\u2026\n\n**Observed:** status=passed day=day_8 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h007-l42` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-8-day8-block2-merge-track-b-schemas-l143": "# a_bgt_rsi: Nara \u2014 week1.run L143\n\n_clean merge; schemas valid; existing validators still pass_\n\n**Did:** git merge --no-ff worktree-day8-schemas into worktree-day8-main; ort strategy; 6 files changed (+1293); 0 conflicts. Boundary check: schema/proposed/*.json in schemas zone (Track-B primary); tests/test_*_schema_proposed.py in tests-shared z\u2026\n\n**Observed:** status=passed day=day_8 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h007-l42` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-8-day8-block2-merge-track-c-fixtures-l144": "# a_bgt_rsi: Nara \u2014 week1.run L144\n\n_merge clean (post conflict resolution); 30 fixtures load and validate; ownership still 0/0_\n\n**Did:** git merge --no-ff worktree-day8-fixtures into worktree-day8-main; ort strategy; CONFLICT on run_state/claims.jsonl (expected \u2014 both B and C appended to append-only log from same base). Resolution: union merge preserving both sets in chronol\u2026\n\n**Observed:** status=passed day=day_8 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h007-l42` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-8-post-merge-concurrency-infra-check-l145": "# a_bgt_rsi: Nara \u2014 week1.run L145\n\n_--validate-ownership 0/0 exit 0; --weekly-summary 0/0/0_\n\n**Did:** Post-all-merges revalidation. tools/claims_check.py --validate-ownership: 326 tracked files (was 283 pre-merge; +43 = 37 fixtures + 6 schema/test files), 0 multi-assigned, 0 unassigned, exit 0. tools/claims_check.py --weekly-summary: 0 over\u2026\n\n**Observed:** status=passed day=day_8 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h007-l42` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-8-day8-block2-ui-v1-verification-l146": "# a_bgt_rsi: Nara \u2014 week1.run L146\n\n_human attests UI renders every Week-1 artifact correctly per the panel-by-panel checklist_\n\n**Did:** HARD-GATE cleared. Human (decross1) attested via direct UI walk at http://localhost:5173 against the live backend on :8700 (UI_LOGS_DIR=/tmp/fixture_logs but state_file + run_log_file + attestations_file all on real defaults). Backend resta\u2026\n\n**Observed:** status=passed day=day_8 duration_ms=0 fallback=None\n",
+    "runlog-day-8-day8-block2-week2-unlock-attestation-l147": "# a_bgt_rsi: Nara \u2014 week1.run L147\n\n_human_gates_pending contains 'day8_week2_unlock_attestation'; week2.md \u00a70 stub committed with structured data filled and boxes empty_\n\n**Did:** HARD-GATE armed. Strict-serial successor to day8_block2_ui_v1_verification (which cleared 2026-05-24). state.human_gates_pending now contains 'day8_week2_unlock_attestation'. Skeleton landed at human/retrospectives/week2.md \u00a70 with the four\u2026\n\n**Observed:** status=gate_armed day=day_8 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h007-l40` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-8-day8-block2-week2-unlock-attestation-l148": "# a_bgt_rsi: Nara \u2014 week1.run L148\n\n_week2.md \u00a70 committed with 4/4 boxes ticked; human_gates_pending clears_\n\n**Did:** HARD-GATE cleared. Human (decross1) committed human/retrospectives/week2.md \u00a70 at commit 60463c8 with all four alignment-evidence boxes ticked: [x] decision parity (target \u2264 1; informational count left as __ per week1.md \u00a77 precedent), [x] \u2026\n\n**Observed:** status=passed day=day_8 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h007-l40` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-8-retrospective-recorded-l149": "# a_bgt_rsi: Nara \u2014 week1.run L149\n\n_retrospective_recorded event logged per autonomy.md \u00a74.2_\n\n**Did:** Week-2 unlock attestation retrospective recorded. file=human/retrospectives/week2.md, section=\u00a70, commit=60463c8, week=2 (entry attestation), attested_by=decross1, ts=2026-05-24. The full Week-2 retrospective (sections 1-10) lands on Day 44\u2026\n\n**Observed:** status=recorded day=day_8 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h007-l38` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-8-tier-shift-l150": "# a_bgt_rsi: Nara \u2014 week1.run L150\n\n_tier_shift event logged as first-class run-log entry per plan.yaml Appendix C_\n\n**Did:** Week-2 unlock tier-shift inventory applied per week1.md \u00a78. 6 shifts: (1) preflight_credentials_staged hard_gate\u2192autonomous (env-var verifier sufficient); (2) day2_block2_50call_sweep hard_gate\u2192soft_gate (4h SLA); (3) day3_block2_chroma_ins\u2026\n\n**Observed:** status=applied day=day_8 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h007-l38` (harvest_finding) \u2014 **observed_in**\n",
+    "runlog-day-8-day8-carryover-verifier-naming-drift-l151": "# a_bgt_rsi: Nara \u2014 week1.run L151\n\n_autonomy.md \u00a74.3 cites the correct verifier function for run-log integrity_\n\n**Did:** Verifier-naming drift in agent/autonomy.md \u00a74.3 disambiguated. Previous text named only verify_log_integrity for the run-log-integrity criterion; that function (agent_wrapper/wrapper.py:315) actually validates the call-record schema in logs\u2026\n\n**Observed:** status=passed day=day_8 duration_ms=300000 fallback=None\n",
+    "runlog-day-8-day8-block3-journal-l152": "# a_bgt_rsi: Nara \u2014 week1.run L152\n\n_stub posted with data inserts; D-028 disposition referenced; index row 8 added_\n\n**Did:** journal/day8.md stubbed per plan.yaml agent_action=stub_post_with_data_inserts. Title 'Week-2 entry \u2014 UI v1 online + first real concurrent-track day'. All required data_to_insert fields present with [DATA] markers: current_day=day_8 (advanc\u2026\n\n**Observed:** status=passed day=day_8 duration_ms=0 fallback=None\n",
+    "runlog-day-8-day8-end-of-day-artifacts-l153": "# a_bgt_rsi: Nara \u2014 week1.run L153\n\n_current_day == day_9; tier_shift event present; journal URL recorded; human_gates_pending empty_\n\n**Did:** EOD validation: (1) state.current_day advanced day_8 \u2192 day_9 PASS; (2) tier_shift event recorded (run.jsonl entry 2026-05-24T02:27:00Z, 6 shifts) PASS; (3) public Day-8 journal URL recorded \u2014 journal/index.md row 8 added linking journal/day\u2026\n\n**Observed:** status=passed day=day_8 duration_ms=0 fallback=None\n",
+    "runlog-day-8-day-end-l154": "# a_bgt_rsi: Nara \u2014 week1.run L154\n\n_day_end event recorded with completed_tasks, no slip, retrospective link_\n\n**Did:** Day 8 closed. Completed: 12 task IDs across Block-1 (reading + problemset), Block-2 (draft_day8_plan, verify_concurrency_infra, merge_track_d_ui_v1, ui_v1_verification, week2_unlock_attestation, merge_track_b_schemas, merge_track_c_fixtures\u2026\n\n**Observed:** status=closed day=day_8 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h007-l38` (harvest_finding) \u2014 **observed_in**\n",
     "dec-fw-2026-05-18-agent-system-scaffolded": "# 2026-05-18 \u2014 Agent system scaffolded\n\n_framework decision_\n\n**Decision:** Created a portable agent framework (skills + file memory) authored\nto the Agent Skills standard, runnable in both Pi and Claude Code via symlinks.\nAdopted a curated, research-tuned subset of gstack rather than the full\nproduct-oriented framework.\n**Why:** Target harness is Pi; current harness is Claude Code; the project\n(`autoresearch`) is an ML/research pipeline with no product-UI dimension, so\ngstack's CEO/design/QA-browser roles do not apply.\n**Supersedes:** none\n",
     "dec-fw-2026-05-18-added-execution-discipline-skills": "# 2026-05-18 \u2014 Added execution-discipline skills\n\n_framework decision_\n\n**Decision:** Added 4 skills \u2014 `gate-check`, `validate`, `run-log`,\n`resume-state` \u2014 and adapted `experiment` (autonomous loop section) and\n`plan-research` (design-vs-execute pointer).\n**Why:** Explored the primary consumer `/home/decross1/projects/a_bgt_rsi` \u2014 a\ncontract-governed, plan-driven research program (authoritative `plan.yaml`,\nstate-file resume, blocking human gates, JSONL run log, validations never\ncoerced). The original gstack-derived skills were a design/ship loop and did\nnot cover plan-execution discipline, which is this project's core need. The\ngstack safety roles (`/careful`/`/freeze`/`/guard`) dropped on 2026-05-18 are,\nreframed, exactly this gap. Skills stay general-purpose.\n**Supersedes:** partially revises the 2026-05-18 scaffold decision's skill set.\n",
     "dec-fw-2026-05-18-scope-boundary-dev-time-vs-project-runtime": "# 2026-05-18 \u2014 Scope boundary: dev-time vs project-runtime\n\n_framework decision_\n\n**Decision:** Established that this framework is a dev-time harness only; its\nskills must not be loaded into any project's runtime agent. Added `BOUNDARY.md`\nand a `## Scope boundary` section to `AGENTS.md` / `README.md`.\n**Why:** Explored `a_bgt_rsi`'s architecture \u2014 its runtime orchestrator (Gemma 4\n+ OpenClaw + NemoClaw) also runs on Pi. With the dev skills installed globally\nin `~/.pi/agent/skills/`, the apparatus runtime could inherit them. The two\n\"orchestrators\" (dev-time and apparatus-runtime) must stay separate.\n**Supersedes:** none\n",
@@ -4679,52 +6399,52 @@ window.BRAIN_GRAPH = {
     "stage-iter-2026-05-26-010-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-26-010 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 2** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n\u26a0\ufe0f **Fallback fired** \u2014 primary path failed; recovery path ran.\n\n**Triggered by call:** `1d50da6b\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l40` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l237` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l238` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l244` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l245` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-dispatch-retrieve-literature-l251` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-010-loop-v0-tool-receipt-retrieve-literature-l252` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (iteration) \u2014 **produced**\n",
     "stage-iter-2026-05-26-011-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-26-011 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 2** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses to narrow down the scope of how narrative versus list-based histories affect LLM cooperation.\n\n**Triggered by call:** `0f4ca103\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l61` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-011-loop-v0-tool-dispatch-hypothesize-l266` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-011-loop-v0-tool-receipt-hypothesize-l267` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (iteration) \u2014 **produced**\n",
     "stage-iter-2026-05-26-011-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-26-011 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 2** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n\u26a0\ufe0f **Fallback fired** \u2014 primary path failed; recovery path ran.\n\n**Reasoning (Nara's prose before this step):**\n\nI have selected the most specific hypothesis regarding the defection rates in LLM agents when comparing list-based versus narrative-based histories, and I will now search the literature to see if this effect has already been documented.\n\n**Triggered by call:** `f37956d2\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l64` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-011-loop-v0-tool-dispatch-retrieve-literature-l269` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-011-loop-v0-tool-receipt-retrieve-literature-l270` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (iteration) \u2014 **produced**\n",
-    "harvest-h001-l1": "# H001 \u2014 run-log:confirmed\n\n_week1.run.jsonl L2 task=preflight_credentials_staged_\n\n**Source skill:** `run-log`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L2 task=preflight_credentials_staged\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** A failed step is logged with full rigor: status=failed, observable_actual names all 5 missing credentials. Matches run-log's 'log the failure too'.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n",
-    "harvest-h001-l2": "# H001 \u2014 run-log:confirmed\n\n_week1.run.jsonl L2->L3 task=preflight_credentials_staged_\n\n**Source skill:** `run-log`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L2->L3 task=preflight_credentials_staged\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** The task fails (L2) then passes on re-run (L3) as a new appended entry; the failed entry is never edited. Matches run-log's 'append only \u2014 a correction is a new entry'.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n",
-    "harvest-h001-l3": "# H001 \u2014 run-log:confirmed\n\n_week1.run.jsonl L5 task=state_transition_\n\n**Source skill:** `run-log`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L5 task=state_transition\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** A state transition (gate cleared, task moved to completed_tasks) is logged as its own standalone entry, not buried in another task's line. Matches run-log's 'state transitions get their own entries'.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n",
-    "harvest-h001-l4": "# H001 \u2014 run-log:friction\n\n_week1.run.jsonl L1 task=day_1_start_\n\n**Source skill:** `run-log`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L1 task=day_1_start\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** The entry uses status='started' for a session-start marker. run-log's status enum is passed|failed|aborted|halted|skipped \u2014 it does not anticipate start/in-progress markers that real run logs use.\n\n**Plan candidate:** run-log: state the status enum is a non-exhaustive default, or add 'started'/'in_progress'.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n",
-    "harvest-h001-l5": "# H001 \u2014 gate-check:confirmed\n\n_week1.run.jsonl L7-L8 tasks=preflight_failure_walkthroughs,preflight_physical_setup_\n\n**Source skill:** `gate-check`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L7-L8 tasks=preflight_failure_walkthroughs,preflight_physical_setup\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Two human-only preflight tasks are marked passed via 'human attestation (decross1) ... not agent-verified' \u2014 the agent did not execute or verify them. Matches gate-check's 'human-only work \u2014 the agent does not execute it'.\n\n## Links\n\n- **about** \u2192 `skill-gate-check` (skill)\n",
-    "harvest-h001-l6": "# H001 \u2014 gate-check:friction\n\n_week1.run.jsonl L5 vs L7-L8_\n\n**Source skill:** `gate-check`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L5 vs L7-L8\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** L5 clears a pending gate because a verifiable check passed (credentials present); L7-L8 clear gates by explicit human attestation. gate-check says gates clear only by 'explicit human action' and does not distinguish a gate cleared by attestation from one cleared by a checkable fact.\n\n**Plan candidate:** gate-check: distinguish attestation-cleared gates from verification-cleared gates (gate condition is a checkable fact).\n\n## Links\n\n- **about** \u2192 `skill-gate-check` (skill)\n",
-    "harvest-h002-l7": "# H002 \u2014 resume-state:confirmed\n\n_week1.run.jsonl L45 task=state_transition_\n\n**Source skill:** `resume-state`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L45 task=state_transition\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** On resume, current_day advanced day_2->day_3, state reconciled against reality ('git tree clean, last commit ..., run log consistent with state file'), resume point identified, HALTED at day3_block1_reading (human_only). Matches resume-state's read-state / reconcile / honor-gates procedure verbatim.\n\n## Links\n\n- **about** \u2192 `skill-resume-state` (skill)\n",
-    "harvest-h002-l8": "# H002 \u2014 gate-check:confirmed\n\n_week1.run.jsonl L19,L35 task=state_transition_\n\n**Source skill:** `gate-check`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L19,L35 task=state_transition\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** A hard-checkpoint task failing (day1 vLLM serve L19; day2 50-call sweep L35) aborts the whole day rather than being worked around ('per CLAUDE.md rule 6 and on_failure:abort_day, Block 2 halts'). Matches gate-check's hard-checkpoint rule.\n\n## Links\n\n- **about** \u2192 `skill-gate-check` (skill)\n",
-    "harvest-h002-l9": "# H002 \u2014 gate-check:confirmed\n\n_week1.run.jsonl L51->L53 day3_needle_score_gate_\n\n**Source skill:** `gate-check`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L51->L53 day3_needle_score_gate\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** A gate raised at L51 stayed pending until L53 cleared it 'human-attested (decross1)'. The gate survived across tasks and was cleared only by explicit human action. Matches gate-check's 'a gate is cleared only by explicit human action; a pending gate survives'.\n\n## Links\n\n- **about** \u2192 `skill-gate-check` (skill)\n",
-    "harvest-h002-l10": "# H002 \u2014 validate:confirmed\n\n_week1.run.jsonl L34,L76_\n\n**Source skill:** `validate`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L34,L76\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** L34: a 5-check sweep reports each check independently; check #3 (29.75 vs 40 floor) reported FAIL, 'Not coerced \u2014 reported as FAIL per CLAUDE.md rule 4'. L76: day4 end-of-day logged partial_pass with a finding field rather than inflating runs. Matches validate's 'each criterion its own check; a near-miss is a fail; never coerce'.\n\n## Links\n\n- **about** \u2192 `skill-validate` (skill)\n",
-    "harvest-h002-l11": "# H002 \u2014 validate:friction\n\n_week1.run.jsonl L14,L21,L48,L51_\n\n**Source skill:** `validate`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L14,L21,L48,L51\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** a_bgt_rsi repeatedly finds the declared pass_signal itself mis-specified: L14 a cgroup grep string, L21 a 'FLASHINFER_CUTLASS' log line that encodes a false hardware assumption, L48 a chroma 'default port' that collides with vLLM, L51 a needle 0.85 bar unreachable for the scaffold. validate assumes the criterion is correct and only the result is in question; it has no protocol for 'the check itself is wrong'.\n\n**Plan candidate:** validate: add a protocol for a mis-specified criterion \u2014 verify the underlying intent, report the criterion as buggy, never silently coerce or silently substitute.\n\n## Links\n\n- **about** \u2192 `skill-validate` (skill)\n",
-    "harvest-h002-l12": "# H002 \u2014 validate:friction\n\n_week1.run.jsonl L76 task=day4_end_of_day_artifacts_\n\n**Source skill:** `validate`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L76 task=day4_end_of_day_artifacts\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** a_bgt_rsi needed a partial_pass verdict for a task executed correctly where one sub-check's threshold is itself mis-specified (entries>=30, unreachable by design) \u2014 distinct from coercion. validate's verdict set is only pass/fail/inconclusive; run-log's status enum likewise lacks partial_pass (cf. H001 enum finding).\n\n**Plan candidate:** validate + run-log: consider a partial_pass verdict/status for 'executed correctly, a sub-check is a reported finding', kept distinct from coercion.\n\n## Links\n\n- **about** \u2192 `skill-validate` (skill)\n",
-    "harvest-h002-l13": "# H002 \u2014 fallback:confirmed\n\n_week1.run.jsonl L17,L25_\n\n**Source skill:** `fallback`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L17,L25\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Two fallbacks taken cleanly: L17 MTP->NVFP4 baseline ('FALLBACK SELECTED', fallback_taken field set); L25 NemoClaw->plain-Docker (per D-008 pre-declaration + 90-min cap). Both are explicit named alternatives, logged as their own event with a fallback_taken field. Matches fallback's explicit/logged requirements.\n\n## Links\n\n- **about** \u2192 `skill-fallback` (skill)\n",
-    "harvest-h002-l14": "# H002 \u2014 fallback:friction\n\n_week1.run.jsonl L17 vs L25_\n\n**Source skill:** `fallback`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L17 vs L25\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** L17's fallback selection was 'human-approved' before being taken; L25's auto-branched from D-008's pre-declaration. fallback treats taking a declared fallback as the agent's call once triggered; it does not address that the fallback selection may itself be gated on human approval.\n\n**Plan candidate:** fallback: note that a fallback selection may itself be a gated action (run gate-check on the switch), distinct from an auto-branch off a pre-declaration.\n\n## Links\n\n- **about** \u2192 `skill-fallback` (skill)\n",
-    "harvest-h002-l15": "# H002 \u2014 investigate:confirmed\n\n_DECISIONS.md D-021; week1.run.jsonl L37_\n\n**Source skill:** `investigate`\n\n**Class:** confirmed\n\n**Ref:** DECISIONS.md D-021; week1.run.jsonl L37\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** D-021's E1 experiment locked the GPU clock (one variable), saw 0% throughput change, and eliminated the compute-bound hypothesis. L37 fit latency=f(output_tokens) to refute the 'measurement artifact' hypothesis and reach a root cause. Matches investigate's hypothesis-tree, one-variable-per-test, root-cause-not-symptom.\n\n## Links\n\n- **about** \u2192 `skill-investigate` (skill)\n",
-    "harvest-h002-l16": "# H002 \u2014 investigate:confirmed\n\n_week1.run.jsonl L37,L52_\n\n**Source skill:** `investigate`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L37,L52\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Both a suspiciously-low throughput (29.75 tok/s, L37) and a suspiciously-low needle score (0.7221, L52) were given full investigations to determine 'genuine vs artifact' before being accepted. Matches investigate's 'a suspiciously bad result gets the same scrutiny as a failure'.\n\n## Links\n\n- **about** \u2192 `skill-investigate` (skill)\n",
-    "harvest-h002-l17": "# H002 \u2014 code-review:confirmed\n\n_week1.run.jsonl L77,L78_\n\n**Source skill:** `code-review`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L77,L78\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** A pre-push code-review caught BLOCKING finding B1 \u2014 a stale vllm_image_tag default on all 12 Day-4 records, a reproducibility regression \u2014 and grouped the rest as nits N1-N6 (applied N1/N2/N4/N5, skipped N3/N6 with reasons). Matches code-review's adversarial read, research-risk focus, and blocking/non-blocking/nit grouping.\n\n## Links\n\n- **about** \u2192 `skill-code-review` (skill)\n",
-    "harvest-h002-l18": "# H002 \u2014 ship:confirmed\n\n_week1.run.jsonl L44,L69_\n\n**Source skill:** `ship`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L44,L69\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** End-of-day shipping verifies a clean tree and runs the test suite to green before committing ('All schema+wrapper tests pass: 11+21+9=41/41. Working tree clean', L69). Matches ship's verify-clean-state and run-full-suite steps.\n\n## Links\n\n- **about** \u2192 `skill-ship` (skill)\n",
+    "harvest-h001-l1": "# H001 \u2014 run-log:confirmed\n\n_week1.run.jsonl L2 task=preflight_credentials_staged_\n\n**Source skill:** `run-log`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L2 task=preflight_credentials_staged\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** A failed step is logged with full rigor: status=failed, observable_actual names all 5 missing credentials. Matches run-log's 'log the failure too'.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n- **observed_in** \u2192 `runlog-day-1-preflight-credentials-staged-l2` (run_log_entry)\n",
+    "harvest-h001-l2": "# H001 \u2014 run-log:confirmed\n\n_week1.run.jsonl L2->L3 task=preflight_credentials_staged_\n\n**Source skill:** `run-log`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L2->L3 task=preflight_credentials_staged\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** The task fails (L2) then passes on re-run (L3) as a new appended entry; the failed entry is never edited. Matches run-log's 'append only \u2014 a correction is a new entry'.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n- **observed_in** \u2192 `runlog-day-1-preflight-credentials-staged-l2` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-1-preflight-credentials-staged-l3` (run_log_entry)\n",
+    "harvest-h001-l3": "# H001 \u2014 run-log:confirmed\n\n_week1.run.jsonl L5 task=state_transition_\n\n**Source skill:** `run-log`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L5 task=state_transition\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** A state transition (gate cleared, task moved to completed_tasks) is logged as its own standalone entry, not buried in another task's line. Matches run-log's 'state transitions get their own entries'.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n- **observed_in** \u2192 `runlog-day-1-state-transition-l5` (run_log_entry)\n",
+    "harvest-h001-l4": "# H001 \u2014 run-log:friction\n\n_week1.run.jsonl L1 task=day_1_start_\n\n**Source skill:** `run-log`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L1 task=day_1_start\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** The entry uses status='started' for a session-start marker. run-log's status enum is passed|failed|aborted|halted|skipped \u2014 it does not anticipate start/in-progress markers that real run logs use.\n\n**Plan candidate:** run-log: state the status enum is a non-exhaustive default, or add 'started'/'in_progress'.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n- **observed_in** \u2192 `runlog-day-1-day-1-start-l1` (run_log_entry)\n",
+    "harvest-h001-l5": "# H001 \u2014 gate-check:confirmed\n\n_week1.run.jsonl L7-L8 tasks=preflight_failure_walkthroughs,preflight_physical_setup_\n\n**Source skill:** `gate-check`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L7-L8 tasks=preflight_failure_walkthroughs,preflight_physical_setup\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Two human-only preflight tasks are marked passed via 'human attestation (decross1) ... not agent-verified' \u2014 the agent did not execute or verify them. Matches gate-check's 'human-only work \u2014 the agent does not execute it'.\n\n## Links\n\n- **about** \u2192 `skill-gate-check` (skill)\n- **observed_in** \u2192 `runlog-day-1-preflight-failure-walkthroughs-l7` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-1-preflight-physical-setup-l8` (run_log_entry)\n",
+    "harvest-h001-l6": "# H001 \u2014 gate-check:friction\n\n_week1.run.jsonl L5 vs L7-L8_\n\n**Source skill:** `gate-check`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L5 vs L7-L8\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** L5 clears a pending gate because a verifiable check passed (credentials present); L7-L8 clear gates by explicit human attestation. gate-check says gates clear only by 'explicit human action' and does not distinguish a gate cleared by attestation from one cleared by a checkable fact.\n\n**Plan candidate:** gate-check: distinguish attestation-cleared gates from verification-cleared gates (gate condition is a checkable fact).\n\n## Links\n\n- **about** \u2192 `skill-gate-check` (skill)\n- **observed_in** \u2192 `runlog-day-1-state-transition-l5` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-1-preflight-failure-walkthroughs-l7` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-1-preflight-physical-setup-l8` (run_log_entry)\n",
+    "harvest-h002-l7": "# H002 \u2014 resume-state:confirmed\n\n_week1.run.jsonl L45 task=state_transition_\n\n**Source skill:** `resume-state`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L45 task=state_transition\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** On resume, current_day advanced day_2->day_3, state reconciled against reality ('git tree clean, last commit ..., run log consistent with state file'), resume point identified, HALTED at day3_block1_reading (human_only). Matches resume-state's read-state / reconcile / honor-gates procedure verbatim.\n\n## Links\n\n- **about** \u2192 `skill-resume-state` (skill)\n- **observed_in** \u2192 `runlog-day-3-state-transition-l45` (run_log_entry)\n",
+    "harvest-h002-l8": "# H002 \u2014 gate-check:confirmed\n\n_week1.run.jsonl L19,L35 task=state_transition_\n\n**Source skill:** `gate-check`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L19,L35 task=state_transition\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** A hard-checkpoint task failing (day1 vLLM serve L19; day2 50-call sweep L35) aborts the whole day rather than being worked around ('per CLAUDE.md rule 6 and on_failure:abort_day, Block 2 halts'). Matches gate-check's hard-checkpoint rule.\n\n## Links\n\n- **about** \u2192 `skill-gate-check` (skill)\n- **observed_in** \u2192 `runlog-day-1-day1-block2-vllm-serve-l19` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-2-state-transition-l35` (run_log_entry)\n",
+    "harvest-h002-l9": "# H002 \u2014 gate-check:confirmed\n\n_week1.run.jsonl L51->L53 day3_needle_score_gate_\n\n**Source skill:** `gate-check`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L51->L53 day3_needle_score_gate\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** A gate raised at L51 stayed pending until L53 cleared it 'human-attested (decross1)'. The gate survived across tasks and was cleared only by explicit human action. Matches gate-check's 'a gate is cleared only by explicit human action; a pending gate survives'.\n\n## Links\n\n- **about** \u2192 `skill-gate-check` (skill)\n- **observed_in** \u2192 `runlog-day-3-day3-block2-needle-haystack-l51` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-3-state-transition-l53` (run_log_entry)\n",
+    "harvest-h002-l10": "# H002 \u2014 validate:confirmed\n\n_week1.run.jsonl L34,L76_\n\n**Source skill:** `validate`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L34,L76\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** L34: a 5-check sweep reports each check independently; check #3 (29.75 vs 40 floor) reported FAIL, 'Not coerced \u2014 reported as FAIL per CLAUDE.md rule 4'. L76: day4 end-of-day logged partial_pass with a finding field rather than inflating runs. Matches validate's 'each criterion its own check; a near-miss is a fail; never coerce'.\n\n## Links\n\n- **about** \u2192 `skill-validate` (skill)\n- **observed_in** \u2192 `runlog-day-2-day2-block2-50call-sweep-l34` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-4-day4-end-of-day-artifacts-l76` (run_log_entry)\n",
+    "harvest-h002-l11": "# H002 \u2014 validate:friction\n\n_week1.run.jsonl L14,L21,L48,L51_\n\n**Source skill:** `validate`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L14,L21,L48,L51\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** a_bgt_rsi repeatedly finds the declared pass_signal itself mis-specified: L14 a cgroup grep string, L21 a 'FLASHINFER_CUTLASS' log line that encodes a false hardware assumption, L48 a chroma 'default port' that collides with vLLM, L51 a needle 0.85 bar unreachable for the scaffold. validate assumes the criterion is correct and only the result is in question; it has no protocol for 'the check itself is wrong'.\n\n**Plan candidate:** validate: add a protocol for a mis-specified criterion \u2014 verify the underlying intent, report the criterion as buggy, never silently coerce or silently substitute.\n\n## Links\n\n- **about** \u2192 `skill-validate` (skill)\n- **observed_in** \u2192 `runlog-day-1-day1-block2-docker-config-l14` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-1-day1-block2-vllm-serve-l21` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-3-day3-block2-chroma-install-l48` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-3-day3-block2-needle-haystack-l51` (run_log_entry)\n",
+    "harvest-h002-l12": "# H002 \u2014 validate:friction\n\n_week1.run.jsonl L76 task=day4_end_of_day_artifacts_\n\n**Source skill:** `validate`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L76 task=day4_end_of_day_artifacts\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** a_bgt_rsi needed a partial_pass verdict for a task executed correctly where one sub-check's threshold is itself mis-specified (entries>=30, unreachable by design) \u2014 distinct from coercion. validate's verdict set is only pass/fail/inconclusive; run-log's status enum likewise lacks partial_pass (cf. H001 enum finding).\n\n**Plan candidate:** validate + run-log: consider a partial_pass verdict/status for 'executed correctly, a sub-check is a reported finding', kept distinct from coercion.\n\n## Links\n\n- **about** \u2192 `skill-validate` (skill)\n- **observed_in** \u2192 `runlog-day-4-day4-end-of-day-artifacts-l76` (run_log_entry)\n",
+    "harvest-h002-l13": "# H002 \u2014 fallback:confirmed\n\n_week1.run.jsonl L17,L25_\n\n**Source skill:** `fallback`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L17,L25\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Two fallbacks taken cleanly: L17 MTP->NVFP4 baseline ('FALLBACK SELECTED', fallback_taken field set); L25 NemoClaw->plain-Docker (per D-008 pre-declaration + 90-min cap). Both are explicit named alternatives, logged as their own event with a fallback_taken field. Matches fallback's explicit/logged requirements.\n\n## Links\n\n- **about** \u2192 `skill-fallback` (skill)\n- **observed_in** \u2192 `runlog-day-1-day1-block2-vllm-serve-l17` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-1-day1-block2-nemoclaw-router-l25` (run_log_entry)\n",
+    "harvest-h002-l14": "# H002 \u2014 fallback:friction\n\n_week1.run.jsonl L17 vs L25_\n\n**Source skill:** `fallback`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L17 vs L25\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** L17's fallback selection was 'human-approved' before being taken; L25's auto-branched from D-008's pre-declaration. fallback treats taking a declared fallback as the agent's call once triggered; it does not address that the fallback selection may itself be gated on human approval.\n\n**Plan candidate:** fallback: note that a fallback selection may itself be a gated action (run gate-check on the switch), distinct from an auto-branch off a pre-declaration.\n\n## Links\n\n- **about** \u2192 `skill-fallback` (skill)\n- **observed_in** \u2192 `runlog-day-1-day1-block2-vllm-serve-l17` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-1-day1-block2-nemoclaw-router-l25` (run_log_entry)\n",
+    "harvest-h002-l15": "# H002 \u2014 investigate:confirmed\n\n_DECISIONS.md D-021; week1.run.jsonl L37_\n\n**Source skill:** `investigate`\n\n**Class:** confirmed\n\n**Ref:** DECISIONS.md D-021; week1.run.jsonl L37\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** D-021's E1 experiment locked the GPU clock (one variable), saw 0% throughput change, and eliminated the compute-bound hypothesis. L37 fit latency=f(output_tokens) to refute the 'measurement artifact' hypothesis and reach a root cause. Matches investigate's hypothesis-tree, one-variable-per-test, root-cause-not-symptom.\n\n## Links\n\n- **about** \u2192 `skill-investigate` (skill)\n- **observed_in** \u2192 `runlog-day-2-day2-throughput-investigation-l37` (run_log_entry)\n",
+    "harvest-h002-l16": "# H002 \u2014 investigate:confirmed\n\n_week1.run.jsonl L37,L52_\n\n**Source skill:** `investigate`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L37,L52\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Both a suspiciously-low throughput (29.75 tok/s, L37) and a suspiciously-low needle score (0.7221, L52) were given full investigations to determine 'genuine vs artifact' before being accepted. Matches investigate's 'a suspiciously bad result gets the same scrutiny as a failure'.\n\n## Links\n\n- **about** \u2192 `skill-investigate` (skill)\n- **observed_in** \u2192 `runlog-day-2-day2-throughput-investigation-l37` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-3-day3-needle-characterization-l52` (run_log_entry)\n",
+    "harvest-h002-l17": "# H002 \u2014 code-review:confirmed\n\n_week1.run.jsonl L77,L78_\n\n**Source skill:** `code-review`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L77,L78\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** A pre-push code-review caught BLOCKING finding B1 \u2014 a stale vllm_image_tag default on all 12 Day-4 records, a reproducibility regression \u2014 and grouped the rest as nits N1-N6 (applied N1/N2/N4/N5, skipped N3/N6 with reasons). Matches code-review's adversarial read, research-risk focus, and blocking/non-blocking/nit grouping.\n\n## Links\n\n- **about** \u2192 `skill-code-review` (skill)\n- **observed_in** \u2192 `runlog-day-4-day4-post-review-b1-fix-l77` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-4-day4-post-review-nits-l78` (run_log_entry)\n",
+    "harvest-h002-l18": "# H002 \u2014 ship:confirmed\n\n_week1.run.jsonl L44,L69_\n\n**Source skill:** `ship`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L44,L69\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** End-of-day shipping verifies a clean tree and runs the test suite to green before committing ('All schema+wrapper tests pass: 11+21+9=41/41. Working tree clean', L69). Matches ship's verify-clean-state and run-full-suite steps.\n\n## Links\n\n- **about** \u2192 `skill-ship` (skill)\n- **observed_in** \u2192 `runlog-day-2-day2-end-of-day-artifacts-l44` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-3-5-day3-5-end-of-day-artifacts-l69` (run_log_entry)\n",
     "harvest-h002-l19": "# H002 \u2014 ship:friction\n\n_git log \u2014 49 commits, multiple 'Merge Track X' commits_\n\n**Source skill:** `ship`\n\n**Class:** friction\n\n**Ref:** git log \u2014 49 commits, multiple 'Merge Track X' commits\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** a_bgt_rsi has no pull requests \u2014 it commits to main and integrates parallel work via 'git merge --no-ff worktree-X'. ship's procedure step 5 ('Open / update the PR') assumes a PR-based flow this project does not use.\n\n**Plan candidate:** ship: make the PR step optional \u2014 support a commit-to-main / merge-worktree integration flow as a first-class alternative.\n\n## Links\n\n- **about** \u2192 `skill-ship` (skill)\n",
-    "harvest-h002-l20": "# H002 \u2014 ship:friction\n\n_week1.run.jsonl L33,L69_\n\n**Source skill:** `ship`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L33,L69\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** a_bgt_rsi has no unified test runner (no pytest.ini); tests run as per-day enumerated commands ('.venv/bin/python -m pytest', day-specific test sets). ship step 2 ('run the full test suite using the project's own command') assumes one command exists.\n\n**Plan candidate:** ship + health: handle projects with no unified runner \u2014 accept a per-unit enumerated test set as 'the suite'.\n\n## Links\n\n- **about** \u2192 `skill-ship` (skill)\n",
-    "harvest-h002-l21": "# H002 \u2014 experiment:friction\n\n_week1.run.jsonl L74 metric field; DECISIONS.md D-021_\n\n**Source skill:** `experiment`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L74 metric field; DECISIONS.md D-021\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** a_bgt_rsi records experiment-shaped results (E1 clock experiment D-021; throughput before/after D-022; metric fields on run-log entries) but keeps no separate experiments.md \u2014 it uses the run log, state.metric_log, and DECISIONS.md. experiment mandates a separate memory/experiments.md ledger, a parallel store this project deliberately did not want.\n\n**Plan candidate:** experiment: allow the experiment ledger to be the run log itself (a tagged entry) rather than mandating a separate experiments.md.\n\n## Links\n\n- **about** \u2192 `skill-experiment` (skill)\n",
-    "harvest-h002-l22": "# H002 \u2014 repro-check:confirmed\n\n_week1.run.jsonl L39,L77; DECISIONS.md D-017,D-022_\n\n**Source skill:** `repro-check`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L39,L77; DECISIONS.md D-017,D-022\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Reproducibility discipline is pervasive: determinism re-checked 3x at T=0 and T=1/seed=42 (L39); the vLLM image pinned by SHA digest not tag (D-017, D-022); code-review B1 caught records carrying a stale image tag (L77). Matches repro-check's seed-control, environment-pinning, and code-provenance checks.\n\n## Links\n\n- **about** \u2192 `skill-repro-check` (skill)\n",
-    "harvest-h002-l23": "# H002 \u2014 orchestrate:gap\n\n_week1.run.jsonl L54-L60,L79-L80_\n\n**Source skill:** `orchestrate`\n\n**Class:** gap\n\n**Ref:** week1.run.jsonl L54-L60,L79-L80\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** a_bgt_rsi runs a 4-track parallel system on git worktrees with discipline orchestrate does not mention: per-track file-boundary allow-lists (L54-56 'File-boundary check PASS'), pre-merge boundary verification ('git diff --name-only main..worktree-X', L79-80), a '--no-ff' merge protocol (L58-60), mock-LLM isolation for side tracks, and completion sentinels ('TRACK C COMPLETE \u2014 ready to merge'). orchestrate covers role decomposition but not parallel-worktree execution.\n\n**Plan candidate:** orchestrate (or a new skill): add a parallel-worktree execution protocol \u2014 per-track file-boundary allow-lists, mock isolation, pre-merge boundary verification, --no-ff merges, completion sentinels.\n\n## Links\n\n- **about** \u2192 `skill-orchestrate` (skill)\n",
-    "harvest-h002-l24": "# H002 \u2014 orchestrate:confirmed\n\n_week1.run.jsonl L49,L54-L56_\n\n**Source skill:** `orchestrate`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L49,L54-L56\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Work is delegated to builder sub-agents ('authored by a builder sub-agent under Track A authority', L49) and independently checked by auditor sub-agents ('audited by an auditor sub-agent', L54-56) \u2014 the verifier is not the author. Matches orchestrate's role decomposition and 'independent verification stays independent'.\n\n## Links\n\n- **about** \u2192 `skill-orchestrate` (skill)\n",
+    "harvest-h002-l20": "# H002 \u2014 ship:friction\n\n_week1.run.jsonl L33,L69_\n\n**Source skill:** `ship`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L33,L69\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** a_bgt_rsi has no unified test runner (no pytest.ini); tests run as per-day enumerated commands ('.venv/bin/python -m pytest', day-specific test sets). ship step 2 ('run the full test suite using the project's own command') assumes one command exists.\n\n**Plan candidate:** ship + health: handle projects with no unified runner \u2014 accept a per-unit enumerated test set as 'the suite'.\n\n## Links\n\n- **about** \u2192 `skill-ship` (skill)\n- **observed_in** \u2192 `runlog-day-2-day2-block2-wrapper-implementation-l33` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-3-5-day3-5-end-of-day-artifacts-l69` (run_log_entry)\n",
+    "harvest-h002-l21": "# H002 \u2014 experiment:friction\n\n_week1.run.jsonl L74 metric field; DECISIONS.md D-021_\n\n**Source skill:** `experiment`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L74 metric field; DECISIONS.md D-021\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** a_bgt_rsi records experiment-shaped results (E1 clock experiment D-021; throughput before/after D-022; metric fields on run-log entries) but keeps no separate experiments.md \u2014 it uses the run log, state.metric_log, and DECISIONS.md. experiment mandates a separate memory/experiments.md ledger, a parallel store this project deliberately did not want.\n\n**Plan candidate:** experiment: allow the experiment ledger to be the run log itself (a tagged entry) rather than mandating a separate experiments.md.\n\n## Links\n\n- **about** \u2192 `skill-experiment` (skill)\n- **observed_in** \u2192 `runlog-day-4-day4-block2-robustness-l74` (run_log_entry)\n",
+    "harvest-h002-l22": "# H002 \u2014 repro-check:confirmed\n\n_week1.run.jsonl L39,L77; DECISIONS.md D-017,D-022_\n\n**Source skill:** `repro-check`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L39,L77; DECISIONS.md D-017,D-022\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Reproducibility discipline is pervasive: determinism re-checked 3x at T=0 and T=1/seed=42 (L39); the vLLM image pinned by SHA digest not tag (D-017, D-022); code-review B1 caught records carrying a stale image tag (L77). Matches repro-check's seed-control, environment-pinning, and code-provenance checks.\n\n## Links\n\n- **about** \u2192 `skill-repro-check` (skill)\n- **observed_in** \u2192 `runlog-day-2-day2-block2-50call-sweep-l39` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-4-day4-post-review-b1-fix-l77` (run_log_entry)\n",
+    "harvest-h002-l23": "# H002 \u2014 orchestrate:gap\n\n_week1.run.jsonl L54-L60,L79-L80_\n\n**Source skill:** `orchestrate`\n\n**Class:** gap\n\n**Ref:** week1.run.jsonl L54-L60,L79-L80\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** a_bgt_rsi runs a 4-track parallel system on git worktrees with discipline orchestrate does not mention: per-track file-boundary allow-lists (L54-56 'File-boundary check PASS'), pre-merge boundary verification ('git diff --name-only main..worktree-X', L79-80), a '--no-ff' merge protocol (L58-60), mock-LLM isolation for side tracks, and completion sentinels ('TRACK C COMPLETE \u2014 ready to merge'). orchestrate covers role decomposition but not parallel-worktree execution.\n\n**Plan candidate:** orchestrate (or a new skill): add a parallel-worktree execution protocol \u2014 per-track file-boundary allow-lists, mock isolation, pre-merge boundary verification, --no-ff merges, completion sentinels.\n\n## Links\n\n- **about** \u2192 `skill-orchestrate` (skill)\n- **observed_in** \u2192 `runlog-day-3-track-review-track-b-l54` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-3-track-review-track-c-l55` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-3-track-review-track-d-l56` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-3-adversarial-review-integration-l57` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-3-merge-track-b-l58` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-3-merge-track-c-l59` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-3-merge-track-d-l60` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-4-merge-track-c-day4-pd-strategies-l79` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-4-merge-track-d-day4-ui-sync-l80` (run_log_entry)\n",
+    "harvest-h002-l24": "# H002 \u2014 orchestrate:confirmed\n\n_week1.run.jsonl L49,L54-L56_\n\n**Source skill:** `orchestrate`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L49,L54-L56\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Work is delegated to builder sub-agents ('authored by a builder sub-agent under Track A authority', L49) and independently checked by auditor sub-agents ('audited by an auditor sub-agent', L54-56) \u2014 the verifier is not the author. Matches orchestrate's role decomposition and 'independent verification stays independent'.\n\n## Links\n\n- **about** \u2192 `skill-orchestrate` (skill)\n- **observed_in** \u2192 `runlog-day-3-day3-block2-chunking-and-ingest-script-l49` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-3-track-review-track-b-l54` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-3-track-review-track-c-l55` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-3-track-review-track-d-l56` (run_log_entry)\n",
     "harvest-h002-l25": "# H002 \u2014 decision-log:gap\n\n_a_bgt_rsi DECISIONS.md D-001..D-025_\n\n**Source skill:** `decision-log`\n\n**Class:** gap\n\n**Ref:** a_bgt_rsi DECISIONS.md D-001..D-025\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** a_bgt_rsi keeps a 25-entry decision log where every entry carries Date / Decision / Alternatives considered / Rationale / Reversibility / Supersedes, with explicit supersedes-chains (D-022>D-020>D-003) and dated in-place updates (D-019). The framework treats DECISIONS.md as a passive memory file with a thin decision/why/supersedes format and has no skill governing how to write a decision entry.\n\n**Plan candidate:** new skill 'decision-log': capture Alternatives + Reversibility as mandatory fields and maintain supersedes-chains \u2014 adopt a_bgt_rsi's D-xxx format.\n\n## Links\n\n- **about** \u2192 `skill-decision-log` (skill)\n",
-    "harvest-h003-l26": "# H003 \u2014 validate:confirmed\n\n_week1.run.jsonl L82; DECISIONS.md D-026_\n\n**Source skill:** `validate`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L82; DECISIONS.md D-026\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** The mis-specified Day-4 criterion (>=30 entries, unreachable by design) was resolved by amending plan.yaml (D-026: arbitrary >=30 -> per-artifact record counts), not by coercing the result. The original partial_pass stays in the append-only run log; the resolution is recorded forward. Exactly the protocol H002's validate-friction finding (mis-specified criterion) called for \u2014 strong evidence that finding points the right way.\n\n## Links\n\n- **about** \u2192 `skill-validate` (skill)\n",
-    "harvest-h003-l27": "# H003 \u2014 validate:confirmed\n\n_week1.run.jsonl L85 task=day5_block2_ml_intern_router_\n\n**Source skill:** `validate`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L85 task=day5_block2_ml_intern_router\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** The ML-Intern probe failed; the actual failure mode (integration-surface mismatch \u2014 no requirements.txt, no examples/, a FastAPI app not a library) was reported accurately and explicitly NOT relabeled as the plan's anticipated cause ('ARM64 install failure'). Matches validate's 'mismatches are reported, never recoded'.\n\n## Links\n\n- **about** \u2192 `skill-validate` (skill)\n",
-    "harvest-h003-l28": "# H003 \u2014 run-log:friction\n\n_week1.run.jsonl L88 task=day5_block2_pipeline_implementation_\n\n**Source skill:** `run-log`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L88 task=day5_block2_pipeline_implementation\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** a_bgt_rsi logs status='escalated' (L88), adding to 'started' (H001) and 'partial_pass' (H002 L76) \u2014 three status values run-log's enum (passed|failed|aborted|halted|skipped) lacks, across three harvests. The enum is systemically incomplete; real plan-execution needs start, partial, and escalation states.\n\n**Plan candidate:** run-log: expand the status enum (started/in_progress, partial_pass, escalated) or explicitly declare it a non-exhaustive default the project extends.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n",
-    "harvest-h003-l29": "# H003 \u2014 repro-check:friction\n\n_week1.run.jsonl L90 task=day5_block2_pipeline_implementation_\n\n**Source skill:** `repro-check`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L90 task=day5_block2_pipeline_implementation\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** An embed run was silently stubbed because MOCK_LLM=1 leaked into the main session env; the fake result was caught only by a WARNING log and a suspiciously-fast 1.1s runtime (vs ~57s real), then deleted and redone. repro-check covers seeds, data, environment, and provenance but has no explicit check that the run executed the real thing rather than a mock/stub.\n\n**Plan candidate:** repro-check: add a check that the result came from the real pipeline, not a mock \u2014 verify no mock/stub env flag was active and runtime/output is consistent with a genuine run.\n\n## Links\n\n- **about** \u2192 `skill-repro-check` (skill)\n",
-    "harvest-h005-l30": "# H005 \u2014 run-log:friction\n\n_week1.run.jsonl L114,L117,L119,L121,L123,L125_\n\n**Source skill:** `run-log`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L114,L117,L119,L121,L123,L125\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** 4 new status values used by the consumer that run-log's default enum (started/passed/partial_pass/failed/aborted/halted/escalated/skipped) does not name: 'correction' (L114, semantic re-record of a prior task), 'slip_declared' (L117/L119/L121, time-cap slipped), 'slip_resolved' (L123, slip closed), 'gate_armed' (L125, gate pre-armed not yet halted). The S10 'non-exhaustive default a project may extend' clause covers them in principle, but four organic extensions in one week across three harvests (H003 had 'escalated', H001 had 'started') suggests the default is systematically incomplete \u2014 slipping and gate-arming in particular look general, not consumer-specific.\n\n**Plan candidate:** run-log: consider adding `slip_declared`/`slip_resolved` and `gate_armed` to the default enum, or document an explicit 'when to extend' guidance.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n",
-    "harvest-h005-l31": "# H005 \u2014 run-log:diverged\n\n_week1.run.jsonl L131 task=rectify_malformed_run_log_lines_\n\n**Source skill:** `run-log`\n\n**Class:** diverged\n\n**Ref:** week1.run.jsonl L131 task=rectify_malformed_run_log_lines\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** L131 EDITED 4 prior Day-6 run.jsonl entries (L99, L105, L106, L109) to escape unescaped inner double quotes that broke JSONL parsing \u2014 violates run-log's 'Append only. Never edit or delete a past entry' rule. The consumer handled it per its own inviolate-rule-5 (Track A is the rectifier), retained a backup (week1.run.jsonl.pre-rectify-bak), and verified 0 malformed across the rectified file before deleting the backup at Day-8 cleanup. The break was structural (JSONL parse failure broke a UI integrity test), not semantic. The framework's rule says 'a correction is a new entry that references the old one' \u2014 but a malformed JSONL line cannot be referenced by id because it isn't parseable.\n\n**Plan candidate:** run-log: explicit carve-out for STRUCTURAL rectification of malformed entries (with backup + attestation + the rectifying entry itself logged); rule for SEMANTIC corrections (new-entry-references-old) stays unchanged.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n",
-    "harvest-h005-l32": "# H005 \u2014 fallback:gap\n\n_week1.run.jsonl L116-L123 (slip ladder day7.1/7.2/7.3 \u2192 resolved)_\n\n**Source skill:** `fallback`\n\n**Class:** gap\n\n**Ref:** week1.run.jsonl L116-L123 (slip ladder day7.1/7.2/7.3 \u2192 resolved)\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Day 7 used a 'slip ladder' protocol: the PD experiment ran into expected-range overshoot; instead of failing or escalating, the consumer slipped the deadline by one day (slip_declared L117), ran again (partial_pass L118), slipped again (L119), ran again (L120), slipped again (L121), ran the diagnostic variant (L122), then resolved (L123). Each slip was its own logged entry with a stated reason and reset budget. fallback covers 'switch to a known alternative' but not 'extend the deadline, same approach, capped slip count'. The slip-ladder is a general deferred-work protocol \u2014 bounded, logged, with a resolution criterion \u2014 the framework has no skill for.\n\n**Plan candidate:** new skill or fallback-section: `slip-ladder` \u2014 declare a bounded sequence of deadline extensions; each slip is logged with reason + new cap; resolution criterion declared upfront; auto-escalates if cap exceeded.\n\n## Links\n\n- **about** \u2192 `skill-fallback` (skill)\n",
-    "harvest-h005-l33": "# H005 \u2014 orchestrate:friction\n\n_week1.run.jsonl L133 task=merge_track_d_day7_eod_\n\n**Source skill:** `orchestrate`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L133 task=merge_track_d_day7_eod\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Track D's EOD merge proceeded with 'Sentinel TRACK D COMPLETE present via verbal attestation' \u2014 i.e. the human verbally attested completeness in lieu of writing the sentinel file the S7 parallel-worktree protocol mandates. References memory 'sidetrack-sentinel-attestation'. The S7 protocol made sentinels file-only; the dev-time human-in-loop reality finds verbal attestation acceptable when the human is present and acts as gate-check's attestation-cleared mode. The two skills (orchestrate + gate-check) intersect here without explicit guidance.\n\n**Plan candidate:** orchestrate: allow a completion-sentinel to be either (a) the sentinel file, or (b) a logged attestation-cleared mode (cf. [[gate-check]]); make the substitution explicit so it isn't a sidetrack memory.\n\n## Links\n\n- **about** \u2192 `skill-orchestrate` (skill)\n",
-    "harvest-h005-l34": "# H005 \u2014 gate-check:confirmed\n\n_week1.run.jsonl L125 (gate_armed) + L132 (retrospective_recorded, attestation)_\n\n**Source skill:** `gate-check`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L125 (gate_armed) + L132 (retrospective_recorded, attestation)\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Day 7 publication-review gate was ARMED at L125 (pre-emptive, not yet halting) and remained pending through Day-8 cleanup. Separately, the Week-1 retrospective at L132 was cleared by attestation (decross1 2026-05-23) with the alignment-evidence-4/4 boxes checked. Two clearance behaviors expected by S12's revised gate-check (attestation-cleared vs verification-cleared) both visible in one week.\n\n## Links\n\n- **about** \u2192 `skill-gate-check` (skill)\n",
+    "harvest-h003-l26": "# H003 \u2014 validate:confirmed\n\n_week1.run.jsonl L82; DECISIONS.md D-026_\n\n**Source skill:** `validate`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L82; DECISIONS.md D-026\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** The mis-specified Day-4 criterion (>=30 entries, unreachable by design) was resolved by amending plan.yaml (D-026: arbitrary >=30 -> per-artifact record counts), not by coercing the result. The original partial_pass stays in the append-only run log; the resolution is recorded forward. Exactly the protocol H002's validate-friction finding (mis-specified criterion) called for \u2014 strong evidence that finding points the right way.\n\n## Links\n\n- **about** \u2192 `skill-validate` (skill)\n- **observed_in** \u2192 `runlog-day-5-day4-carryover-resolution-l82` (run_log_entry)\n",
+    "harvest-h003-l27": "# H003 \u2014 validate:confirmed\n\n_week1.run.jsonl L85 task=day5_block2_ml_intern_router_\n\n**Source skill:** `validate`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L85 task=day5_block2_ml_intern_router\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** The ML-Intern probe failed; the actual failure mode (integration-surface mismatch \u2014 no requirements.txt, no examples/, a FastAPI app not a library) was reported accurately and explicitly NOT relabeled as the plan's anticipated cause ('ARM64 install failure'). Matches validate's 'mismatches are reported, never recoded'.\n\n## Links\n\n- **about** \u2192 `skill-validate` (skill)\n- **observed_in** \u2192 `runlog-day-5-day5-block2-ml-intern-router-l85` (run_log_entry)\n",
+    "harvest-h003-l28": "# H003 \u2014 run-log:friction\n\n_week1.run.jsonl L88 task=day5_block2_pipeline_implementation_\n\n**Source skill:** `run-log`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L88 task=day5_block2_pipeline_implementation\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** a_bgt_rsi logs status='escalated' (L88), adding to 'started' (H001) and 'partial_pass' (H002 L76) \u2014 three status values run-log's enum (passed|failed|aborted|halted|skipped) lacks, across three harvests. The enum is systemically incomplete; real plan-execution needs start, partial, and escalation states.\n\n**Plan candidate:** run-log: expand the status enum (started/in_progress, partial_pass, escalated) or explicitly declare it a non-exhaustive default the project extends.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n- **observed_in** \u2192 `runlog-day-5-day5-block2-pipeline-implementation-l88` (run_log_entry)\n",
+    "harvest-h003-l29": "# H003 \u2014 repro-check:friction\n\n_week1.run.jsonl L90 task=day5_block2_pipeline_implementation_\n\n**Source skill:** `repro-check`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L90 task=day5_block2_pipeline_implementation\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** An embed run was silently stubbed because MOCK_LLM=1 leaked into the main session env; the fake result was caught only by a WARNING log and a suspiciously-fast 1.1s runtime (vs ~57s real), then deleted and redone. repro-check covers seeds, data, environment, and provenance but has no explicit check that the run executed the real thing rather than a mock/stub.\n\n**Plan candidate:** repro-check: add a check that the result came from the real pipeline, not a mock \u2014 verify no mock/stub env flag was active and runtime/output is consistent with a genuine run.\n\n## Links\n\n- **about** \u2192 `skill-repro-check` (skill)\n- **observed_in** \u2192 `runlog-day-5-day5-block2-pipeline-implementation-l90` (run_log_entry)\n",
+    "harvest-h005-l30": "# H005 \u2014 run-log:friction\n\n_week1.run.jsonl L114,L117,L119,L121,L123,L125_\n\n**Source skill:** `run-log`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L114,L117,L119,L121,L123,L125\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** 4 new status values used by the consumer that run-log's default enum (started/passed/partial_pass/failed/aborted/halted/escalated/skipped) does not name: 'correction' (L114, semantic re-record of a prior task), 'slip_declared' (L117/L119/L121, time-cap slipped), 'slip_resolved' (L123, slip closed), 'gate_armed' (L125, gate pre-armed not yet halted). The S10 'non-exhaustive default a project may extend' clause covers them in principle, but four organic extensions in one week across three harvests (H003 had 'escalated', H001 had 'started') suggests the default is systematically incomplete \u2014 slipping and gate-arming in particular look general, not consumer-specific.\n\n**Plan candidate:** run-log: consider adding `slip_declared`/`slip_resolved` and `gate_armed` to the default enum, or document an explicit 'when to extend' guidance.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n- **observed_in** \u2192 `runlog-day-7-day7-block2-strategies-and-llm-agent-l114` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-7-slip-declared-l117` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-7-slip-declared-l119` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-7-slip-declared-l121` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-7-slip-resolved-l123` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-7-day7-publication-review-gate-l125` (run_log_entry)\n",
+    "harvest-h005-l31": "# H005 \u2014 run-log:diverged\n\n_week1.run.jsonl L131 task=rectify_malformed_run_log_lines_\n\n**Source skill:** `run-log`\n\n**Class:** diverged\n\n**Ref:** week1.run.jsonl L131 task=rectify_malformed_run_log_lines\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** L131 EDITED 4 prior Day-6 run.jsonl entries (L99, L105, L106, L109) to escape unescaped inner double quotes that broke JSONL parsing \u2014 violates run-log's 'Append only. Never edit or delete a past entry' rule. The consumer handled it per its own inviolate-rule-5 (Track A is the rectifier), retained a backup (week1.run.jsonl.pre-rectify-bak), and verified 0 malformed across the rectified file before deleting the backup at Day-8 cleanup. The break was structural (JSONL parse failure broke a UI integrity test), not semantic. The framework's rule says 'a correction is a new entry that references the old one' \u2014 but a malformed JSONL line cannot be referenced by id because it isn't parseable.\n\n**Plan candidate:** run-log: explicit carve-out for STRUCTURAL rectification of malformed entries (with backup + attestation + the rectifying entry itself logged); rule for SEMANTIC corrections (new-entry-references-old) stays unchanged.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n- **observed_in** \u2192 `runlog-day-7-rectify-malformed-run-log-lines-l131` (run_log_entry)\n",
+    "harvest-h005-l32": "# H005 \u2014 fallback:gap\n\n_week1.run.jsonl L116-L123 (slip ladder day7.1/7.2/7.3 \u2192 resolved)_\n\n**Source skill:** `fallback`\n\n**Class:** gap\n\n**Ref:** week1.run.jsonl L116-L123 (slip ladder day7.1/7.2/7.3 \u2192 resolved)\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Day 7 used a 'slip ladder' protocol: the PD experiment ran into expected-range overshoot; instead of failing or escalating, the consumer slipped the deadline by one day (slip_declared L117), ran again (partial_pass L118), slipped again (L119), ran again (L120), slipped again (L121), ran the diagnostic variant (L122), then resolved (L123). Each slip was its own logged entry with a stated reason and reset budget. fallback covers 'switch to a known alternative' but not 'extend the deadline, same approach, capped slip count'. The slip-ladder is a general deferred-work protocol \u2014 bounded, logged, with a resolution criterion \u2014 the framework has no skill for.\n\n**Plan candidate:** new skill or fallback-section: `slip-ladder` \u2014 declare a bounded sequence of deadline extensions; each slip is logged with reason + new cap; resolution criterion declared upfront; auto-escalates if cap exceeded.\n\n## Links\n\n- **about** \u2192 `skill-fallback` (skill)\n- **observed_in** \u2192 `runlog-day-7-day7-block2-run-experiment-l116` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-7-slip-declared-l117` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-7-day7-1-block2-run-experiment-l118` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-7-slip-declared-l119` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-7-day7-2-block2-run-experiment-l120` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-7-slip-declared-l121` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-7-day7-3-block2-run-experiment-l122` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-7-slip-resolved-l123` (run_log_entry)\n",
+    "harvest-h005-l33": "# H005 \u2014 orchestrate:friction\n\n_week1.run.jsonl L133 task=merge_track_d_day7_eod_\n\n**Source skill:** `orchestrate`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L133 task=merge_track_d_day7_eod\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Track D's EOD merge proceeded with 'Sentinel TRACK D COMPLETE present via verbal attestation' \u2014 i.e. the human verbally attested completeness in lieu of writing the sentinel file the S7 parallel-worktree protocol mandates. References memory 'sidetrack-sentinel-attestation'. The S7 protocol made sentinels file-only; the dev-time human-in-loop reality finds verbal attestation acceptable when the human is present and acts as gate-check's attestation-cleared mode. The two skills (orchestrate + gate-check) intersect here without explicit guidance.\n\n**Plan candidate:** orchestrate: allow a completion-sentinel to be either (a) the sentinel file, or (b) a logged attestation-cleared mode (cf. [[gate-check]]); make the substitution explicit so it isn't a sidetrack memory.\n\n## Links\n\n- **about** \u2192 `skill-orchestrate` (skill)\n- **observed_in** \u2192 `runlog-day-7-merge-track-d-day7-eod-l133` (run_log_entry)\n",
+    "harvest-h005-l34": "# H005 \u2014 gate-check:confirmed\n\n_week1.run.jsonl L125 (gate_armed) + L132 (retrospective_recorded, attestation)_\n\n**Source skill:** `gate-check`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L125 (gate_armed) + L132 (retrospective_recorded, attestation)\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Day 7 publication-review gate was ARMED at L125 (pre-emptive, not yet halting) and remained pending through Day-8 cleanup. Separately, the Week-1 retrospective at L132 was cleared by attestation (decross1 2026-05-23) with the alignment-evidence-4/4 boxes checked. Two clearance behaviors expected by S12's revised gate-check (attestation-cleared vs verification-cleared) both visible in one week.\n\n## Links\n\n- **about** \u2192 `skill-gate-check` (skill)\n- **observed_in** \u2192 `runlog-day-7-day7-publication-review-gate-l125` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-7-retrospective-recorded-l132` (run_log_entry)\n",
     "harvest-h005-l35": "# H005 \u2014 decision-log:confirmed\n\n_DECISIONS.md D-028 Day-7 publication disposition_\n\n**Source skill:** `decision-log`\n\n**Class:** confirmed\n\n**Ref:** DECISIONS.md D-028 Day-7 publication disposition\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** D-028 records a Day-7 finding (cooperation lock-in observed for Gemma 4) and the disposition (not published standalone because it's a model prior, not a result). Entry uses the decision-log format with explicit alternatives (publish anyway / not publish) and rationale (prior, not result). Confirms S8's decision-log skill is being used as designed \u2014 including for *negative* dispositions, which are exactly the kind that go unrecorded without the skill.\n\n## Links\n\n- **about** \u2192 `skill-decision-log` (skill)\n",
-    "harvest-h006-l36": "# H006 \u2014 gate-check:confirmed\n\n_week1.run.jsonl L136 task=day7_publication_review_gate_cleared_\n\n**Source skill:** `gate-check`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L136 task=day7_publication_review_gate_cleared\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** The publication-review gate ARMED at L125 was CLEARED at L136 via 'human (decross1) marked it complete 2026-05-24 with a no-publish-standalone disposition (D-028)'. The clearance is attestation-cleared (human's word) AND verification-cleared (decision-log entry materializes the disposition). Both modes used together \u2014 exactly the S12 design.\n\n## Links\n\n- **becomes** \u2192 `proposal-p-003` (proposal)\n- **about** \u2192 `skill-gate-check` (skill)\n",
-    "harvest-h006-l37": "# H006 \u2014 resume-state:friction\n\n_week1.run.jsonl L137 task=day7_state_close_out_and_advance_to_day_8_\n\n**Source skill:** `resume-state`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L137 task=day7_state_close_out_and_advance_to_day_8\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** After the publication-review gate cleared at L136, the consumer backfilled 16 day_7 task IDs into state.completed_tasks that had been *absent during the gate-armed hold*. The run-log had the tasks (L111-L127 over Day 7); the state file did not, until backfill. resume-state's rule is 'state file is authoritative on resume \u2014 reconcile with reality.' During a gate-armed hold, the state lagged the run-log by 16 entries; a resume during the hold would have either re-run completed work or accepted an incomplete state-file picture. The protocol does not say whether (a) the state file should be updated during a hold, or (b) resume-state should detect post-hold lag automatically.\n\n**Plan candidate:** resume-state: explicit rule for state-file updates during a gate-armed hold (either: write through to state during hold OR detect run-log/state divergence at resume and reconcile by trusting run-log).\n\n## Links\n\n- **about** \u2192 `skill-resume-state` (skill)\n",
-    "harvest-h007-l38": "# H007 \u2014 run-log:friction\n\n_week1.run.jsonl L138,L149,L150,L154_\n\n**Source skill:** `run-log`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L138,L149,L150,L154\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Day 8 added FOUR more status values not in run-log's default enum (started/passed/partial_pass/failed/aborted/halted/escalated/skipped): 'open' (L138 day_start, an opening sentinel like 'started' but day-level), 'recorded' (L149 retrospective_recorded, attestation-style completion), 'applied' (L150 tier_shift, mutation-style completion), 'closed' (L154 day_end, closing sentinel). With H005's correction/slip_declared/slip_resolved/gate_armed, the consumer has now invented EIGHT status values across the project that the framework's default enum lacks. This is no longer 'project extension' \u2014 the default is systematically incomplete for plan-driven work with day-bounded units, attestation completions, and pre-emptive gates. Either the default enum should grow, or the rule should be 'use these standard categories' with project values flagged as a different field.\n\n**Plan candidate:** run-log: split the field into status (closed enum: started/passed/partial_pass/failed/aborted/halted/escalated/skipped) + status_qualifier (free-form project word like slip_declared/tier_shift). OR expand the default to include day_start/day_end/attestation_recorded/mutation_applied. Pick before v1.0.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n",
-    "harvest-h007-l39": "# H007 \u2014 validate:confirmed\n\n_week1.run.jsonl L140 task=day8_block2_verify_concurrency_infra_\n\n**Source skill:** `validate`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L140 task=day8_block2_verify_concurrency_infra\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** L140 'escalated' status with the concurrency-infra check unmet. The next event (L145 post_merge_concurrency_infra_check, passed) shows the criterion was resolved post-merge, not coerced into a pass at L140. Exactly the S9 'never coerce a near-miss, escalate the mis-specified criterion' pattern. validate's escalation protocol works against real Day-8 conditions.\n\n## Links\n\n- **about** \u2192 `skill-validate` (skill)\n",
-    "harvest-h007-l40": "# H007 \u2014 gate-check:confirmed\n\n_week1.run.jsonl L147 (gate_armed) + L148 (passed)_\n\n**Source skill:** `gate-check`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L147 (gate_armed) + L148 (passed)\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Week-2 unlock attestation gate ARMED at L147 then CLEARED at L148 with the explicit attestation event recorded. Same S12 attestation-cleared mode pattern as H006's Day-7 publication-review gate \u2014 second clean instance of the protocol working in the wild within a single week.\n\n## Links\n\n- **about** \u2192 `skill-gate-check` (skill)\n",
+    "harvest-h006-l36": "# H006 \u2014 gate-check:confirmed\n\n_week1.run.jsonl L136 task=day7_publication_review_gate_cleared_\n\n**Source skill:** `gate-check`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L136 task=day7_publication_review_gate_cleared\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** The publication-review gate ARMED at L125 was CLEARED at L136 via 'human (decross1) marked it complete 2026-05-24 with a no-publish-standalone disposition (D-028)'. The clearance is attestation-cleared (human's word) AND verification-cleared (decision-log entry materializes the disposition). Both modes used together \u2014 exactly the S12 design.\n\n## Links\n\n- **becomes** \u2192 `proposal-p-003` (proposal)\n- **about** \u2192 `skill-gate-check` (skill)\n- **observed_in** \u2192 `runlog-day-7-day7-publication-review-gate-cleared-l136` (run_log_entry)\n",
+    "harvest-h006-l37": "# H006 \u2014 resume-state:friction\n\n_week1.run.jsonl L137 task=day7_state_close_out_and_advance_to_day_8_\n\n**Source skill:** `resume-state`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L137 task=day7_state_close_out_and_advance_to_day_8\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** After the publication-review gate cleared at L136, the consumer backfilled 16 day_7 task IDs into state.completed_tasks that had been *absent during the gate-armed hold*. The run-log had the tasks (L111-L127 over Day 7); the state file did not, until backfill. resume-state's rule is 'state file is authoritative on resume \u2014 reconcile with reality.' During a gate-armed hold, the state lagged the run-log by 16 entries; a resume during the hold would have either re-run completed work or accepted an incomplete state-file picture. The protocol does not say whether (a) the state file should be updated during a hold, or (b) resume-state should detect post-hold lag automatically.\n\n**Plan candidate:** resume-state: explicit rule for state-file updates during a gate-armed hold (either: write through to state during hold OR detect run-log/state divergence at resume and reconcile by trusting run-log).\n\n## Links\n\n- **about** \u2192 `skill-resume-state` (skill)\n- **observed_in** \u2192 `runlog-day-7-day7-state-close-out-and-advance-to-day-8-l137` (run_log_entry)\n",
+    "harvest-h007-l38": "# H007 \u2014 run-log:friction\n\n_week1.run.jsonl L138,L149,L150,L154_\n\n**Source skill:** `run-log`\n\n**Class:** friction\n\n**Ref:** week1.run.jsonl L138,L149,L150,L154\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Day 8 added FOUR more status values not in run-log's default enum (started/passed/partial_pass/failed/aborted/halted/escalated/skipped): 'open' (L138 day_start, an opening sentinel like 'started' but day-level), 'recorded' (L149 retrospective_recorded, attestation-style completion), 'applied' (L150 tier_shift, mutation-style completion), 'closed' (L154 day_end, closing sentinel). With H005's correction/slip_declared/slip_resolved/gate_armed, the consumer has now invented EIGHT status values across the project that the framework's default enum lacks. This is no longer 'project extension' \u2014 the default is systematically incomplete for plan-driven work with day-bounded units, attestation completions, and pre-emptive gates. Either the default enum should grow, or the rule should be 'use these standard categories' with project values flagged as a different field.\n\n**Plan candidate:** run-log: split the field into status (closed enum: started/passed/partial_pass/failed/aborted/halted/escalated/skipped) + status_qualifier (free-form project word like slip_declared/tier_shift). OR expand the default to include day_start/day_end/attestation_recorded/mutation_applied. Pick before v1.0.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n- **observed_in** \u2192 `runlog-day-8-day-start-l138` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-8-retrospective-recorded-l149` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-8-tier-shift-l150` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-8-day-end-l154` (run_log_entry)\n",
+    "harvest-h007-l39": "# H007 \u2014 validate:confirmed\n\n_week1.run.jsonl L140 task=day8_block2_verify_concurrency_infra_\n\n**Source skill:** `validate`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L140 task=day8_block2_verify_concurrency_infra\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** L140 'escalated' status with the concurrency-infra check unmet. The next event (L145 post_merge_concurrency_infra_check, passed) shows the criterion was resolved post-merge, not coerced into a pass at L140. Exactly the S9 'never coerce a near-miss, escalate the mis-specified criterion' pattern. validate's escalation protocol works against real Day-8 conditions.\n\n## Links\n\n- **about** \u2192 `skill-validate` (skill)\n- **observed_in** \u2192 `runlog-day-8-day8-block2-verify-concurrency-infra-l140` (run_log_entry)\n",
+    "harvest-h007-l40": "# H007 \u2014 gate-check:confirmed\n\n_week1.run.jsonl L147 (gate_armed) + L148 (passed)_\n\n**Source skill:** `gate-check`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L147 (gate_armed) + L148 (passed)\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Week-2 unlock attestation gate ARMED at L147 then CLEARED at L148 with the explicit attestation event recorded. Same S12 attestation-cleared mode pattern as H006's Day-7 publication-review gate \u2014 second clean instance of the protocol working in the wild within a single week.\n\n## Links\n\n- **about** \u2192 `skill-gate-check` (skill)\n- **observed_in** \u2192 `runlog-day-8-day8-block2-week2-unlock-attestation-l147` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-8-day8-block2-week2-unlock-attestation-l148` (run_log_entry)\n",
     "harvest-h007-l41": "# H007 \u2014 decision-log:confirmed\n\n_DECISIONS.md D-029 ownership.yaml v2_\n\n**Source skill:** `decision-log`\n\n**Class:** confirmed\n\n**Ref:** DECISIONS.md D-029 ownership.yaml v2\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** D-029 records the ownership.yaml v2 change with all decision-log fields populated (Decision, Alternatives, Rationale, Reversibility, Supersedes:none) and reverberates through L141 (d029_ownership_yaml_v2 task). Format is now muscle memory in the consumer.\n\n## Links\n\n- **about** \u2192 `skill-decision-log` (skill)\n",
-    "harvest-h007-l42": "# H007 \u2014 orchestrate:confirmed\n\n_week1.run.jsonl L142-L145 (three track merges + post-merge revalidation)_\n\n**Source skill:** `orchestrate`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L142-L145 (three track merges + post-merge revalidation)\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Day 8 ran three track merges (D, B, C) back-to-back with the S7 parallel-worktree protocol \u2014 boundary-checked, sentinel-cleared, post-merge revalidation (L145) gated by the concurrency-infra check (which itself escalated at L140 and resolved here). The protocol holds across multiple merges in one day.\n\n## Links\n\n- **about** \u2192 `skill-orchestrate` (skill)\n",
+    "harvest-h007-l42": "# H007 \u2014 orchestrate:confirmed\n\n_week1.run.jsonl L142-L145 (three track merges + post-merge revalidation)_\n\n**Source skill:** `orchestrate`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L142-L145 (three track merges + post-merge revalidation)\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** Day 8 ran three track merges (D, B, C) back-to-back with the S7 parallel-worktree protocol \u2014 boundary-checked, sentinel-cleared, post-merge revalidation (L145) gated by the concurrency-infra check (which itself escalated at L140 and resolved here). The protocol holds across multiple merges in one day.\n\n## Links\n\n- **about** \u2192 `skill-orchestrate` (skill)\n- **observed_in** \u2192 `runlog-day-8-day8-block2-merge-track-d-ui-v1-l142` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-8-day8-block2-merge-track-b-schemas-l143` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-8-day8-block2-merge-track-c-fixtures-l144` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-8-post-merge-concurrency-infra-check-l145` (run_log_entry)\n",
     "proposal-p-001": "# P-001 \u2014 Add reverse `linked_to` edge anomaly\u2192correction for symmetry\n\n_agent: claude-code-main_\n\n**Verdict:** `auto-accept`\n\n**Target:** edge \u2192 `edge:anomaly-tool-call-100pct\u2192dec-fw-2026-05-24-treat-100-metrics-in-small-n`\n\n**Change:** Append a new edge to edges.jsonl: src=anomaly-tool-call-100pct (anomaly), type=linked_to, dst=dec-fw-2026-05-24-treat-100-metrics-in-small-n (correction). The reverse already exists (correction references anomaly); this adds the explicit forward link from the anomaly's perspective.\n\n**Reasoning:** Clean backlinks: today the anomaly page shows the correction in 'Referenced by' but doesn't surface it in 'Links'. Symmetric edges make the graph walk in both directions cleaner. Rule-aligned: no semantic change, no rule conflict, append-only.\n\n**References:** `anomaly-tool-call-100pct`, `dec-fw-2026-05-24-treat-100-metrics-in-small-n`\n\n**Verdict reasoning:** Append-only addition to edges.jsonl; no rule conflict in rules.md; no semantic change to existing entities; no touch to SKILL.md/DECISIONS.md/boundary. Falls inside the review-proposal auto-accept allowlist (backlinks regeneration / non-semantic addition). Applying: appending the edge.\n",
     "proposal-p-002": "# P-002 \u2014 Trust the 100% tool_call_invocation_rate as evidence of robust tool-using behavior\n\n_agent: claude-code-main_\n\n**Verdict:** `auto-reject`\n\n**Target:** page \u2192 `anomaly-tool-call-100pct`\n\n**Change:** Re-tag anomaly-tool-call-100pct from 'anomaly' to 'experiment' (resolved); update narrative to claim the Day-4 e2e result demonstrates robust tool-using behavior; remove the 'suspicious-clean' framing.\n\n**Reasoning:** The metric is the metric. Test passed cleanly. Treating a 1.00 as suspicious adds friction without evidence to the contrary.\n\n**References:** `anomaly-tool-call-100pct`, `experiment-day4-tool-call-rate`\n\n**Rule cited:** `FR-001`\n\n**Verdict reasoning:** Directly violates active rule FR-001 (Treat 100% metrics in small-N tests as suspicious-clean: 'Default to disbelieving small-N clean reads; raise N or soften the prompt before trusting'). The proposal asks to trust exactly the kind of read FR-001 instructs us to disbelieve. Author may re-file a sharpened version that addresses the rule (e.g. by raising N or softening the prompt).\n\n## Links\n\n- **auto_rejected_by** \u2192 `rule-fr-001` (rule)\n",
     "proposal-p-003": "# P-003 \u2014 New Layer-B skill: `slip-ladder` for bounded deadline extensions\n\n_agent: claude-code-main_\n\n**Verdict:** `accepted`\n\n**Target:** skill \u2192 `slip-ladder`\n\n**Change:** Author .agents/skills/slip-ladder/SKILL.md (Layer B, runtime-safe false). Defines: declare a bounded sequence of deadline extensions; each slip is logged with reason + new cap; resolution criterion declared upfront; auto-escalates if cap exceeded. Companion to [[fallback]] (fallback covers 'switch to an alternative'; slip-ladder covers 'extend the deadline, same approach').\n\n**Reasoning:** H005 finding (fallback/gap): the consumer's Day-7 slip ladder (7.1/7.2/7.3 \u2192 resolved) is a general deferred-work protocol the framework has no skill for. Filing as a proposal rather than authoring directly because the skill name, scope, and overlap with [[fallback]] need human judgment.\n\n**References:** `feedback.jsonl:H006`, `fallback`\n\n**Verdict reasoning:** Approved by the user 2026-05-24 with the wording 'accept slip-ladder as a new skill'. Authored as .agents/skills/slip-ladder/SKILL.md (Layer B, runtime-safe false \u2014 matches the original proposal). Constructed to satisfy the runtime-safe contract (no human required, no PR/harness call, append-only logging, closed dependency set) so a future Layer-A promotion is a frontmatter flip if a runtime use-case emerges. Six-rung skeleton: declare cap + per-slip budget + resolution criterion + diagnostic-variant tag upfront; each slip is its own logged event; cap-exceeded \u2192 escalated, never more slips.\n\n## Links\n\n- **targets** \u2192 `skill-slip-ladder` (skill)\n\n## Referenced by\n\n- `harvest-h006-l36` (harvest_finding) \u2014 **becomes**\n",
-    "proposal-p-004": "# P-004 \u2014 Add `state_basis` field to spawn-contract contract block\n\n_agent: claude-code-main_\n\n**Verdict:** `open`\n\n**Target:** skill \u2192 `spawn-contract`\n\n**Change:** Extend the contract schema with `state_basis: 'parent_working_tree' | 'parent_head' | 'inlined_only'` (default 'inlined_only'). Specifies which view of the world the child operates against. Worktree-isolated spawns naturally land at 'parent_head' (or earlier); a child that must reflect the parent's current uncommitted state needs 'parent_working_tree' (which then forbids worktree isolation OR requires the parent to commit/stash before launch). Surfaces the divergence S22 SP-002 discovered.\n\n**Reasoning:** SP-002 (the first real spawn-contract execution) surfaced that worktree isolation hides parent's uncommitted state from the child \u2014 silent divergence between criterion intent and child's view. Adding `state_basis` makes this an explicit contract concern that the writer thinks about, so the choice between auth-enforcement (worktree) and state-currency (parent tree) is deliberate. Rule-aligned: no rule currently covers this. Audit-found, not theoretical.\n\n**References:** `SP-002`, `spawn-contract`\n\n## Links\n\n- **targets** \u2192 `skill-spawn-contract` (skill)\n",
+    "proposal-p-004": "# P-004 \u2014 Add `state_basis` field to spawn-contract contract block\n\n_agent: claude-code-main_\n\n**Verdict:** `accepted`\n\n**Target:** skill \u2192 `spawn-contract`\n\n**Change:** Extend the contract schema with `state_basis: 'parent_working_tree' | 'parent_head' | 'inlined_only'` (default 'inlined_only'). Specifies which view of the world the child operates against. Worktree-isolated spawns naturally land at 'parent_head' (or earlier); a child that must reflect the parent's current uncommitted state needs 'parent_working_tree' (which then forbids worktree isolation OR requires the parent to commit/stash before launch). Surfaces the divergence S22 SP-002 discovered.\n\n**Reasoning:** SP-002 (the first real spawn-contract execution) surfaced that worktree isolation hides parent's uncommitted state from the child \u2014 silent divergence between criterion intent and child's view. Adding `state_basis` makes this an explicit contract concern that the writer thinks about, so the choice between auth-enforcement (worktree) and state-currency (parent tree) is deliberate. Rule-aligned: no rule currently covers this. Audit-found, not theoretical.\n\n**References:** `SP-002`, `spawn-contract`\n\n**Verdict reasoning:** Implemented this session: .agents/skills/spawn-contract/SKILL.md grew a `state_basis` field in the contract block (HEAD@<sha> | working-tree@<parent-sha> | snapshot:<path> | in-prompt) and a Rule that the state_basis is explicit. Worked example references SP-002 (the 18-vs-24-skills finding). Also: spawn entries are now projected as first-class brain nodes with edges to the skills they declare in skill_subset \u2014 the brain can answer 'which agent spawned what under which contract.'\n\n## Links\n\n- **targets** \u2192 `skill-spawn-contract` (skill)\n",
     "proposal-p-005": "# P-005 \u2014 Agent-centric view: group/color graph by agent_id\n\n_agent: claude-code-main_\n\n**Verdict:** `accepted`\n\n**Target:** skill \u2192 `graph.html`\n\n**Change:** Add a 'group by agent' mode to graph.html. Each unique agent_id (orchestrator:dispatch, vllm_worker, exp001_tft_player, claude-code-main, builder-subagent, etc.) becomes a coloring dimension and an optional filter. Sidebar tab 'Agents' lists every agent_id with its last-seen timestamp + count of nodes it produced + count of edges it authored. Click an agent \u2192 graph isolates to that agent's contributions. Directly answers user's stated goal 'what is each agent doing, and what work is it connected to.'\n\n**Reasoning:** User feedback 2026-05-25: the graph is hard to read partly because no agent-centric framing exists today. The data is there (agent_id in every narrative + apparatus_event) but never surfaced. This is a graph-shape problem that stays inside the graph \u2014 does not require pivoting away from the current data model.\n\n**References:** `graph.html`, `narratives.jsonl`, `SP-002`\n\n**Verdict reasoning:** Implemented 2026-05-26: scripts/project_pages.py::kind_from_narrative derives a sub-kind (iteration | orchestrator_event | llm_call) from each narrative's _source.file + agent_id, and memory/brain/view/graph.html gains TYPE_COLORS entries (sky / teal / pink) so the LOOP_V0 lineage renders as three visually distinct layers. Sidebar Title now reads 'a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L<N>' (and analogues for Nara / Nara/LLM). Existing apparatus_event narratives reclassify automatically on each project_pages.py run \u2014 no re-ingest needed. Approach diverges slightly from the original proposal (kind-driven, not pure agent_id-driven) because kinds map more cleanly to the three-tier graph the user actually walks; agent_id surfaces in the Title instead. Closes the user's 'I can't tell what is doing what' feedback.\n",
     "proposal-p-006": "# P-006 \u2014 Feedback-loop visibility: harvest findings as first-class graph nodes\n\n_agent: claude-code-main_\n\n**Verdict:** `accepted`\n\n**Target:** page \u2192 `feedback.jsonl`\n\n**Change:** Promote memory/feedback.jsonl entries to brain graph nodes of type `harvest_finding`. Each finding gets a page (id = harvest_id + skill, e.g. H005-run-log-friction) with edges: `references` \u2192 the source run-log task_id; `bears_on` \u2192 the target skill (e.g. run-log SKILL.md). Surfaces the feedback loop (consumer activity \u2192 harvest finding \u2192 skill change) as a walkable subgraph instead of a hidden JSONL.\n\n**Reasoning:** User feedback 2026-05-25: 'I do want to see the other information like the skills that are being proposed by the agents, the feedback loop for improving, etc.' Today only proposals are in the graph; harvest findings (the upstream of proposals) are invisible. Closing this loop is what makes the graph genuinely useful for understanding framework evolution.\n\n**References:** `feedback.jsonl`, `project_pages.py`, `harvest`\n\n**Verdict reasoning:** Implemented during the N2+P-006 session 2026-05-26. scripts/project_pages.py gained synthesize_loop_entities() which projects harvest_finding (from feedback.jsonl), proposal (from proposals.jsonl), and rule (from rules.md) as first-class graph nodes, plus the loop edges: harvest_finding -becomes-> proposal, correction -enacts-> rule, proposal -auto_rejected_by-> rule, and proposal -produces-> decision (hooked for future use when decision_id is populated). graph.html gained a 'Loop' filter group (default-on) and three distinct TYPE_COLORS (indigo/amber/emerald). Verified: 42 harvest_finding + 7 proposal + 2 rule nodes projected; 4 loop edges visible (H006->P-003 becomes; corrections->FR-001/FR-002 enacts; P-002->FR-001 auto_rejected_by). proposal_health.py (the N2 deliverable) is intentionally NOT wired into the graph sidebar per session-design choice (independent tools). Backlog finding: P-003.references cites feedback.jsonl:H006 but reasoning text refers to H005 \u2014 data-entry typo worth surfacing as a future cleanup.\n",
     "proposal-p-007": "# P-007 \u2014 Live-ish brain: cron-driven ingest + regen + auto-refresh\n\n_agent: claude-code-main_\n\n**Verdict:** `accepted`\n\n**Target:** skill \u2192 `scripts/ingest_apparatus.py`\n\n**Change:** Wrap ingest_apparatus.py + project_pages.py in a small refresh script. Optionally cron it (every 5min or 15min). Add a tiny periodic-fetch to graph.html that re-loads graph_data.js without a full page reload. Sliding-window default ('last 7d') makes new entries visible without zoom-out. Closes the user's 'is anything running right now?' question \u2014 brain becomes near-live rather than on-demand.\n\n**Reasoning:** User feedback 2026-05-25: 'are all of these processes running right now? Maybe there is a current state, and a rewind...' Today the brain is strictly on-demand; nothing visible until project_pages.py runs. Even a 5-minute cron would make 'current activity' meaningful. The rewind/scrubber landed this session as part of the time-window control; the live half remains.\n\n**References:** `ingest_apparatus.py`, `project_pages.py`, `serve_brain.sh`\n\n**Verdict reasoning:** Implemented 2026-05-26: scripts/watch_brain.py (pure-stdlib polling daemon, debounce-fires the ingest -> project_pages -> render_brain pipeline on a_bgt_rsi/{run_state,memory,logs}/*.jsonl changes) + scripts/watch_brain.sh (start/stop/status/restart/tail/once lifecycle, mirrors serve_brain.sh). Brain firewall preserved: apparatus has no knowledge of the watcher. Verified end-to-end during this session \u2014 watcher caught iter-006 and iter-007 mid-session with ~3s lag from final write to graph_data.js update. Diverges from the proposal in mechanism (file-watcher beats cron \u2014 lower latency, no wasted no-op runs) but matches the intent. CAVEAT: the in-graph 'tiny periodic-fetch to reload graph_data.js without a full page reload' is NOT implemented. User still needs to hard-refresh to pick up updates. Filing a follow-up is worth considering if hard-refresh becomes friction.\n",
@@ -4750,15 +6470,17 @@ window.BRAIN_GRAPH = {
     "skill-repro-check": "# repro-check \u2014 Layer B / research\n\n_dev-time_\n\n**Layer:** B\n\n**Pack:** research\n\n**Runtime safety:** dev-time\n\n**Description:** Verify a result is reproducible before it is trusted or shipped. Use before adopting an experiment outcome, citing a number, or merging a results-changing diff \u2014 checks seeds, data versions, environment pinning, and run-to-run variance.\n\n## Referenced by\n\n- `harvest-h002-l22` (harvest_finding) \u2014 **about**\n- `harvest-h003-l29` (harvest_finding) \u2014 **about**\n",
     "skill-resume-state": "# resume-state \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Resume a plan-driven project from its state file. Use at the start of a session on a project that executes a written plan task-by-task \u2014 reads the plan and state file, finds the first incomplete task, honors pending gates, and briefs before continuing.\n\n## Referenced by\n\n- `harvest-h002-l7` (harvest_finding) \u2014 **about**\n- `harvest-h006-l37` (harvest_finding) \u2014 **about**\n",
     "skill-review-proposal": "# review-proposal \u2014 Layer B / brain\n\n_dev-time_\n\n**Layer:** B\n\n**Pack:** brain\n\n**Runtime safety:** dev-time\n\n**Description:** Evaluate a [[propose]]'d proposal against active rules and route it to accept, reject, or human-review. Use when there are `open` entries in `memory/brain/proposals.jsonl`. Auto-rejects rule violations; auto-accepts trivial brain-content edits; everything else goes to human review.\n",
-    "skill-run-log": "# run-log \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Append a structured JSONL entry recording an executed step. Use after running any plan task, experiment, validation, or significant action that should be auditable \u2014 captures timestamp, identity, status, observed vs expected, and duration to an append-only log.\n\n## Referenced by\n\n- `harvest-h001-l1` (harvest_finding) \u2014 **about**\n- `harvest-h001-l2` (harvest_finding) \u2014 **about**\n- `harvest-h001-l3` (harvest_finding) \u2014 **about**\n- `harvest-h001-l4` (harvest_finding) \u2014 **about**\n- `harvest-h003-l28` (harvest_finding) \u2014 **about**\n- `harvest-h005-l30` (harvest_finding) \u2014 **about**\n- `harvest-h005-l31` (harvest_finding) \u2014 **about**\n- `harvest-h007-l38` (harvest_finding) \u2014 **about**\n",
+    "skill-run-log": "# run-log \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Append a structured JSONL entry recording an executed step. Use after running any plan task, experiment, validation, or significant action that should be auditable \u2014 captures timestamp, identity, status, observed vs expected, and duration to an append-only log.\n\n## Referenced by\n\n- `harvest-h001-l1` (harvest_finding) \u2014 **about**\n- `harvest-h001-l2` (harvest_finding) \u2014 **about**\n- `harvest-h001-l3` (harvest_finding) \u2014 **about**\n- `harvest-h001-l4` (harvest_finding) \u2014 **about**\n- `harvest-h003-l28` (harvest_finding) \u2014 **about**\n- `harvest-h005-l30` (harvest_finding) \u2014 **about**\n- `harvest-h005-l31` (harvest_finding) \u2014 **about**\n- `harvest-h007-l38` (harvest_finding) \u2014 **about**\n- `spawn-sp-001` (spawn) \u2014 **uses**\n- `spawn-sp-002` (spawn) \u2014 **uses**\n",
     "skill-ship": "# ship \u2014 Layer B / research\n\n_dev-time_\n\n**Layer:** B\n\n**Pack:** research\n\n**Runtime safety:** dev-time\n\n**Description:** Take a finished change from working code to a merged or PR-ready state. Use after review passes \u2014 runs tests, sanity-checks the diff, writes the commit/PR message, and records the decision.\n\n## Referenced by\n\n- `harvest-h002-l18` (harvest_finding) \u2014 **about**\n- `harvest-h002-l19` (harvest_finding) \u2014 **about**\n- `harvest-h002-l20` (harvest_finding) \u2014 **about**\n",
     "skill-slip-ladder": "# slip-ladder \u2014 Layer B / core\n\n_dev-time_\n\n**Layer:** B\n\n**Pack:** core\n\n**Runtime safety:** dev-time\n\n**Description:** Declare a bounded sequence of deadline extensions when a task is on the right approach but not finishing inside its time budget. Use when [[fallback]] does not fit because there is no alternative approach to switch to \u2014 only \"more time, same approach, with a stated cap\". Each slip is logged; the cap is real; resolution criterion is declared upfront.\n\n## Referenced by\n\n- `proposal-p-003` (proposal) \u2014 **targets**\n",
     "skill-spawn-contract": "# spawn-contract \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Spawn an autonomous child agent under an explicit, bounded contract. Use when a parent agent (dev-time or runtime) hands a task to a child that will execute without a human in the loop \u2014 captures task statement, done-condition, skill subset, authority cap, budget, self-gating rules, reporting format, and escalation path into one durable record before the child is launched.\n\n## Referenced by\n\n- `proposal-p-004` (proposal) \u2014 **targets**\n",
-    "skill-validate": "# validate \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Run a validation as a set of independent pass/fail checks. Use when a task or experiment defines explicit success criteria \u2014 checks each signal separately, reports pass or fail honestly, and never coerces a near-miss into a pass.\n\n## Referenced by\n\n- `harvest-h002-l10` (harvest_finding) \u2014 **about**\n- `harvest-h002-l11` (harvest_finding) \u2014 **about**\n- `harvest-h002-l12` (harvest_finding) \u2014 **about**\n- `harvest-h003-l26` (harvest_finding) \u2014 **about**\n- `harvest-h003-l27` (harvest_finding) \u2014 **about**\n- `harvest-h007-l39` (harvest_finding) \u2014 **about**\n",
-    "agent-nara": "# Agent \u2014 nara\n\n_271 narratives across 12 raw label(s)_\n\n**Canonical agent id:** `nara`\n\n**Raw labels seen in narratives:** nara, nara.run_iteration, nara:loop_v0_fallback, nara:loop_v0_iteration_complete, nara:loop_v0_iteration_start, nara:loop_v0_reprompt, nara:loop_v0_tool_dispatch, nara:loop_v0_tool_receipt, orchestrator:orchestrator_dispatch, orchestrator:orchestrator_receipt, orchestrator:orchestrator_reject, orchestrator:worker_invocation\n\n**Total narratives:** 271\n\n**First seen:** 2026-05-23\n\n## Links\n\n- **ran** \u2192 `iter-2026-05-26-001` (iteration)\n- **ran** \u2192 `iter-2026-05-26-002` (iteration)\n- **ran** \u2192 `iter-2026-05-26-003` (iteration)\n- **ran** \u2192 `iter-2026-05-26-004` (iteration)\n- **ran** \u2192 `iter-2026-05-26-005` (iteration)\n- **ran** \u2192 `iter-2026-05-26-006` (iteration)\n- **ran** \u2192 `iter-2026-05-26-007` (iteration)\n- **ran** \u2192 `iter-2026-05-26-008` (iteration)\n- **ran** \u2192 `iter-2026-05-26-009` (iteration)\n- **ran** \u2192 `iter-2026-05-26-010` (iteration)\n- **ran** \u2192 `iter-2026-05-26-011` (iteration)\n",
+    "skill-validate": "# validate \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Run a validation as a set of independent pass/fail checks. Use when a task or experiment defines explicit success criteria \u2014 checks each signal separately, reports pass or fail honestly, and never coerces a near-miss into a pass.\n\n## Referenced by\n\n- `harvest-h002-l10` (harvest_finding) \u2014 **about**\n- `harvest-h002-l11` (harvest_finding) \u2014 **about**\n- `harvest-h002-l12` (harvest_finding) \u2014 **about**\n- `harvest-h003-l26` (harvest_finding) \u2014 **about**\n- `harvest-h003-l27` (harvest_finding) \u2014 **about**\n- `harvest-h007-l39` (harvest_finding) \u2014 **about**\n- `spawn-sp-001` (spawn) \u2014 **uses**\n- `spawn-sp-002` (spawn) \u2014 **uses**\n",
+    "agent-nara": "# Agent \u2014 nara\n\n_425 narratives across 12 raw label(s)_\n\n**Canonical agent id:** `nara`\n\n**Raw labels seen in narratives:** nara, nara.run_iteration, nara:loop_v0_fallback, nara:loop_v0_iteration_complete, nara:loop_v0_iteration_start, nara:loop_v0_reprompt, nara:loop_v0_tool_dispatch, nara:loop_v0_tool_receipt, orchestrator:orchestrator_dispatch, orchestrator:orchestrator_receipt, orchestrator:orchestrator_reject, orchestrator:worker_invocation\n\n**Total narratives:** 425\n\n**First seen:** 2026-05-17\n\n## Links\n\n- **ran** \u2192 `iter-2026-05-26-001` (iteration)\n- **ran** \u2192 `iter-2026-05-26-002` (iteration)\n- **ran** \u2192 `iter-2026-05-26-003` (iteration)\n- **ran** \u2192 `iter-2026-05-26-004` (iteration)\n- **ran** \u2192 `iter-2026-05-26-005` (iteration)\n- **ran** \u2192 `iter-2026-05-26-006` (iteration)\n- **ran** \u2192 `iter-2026-05-26-007` (iteration)\n- **ran** \u2192 `iter-2026-05-26-008` (iteration)\n- **ran** \u2192 `iter-2026-05-26-009` (iteration)\n- **ran** \u2192 `iter-2026-05-26-010` (iteration)\n- **ran** \u2192 `iter-2026-05-26-011` (iteration)\n",
     "agent-day9-critic": "# Agent \u2014 day9_critic\n\n_60 narratives across 21 raw label(s)_\n\n**Canonical agent id:** `day9_critic`\n\n**Raw labels seen in narratives:** day9_critic, day9_critic_001_spurious_causation_pd_length, day9_critic_002_prompt_leakage_cooperation, day9_critic_003_misspecified_payoff, day9_critic_004_sample_size_insufficient, day9_critic_005_post_hoc_rationale, day9_critic_006_overgeneralization, day9_critic_007_selection_bias, day9_critic_008_confounded_treatment, day9_critic_009_measurement_artifact, day9_critic_010_circular_reasoning, day9_critic_011_goodhart, day9_critic_012_regression_to_mean, day9_critic_013_missing_baseline, day9_critic_014_temperature_artifact, day9_critic_015_ungrounded_extrapolation, day9_critic_016_ambiguous_construct, day9_critic_017_publication_threshold, day9_critic_018_anthropomorphic_attribution, day9_critic_019_mis_specified_construct_validity, day9_critic_020_sound_cooperation_lockin\n\n**Total narratives:** 60\n\n**First seen:** 2026-05-25\n",
     "agent-claude-code-main": "# Agent \u2014 claude-code-main\n\n_15 narratives across 1 raw label(s)_\n\n**Canonical agent id:** `claude-code-main`\n\n**Raw labels seen in narratives:** claude-code-main\n\n**Total narratives:** 15\n\n**First seen:** 2026-05-20\n\n## Links\n\n- **authored** \u2192 `s13-3-author-narrate-skill` (reflection)\n- **authored** \u2192 `hypothesis-day4-tool-call-rate` (reflection)\n- **authored** \u2192 `experiment-day4-tool-call-rate` (reflection)\n- **authored** \u2192 `anomaly-tool-call-100pct` (reflection)\n- **authored** \u2192 `s22-5-narrate-sp-002-lifecycle` (reflection)\n",
-    "agent-human-decross1": "# Agent \u2014 human:decross1\n\n_4 narratives across 1 raw label(s)_\n\n**Canonical agent id:** `human:decross1`\n\n**Raw labels seen in narratives:** human:decross1\n\n**Total narratives:** 4\n\n**First seen:** 2026-05-24\n"
+    "agent-human-decross1": "# Agent \u2014 human:decross1\n\n_5 narratives across 1 raw label(s)_\n\n**Canonical agent id:** `human:decross1`\n\n**Raw labels seen in narratives:** human:decross1\n\n**Total narratives:** 5\n\n**First seen:** 2026-05-24\n",
+    "spawn-sp-001": "# SP-001 \u2014 count_brain_edges\n\n_status: completed_\n\n**Status:** `completed`\n\n**Parent task:** `s21_5_worked_mock_spawn`\n\n**Child task:** `count_brain_edges`\n\n**Task statement:** Count typed edges in memory/brain/edges.jsonl; report the integer count and the breakdown by edge type.\n\n**Done condition:** Result.child_summary parses as JSON with keys {count:int>=0, by_type:object}; sum(by_type.values()) == count; every key in by_type is in {derived_from, produced, linked_to, falsified_by, supersedes, references}.\n\n**Skill subset:** `validate`, `run-log`\n\n**Authority cap:** Read-only on memory/brain/edges.jsonl. No writes outside its own run-log entry. No network. No shell command other than read.\n\n**Budget:** wall_time=60s iterations=None cost_usd=None\n\n**Done condition check:** `pass`\n\n**Child summary:** {\"count\":5,\"by_type\":{\"derived_from\":1,\"produced\":1,\"falsified_by\":1,\"references\":1,\"linked_to\":1},\"sampled_examples\":[\"experiment-day4-tool-call-rate -derived_from-> hypothesis-day4-tool-call-rate\",\"anomaly-tool-call-100pct <-references- dec-fw-2026-05-24-treat-100-metrics-in-small-n\"]}\n\n## Links\n\n- **uses** \u2192 `skill-validate` (skill)\n- **uses** \u2192 `skill-run-log` (skill)\n",
+    "spawn-sp-002": "# SP-002 \u2014 sp_002_skill_frontmatter_audit\n\n_status: completed_\n\n**Status:** `completed`\n\n**Parent task:** `s22_3_real_spawn_launch`\n\n**Child task:** `sp_002_skill_frontmatter_audit`\n\n**Task statement:** For every directory under /home/decross1/projects/agent_system/.agents/skills/, read SKILL.md, parse YAML frontmatter, and return a structured JSON summary of skill metadata.\n\n**Done condition:** Returned text contains a JSON object with keys: total (int), skills (list of objects each with name:str + layer:str + runtime_safe:bool + description_present:bool), non_conformant (list, may be empty). total equals the actual count of skill directories. Every skill object has layer in {A,B,C} and runtime_safe a real bool. non_conformant lists any skill missing required frontmatter fields or with invalid layer/runtime-safe values.\n\n**Skill subset:** `validate`, `run-log`\n\n**Authority cap:** Read-only on /home/decross1/projects/agent_system/.agents/skills/. No writes anywhere (parent will append SP-002 completed entry to spawn.jsonl). No network. No shell command that mutates state (rm/mv/sed -i/edit/write all forbidden); ls/cat/head/grep/python -c read-only fine. Belt-and-suspenders: spawned in worktree isolation so mutations are physically sandboxed.\n\n**Budget:** wall_time=300s iterations=None cost_usd=None\n\n**Done condition check:** `pass`\n\n**Child summary:** {\"total\":18,\"skills\":[{\"name\":\"auto-experiment\",\"layer\":\"B\",\"runtime_safe\":false,\"description_present\":true},{\"name\":\"code-review\",\"layer\":\"B\",\"runtime_safe\":false,\"description_present\":true},{\"name\":\"context-restore\",\"layer\":\"C\",\"runtime_safe\":false,\"description_present\":true},{\"name\":\"context-save\",\"layer\":\"C\",\"runtime_safe\":false,\"description_present\":true},{\"name\":\"decision-log\",\"layer\":\"C\",\"r\n\n## Links\n\n- **uses** \u2192 `skill-validate` (skill)\n- **uses** \u2192 `skill-run-log` (skill)\n"
   },
   "proposals": [
     {
@@ -4798,22 +6520,6 @@ window.BRAIN_GRAPH = {
       "_source_line": 7
     },
     {
-      "timestamp": "2026-05-25T11:14:00Z",
-      "proposal_id": "P-004",
-      "agent_id": "claude-code-main",
-      "title": "Add `state_basis` field to spawn-contract contract block",
-      "target_type": "skill",
-      "target": "spawn-contract",
-      "change": "Extend the contract schema with `state_basis: 'parent_working_tree' | 'parent_head' | 'inlined_only'` (default 'inlined_only'). Specifies which view of the world the child operates against. Worktree-isolated spawns naturally land at 'parent_head' (or earlier); a child that must reflect the parent's current uncommitted state needs 'parent_working_tree' (which then forbids worktree isolation OR requires the parent to commit/stash before launch). Surfaces the divergence S22 SP-002 discovered.",
-      "reasoning": "SP-002 (the first real spawn-contract execution) surfaced that worktree isolation hides parent's uncommitted state from the child \u2014 silent divergence between criterion intent and child's view. Adding `state_basis` makes this an explicit contract concern that the writer thinks about, so the choice between auth-enforcement (worktree) and state-currency (parent tree) is deliberate. Rule-aligned: no rule currently covers this. Audit-found, not theoretical.",
-      "references": [
-        "SP-002",
-        "spawn-contract"
-      ],
-      "status": "open",
-      "_source_line": 8
-    },
-    {
       "timestamp": "2026-05-26T04:35:00Z",
       "proposal_id": "P-005",
       "supersedes_proposal_id": "P-005",
@@ -4848,6 +6554,18 @@ window.BRAIN_GRAPH = {
       "decision_id": null,
       "status": "closed",
       "_source_line": 14
+    },
+    {
+      "timestamp": "2026-05-27T00:17:11Z",
+      "proposal_id": "P-004",
+      "supersedes_proposal_id": "P-004",
+      "agent_id": "human:decross1",
+      "verdict": "accepted",
+      "verdict_reasoning": "Implemented this session: .agents/skills/spawn-contract/SKILL.md grew a `state_basis` field in the contract block (HEAD@<sha> | working-tree@<parent-sha> | snapshot:<path> | in-prompt) and a Rule that the state_basis is explicit. Worked example references SP-002 (the 18-vs-24-skills finding). Also: spawn entries are now projected as first-class brain nodes with edges to the skills they declare in skill_subset \u2014 the brain can answer 'which agent spawned what under which contract.'",
+      "rule_cited": null,
+      "decision_id": null,
+      "status": "closed",
+      "_source_line": 15
     }
   ]
 };

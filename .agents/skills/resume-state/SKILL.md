@@ -69,12 +69,25 @@ plan, use [[context-restore]] instead.
    no decision log exists, note that and move on. The agent reads, it does
    not relocate or restate: authority remains in the decision log.
 
+8. **Surface the brain snapshot** (if the project has one). Run the
+   project's brain-snapshot script if present (in this framework:
+   `python scripts/brain_snapshot.py`). It prints three numbers:
+   - **Active rules** — count of distilled corrections currently active.
+   - **Days since last proposal closed** — staleness of the proposal loop.
+   - **Median time-to-resume** — clock from session start to first
+     real task in the last K sessions.
+   These are observational; they don't gate. If active rules grow and
+   time-to-resume shrinks across sessions, the brain is compounding.
+   If neither shifts over five sessions, the loop is not earning its
+   keep — surface that as a finding for [[harvest]] to chew on.
+
 ## Output
 
 A short briefing before doing any work: current unit, the resume task, any
-blocking gate, any state/reality discrepancy, and the *N* most recent active
-corrections. Then either halt at a gate or proceed to the resume task. Every
-executed task is logged via [[run-log]].
+blocking gate, any state/reality discrepancy, the *N* most recent active
+corrections, and the brain snapshot (if available). Then either halt at a
+gate or proceed to the resume task. Every executed task is logged via
+[[run-log]].
 
 ## Rule
 

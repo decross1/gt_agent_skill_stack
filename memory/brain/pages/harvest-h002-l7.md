@@ -5,6 +5,7 @@ date: "2026-05-21"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-resume-state", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-3-state-transition-l45", dst_type: "run_log_entry"}
 ---
 
 # H002 — resume-state:confirmed
@@ -24,3 +25,4 @@ _week1.run.jsonl L45 task=state_transition_
 ## Links
 
 - **about** → `skill-resume-state` (skill)
+- **observed_in** → `runlog-day-3-state-transition-l45` (run_log_entry)

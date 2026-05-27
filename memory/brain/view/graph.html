@@ -130,6 +130,7 @@ const TYPE_COLORS = {
   stage:              "#8b5cf6",   // violet — fallback when a stage's worker isn't in STAGE_COLORS
   orchestrator_event: "#14b8a6",   // teal — Nara's dispatch/receipt events (mechanics view)
   llm_call:           "#ec4899",   // pink — vLLM wrapper calls (mechanics view)
+  run_log_entry:      "#0284c7",   // sky-deep — canonical [[run-log]] task records (pre-LOOP_V0 day-task entries; observed_in target for findings)
   // Self-improvement loop (synthesized in scripts/project_pages.py::synthesize_loop_entities)
   harvest_finding:    "#6366f1",   // indigo — raw signal from harvest passes
   proposal:           "#fbbf24",   // amber-light — candidate change in flight
@@ -137,6 +138,8 @@ const TYPE_COLORS = {
   // Agent + skill (synthesized in scripts/project_pages.py::synthesize_agent_skill_entities)
   agent:              "#0d9488",   // deep teal — a decision-making actor (nara, claude-code-main, …)
   skill:              "#7c3aed",   // royal purple — a framework skill used by agents
+  // Spawn contract (synthesized in scripts/project_pages.py::synthesize_spawn_entities)
+  spawn:              "#dc2626",   // crimson — autonomous spawn under explicit contract
   // fallback
   _default:           "#cccccc"
 };
@@ -200,7 +203,9 @@ const VIEW_MODES = {
   execution: new Set(["decision", "harvest_finding", "proposal", "rule", "correction"]),
   // Self-improvement mode shows the framework's meta-loop. Skill is shared
   // with execution mode because it sits at the join — agents invoke it,
-  // findings audit it, proposals target it.
+  // findings audit it, proposals target it. run_log_entry stays visible too
+  // because findings now edge into it (observed_in) — the chain is
+  // harvest_finding → observed_in → run_log_entry → (skill_used) → skill.
   self_improvement: new Set([
     "decision",
     "iteration", "stage", "orchestrator_event", "llm_call",
@@ -262,9 +267,9 @@ document.getElementById("tab-proposals").textContent = `Proposals (${PROPOSALS.l
 // GRAPH_HIDDEN_TYPES. The Decisions tab remains the entry point for them.
 const FILTER_GROUPS = [
   { key: "actors",    label: "Actors",    defaultOn: true,
-    types: ["agent", "skill"] },
+    types: ["agent", "skill", "spawn"] },
   { key: "research",  label: "Research",  defaultOn: true,
-    types: ["iteration", "stage", "correction", "anomaly", "experiment", "hypothesis", "reflection"] },
+    types: ["iteration", "stage", "run_log_entry", "correction", "anomaly", "experiment", "hypothesis", "reflection"] },
   { key: "loop",      label: "Loop",      defaultOn: true,
     types: ["harvest_finding", "proposal", "rule"] },
   { key: "mechanics", label: "Mechanics", defaultOn: false,
@@ -781,6 +786,28 @@ function updatePanel() {
     const ins  = edges.filter(e => e._d === selected);
     const parts = [];
     parts.push(`<h2><span class="legend" style="background:${colorFor(selected)}"></span>${selected.slug}</h2>`);
+    // One-line summary for stage nodes — answers "what did this step do?"
+    // without making the user toggle the page body. Parses the page content
+    // we already embed in graph_data.js (no extra projection work). Shows
+    // worker name + status + first sentence of Nara's reasoning, if any.
+    if (selected.type === "stage" && PAGES[selected.slug]) {
+      const page = PAGES[selected.slug];
+      const stepM = page.match(/\*\*Step \d+ of \d+\*\* — tool `([^`]+)`(?:\s+\(([^)]+)\))?/);
+      const statusM = page.match(/\*\*Status:\*\*\s+([^\n]+)/);
+      const reasonM = page.match(/\*\*Reasoning[^*]*\*\*\s*\n+\s*([^\n]+)/);
+      if (stepM || statusM) {
+        const worker = stepM ? (stepM[2] || stepM[1]) : "?";
+        const status = statusM ? statusM[1].trim() : "?";
+        const reason = reasonM ? reasonM[1].slice(0, 90).replace(/[<>]/g, "") : "";
+        const statusClass = `v-${status.replace(/[^a-z]/gi, "-")}`;
+        parts.push(
+          `<div class="kv" style="font-size:13px;padding:6px 8px;background:rgba(139,92,246,0.08);border-radius:4px;margin:6px 0;">` +
+          `<b>${worker}</b> <span class="verdict ${statusClass}" style="margin-left:6px">${status}</span>` +
+          (reason ? `<div style="margin-top:4px;color:#666;font-size:12px;font-style:italic;">${reason}${reason.length >= 90 ? "…" : ""}</div>` : "") +
+          `</div>`
+        );
+      }
+    }
     parts.push(`<div class="kv"><b>Type:</b> ${selected.type}</div>`);
     if (selected.date) parts.push(`<div class="kv"><b>Date:</b> ${selected.date}</div>`);
     if (selected.title && selected.title !== selected.slug) parts.push(`<div class="kv"><b>Title:</b> ${selected.title}</div>`);

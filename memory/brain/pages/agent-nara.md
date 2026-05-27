@@ -1,7 +1,7 @@
 ---
 slug: "agent-nara"
 type: "agent"
-date: "2026-05-23"
+date: "2026-05-17"
 source: "derived from agent_id across narratives + proposals"
 edges:
   - {type: ran, dst: "iter-2026-05-26-001", dst_type: "iteration"}
@@ -19,15 +19,15 @@ edges:
 
 # Agent — nara
 
-_271 narratives across 12 raw label(s)_
+_425 narratives across 12 raw label(s)_
 
 **Canonical agent id:** `nara`
 
 **Raw labels seen in narratives:** nara, nara.run_iteration, nara:loop_v0_fallback, nara:loop_v0_iteration_complete, nara:loop_v0_iteration_start, nara:loop_v0_reprompt, nara:loop_v0_tool_dispatch, nara:loop_v0_tool_receipt, orchestrator:orchestrator_dispatch, orchestrator:orchestrator_receipt, orchestrator:orchestrator_reject, orchestrator:worker_invocation
 
-**Total narratives:** 271
+**Total narratives:** 425
 
-**First seen:** 2026-05-23
+**First seen:** 2026-05-17
 
 ## Links
 

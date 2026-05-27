@@ -5,6 +5,10 @@ date: "2026-05-25"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-orchestrate", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-8-day8-block2-merge-track-d-ui-v1-l142", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-8-day8-block2-merge-track-b-schemas-l143", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-8-day8-block2-merge-track-c-fixtures-l144", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-8-post-merge-concurrency-infra-check-l145", dst_type: "run_log_entry"}
 ---
 
 # H007 — orchestrate:confirmed
@@ -24,3 +28,7 @@ _week1.run.jsonl L142-L145 (three track merges + post-merge revalidation)_
 ## Links
 
 - **about** → `skill-orchestrate` (skill)
+- **observed_in** → `runlog-day-8-day8-block2-merge-track-d-ui-v1-l142` (run_log_entry)
+- **observed_in** → `runlog-day-8-day8-block2-merge-track-b-schemas-l143` (run_log_entry)
+- **observed_in** → `runlog-day-8-day8-block2-merge-track-c-fixtures-l144` (run_log_entry)
+- **observed_in** → `runlog-day-8-post-merge-concurrency-infra-check-l145` (run_log_entry)

@@ -11,7 +11,7 @@ edges:
 
 _agent: claude-code-main_
 
-**Verdict:** `open`
+**Verdict:** `accepted`
 
 **Target:** skill → `spawn-contract`
 
@@ -20,6 +20,8 @@ _agent: claude-code-main_
 **Reasoning:** SP-002 (the first real spawn-contract execution) surfaced that worktree isolation hides parent's uncommitted state from the child — silent divergence between criterion intent and child's view. Adding `state_basis` makes this an explicit contract concern that the writer thinks about, so the choice between auth-enforcement (worktree) and state-currency (parent tree) is deliberate. Rule-aligned: no rule currently covers this. Audit-found, not theoretical.
 
 **References:** `SP-002`, `spawn-contract`
+
+**Verdict reasoning:** Implemented this session: .agents/skills/spawn-contract/SKILL.md grew a `state_basis` field in the contract block (HEAD@<sha> | working-tree@<parent-sha> | snapshot:<path> | in-prompt) and a Rule that the state_basis is explicit. Worked example references SP-002 (the 18-vs-24-skills finding). Also: spawn entries are now projected as first-class brain nodes with edges to the skills they declare in skill_subset — the brain can answer 'which agent spawned what under which contract.'
 
 ## Links
 

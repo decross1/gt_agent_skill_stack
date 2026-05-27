@@ -5,6 +5,8 @@ date: "2026-05-21"
 source: "memory/feedback.jsonl"
 edges:
   - {type: about, dst: "skill-code-review", dst_type: "skill"}
+  - {type: observed_in, dst: "runlog-day-4-day4-post-review-b1-fix-l77", dst_type: "run_log_entry"}
+  - {type: observed_in, dst: "runlog-day-4-day4-post-review-nits-l78", dst_type: "run_log_entry"}
 ---
 
 # H002 — code-review:confirmed
@@ -24,3 +26,5 @@ _week1.run.jsonl L77,L78_
 ## Links
 
 - **about** → `skill-code-review` (skill)
+- **observed_in** → `runlog-day-4-day4-post-review-b1-fix-l77` (run_log_entry)
+- **observed_in** → `runlog-day-4-day4-post-review-nits-l78` (run_log_entry)

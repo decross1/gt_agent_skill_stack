@@ -60,6 +60,7 @@ a change is a new spawn (new `spawn_id` with optional
   "contract": {
     "task_statement": "<one paragraph: what the child is to do>",
     "done_condition": "<validate-style spec; how 'done' is checked>",
+    "state_basis": "<what state the child reads from: 'HEAD@<sha>' | 'working-tree@<parent-sha>' | 'snapshot:<path>' | 'in-prompt' — see Rule 7>",
     "skill_subset": ["resume-state","gate-check","validate","run-log","fallback"],
     "authority_cap": "<declarative: what the child must NOT do; default: no irreversible action without a gate; read-only outside its own log>",
     "budget": {"wall_time_seconds": 600, "iterations": null, "cost_usd": null},
@@ -128,6 +129,16 @@ a change is a new spawn (new `spawn_id` with optional
 - **Skill subset is closed.** A child whose contract says
   `skill_subset: [run-log, validate]` cannot invoke `fallback` — even
   if its situation seems to need it. The contract is the limit.
+- **State basis is explicit.** `contract.state_basis` names the
+  snapshot the child reads from — `HEAD@<sha>` (last commit), or
+  `working-tree@<parent-sha>` (uncommitted parent edits), or
+  `snapshot:<path>` (a frozen copy), or `in-prompt` (data passed
+  inline, no disk read). The child sees only what the basis describes;
+  the parent verifies the basis is what was intended. *Worked example:*
+  SP-002 (2026-05-25) used worktree isolation; the child saw 18 skills
+  (HEAD) while the parent's working tree had 24 uncommitted; the
+  contract's intent ("audit current state") was inconsistent with the
+  un-stated basis. Naming the basis up front would have caught it.
 
 ## Pairing
 

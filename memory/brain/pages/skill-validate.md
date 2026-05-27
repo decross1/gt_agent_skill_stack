@@ -24,3 +24,5 @@ _runtime-safe_
 - `harvest-h003-l26` (harvest_finding) — **about**
 - `harvest-h003-l27` (harvest_finding) — **about**
 - `harvest-h007-l39` (harvest_finding) — **about**
+- `spawn-sp-001` (spawn) — **uses**
+- `spawn-sp-002` (spawn) — **uses**
