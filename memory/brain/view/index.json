@@ -30,258 +30,6 @@
     "title": "Anomaly \u2014 tool-call invocation at 100%"
   },
   {
-    "slug": "apparatus-worker_activity-l451",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L451"
-  },
-  {
-    "slug": "apparatus-worker_activity-l452",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L452"
-  },
-  {
-    "slug": "apparatus-worker_activity-l453",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L453"
-  },
-  {
-    "slug": "apparatus-worker_activity-l454",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L454"
-  },
-  {
-    "slug": "apparatus-worker_activity-l455",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L455"
-  },
-  {
-    "slug": "apparatus-worker_activity-l456",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L456"
-  },
-  {
-    "slug": "apparatus-worker_activity-l457",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L457"
-  },
-  {
-    "slug": "apparatus-worker_activity-l458",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L458"
-  },
-  {
-    "slug": "apparatus-worker_activity-l459",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L459"
-  },
-  {
-    "slug": "apparatus-worker_activity-l460",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L460"
-  },
-  {
-    "slug": "apparatus-worker_activity-l461",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L461"
-  },
-  {
-    "slug": "apparatus-worker_activity-l462",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L462"
-  },
-  {
-    "slug": "apparatus-worker_activity-l463",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L463"
-  },
-  {
-    "slug": "apparatus-worker_activity-l464",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L464"
-  },
-  {
-    "slug": "apparatus-worker_activity-l465",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L465"
-  },
-  {
-    "slug": "apparatus-worker_activity-l466",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L466"
-  },
-  {
-    "slug": "apparatus-worker_activity-l467",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L467"
-  },
-  {
-    "slug": "apparatus-worker_activity-l468",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L468"
-  },
-  {
-    "slug": "apparatus-worker_activity-l469",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L469"
-  },
-  {
-    "slug": "apparatus-worker_activity-l470",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L470"
-  },
-  {
-    "slug": "apparatus-worker_activity-l471",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L471"
-  },
-  {
-    "slug": "apparatus-worker_activity-l472",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L472"
-  },
-  {
-    "slug": "apparatus-worker_activity-l473",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L473"
-  },
-  {
-    "slug": "apparatus-worker_activity-l474",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L474"
-  },
-  {
-    "slug": "apparatus-worker_activity-l475",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L475"
-  },
-  {
-    "slug": "apparatus-worker_activity-l476",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L476"
-  },
-  {
-    "slug": "apparatus-worker_activity-l477",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L477"
-  },
-  {
-    "slug": "apparatus-worker_activity-l478",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L478"
-  },
-  {
-    "slug": "apparatus-worker_activity-l479",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L479"
-  },
-  {
-    "slug": "apparatus-worker_activity-l480",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L480"
-  },
-  {
-    "slug": "apparatus-worker_activity-l481",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L481"
-  },
-  {
-    "slug": "apparatus-worker_activity-l482",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L482"
-  },
-  {
-    "slug": "apparatus-worker_activity-l483",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L483"
-  },
-  {
-    "slug": "apparatus-worker_activity-l484",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L484"
-  },
-  {
-    "slug": "apparatus-worker_activity-l485",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L485"
-  },
-  {
-    "slug": "apparatus-worker_activity-l486",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L486"
-  },
-  {
-    "slug": "apparatus-worker_activity-l487",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L487"
-  },
-  {
-    "slug": "apparatus-worker_activity-l488",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L488"
-  },
-  {
-    "slug": "apparatus-worker_activity-l489",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L489"
-  },
-  {
-    "slug": "apparatus-worker_activity-l490",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L490"
-  },
-  {
-    "slug": "apparatus-worker_activity-l491",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L491"
-  },
-  {
-    "slug": "apparatus-worker_activity-l492",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L492"
-  },
-  {
     "slug": "apparatus-worker_activity-l493",
     "type": "apparatus_event",
     "date": "2026-06-08",
@@ -400,6 +148,336 @@
     "type": "apparatus_event",
     "date": "2026-06-08",
     "title": "unknown_apparatus \u2014 worker_activity L512"
+  },
+  {
+    "slug": "apparatus-worker_activity-l513",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L513"
+  },
+  {
+    "slug": "apparatus-worker_activity-l514",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L514"
+  },
+  {
+    "slug": "apparatus-worker_activity-l515",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L515"
+  },
+  {
+    "slug": "apparatus-worker_activity-l516",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L516"
+  },
+  {
+    "slug": "apparatus-worker_activity-l517",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L517"
+  },
+  {
+    "slug": "apparatus-worker_activity-l518",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L518"
+  },
+  {
+    "slug": "apparatus-worker_activity-l519",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L519"
+  },
+  {
+    "slug": "apparatus-worker_activity-l520",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L520"
+  },
+  {
+    "slug": "apparatus-worker_activity-l521",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L521"
+  },
+  {
+    "slug": "apparatus-worker_activity-l522",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L522"
+  },
+  {
+    "slug": "apparatus-worker_activity-l523",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L523"
+  },
+  {
+    "slug": "apparatus-worker_activity-l524",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L524"
+  },
+  {
+    "slug": "apparatus-worker_activity-l525",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L525"
+  },
+  {
+    "slug": "apparatus-worker_activity-l526",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L526"
+  },
+  {
+    "slug": "apparatus-worker_activity-l527",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L527"
+  },
+  {
+    "slug": "apparatus-worker_activity-l528",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L528"
+  },
+  {
+    "slug": "apparatus-worker_activity-l529",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L529"
+  },
+  {
+    "slug": "apparatus-worker_activity-l530",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L530"
+  },
+  {
+    "slug": "apparatus-worker_activity-l531",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L531"
+  },
+  {
+    "slug": "apparatus-worker_activity-l532",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L532"
+  },
+  {
+    "slug": "apparatus-worker_activity-l533",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L533"
+  },
+  {
+    "slug": "apparatus-worker_activity-l534",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L534"
+  },
+  {
+    "slug": "apparatus-worker_activity-l535",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L535"
+  },
+  {
+    "slug": "apparatus-worker_activity-l536",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L536"
+  },
+  {
+    "slug": "apparatus-worker_activity-l537",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L537"
+  },
+  {
+    "slug": "apparatus-worker_activity-l538",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L538"
+  },
+  {
+    "slug": "apparatus-worker_activity-l539",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L539"
+  },
+  {
+    "slug": "apparatus-worker_activity-l540",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L540"
+  },
+  {
+    "slug": "apparatus-worker_activity-l541",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L541"
+  },
+  {
+    "slug": "apparatus-worker_activity-l542",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L542"
+  },
+  {
+    "slug": "apparatus-worker_activity-l543",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L543"
+  },
+  {
+    "slug": "apparatus-worker_activity-l544",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L544"
+  },
+  {
+    "slug": "apparatus-worker_activity-l545",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L545"
+  },
+  {
+    "slug": "apparatus-worker_activity-l546",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L546"
+  },
+  {
+    "slug": "apparatus-worker_activity-l547",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L547"
+  },
+  {
+    "slug": "apparatus-worker_activity-l548",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L548"
+  },
+  {
+    "slug": "apparatus-worker_activity-l549",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L549"
+  },
+  {
+    "slug": "apparatus-worker_activity-l550",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L550"
+  },
+  {
+    "slug": "apparatus-worker_activity-l551",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L551"
+  },
+  {
+    "slug": "apparatus-worker_activity-l552",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L552"
+  },
+  {
+    "slug": "apparatus-worker_activity-l553",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L553"
+  },
+  {
+    "slug": "apparatus-worker_activity-l554",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L554"
+  },
+  {
+    "slug": "apparatus-worker_activity-l555",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L555"
+  },
+  {
+    "slug": "apparatus-worker_activity-l556",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L556"
+  },
+  {
+    "slug": "apparatus-worker_activity-l557",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L557"
+  },
+  {
+    "slug": "apparatus-worker_activity-l558",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L558"
+  },
+  {
+    "slug": "apparatus-worker_activity-l559",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L559"
+  },
+  {
+    "slug": "apparatus-worker_activity-l560",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L560"
+  },
+  {
+    "slug": "apparatus-worker_activity-l561",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L561"
+  },
+  {
+    "slug": "apparatus-worker_activity-l562",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L562"
+  },
+  {
+    "slug": "apparatus-worker_activity-l563",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L563"
+  },
+  {
+    "slug": "apparatus-worker_activity-l564",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L564"
+  },
+  {
+    "slug": "apparatus-worker_activity-l565",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L565"
+  },
+  {
+    "slug": "apparatus-worker_activity-l566",
+    "type": "apparatus_event",
+    "date": "2026-06-09",
+    "title": "unknown_apparatus \u2014 worker_activity L566"
+  },
+  {
+    "slug": "correction-exp008-armc-gb10-unified-mem-oom-2026-06-09",
+    "type": "correction",
+    "date": "2026-06-09",
+    "title": "Correction \u2014 do not launch a 2nd large model (arm C, ~48GiB) alongside production gemma on the GB10's shared unified memory; the util cap is not enough"
   },
   {
     "slug": "dec-fw-2026-05-24-reconcile-state-file-lag-against-run-log",
@@ -984,630 +1062,6 @@
     "title": "Hypothesis \u2014 LLM tool-call invocation rate floor 0.8"
   },
   {
-    "slug": "iter-2026-06-08-001",
-    "type": "iteration",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara \u2014 loop_memory L47"
-  },
-  {
-    "slug": "apparatus-calls-l3047",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3047"
-  },
-  {
-    "slug": "apparatus-calls-l3048",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3048"
-  },
-  {
-    "slug": "apparatus-calls-l3049",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3049"
-  },
-  {
-    "slug": "apparatus-calls-l3050",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3050"
-  },
-  {
-    "slug": "apparatus-calls-l3051",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3051"
-  },
-  {
-    "slug": "apparatus-calls-l3052",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3052"
-  },
-  {
-    "slug": "apparatus-calls-l3053",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3053"
-  },
-  {
-    "slug": "apparatus-calls-l3054",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3054"
-  },
-  {
-    "slug": "apparatus-calls-l3055",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3055"
-  },
-  {
-    "slug": "apparatus-calls-l3056",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3056"
-  },
-  {
-    "slug": "apparatus-calls-l3057",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3057"
-  },
-  {
-    "slug": "apparatus-calls-l3058",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3058"
-  },
-  {
-    "slug": "apparatus-calls-l3059",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3059"
-  },
-  {
-    "slug": "apparatus-calls-l3060",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3060"
-  },
-  {
-    "slug": "apparatus-calls-l3061",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3061"
-  },
-  {
-    "slug": "apparatus-calls-l3062",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3062"
-  },
-  {
-    "slug": "apparatus-calls-l3063",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3063"
-  },
-  {
-    "slug": "apparatus-calls-l3064",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3064"
-  },
-  {
-    "slug": "apparatus-calls-l3065",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3065"
-  },
-  {
-    "slug": "apparatus-calls-l3066",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3066"
-  },
-  {
-    "slug": "apparatus-calls-l3067",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3067"
-  },
-  {
-    "slug": "apparatus-calls-l3068",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3068"
-  },
-  {
-    "slug": "apparatus-calls-l3069",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3069"
-  },
-  {
-    "slug": "apparatus-calls-l3070",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3070"
-  },
-  {
-    "slug": "apparatus-calls-l3071",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3071"
-  },
-  {
-    "slug": "apparatus-calls-l3072",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3072"
-  },
-  {
-    "slug": "apparatus-calls-l3073",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3073"
-  },
-  {
-    "slug": "apparatus-calls-l3074",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3074"
-  },
-  {
-    "slug": "apparatus-calls-l3075",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3075"
-  },
-  {
-    "slug": "apparatus-calls-l3076",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3076"
-  },
-  {
-    "slug": "apparatus-calls-l3077",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3077"
-  },
-  {
-    "slug": "apparatus-calls-l3078",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3078"
-  },
-  {
-    "slug": "apparatus-calls-l3079",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3079"
-  },
-  {
-    "slug": "apparatus-calls-l3080",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3080"
-  },
-  {
-    "slug": "apparatus-calls-l3081",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3081"
-  },
-  {
-    "slug": "apparatus-calls-l3082",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3082"
-  },
-  {
-    "slug": "apparatus-calls-l3083",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3083"
-  },
-  {
-    "slug": "apparatus-calls-l3084",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3084"
-  },
-  {
-    "slug": "apparatus-calls-l3085",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3085"
-  },
-  {
-    "slug": "apparatus-calls-l3086",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3086"
-  },
-  {
-    "slug": "apparatus-calls-l3087",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3087"
-  },
-  {
-    "slug": "apparatus-calls-l3088",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3088"
-  },
-  {
-    "slug": "apparatus-calls-l3089",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3089"
-  },
-  {
-    "slug": "apparatus-calls-l3090",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3090"
-  },
-  {
-    "slug": "apparatus-calls-l3091",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3091"
-  },
-  {
-    "slug": "apparatus-calls-l3092",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3092"
-  },
-  {
-    "slug": "apparatus-calls-l3093",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3093"
-  },
-  {
-    "slug": "apparatus-calls-l3094",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3094"
-  },
-  {
-    "slug": "apparatus-calls-l3095",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3095"
-  },
-  {
-    "slug": "apparatus-calls-l3096",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3096"
-  },
-  {
-    "slug": "apparatus-calls-l3097",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3097"
-  },
-  {
-    "slug": "apparatus-calls-l3098",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3098"
-  },
-  {
-    "slug": "apparatus-calls-l3099",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3099"
-  },
-  {
-    "slug": "apparatus-calls-l3100",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3100"
-  },
-  {
-    "slug": "apparatus-calls-l3101",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3101"
-  },
-  {
-    "slug": "apparatus-calls-l3102",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3102"
-  },
-  {
-    "slug": "apparatus-calls-l3103",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3103"
-  },
-  {
-    "slug": "apparatus-calls-l3104",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3104"
-  },
-  {
-    "slug": "apparatus-calls-l3105",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3105"
-  },
-  {
-    "slug": "apparatus-calls-l3106",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3106"
-  },
-  {
-    "slug": "apparatus-calls-l3107",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3107"
-  },
-  {
-    "slug": "apparatus-calls-l3108",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3108"
-  },
-  {
-    "slug": "apparatus-calls-l3109",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3109"
-  },
-  {
-    "slug": "apparatus-calls-l3110",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3110"
-  },
-  {
-    "slug": "apparatus-calls-l3111",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3111"
-  },
-  {
-    "slug": "apparatus-calls-l3112",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3112"
-  },
-  {
-    "slug": "apparatus-calls-l3113",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3113"
-  },
-  {
-    "slug": "apparatus-calls-l3114",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3114"
-  },
-  {
-    "slug": "apparatus-calls-l3115",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3115"
-  },
-  {
-    "slug": "apparatus-calls-l3116",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3116"
-  },
-  {
-    "slug": "apparatus-calls-l3117",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3117"
-  },
-  {
-    "slug": "apparatus-calls-l3118",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3118"
-  },
-  {
-    "slug": "apparatus-calls-l3119",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3119"
-  },
-  {
-    "slug": "apparatus-calls-l3120",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3120"
-  },
-  {
-    "slug": "apparatus-calls-l3121",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3121"
-  },
-  {
-    "slug": "apparatus-calls-l3122",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3122"
-  },
-  {
-    "slug": "apparatus-calls-l3123",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3123"
-  },
-  {
-    "slug": "apparatus-calls-l3124",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3124"
-  },
-  {
-    "slug": "apparatus-calls-l3125",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3125"
-  },
-  {
-    "slug": "apparatus-calls-l3126",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3126"
-  },
-  {
-    "slug": "apparatus-calls-l3127",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3127"
-  },
-  {
-    "slug": "apparatus-calls-l3128",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3128"
-  },
-  {
-    "slug": "apparatus-calls-l3129",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3129"
-  },
-  {
-    "slug": "apparatus-calls-l3130",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3130"
-  },
-  {
-    "slug": "apparatus-calls-l3131",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3131"
-  },
-  {
-    "slug": "apparatus-calls-l3132",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3132"
-  },
-  {
-    "slug": "apparatus-calls-l3133",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3133"
-  },
-  {
-    "slug": "apparatus-calls-l3134",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3134"
-  },
-  {
-    "slug": "apparatus-calls-l3135",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3135"
-  },
-  {
-    "slug": "apparatus-calls-l3136",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3136"
-  },
-  {
-    "slug": "apparatus-calls-l3137",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3137"
-  },
-  {
-    "slug": "apparatus-calls-l3138",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3138"
-  },
-  {
-    "slug": "apparatus-calls-l3139",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3139"
-  },
-  {
-    "slug": "apparatus-calls-l3140",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3140"
-  },
-  {
-    "slug": "apparatus-calls-l3141",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3141"
-  },
-  {
-    "slug": "apparatus-calls-l3142",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3142"
-  },
-  {
-    "slug": "apparatus-calls-l3143",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3143"
-  },
-  {
-    "slug": "apparatus-calls-l3144",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3144"
-  },
-  {
-    "slug": "apparatus-calls-l3145",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3145"
-  },
-  {
-    "slug": "apparatus-calls-l3146",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3146"
-  },
-  {
-    "slug": "apparatus-calls-l3147",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3147"
-  },
-  {
-    "slug": "apparatus-calls-l3148",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3148"
-  },
-  {
-    "slug": "apparatus-calls-l3149",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3149"
-  },
-  {
     "slug": "apparatus-calls-l3150",
     "type": "llm_call",
     "date": "2026-06-08",
@@ -1710,106 +1164,658 @@
     "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3166"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-iteration-complete-none-l1000",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1000"
+    "slug": "apparatus-calls-l3167",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3167"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-iteration-start-none-l984",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L984"
+    "slug": "apparatus-calls-l3168",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3168"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-ml-intern-none-l991",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L991"
+    "slug": "apparatus-calls-l3169",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3169"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-ml-intern-none-l992",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L992"
+    "slug": "apparatus-calls-l3170",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3170"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-redteam-retry-none-l987",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L987"
+    "slug": "apparatus-calls-l3171",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3171"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-redteam-retry-none-l988",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L988"
+    "slug": "apparatus-calls-l3172",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3172"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-reprompt-none-l997",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L997"
+    "slug": "apparatus-calls-l3173",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3173"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-critic-loop-v0-l995",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L995"
+    "slug": "apparatus-calls-l3174",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3174"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-hypothesize-l985",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L985"
+    "slug": "apparatus-calls-l3175",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3175"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-journal-writer-l998",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L998"
+    "slug": "apparatus-calls-l3176",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3176"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-novelty-classify-l993",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L993"
+    "slug": "apparatus-calls-l3177",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3177"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-retrieve-literature-l989",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L989"
+    "slug": "apparatus-calls-l3178",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3178"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-tool-receipt-critic-loop-v0-l996",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L996"
+    "slug": "apparatus-calls-l3179",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3179"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-tool-receipt-hypothesize-l986",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L986"
+    "slug": "apparatus-calls-l3180",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3180"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-tool-receipt-journal-writer-l999",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L999"
+    "slug": "apparatus-calls-l3181",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3181"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-tool-receipt-novelty-classify-l994",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L994"
+    "slug": "apparatus-calls-l3182",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3182"
   },
   {
-    "slug": "event-iter-2026-06-08-001-loop-v0-tool-receipt-retrieve-literature-l990",
-    "type": "orchestrator_event",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L990"
+    "slug": "apparatus-calls-l3183",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3183"
+  },
+  {
+    "slug": "apparatus-calls-l3184",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3184"
+  },
+  {
+    "slug": "apparatus-calls-l3185",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3185"
+  },
+  {
+    "slug": "apparatus-calls-l3186",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3186"
+  },
+  {
+    "slug": "apparatus-calls-l3187",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3187"
+  },
+  {
+    "slug": "apparatus-calls-l3188",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3188"
+  },
+  {
+    "slug": "apparatus-calls-l3189",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3189"
+  },
+  {
+    "slug": "apparatus-calls-l3190",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3190"
+  },
+  {
+    "slug": "apparatus-calls-l3191",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3191"
+  },
+  {
+    "slug": "apparatus-calls-l3192",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3192"
+  },
+  {
+    "slug": "apparatus-calls-l3193",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3193"
+  },
+  {
+    "slug": "apparatus-calls-l3194",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3194"
+  },
+  {
+    "slug": "apparatus-calls-l3195",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3195"
+  },
+  {
+    "slug": "apparatus-calls-l3196",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3196"
+  },
+  {
+    "slug": "apparatus-calls-l3197",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3197"
+  },
+  {
+    "slug": "apparatus-calls-l3198",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3198"
+  },
+  {
+    "slug": "apparatus-calls-l3199",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3199"
+  },
+  {
+    "slug": "apparatus-calls-l3200",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3200"
+  },
+  {
+    "slug": "apparatus-calls-l3201",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3201"
+  },
+  {
+    "slug": "apparatus-calls-l3202",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3202"
+  },
+  {
+    "slug": "apparatus-calls-l3203",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3203"
+  },
+  {
+    "slug": "apparatus-calls-l3204",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3204"
+  },
+  {
+    "slug": "apparatus-calls-l3205",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3205"
+  },
+  {
+    "slug": "apparatus-calls-l3206",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3206"
+  },
+  {
+    "slug": "apparatus-calls-l3207",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3207"
+  },
+  {
+    "slug": "apparatus-calls-l3208",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3208"
+  },
+  {
+    "slug": "apparatus-calls-l3209",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3209"
+  },
+  {
+    "slug": "apparatus-calls-l3210",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3210"
+  },
+  {
+    "slug": "apparatus-calls-l3211",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3211"
+  },
+  {
+    "slug": "apparatus-calls-l3212",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3212"
+  },
+  {
+    "slug": "apparatus-calls-l3213",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3213"
+  },
+  {
+    "slug": "apparatus-calls-l3214",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3214"
+  },
+  {
+    "slug": "apparatus-calls-l3215",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3215"
+  },
+  {
+    "slug": "apparatus-calls-l3216",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3216"
+  },
+  {
+    "slug": "apparatus-calls-l3217",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3217"
+  },
+  {
+    "slug": "apparatus-calls-l3218",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3218"
+  },
+  {
+    "slug": "apparatus-calls-l3219",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3219"
+  },
+  {
+    "slug": "apparatus-calls-l3220",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3220"
+  },
+  {
+    "slug": "apparatus-calls-l3221",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3221"
+  },
+  {
+    "slug": "apparatus-calls-l3222",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3222"
+  },
+  {
+    "slug": "apparatus-calls-l3223",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3223"
+  },
+  {
+    "slug": "apparatus-calls-l3224",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3224"
+  },
+  {
+    "slug": "apparatus-calls-l3225",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3225"
+  },
+  {
+    "slug": "apparatus-calls-l3226",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3226"
+  },
+  {
+    "slug": "apparatus-calls-l3227",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3227"
+  },
+  {
+    "slug": "apparatus-calls-l3228",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3228"
+  },
+  {
+    "slug": "apparatus-calls-l3229",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3229"
+  },
+  {
+    "slug": "apparatus-calls-l3230",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3230"
+  },
+  {
+    "slug": "apparatus-calls-l3231",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3231"
+  },
+  {
+    "slug": "apparatus-calls-l3232",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3232"
+  },
+  {
+    "slug": "apparatus-calls-l3233",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3233"
+  },
+  {
+    "slug": "apparatus-calls-l3234",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3234"
+  },
+  {
+    "slug": "apparatus-calls-l3235",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3235"
+  },
+  {
+    "slug": "apparatus-calls-l3236",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3236"
+  },
+  {
+    "slug": "apparatus-calls-l3237",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3237"
+  },
+  {
+    "slug": "apparatus-calls-l3238",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3238"
+  },
+  {
+    "slug": "apparatus-calls-l3239",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3239"
+  },
+  {
+    "slug": "apparatus-calls-l3240",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3240"
+  },
+  {
+    "slug": "apparatus-calls-l3241",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3241"
+  },
+  {
+    "slug": "apparatus-calls-l3242",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3242"
+  },
+  {
+    "slug": "apparatus-calls-l3243",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3243"
+  },
+  {
+    "slug": "apparatus-calls-l3244",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3244"
+  },
+  {
+    "slug": "apparatus-calls-l3245",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3245"
+  },
+  {
+    "slug": "apparatus-calls-l3246",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3246"
+  },
+  {
+    "slug": "apparatus-calls-l3247",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3247"
+  },
+  {
+    "slug": "apparatus-calls-l3248",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3248"
+  },
+  {
+    "slug": "apparatus-calls-l3249",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3249"
+  },
+  {
+    "slug": "apparatus-calls-l3250",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3250"
+  },
+  {
+    "slug": "apparatus-calls-l3251",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3251"
+  },
+  {
+    "slug": "apparatus-calls-l3252",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3252"
+  },
+  {
+    "slug": "apparatus-calls-l3253",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3253"
+  },
+  {
+    "slug": "apparatus-calls-l3254",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3254"
+  },
+  {
+    "slug": "apparatus-calls-l3255",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3255"
+  },
+  {
+    "slug": "apparatus-calls-l3256",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3256"
+  },
+  {
+    "slug": "apparatus-calls-l3257",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3257"
+  },
+  {
+    "slug": "apparatus-calls-l3258",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3258"
+  },
+  {
+    "slug": "apparatus-calls-l3259",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3259"
+  },
+  {
+    "slug": "apparatus-calls-l3260",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3260"
+  },
+  {
+    "slug": "apparatus-calls-l3261",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3261"
+  },
+  {
+    "slug": "apparatus-calls-l3262",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3262"
+  },
+  {
+    "slug": "apparatus-calls-l3263",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3263"
+  },
+  {
+    "slug": "apparatus-calls-l3264",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3264"
+  },
+  {
+    "slug": "apparatus-calls-l3265",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3265"
+  },
+  {
+    "slug": "apparatus-calls-l3266",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3266"
+  },
+  {
+    "slug": "apparatus-calls-l3267",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3267"
+  },
+  {
+    "slug": "apparatus-calls-l3268",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3268"
+  },
+  {
+    "slug": "apparatus-calls-l3269",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3269"
+  },
+  {
+    "slug": "apparatus-calls-l3270",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3270"
+  },
+  {
+    "slug": "apparatus-calls-l3271",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3271"
+  },
+  {
+    "slug": "apparatus-calls-l3272",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3272"
+  },
+  {
+    "slug": "apparatus-calls-l3273",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3273"
+  },
+  {
+    "slug": "apparatus-calls-l3274",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3274"
+  },
+  {
+    "slug": "apparatus-calls-l3275",
+    "type": "llm_call",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3275"
   },
   {
     "slug": "proposal-p-001",
@@ -1854,6 +1860,12 @@
     "title": "P-007 \u2014 Live-ish brain: cron-driven ingest + regen + auto-refresh"
   },
   {
+    "slug": "reflection-exp008-error-as-zero-insufficient-2026-06-09",
+    "type": "reflection",
+    "date": "2026-06-09",
+    "title": "Reflection \u2014 an errored eval-worker call is not a measurement; scoring it 0 fabricates a verdict (rule 4). Emit decision rows only for genuinely served calls -> down arm reads honest INSUFFICIENT"
+  },
+  {
     "slug": "s13-3-author-narrate-skill",
     "type": "reflection",
     "date": "2026-05-24",
@@ -1894,6 +1906,12 @@
     "type": "run_log_entry",
     "date": "2026-06-05",
     "title": "a_bgt_rsi: Nara \u2014 week1.run L920"
+  },
+  {
+    "slug": "runlog-beta-substrate-gap-audit-va1-refute-l1004",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1004"
   },
   {
     "slug": "runlog-coordinator-brain-alpha-via-dynamic-workflow-l978",
@@ -2848,6 +2866,18 @@
     "type": "run_log_entry",
     "date": "2026-06-08",
     "title": "a_bgt_rsi: Nara \u2014 week1.run L982"
+  },
+  {
+    "slug": "runlog-derisk-beta-integration-verify-gate-l1006",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1006"
+  },
+  {
+    "slug": "runlog-derisk-harden-beta-workflow-done-l1005",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1005"
   },
   {
     "slug": "runlog-derisk-harden-beta-workflow-start-l1003",

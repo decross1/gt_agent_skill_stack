@@ -12,3 +12,8 @@ _a real H0/H1 once arm C actually serves; no false verdict from infra failure_
 **Did:** first live arm-C run: :8002 OOM'd at startup (GB10 128GB unified; prod gemma 50GB + qwen 28GB resident, no --gpu-mem cap on arm C -> vLLM grabbed ~90%). ALL 10 qat novelty calls = APIConnectionError (agreement 0.0 is a CRASH ARTIFACT, not a…
 
 **Observed:** status=observed day= duration_ms=None fallback=None
+
+## Referenced by
+
+- `correction-exp008-armc-gb10-unified-mem-oom-2026-06-09` (correction) — **derived_from**
+- `reflection-exp008-error-as-zero-insufficient-2026-06-09` (reflection) — **derived_from**

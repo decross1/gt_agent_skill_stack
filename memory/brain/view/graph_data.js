@@ -32,258 +32,6 @@ window.BRAIN_GRAPH = {
       "title": "Anomaly \u2014 tool-call invocation at 100%"
     },
     {
-      "slug": "apparatus-worker_activity-l451",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L451"
-    },
-    {
-      "slug": "apparatus-worker_activity-l452",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L452"
-    },
-    {
-      "slug": "apparatus-worker_activity-l453",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L453"
-    },
-    {
-      "slug": "apparatus-worker_activity-l454",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L454"
-    },
-    {
-      "slug": "apparatus-worker_activity-l455",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L455"
-    },
-    {
-      "slug": "apparatus-worker_activity-l456",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L456"
-    },
-    {
-      "slug": "apparatus-worker_activity-l457",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L457"
-    },
-    {
-      "slug": "apparatus-worker_activity-l458",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L458"
-    },
-    {
-      "slug": "apparatus-worker_activity-l459",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L459"
-    },
-    {
-      "slug": "apparatus-worker_activity-l460",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L460"
-    },
-    {
-      "slug": "apparatus-worker_activity-l461",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L461"
-    },
-    {
-      "slug": "apparatus-worker_activity-l462",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L462"
-    },
-    {
-      "slug": "apparatus-worker_activity-l463",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L463"
-    },
-    {
-      "slug": "apparatus-worker_activity-l464",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L464"
-    },
-    {
-      "slug": "apparatus-worker_activity-l465",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L465"
-    },
-    {
-      "slug": "apparatus-worker_activity-l466",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L466"
-    },
-    {
-      "slug": "apparatus-worker_activity-l467",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L467"
-    },
-    {
-      "slug": "apparatus-worker_activity-l468",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L468"
-    },
-    {
-      "slug": "apparatus-worker_activity-l469",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L469"
-    },
-    {
-      "slug": "apparatus-worker_activity-l470",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L470"
-    },
-    {
-      "slug": "apparatus-worker_activity-l471",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L471"
-    },
-    {
-      "slug": "apparatus-worker_activity-l472",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L472"
-    },
-    {
-      "slug": "apparatus-worker_activity-l473",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L473"
-    },
-    {
-      "slug": "apparatus-worker_activity-l474",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L474"
-    },
-    {
-      "slug": "apparatus-worker_activity-l475",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L475"
-    },
-    {
-      "slug": "apparatus-worker_activity-l476",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L476"
-    },
-    {
-      "slug": "apparatus-worker_activity-l477",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L477"
-    },
-    {
-      "slug": "apparatus-worker_activity-l478",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L478"
-    },
-    {
-      "slug": "apparatus-worker_activity-l479",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L479"
-    },
-    {
-      "slug": "apparatus-worker_activity-l480",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L480"
-    },
-    {
-      "slug": "apparatus-worker_activity-l481",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L481"
-    },
-    {
-      "slug": "apparatus-worker_activity-l482",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L482"
-    },
-    {
-      "slug": "apparatus-worker_activity-l483",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L483"
-    },
-    {
-      "slug": "apparatus-worker_activity-l484",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L484"
-    },
-    {
-      "slug": "apparatus-worker_activity-l485",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L485"
-    },
-    {
-      "slug": "apparatus-worker_activity-l486",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L486"
-    },
-    {
-      "slug": "apparatus-worker_activity-l487",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L487"
-    },
-    {
-      "slug": "apparatus-worker_activity-l488",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L488"
-    },
-    {
-      "slug": "apparatus-worker_activity-l489",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L489"
-    },
-    {
-      "slug": "apparatus-worker_activity-l490",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L490"
-    },
-    {
-      "slug": "apparatus-worker_activity-l491",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L491"
-    },
-    {
-      "slug": "apparatus-worker_activity-l492",
-      "type": "apparatus_event",
-      "date": "2026-06-08",
-      "title": "unknown_apparatus \u2014 worker_activity L492"
-    },
-    {
       "slug": "apparatus-worker_activity-l493",
       "type": "apparatus_event",
       "date": "2026-06-08",
@@ -402,6 +150,336 @@ window.BRAIN_GRAPH = {
       "type": "apparatus_event",
       "date": "2026-06-08",
       "title": "unknown_apparatus \u2014 worker_activity L512"
+    },
+    {
+      "slug": "apparatus-worker_activity-l513",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L513"
+    },
+    {
+      "slug": "apparatus-worker_activity-l514",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L514"
+    },
+    {
+      "slug": "apparatus-worker_activity-l515",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L515"
+    },
+    {
+      "slug": "apparatus-worker_activity-l516",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L516"
+    },
+    {
+      "slug": "apparatus-worker_activity-l517",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L517"
+    },
+    {
+      "slug": "apparatus-worker_activity-l518",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L518"
+    },
+    {
+      "slug": "apparatus-worker_activity-l519",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L519"
+    },
+    {
+      "slug": "apparatus-worker_activity-l520",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L520"
+    },
+    {
+      "slug": "apparatus-worker_activity-l521",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L521"
+    },
+    {
+      "slug": "apparatus-worker_activity-l522",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L522"
+    },
+    {
+      "slug": "apparatus-worker_activity-l523",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L523"
+    },
+    {
+      "slug": "apparatus-worker_activity-l524",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L524"
+    },
+    {
+      "slug": "apparatus-worker_activity-l525",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L525"
+    },
+    {
+      "slug": "apparatus-worker_activity-l526",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L526"
+    },
+    {
+      "slug": "apparatus-worker_activity-l527",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L527"
+    },
+    {
+      "slug": "apparatus-worker_activity-l528",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L528"
+    },
+    {
+      "slug": "apparatus-worker_activity-l529",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L529"
+    },
+    {
+      "slug": "apparatus-worker_activity-l530",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L530"
+    },
+    {
+      "slug": "apparatus-worker_activity-l531",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L531"
+    },
+    {
+      "slug": "apparatus-worker_activity-l532",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L532"
+    },
+    {
+      "slug": "apparatus-worker_activity-l533",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L533"
+    },
+    {
+      "slug": "apparatus-worker_activity-l534",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L534"
+    },
+    {
+      "slug": "apparatus-worker_activity-l535",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L535"
+    },
+    {
+      "slug": "apparatus-worker_activity-l536",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L536"
+    },
+    {
+      "slug": "apparatus-worker_activity-l537",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L537"
+    },
+    {
+      "slug": "apparatus-worker_activity-l538",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L538"
+    },
+    {
+      "slug": "apparatus-worker_activity-l539",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L539"
+    },
+    {
+      "slug": "apparatus-worker_activity-l540",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L540"
+    },
+    {
+      "slug": "apparatus-worker_activity-l541",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L541"
+    },
+    {
+      "slug": "apparatus-worker_activity-l542",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L542"
+    },
+    {
+      "slug": "apparatus-worker_activity-l543",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L543"
+    },
+    {
+      "slug": "apparatus-worker_activity-l544",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L544"
+    },
+    {
+      "slug": "apparatus-worker_activity-l545",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L545"
+    },
+    {
+      "slug": "apparatus-worker_activity-l546",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L546"
+    },
+    {
+      "slug": "apparatus-worker_activity-l547",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L547"
+    },
+    {
+      "slug": "apparatus-worker_activity-l548",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L548"
+    },
+    {
+      "slug": "apparatus-worker_activity-l549",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L549"
+    },
+    {
+      "slug": "apparatus-worker_activity-l550",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L550"
+    },
+    {
+      "slug": "apparatus-worker_activity-l551",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L551"
+    },
+    {
+      "slug": "apparatus-worker_activity-l552",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L552"
+    },
+    {
+      "slug": "apparatus-worker_activity-l553",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L553"
+    },
+    {
+      "slug": "apparatus-worker_activity-l554",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L554"
+    },
+    {
+      "slug": "apparatus-worker_activity-l555",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L555"
+    },
+    {
+      "slug": "apparatus-worker_activity-l556",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L556"
+    },
+    {
+      "slug": "apparatus-worker_activity-l557",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L557"
+    },
+    {
+      "slug": "apparatus-worker_activity-l558",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L558"
+    },
+    {
+      "slug": "apparatus-worker_activity-l559",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L559"
+    },
+    {
+      "slug": "apparatus-worker_activity-l560",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L560"
+    },
+    {
+      "slug": "apparatus-worker_activity-l561",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L561"
+    },
+    {
+      "slug": "apparatus-worker_activity-l562",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L562"
+    },
+    {
+      "slug": "apparatus-worker_activity-l563",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L563"
+    },
+    {
+      "slug": "apparatus-worker_activity-l564",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L564"
+    },
+    {
+      "slug": "apparatus-worker_activity-l565",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L565"
+    },
+    {
+      "slug": "apparatus-worker_activity-l566",
+      "type": "apparatus_event",
+      "date": "2026-06-09",
+      "title": "unknown_apparatus \u2014 worker_activity L566"
+    },
+    {
+      "slug": "correction-exp008-armc-gb10-unified-mem-oom-2026-06-09",
+      "type": "correction",
+      "date": "2026-06-09",
+      "title": "Correction \u2014 do not launch a 2nd large model (arm C, ~48GiB) alongside production gemma on the GB10's shared unified memory; the util cap is not enough"
     },
     {
       "slug": "dec-fw-2026-05-24-reconcile-state-file-lag-against-run-log",
@@ -986,630 +1064,6 @@ window.BRAIN_GRAPH = {
       "title": "Hypothesis \u2014 LLM tool-call invocation rate floor 0.8"
     },
     {
-      "slug": "iter-2026-06-08-001",
-      "type": "iteration",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara \u2014 loop_memory L47"
-    },
-    {
-      "slug": "apparatus-calls-l3047",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3047"
-    },
-    {
-      "slug": "apparatus-calls-l3048",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3048"
-    },
-    {
-      "slug": "apparatus-calls-l3049",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3049"
-    },
-    {
-      "slug": "apparatus-calls-l3050",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3050"
-    },
-    {
-      "slug": "apparatus-calls-l3051",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3051"
-    },
-    {
-      "slug": "apparatus-calls-l3052",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3052"
-    },
-    {
-      "slug": "apparatus-calls-l3053",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3053"
-    },
-    {
-      "slug": "apparatus-calls-l3054",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3054"
-    },
-    {
-      "slug": "apparatus-calls-l3055",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3055"
-    },
-    {
-      "slug": "apparatus-calls-l3056",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3056"
-    },
-    {
-      "slug": "apparatus-calls-l3057",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3057"
-    },
-    {
-      "slug": "apparatus-calls-l3058",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3058"
-    },
-    {
-      "slug": "apparatus-calls-l3059",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3059"
-    },
-    {
-      "slug": "apparatus-calls-l3060",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3060"
-    },
-    {
-      "slug": "apparatus-calls-l3061",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3061"
-    },
-    {
-      "slug": "apparatus-calls-l3062",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3062"
-    },
-    {
-      "slug": "apparatus-calls-l3063",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3063"
-    },
-    {
-      "slug": "apparatus-calls-l3064",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3064"
-    },
-    {
-      "slug": "apparatus-calls-l3065",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3065"
-    },
-    {
-      "slug": "apparatus-calls-l3066",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3066"
-    },
-    {
-      "slug": "apparatus-calls-l3067",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3067"
-    },
-    {
-      "slug": "apparatus-calls-l3068",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3068"
-    },
-    {
-      "slug": "apparatus-calls-l3069",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3069"
-    },
-    {
-      "slug": "apparatus-calls-l3070",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3070"
-    },
-    {
-      "slug": "apparatus-calls-l3071",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3071"
-    },
-    {
-      "slug": "apparatus-calls-l3072",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3072"
-    },
-    {
-      "slug": "apparatus-calls-l3073",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3073"
-    },
-    {
-      "slug": "apparatus-calls-l3074",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3074"
-    },
-    {
-      "slug": "apparatus-calls-l3075",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3075"
-    },
-    {
-      "slug": "apparatus-calls-l3076",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3076"
-    },
-    {
-      "slug": "apparatus-calls-l3077",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3077"
-    },
-    {
-      "slug": "apparatus-calls-l3078",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3078"
-    },
-    {
-      "slug": "apparatus-calls-l3079",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3079"
-    },
-    {
-      "slug": "apparatus-calls-l3080",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3080"
-    },
-    {
-      "slug": "apparatus-calls-l3081",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3081"
-    },
-    {
-      "slug": "apparatus-calls-l3082",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3082"
-    },
-    {
-      "slug": "apparatus-calls-l3083",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3083"
-    },
-    {
-      "slug": "apparatus-calls-l3084",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3084"
-    },
-    {
-      "slug": "apparatus-calls-l3085",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3085"
-    },
-    {
-      "slug": "apparatus-calls-l3086",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3086"
-    },
-    {
-      "slug": "apparatus-calls-l3087",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3087"
-    },
-    {
-      "slug": "apparatus-calls-l3088",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3088"
-    },
-    {
-      "slug": "apparatus-calls-l3089",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3089"
-    },
-    {
-      "slug": "apparatus-calls-l3090",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3090"
-    },
-    {
-      "slug": "apparatus-calls-l3091",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3091"
-    },
-    {
-      "slug": "apparatus-calls-l3092",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3092"
-    },
-    {
-      "slug": "apparatus-calls-l3093",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3093"
-    },
-    {
-      "slug": "apparatus-calls-l3094",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3094"
-    },
-    {
-      "slug": "apparatus-calls-l3095",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3095"
-    },
-    {
-      "slug": "apparatus-calls-l3096",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3096"
-    },
-    {
-      "slug": "apparatus-calls-l3097",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3097"
-    },
-    {
-      "slug": "apparatus-calls-l3098",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3098"
-    },
-    {
-      "slug": "apparatus-calls-l3099",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3099"
-    },
-    {
-      "slug": "apparatus-calls-l3100",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3100"
-    },
-    {
-      "slug": "apparatus-calls-l3101",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3101"
-    },
-    {
-      "slug": "apparatus-calls-l3102",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3102"
-    },
-    {
-      "slug": "apparatus-calls-l3103",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3103"
-    },
-    {
-      "slug": "apparatus-calls-l3104",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3104"
-    },
-    {
-      "slug": "apparatus-calls-l3105",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3105"
-    },
-    {
-      "slug": "apparatus-calls-l3106",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3106"
-    },
-    {
-      "slug": "apparatus-calls-l3107",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3107"
-    },
-    {
-      "slug": "apparatus-calls-l3108",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3108"
-    },
-    {
-      "slug": "apparatus-calls-l3109",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3109"
-    },
-    {
-      "slug": "apparatus-calls-l3110",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3110"
-    },
-    {
-      "slug": "apparatus-calls-l3111",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3111"
-    },
-    {
-      "slug": "apparatus-calls-l3112",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3112"
-    },
-    {
-      "slug": "apparatus-calls-l3113",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3113"
-    },
-    {
-      "slug": "apparatus-calls-l3114",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3114"
-    },
-    {
-      "slug": "apparatus-calls-l3115",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3115"
-    },
-    {
-      "slug": "apparatus-calls-l3116",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3116"
-    },
-    {
-      "slug": "apparatus-calls-l3117",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3117"
-    },
-    {
-      "slug": "apparatus-calls-l3118",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3118"
-    },
-    {
-      "slug": "apparatus-calls-l3119",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3119"
-    },
-    {
-      "slug": "apparatus-calls-l3120",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3120"
-    },
-    {
-      "slug": "apparatus-calls-l3121",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3121"
-    },
-    {
-      "slug": "apparatus-calls-l3122",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3122"
-    },
-    {
-      "slug": "apparatus-calls-l3123",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3123"
-    },
-    {
-      "slug": "apparatus-calls-l3124",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3124"
-    },
-    {
-      "slug": "apparatus-calls-l3125",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3125"
-    },
-    {
-      "slug": "apparatus-calls-l3126",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3126"
-    },
-    {
-      "slug": "apparatus-calls-l3127",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3127"
-    },
-    {
-      "slug": "apparatus-calls-l3128",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3128"
-    },
-    {
-      "slug": "apparatus-calls-l3129",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3129"
-    },
-    {
-      "slug": "apparatus-calls-l3130",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3130"
-    },
-    {
-      "slug": "apparatus-calls-l3131",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3131"
-    },
-    {
-      "slug": "apparatus-calls-l3132",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3132"
-    },
-    {
-      "slug": "apparatus-calls-l3133",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3133"
-    },
-    {
-      "slug": "apparatus-calls-l3134",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3134"
-    },
-    {
-      "slug": "apparatus-calls-l3135",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3135"
-    },
-    {
-      "slug": "apparatus-calls-l3136",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3136"
-    },
-    {
-      "slug": "apparatus-calls-l3137",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3137"
-    },
-    {
-      "slug": "apparatus-calls-l3138",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3138"
-    },
-    {
-      "slug": "apparatus-calls-l3139",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3139"
-    },
-    {
-      "slug": "apparatus-calls-l3140",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3140"
-    },
-    {
-      "slug": "apparatus-calls-l3141",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3141"
-    },
-    {
-      "slug": "apparatus-calls-l3142",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3142"
-    },
-    {
-      "slug": "apparatus-calls-l3143",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3143"
-    },
-    {
-      "slug": "apparatus-calls-l3144",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3144"
-    },
-    {
-      "slug": "apparatus-calls-l3145",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3145"
-    },
-    {
-      "slug": "apparatus-calls-l3146",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3146"
-    },
-    {
-      "slug": "apparatus-calls-l3147",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3147"
-    },
-    {
-      "slug": "apparatus-calls-l3148",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3148"
-    },
-    {
-      "slug": "apparatus-calls-l3149",
-      "type": "llm_call",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3149"
-    },
-    {
       "slug": "apparatus-calls-l3150",
       "type": "llm_call",
       "date": "2026-06-08",
@@ -1712,106 +1166,658 @@ window.BRAIN_GRAPH = {
       "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3166"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-iteration-complete-none-l1000",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1000"
+      "slug": "apparatus-calls-l3167",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3167"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-iteration-start-none-l984",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L984"
+      "slug": "apparatus-calls-l3168",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3168"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-ml-intern-none-l991",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L991"
+      "slug": "apparatus-calls-l3169",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3169"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-ml-intern-none-l992",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L992"
+      "slug": "apparatus-calls-l3170",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3170"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-redteam-retry-none-l987",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L987"
+      "slug": "apparatus-calls-l3171",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3171"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-redteam-retry-none-l988",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L988"
+      "slug": "apparatus-calls-l3172",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3172"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-reprompt-none-l997",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L997"
+      "slug": "apparatus-calls-l3173",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3173"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-critic-loop-v0-l995",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L995"
+      "slug": "apparatus-calls-l3174",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3174"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-hypothesize-l985",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L985"
+      "slug": "apparatus-calls-l3175",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3175"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-journal-writer-l998",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L998"
+      "slug": "apparatus-calls-l3176",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3176"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-novelty-classify-l993",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L993"
+      "slug": "apparatus-calls-l3177",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3177"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-retrieve-literature-l989",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L989"
+      "slug": "apparatus-calls-l3178",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3178"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-tool-receipt-critic-loop-v0-l996",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L996"
+      "slug": "apparatus-calls-l3179",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3179"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-tool-receipt-hypothesize-l986",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L986"
+      "slug": "apparatus-calls-l3180",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3180"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-tool-receipt-journal-writer-l999",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L999"
+      "slug": "apparatus-calls-l3181",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3181"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-tool-receipt-novelty-classify-l994",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L994"
+      "slug": "apparatus-calls-l3182",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3182"
     },
     {
-      "slug": "event-iter-2026-06-08-001-loop-v0-tool-receipt-retrieve-literature-l990",
-      "type": "orchestrator_event",
-      "date": "2026-06-08",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L990"
+      "slug": "apparatus-calls-l3183",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3183"
+    },
+    {
+      "slug": "apparatus-calls-l3184",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3184"
+    },
+    {
+      "slug": "apparatus-calls-l3185",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3185"
+    },
+    {
+      "slug": "apparatus-calls-l3186",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3186"
+    },
+    {
+      "slug": "apparatus-calls-l3187",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3187"
+    },
+    {
+      "slug": "apparatus-calls-l3188",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3188"
+    },
+    {
+      "slug": "apparatus-calls-l3189",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3189"
+    },
+    {
+      "slug": "apparatus-calls-l3190",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3190"
+    },
+    {
+      "slug": "apparatus-calls-l3191",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3191"
+    },
+    {
+      "slug": "apparatus-calls-l3192",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3192"
+    },
+    {
+      "slug": "apparatus-calls-l3193",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3193"
+    },
+    {
+      "slug": "apparatus-calls-l3194",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3194"
+    },
+    {
+      "slug": "apparatus-calls-l3195",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3195"
+    },
+    {
+      "slug": "apparatus-calls-l3196",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3196"
+    },
+    {
+      "slug": "apparatus-calls-l3197",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3197"
+    },
+    {
+      "slug": "apparatus-calls-l3198",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3198"
+    },
+    {
+      "slug": "apparatus-calls-l3199",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3199"
+    },
+    {
+      "slug": "apparatus-calls-l3200",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3200"
+    },
+    {
+      "slug": "apparatus-calls-l3201",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3201"
+    },
+    {
+      "slug": "apparatus-calls-l3202",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3202"
+    },
+    {
+      "slug": "apparatus-calls-l3203",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3203"
+    },
+    {
+      "slug": "apparatus-calls-l3204",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3204"
+    },
+    {
+      "slug": "apparatus-calls-l3205",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3205"
+    },
+    {
+      "slug": "apparatus-calls-l3206",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3206"
+    },
+    {
+      "slug": "apparatus-calls-l3207",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3207"
+    },
+    {
+      "slug": "apparatus-calls-l3208",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3208"
+    },
+    {
+      "slug": "apparatus-calls-l3209",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3209"
+    },
+    {
+      "slug": "apparatus-calls-l3210",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3210"
+    },
+    {
+      "slug": "apparatus-calls-l3211",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3211"
+    },
+    {
+      "slug": "apparatus-calls-l3212",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3212"
+    },
+    {
+      "slug": "apparatus-calls-l3213",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3213"
+    },
+    {
+      "slug": "apparatus-calls-l3214",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3214"
+    },
+    {
+      "slug": "apparatus-calls-l3215",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3215"
+    },
+    {
+      "slug": "apparatus-calls-l3216",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3216"
+    },
+    {
+      "slug": "apparatus-calls-l3217",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3217"
+    },
+    {
+      "slug": "apparatus-calls-l3218",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3218"
+    },
+    {
+      "slug": "apparatus-calls-l3219",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3219"
+    },
+    {
+      "slug": "apparatus-calls-l3220",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3220"
+    },
+    {
+      "slug": "apparatus-calls-l3221",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3221"
+    },
+    {
+      "slug": "apparatus-calls-l3222",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3222"
+    },
+    {
+      "slug": "apparatus-calls-l3223",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3223"
+    },
+    {
+      "slug": "apparatus-calls-l3224",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3224"
+    },
+    {
+      "slug": "apparatus-calls-l3225",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3225"
+    },
+    {
+      "slug": "apparatus-calls-l3226",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3226"
+    },
+    {
+      "slug": "apparatus-calls-l3227",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3227"
+    },
+    {
+      "slug": "apparatus-calls-l3228",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3228"
+    },
+    {
+      "slug": "apparatus-calls-l3229",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3229"
+    },
+    {
+      "slug": "apparatus-calls-l3230",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3230"
+    },
+    {
+      "slug": "apparatus-calls-l3231",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3231"
+    },
+    {
+      "slug": "apparatus-calls-l3232",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3232"
+    },
+    {
+      "slug": "apparatus-calls-l3233",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3233"
+    },
+    {
+      "slug": "apparatus-calls-l3234",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3234"
+    },
+    {
+      "slug": "apparatus-calls-l3235",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3235"
+    },
+    {
+      "slug": "apparatus-calls-l3236",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3236"
+    },
+    {
+      "slug": "apparatus-calls-l3237",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3237"
+    },
+    {
+      "slug": "apparatus-calls-l3238",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3238"
+    },
+    {
+      "slug": "apparatus-calls-l3239",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3239"
+    },
+    {
+      "slug": "apparatus-calls-l3240",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3240"
+    },
+    {
+      "slug": "apparatus-calls-l3241",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3241"
+    },
+    {
+      "slug": "apparatus-calls-l3242",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3242"
+    },
+    {
+      "slug": "apparatus-calls-l3243",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3243"
+    },
+    {
+      "slug": "apparatus-calls-l3244",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3244"
+    },
+    {
+      "slug": "apparatus-calls-l3245",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3245"
+    },
+    {
+      "slug": "apparatus-calls-l3246",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3246"
+    },
+    {
+      "slug": "apparatus-calls-l3247",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3247"
+    },
+    {
+      "slug": "apparatus-calls-l3248",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3248"
+    },
+    {
+      "slug": "apparatus-calls-l3249",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3249"
+    },
+    {
+      "slug": "apparatus-calls-l3250",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3250"
+    },
+    {
+      "slug": "apparatus-calls-l3251",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3251"
+    },
+    {
+      "slug": "apparatus-calls-l3252",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3252"
+    },
+    {
+      "slug": "apparatus-calls-l3253",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3253"
+    },
+    {
+      "slug": "apparatus-calls-l3254",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3254"
+    },
+    {
+      "slug": "apparatus-calls-l3255",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3255"
+    },
+    {
+      "slug": "apparatus-calls-l3256",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3256"
+    },
+    {
+      "slug": "apparatus-calls-l3257",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3257"
+    },
+    {
+      "slug": "apparatus-calls-l3258",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3258"
+    },
+    {
+      "slug": "apparatus-calls-l3259",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3259"
+    },
+    {
+      "slug": "apparatus-calls-l3260",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3260"
+    },
+    {
+      "slug": "apparatus-calls-l3261",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3261"
+    },
+    {
+      "slug": "apparatus-calls-l3262",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3262"
+    },
+    {
+      "slug": "apparatus-calls-l3263",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3263"
+    },
+    {
+      "slug": "apparatus-calls-l3264",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3264"
+    },
+    {
+      "slug": "apparatus-calls-l3265",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3265"
+    },
+    {
+      "slug": "apparatus-calls-l3266",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3266"
+    },
+    {
+      "slug": "apparatus-calls-l3267",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3267"
+    },
+    {
+      "slug": "apparatus-calls-l3268",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3268"
+    },
+    {
+      "slug": "apparatus-calls-l3269",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3269"
+    },
+    {
+      "slug": "apparatus-calls-l3270",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3270"
+    },
+    {
+      "slug": "apparatus-calls-l3271",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3271"
+    },
+    {
+      "slug": "apparatus-calls-l3272",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3272"
+    },
+    {
+      "slug": "apparatus-calls-l3273",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3273"
+    },
+    {
+      "slug": "apparatus-calls-l3274",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3274"
+    },
+    {
+      "slug": "apparatus-calls-l3275",
+      "type": "llm_call",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3275"
     },
     {
       "slug": "proposal-p-001",
@@ -1856,6 +1862,12 @@ window.BRAIN_GRAPH = {
       "title": "P-007 \u2014 Live-ish brain: cron-driven ingest + regen + auto-refresh"
     },
     {
+      "slug": "reflection-exp008-error-as-zero-insufficient-2026-06-09",
+      "type": "reflection",
+      "date": "2026-06-09",
+      "title": "Reflection \u2014 an errored eval-worker call is not a measurement; scoring it 0 fabricates a verdict (rule 4). Emit decision rows only for genuinely served calls -> down arm reads honest INSUFFICIENT"
+    },
+    {
       "slug": "s13-3-author-narrate-skill",
       "type": "reflection",
       "date": "2026-05-24",
@@ -1896,6 +1908,12 @@ window.BRAIN_GRAPH = {
       "type": "run_log_entry",
       "date": "2026-06-05",
       "title": "a_bgt_rsi: Nara \u2014 week1.run L920"
+    },
+    {
+      "slug": "runlog-beta-substrate-gap-audit-va1-refute-l1004",
+      "type": "run_log_entry",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1004"
     },
     {
       "slug": "runlog-coordinator-brain-alpha-via-dynamic-workflow-l978",
@@ -2850,6 +2868,18 @@ window.BRAIN_GRAPH = {
       "type": "run_log_entry",
       "date": "2026-06-08",
       "title": "a_bgt_rsi: Nara \u2014 week1.run L982"
+    },
+    {
+      "slug": "runlog-derisk-beta-integration-verify-gate-l1006",
+      "type": "run_log_entry",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1006"
+    },
+    {
+      "slug": "runlog-derisk-harden-beta-workflow-done-l1005",
+      "type": "run_log_entry",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1005"
     },
     {
       "slug": "runlog-derisk-harden-beta-workflow-start-l1003",
@@ -10859,6 +10889,27 @@ window.BRAIN_GRAPH = {
       "dst_type": "apparatus_event"
     },
     {
+      "src": "correction-exp008-armc-gb10-unified-mem-oom-2026-06-09",
+      "src_type": "correction",
+      "type": "derived_from",
+      "dst": "runlog-exp008-armc-unified-mem-freeze-incident-l1002",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "correction-exp008-armc-gb10-unified-mem-oom-2026-06-09",
+      "src_type": "correction",
+      "type": "derived_from",
+      "dst": "runlog-exp008-first-live-run-triage-l1001",
+      "dst_type": "run_log_entry"
+    },
+    {
+      "src": "reflection-exp008-error-as-zero-insufficient-2026-06-09",
+      "src_type": "reflection",
+      "type": "derived_from",
+      "dst": "runlog-exp008-first-live-run-triage-l1001",
+      "dst_type": "run_log_entry"
+    },
+    {
       "src": "iter-2026-05-26-001",
       "src_type": "iteration",
       "type": "produced",
@@ -18748,6 +18799,20 @@ window.BRAIN_GRAPH = {
       "dst_type": "reflection"
     },
     {
+      "src": "agent-claude-code-main",
+      "src_type": "agent",
+      "type": "authored",
+      "dst": "correction-exp008-armc-gb10-unified-mem-oom-2026-06-09",
+      "dst_type": "reflection"
+    },
+    {
+      "src": "agent-claude-code-main",
+      "src_type": "agent",
+      "type": "authored",
+      "dst": "reflection-exp008-error-as-zero-insufficient-2026-06-09",
+      "dst_type": "reflection"
+    },
+    {
       "src": "harvest-h001-l1",
       "src_type": "harvest_finding",
       "type": "about",
@@ -19863,167 +19928,6 @@ window.BRAIN_GRAPH = {
     "runlog-day8-precommit-review-via-dynamic-workflow-l981": "# a_bgt_rsi: Nara \u2014 week1.run L981\n\n_rule-4 code-review gate run before commit; real findings surfaced and triaged_\n\n**Did:** adversarial review workflow wf_744e0f6d-f04 (26 agents, 4 dims->verify) over the uncommitted diff: 22 raised, 15 confirmed real (1 blocker, 7 major, minors/nits), 7 refuted incl. a false 'vllm-qwen unregistered' alarm. Blocker = D-040 ratif\u2026\n\n**Observed:** status=passed day= duration_ms=None fallback=None\n",
     "runlog-day8-review-fixes-integrator-l982": "# a_bgt_rsi: Nara \u2014 week1.run L982\n\n_all confirmed code-level review findings fixed+verified; harness leak actually closed; commit-ready pending D-040_\n\n**Did:** fixed confirmed code findings as serial integrator: (MAJOR) log-leak fix was incomplete -- log_path on run_iteration only redirected Nara's turns; in-chain workers (hypothesize/novelty_classify/meta_review) read LOOP_V0_CALLS_LOG at import \u2026\n\n**Observed:** status=passed day= duration_ms=None fallback=None\n",
     "runlog-d040-ratification-cleanup-commit-l983": "# a_bgt_rsi: Nara \u2014 week1.run L983\n\n_D-040 ratification artifacts internally consistent, CLAUDE.md well-formed, governance edits logged+committed_\n\n**Did:** human chose keep+clean for D-040 (human-ratified 2026-06-08). Reconciled + committed (bb3b65b): CLAUDE.md malformed guardrail fixed (stray quote/abs-path/grammar; now 'bounded by D-040 once beta ships', links DECISIONS.md); DECISIONS.md D-0\u2026\n\n**Observed:** status=passed day= duration_ms=None fallback=None\n",
-    "apparatus-worker_activity-l451": "# unknown_apparatus \u2014 worker_activity L451\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:24:55.327364Z\", \"run_id\": null, \"task_id\": \"novelty_classify\", \"tokens_generated\": 81, \"tokens_target\": 512, \"tok_per_s\": 68.35339982491163}\n",
-    "apparatus-worker_activity-l452": "# unknown_apparatus \u2014 worker_activity L452\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:08.456609Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 24, \"tokens_target\": 256, \"tok_per_s\": 42.740462456618786}\n",
-    "apparatus-worker_activity-l453": "# unknown_apparatus \u2014 worker_activity L453\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:08.778673Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 17, \"tokens_target\": 256, \"tok_per_s\": 54.631438025983954}\n",
-    "apparatus-worker_activity-l454": "# unknown_apparatus \u2014 worker_activity L454\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:09.643397Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 38, \"tokens_target\": 256, \"tok_per_s\": 43.98301543405919}\n",
-    "apparatus-worker_activity-l455": "# unknown_apparatus \u2014 worker_activity L455\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:10.638618Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 72, \"tokens_target\": 256, \"tok_per_s\": 72.39373789118076}\n",
-    "apparatus-worker_activity-l456": "# unknown_apparatus \u2014 worker_activity L456\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:11.055004Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 21, \"tokens_target\": 256, \"tok_per_s\": 50.51687126580051}\n",
-    "apparatus-worker_activity-l457": "# unknown_apparatus \u2014 worker_activity L457\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:11.768624Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 40, \"tokens_target\": 256, \"tok_per_s\": 56.10912889316425}\n",
-    "apparatus-worker_activity-l458": "# unknown_apparatus \u2014 worker_activity L458\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:12.190722Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 21, \"tokens_target\": 256, \"tok_per_s\": 49.838647822513586}\n",
-    "apparatus-worker_activity-l459": "# unknown_apparatus \u2014 worker_activity L459\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:12.664381Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 24, \"tokens_target\": 256, \"tok_per_s\": 50.751157314167294}\n",
-    "apparatus-worker_activity-l460": "# unknown_apparatus \u2014 worker_activity L460\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:13.185696Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 23, \"tokens_target\": 256, \"tok_per_s\": 44.18281482223055}\n",
-    "apparatus-worker_activity-l461": "# unknown_apparatus \u2014 worker_activity L461\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:13.610868Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 16, \"tokens_target\": 256, \"tok_per_s\": 37.69960594900011}\n",
-    "apparatus-worker_activity-l462": "# unknown_apparatus \u2014 worker_activity L462\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:14.995155Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 58, \"tokens_target\": 256, \"tok_per_s\": 41.92114104585344}\n",
-    "apparatus-worker_activity-l463": "# unknown_apparatus \u2014 worker_activity L463\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:15.362891Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 15, \"tokens_target\": 256, \"tok_per_s\": 40.87980502888288}\n",
-    "event-iter-2026-06-08-001-loop-v0-iteration-start-none-l984": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L984\n\n_loop_v0_iteration_start for iter-2026-06-08-001_\n\n**Did:** topic=smoke: verify active-run hero\n\n**Observed:** parent_request_id=n/a\n",
-    "apparatus-calls-l3047": "# a_bgt_rsi: Nara/LLM \u2014 calls L3047\n\n_Here are the last 8 loop iterations:\n\n[iter-2026-05-27-028] hypothesis: In repeated single-round sealed-bid second-price auctions with four LLM bidders drawing independent private valuations from U[0, 100] and no priming on auction theory, \u2026_\n\n**Did:** {\n  \"conditioning_bullets\": [\n    \"Maintain focus on mechanism design (VCG, first-price, second-price) where LLM agents demonstrate high truthfulness or predictable shading behaviors.\",\n    \"Leverage the high success rate of combinatorial auction experiments (VCG truthfulness ~96.5%) to explore the \u2026\n\n**Observed:** latency=3169ms tokens_in=1166 tokens_out=147 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l3048": "# a_bgt_rsi: Nara/LLM \u2014 calls L3048\n\n_iteration_id: iter-2026-06-08-001\n\nEvaluate this research topic: smoke: verify active-run hero\n\nPrior-iteration conditioning:\n- Maintain focus on mechanism design (VCG, first-price, second-price) where LLM agents demonstrate high truthfulne\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-959318e47ecc28e8\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"smoke: verify active-run hero. Focus on mechanism design (VCG, first-price, second-price) where LLM agents demonstrate high truthfulness or predictable shading behaviors. Lev\u2026\n\n**Observed:** latency=1737ms tokens_in=1748 tokens_out=129 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-dispatch-hypothesize-l985` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-receipt-hypothesize-l986` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-redteam-retry-none-l987` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-redteam-retry-none-l988` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-06-08-001-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-worker_activity-l464": "# unknown_apparatus \u2014 worker_activity L464\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:28:03.881590Z\", \"run_id\": \"iter-2026-06-08-001\", \"task_id\": \"meta_review\", \"tokens_generated\": 147, \"tokens_target\": 512, \"tok_per_s\": 46.385425041146526}\n",
-    "event-iter-2026-06-08-001-loop-v0-tool-dispatch-hypothesize-l985": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L985\n\n_loop_v0_tool_dispatch for iter-2026-06-08-001_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=9759e339-72d8-48be-94fa-ebbf638913a4\n\n## Referenced by\n\n- `apparatus-calls-l3048` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l3049": "# a_bgt_rsi: Nara/LLM \u2014 calls L3049\n\n_Research topic: smoke: verify active-run hero. Focus on mechanism design (VCG, first-price, second-price) where LLM agents demonstrate high truthfulness or predictable shading behaviors. Leverage combinatorial auction experiments (VCG truth\u2026_\n\n**Did:** {\n  \"candidates\": [\n    \"LLM agents exhibit higher truthfulness in VCG-based combinatorial auctions compared to first-price auctions, but this truthfulness decays as the number of items increases due to increased computational complexity (cognitive load).\",\n    \"In Cournot duopoly models, providing \u2026\n\n**Observed:** latency=2902ms tokens_in=515 tokens_out=180 model=gemma-4-26b-a4b\n",
-    "apparatus-worker_activity-l465": "# unknown_apparatus \u2014 worker_activity L465\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:28:08.523246Z\", \"run_id\": \"iter-2026-06-08-001\", \"task_id\": \"hypothesize\", \"tokens_generated\": 180, \"tokens_target\": 512, \"tok_per_s\": 62.02476038912502}\n",
-    "event-iter-2026-06-08-001-loop-v0-tool-receipt-hypothesize-l986": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L986\n\n_loop_v0_tool_receipt for iter-2026-06-08-001_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=9759e339-72d8-48be-94fa-ebbf638913a4\n\n## Referenced by\n\n- `apparatus-calls-l3048` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-08-001-loop-v0-redteam-retry-none-l987": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L987\n\n_loop_v0_redteam_retry for iter-2026-06-08-001_\n\n**Did:** \n\n**Observed:** parent_request_id=9759e339-72d8-48be-94fa-ebbf638913a4\n\n## Referenced by\n\n- `apparatus-calls-l3048` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l3050": "# a_bgt_rsi: Nara/LLM \u2014 calls L3050\n\n_Research topic: smoke: verify active-run hero\n\n[Red-team critique of the prior hypothesis \u2014 revise to address it]: The hypothesis conflates strategic truthfulness (a property of the mechanism) with computational tractability (an agent's abi\u2026_\n\n**Did:** {\n  \"candidates\": [\n    \"In VCG-based mechanisms, the deviation from truthful bidding in boundedly rational agents is a function of the computational complexity of the optimization problem rather than a failure of incentive compatibility.\",\n    \"As the dimensionality of the valuation space increases\u2026\n\n**Observed:** latency=3063ms tokens_in=511 tokens_out=172 model=gemma-4-26b-a4b\n",
-    "apparatus-worker_activity-l466": "# unknown_apparatus \u2014 worker_activity L466\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:28:17.930416Z\", \"run_id\": \"iter-2026-06-08-001\", \"task_id\": \"hypothesize\", \"tokens_generated\": 172, \"tokens_target\": 512, \"tok_per_s\": 56.15332359232193}\n",
-    "event-iter-2026-06-08-001-loop-v0-redteam-retry-none-l988": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L988\n\n_loop_v0_redteam_retry for iter-2026-06-08-001_\n\n**Did:** \n\n**Observed:** parent_request_id=9759e339-72d8-48be-94fa-ebbf638913a4\n\n## Referenced by\n\n- `apparatus-calls-l3048` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l3051": "# a_bgt_rsi: Nara/LLM \u2014 calls L3051\n\n_Research topic: smoke: verify active-run hero\n\n[Red-team critique of the prior hypothesis \u2014 revise to address it]: The hypothesis conflates a mechanism's structural properties (incentive compatibility) with an agent's ability to compute the\u2026_\n\n**Did:** {\n  \"candidates\": [\n    \"The observed deviation from equilibrium in active-run hero protocols is caused by bounded rationality in agents rather than a failure of incentive compatibility.\",\n    \"The observed deviation from equilibrium in active-run hero protocols is driven by the agent's inability to\u2026\n\n**Observed:** latency=2749ms tokens_in=500 tokens_out=162 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l3052": "# a_bgt_rsi: Nara/LLM \u2014 calls L3052\n\n_iteration_id: iter-2026-06-08-001\n\nEvaluate this research topic: smoke: verify active-run hero\n\nPrior-iteration conditioning:\n- Maintain focus on mechanism design (VCG, first-price, second-price) where LLM agents demonstrate high truthfulne\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-b87ce1582b4555a5\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"LLM agents exhibit higher truthfulness in VCG-based combinatorial auctions compared to first-price auctions, but this truthfulness decays as the number of i\u2026\n\n**Observed:** latency=1035ms tokens_in=2154 tokens_out=68 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-dispatch-retrieve-literature-l989` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-receipt-retrieve-literature-l990` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-ml-intern-none-l991` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-ml-intern-none-l992` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-06-08-001-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-worker_activity-l467": "# unknown_apparatus \u2014 worker_activity L467\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:28:25.752031Z\", \"run_id\": \"iter-2026-06-08-001\", \"task_id\": \"hypothesize\", \"tokens_generated\": 162, \"tokens_target\": 512, \"tok_per_s\": 58.92575886508863}\n",
-    "event-iter-2026-06-08-001-loop-v0-tool-dispatch-retrieve-literature-l989": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L989\n\n_loop_v0_tool_dispatch for iter-2026-06-08-001_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=c9139bc4-ed84-45c9-aa63-bbb2d329791e\n\n## Referenced by\n\n- `apparatus-calls-l3052` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-08-001-loop-v0-tool-receipt-retrieve-literature-l990": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L990\n\n_loop_v0_tool_receipt for iter-2026-06-08-001_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=c9139bc4-ed84-45c9-aa63-bbb2d329791e\n\n## Referenced by\n\n- `apparatus-calls-l3052` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-08-001-loop-v0-ml-intern-none-l991": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L991\n\n_loop_v0_ml_intern for iter-2026-06-08-001_\n\n**Did:** \n\n**Observed:** parent_request_id=c9139bc4-ed84-45c9-aa63-bbb2d329791e\n\n## Referenced by\n\n- `apparatus-calls-l3052` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-06-08-001-loop-v0-ml-intern-none-l992": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L992\n\n_loop_v0_ml_intern for iter-2026-06-08-001_\n\n**Did:** \n\n**Observed:** parent_request_id=c9139bc4-ed84-45c9-aa63-bbb2d329791e\n\n## Referenced by\n\n- `apparatus-calls-l3052` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l3053": "# a_bgt_rsi: Nara/LLM \u2014 calls L3053\n\n_iteration_id: iter-2026-06-08-001\n\nEvaluate this research topic: smoke: verify active-run hero\n\nPrior-iteration conditioning:\n- Maintain focus on mechanism design (VCG, first-price, second-price) where LLM agents demonstrate high truthfulne\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-be370505171fa9e4\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"LLM agents exhibit higher truthfulness in VCG-based combinatorial auctions compared to first-price auctions, but this truthfulness decays as the number of item\u2026\n\n**Observed:** latency=2750ms tokens_in=5763 tokens_out=127 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-dispatch-novelty-classify-l993` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-receipt-novelty-classify-l994` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-06-08-001-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l3054": "# a_bgt_rsi: Nara/LLM \u2014 calls L3054\n\n_Hypothesis:\nLLM agents exhibit higher truthfulness in VCG-based combinatorial auctions compared to first-price auctions, but this truthfulness decays as the number of items increases due to increased computational complexity (cognitive load\u2026_\n\n**Did:** {\n  \"class\": \"novel\",\n  \"rationale\": \"While doc_1 discusses LLM agents' truthfulness in matching mechanisms and doc_7/doc_10 discuss first-price auctions, there is no existing literature in the retrieved set that specifically compares VCG vs. first-price auctions for LLM agents or addresses the deca\u2026\n\n**Observed:** latency=2197ms tokens_in=2049 tokens_out=111 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l3055": "# a_bgt_rsi: Nara/LLM \u2014 calls L3055\n\n_iteration_id: iter-2026-06-08-001\n\nEvaluate this research topic: smoke: verify active-run hero\n\nPrior-iteration conditioning:\n- Maintain focus on mechanism design (VCG, first-price, second-price) where LLM agents demonstrate high truthfulne\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-b081774be1966d01\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"LLM agents exhibit higher truthfulness in VCG-based combinatorial auctions compared to first-price auctions, but this truthfulness decays as the number of items \u2026\n\n**Observed:** latency=1324ms tokens_in=6098 tokens_out=86 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-dispatch-critic-loop-v0-l995` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-receipt-critic-loop-v0-l996` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-06-08-001-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l3056": "# a_bgt_rsi: Nara/LLM \u2014 calls L3056\n\n_iteration_id: iter-2026-06-08-001\n\nEvaluate this research topic: smoke: verify active-run hero\n\nPrior-iteration conditioning:\n- Maintain focus on mechanism design (VCG, first-price, second-price) where LLM agents demonstrate high truthfulne\u2026_\n\n**Did:** The novelty classification indicates the hypothesis is novel, and the critic has determined that the hypothesis survives because no direct contradictions were found in the literature. I will now proceed to the final step of writing the journal entry.\n\n**Observed:** latency=1069ms tokens_in=6470 tokens_out=43 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-reprompt-none-l997` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-08-001` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-worker_activity-l468": "# unknown_apparatus \u2014 worker_activity L468\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:28:56.190731Z\", \"run_id\": \"iter-2026-06-08-001\", \"task_id\": \"novelty_classify\", \"tokens_generated\": 111, \"tokens_target\": 512, \"tok_per_s\": 50.52385467565117}\n",
-    "event-iter-2026-06-08-001-loop-v0-tool-dispatch-novelty-classify-l993": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L993\n\n_loop_v0_tool_dispatch for iter-2026-06-08-001_\n\n**Did:** tool=novelty_classify status=n/a\n\n**Observed:** parent_request_id=21113dcc-6177-4908-b072-8004227f8b8b\n\n## Referenced by\n\n- `apparatus-calls-l3053` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-08-001-loop-v0-tool-receipt-novelty-classify-l994": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L994\n\n_loop_v0_tool_receipt for iter-2026-06-08-001_\n\n**Did:** tool=novelty_classify status=passed\n\n**Observed:** parent_request_id=21113dcc-6177-4908-b072-8004227f8b8b\n\n## Referenced by\n\n- `apparatus-calls-l3053` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-08-001-loop-v0-tool-dispatch-critic-loop-v0-l995": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L995\n\n_loop_v0_tool_dispatch for iter-2026-06-08-001_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=de979d32-fa0c-4b7a-83be-9b3569c4fbec\n\n## Referenced by\n\n- `apparatus-calls-l3055` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-08-001-loop-v0-tool-receipt-critic-loop-v0-l996": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L996\n\n_loop_v0_tool_receipt for iter-2026-06-08-001_\n\n**Did:** tool=critic_loop_v0 status=passed\n\n**Observed:** parent_request_id=de979d32-fa0c-4b7a-83be-9b3569c4fbec\n\n## Referenced by\n\n- `apparatus-calls-l3055` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-08-001-loop-v0-reprompt-none-l997": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L997\n\n_loop_v0_reprompt for iter-2026-06-08-001_\n\n**Did:** \n\n**Observed:** parent_request_id=01829c8e-d9bd-4af2-bb7f-cdfb4a11dce8\n\n## Referenced by\n\n- `apparatus-calls-l3056` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l3057": "# a_bgt_rsi: Nara/LLM \u2014 calls L3057\n\n_Continue the chain. Your next tool call must be `journal_writer`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-ac315ca005bfe508\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"iteration_id\\\": \\\"iter-2026-06-08-001\\\", \\\"nara_summary\\\": \\\"The research iteration explored the hypothesis that LLM agents demonstrate higher truthfulness in VCG-based combinatorial\u2026\n\n**Observed:** latency=4895ms tokens_in=6554 tokens_out=302 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-dispatch-journal-writer-l998` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-receipt-journal-writer-l999` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-06-08-001-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-08-001-loop-v0-tool-dispatch-journal-writer-l998": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L998\n\n_loop_v0_tool_dispatch for iter-2026-06-08-001_\n\n**Did:** tool=journal_writer status=n/a\n\n**Observed:** parent_request_id=b75ca068-03e7-4060-9f6b-4345933bbab7\n\n## Referenced by\n\n- `apparatus-calls-l3057` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-08-001-loop-v0-tool-receipt-journal-writer-l999": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L999\n\n_loop_v0_tool_receipt for iter-2026-06-08-001_\n\n**Did:** tool=journal_writer status=passed\n\n**Observed:** parent_request_id=b75ca068-03e7-4060-9f6b-4345933bbab7\n\n## Referenced by\n\n- `apparatus-calls-l3057` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l3058": "# a_bgt_rsi: Nara/LLM \u2014 calls L3058\n\n_Continue the chain. Your next tool call must be `journal_writer`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** thought\n<channel|>The research iteration focused on the hypothesis that **LLM agents exhibit higher truthfulness in VCG-based combinatorial auctions compared to first-price auctions, but this truthfulness decays as the number of items increases due to increased computational complexity (cognitive lo\u2026\n\n**Observed:** latency=4341ms tokens_in=6947 tokens_out=227 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-06-08-001` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-06-08-001-loop-v0-iteration-complete-none-l1000": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1000\n\n_loop_v0_iteration_complete for iter-2026-06-08-001_\n\n**Did:** duration_ms=69547 tool_calls_made=['hypothesize', 'retrieve_literature', 'novelty_classify', 'critic_loop_v0', 'journal_writer']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-06-08-001` (apparatus_event) \u2014 **produced**\n",
-    "iter-2026-06-08-001": "# a_bgt_rsi: Nara \u2014 loop_memory L47\n\n_smoke: verify active-run hero_\n\n**Did:** The research iteration focused on the hypothesis that **LLM agents exhibit higher truthfulness in VCG-based combinatorial auctions compared to first-price auctions, but this truthfulness decays as the number of items increases due to increased computational complexity (cognitive load).**\n\nThe analysis classified this hypothesis as **novel**, as the current literature (including studies on matching\u2026\n\n**Observed:** tools=5 calls=7 journal=journal/iterations/062.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-iteration-complete-none-l1000` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l3056` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l3058` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-06-08-001-hypothesize-1` (stage)\n- **produced** \u2192 `stage-iter-2026-06-08-001-retrieve-literature-1` (stage)\n- **produced** \u2192 `stage-iter-2026-06-08-001-novelty-classify-1` (stage)\n- **produced** \u2192 `stage-iter-2026-06-08-001-critic-loop-v0-1` (stage)\n- **produced** \u2192 `stage-iter-2026-06-08-001-journal-writer-1` (stage)\n\n## Referenced by\n\n- `agent-nara` (agent) \u2014 **ran**\n",
-    "apparatus-calls-l3059": "# a_bgt_rsi: Nara/LLM \u2014 calls L3059\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3060": "# a_bgt_rsi: Nara/LLM \u2014 calls L3060\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3061": "# a_bgt_rsi: Nara/LLM \u2014 calls L3061\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3062": "# a_bgt_rsi: Nara/LLM \u2014 calls L3062\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3063": "# a_bgt_rsi: Nara/LLM \u2014 calls L3063\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3064": "# a_bgt_rsi: Nara/LLM \u2014 calls L3064\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3065": "# a_bgt_rsi: Nara/LLM \u2014 calls L3065\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3066": "# a_bgt_rsi: Nara/LLM \u2014 calls L3066\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3067": "# a_bgt_rsi: Nara/LLM \u2014 calls L3067\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3068": "# a_bgt_rsi: Nara/LLM \u2014 calls L3068\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3069": "# a_bgt_rsi: Nara/LLM \u2014 calls L3069\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3070": "# a_bgt_rsi: Nara/LLM \u2014 calls L3070\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3071": "# a_bgt_rsi: Nara/LLM \u2014 calls L3071\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3072": "# a_bgt_rsi: Nara/LLM \u2014 calls L3072\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3073": "# a_bgt_rsi: Nara/LLM \u2014 calls L3073\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3074": "# a_bgt_rsi: Nara/LLM \u2014 calls L3074\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3075": "# a_bgt_rsi: Nara/LLM \u2014 calls L3075\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3076": "# a_bgt_rsi: Nara/LLM \u2014 calls L3076\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3077": "# a_bgt_rsi: Nara/LLM \u2014 calls L3077\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3078": "# a_bgt_rsi: Nara/LLM \u2014 calls L3078\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3079": "# a_bgt_rsi: Nara/LLM \u2014 calls L3079\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3080": "# a_bgt_rsi: Nara/LLM \u2014 calls L3080\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3081": "# a_bgt_rsi: Nara/LLM \u2014 calls L3081\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3082": "# a_bgt_rsi: Nara/LLM \u2014 calls L3082\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3083": "# a_bgt_rsi: Nara/LLM \u2014 calls L3083\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3084": "# a_bgt_rsi: Nara/LLM \u2014 calls L3084\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3085": "# a_bgt_rsi: Nara/LLM \u2014 calls L3085\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3086": "# a_bgt_rsi: Nara/LLM \u2014 calls L3086\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3087": "# a_bgt_rsi: Nara/LLM \u2014 calls L3087\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3088": "# a_bgt_rsi: Nara/LLM \u2014 calls L3088\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3089": "# a_bgt_rsi: Nara/LLM \u2014 calls L3089\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3090": "# a_bgt_rsi: Nara/LLM \u2014 calls L3090\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3091": "# a_bgt_rsi: Nara/LLM \u2014 calls L3091\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3092": "# a_bgt_rsi: Nara/LLM \u2014 calls L3092\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3093": "# a_bgt_rsi: Nara/LLM \u2014 calls L3093\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3094": "# a_bgt_rsi: Nara/LLM \u2014 calls L3094\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3095": "# a_bgt_rsi: Nara/LLM \u2014 calls L3095\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3096": "# a_bgt_rsi: Nara/LLM \u2014 calls L3096\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3097": "# a_bgt_rsi: Nara/LLM \u2014 calls L3097\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3098": "# a_bgt_rsi: Nara/LLM \u2014 calls L3098\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3099": "# a_bgt_rsi: Nara/LLM \u2014 calls L3099\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3100": "# a_bgt_rsi: Nara/LLM \u2014 calls L3100\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3101": "# a_bgt_rsi: Nara/LLM \u2014 calls L3101\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3102": "# a_bgt_rsi: Nara/LLM \u2014 calls L3102\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3103": "# a_bgt_rsi: Nara/LLM \u2014 calls L3103\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3104": "# a_bgt_rsi: Nara/LLM \u2014 calls L3104\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3105": "# a_bgt_rsi: Nara/LLM \u2014 calls L3105\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3106": "# a_bgt_rsi: Nara/LLM \u2014 calls L3106\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3107": "# a_bgt_rsi: Nara/LLM \u2014 calls L3107\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3108": "# a_bgt_rsi: Nara/LLM \u2014 calls L3108\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3109": "# a_bgt_rsi: Nara/LLM \u2014 calls L3109\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3110": "# a_bgt_rsi: Nara/LLM \u2014 calls L3110\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3111": "# a_bgt_rsi: Nara/LLM \u2014 calls L3111\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3112": "# a_bgt_rsi: Nara/LLM \u2014 calls L3112\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-worker_activity-l469": "# unknown_apparatus \u2014 worker_activity L469\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:55.515802Z\", \"run_id\": null, \"task_id\": \"t\", \"tokens_generated\": 3, \"tokens_target\": 3, \"tok_per_s\": 172018.87600128163}\n",
-    "apparatus-worker_activity-l470": "# unknown_apparatus \u2014 worker_activity L470\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:55.534155Z\", \"run_id\": null, \"task_id\": \"t\", \"tokens_generated\": 2, \"tokens_target\": 2, \"tok_per_s\": 104165.87349631354}\n",
-    "apparatus-worker_activity-l471": "# unknown_apparatus \u2014 worker_activity L471\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.233034Z\", \"run_id\": null, \"task_id\": \"t/single\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 165257.15270723673}\n",
-    "apparatus-worker_activity-l472": "# unknown_apparatus \u2014 worker_activity L472\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.233811Z\", \"run_id\": null, \"task_id\": \"t/two_turn\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 225955.77104377103}\n",
-    "apparatus-worker_activity-l473": "# unknown_apparatus \u2014 worker_activity L473\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.233985Z\", \"run_id\": null, \"task_id\": \"t/two_turn\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 332088.52379921445}\n",
-    "apparatus-worker_activity-l474": "# unknown_apparatus \u2014 worker_activity L474\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.234704Z\", \"run_id\": null, \"task_id\": \"t/ctx\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 256563.00303457503}\n",
-    "apparatus-worker_activity-l475": "# unknown_apparatus \u2014 worker_activity L475\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.234886Z\", \"run_id\": null, \"task_id\": \"t/ctx\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 341531.7993574859}\n",
-    "apparatus-worker_activity-l476": "# unknown_apparatus \u2014 worker_activity L476\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.235727Z\", \"run_id\": null, \"task_id\": \"t/bad_json\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 267552.53264228045}\n",
-    "apparatus-worker_activity-l477": "# unknown_apparatus \u2014 worker_activity L477\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.236270Z\", \"run_id\": null, \"task_id\": \"t/bad_args\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 280014.0364053617}\n",
-    "apparatus-worker_activity-l478": "# unknown_apparatus \u2014 worker_activity L478\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.236869Z\", \"run_id\": null, \"task_id\": \"t/hallucinated\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 295935.23799024336}\n",
-    "apparatus-worker_activity-l479": "# unknown_apparatus \u2014 worker_activity L479\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.237389Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 292604.59559625026}\n",
-    "apparatus-worker_activity-l480": "# unknown_apparatus \u2014 worker_activity L480\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.237551Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 350335.02691768087}\n",
-    "apparatus-worker_activity-l481": "# unknown_apparatus \u2014 worker_activity L481\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.237717Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 411726.60914912383}\n",
-    "apparatus-worker_activity-l482": "# unknown_apparatus \u2014 worker_activity L482\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.238855Z\", \"run_id\": null, \"task_id\": \"t/file\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 285653.2027986911}\n",
-    "apparatus-worker_activity-l483": "# unknown_apparatus \u2014 worker_activity L483\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.239027Z\", \"run_id\": null, \"task_id\": \"t/file\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 401669.0947179411}\n",
-    "apparatus-worker_activity-l484": "# unknown_apparatus \u2014 worker_activity L484\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.240259Z\", \"run_id\": null, \"task_id\": \"t/none\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 48150.93719590126}\n",
-    "apparatus-worker_activity-l485": "# unknown_apparatus \u2014 worker_activity L485\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.240854Z\", \"run_id\": null, \"task_id\": \"t/default\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 60620.56875088214}\n",
-    "apparatus-worker_activity-l486": "# unknown_apparatus \u2014 worker_activity L486\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.241457Z\", \"run_id\": null, \"task_id\": \"t/empty\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 60855.91838585355}\n",
-    "apparatus-worker_activity-l487": "# unknown_apparatus \u2014 worker_activity L487\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.241993Z\", \"run_id\": null, \"task_id\": \"t/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 62312.730986855466}\n",
-    "apparatus-worker_activity-l488": "# unknown_apparatus \u2014 worker_activity L488\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.244240Z\", \"run_id\": null, \"task_id\": \"t/file/none\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 56663.33275284308}\n",
-    "apparatus-worker_activity-l489": "# unknown_apparatus \u2014 worker_activity L489\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.244400Z\", \"run_id\": null, \"task_id\": \"t/file/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 71592.33391118817}\n",
-    "apparatus-worker_activity-l490": "# unknown_apparatus \u2014 worker_activity L490\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.245163Z\", \"run_id\": null, \"task_id\": \"t/legacy\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 52832.52510640392}\n",
-    "apparatus-calls-l3113": "# a_bgt_rsi: Nara/LLM \u2014 calls L3113\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3114": "# a_bgt_rsi: Nara/LLM \u2014 calls L3114\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3115": "# a_bgt_rsi: Nara/LLM \u2014 calls L3115\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3116": "# a_bgt_rsi: Nara/LLM \u2014 calls L3116\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3117": "# a_bgt_rsi: Nara/LLM \u2014 calls L3117\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3118": "# a_bgt_rsi: Nara/LLM \u2014 calls L3118\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3119": "# a_bgt_rsi: Nara/LLM \u2014 calls L3119\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3120": "# a_bgt_rsi: Nara/LLM \u2014 calls L3120\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3121": "# a_bgt_rsi: Nara/LLM \u2014 calls L3121\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3122": "# a_bgt_rsi: Nara/LLM \u2014 calls L3122\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3123": "# a_bgt_rsi: Nara/LLM \u2014 calls L3123\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3124": "# a_bgt_rsi: Nara/LLM \u2014 calls L3124\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3125": "# a_bgt_rsi: Nara/LLM \u2014 calls L3125\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3126": "# a_bgt_rsi: Nara/LLM \u2014 calls L3126\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3127": "# a_bgt_rsi: Nara/LLM \u2014 calls L3127\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3128": "# a_bgt_rsi: Nara/LLM \u2014 calls L3128\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3129": "# a_bgt_rsi: Nara/LLM \u2014 calls L3129\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3130": "# a_bgt_rsi: Nara/LLM \u2014 calls L3130\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3131": "# a_bgt_rsi: Nara/LLM \u2014 calls L3131\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3132": "# a_bgt_rsi: Nara/LLM \u2014 calls L3132\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3133": "# a_bgt_rsi: Nara/LLM \u2014 calls L3133\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3134": "# a_bgt_rsi: Nara/LLM \u2014 calls L3134\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3135": "# a_bgt_rsi: Nara/LLM \u2014 calls L3135\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3136": "# a_bgt_rsi: Nara/LLM \u2014 calls L3136\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3137": "# a_bgt_rsi: Nara/LLM \u2014 calls L3137\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3138": "# a_bgt_rsi: Nara/LLM \u2014 calls L3138\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3139": "# a_bgt_rsi: Nara/LLM \u2014 calls L3139\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3140": "# a_bgt_rsi: Nara/LLM \u2014 calls L3140\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3141": "# a_bgt_rsi: Nara/LLM \u2014 calls L3141\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3142": "# a_bgt_rsi: Nara/LLM \u2014 calls L3142\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3143": "# a_bgt_rsi: Nara/LLM \u2014 calls L3143\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3144": "# a_bgt_rsi: Nara/LLM \u2014 calls L3144\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3145": "# a_bgt_rsi: Nara/LLM \u2014 calls L3145\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3146": "# a_bgt_rsi: Nara/LLM \u2014 calls L3146\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3147": "# a_bgt_rsi: Nara/LLM \u2014 calls L3147\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3148": "# a_bgt_rsi: Nara/LLM \u2014 calls L3148\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l3149": "# a_bgt_rsi: Nara/LLM \u2014 calls L3149\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
     "apparatus-calls-l3150": "# a_bgt_rsi: Nara/LLM \u2014 calls L3150\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
     "apparatus-calls-l3151": "# a_bgt_rsi: Nara/LLM \u2014 calls L3151\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
     "apparatus-calls-l3152": "# a_bgt_rsi: Nara/LLM \u2014 calls L3152\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
@@ -20041,8 +19945,6 @@ window.BRAIN_GRAPH = {
     "apparatus-calls-l3164": "# a_bgt_rsi: Nara/LLM \u2014 calls L3164\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
     "apparatus-calls-l3165": "# a_bgt_rsi: Nara/LLM \u2014 calls L3165\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
     "apparatus-calls-l3166": "# a_bgt_rsi: Nara/LLM \u2014 calls L3166\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-worker_activity-l491": "# unknown_apparatus \u2014 worker_activity L491\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:39.661464Z\", \"run_id\": null, \"task_id\": \"t\", \"tokens_generated\": 3, \"tokens_target\": 3, \"tok_per_s\": 169685.5412331762}\n",
-    "apparatus-worker_activity-l492": "# unknown_apparatus \u2014 worker_activity L492\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:39.676720Z\", \"run_id\": null, \"task_id\": \"t\", \"tokens_generated\": 2, \"tokens_target\": 2, \"tok_per_s\": 93423.6899049442}\n",
     "apparatus-worker_activity-l493": "# unknown_apparatus \u2014 worker_activity L493\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.063740Z\", \"run_id\": null, \"task_id\": \"t/single\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 163525.60445920014}\n",
     "apparatus-worker_activity-l494": "# unknown_apparatus \u2014 worker_activity L494\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.064530Z\", \"run_id\": null, \"task_id\": \"t/two_turn\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 220227.62818935106}\n",
     "apparatus-worker_activity-l495": "# unknown_apparatus \u2014 worker_activity L495\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.064708Z\", \"run_id\": null, \"task_id\": \"t/two_turn\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 307275.01831501833}\n",
@@ -20063,9 +19965,177 @@ window.BRAIN_GRAPH = {
     "apparatus-worker_activity-l510": "# unknown_apparatus \u2014 worker_activity L510\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.075078Z\", \"run_id\": null, \"task_id\": \"t/file/none\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 54394.216008105366}\n",
     "apparatus-worker_activity-l511": "# unknown_apparatus \u2014 worker_activity L511\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.075240Z\", \"run_id\": null, \"task_id\": \"t/file/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 72845.44260515604}\n",
     "apparatus-worker_activity-l512": "# unknown_apparatus \u2014 worker_activity L512\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.076008Z\", \"run_id\": null, \"task_id\": \"t/legacy\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 59296.54428981666}\n",
-    "runlog-exp008-first-live-run-triage-l1001": "# a_bgt_rsi: Nara \u2014 week1.run L1001\n\n_a real H0/H1 once arm C actually serves; no false verdict from infra failure_\n\n**Did:** first live arm-C run: :8002 OOM'd at startup (GB10 128GB unified; prod gemma 50GB + qwen 28GB resident, no --gpu-mem cap on arm C -> vLLM grabbed ~90%). ALL 10 qat novelty calls = APIConnectionError (agreement 0.0 is a CRASH ARTIFACT, not a\u2026\n\n**Observed:** status=observed day= duration_ms=None fallback=None\n",
-    "runlog-exp008-armc-unified-mem-freeze-incident-l1002": "# a_bgt_rsi: Nara \u2014 week1.run L1002\n\n_safe live run; instead a near-machine-hang -- arm C abandoned on this box_\n\n**Did:** INCIDENT: arm C (util 0.46, ~48GiB weights) launch on the GB10 (121GiB UNIFIED mem) thrashed the system -- SSH + UI tracking went down. Root cause: unified memory feeds GPU AND OS; loading a 2nd ~48GiB model alongside the 48GiB production g\u2026\n\n**Observed:** status=recovered day= duration_ms=None fallback=None\n",
+    "runlog-exp008-first-live-run-triage-l1001": "# a_bgt_rsi: Nara \u2014 week1.run L1001\n\n_a real H0/H1 once arm C actually serves; no false verdict from infra failure_\n\n**Did:** first live arm-C run: :8002 OOM'd at startup (GB10 128GB unified; prod gemma 50GB + qwen 28GB resident, no --gpu-mem cap on arm C -> vLLM grabbed ~90%). ALL 10 qat novelty calls = APIConnectionError (agreement 0.0 is a CRASH ARTIFACT, not a\u2026\n\n**Observed:** status=observed day= duration_ms=None fallback=None\n\n## Referenced by\n\n- `correction-exp008-armc-gb10-unified-mem-oom-2026-06-09` (correction) \u2014 **derived_from**\n- `reflection-exp008-error-as-zero-insufficient-2026-06-09` (reflection) \u2014 **derived_from**\n",
+    "runlog-exp008-armc-unified-mem-freeze-incident-l1002": "# a_bgt_rsi: Nara \u2014 week1.run L1002\n\n_safe live run; instead a near-machine-hang -- arm C abandoned on this box_\n\n**Did:** INCIDENT: arm C (util 0.46, ~48GiB weights) launch on the GB10 (121GiB UNIFIED mem) thrashed the system -- SSH + UI tracking went down. Root cause: unified memory feeds GPU AND OS; loading a 2nd ~48GiB model alongside the 48GiB production g\u2026\n\n**Observed:** status=recovered day= duration_ms=None fallback=None\n\n## Referenced by\n\n- `correction-exp008-armc-gb10-unified-mem-oom-2026-06-09` (correction) \u2014 **derived_from**\n",
     "runlog-derisk-harden-beta-workflow-start-l1003": "# a_bgt_rsi: Nara \u2014 week1.run L1003\n\n_beta de-risked (substrate gaps named, trust boundary written), novelty skeptic prototyped (MOCK_LLM test green), serve_qat memory guard built, exp008 SHELVE + skeptic-gate decisions drafted for human \u2026_\n\n**Did:** Launched Dynamic Workflow wf_22f76752-fcf (derisk-harden-for-beta): 4 phases Assess->Build->Verify->Synthesize. Assess (A1 beta-gap audit, A2 autonomy trust-boundary, A3 skeptic design, A4 mem-guard spec); Build (B1 preflight_mem.sh, B2 wor\u2026\n\n**Observed:** status=started day= duration_ms=None fallback=None\n",
+    "apparatus-worker_activity-l513": "# unknown_apparatus \u2014 worker_activity L513\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T03:21:58.675997Z\", \"run_id\": null, \"task_id\": \"novelty_skeptic\", \"tokens_generated\": 123, \"tokens_target\": 512, \"tok_per_s\": 36.63602759266482}\n",
+    "apparatus-worker_activity-l514": "# unknown_apparatus \u2014 worker_activity L514\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T03:22:35.407756Z\", \"run_id\": null, \"task_id\": \"novelty_skeptic\", \"tokens_generated\": 512, \"tokens_target\": 512, \"tok_per_s\": 20.565691120389953}\n",
+    "apparatus-worker_activity-l515": "# unknown_apparatus \u2014 worker_activity L515\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T03:24:54.708961Z\", \"run_id\": null, \"task_id\": \"novelty_skeptic\", \"tokens_generated\": 1914, \"tokens_target\": 2048, \"tok_per_s\": 22.20668099028187}\n",
+    "apparatus-worker_activity-l516": "# unknown_apparatus \u2014 worker_activity L516\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T03:49:20.330592Z\", \"run_id\": null, \"task_id\": \"novelty_skeptic\", \"tokens_generated\": 127, \"tokens_target\": 512, \"tok_per_s\": 48.349006206334046}\n",
+    "runlog-beta-substrate-gap-audit-va1-refute-l1004": "# a_bgt_rsi: Nara \u2014 week1.run L1004\n\n_Refute or confirm A1 beta-substrate-gap audit completeness via independent sandbox probe + code re-read._\n\n**Did:** V-A1 read-only adversarial completeness probe: sandbox py3.13.5/6-pkgs/no-deps CONFIRMED; GPU passthrough WORKS inside (A1 understated); gateway 18789 NOT bound inside + Ports={} (no listener, not the D-031 cosmetic netns issue); direct :80\u2026\n\n**Observed:** status=passed day= duration_ms=0 fallback=None\n",
+    "apparatus-worker_activity-l517": "# unknown_apparatus \u2014 worker_activity L517\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T03:49:43.092849Z\", \"run_id\": null, \"task_id\": \"novelty_skeptic\", \"tokens_generated\": 512, \"tokens_target\": 512, \"tok_per_s\": 22.494786137060682}\n",
+    "apparatus-worker_activity-l518": "# unknown_apparatus \u2014 worker_activity L518\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T03:50:16.265252Z\", \"run_id\": null, \"task_id\": \"vb2-probe\", \"tokens_generated\": 200, \"tokens_target\": 200, \"tok_per_s\": 22.102872189462}\n",
+    "apparatus-worker_activity-l519": "# unknown_apparatus \u2014 worker_activity L519\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T03:50:41.203276Z\", \"run_id\": null, \"task_id\": \"novelty_skeptic\", \"tokens_generated\": 512, \"tokens_target\": 512, \"tok_per_s\": 20.541847442035426}\n",
+    "apparatus-worker_activity-l520": "# unknown_apparatus \u2014 worker_activity L520\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T03:51:03.051491Z\", \"run_id\": null, \"task_id\": \"novelty_skeptic\", \"tokens_generated\": 512, \"tokens_target\": 512, \"tok_per_s\": 23.437655079197746}\n",
+    "apparatus-worker_activity-l521": "# unknown_apparatus \u2014 worker_activity L521\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T03:51:27.421828Z\", \"run_id\": null, \"task_id\": \"novelty_skeptic\", \"tokens_generated\": 512, \"tokens_target\": 512, \"tok_per_s\": 21.00982116750877}\n",
+    "runlog-derisk-harden-beta-workflow-done-l1005": "# a_bgt_rsi: Nara \u2014 week1.run L1005\n\n_beta de-risked with named substrate gaps + trust boundary; skeptic prototyped + verified; memory guard built + verified; exp008 SHELVE + skeptic-gate + D-031/D-008 amendment drafted for human ratifica\u2026_\n\n**Did:** Workflow wf_22f76752-fcf completed (after a GAP_SCHEMA/SYNTH_SCHEMA truncation-loop on A1 -> stopped, lightened both schemas, resumed; resume re-ran via prefix-invalidation, A4 then hit the same loop on un-lightened GUARD_SPEC_SCHEMA -> sto\u2026\n\n**Observed:** status=passed day= duration_ms=None fallback=None\n",
+    "apparatus-calls-l3167": "# a_bgt_rsi: Nara/LLM \u2014 calls L3167\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3168": "# a_bgt_rsi: Nara/LLM \u2014 calls L3168\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3169": "# a_bgt_rsi: Nara/LLM \u2014 calls L3169\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3170": "# a_bgt_rsi: Nara/LLM \u2014 calls L3170\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3171": "# a_bgt_rsi: Nara/LLM \u2014 calls L3171\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3172": "# a_bgt_rsi: Nara/LLM \u2014 calls L3172\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3173": "# a_bgt_rsi: Nara/LLM \u2014 calls L3173\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3174": "# a_bgt_rsi: Nara/LLM \u2014 calls L3174\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3175": "# a_bgt_rsi: Nara/LLM \u2014 calls L3175\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3176": "# a_bgt_rsi: Nara/LLM \u2014 calls L3176\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3177": "# a_bgt_rsi: Nara/LLM \u2014 calls L3177\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3178": "# a_bgt_rsi: Nara/LLM \u2014 calls L3178\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3179": "# a_bgt_rsi: Nara/LLM \u2014 calls L3179\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3180": "# a_bgt_rsi: Nara/LLM \u2014 calls L3180\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3181": "# a_bgt_rsi: Nara/LLM \u2014 calls L3181\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3182": "# a_bgt_rsi: Nara/LLM \u2014 calls L3182\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3183": "# a_bgt_rsi: Nara/LLM \u2014 calls L3183\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3184": "# a_bgt_rsi: Nara/LLM \u2014 calls L3184\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3185": "# a_bgt_rsi: Nara/LLM \u2014 calls L3185\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3186": "# a_bgt_rsi: Nara/LLM \u2014 calls L3186\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3187": "# a_bgt_rsi: Nara/LLM \u2014 calls L3187\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3188": "# a_bgt_rsi: Nara/LLM \u2014 calls L3188\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3189": "# a_bgt_rsi: Nara/LLM \u2014 calls L3189\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3190": "# a_bgt_rsi: Nara/LLM \u2014 calls L3190\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3191": "# a_bgt_rsi: Nara/LLM \u2014 calls L3191\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3192": "# a_bgt_rsi: Nara/LLM \u2014 calls L3192\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3193": "# a_bgt_rsi: Nara/LLM \u2014 calls L3193\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3194": "# a_bgt_rsi: Nara/LLM \u2014 calls L3194\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3195": "# a_bgt_rsi: Nara/LLM \u2014 calls L3195\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3196": "# a_bgt_rsi: Nara/LLM \u2014 calls L3196\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3197": "# a_bgt_rsi: Nara/LLM \u2014 calls L3197\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3198": "# a_bgt_rsi: Nara/LLM \u2014 calls L3198\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3199": "# a_bgt_rsi: Nara/LLM \u2014 calls L3199\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3200": "# a_bgt_rsi: Nara/LLM \u2014 calls L3200\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3201": "# a_bgt_rsi: Nara/LLM \u2014 calls L3201\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3202": "# a_bgt_rsi: Nara/LLM \u2014 calls L3202\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3203": "# a_bgt_rsi: Nara/LLM \u2014 calls L3203\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3204": "# a_bgt_rsi: Nara/LLM \u2014 calls L3204\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3205": "# a_bgt_rsi: Nara/LLM \u2014 calls L3205\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3206": "# a_bgt_rsi: Nara/LLM \u2014 calls L3206\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3207": "# a_bgt_rsi: Nara/LLM \u2014 calls L3207\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3208": "# a_bgt_rsi: Nara/LLM \u2014 calls L3208\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3209": "# a_bgt_rsi: Nara/LLM \u2014 calls L3209\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3210": "# a_bgt_rsi: Nara/LLM \u2014 calls L3210\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3211": "# a_bgt_rsi: Nara/LLM \u2014 calls L3211\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3212": "# a_bgt_rsi: Nara/LLM \u2014 calls L3212\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3213": "# a_bgt_rsi: Nara/LLM \u2014 calls L3213\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3214": "# a_bgt_rsi: Nara/LLM \u2014 calls L3214\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3215": "# a_bgt_rsi: Nara/LLM \u2014 calls L3215\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3216": "# a_bgt_rsi: Nara/LLM \u2014 calls L3216\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3217": "# a_bgt_rsi: Nara/LLM \u2014 calls L3217\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3218": "# a_bgt_rsi: Nara/LLM \u2014 calls L3218\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3219": "# a_bgt_rsi: Nara/LLM \u2014 calls L3219\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3220": "# a_bgt_rsi: Nara/LLM \u2014 calls L3220\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-worker_activity-l522": "# unknown_apparatus \u2014 worker_activity L522\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:47.897431Z\", \"run_id\": null, \"task_id\": \"t\", \"tokens_generated\": 3, \"tokens_target\": 3, \"tok_per_s\": 159573.25301562925}\n",
+    "apparatus-worker_activity-l523": "# unknown_apparatus \u2014 worker_activity L523\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:47.914149Z\", \"run_id\": null, \"task_id\": \"t\", \"tokens_generated\": 2, \"tokens_target\": 2, \"tok_per_s\": 107943.58480987207}\n",
+    "apparatus-worker_activity-l524": "# unknown_apparatus \u2014 worker_activity L524\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.088133Z\", \"run_id\": null, \"task_id\": \"t/single\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 164646.45004983517}\n",
+    "apparatus-worker_activity-l525": "# unknown_apparatus \u2014 worker_activity L525\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.088939Z\", \"run_id\": null, \"task_id\": \"t/two_turn\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 55309.88317227454}\n",
+    "apparatus-worker_activity-l526": "# unknown_apparatus \u2014 worker_activity L526\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.089114Z\", \"run_id\": null, \"task_id\": \"t/two_turn\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 317581.1369417332}\n",
+    "apparatus-worker_activity-l527": "# unknown_apparatus \u2014 worker_activity L527\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.089840Z\", \"run_id\": null, \"task_id\": \"t/ctx\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 249800.34989763633}\n",
+    "apparatus-worker_activity-l528": "# unknown_apparatus \u2014 worker_activity L528\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.090022Z\", \"run_id\": null, \"task_id\": \"t/ctx\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 327230.6171334532}\n",
+    "apparatus-worker_activity-l529": "# unknown_apparatus \u2014 worker_activity L529\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.090870Z\", \"run_id\": null, \"task_id\": \"t/bad_json\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 253450.21220346986}\n",
+    "apparatus-worker_activity-l530": "# unknown_apparatus \u2014 worker_activity L530\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.091420Z\", \"run_id\": null, \"task_id\": \"t/bad_args\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 261728.65911029858}\n",
+    "apparatus-worker_activity-l531": "# unknown_apparatus \u2014 worker_activity L531\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.092023Z\", \"run_id\": null, \"task_id\": \"t/hallucinated\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 272689.4108086144}\n",
+    "apparatus-worker_activity-l532": "# unknown_apparatus \u2014 worker_activity L532\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.092551Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 258477.6062203606}\n",
+    "apparatus-worker_activity-l533": "# unknown_apparatus \u2014 worker_activity L533\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.092711Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 350724.09733790625}\n",
+    "apparatus-worker_activity-l534": "# unknown_apparatus \u2014 worker_activity L534\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.092868Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 360449.1000033569}\n",
+    "apparatus-worker_activity-l535": "# unknown_apparatus \u2014 worker_activity L535\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.094020Z\", \"run_id\": null, \"task_id\": \"t/file\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 269628.5623885694}\n",
+    "apparatus-worker_activity-l536": "# unknown_apparatus \u2014 worker_activity L536\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.094195Z\", \"run_id\": null, \"task_id\": \"t/file\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 366352.254938756}\n",
+    "apparatus-worker_activity-l537": "# unknown_apparatus \u2014 worker_activity L537\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.095058Z\", \"run_id\": null, \"task_id\": \"t/none\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 54536.49714300226}\n",
+    "apparatus-worker_activity-l538": "# unknown_apparatus \u2014 worker_activity L538\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.095679Z\", \"run_id\": null, \"task_id\": \"t/default\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 57234.179472828546}\n",
+    "apparatus-worker_activity-l539": "# unknown_apparatus \u2014 worker_activity L539\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.096291Z\", \"run_id\": null, \"task_id\": \"t/empty\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 57025.96123001753}\n",
+    "apparatus-worker_activity-l540": "# unknown_apparatus \u2014 worker_activity L540\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.096823Z\", \"run_id\": null, \"task_id\": \"t/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 54729.6918293491}\n",
+    "apparatus-worker_activity-l541": "# unknown_apparatus \u2014 worker_activity L541\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.099555Z\", \"run_id\": null, \"task_id\": \"t/file/none\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 53878.359375784035}\n",
+    "apparatus-worker_activity-l542": "# unknown_apparatus \u2014 worker_activity L542\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.099713Z\", \"run_id\": null, \"task_id\": \"t/file/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 74317.6788482835}\n",
+    "apparatus-worker_activity-l543": "# unknown_apparatus \u2014 worker_activity L543\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:21:50.100474Z\", \"run_id\": null, \"task_id\": \"t/legacy\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 38916.37939907941}\n",
+    "apparatus-calls-l3221": "# a_bgt_rsi: Nara/LLM \u2014 calls L3221\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3222": "# a_bgt_rsi: Nara/LLM \u2014 calls L3222\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3223": "# a_bgt_rsi: Nara/LLM \u2014 calls L3223\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3224": "# a_bgt_rsi: Nara/LLM \u2014 calls L3224\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3225": "# a_bgt_rsi: Nara/LLM \u2014 calls L3225\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3226": "# a_bgt_rsi: Nara/LLM \u2014 calls L3226\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3227": "# a_bgt_rsi: Nara/LLM \u2014 calls L3227\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3228": "# a_bgt_rsi: Nara/LLM \u2014 calls L3228\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3229": "# a_bgt_rsi: Nara/LLM \u2014 calls L3229\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3230": "# a_bgt_rsi: Nara/LLM \u2014 calls L3230\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3231": "# a_bgt_rsi: Nara/LLM \u2014 calls L3231\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3232": "# a_bgt_rsi: Nara/LLM \u2014 calls L3232\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3233": "# a_bgt_rsi: Nara/LLM \u2014 calls L3233\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3234": "# a_bgt_rsi: Nara/LLM \u2014 calls L3234\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3235": "# a_bgt_rsi: Nara/LLM \u2014 calls L3235\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3236": "# a_bgt_rsi: Nara/LLM \u2014 calls L3236\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3237": "# a_bgt_rsi: Nara/LLM \u2014 calls L3237\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3238": "# a_bgt_rsi: Nara/LLM \u2014 calls L3238\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3239": "# a_bgt_rsi: Nara/LLM \u2014 calls L3239\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3240": "# a_bgt_rsi: Nara/LLM \u2014 calls L3240\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3241": "# a_bgt_rsi: Nara/LLM \u2014 calls L3241\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3242": "# a_bgt_rsi: Nara/LLM \u2014 calls L3242\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3243": "# a_bgt_rsi: Nara/LLM \u2014 calls L3243\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3244": "# a_bgt_rsi: Nara/LLM \u2014 calls L3244\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3245": "# a_bgt_rsi: Nara/LLM \u2014 calls L3245\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3246": "# a_bgt_rsi: Nara/LLM \u2014 calls L3246\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3247": "# a_bgt_rsi: Nara/LLM \u2014 calls L3247\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3248": "# a_bgt_rsi: Nara/LLM \u2014 calls L3248\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3249": "# a_bgt_rsi: Nara/LLM \u2014 calls L3249\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3250": "# a_bgt_rsi: Nara/LLM \u2014 calls L3250\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3251": "# a_bgt_rsi: Nara/LLM \u2014 calls L3251\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3252": "# a_bgt_rsi: Nara/LLM \u2014 calls L3252\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3253": "# a_bgt_rsi: Nara/LLM \u2014 calls L3253\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3254": "# a_bgt_rsi: Nara/LLM \u2014 calls L3254\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3255": "# a_bgt_rsi: Nara/LLM \u2014 calls L3255\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3256": "# a_bgt_rsi: Nara/LLM \u2014 calls L3256\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3257": "# a_bgt_rsi: Nara/LLM \u2014 calls L3257\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3258": "# a_bgt_rsi: Nara/LLM \u2014 calls L3258\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3259": "# a_bgt_rsi: Nara/LLM \u2014 calls L3259\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3260": "# a_bgt_rsi: Nara/LLM \u2014 calls L3260\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3261": "# a_bgt_rsi: Nara/LLM \u2014 calls L3261\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3262": "# a_bgt_rsi: Nara/LLM \u2014 calls L3262\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3263": "# a_bgt_rsi: Nara/LLM \u2014 calls L3263\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3264": "# a_bgt_rsi: Nara/LLM \u2014 calls L3264\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3265": "# a_bgt_rsi: Nara/LLM \u2014 calls L3265\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3266": "# a_bgt_rsi: Nara/LLM \u2014 calls L3266\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3267": "# a_bgt_rsi: Nara/LLM \u2014 calls L3267\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3268": "# a_bgt_rsi: Nara/LLM \u2014 calls L3268\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3269": "# a_bgt_rsi: Nara/LLM \u2014 calls L3269\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3270": "# a_bgt_rsi: Nara/LLM \u2014 calls L3270\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3271": "# a_bgt_rsi: Nara/LLM \u2014 calls L3271\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3272": "# a_bgt_rsi: Nara/LLM \u2014 calls L3272\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3273": "# a_bgt_rsi: Nara/LLM \u2014 calls L3273\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3274": "# a_bgt_rsi: Nara/LLM \u2014 calls L3274\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-worker_activity-l544": "# unknown_apparatus \u2014 worker_activity L544\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:15.453230Z\", \"run_id\": null, \"task_id\": \"t\", \"tokens_generated\": 3, \"tokens_target\": 3, \"tok_per_s\": 176052.11083784228}\n",
+    "apparatus-worker_activity-l545": "# unknown_apparatus \u2014 worker_activity L545\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:15.467423Z\", \"run_id\": null, \"task_id\": \"t\", \"tokens_generated\": 2, \"tokens_target\": 2, \"tok_per_s\": 97581.8443222611}\n",
+    "apparatus-worker_activity-l546": "# unknown_apparatus \u2014 worker_activity L546\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.863040Z\", \"run_id\": null, \"task_id\": \"t/single\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 169560.49332806948}\n",
+    "apparatus-worker_activity-l547": "# unknown_apparatus \u2014 worker_activity L547\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.863757Z\", \"run_id\": null, \"task_id\": \"t/two_turn\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 231824.56203985578}\n",
+    "apparatus-worker_activity-l548": "# unknown_apparatus \u2014 worker_activity L548\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.863922Z\", \"run_id\": null, \"task_id\": \"t/two_turn\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 329986.11635268445}\n",
+    "apparatus-worker_activity-l549": "# unknown_apparatus \u2014 worker_activity L549\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.864687Z\", \"run_id\": null, \"task_id\": \"t/ctx\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 267552.53264228045}\n",
+    "apparatus-worker_activity-l550": "# unknown_apparatus \u2014 worker_activity L550\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.864863Z\", \"run_id\": null, \"task_id\": \"t/ctx\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 355920.7849376823}\n",
+    "apparatus-worker_activity-l551": "# unknown_apparatus \u2014 worker_activity L551\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.865641Z\", \"run_id\": null, \"task_id\": \"t/bad_json\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 241501.95092328108}\n",
+    "apparatus-worker_activity-l552": "# unknown_apparatus \u2014 worker_activity L552\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.866228Z\", \"run_id\": null, \"task_id\": \"t/bad_args\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 280518.8034589963}\n",
+    "apparatus-worker_activity-l553": "# unknown_apparatus \u2014 worker_activity L553\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.866795Z\", \"run_id\": null, \"task_id\": \"t/hallucinated\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 282296.19939005154}\n",
+    "apparatus-worker_activity-l554": "# unknown_apparatus \u2014 worker_activity L554\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.867315Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 256569.13357228195}\n",
+    "apparatus-worker_activity-l555": "# unknown_apparatus \u2014 worker_activity L555\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.867473Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 283833.41897964576}\n",
+    "apparatus-worker_activity-l556": "# unknown_apparatus \u2014 worker_activity L556\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.867628Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 434625.308237199}\n",
+    "apparatus-worker_activity-l557": "# unknown_apparatus \u2014 worker_activity L557\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.869129Z\", \"run_id\": null, \"task_id\": \"t/file\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 255939.22341668056}\n",
+    "apparatus-worker_activity-l558": "# unknown_apparatus \u2014 worker_activity L558\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.869315Z\", \"run_id\": null, \"task_id\": \"t/file\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 364239.5685063944}\n",
+    "apparatus-worker_activity-l559": "# unknown_apparatus \u2014 worker_activity L559\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.870197Z\", \"run_id\": null, \"task_id\": \"t/none\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 56153.63982951128}\n",
+    "apparatus-worker_activity-l560": "# unknown_apparatus \u2014 worker_activity L560\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.870802Z\", \"run_id\": null, \"task_id\": \"t/default\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 61155.73538373914}\n",
+    "apparatus-worker_activity-l561": "# unknown_apparatus \u2014 worker_activity L561\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.871354Z\", \"run_id\": null, \"task_id\": \"t/empty\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 60153.603585434175}\n",
+    "apparatus-worker_activity-l562": "# unknown_apparatus \u2014 worker_activity L562\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.871933Z\", \"run_id\": null, \"task_id\": \"t/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 64299.76789029283}\n",
+    "apparatus-worker_activity-l563": "# unknown_apparatus \u2014 worker_activity L563\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.874129Z\", \"run_id\": null, \"task_id\": \"t/file/none\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 54872.333605887165}\n",
+    "apparatus-worker_activity-l564": "# unknown_apparatus \u2014 worker_activity L564\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.874325Z\", \"run_id\": null, \"task_id\": \"t/file/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 71266.83861547141}\n",
+    "apparatus-worker_activity-l565": "# unknown_apparatus \u2014 worker_activity L565\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:23:16.875087Z\", \"run_id\": null, \"task_id\": \"t/legacy\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 59523.35628360774}\n",
+    "apparatus-calls-l3275": "# a_bgt_rsi: Nara/LLM \u2014 calls L3275\n\n_Hypothesis:\nThe observed deviation from equilibrium in active-run hero protocols occurs because the computational complexity of the equilibrium exceeds the agent's bounded rationality threshold, despite the mechanism remaining incentive com\u2026_\n\n**Did:** {\n  \"skeptic_class\": \"novel\",\n  \"skeptic_rationale\": \"The hypothesis proposes a specific causal link between computational complexity and bounded rationality in 'active-run hero protocols' (likely referring to specific agentic workflows), which is not addressed by the retrieved literature. While the\u2026\n\n**Observed:** latency=2976ms tokens_in=2286 tokens_out=123 model=gemma-4-26b-a4b\n",
+    "apparatus-worker_activity-l566": "# unknown_apparatus \u2014 worker_activity L566\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T04:24:28.648985Z\", \"run_id\": null, \"task_id\": \"novelty_skeptic\", \"tokens_generated\": 123, \"tokens_target\": 512, \"tok_per_s\": 41.33525453265117}\n",
+    "runlog-derisk-beta-integration-verify-gate-l1006": "# a_bgt_rsi: Nara \u2014 week1.run L1006\n\n_guard wired + refuses arm C; skeptic max_tokens raised; tests green for all touched/adjacent code; real smoke passes; no regressions from this change_\n\n**Did:** Integrated the 2 verified workflow artifacts + 2 small spine/worker edits. (1) wired preflight_mem.sh into serve_qat.sh cmd_up (hard-gate before real launch, advisory on --dry-run; arm B need=16, C=56); verified: `up C --dry-run` now prints\u2026\n\n**Observed:** status=passed day= duration_ms=None fallback=None\n",
+    "correction-exp008-armc-gb10-unified-mem-oom-2026-06-09": "# Correction \u2014 do not launch a 2nd large model (arm C, ~48GiB) alongside production gemma on the GB10's shared unified memory; the util cap is not enough\n\n_apparatus correction (a_bgt_rsi exp008 / GB10 OOM)_\n\n**Intent:** Run exp008 arm C (unquantized 26B QAT, ~48GiB) live on the DGX Spark (GB10, ~121GiB UNIFIED memory) alongside the resident production gemma :8000 (~48GiB) and qwen, to get a real QAT-vs-NVFP4 verdict (D-039).\n\n**Did:** First live attempt OOM-crashed the :8002 arm at startup (no --gpu-memory-utilization cap -> vLLM grabbed ~90%); hardened in consumer commit 3b53380 by adding --gpu-memory-utilization 0.5 and shrinking --max-model-len 32768->8192. Retried at util 0.46. The retry still thrashed the box: unified memory feeds GPU AND OS, so a 2nd ~48GiB model starved the OS -> SSH + UI tracking went down ~13:40-16:20; the kernel OOM-killed the qat-eval-scratch container.\n\n**Observed:** Box recovered with no reboot (24-day uptime held); production :8000 stayed healthy, GPU clean, ~67GiB free afterward. But the run was unsafe: a --gpu-memory-utilization cap alone does NOT make arm C safe on shared unified memory, because the cap governs the GPU fraction while the OS draws from the same pool. The util 0.46 guidance was too aggressive. arm C is abandoned on this box (run-log task exp008_armC_unified_mem_freeze_incident, week1.run.jsonl L1002, status=recovered).\n\n**Would do differently:** On a unified-memory box already hosting a large production model, do not co-locate a second comparably-sized model. Use a smaller arm (arm B, ~15GiB gguf), pause production first, move to a dedicated-GPU box, or SHELVE D-039. Add a serve_qat.sh pre-flight free-memory guard that refuses launch below (arm-need + OS margin) before any retry. Treat a util-fraction cap as necessary-not-sufficient on shared memory.\n\n**Corrections honored:** consumer inviolate rule 4 (validations never silently coerced / error-as-zero), D-040 unattended-Nara autonomy MUST NOT touch inviolate pins/guardrails\n\n## Links\n\n- **derived_from** \u2192 `runlog-exp008-armc-unified-mem-freeze-incident-l1002` (run_log_entry)\n- **derived_from** \u2192 `runlog-exp008-first-live-run-triage-l1001` (run_log_entry)\n\n## Referenced by\n\n- `agent-claude-code-main` (agent) \u2014 **authored**\n",
+    "reflection-exp008-error-as-zero-insufficient-2026-06-09": "# Reflection \u2014 an errored eval-worker call is not a measurement; scoring it 0 fabricates a verdict (rule 4). Emit decision rows only for genuinely served calls -> down arm reads honest INSUFFICIENT\n\n_apparatus lesson (a_bgt_rsi exp008 error-as-zero)_\n\n**Intent:** Make the exp008 eval drivers honest under infra failure: when an arm endpoint is down, the eval must not let an APIConnectionError masquerade as a quality signal.\n\n**Did:** Reviewed the first live arm-C run: the :8002 container OOM'd, so all 10 qat novelty calls errored, eval_novelty silently scored them predicted=unclear -> agreement 0.0 and emitted 0-valued metric rows; had toolcall also produced 0s, analyze would have emitted a FALSE H0 ('QAT regressed') from a dead container. Fix landed in consumer commit 3b53380: both eval_novelty + eval_toolcall now emit analyze decision rows ONLY for genuinely served calls (status==passed); an errored call is recorded in the audit row but not scored, and eval_toolcall no longer crashes the whole run on one failed call. +2 tests assert errored calls produce no metric row; suite -> 766.\n\n**Observed:** An arm that errors enough now drops below min_sample (10) -> analyze returns honest INSUFFICIENT ('could not measure this arm') instead of a fabricated regression. On the actual run, pin read novelty agreement 0.8 while qat was correctly INSUFFICIENT. This is consumer inviolate rule 4 (never coerce a failure into a pass/fail value) applied at the metric-emission layer, not just the validation layer.\n\n**Would do differently:** none on the fix. Generalize the pattern: any eval/aggregation that turns a worker error into a numeric 0 is an error-as-zero bug; the worker's served/errored status must gate metric emission everywhere, and a below-min_sample arm must surface as INSUFFICIENT rather than a low score.\n\n**Corrections honored:** consumer inviolate rule 4 (validations never silently coerced / error-as-zero)\n\n## Links\n\n- **derived_from** \u2192 `runlog-exp008-first-live-run-triage-l1001` (run_log_entry)\n\n## Referenced by\n\n- `agent-claude-code-main` (agent) \u2014 **authored**\n",
     "dec-fw-2026-05-18-agent-system-scaffolded": "# 2026-05-18 \u2014 Agent system scaffolded\n\n_framework decision_\n\n**Decision:** Created a portable agent framework (skills + file memory) authored\nto the Agent Skills standard, runnable in both Pi and Claude Code via symlinks.\nAdopted a curated, research-tuned subset of gstack rather than the full\nproduct-oriented framework.\n**Why:** Target harness is Pi; current harness is Claude Code; the project\n(`autoresearch`) is an ML/research pipeline with no product-UI dimension, so\ngstack's CEO/design/QA-browser roles do not apply.\n**Supersedes:** none\n",
     "dec-fw-2026-05-18-added-execution-discipline-skills": "# 2026-05-18 \u2014 Added execution-discipline skills\n\n_framework decision_\n\n**Decision:** Added 4 skills \u2014 `gate-check`, `validate`, `run-log`,\n`resume-state` \u2014 and adapted `experiment` (autonomous loop section) and\n`plan-research` (design-vs-execute pointer).\n**Why:** Explored the primary consumer `/home/decross1/projects/a_bgt_rsi` \u2014 a\ncontract-governed, plan-driven research program (authoritative `plan.yaml`,\nstate-file resume, blocking human gates, JSONL run log, validations never\ncoerced). The original gstack-derived skills were a design/ship loop and did\nnot cover plan-execution discipline, which is this project's core need. The\ngstack safety roles (`/careful`/`/freeze`/`/guard`) dropped on 2026-05-18 are,\nreframed, exactly this gap. Skills stay general-purpose.\n**Supersedes:** partially revises the 2026-05-18 scaffold decision's skill set.\n",
     "dec-fw-2026-05-18-scope-boundary-dev-time-vs-project-runtime": "# 2026-05-18 \u2014 Scope boundary: dev-time vs project-runtime\n\n_framework decision_\n\n**Decision:** Established that this framework is a dev-time harness only; its\nskills must not be loaded into any project's runtime agent. Added `BOUNDARY.md`\nand a `## Scope boundary` section to `AGENTS.md` / `README.md`.\n**Why:** Explored `a_bgt_rsi`'s architecture \u2014 its runtime orchestrator (Gemma 4\n+ OpenClaw + NemoClaw) also runs on Pi. With the dev skills installed globally\nin `~/.pi/agent/skills/`, the apparatus runtime could inherit them. The two\n\"orchestrators\" (dev-time and apparatus-runtime) must stay separate.\n**Supersedes:** none\n",
@@ -20406,9 +20476,9 @@ window.BRAIN_GRAPH = {
     "skill-slip-ladder": "# slip-ladder \u2014 Layer B / core\n\n_dev-time_\n\n**Layer:** B\n\n**Pack:** core\n\n**Runtime safety:** dev-time\n\n**Description:** Declare a bounded sequence of deadline extensions when a task is on the right approach but not finishing inside its time budget. Use when [[fallback]] does not fit because there is no alternative approach to switch to \u2014 only \"more time, same approach, with a stated cap\". Each slip is logged; the cap is real; resolution criterion is declared upfront.\n\n## Referenced by\n\n- `proposal-p-003` (proposal) \u2014 **targets**\n",
     "skill-spawn-contract": "# spawn-contract \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Spawn an autonomous child agent under an explicit, bounded contract. Use when a parent agent (dev-time or runtime) hands a task to a child that will execute without a human in the loop \u2014 captures task statement, done-condition, skill subset, authority cap, budget, self-gating rules, reporting format, and escalation path into one durable record before the child is launched.\n\n## Referenced by\n\n- `proposal-p-004` (proposal) \u2014 **targets**\n",
     "skill-validate": "# validate \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Run a validation as a set of independent pass/fail checks. Use when a task or experiment defines explicit success criteria \u2014 checks each signal separately, reports pass or fail honestly, and never coerces a near-miss into a pass.\n\n## Referenced by\n\n- `harvest-h002-l10` (harvest_finding) \u2014 **about**\n- `harvest-h002-l11` (harvest_finding) \u2014 **about**\n- `harvest-h002-l12` (harvest_finding) \u2014 **about**\n- `harvest-h003-l26` (harvest_finding) \u2014 **about**\n- `harvest-h003-l27` (harvest_finding) \u2014 **about**\n- `harvest-h007-l39` (harvest_finding) \u2014 **about**\n- `spawn-sp-001` (spawn) \u2014 **uses**\n- `spawn-sp-002` (spawn) \u2014 **uses**\n",
-    "agent-nara": "# Agent \u2014 nara\n\n_4150 narratives across 15 raw label(s)_\n\n**Canonical agent id:** `nara`\n\n**Raw labels seen in narratives:** nara, nara.run_iteration, nara:loop_v0_fallback, nara:loop_v0_iteration_complete, nara:loop_v0_iteration_failed, nara:loop_v0_iteration_start, nara:loop_v0_ml_intern, nara:loop_v0_redteam_retry, nara:loop_v0_reprompt, nara:loop_v0_tool_dispatch, nara:loop_v0_tool_receipt, orchestrator:orchestrator_dispatch, orchestrator:orchestrator_receipt, orchestrator:orchestrator_reject, orchestrator:worker_invocation\n\n**Total narratives:** 4150\n\n**First seen:** 2026-05-17\n\n## Links\n\n- **ran** \u2192 `iter-2026-05-26-001` (iteration)\n- **ran** \u2192 `iter-2026-05-26-002` (iteration)\n- **ran** \u2192 `iter-2026-05-26-003` (iteration)\n- **ran** \u2192 `iter-2026-05-26-004` (iteration)\n- **ran** \u2192 `iter-2026-05-26-005` (iteration)\n- **ran** \u2192 `iter-2026-05-26-006` (iteration)\n- **ran** \u2192 `iter-2026-05-26-007` (iteration)\n- **ran** \u2192 `iter-2026-05-26-008` (iteration)\n- **ran** \u2192 `iter-2026-05-26-009` (iteration)\n- **ran** \u2192 `iter-2026-05-26-010` (iteration)\n- **ran** \u2192 `iter-2026-05-26-011` (iteration)\n- **ran** \u2192 `iter-2026-05-27-001` (iteration)\n- **ran** \u2192 `iter-2026-05-27-002` (iteration)\n- **ran** \u2192 `iter-2026-05-27-003` (iteration)\n- **ran** \u2192 `iter-2026-05-27-004` (iteration)\n- **ran** \u2192 `iter-2026-05-27-005` (iteration)\n- **ran** \u2192 `iter-2026-05-27-006` (iteration)\n- **ran** \u2192 `iter-2026-05-27-007` (iteration)\n- **ran** \u2192 `iter-2026-05-27-008` (iteration)\n- **ran** \u2192 `iter-2026-05-27-009` (iteration)\n- **ran** \u2192 `iter-2026-05-27-010` (iteration)\n- **ran** \u2192 `iter-2026-05-27-011` (iteration)\n- **ran** \u2192 `iter-2026-05-27-012` (iteration)\n- **ran** \u2192 `iter-2026-05-27-013` (iteration)\n- **ran** \u2192 `iter-2026-05-27-014` (iteration)\n- **ran** \u2192 `iter-2026-05-27-015` (iteration)\n- **ran** \u2192 `iter-2026-05-27-016` (iteration)\n- **ran** \u2192 `iter-2026-05-27-017` (iteration)\n- **ran** \u2192 `iter-2026-05-27-018` (iteration)\n- **ran** \u2192 `iter-2026-05-27-019` (iteration)\n- **ran** \u2192 `iter-2026-05-27-020` (iteration)\n- **ran** \u2192 `iter-2026-05-27-021` (iteration)\n- **ran** \u2192 `iter-2026-05-27-022` (iteration)\n- **ran** \u2192 `iter-2026-05-27-023` (iteration)\n- **ran** \u2192 `iter-2026-05-27-024` (iteration)\n- **ran** \u2192 `iter-2026-05-27-025` (iteration)\n- **ran** \u2192 `iter-2026-05-27-026` (iteration)\n- **ran** \u2192 `iter-2026-05-27-027` (iteration)\n- **ran** \u2192 `iter-2026-05-27-028` (iteration)\n- **ran** \u2192 `iter-2026-06-05-001` (iteration)\n- **ran** \u2192 `iter-2026-06-05-002` (iteration)\n- **ran** \u2192 `iter-2026-06-05-003` (iteration)\n- **ran** \u2192 `iter-2026-06-05-004` (iteration)\n- **ran** \u2192 `iter-2026-06-05-005` (iteration)\n- **ran** \u2192 `iter-2026-06-05-006` (iteration)\n- **ran** \u2192 `iter-2026-06-06-001` (iteration)\n- **ran** \u2192 `iter-2026-06-08-001` (iteration)\n",
+    "agent-nara": "# Agent \u2014 nara\n\n_4261 narratives across 15 raw label(s)_\n\n**Canonical agent id:** `nara`\n\n**Raw labels seen in narratives:** nara, nara.run_iteration, nara:loop_v0_fallback, nara:loop_v0_iteration_complete, nara:loop_v0_iteration_failed, nara:loop_v0_iteration_start, nara:loop_v0_ml_intern, nara:loop_v0_redteam_retry, nara:loop_v0_reprompt, nara:loop_v0_tool_dispatch, nara:loop_v0_tool_receipt, orchestrator:orchestrator_dispatch, orchestrator:orchestrator_receipt, orchestrator:orchestrator_reject, orchestrator:worker_invocation\n\n**Total narratives:** 4261\n\n**First seen:** 2026-05-17\n\n## Links\n\n- **ran** \u2192 `iter-2026-05-26-001` (iteration)\n- **ran** \u2192 `iter-2026-05-26-002` (iteration)\n- **ran** \u2192 `iter-2026-05-26-003` (iteration)\n- **ran** \u2192 `iter-2026-05-26-004` (iteration)\n- **ran** \u2192 `iter-2026-05-26-005` (iteration)\n- **ran** \u2192 `iter-2026-05-26-006` (iteration)\n- **ran** \u2192 `iter-2026-05-26-007` (iteration)\n- **ran** \u2192 `iter-2026-05-26-008` (iteration)\n- **ran** \u2192 `iter-2026-05-26-009` (iteration)\n- **ran** \u2192 `iter-2026-05-26-010` (iteration)\n- **ran** \u2192 `iter-2026-05-26-011` (iteration)\n- **ran** \u2192 `iter-2026-05-27-001` (iteration)\n- **ran** \u2192 `iter-2026-05-27-002` (iteration)\n- **ran** \u2192 `iter-2026-05-27-003` (iteration)\n- **ran** \u2192 `iter-2026-05-27-004` (iteration)\n- **ran** \u2192 `iter-2026-05-27-005` (iteration)\n- **ran** \u2192 `iter-2026-05-27-006` (iteration)\n- **ran** \u2192 `iter-2026-05-27-007` (iteration)\n- **ran** \u2192 `iter-2026-05-27-008` (iteration)\n- **ran** \u2192 `iter-2026-05-27-009` (iteration)\n- **ran** \u2192 `iter-2026-05-27-010` (iteration)\n- **ran** \u2192 `iter-2026-05-27-011` (iteration)\n- **ran** \u2192 `iter-2026-05-27-012` (iteration)\n- **ran** \u2192 `iter-2026-05-27-013` (iteration)\n- **ran** \u2192 `iter-2026-05-27-014` (iteration)\n- **ran** \u2192 `iter-2026-05-27-015` (iteration)\n- **ran** \u2192 `iter-2026-05-27-016` (iteration)\n- **ran** \u2192 `iter-2026-05-27-017` (iteration)\n- **ran** \u2192 `iter-2026-05-27-018` (iteration)\n- **ran** \u2192 `iter-2026-05-27-019` (iteration)\n- **ran** \u2192 `iter-2026-05-27-020` (iteration)\n- **ran** \u2192 `iter-2026-05-27-021` (iteration)\n- **ran** \u2192 `iter-2026-05-27-022` (iteration)\n- **ran** \u2192 `iter-2026-05-27-023` (iteration)\n- **ran** \u2192 `iter-2026-05-27-024` (iteration)\n- **ran** \u2192 `iter-2026-05-27-025` (iteration)\n- **ran** \u2192 `iter-2026-05-27-026` (iteration)\n- **ran** \u2192 `iter-2026-05-27-027` (iteration)\n- **ran** \u2192 `iter-2026-05-27-028` (iteration)\n- **ran** \u2192 `iter-2026-06-05-001` (iteration)\n- **ran** \u2192 `iter-2026-06-05-002` (iteration)\n- **ran** \u2192 `iter-2026-06-05-003` (iteration)\n- **ran** \u2192 `iter-2026-06-05-004` (iteration)\n- **ran** \u2192 `iter-2026-06-05-005` (iteration)\n- **ran** \u2192 `iter-2026-06-05-006` (iteration)\n- **ran** \u2192 `iter-2026-06-06-001` (iteration)\n- **ran** \u2192 `iter-2026-06-08-001` (iteration)\n",
     "agent-day9-critic": "# Agent \u2014 day9_critic\n\n_60 narratives across 21 raw label(s)_\n\n**Canonical agent id:** `day9_critic`\n\n**Raw labels seen in narratives:** day9_critic, day9_critic_001_spurious_causation_pd_length, day9_critic_002_prompt_leakage_cooperation, day9_critic_003_misspecified_payoff, day9_critic_004_sample_size_insufficient, day9_critic_005_post_hoc_rationale, day9_critic_006_overgeneralization, day9_critic_007_selection_bias, day9_critic_008_confounded_treatment, day9_critic_009_measurement_artifact, day9_critic_010_circular_reasoning, day9_critic_011_goodhart, day9_critic_012_regression_to_mean, day9_critic_013_missing_baseline, day9_critic_014_temperature_artifact, day9_critic_015_ungrounded_extrapolation, day9_critic_016_ambiguous_construct, day9_critic_017_publication_threshold, day9_critic_018_anthropomorphic_attribution, day9_critic_019_mis_specified_construct_validity, day9_critic_020_sound_cooperation_lockin\n\n**Total narratives:** 60\n\n**First seen:** 2026-05-25\n",
-    "agent-claude-code-main": "# Agent \u2014 claude-code-main\n\n_15 narratives across 1 raw label(s)_\n\n**Canonical agent id:** `claude-code-main`\n\n**Raw labels seen in narratives:** claude-code-main\n\n**Total narratives:** 15\n\n**First seen:** 2026-05-20\n\n## Links\n\n- **authored** \u2192 `s13-3-author-narrate-skill` (reflection)\n- **authored** \u2192 `hypothesis-day4-tool-call-rate` (reflection)\n- **authored** \u2192 `experiment-day4-tool-call-rate` (reflection)\n- **authored** \u2192 `anomaly-tool-call-100pct` (reflection)\n- **authored** \u2192 `s22-5-narrate-sp-002-lifecycle` (reflection)\n",
+    "agent-claude-code-main": "# Agent \u2014 claude-code-main\n\n_17 narratives across 1 raw label(s)_\n\n**Canonical agent id:** `claude-code-main`\n\n**Raw labels seen in narratives:** claude-code-main\n\n**Total narratives:** 17\n\n**First seen:** 2026-05-20\n\n## Links\n\n- **authored** \u2192 `s13-3-author-narrate-skill` (reflection)\n- **authored** \u2192 `hypothesis-day4-tool-call-rate` (reflection)\n- **authored** \u2192 `experiment-day4-tool-call-rate` (reflection)\n- **authored** \u2192 `anomaly-tool-call-100pct` (reflection)\n- **authored** \u2192 `s22-5-narrate-sp-002-lifecycle` (reflection)\n- **authored** \u2192 `correction-exp008-armc-gb10-unified-mem-oom-2026-06-09` (reflection)\n- **authored** \u2192 `reflection-exp008-error-as-zero-insufficient-2026-06-09` (reflection)\n",
     "agent-human-decross1": "# Agent \u2014 human:decross1\n\n_5 narratives across 1 raw label(s)_\n\n**Canonical agent id:** `human:decross1`\n\n**Raw labels seen in narratives:** human:decross1\n\n**Total narratives:** 5\n\n**First seen:** 2026-05-24\n",
     "spawn-sp-001": "# SP-001 \u2014 count_brain_edges\n\n_status: completed_\n\n**Status:** `completed`\n\n**Parent task:** `s21_5_worked_mock_spawn`\n\n**Child task:** `count_brain_edges`\n\n**Task statement:** Count typed edges in memory/brain/edges.jsonl; report the integer count and the breakdown by edge type.\n\n**Done condition:** Result.child_summary parses as JSON with keys {count:int>=0, by_type:object}; sum(by_type.values()) == count; every key in by_type is in {derived_from, produced, linked_to, falsified_by, supersedes, references}.\n\n**Skill subset:** `validate`, `run-log`\n\n**Authority cap:** Read-only on memory/brain/edges.jsonl. No writes outside its own run-log entry. No network. No shell command other than read.\n\n**Budget:** wall_time=60s iterations=None cost_usd=None\n\n**Done condition check:** `pass`\n\n**Child summary:** {\"count\":5,\"by_type\":{\"derived_from\":1,\"produced\":1,\"falsified_by\":1,\"references\":1,\"linked_to\":1},\"sampled_examples\":[\"experiment-day4-tool-call-rate -derived_from-> hypothesis-day4-tool-call-rate\",\"anomaly-tool-call-100pct <-references- dec-fw-2026-05-24-treat-100-metrics-in-small-n\"]}\n\n## Links\n\n- **uses** \u2192 `skill-validate` (skill)\n- **uses** \u2192 `skill-run-log` (skill)\n",
     "spawn-sp-002": "# SP-002 \u2014 sp_002_skill_frontmatter_audit\n\n_status: completed_\n\n**Status:** `completed`\n\n**Parent task:** `s22_3_real_spawn_launch`\n\n**Child task:** `sp_002_skill_frontmatter_audit`\n\n**Task statement:** For every directory under /home/decross1/projects/agent_system/.agents/skills/, read SKILL.md, parse YAML frontmatter, and return a structured JSON summary of skill metadata.\n\n**Done condition:** Returned text contains a JSON object with keys: total (int), skills (list of objects each with name:str + layer:str + runtime_safe:bool + description_present:bool), non_conformant (list, may be empty). total equals the actual count of skill directories. Every skill object has layer in {A,B,C} and runtime_safe a real bool. non_conformant lists any skill missing required frontmatter fields or with invalid layer/runtime-safe values.\n\n**Skill subset:** `validate`, `run-log`\n\n**Authority cap:** Read-only on /home/decross1/projects/agent_system/.agents/skills/. No writes anywhere (parent will append SP-002 completed entry to spawn.jsonl). No network. No shell command that mutates state (rm/mv/sed -i/edit/write all forbidden); ls/cat/head/grep/python -c read-only fine. Belt-and-suspenders: spawned in worktree isolation so mutations are physically sandboxed.\n\n**Budget:** wall_time=300s iterations=None cost_usd=None\n\n**Done condition check:** `pass`\n\n**Child summary:** {\"total\":18,\"skills\":[{\"name\":\"auto-experiment\",\"layer\":\"B\",\"runtime_safe\":false,\"description_present\":true},{\"name\":\"code-review\",\"layer\":\"B\",\"runtime_safe\":false,\"description_present\":true},{\"name\":\"context-restore\",\"layer\":\"C\",\"runtime_safe\":false,\"description_present\":true},{\"name\":\"context-save\",\"layer\":\"C\",\"runtime_safe\":false,\"description_present\":true},{\"name\":\"decision-log\",\"layer\":\"C\",\"r\n\n## Links\n\n- **uses** \u2192 `skill-validate` (skill)\n- **uses** \u2192 `skill-run-log` (skill)\n"

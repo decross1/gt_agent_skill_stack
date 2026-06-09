@@ -55,13 +55,13 @@ edges:
 
 # Agent — nara
 
-_4150 narratives across 15 raw label(s)_
+_4261 narratives across 15 raw label(s)_
 
 **Canonical agent id:** `nara`
 
 **Raw labels seen in narratives:** nara, nara.run_iteration, nara:loop_v0_fallback, nara:loop_v0_iteration_complete, nara:loop_v0_iteration_failed, nara:loop_v0_iteration_start, nara:loop_v0_ml_intern, nara:loop_v0_redteam_retry, nara:loop_v0_reprompt, nara:loop_v0_tool_dispatch, nara:loop_v0_tool_receipt, orchestrator:orchestrator_dispatch, orchestrator:orchestrator_receipt, orchestrator:orchestrator_reject, orchestrator:worker_invocation
 
-**Total narratives:** 4150
+**Total narratives:** 4261
 
 **First seen:** 2026-05-17
 
