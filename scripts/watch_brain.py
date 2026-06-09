@@ -33,6 +33,7 @@ REPO = Path(__file__).resolve().parent.parent
 CONSUMER = REPO.parent / "a_bgt_rsi"
 INGEST = REPO / "scripts" / "ingest_apparatus.py"
 PROJECT_PAGES = REPO / "scripts" / "project_pages.py"
+PROJECT_SUMMARY = REPO / "scripts" / "project_summary.py"
 RENDER_BRAIN = REPO / "scripts" / "render_brain.py"
 
 # Directories to watch. Globs run relative to each.
@@ -110,11 +111,12 @@ def run_step(cmd: list[str], label: str) -> tuple[bool, str]:
 
 
 def run_pipeline(verbose: bool = False) -> bool:
-    """Run ingest → project_pages → render_brain. Return True if all steps succeed."""
+    """Run ingest → project_pages → project_summary → render_brain. Return True if all steps succeed."""
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     steps = [
         ([sys.executable, str(INGEST)], "ingest"),
         ([sys.executable, str(PROJECT_PAGES)], "project_pages"),
+        ([sys.executable, str(PROJECT_SUMMARY)], "project_summary"),
         ([sys.executable, str(RENDER_BRAIN), "--day", today], "render_brain"),
     ]
     all_ok = True
@@ -200,7 +202,7 @@ def main() -> int:
     )
     args = parser.parse_args()
 
-    if not INGEST.exists() or not PROJECT_PAGES.exists() or not RENDER_BRAIN.exists():
+    if not INGEST.exists() or not PROJECT_PAGES.exists() or not PROJECT_SUMMARY.exists() or not RENDER_BRAIN.exists():
         _log(
             f"error: one of the pipeline scripts is missing under {REPO / 'scripts'}"
         )

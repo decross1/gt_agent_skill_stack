@@ -1,0 +1,2641 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-06-09T05:41:04Z",
+  "repo": "/home/decross1/projects/agent_system",
+  "consumer": "/home/decross1/projects/a_bgt_rsi",
+  "window": {
+    "default_days": 7,
+    "min_days": 1,
+    "max_days": 7,
+    "oldest_event": "2026-05-17",
+    "newest_event": "2026-06-09"
+  },
+  "standing": {
+    "firewall": {
+      "runtime_safe_core": [
+        "fallback",
+        "gate-check",
+        "resume-state",
+        "run-log",
+        "spawn-contract",
+        "validate"
+      ],
+      "runtime_safe_count": 6,
+      "dev_only_count": 18,
+      "violations": [],
+      "status": "intact",
+      "invariant": "apparatus never reads brain; the watcher reads apparatus JSONL only (BOUNDARY.md). The runtime-safe core may be deliberately embedded in a spawned agent; dev-only skills must never be inherited by accident."
+    },
+    "skills": {
+      "rollup": {
+        "total": 24,
+        "runtime_safe": 6,
+        "by_layer": {
+          "A": 6,
+          "B": 13,
+          "C": 5
+        },
+        "referenced": 16,
+        "with_run_log_invocation": 0,
+        "audited_at_head": 18,
+        "audited_in_working_tree": 24,
+        "audit_gap_note": "SP-002 saw 18 skills at HEAD; working tree has 24 (6 uncommitted at audit time \u2014 narrate, brain-recall, propose, review-proposal, slip-ladder, spawn-contract)."
+      }
+    },
+    "attribution_gap": {
+      "agent_populated": 1,
+      "skill_used_populated": 0,
+      "total_run_log_rows": 1144,
+      "consumer_rows": 1007,
+      "framework_rows": 137,
+      "explicit_kinds": [
+        "correction",
+        "anomaly",
+        "proposal_rejected",
+        "skill_friction"
+      ],
+      "inferred_kinds": [
+        "validation_fail",
+        "fallback",
+        "gate_block",
+        "slip"
+      ],
+      "fix_proposal": "P-008",
+      "note": "raw run-log carries agent on 1/1144 rows and skill_used on 0/1144. corrections, anomalies, rejected-proposals, and harvest findings carry an EXPLICIT skill/rule link; run-log-derived flags (validation_fail/fallback/gate_block/slip) are INFERRED from status semantics. P-008 (open, human-gated) adds required `agent` + optional `skill_used` to the consumer run-log \u2014 once it lands these inferred links become explicit and skills get real invocation counts."
+    }
+  },
+  "act1_system": {
+    "agents": [
+      {
+        "name": "auditor",
+        "role": "The dev agent that independently verifies work \u2014 correctness, reproducibility, and project health \u2014 before it is accepted.",
+        "leans_on": [
+          "validate",
+          "repro-check",
+          "health",
+          "gate-check"
+        ],
+        "authored_corrections": [],
+        "activity_count": 0
+      },
+      {
+        "name": "builder",
+        "role": "The dev agent that writes, debugs, and lands code against a plan it was given.",
+        "leans_on": [
+          "investigate",
+          "code-review",
+          "ship"
+        ],
+        "authored_corrections": [],
+        "activity_count": 0
+      },
+      {
+        "name": "experimenter",
+        "role": "The dev agent that runs experiments, logs them traceably, and reports outcomes against a decision rule.",
+        "leans_on": [
+          "experiment",
+          "repro-check",
+          "run-log"
+        ],
+        "authored_corrections": [],
+        "activity_count": 0
+      },
+      {
+        "name": "planner",
+        "role": "The dev agent that decomposes work and designs rigorous, falsifiable plans before any code is written.",
+        "leans_on": [
+          "plan-research",
+          "resume-state",
+          "gate-check"
+        ],
+        "authored_corrections": [],
+        "activity_count": 0
+      }
+    ],
+    "skills": {
+      "by_layer": {
+        "A": [
+          "fallback",
+          "gate-check",
+          "resume-state",
+          "run-log",
+          "spawn-contract",
+          "validate"
+        ],
+        "B": [
+          "auto-experiment",
+          "brain-recall",
+          "code-review",
+          "experiment",
+          "health",
+          "investigate",
+          "narrate",
+          "plan-research",
+          "propose",
+          "repro-check",
+          "review-proposal",
+          "ship",
+          "slip-ladder"
+        ],
+        "C": [
+          "context-restore",
+          "context-save",
+          "decision-log",
+          "harvest",
+          "orchestrate"
+        ]
+      },
+      "rollup": {
+        "total": 24,
+        "runtime_safe": 6,
+        "by_layer": {
+          "A": 6,
+          "B": 13,
+          "C": 5
+        },
+        "referenced": 16,
+        "with_run_log_invocation": 0,
+        "audited_at_head": 18,
+        "audited_in_working_tree": 24,
+        "audit_gap_note": "SP-002 saw 18 skills at HEAD; working tree has 24 (6 uncommitted at audit time \u2014 narrate, brain-recall, propose, review-proposal, slip-ladder, spawn-contract)."
+      },
+      "items": [
+        {
+          "name": "fallback",
+          "layer": "A",
+          "runtime_safe": true,
+          "pack": "core",
+          "purpose": "Select a fallback path when the primary approach fails or exceeds its time budget. Use when a task has a known alternative \u2014 applies a time cap, makes the switch explicit, logs the selection, and never lets a degraded path masquerade as the primary.",
+          "referenced": true,
+          "invoked_evidence": {
+            "harvest_findings": 3,
+            "harvest_friction": 2,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": "2026-05-24"
+          },
+          "referenced_but_not_run": true
+        },
+        {
+          "name": "gate-check",
+          "layer": "A",
+          "runtime_safe": true,
+          "pack": "core",
+          "purpose": "Check for human gates, human-only tasks, and blocking conditions before a consequential action. Use before executing any plan step, irreversible operation, publication, or anything that may need human approval \u2014 it halts and prints rather than proceeding past a gate.",
+          "referenced": true,
+          "invoked_evidence": {
+            "harvest_findings": 7,
+            "harvest_friction": 1,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": "2026-05-25"
+          },
+          "referenced_but_not_run": true
+        },
+        {
+          "name": "resume-state",
+          "layer": "A",
+          "runtime_safe": true,
+          "pack": "core",
+          "purpose": "Resume a plan-driven project from its state file. Use at the start of a session on a project that executes a written plan task-by-task \u2014 reads the plan and state file, finds the first incomplete task, honors pending gates, and briefs before continuing.",
+          "referenced": true,
+          "invoked_evidence": {
+            "harvest_findings": 2,
+            "harvest_friction": 1,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": "2026-05-24"
+          },
+          "referenced_but_not_run": true
+        },
+        {
+          "name": "run-log",
+          "layer": "A",
+          "runtime_safe": true,
+          "pack": "core",
+          "purpose": "Append a structured JSONL entry recording an executed step. Use after running any plan task, experiment, validation, or significant action that should be auditable \u2014 captures timestamp, identity, status, observed vs expected, and duration to an append-only log.",
+          "referenced": true,
+          "invoked_evidence": {
+            "harvest_findings": 8,
+            "harvest_friction": 5,
+            "spawn_subset_uses": 2,
+            "run_log_invocations": 0,
+            "last_seen": "2026-05-25"
+          },
+          "referenced_but_not_run": true
+        },
+        {
+          "name": "spawn-contract",
+          "layer": "A",
+          "runtime_safe": true,
+          "pack": "core",
+          "purpose": "Spawn an autonomous child agent under an explicit, bounded contract. Use when a parent agent (dev-time or runtime) hands a task to a child that will execute without a human in the loop \u2014 captures task statement, done-condition, skill subset, authority cap, budget, self-gating rules, reporting format, and escalation path into one durable record before the child is launched.",
+          "referenced": true,
+          "invoked_evidence": {
+            "harvest_findings": 0,
+            "harvest_friction": 0,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": null
+          },
+          "referenced_but_not_run": true
+        },
+        {
+          "name": "validate",
+          "layer": "A",
+          "runtime_safe": true,
+          "pack": "core",
+          "purpose": "Run a validation as a set of independent pass/fail checks. Use when a task or experiment defines explicit success criteria \u2014 checks each signal separately, reports pass or fail honestly, and never coerces a near-miss into a pass.",
+          "referenced": true,
+          "invoked_evidence": {
+            "harvest_findings": 6,
+            "harvest_friction": 2,
+            "spawn_subset_uses": 2,
+            "run_log_invocations": 0,
+            "last_seen": "2026-05-25"
+          },
+          "referenced_but_not_run": true
+        },
+        {
+          "name": "auto-experiment",
+          "layer": "B",
+          "runtime_safe": false,
+          "pack": "research",
+          "purpose": "Run an autonomous, unattended sequence of experiments under a fixed budget. Use for overnight tuning or search loops \u2014 repeatedly hypothesize, make one change, run within a per-run cap, keep-or-revert by the metric, and log every iteration, with explicit stopping conditions.",
+          "referenced": false,
+          "invoked_evidence": {
+            "harvest_findings": 0,
+            "harvest_friction": 0,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": null
+          },
+          "referenced_but_not_run": false
+        },
+        {
+          "name": "brain-recall",
+          "layer": "B",
+          "runtime_safe": false,
+          "pack": "brain",
+          "purpose": "Query the brain for top-N relevant entries to ground a task in prior corrections, anomalies, and decisions. Use at task start when corrections/lineage matter \u2014 bounded by recency \u00d7 scope \u00d7 token cap. Read-only. Dev-time only; never inherited into an apparatus-runtime skill set.",
+          "referenced": false,
+          "invoked_evidence": {
+            "harvest_findings": 0,
+            "harvest_friction": 0,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": null
+          },
+          "referenced_but_not_run": false
+        },
+        {
+          "name": "code-review",
+          "layer": "B",
+          "runtime_safe": false,
+          "pack": "research",
+          "purpose": "Review code changes before they merge. Use after implementing a change and before opening or landing a PR \u2014 checks correctness, scope, tests, and research-specific risks like silent metric changes or data leakage.",
+          "referenced": true,
+          "invoked_evidence": {
+            "harvest_findings": 1,
+            "harvest_friction": 0,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": "2026-05-21"
+          },
+          "referenced_but_not_run": true
+        },
+        {
+          "name": "experiment",
+          "layer": "B",
+          "runtime_safe": false,
+          "pack": "research",
+          "purpose": "Log a research experiment run so it is traceable and comparable. Use when starting or finishing a training run, evaluation, or ablation \u2014 captures config, seed, data version, code commit, metrics, and artifact location into the experiment ledger.",
+          "referenced": true,
+          "invoked_evidence": {
+            "harvest_findings": 1,
+            "harvest_friction": 1,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": "2026-05-21"
+          },
+          "referenced_but_not_run": true
+        },
+        {
+          "name": "health",
+          "layer": "B",
+          "runtime_safe": false,
+          "pack": "research",
+          "purpose": "Assess overall code and project health. Use for a periodic checkup or when a codebase feels like it is drifting \u2014 surveys tests, structure, dependencies, dead code, and reproducibility hygiene, then reports a prioritized snapshot.",
+          "referenced": true,
+          "invoked_evidence": {
+            "harvest_findings": 0,
+            "harvest_friction": 0,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": null
+          },
+          "referenced_but_not_run": true
+        },
+        {
+          "name": "investigate",
+          "layer": "B",
+          "runtime_safe": false,
+          "pack": "research",
+          "purpose": "Systematically debug a failure, anomaly, or surprising result. Use when something is broken, a metric moved unexpectedly, a test fails intermittently, or a result looks too good or too bad \u2014 drives an evidence-based hypothesis tree instead of guess-and-check.",
+          "referenced": true,
+          "invoked_evidence": {
+            "harvest_findings": 2,
+            "harvest_friction": 0,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": "2026-05-21"
+          },
+          "referenced_but_not_run": true
+        },
+        {
+          "name": "narrate",
+          "layer": "B",
+          "runtime_safe": false,
+          "pack": "brain",
+          "purpose": "Append a human-readable reflection after a task \u2014 intent, what was done, observed deltas, what to do differently, corrections honored. Use after any non-trivial task that [[run-log]] also records \u2014 captures the *why* and the lessons that the run log's structured fields cannot.",
+          "referenced": false,
+          "invoked_evidence": {
+            "harvest_findings": 0,
+            "harvest_friction": 0,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": null
+          },
+          "referenced_but_not_run": false
+        },
+        {
+          "name": "plan-research",
+          "layer": "B",
+          "runtime_safe": false,
+          "pack": "research",
+          "purpose": "Plan a research task with technical rigor before any code is written. Use when starting a new experiment, feature, model change, or investigation that needs a defensible design \u2014 produces a hypothesis, baseline, success metric, and the smallest experiment that could disprove it.",
+          "referenced": true,
+          "invoked_evidence": {
+            "harvest_findings": 0,
+            "harvest_friction": 0,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": null
+          },
+          "referenced_but_not_run": true
+        },
+        {
+          "name": "propose",
+          "layer": "B",
+          "runtime_safe": false,
+          "pack": "brain",
+          "purpose": "File a proposal to improve a brain page, an active rule, or a skill. Use when an agent has identified an improvement worth durable consideration \u2014 not a one-off comment. Appends to `memory/brain/proposals.jsonl`; review is the [[review-proposal]] skill's job, not yours.",
+          "referenced": false,
+          "invoked_evidence": {
+            "harvest_findings": 0,
+            "harvest_friction": 0,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": null
+          },
+          "referenced_but_not_run": false
+        },
+        {
+          "name": "repro-check",
+          "layer": "B",
+          "runtime_safe": false,
+          "pack": "research",
+          "purpose": "Verify a result is reproducible before it is trusted or shipped. Use before adopting an experiment outcome, citing a number, or merging a results-changing diff \u2014 checks seeds, data versions, environment pinning, and run-to-run variance.",
+          "referenced": true,
+          "invoked_evidence": {
+            "harvest_findings": 2,
+            "harvest_friction": 1,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": "2026-05-22"
+          },
+          "referenced_but_not_run": true
+        },
+        {
+          "name": "review-proposal",
+          "layer": "B",
+          "runtime_safe": false,
+          "pack": "brain",
+          "purpose": "Evaluate a [[propose]]'d proposal against active rules and route it to accept, reject, or human-review. Use when there are `open` entries in `memory/brain/proposals.jsonl`. Auto-rejects rule violations; auto-accepts trivial brain-content edits; everything else goes to human review.",
+          "referenced": false,
+          "invoked_evidence": {
+            "harvest_findings": 0,
+            "harvest_friction": 0,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": null
+          },
+          "referenced_but_not_run": false
+        },
+        {
+          "name": "ship",
+          "layer": "B",
+          "runtime_safe": false,
+          "pack": "research",
+          "purpose": "Take a finished change from working code to a merged or PR-ready state. Use after review passes \u2014 runs tests, sanity-checks the diff, writes the commit/PR message, and records the decision.",
+          "referenced": true,
+          "invoked_evidence": {
+            "harvest_findings": 3,
+            "harvest_friction": 2,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": "2026-05-21"
+          },
+          "referenced_but_not_run": true
+        },
+        {
+          "name": "slip-ladder",
+          "layer": "B",
+          "runtime_safe": false,
+          "pack": "core",
+          "purpose": "Declare a bounded sequence of deadline extensions when a task is on the right approach but not finishing inside its time budget. Use when [[fallback]] does not fit because there is no alternative approach to switch to \u2014 only \"more time, same approach, with a stated cap\". Each slip is logged; the cap is real; resolution criterion is declared upfront.",
+          "referenced": true,
+          "invoked_evidence": {
+            "harvest_findings": 0,
+            "harvest_friction": 0,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": null
+          },
+          "referenced_but_not_run": true
+        },
+        {
+          "name": "context-restore",
+          "layer": "C",
+          "runtime_safe": false,
+          "pack": "meta",
+          "purpose": "Restore working context at the start of a session. Use at the beginning of a session or after a context compaction \u2014 reads the saved handoff snapshot, decisions log, and active experiments so work resumes accurately.",
+          "referenced": false,
+          "invoked_evidence": {
+            "harvest_findings": 0,
+            "harvest_friction": 0,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": null
+          },
+          "referenced_but_not_run": false
+        },
+        {
+          "name": "context-save",
+          "layer": "C",
+          "runtime_safe": false,
+          "pack": "meta",
+          "purpose": "Save the current working session to durable memory before ending or switching tasks. Use when wrapping up, hitting a context limit, or pausing work \u2014 writes a handoff snapshot so the next session resumes without re-deriving everything.",
+          "referenced": false,
+          "invoked_evidence": {
+            "harvest_findings": 0,
+            "harvest_friction": 0,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": null
+          },
+          "referenced_but_not_run": false
+        },
+        {
+          "name": "decision-log",
+          "layer": "C",
+          "runtime_safe": false,
+          "pack": "meta",
+          "purpose": "Record a durable decision so its reasoning survives. Use when a non-obvious, hard-to-reverse, or contested choice is made \u2014 captures the decision, the alternatives considered, the rationale, the reversibility, and any supersedes-link as one append-only dated entry.",
+          "referenced": true,
+          "invoked_evidence": {
+            "harvest_findings": 3,
+            "harvest_friction": 1,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": "2026-05-25"
+          },
+          "referenced_but_not_run": true
+        },
+        {
+          "name": "harvest",
+          "layer": "C",
+          "runtime_safe": false,
+          "pack": "meta",
+          "purpose": "Harvest feedback for the framework's own skills from a consumer project's execution trace. Use once per consumer work session \u2014 reads the consumer's run log, git history, and decision log since a stored watermark, classifies each finding against the skill it bears on, and appends to the feedback ledger. Read-only on the consumer.",
+          "referenced": false,
+          "invoked_evidence": {
+            "harvest_findings": 0,
+            "harvest_friction": 0,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": null
+          },
+          "referenced_but_not_run": false
+        },
+        {
+          "name": "orchestrate",
+          "layer": "C",
+          "runtime_safe": false,
+          "pack": "meta",
+          "purpose": "Decompose a larger task and delegate its parts to specialized dev agents. Use when a task spans planning, building, experimenting, and verification \u2014 it splits the work, routes each part to the right agent profile, sequences the hand-offs, and reconciles the results.",
+          "referenced": true,
+          "invoked_evidence": {
+            "harvest_findings": 4,
+            "harvest_friction": 2,
+            "spawn_subset_uses": 0,
+            "run_log_invocations": 0,
+            "last_seen": "2026-05-25"
+          },
+          "referenced_but_not_run": true
+        }
+      ]
+    },
+    "rules": [
+      {
+        "id": "FR-001",
+        "title": "Treat 100% metrics in small-N tests as suspicious-clean",
+        "imperative": "Default to disbelieving small-N clean reads; raise N or soften the prompt before trusting.",
+        "source_decision_date": "2026-05-24",
+        "side": "framework",
+        "enforced_count": 1,
+        "enacted_by": [
+          "dec-fw-2026-05-24-treat-100-metrics-in-small-n"
+        ],
+        "rejected_proposals": [
+          "P-002"
+        ]
+      },
+      {
+        "id": "FR-002",
+        "title": "Reconcile state-file lag against run-log during gate-armed periods",
+        "imperative": "Trust the run log over the state file when they disagree across a gate-armed period.",
+        "source_decision_date": "2026-05-24",
+        "side": "framework",
+        "enforced_count": 0,
+        "enacted_by": [
+          "dec-fw-2026-05-24-reconcile-state-file-lag-against-run-log"
+        ],
+        "rejected_proposals": []
+      },
+      {
+        "id": "FR-003",
+        "title": "run-log schema: agent (required) and skill_used (optional)",
+        "imperative": "Extend the canonical run-log entry shape with two new fields: `agent` (required) \u2014 the entity that ran the step (e.g. `nara`, `claude-code-main`, `human:<id>`); and `skill_used` (optional) \u2014 the framework skill this step is part of (e.g. `validate`, `fallback`), present only when the entry is a skill invocation. Anonymous-by-task-id logs prevent the brain from attributing skill use to a specific actor, which breaks the `harvest \u2192 propose \u2192 rule` self-improvement loop the framework exists to run. Existing entries (137 framework + 281 consumer) are unrewritten \u2014 append-only honored \u2014 and projected via per-file canonicalization at read time (`framework.run.jsonl` \u2192 claude-code-main, `week1.run.jsonl` \u2192 nara, etc.).",
+        "source_decision_date": "2026-05-27",
+        "side": "framework",
+        "enforced_count": 0,
+        "enacted_by": [
+          "dec-fw-2026-05-27-run-log-schema-agent-required-and"
+        ],
+        "rejected_proposals": []
+      }
+    ],
+    "firewall": {
+      "runtime_safe_core": [
+        "fallback",
+        "gate-check",
+        "resume-state",
+        "run-log",
+        "spawn-contract",
+        "validate"
+      ],
+      "runtime_safe_count": 6,
+      "dev_only_count": 18,
+      "violations": [],
+      "status": "intact",
+      "invariant": "apparatus never reads brain; the watcher reads apparatus JSONL only (BOUNDARY.md). The runtime-safe core may be deliberately embedded in a spawned agent; dev-only skills must never be inherited by accident."
+    }
+  },
+  "act2_activity": {
+    "timeline": [
+      {
+        "date": "2026-06-09",
+        "ts": "2026-06-09T04:41:13Z",
+        "kind": "proposal_filed",
+        "id": "P-008",
+        "title": "Adopt run-log `agent` attribution in a_bgt_rsi (reconcile inviolate rule 6) so unattended multi-agent runs are reconstructible",
+        "actor": "claude-code-main",
+        "ref": "proposals.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-06-09",
+        "ts": "2026-06-09T00:00:01Z",
+        "kind": "reflection_written",
+        "id": "reflection-exp008-error-as-zero-insufficient-2026-06-09",
+        "title": "Reflection \u2014 an errored eval-worker call is not a measurement; scoring it 0 fabricates a verdict (rule 4). Emit decision rows only for genuinely served calls -> down arm reads honest INSUFFICIENT",
+        "actor": "claude-code-main",
+        "ref": "narratives.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-06-09",
+        "ts": "2026-06-09T00:00:00Z",
+        "kind": "correction_written",
+        "id": "correction-exp008-armc-gb10-unified-mem-oom-2026-06-09",
+        "title": "Correction \u2014 do not launch a 2nd large model (arm C, ~48GiB) alongside production gemma on the GB10's shared unified memory; the util cap is not enough",
+        "actor": "claude-code-main",
+        "ref": "narratives.jsonl",
+        "verdict": null,
+        "is_flag": true
+      },
+      {
+        "date": "2026-06-09",
+        "ts": "2026-06-09T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-043",
+        "title": "run-log schema bump: `agent` (required) + `skill_used` (optional); inviolate rule 6 amended",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-06-09",
+        "ts": "2026-06-09T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-042",
+        "title": "orchestrate / experiment / repro-check / plan-research are intentionally REFERENCED-ONLY (harvest re-flags resolved)",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-06-09",
+        "ts": "2026-06-09T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-041",
+        "title": "RESERVED (\u03b2 gated on an independent novelty skeptic) \u2014 pending human ratification",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-06-08",
+        "ts": "2026-06-08T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-040",
+        "title": "Unattended Nara autonomy contract (effective at \u03b2; amends the continuous-orchestrator guardrail)",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-06-08",
+        "ts": "2026-06-08T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-039",
+        "title": "Gemma 4 QAT evaluated vs the NVFP4 pin (DRAFT, pending exp008 live run)",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-06-05",
+        "ts": "2026-06-05T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-038",
+        "title": "ML-Intern uses Semantic Scholar for topic-based foundational backfill, scoped distinctly from D-027",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-06-05",
+        "ts": "2026-06-05T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-037",
+        "title": "Authorize Dynamic Workflows; amend D-030's single-session constraint",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-27",
+        "ts": "2026-05-27T00:17:11Z",
+        "kind": "proposal_reviewed",
+        "id": "P-004",
+        "title": "Add `state_basis` field to spawn-contract contract block",
+        "actor": "human:decross1",
+        "ref": "proposals.jsonl",
+        "verdict": "accepted",
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-27",
+        "ts": "2026-05-27T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-036",
+        "title": "Critic-flip (Co-Scientist insight) empirically tested on three topics \u2014 no observed benefit on this evidence; binding constraint is upstream",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-27",
+        "ts": "2026-05-27T00:00:00Z",
+        "kind": "correction_written",
+        "id": "2026-05-27",
+        "title": "run-log schema: agent (required) and skill_used (optional)",
+        "actor": "claude-code-main",
+        "ref": "memory/DECISIONS.md",
+        "verdict": null,
+        "is_flag": true
+      },
+      {
+        "date": "2026-05-26",
+        "ts": "2026-05-26T16:01:42Z",
+        "kind": "proposal_reviewed",
+        "id": "P-006",
+        "title": "Feedback-loop visibility: harvest findings as first-class graph nodes",
+        "actor": "human:decross1",
+        "ref": "proposals.jsonl",
+        "verdict": "accepted",
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-26",
+        "ts": "2026-05-26T04:35:01Z",
+        "kind": "proposal_reviewed",
+        "id": "P-007",
+        "title": "Live-ish brain: cron-driven ingest + regen + auto-refresh",
+        "actor": "human:decross1",
+        "ref": "proposals.jsonl",
+        "verdict": "accepted",
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-26",
+        "ts": "2026-05-26T04:35:00Z",
+        "kind": "proposal_reviewed",
+        "id": "P-005",
+        "title": "Agent-centric view: group/color graph by agent_id",
+        "actor": "human:decross1",
+        "ref": "proposals.jsonl",
+        "verdict": "accepted",
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-26",
+        "ts": "2026-05-26T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-035",
+        "title": "Multi-backend wrapper substrate; Qwen3.6-27B + Anthropic API onboarded; supersedes D-033",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-26",
+        "ts": "2026-05-26T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-034",
+        "title": "Path-B selective sub-agent migration; reference-passing is the next architectural fix",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-26",
+        "ts": "2026-05-26T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-033",
+        "title": "Exclude Qwen 3.6 entirely; the apparatus stays single-model on Gemma 4",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-26",
+        "ts": "2026-05-26T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-032",
+        "title": "Install full `agent_system` skill set into `.agents/` (diverges from BOUNDARY.md)",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-26",
+        "ts": "2026-05-26T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-031",
+        "title": "NemoClaw: install feasible, deferred today (sudo-blocked autonomous session)",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-26",
+        "ts": "2026-05-26T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-030",
+        "title": "Retire track-A/B/C/D + autonomy tiers; adopt single-primary + optional-UI session model; LOOP_V0 is active slice",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-26",
+        "ts": "2026-05-26T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "2026-05-26",
+        "title": "Brain UI: stage projection model (collapse dispatch+receipt+call per worker)",
+        "actor": "claude-code-main",
+        "ref": "memory/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-26",
+        "ts": "2026-05-26T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "2026-05-26",
+        "title": "Brain UI: decisions removed from graph by default; dedicated tab",
+        "actor": "claude-code-main",
+        "ref": "memory/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-26",
+        "ts": "2026-05-26T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "2026-05-26",
+        "title": "Brain auto-ingest: file watcher daemon over cron",
+        "actor": "claude-code-main",
+        "ref": "memory/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-25",
+        "ts": "2026-05-25T16:02:00Z",
+        "kind": "proposal_filed",
+        "id": "P-007",
+        "title": "Live-ish brain: cron-driven ingest + regen + auto-refresh",
+        "actor": "claude-code-main",
+        "ref": "proposals.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-25",
+        "ts": "2026-05-25T16:01:00Z",
+        "kind": "proposal_filed",
+        "id": "P-006",
+        "title": "Feedback-loop visibility: harvest findings as first-class graph nodes",
+        "actor": "claude-code-main",
+        "ref": "proposals.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-25",
+        "ts": "2026-05-25T16:00:00Z",
+        "kind": "proposal_filed",
+        "id": "P-005",
+        "title": "Agent-centric view: group/color graph by agent_id",
+        "actor": "claude-code-main",
+        "ref": "proposals.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-25",
+        "ts": "2026-05-25T11:14:00Z",
+        "kind": "proposal_filed",
+        "id": "P-004",
+        "title": "Add `state_basis` field to spawn-contract contract block",
+        "actor": "claude-code-main",
+        "ref": "proposals.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-25",
+        "ts": "2026-05-25T11:12:00Z",
+        "kind": "reflection_written",
+        "id": "s22-5-narrate-sp-002-lifecycle",
+        "title": "s22_5_narrate_sp_002_lifecycle",
+        "actor": "claude-code-main",
+        "ref": "narratives.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-25",
+        "ts": "2026-05-25T11:00:00Z",
+        "kind": "spawn_launched",
+        "id": "SP-002",
+        "title": "SP-002 \u2014 sp_002_skill_frontmatter_audit",
+        "actor": "claude-code-main",
+        "ref": "run_state/spawn.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-25",
+        "ts": "2026-05-25T10:00:00Z",
+        "kind": "spawn_launched",
+        "id": "SP-001",
+        "title": "SP-001 \u2014 count_brain_edges",
+        "actor": "claude-code-main",
+        "ref": "run_state/spawn.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-25",
+        "ts": "2026-05-25T00:00:00Z",
+        "kind": "harvest_run",
+        "id": "H007",
+        "title": "H007 harvest session",
+        "actor": "claude-code-main",
+        "ref": "feedback.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-24",
+        "ts": "2026-05-24T19:50:00Z",
+        "kind": "proposal_reviewed",
+        "id": "P-003",
+        "title": "New Layer-B skill: `slip-ladder` for bounded deadline extensions",
+        "actor": "human:decross1",
+        "ref": "proposals.jsonl",
+        "verdict": "accepted",
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-24",
+        "ts": "2026-05-24T19:07:00Z",
+        "kind": "proposal_reviewed",
+        "id": "P-003",
+        "title": "New Layer-B skill: `slip-ladder` for bounded deadline extensions",
+        "actor": "claude-code-main",
+        "ref": "proposals.jsonl",
+        "verdict": "human-review",
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-24",
+        "ts": "2026-05-24T19:06:00Z",
+        "kind": "proposal_reviewed",
+        "id": "P-002",
+        "title": "Trust the 100% tool_call_invocation_rate as evidence of robust tool-using behavior",
+        "actor": "claude-code-main",
+        "ref": "proposals.jsonl",
+        "verdict": "auto-reject",
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-24",
+        "ts": "2026-05-24T19:05:00Z",
+        "kind": "proposal_reviewed",
+        "id": "P-001",
+        "title": "Add reverse `linked_to` edge anomaly\u2192correction for symmetry",
+        "actor": "claude-code-main",
+        "ref": "proposals.jsonl",
+        "verdict": "auto-accept",
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-24",
+        "ts": "2026-05-24T19:02:00Z",
+        "kind": "proposal_filed",
+        "id": "P-003",
+        "title": "New Layer-B skill: `slip-ladder` for bounded deadline extensions",
+        "actor": "claude-code-main",
+        "ref": "proposals.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-24",
+        "ts": "2026-05-24T19:01:00Z",
+        "kind": "proposal_filed",
+        "id": "P-002",
+        "title": "Trust the 100% tool_call_invocation_rate as evidence of robust tool-using behavior",
+        "actor": "claude-code-main",
+        "ref": "proposals.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-24",
+        "ts": "2026-05-24T19:00:00Z",
+        "kind": "proposal_filed",
+        "id": "P-001",
+        "title": "Add reverse `linked_to` edge anomaly\u2192correction for symmetry",
+        "actor": "claude-code-main",
+        "ref": "proposals.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-24",
+        "ts": "2026-05-24T04:12:00Z",
+        "kind": "reflection_written",
+        "id": "s13-3-author-narrate-skill",
+        "title": "s13_3_author_narrate_skill",
+        "actor": "claude-code-main",
+        "ref": "narratives.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-24",
+        "ts": "2026-05-24T00:00:00Z",
+        "kind": "harvest_run",
+        "id": "H006",
+        "title": "H006 harvest session",
+        "actor": "claude-code-main",
+        "ref": "feedback.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-24",
+        "ts": "2026-05-24T00:00:00Z",
+        "kind": "harvest_run",
+        "id": "H005",
+        "title": "H005 harvest session",
+        "actor": "claude-code-main",
+        "ref": "feedback.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-24",
+        "ts": "2026-05-24T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-029",
+        "title": "ownership.yaml v2: tighten docs-root glob, broaden experiments, add four new zones",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-24",
+        "ts": "2026-05-24T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-028",
+        "title": "Day-7 finding + publication disposition: cooperation lock-in is a Gemma 4 prior; result is not published standalone",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-24",
+        "ts": "2026-05-24T00:00:00Z",
+        "kind": "correction_written",
+        "id": "2026-05-24",
+        "title": "Treat 100% metrics in small-N tests as suspicious-clean",
+        "actor": "claude-code-main",
+        "ref": "memory/DECISIONS.md",
+        "verdict": null,
+        "is_flag": true
+      },
+      {
+        "date": "2026-05-24",
+        "ts": "2026-05-24T00:00:00Z",
+        "kind": "correction_written",
+        "id": "2026-05-24",
+        "title": "Reconcile state-file lag against run-log during gate-armed periods",
+        "actor": "claude-code-main",
+        "ref": "memory/DECISIONS.md",
+        "verdict": null,
+        "is_flag": true
+      },
+      {
+        "date": "2026-05-24",
+        "ts": "2026-05-24T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "2026-05-24",
+        "title": "Defer S19-S20 uplift test pending consumer choice",
+        "actor": "claude-code-main",
+        "ref": "memory/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-22",
+        "ts": "2026-05-22T00:00:00Z",
+        "kind": "harvest_run",
+        "id": "H003",
+        "title": "H003 harvest session",
+        "actor": "claude-code-main",
+        "ref": "feedback.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-21",
+        "ts": "2026-05-21T00:00:00Z",
+        "kind": "harvest_run",
+        "id": "H002",
+        "title": "H002 harvest session",
+        "actor": "claude-code-main",
+        "ref": "feedback.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-21",
+        "ts": "2026-05-21T00:00:00Z",
+        "kind": "harvest_run",
+        "id": "H001",
+        "title": "H001 harvest session",
+        "actor": "claude-code-main",
+        "ref": "feedback.jsonl",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-21",
+        "ts": "2026-05-21T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-027",
+        "title": "Day-5 arXiv pipeline source: Semantic Scholar API \u2192 arXiv API",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-21",
+        "ts": "2026-05-21T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-026",
+        "title": "Day-4 jsonl-integrity check re-pinned: arbitrary `\u226530 total` \u2192 per-artifact record counts",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-21",
+        "ts": "2026-05-21T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "2026-05-21",
+        "title": "Correction: the lead consumer is `a_bgt_rsi`, not `autoresearch`",
+        "actor": "claude-code-main",
+        "ref": "memory/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-21",
+        "ts": "2026-05-21T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "2026-05-21",
+        "title": "Framework re-scoped: agnostic, self-hosted, runtime-safe core",
+        "actor": "claude-code-main",
+        "ref": "memory/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-21",
+        "ts": "2026-05-21T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "2026-05-21",
+        "title": "BOUNDARY.md rewritten as a layering rule; runtime-safe core established",
+        "actor": "claude-code-main",
+        "ref": "memory/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-20",
+        "ts": "2026-05-20T22:00:00Z",
+        "kind": "reflection_written",
+        "id": "anomaly-tool-call-100pct",
+        "title": "Anomaly \u2014 tool-call invocation at 100%",
+        "actor": "claude-code-main",
+        "ref": "narratives.jsonl",
+        "verdict": null,
+        "is_flag": true
+      },
+      {
+        "date": "2026-05-20",
+        "ts": "2026-05-20T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-025",
+        "title": "ARCHITECTURE.md patches from adversarial review",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-20",
+        "ts": "2026-05-20T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-024",
+        "title": "Architecture v5 diagrams adopted from adversarial review",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-19",
+        "ts": "2026-05-19T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-023",
+        "title": "Day-3 needle benchmark accepted at 0.72; the 0.85 score bar is mis-calibrated to the scaffold",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-19",
+        "ts": "2026-05-19T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-022",
+        "title": "vLLM image re-pinned `:v0.20.0` \u2192 `:v0.21.0`; MTP enabled",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-18",
+        "ts": "2026-05-18T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-021",
+        "title": "Day-1 decode throughput is memory-bandwidth-bound on GB10",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-18",
+        "ts": "2026-05-18T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-020",
+        "title": "vLLM image re-pinned: `:gemma4-cu130` \u2192 `:v0.20.0`",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-18",
+        "ts": "2026-05-18T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "D-019",
+        "title": "MTP speculative decoding enabled (Gemma 4 + official drafter)",
+        "actor": "human:decross1",
+        "ref": "a_bgt_rsi/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-18",
+        "ts": "2026-05-18T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "2026-05-18",
+        "title": "Agent system scaffolded",
+        "actor": "claude-code-main",
+        "ref": "memory/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-18",
+        "ts": "2026-05-18T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "2026-05-18",
+        "title": "Added execution-discipline skills",
+        "actor": "claude-code-main",
+        "ref": "memory/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      },
+      {
+        "date": "2026-05-18",
+        "ts": "2026-05-18T00:00:00Z",
+        "kind": "decision_logged",
+        "id": "2026-05-18",
+        "title": "Scope boundary: dev-time vs project-runtime",
+        "actor": "claude-code-main",
+        "ref": "memory/DECISIONS.md",
+        "verdict": null,
+        "is_flag": false
+      }
+    ],
+    "counts_all_time": {
+      "proposals": 8,
+      "decisions": 53,
+      "corrections": 4,
+      "reflections": 3,
+      "harvest_findings": 42,
+      "rules": 3,
+      "spawns": 2,
+      "anomalies": 1
+    }
+  },
+  "act3_loop_and_memory": {
+    "loop_chains": [
+      {
+        "proposal_id": "P-008",
+        "title": "Adopt run-log `agent` attribution in a_bgt_rsi (reconcile inviolate rule 6) so unattended multi-agent runs are reconstructible",
+        "target": "run-log",
+        "target_type": "skill",
+        "origin_harvest": [],
+        "verdict_lifecycle": [
+          {
+            "ts": "2026-06-09T04:41:13Z",
+            "verdict": "open",
+            "actor": "claude-code-main",
+            "reasoning": null
+          }
+        ],
+        "final_verdict": "open",
+        "auto_rejected_by": null,
+        "rule_cited_title": null,
+        "produced_rule": null,
+        "produced_skill": null,
+        "status": "open",
+        "filed_date": "2026-06-09"
+      },
+      {
+        "proposal_id": "P-004",
+        "title": "Add `state_basis` field to spawn-contract contract block",
+        "target": "spawn-contract",
+        "target_type": "skill",
+        "origin_harvest": [],
+        "verdict_lifecycle": [
+          {
+            "ts": "2026-05-25T11:14:00Z",
+            "verdict": "open",
+            "actor": "claude-code-main",
+            "reasoning": null
+          },
+          {
+            "ts": "2026-05-27T00:17:11Z",
+            "verdict": "accepted",
+            "actor": "human:decross1",
+            "reasoning": "Implemented this session: .agents/skills/spawn-contract/SKILL.md grew a `state_basis` field in the contract block (HEAD@<sha> | working-tree@<parent-sha> | snapshot:<path> | in-prompt) and a Rule that the state_basis is explicit. Worked example references SP-002 (the 18-vs-24-skills finding). Also: spawn entries are now projected as first-class brain nodes with edges to the skills they declare in skill_subset \u2014 the brain can answer 'which agent spawned what under which contract.'"
+          }
+        ],
+        "final_verdict": "accepted",
+        "auto_rejected_by": null,
+        "rule_cited_title": null,
+        "produced_rule": null,
+        "produced_skill": "spawn-contract",
+        "status": "closed",
+        "filed_date": "2026-05-25"
+      },
+      {
+        "proposal_id": "P-005",
+        "title": "Agent-centric view: group/color graph by agent_id",
+        "target": "graph.html",
+        "target_type": "skill",
+        "origin_harvest": [],
+        "verdict_lifecycle": [
+          {
+            "ts": "2026-05-25T16:00:00Z",
+            "verdict": "open",
+            "actor": "claude-code-main",
+            "reasoning": null
+          },
+          {
+            "ts": "2026-05-26T04:35:00Z",
+            "verdict": "accepted",
+            "actor": "human:decross1",
+            "reasoning": "Implemented 2026-05-26: scripts/project_pages.py::kind_from_narrative derives a sub-kind (iteration | orchestrator_event | llm_call) from each narrative's _source.file + agent_id, and memory/brain/view/graph.html gains TYPE_COLORS entries (sky / teal / pink) so the LOOP_V0 lineage renders as three visually distinct layers. Sidebar Title now reads 'a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L<N>' (and analogues for Nara / Nara/LLM). Existing apparatus_event narratives reclassify automatically on each project_pages.py run \u2014 no re-ingest needed. Approach diverges slightly from the original proposal (kind-driven, not pure agent_id-driven) because kinds map more cleanly to the three-tier graph the user actually walks; agent_id surfaces in the Title instead. Closes the user's 'I can't tell what is doing what' feedback."
+          }
+        ],
+        "final_verdict": "accepted",
+        "auto_rejected_by": null,
+        "rule_cited_title": null,
+        "produced_rule": null,
+        "produced_skill": "graph.html",
+        "status": "closed",
+        "filed_date": "2026-05-25"
+      },
+      {
+        "proposal_id": "P-006",
+        "title": "Feedback-loop visibility: harvest findings as first-class graph nodes",
+        "target": "feedback.jsonl",
+        "target_type": "page",
+        "origin_harvest": [],
+        "verdict_lifecycle": [
+          {
+            "ts": "2026-05-25T16:01:00Z",
+            "verdict": "open",
+            "actor": "claude-code-main",
+            "reasoning": null
+          },
+          {
+            "ts": "2026-05-26T16:01:42Z",
+            "verdict": "accepted",
+            "actor": "human:decross1",
+            "reasoning": "Implemented during the N2+P-006 session 2026-05-26. scripts/project_pages.py gained synthesize_loop_entities() which projects harvest_finding (from feedback.jsonl), proposal (from proposals.jsonl), and rule (from rules.md) as first-class graph nodes, plus the loop edges: harvest_finding -becomes-> proposal, correction -enacts-> rule, proposal -auto_rejected_by-> rule, and proposal -produces-> decision (hooked for future use when decision_id is populated). graph.html gained a 'Loop' filter group (default-on) and three distinct TYPE_COLORS (indigo/amber/emerald). Verified: 42 harvest_finding + 7 proposal + 2 rule nodes projected; 4 loop edges visible (H006->P-003 becomes; corrections->FR-001/FR-002 enacts; P-002->FR-001 auto_rejected_by). proposal_health.py (the N2 deliverable) is intentionally NOT wired into the graph sidebar per session-design choice (independent tools). Backlog finding: P-003.references cites feedback.jsonl:H006 but reasoning text refers to H005 \u2014 data-entry typo worth surfacing as a future cleanup."
+          }
+        ],
+        "final_verdict": "accepted",
+        "auto_rejected_by": null,
+        "rule_cited_title": null,
+        "produced_rule": null,
+        "produced_skill": null,
+        "status": "closed",
+        "filed_date": "2026-05-25"
+      },
+      {
+        "proposal_id": "P-007",
+        "title": "Live-ish brain: cron-driven ingest + regen + auto-refresh",
+        "target": "scripts/ingest_apparatus.py",
+        "target_type": "skill",
+        "origin_harvest": [],
+        "verdict_lifecycle": [
+          {
+            "ts": "2026-05-25T16:02:00Z",
+            "verdict": "open",
+            "actor": "claude-code-main",
+            "reasoning": null
+          },
+          {
+            "ts": "2026-05-26T04:35:01Z",
+            "verdict": "accepted",
+            "actor": "human:decross1",
+            "reasoning": "Implemented 2026-05-26: scripts/watch_brain.py (pure-stdlib polling daemon, debounce-fires the ingest -> project_pages -> render_brain pipeline on a_bgt_rsi/{run_state,memory,logs}/*.jsonl changes) + scripts/watch_brain.sh (start/stop/status/restart/tail/once lifecycle, mirrors serve_brain.sh). Brain firewall preserved: apparatus has no knowledge of the watcher. Verified end-to-end during this session \u2014 watcher caught iter-006 and iter-007 mid-session with ~3s lag from final write to graph_data.js update. Diverges from the proposal in mechanism (file-watcher beats cron \u2014 lower latency, no wasted no-op runs) but matches the intent. CAVEAT: the in-graph 'tiny periodic-fetch to reload graph_data.js without a full page reload' is NOT implemented. User still needs to hard-refresh to pick up updates. Filing a follow-up is worth considering if hard-refresh becomes friction."
+          }
+        ],
+        "final_verdict": "accepted",
+        "auto_rejected_by": null,
+        "rule_cited_title": null,
+        "produced_rule": null,
+        "produced_skill": "scripts/ingest_apparatus.py",
+        "status": "closed",
+        "filed_date": "2026-05-25"
+      },
+      {
+        "proposal_id": "P-001",
+        "title": "Add reverse `linked_to` edge anomaly\u2192correction for symmetry",
+        "target": "edge:anomaly-tool-call-100pct\u2192dec-fw-2026-05-24-treat-100-metrics-in-small-n",
+        "target_type": "edge",
+        "origin_harvest": [],
+        "verdict_lifecycle": [
+          {
+            "ts": "2026-05-24T19:00:00Z",
+            "verdict": "open",
+            "actor": "claude-code-main",
+            "reasoning": null
+          },
+          {
+            "ts": "2026-05-24T19:05:00Z",
+            "verdict": "auto-accept",
+            "actor": "claude-code-main",
+            "reasoning": "Append-only addition to edges.jsonl; no rule conflict in rules.md; no semantic change to existing entities; no touch to SKILL.md/DECISIONS.md/boundary. Falls inside the review-proposal auto-accept allowlist (backlinks regeneration / non-semantic addition). Applying: appending the edge."
+          }
+        ],
+        "final_verdict": "auto-accept",
+        "auto_rejected_by": null,
+        "rule_cited_title": null,
+        "produced_rule": null,
+        "produced_skill": null,
+        "status": "closed",
+        "filed_date": "2026-05-24"
+      },
+      {
+        "proposal_id": "P-002",
+        "title": "Trust the 100% tool_call_invocation_rate as evidence of robust tool-using behavior",
+        "target": "anomaly-tool-call-100pct",
+        "target_type": "page",
+        "origin_harvest": [],
+        "verdict_lifecycle": [
+          {
+            "ts": "2026-05-24T19:01:00Z",
+            "verdict": "open",
+            "actor": "claude-code-main",
+            "reasoning": null
+          },
+          {
+            "ts": "2026-05-24T19:06:00Z",
+            "verdict": "auto-reject",
+            "actor": "claude-code-main",
+            "reasoning": "Directly violates active rule FR-001 (Treat 100% metrics in small-N tests as suspicious-clean: 'Default to disbelieving small-N clean reads; raise N or soften the prompt before trusting'). The proposal asks to trust exactly the kind of read FR-001 instructs us to disbelieve. Author may re-file a sharpened version that addresses the rule (e.g. by raising N or softening the prompt)."
+          }
+        ],
+        "final_verdict": "auto-reject",
+        "auto_rejected_by": "FR-001",
+        "rule_cited_title": "Treat 100% metrics in small-N tests as suspicious-clean",
+        "produced_rule": null,
+        "produced_skill": null,
+        "status": "closed",
+        "filed_date": "2026-05-24"
+      },
+      {
+        "proposal_id": "P-003",
+        "title": "New Layer-B skill: `slip-ladder` for bounded deadline extensions",
+        "target": "slip-ladder",
+        "target_type": "skill",
+        "origin_harvest": [
+          "H006"
+        ],
+        "verdict_lifecycle": [
+          {
+            "ts": "2026-05-24T19:02:00Z",
+            "verdict": "open",
+            "actor": "claude-code-main",
+            "reasoning": null
+          },
+          {
+            "ts": "2026-05-24T19:07:00Z",
+            "verdict": "human-review",
+            "actor": "claude-code-main",
+            "reasoning": "Touches Layer-B skill creation (.agents/skills/slip-ladder/SKILL.md) \u2014 outside the auto-accept allowlist and not a rule violation. Routed to human for judgment on (a) skill name, (b) Layer-B-vs-fallback-section placement, (c) whether the H005/fallback/gap really demands a new skill or a fallback-section edit. Awaiting human verdict."
+          },
+          {
+            "ts": "2026-05-24T19:50:00Z",
+            "verdict": "accepted",
+            "actor": "human:decross1",
+            "reasoning": "Approved by the user 2026-05-24 with the wording 'accept slip-ladder as a new skill'. Authored as .agents/skills/slip-ladder/SKILL.md (Layer B, runtime-safe false \u2014 matches the original proposal). Constructed to satisfy the runtime-safe contract (no human required, no PR/harness call, append-only logging, closed dependency set) so a future Layer-A promotion is a frontmatter flip if a runtime use-case emerges. Six-rung skeleton: declare cap + per-slip budget + resolution criterion + diagnostic-variant tag upfront; each slip is its own logged event; cap-exceeded \u2192 escalated, never more slips."
+          }
+        ],
+        "final_verdict": "accepted",
+        "auto_rejected_by": null,
+        "rule_cited_title": null,
+        "produced_rule": null,
+        "produced_skill": "slip-ladder",
+        "status": "closed",
+        "filed_date": "2026-05-24"
+      }
+    ],
+    "loop_health": {
+      "open_proposals": 1,
+      "accepted": 6,
+      "auto_rejected": 1,
+      "human_review_pending": 0,
+      "newest_harvest": "2026-05-25",
+      "newest_proposal": "2026-06-09",
+      "harvest_dormant_days": 15,
+      "signal": "loop half-dormant: proposals still filed (2026-06-09) but no new harvest since 2026-05-25 (15d)"
+    },
+    "memory": {
+      "corrections": [
+        {
+          "id": "correction-exp008-armc-gb10-unified-mem-oom-2026-06-09",
+          "date": "2026-06-09",
+          "title": "Correction \u2014 do not launch a 2nd large model (arm C, ~48GiB) alongside production gemma on the GB10's shared unified memory; the util cap is not enough",
+          "agent": "claude-code-main",
+          "source": "narratives.jsonl",
+          "enacts_rule": null,
+          "references": [
+            "a_bgt_rsi commit 3b53380",
+            "runlog-exp008-armc-unified-mem-freeze-incident-l1002",
+            "runlog-exp008-first-live-run-triage-l1001",
+            "D-039",
+            "D-040"
+          ]
+        },
+        {
+          "id": "dec-fw-2026-05-27-run-log-schema-agent-required-and",
+          "date": "2026-05-27",
+          "title": "run-log schema: agent (required) and skill_used (optional)",
+          "agent": "claude-code-main",
+          "source": "memory/DECISIONS.md",
+          "enacts_rule": "FR-003",
+          "references": []
+        },
+        {
+          "id": "dec-fw-2026-05-24-treat-100-metrics-in-small-n",
+          "date": "2026-05-24",
+          "title": "Treat 100% metrics in small-N tests as suspicious-clean",
+          "agent": "claude-code-main",
+          "source": "memory/DECISIONS.md",
+          "enacts_rule": "FR-001",
+          "references": []
+        },
+        {
+          "id": "dec-fw-2026-05-24-reconcile-state-file-lag-against-run-log",
+          "date": "2026-05-24",
+          "title": "Reconcile state-file lag against run-log during gate-armed periods",
+          "agent": "claude-code-main",
+          "source": "memory/DECISIONS.md",
+          "enacts_rule": "FR-002",
+          "references": []
+        }
+      ],
+      "reflections": [
+        {
+          "id": "reflection-exp008-error-as-zero-insufficient-2026-06-09",
+          "date": "2026-06-09",
+          "title": "Reflection \u2014 an errored eval-worker call is not a measurement; scoring it 0 fabricates a verdict (rule 4). Emit decision rows only for genuinely served calls -> down arm reads honest INSUFFICIENT",
+          "agent": "claude-code-main",
+          "intent": "Make the exp008 eval drivers honest under infra failure: when an arm endpoint is down, the eval must not let an APIConnectionError masquerade as a quality signal.",
+          "observed": "An arm that errors enough now drops below min_sample (10) -> analyze returns honest INSUFFICIENT ('could not measure this arm') instead of a fabricated regression. On the actual run, pin read novelty agreement 0.8 while qat was correctly INSUFFICIENT. This is consumer inviolate rule 4 (never coerce a failure into a pass/fail value) applied at the metric-emission layer, not just the validation laye",
+          "would_do_differently": "none on the fix. Generalize the pattern: any eval/aggregation that turns a worker error into a numeric 0 is an error-as-zero bug; the worker's served/errored status must gate metric emission everywhere, and a below-min_sample arm must surface as INSUFFICIENT rather than a low score.",
+          "corrections_honored": [
+            "consumer inviolate rule 4 (validations never silently coerced / error-as-zero)"
+          ]
+        },
+        {
+          "id": "s22-5-narrate-sp-002-lifecycle",
+          "date": "2026-05-25",
+          "title": "s22_5_narrate_sp_002_lifecycle",
+          "agent": "claude-code-main",
+          "intent": "Run the spawn-contract protocol against a real Agent-tool child (not a structural mock). Establish that the lifecycle (contract before launch \u2192 real spawn \u2192 child reports \u2192 parent reconciles via validate) holds end-to-end and surface anything the mock could not.",
+          "observed": "Done-condition validates PASS as written. But: the child reported total=18 while the parent's working tree has total=24. The worktree was branched from HEAD (which lags behind the parent's working tree by 6 uncommitted new skills + 14 modified files); the child therefore audited HEAD's state, not the parent's current view. The result is internally consistent and the child obeyed the contract perfe",
+          "would_do_differently": "For audits that must reflect parent's current working tree: either skip worktree isolation (rely on declarative auth cap + child's honor) OR commit pending state before the spawn OR inline the data in the prompt rather than have the child re-read from disk. For pure-function tasks (analyze this fixed input), worktree isolation is the right call. The contract's task_statement should specify which w",
+          "corrections_honored": [
+            "FR-001 (suspicious-clean 100% metrics)",
+            "FR-002 (run-log canonical over state during gate-armed holds)"
+          ]
+        },
+        {
+          "id": "s13-3-author-narrate-skill",
+          "date": "2026-05-24",
+          "title": "s13_3_author_narrate_skill",
+          "agent": "claude-code-main",
+          "intent": "Author the narrate SKILL.md per the approved Phase-3.5 B0 design \u2014 Layer B, runtime-safe false, append-only reflection writeback keyed by task_id, paired with run-log",
+          "observed": "Skill appeared in the Skill tool's discovery list within the same session \u2014 the harness picked up the new SKILL.md automatically.",
+          "would_do_differently": "none \u2014 would do the same. The pairing-with-run-log framing was the right anchor; the entry shape borrows directly from run-log's shape, keeping the schema family coherent.",
+          "corrections_honored": []
+        }
+      ],
+      "recall_floor": {
+        "newest_correction_date": "2026-06-09",
+        "newest_correction_id": "correction-exp008-armc-gb10-unified-mem-oom-2026-06-09",
+        "age_days": 0,
+        "freshness": "fresh",
+        "corrections_total": 4,
+        "reflections_total": 3
+      }
+    },
+    "flags": [
+      {
+        "date": "2026-06-09",
+        "kind": "correction",
+        "severity": "high",
+        "title": "Correction \u2014 do not launch a 2nd large model (arm C, ~48GiB) alongside production gemma on the GB10's shared unified memory; the util cap is not enough",
+        "what_happened": "Box recovered with no reboot (24-day uptime held); production :8000 stayed healthy, GPU clean, ~67GiB free afterward. But the run was unsafe: a --gpu-memory-utilization cap alone does NOT make arm C safe on shared unified memory, because th",
+        "governing_skill_or_rule": "consumer inviolate rule 4 (validations never silently coerced / error-as-zero)",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "First live attempt OOM-crashed the :8002 arm at startup (no --gpu-memory-utilization cap -> vLLM grabbed ~90%); hardened in consumer commit 3b53380 by adding --gpu-memory-utilization 0.5 and shrinking --max-model-len 32768->8192. Retried at util 0.46. The retry still thrashed the box: unified memory feeds GPU AND OS, so a 2nd ~48GiB model starved the OS -> SSH + UI tracking went down ~13:40-16:20;",
+          "expected": "Run exp008 arm C (unquantized 26B QAT, ~48GiB) live on the DGX Spark (GB10, ~121GiB UNIFIED memory) alongside the resident production gemma :8000 (~48GiB) and qwen, to get a real QAT-vs-NVFP4 verdict (D-039).",
+          "actual": "Box recovered with no reboot (24-day uptime held); production :8000 stayed healthy, GPU clean, ~67GiB free afterward. But the run was unsafe: a --gpu-memory-utilization cap alone does NOT make arm C safe on shared unified memory, because the cap governs the GPU fraction while the OS draws from the same pool. The util 0.46 guidance was too aggressive. arm C is abandoned on this box (run-log task ex",
+          "reasoning": "But the run was unsafe: a --gpu-memory-utilization cap alone does NOT make arm C safe on shared unified memory, because the cap governs the GPU fraction while the OS draws from the same pool.",
+          "correction_or_rule": "On a unified-memory box already hosting a large production model, do not co-locate a second comparably-sized model. Use a smaller arm (arm B, ~15GiB gguf), pause production first, move to a dedicated-GPU box, or SHELVE D-039. Add a serve_qat.sh pre-flight free-memory guard that refuses launch below (arm-need + OS margin) before any retry. Treat a util-fraction cap as necessary-not-sufficient on sh"
+        },
+        "source_ref": "narratives.jsonl#correction-exp008-armc-gb10-unified-mem-oom-2026-06-09"
+      },
+      {
+        "date": "2026-06-08",
+        "kind": "validation_fail",
+        "severity": "med",
+        "title": "observed: exp008_first_live_run_triage",
+        "what_happened": "first live arm-C run: :8002 OOM'd at startup (GB10 128GB unified; prod gemma 50GB + qwen 28GB resident, no --gpu-mem cap on arm C -> vLLM grabbed ~90%). ALL 10 qat novelty calls = APIConnectionError (agreement 0.0 is a CRASH ARTIFACT, not a",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "exp008_first_live_run_triage",
+          "expected": "a real H0/H1 once arm C actually serves; no false verdict from infra failure",
+          "actual": "first live arm-C run: :8002 OOM'd at startup (GB10 128GB unified; prod gemma 50GB + qwen 28GB resident, no --gpu-mem cap on arm C -> vLLM grabbed ~90%). ALL 10 qat novelty calls = APIConnectionError (agreement 0.0 is a CRASH ARTIFACT, not a QAT measurement); toolcall/robustness qat crashed connection-refused. pin arm healthy (novelty 0.8). analyze=INSUFFICIENT (tool_call_adherence missing on qat) -- correct gate. Hardened (commit 3b53380): errored calls no longer scored as 0 (rule 4; both drivers); serve_qat.sh arm C --gpu-memory-utilization 0.5 + max-model-len 8192. pin toolcall 0/12 flagged as likely harness-validity (no tool specs passed). Re-run path: free qwen (docker stop vllm-qwen) -> up C -> verify :8002 up -> re-run qat evals.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L1001"
+      },
+      {
+        "date": "2026-06-08",
+        "kind": "validation_fail",
+        "severity": "med",
+        "title": "recovered: exp008_armC_unified_mem_freeze_incident",
+        "what_happened": "INCIDENT: arm C (util 0.46, ~48GiB weights) launch on the GB10 (121GiB UNIFIED mem) thrashed the system -- SSH + UI tracking went down. Root cause: unified memory feeds GPU AND OS; loading a 2nd ~48GiB model alongside the 48GiB production g",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "exp008_armC_unified_mem_freeze_incident",
+          "expected": "safe live run; instead a near-machine-hang -- arm C abandoned on this box",
+          "actual": "INCIDENT: arm C (util 0.46, ~48GiB weights) launch on the GB10 (121GiB UNIFIED mem) thrashed the system -- SSH + UI tracking went down. Root cause: unified memory feeds GPU AND OS; loading a 2nd ~48GiB model alongside the 48GiB production gemma starved the OS. Kernel OOM-killed qat-eval-scratch -> box recovered (no reboot, 24d uptime). Damage: NONE critical -- production gemma :8000 healthy, GPU clean (only gemma 49962MiB), 67GiB free. nara-sandbox container shows Up(unhealthy). qwen still stopped (needs docker start vllm-qwen). LESSON: arm C (unquantized 48GiB) is too tight to run safely alongside production gemma on unified memory; my util 0.46 guidance was too aggressive. STOP retrying arm C -> use arm B (15GiB gguf) or shelve the live run.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L1002"
+      },
+      {
+        "date": "2026-05-27",
+        "kind": "correction",
+        "severity": "high",
+        "title": "run-log schema: agent (required) and skill_used (optional)",
+        "what_happened": "Correction enacted into rule FR-003",
+        "governing_skill_or_rule": "FR-003",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "A wrong default was identified and corrected.",
+          "expected": "Extend the canonical run-log entry shape with two new fields: `agent` (required) \u2014 the entity that ran the step (e.g. `nara`, `claude-code-main`, `human:<id>`); and `skill_used` (optional) \u2014 the framework skill this step is part of (e.g. `validate`, `fallback`), present only when the entry is a skill invocation. Anonymous-by-task-id logs prevent the brain from attributing skill use to a specific actor, which breaks the `harvest \u2192 propose \u2192 rule` self-improvement loop the framework exists to run. Existing entries (137 framework + 281 consumer) are unrewritten \u2014 append-only honored \u2014 and projected via per-file canonicalization at read time (`framework.run.jsonl` \u2192 claude-code-main, `week1.run.jsonl` \u2192 nara, etc.).",
+          "actual": "**Correction:** Extend the canonical run-log entry shape with two new fields:\n`agent` (required) \u2014 the entity that ran the step (e.g. `nara`,\n`claude-code-main`, `human:<id>`); and `skill_used` (optional) \u2014 the framework\nskill this step is part of (e.g. `validate`, `fallback`), present only when\nthe",
+          "reasoning": null,
+          "correction_or_rule": "Enacted active rule FR-003"
+        },
+        "source_ref": "memory/DECISIONS.md#dec-fw-2026-05-27-run-log-schema-agent-required-and"
+      },
+      {
+        "date": "2026-05-25",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "run-log:friction (H007)",
+        "what_happened": "Day 8 added FOUR more status values not in run-log's default enum (started/passed/partial_pass/failed/aborted/halted/escalated/skipped): 'open' (L138 day_start, an opening sentinel like 'started' but day-level), 'recorded' (L149 retrospecti",
+        "governing_skill_or_rule": "run-log",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "Day 8 added FOUR more status values not in run-log's default enum (started/passed/partial_pass/failed/aborted/halted/escalated/skipped): 'open' (L138 day_start, an opening sentinel like 'started' but day-level), 'recorded' (L149 retrospective_recorded, attestation-style completion), 'applied' (L150 tier_shift, mutation-style completion), 'closed' (L154 day_end, closing sentinel). With H005's corre",
+          "expected": "skill's intended behavior",
+          "actual": "friction \u2014 Day 8 added FOUR more status values not in run-log's default enum (started/passed/partial_pass/failed/aborted/halted/escalated/skipped): 'open' (L138 day_start, an opening sentinel like 'started' but day-level), 'recorded' (L149 retrospective_recorded, attestation-style completion), 'applied' (L150 ",
+          "reasoning": null,
+          "correction_or_rule": "run-log: split the field into status (closed enum: started/passed/partial_pass/failed/aborted/halted/escalated/skipped) + status_qualifier (free-form project word like slip_declared/tier_shift). OR expand the default to include day_start/day_end/attestation_recorded/mutation_applied. Pick before v1.0."
+        },
+        "source_ref": "feedback.jsonl:H007 (week1.run.jsonl L138,L149,L150,L154)"
+      },
+      {
+        "date": "2026-05-24",
+        "kind": "proposal_rejected",
+        "severity": "med",
+        "title": "P-002 auto-rejected: Trust the 100% tool_call_invocation_rate as evidence of robust tool-using behavior",
+        "what_happened": "Directly violates active rule FR-001 (Treat 100% metrics in small-N tests as suspicious-clean: 'Default to disbelieving small-N clean reads; raise N or soften the prompt before trusting'). The proposal asks to trust exactly the kind of read",
+        "governing_skill_or_rule": "FR-001",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "proposed: Trust the 100% tool_call_invocation_rate as evidence of robust tool-using behavior",
+          "expected": "Default to disbelieving small-N clean reads; raise N or soften the prompt before trusting.",
+          "actual": "Directly violates active rule FR-001 (Treat 100% metrics in small-N tests as suspicious-clean: 'Default to disbelieving small-N clean reads; raise N or soften the prompt before trusting'). The proposal asks to trust exactly the kind of read FR-001 instructs us to disbelieve. Author may re-file a sharpened version that addresses the rule (e.g. by raising N or softening the prompt).",
+          "reasoning": "Directly violates active rule FR-001 (Treat 100% metrics in small-N tests as suspicious-clean: 'Default to disbelieving small-N clean reads; raise N or soften the prompt before trusting'). The proposal asks to trust exactly the kind of read FR-001 instructs us to disbelieve. Author may re-file a sharpened version that addresses the rule (e.g. by raising N or softening the prompt).",
+          "correction_or_rule": "re-file a sharpened version that addresses the rule"
+        },
+        "source_ref": "proposals.jsonl#P-002"
+      },
+      {
+        "date": "2026-05-24",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "run-log:friction (H005)",
+        "what_happened": "4 new status values used by the consumer that run-log's default enum (started/passed/partial_pass/failed/aborted/halted/escalated/skipped) does not name: 'correction' (L114, semantic re-record of a prior task), 'slip_declared' (L117/L119/L1",
+        "governing_skill_or_rule": "run-log",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "4 new status values used by the consumer that run-log's default enum (started/passed/partial_pass/failed/aborted/halted/escalated/skipped) does not name: 'correction' (L114, semantic re-record of a prior task), 'slip_declared' (L117/L119/L121, time-cap slipped), 'slip_resolved' (L123, slip closed), 'gate_armed' (L125, gate pre-armed not yet halted). The S10 'non-exhaustive default a project may ex",
+          "expected": "skill's intended behavior",
+          "actual": "friction \u2014 4 new status values used by the consumer that run-log's default enum (started/passed/partial_pass/failed/aborted/halted/escalated/skipped) does not name: 'correction' (L114, semantic re-record of a prior task), 'slip_declared' (L117/L119/L121, time-cap slipped), 'slip_resolved' (L123, slip closed), ",
+          "reasoning": null,
+          "correction_or_rule": "run-log: consider adding `slip_declared`/`slip_resolved` and `gate_armed` to the default enum, or document an explicit 'when to extend' guidance."
+        },
+        "source_ref": "feedback.jsonl:H005 (week1.run.jsonl L114,L117,L119,L121,L123,L125)"
+      },
+      {
+        "date": "2026-05-24",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "run-log:diverged (H005)",
+        "what_happened": "L131 EDITED 4 prior Day-6 run.jsonl entries (L99, L105, L106, L109) to escape unescaped inner double quotes that broke JSONL parsing \u2014 violates run-log's 'Append only. Never edit or delete a past entry' rule. The consumer handled it per its",
+        "governing_skill_or_rule": "run-log",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "L131 EDITED 4 prior Day-6 run.jsonl entries (L99, L105, L106, L109) to escape unescaped inner double quotes that broke JSONL parsing \u2014 violates run-log's 'Append only. Never edit or delete a past entry' rule. The consumer handled it per its own inviolate-rule-5 (Track A is the rectifier), retained a backup (week1.run.jsonl.pre-rectify-bak), and verified 0 malformed across the rectified file before",
+          "expected": "skill's intended behavior",
+          "actual": "diverged \u2014 L131 EDITED 4 prior Day-6 run.jsonl entries (L99, L105, L106, L109) to escape unescaped inner double quotes that broke JSONL parsing \u2014 violates run-log's 'Append only. Never edit or delete a past entry' rule. The consumer handled it per its own inviolate-rule-5 (Track A is the rectifier), retained a",
+          "reasoning": null,
+          "correction_or_rule": "run-log: explicit carve-out for STRUCTURAL rectification of malformed entries (with backup + attestation + the rectifying entry itself logged); rule for SEMANTIC corrections (new-entry-references-old) stays unchanged."
+        },
+        "source_ref": "feedback.jsonl:H005 (week1.run.jsonl L131 task=rectify_malformed_run_log_lines)"
+      },
+      {
+        "date": "2026-05-24",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "fallback:gap (H005)",
+        "what_happened": "Day 7 used a 'slip ladder' protocol: the PD experiment ran into expected-range overshoot; instead of failing or escalating, the consumer slipped the deadline by one day (slip_declared L117), ran again (partial_pass L118), slipped again (L11",
+        "governing_skill_or_rule": "fallback",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "Day 7 used a 'slip ladder' protocol: the PD experiment ran into expected-range overshoot; instead of failing or escalating, the consumer slipped the deadline by one day (slip_declared L117), ran again (partial_pass L118), slipped again (L119), ran again (L120), slipped again (L121), ran the diagnostic variant (L122), then resolved (L123). Each slip was its own logged entry with a stated reason and",
+          "expected": "skill's intended behavior",
+          "actual": "gap \u2014 Day 7 used a 'slip ladder' protocol: the PD experiment ran into expected-range overshoot; instead of failing or escalating, the consumer slipped the deadline by one day (slip_declared L117), ran again (partial_pass L118), slipped again (L119), ran again (L120), slipped again (L121), ran the diagnost",
+          "reasoning": null,
+          "correction_or_rule": "new skill or fallback-section: `slip-ladder` \u2014 declare a bounded sequence of deadline extensions; each slip is logged with reason + new cap; resolution criterion declared upfront; auto-escalates if cap exceeded."
+        },
+        "source_ref": "feedback.jsonl:H005 (week1.run.jsonl L116-L123 (slip ladder day7.1/7.2/7.3 \u2192 resolved))"
+      },
+      {
+        "date": "2026-05-24",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "orchestrate:friction (H005)",
+        "what_happened": "Track D's EOD merge proceeded with 'Sentinel TRACK D COMPLETE present via verbal attestation' \u2014 i.e. the human verbally attested completeness in lieu of writing the sentinel file the S7 parallel-worktree protocol mandates. References memory",
+        "governing_skill_or_rule": "orchestrate",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "Track D's EOD merge proceeded with 'Sentinel TRACK D COMPLETE present via verbal attestation' \u2014 i.e. the human verbally attested completeness in lieu of writing the sentinel file the S7 parallel-worktree protocol mandates. References memory 'sidetrack-sentinel-attestation'. The S7 protocol made sentinels file-only; the dev-time human-in-loop reality finds verbal attestation acceptable when the hum",
+          "expected": "skill's intended behavior",
+          "actual": "friction \u2014 Track D's EOD merge proceeded with 'Sentinel TRACK D COMPLETE present via verbal attestation' \u2014 i.e. the human verbally attested completeness in lieu of writing the sentinel file the S7 parallel-worktree protocol mandates. References memory 'sidetrack-sentinel-attestation'. The S7 protocol made sent",
+          "reasoning": null,
+          "correction_or_rule": "orchestrate: allow a completion-sentinel to be either (a) the sentinel file, or (b) a logged attestation-cleared mode (cf. [[gate-check]]); make the substitution explicit so it isn't a sidetrack memory."
+        },
+        "source_ref": "feedback.jsonl:H005 (week1.run.jsonl L133 task=merge_track_d_day7_eod)"
+      },
+      {
+        "date": "2026-05-24",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "resume-state:friction (H006)",
+        "what_happened": "After the publication-review gate cleared at L136, the consumer backfilled 16 day_7 task IDs into state.completed_tasks that had been *absent during the gate-armed hold*. The run-log had the tasks (L111-L127 over Day 7); the state file did ",
+        "governing_skill_or_rule": "resume-state",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "After the publication-review gate cleared at L136, the consumer backfilled 16 day_7 task IDs into state.completed_tasks that had been *absent during the gate-armed hold*. The run-log had the tasks (L111-L127 over Day 7); the state file did not, until backfill. resume-state's rule is 'state file is authoritative on resume \u2014 reconcile with reality.' During a gate-armed hold, the state lagged the run",
+          "expected": "skill's intended behavior",
+          "actual": "friction \u2014 After the publication-review gate cleared at L136, the consumer backfilled 16 day_7 task IDs into state.completed_tasks that had been *absent during the gate-armed hold*. The run-log had the tasks (L111-L127 over Day 7); the state file did not, until backfill. resume-state's rule is 'state file is a",
+          "reasoning": null,
+          "correction_or_rule": "resume-state: explicit rule for state-file updates during a gate-armed hold (either: write through to state during hold OR detect run-log/state divergence at resume and reconcile by trusting run-log)."
+        },
+        "source_ref": "feedback.jsonl:H006 (week1.run.jsonl L137 task=day7_state_close_out_and_advance_to_day_8)"
+      },
+      {
+        "date": "2026-05-24",
+        "kind": "validation_fail",
+        "severity": "med",
+        "title": "escalated: day8_block2_verify_concurrency_infra",
+        "what_happened": "INITIAL FAIL surfaced + REMEDIATED in same Track-A session. First run of `python3 tools/claims_check.py --validate-ownership` reported 53 multi-assigned files (docs-root *.md glob over-matched recursive markdown because fnmatch.fnmatch trea",
+        "governing_skill_or_rule": "fallback (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day8_block2_verify_concurrency_infra",
+          "expected": "--validate-ownership exits 0 with 0/0; --weekly-summary 0/0/0",
+          "actual": "INITIAL FAIL surfaced + REMEDIATED in same Track-A session. First run of `python3 tools/claims_check.py --validate-ownership` reported 53 multi-assigned files (docs-root *.md glob over-matched recursive markdown because fnmatch.fnmatch treats * as matching /) and 34 unassigned files (experiments zone too narrow; setup/, docs/diagrams/, repo-config files, journal/, run_state auxiliaries had no zone). `--weekly-summary` reported 0/0/0 (no actual collisions in Week 1). Per inviolate rule 4 (validations never silently coerced) escalated to human; user chose 'Fix now in Track A'. Applied 6 edits to agent/ownership.yaml + 1 follow-on edit (journal zone) per D-029. Post-fix: --validate-ownership reports 0 multi-assigned / 0 unassigned / exit 0 across 283 tracked files; --weekly-summary still 0/0/0. The Week-2 unlock attestation can now cite both checks clean. See D-029 for the full decision record.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L140"
+      },
+      {
+        "date": "2026-05-24",
+        "kind": "correction",
+        "severity": "high",
+        "title": "Treat 100% metrics in small-N tests as suspicious-clean",
+        "what_happened": "Correction enacted into rule FR-001",
+        "governing_skill_or_rule": "FR-001",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "A wrong default was identified and corrected.",
+          "expected": "Default to disbelieving small-N clean reads; raise N or soften the prompt before trusting.",
+          "actual": "**Decision:** When a research metric reads exactly 100% (or 0%) on a small-N\ntest driven by a strongly-directive prompt, do not treat the result as\nevidence of robustness. Investigate the prompt and the N before adopting.\n**Correction:** Default to disbelieving small-N clean reads; raise N or\nsoften",
+          "reasoning": null,
+          "correction_or_rule": "Enacted active rule FR-001"
+        },
+        "source_ref": "memory/DECISIONS.md#dec-fw-2026-05-24-treat-100-metrics-in-small-n"
+      },
+      {
+        "date": "2026-05-24",
+        "kind": "correction",
+        "severity": "high",
+        "title": "Reconcile state-file lag against run-log during gate-armed periods",
+        "what_happened": "Correction enacted into rule FR-002",
+        "governing_skill_or_rule": "FR-002",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "A wrong default was identified and corrected.",
+          "expected": "Trust the run log over the state file when they disagree across a gate-armed period.",
+          "actual": "**Decision:** When `resume-state` finds the state file's\n`completed_tasks` shorter than the run log's completed entries across a\ngate-armed window, treat the run log as canonical for the held period.\nWalk it to determine what is done; do not re-run completed work based on\nthe lagging state.\n**Correc",
+          "reasoning": null,
+          "correction_or_rule": "Enacted active rule FR-002"
+        },
+        "source_ref": "memory/DECISIONS.md#dec-fw-2026-05-24-reconcile-state-file-lag-against-run-log"
+      },
+      {
+        "date": "2026-05-24",
+        "kind": "gate_block",
+        "severity": "high",
+        "title": "gate held: day8_block2_week2_unlock_attestation",
+        "what_happened": "HARD-GATE armed. Strict-serial successor to day8_block2_ui_v1_verification (which cleared 2026-05-24). state.human_gates_pending now contains 'day8_week2_unlock_attestation'. Skeleton landed at human/retrospectives/week2.md \u00a70 with the four",
+        "governing_skill_or_rule": "gate-check (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "task halted at a human gate",
+          "expected": "human_gates_pending contains 'day8_week2_unlock_attestation'; week2.md \u00a70 stub committed with structured data filled and boxes empty",
+          "actual": "HARD-GATE armed. Strict-serial successor to day8_block2_ui_v1_verification (which cleared 2026-05-24). state.human_gates_pending now contains 'day8_week2_unlock_attestation'. Skeleton landed at human/retrospectives/week2.md \u00a70 with the four alignment-evidence numeric values pre-filled by the agent (per inviolate rule 10's bounded-stub role): drift_count=0/11, run_log_integrity=0 malformed/145 lines, claim-protocol=0 overlapping/0 expired-unreleased. The boxes themselves are LEFT UNCHECKED \u2014 the human ticks them after reviewing each. Decision-parity is judgment-based and left blank for the human. Sections 1\u201310 stay templated for Day 44's full Week-2 retrospective. Agent halts; gate clears only on explicit human attestation (commit human/retrospectives/week2.md with \u00a70.3 filled and boxes ticked). On clear, Track A applies the week1.md \u00a78 tier-shift inventory and logs a tier_shift event.",
+          "reasoning": null,
+          "correction_or_rule": "gate honored \u2014 not cleared without human"
+        },
+        "source_ref": "week1.run.jsonl L147"
+      },
+      {
+        "date": "2026-05-23",
+        "kind": "fallback",
+        "severity": "med",
+        "title": "fallback: day6_block2_orchestrator_with_fallback",
+        "what_happened": "Built orchestrator/openclaw_runner.py (OrchestratorClient, Python multiprocessing fork start method, 60s worker timeout, terminate+kill on hang, no-orphan discipline) + workers/summarize_paper.py (chromadb.get(ids=[arxiv_id]) on papers_rece",
+        "governing_skill_or_rule": "fallback (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day6_block2_orchestrator_with_fallback",
+          "expected": "3 linked JSONL entries; 60s timeout enforced; one worker one task end-to-end",
+          "actual": "multiprocessing",
+          "reasoning": null,
+          "correction_or_rule": "declared fallback path taken"
+        },
+        "source_ref": "week1.run.jsonl L103"
+      },
+      {
+        "date": "2026-05-23",
+        "kind": "fallback",
+        "severity": "med",
+        "title": "fallback: day6_end_of_day_artifacts",
+        "what_happened": "EOD commit 75f563d (12 files, +578/-80): orchestrator/openclaw_runner.py + workers/summarize_paper.py + schema/worker_contract.schema.json (already tracked; no-op) + tools/inspect_run.py (already tracked; no-op) + logs/orchestrator.jsonl + ",
+        "governing_skill_or_rule": "fallback (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day6_end_of_day_artifacts",
+          "expected": "files committed; cron enabled; jsonl integrity; journal updated; Day 7 pre-staged",
+          "actual": "user_crontab_instead_of_sudo_crontab",
+          "reasoning": null,
+          "correction_or_rule": "declared fallback path taken"
+        },
+        "source_ref": "week1.run.jsonl L109"
+      },
+      {
+        "date": "2026-05-23",
+        "kind": "validation_fail",
+        "severity": "low",
+        "title": "partial_pass: day7_block2_run_experiment",
+        "what_happened": "500 rounds completed cleanly in 114.2s (5 opponents \u00d7 100 rounds; 600 wrapper calls; 4 fixed-opponent matches @ 100 calls each + 1 mirror_llm match @ 200 calls). Per-opponent cooperation rates: tft 1.000/1.000 (mutual C lock-in from round 1",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day7_block2_run_experiment",
+          "expected": "500 rounds completed; LLM-vs-TFT in [0.60, 0.95]; parse failures logged not silent",
+          "actual": "500 rounds completed cleanly in 114.2s (5 opponents \u00d7 100 rounds; 600 wrapper calls; 4 fixed-opponent matches @ 100 calls each + 1 mirror_llm match @ 200 calls). Per-opponent cooperation rates: tft 1.000/1.000 (mutual C lock-in from round 1), grim_trigger 1.000/1.000 (latch never triggered because LLM never defected), all_c 1.000/1.000 (bilateral C), all_d 0.120/0.000 (LLM first played D at round 3; D plays 88/100 \u2014 clear opponent-tracking), mirror_llm 1.000/1.000 (LLM-vs-LLM mutual C). Validation outcomes: (1) 500 rounds completed PASS \u2014 summary.json + per_round.jsonl (500 records) + cooperation_rates.csv produced. (2) LLM-vs-TFT inside [0.60, 0.95] FAIL \u2014 actual 1.000 OUTSIDE the upper bound; this is the precompute-range safeguard firing as designed. (3) parse failures logged as observations PASS \u2014 0 parse_failure events across all 5 matches; 0 default-D fallback plays; the retry-once-then-default-D parser was never exercised. Investigation per plan on_failure: (a) MARLIN backend confirmed active \u2014 docker logs vllm-gemma4 show `Using 'MARLIN' NvFp4 MoE backend out of potential backends: ['FLASHINFER_TRTLLM','FLASHINFER_CUTEDSL','FLASHINFER_CUTEDSL_BATCHED','FLASHINFER_CUTLASS','VLLM_CUTLASS','MARLIN','EMULATION']` (NOT CUTLASS_FP4). (b) Prompt drift check \u2014 round-1 prompt has rules+'No rounds played'; round-50 prompt has 20-round sliding window of mutual-C history; no contamination, no truncation. (c) LLM tracks opponent \u2014 proven by the all_d action sequence (CCDCC... -> mostly D after round 3). The 1.000 vs TFT pattern is most likely a genuine Gemma 4 cooperation-bias finding (Horton-range 0.60-0.95 may have assumed a different model/condition), but interpretation requires HUMAN ADJUDICATION. Orchestrator chain: 15 day7 entries (5 dispatch + 5 invocation + 5 receipt) in logs/orchestrator.jsonl with one collision: the earlier 3-round smoke test reused task_id 'exp001-all_d' (3 entries dated ~08:50 mix with the 100-round run dated ~08:50:38 onward; cosmetic \u2014 inspect_run --task-id can be scoped to dispatch_id if needed). Task NOT marked passed \u2014 hard_checkpoint validation 2/3 failed and the right disposition is escalation per plan.yaml:2951-2959.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L116"
+      },
+      {
+        "date": "2026-05-23",
+        "kind": "slip",
+        "severity": "med",
+        "title": "slip declared: slip_declared",
+        "what_happened": "slip declared; current_subday set to 7.1; Block 3 (journal, reading) still happens today; EOD commits roll forward",
+        "governing_skill_or_rule": "slip-ladder (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "deadline slipped, same approach",
+          "expected": "slip event recorded; state.current_subday=7.1; day_7 next-integer-day precondition preserved",
+          "actual": "slip declared; current_subday set to 7.1; Block 3 (journal, reading) still happens today; EOD commits roll forward",
+          "reasoning": null,
+          "correction_or_rule": "bounded slip; resolved later in the ladder"
+        },
+        "source_ref": "week1.run.jsonl L117"
+      },
+      {
+        "date": "2026-05-23",
+        "kind": "validation_fail",
+        "severity": "low",
+        "title": "partial_pass: day7_1_block2_run_experiment",
+        "what_happened": "Day-7.1 slip rerun at temperature=0.2 (LLMAgent.temperature plumbed through CLI flag --temperature 0.2). 500 rounds completed cleanly in 110.1s (5 opponents \u00d7 100; 600 wrapper calls; 0 parse failures; 0 default-D plays). Per-opponent rates:",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day7_1_block2_run_experiment",
+          "expected": "500 rounds at T=0.2; LLM-vs-TFT inside [0.60, 0.95]; parse failures logged",
+          "actual": "Day-7.1 slip rerun at temperature=0.2 (LLMAgent.temperature plumbed through CLI flag --temperature 0.2). 500 rounds completed cleanly in 110.1s (5 opponents \u00d7 100; 600 wrapper calls; 0 parse failures; 0 default-D plays). Per-opponent rates: tft 1.000/1.000, grim_trigger 1.000/1.000, all_c 1.000/1.000, all_d 0.110/0.000 (LLM still tracks defection \u2014 0.120 baseline -> 0.110 with T=0.2, marginal change), mirror_llm 1.000/1.000. The all-cooperator lock-in PERSISTS at T=0.2 \u2014 Gemma 4's preference for C against any cooperative opponent is robust to low-temperature exploration; this rules out greedy-decoding-artifact as the cause. Outputs: experiments/exp001_repeated_pd/results_7_1/{summary.json,per_round.jsonl,cooperation_rates.csv}; logs/exp001_7_1.jsonl (600 wrapper records); logs/orchestrator.jsonl (+15 chain entries with task_id_prefix exp001_7_1 to avoid task_id collision with baseline). Validation: (1) 500 rounds PASS, (2) LLM-vs-TFT in [0.60, 0.95] FAIL (1.000 again, outside upper bound; consistent with baseline), (3) parse failures logged PASS (0). Same 2/3 outcome as baseline \u2014 but the diagnostic adds evidence: the lock-in is NOT temperature-dependent at this band. Code change: added temperature param to LLMAgent (default 0.0); added --temperature + --task-id-prefix CLI flags to run.py; play_pd_match plumbs payload.temperature through to both LLMs. Backward compatible: baseline T=0.0 still default.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L118"
+      },
+      {
+        "date": "2026-05-23",
+        "kind": "slip",
+        "severity": "med",
+        "title": "slip declared: slip_declared",
+        "what_happened": "second slip declared; current_subday advanced 7.1 -> 7.2; Day-7.1 outputs preserved in results_7_1/ + logs/exp001_7_1.jsonl",
+        "governing_skill_or_rule": "slip-ladder (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "deadline slipped, same approach",
+          "expected": "slip event recorded; state.current_subday=7.2",
+          "actual": "second slip declared; current_subday advanced 7.1 -> 7.2; Day-7.1 outputs preserved in results_7_1/ + logs/exp001_7_1.jsonl",
+          "reasoning": null,
+          "correction_or_rule": "bounded slip; resolved later in the ladder"
+        },
+        "source_ref": "week1.run.jsonl L119"
+      },
+      {
+        "date": "2026-05-23",
+        "kind": "validation_fail",
+        "severity": "low",
+        "title": "partial_pass: day7_2_block2_run_experiment",
+        "what_happened": "Day-7.2 slip rerun at temperature=0.7. 500 rounds completed cleanly in 108.8s (5 \u00d7 100; 600 wrapper calls; 0 parse failures; 0 default-D plays). Per-opponent rates: tft 1.000/1.000, grim_trigger 1.000/1.000, all_c 1.000/1.000, all_d 0.120/0",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day7_2_block2_run_experiment",
+          "expected": "500 rounds at T=0.7; LLM-vs-TFT inside [0.60, 0.95]; parse failures logged",
+          "actual": "Day-7.2 slip rerun at temperature=0.7. 500 rounds completed cleanly in 108.8s (5 \u00d7 100; 600 wrapper calls; 0 parse failures; 0 default-D plays). Per-opponent rates: tft 1.000/1.000, grim_trigger 1.000/1.000, all_c 1.000/1.000, all_d 0.120/0.000 (identical to baseline), mirror_llm 1.000/1.000. CONCLUSION FROM THE TEMPERATURE LADDER: Gemma 4's cooperation lock-in vs cooperative opponents is robust across T \u2208 {0.0, 0.2, 0.7}. The lock-in is NOT a sampling artifact at any tested temperature; it is the model's prior. The all_d defection-tracking (~88% D, first-D at round ~3) is also robust across T, demonstrating that the LLM CAN play D when the data warrants it \u2014 it just chooses not to vs cooperators. Validation: (1) 500 rounds PASS; (2) LLM-vs-TFT in [0.60, 0.95] FAIL (1.000, third time confirming); (3) parse failures logged PASS (0). The diagnostic ladder is complete: greedy-decoding ruled out (T=0.2), low-temperature noise ruled out (T=0.2), moderate-temperature noise ruled out (T=0.7). If the next intervention is prompt-level, it tests whether the prior is overridable by framing; if no further intervention, the right move is to accept this as the headline finding and widen the expected range.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L120"
+      },
+      {
+        "date": "2026-05-23",
+        "kind": "slip",
+        "severity": "med",
+        "title": "slip declared: slip_declared",
+        "what_happened": "third slip declared; current_subday advanced 7.2 -> 7.3; prior outputs preserved in results_7_1/ + results_7_2/",
+        "governing_skill_or_rule": "slip-ladder (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "deadline slipped, same approach",
+          "expected": "slip event recorded; state.current_subday=7.3",
+          "actual": "third slip declared; current_subday advanced 7.2 -> 7.3; prior outputs preserved in results_7_1/ + results_7_2/",
+          "reasoning": null,
+          "correction_or_rule": "bounded slip; resolved later in the ladder"
+        },
+        "source_ref": "week1.run.jsonl L121"
+      },
+      {
+        "date": "2026-05-23",
+        "kind": "validation_fail",
+        "severity": "low",
+        "title": "partial_pass: day7_3_block2_run_experiment",
+        "what_happened": "Day-7.3 slip rerun with rules_variant=exploitation_hint (T=0.0). 500 rounds completed cleanly in 113.0s (600 wrapper calls; 0 parse failures; 0 default-D plays). Per-opponent rates: tft 1.000/1.000, grim_trigger 1.000/1.000, all_c 1.000/1.0",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day7_3_block2_run_experiment",
+          "expected": "500 rounds at T=0.0 + exploitation_hint; LLM-vs-TFT inside [0.60, 0.95]; parse failures logged",
+          "actual": "Day-7.3 slip rerun with rules_variant=exploitation_hint (T=0.0). 500 rounds completed cleanly in 113.0s (600 wrapper calls; 0 parse failures; 0 default-D plays). Per-opponent rates: tft 1.000/1.000, grim_trigger 1.000/1.000, all_c 1.000/1.000, all_d 0.020/0.000 (LLM defects 98/100 \u2014 significantly more aggressive than baseline 88/100; the exploitation_hint DOES change behavior, just not against cooperators), mirror_llm 1.000/1.000. CONCLUSION FROM THE 4-RUN DIAGNOSTIC: Gemma 4's first-mover cooperation behavior is robust to BOTH temperature AND prompt framing. The lock-in vs cooperative opponents (TFT/grim/all_c/mirror_llm = 1.000) is invariant across 4 conditions (T\u2208{0.0,0.2,0.7} + exploitation_hint prompt). The model IS responsive to incentives \u2014 against all_d the exploitation_hint drove defection rate from 88% to 98%. But the prior against cooperators is the model's deeply-trained 'do not defect first' policy that survives both decoding randomness and direct nudges. Validation: (1) 500 rounds PASS; (2) LLM-vs-TFT in [0.60, 0.95] FAIL (1.000, fourth confirmation); (3) parse failures logged PASS (0). The diagnostic ladder is now complete \u2014 sampling AND framing both ruled out as artifacts. The cooperation lock-in is the genuine finding. Code change for 7.3: added RULES_VARIANTS dict to llm_agent.py + --rules-variant CLI flag + plumbed through payload + worker. Backward compatible: default rules_variant='baseline'.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L122"
+      },
+      {
+        "date": "2026-05-23",
+        "kind": "gate_block",
+        "severity": "high",
+        "title": "gate held: day6_block1_reading",
+        "what_happened": "reminder printed; awaiting human attestation",
+        "governing_skill_or_rule": "gate-check (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "task halted at a human gate",
+          "expected": "human marks Block 1 complete",
+          "actual": "reminder printed; awaiting human attestation",
+          "reasoning": null,
+          "correction_or_rule": "gate honored \u2014 not cleared without human"
+        },
+        "source_ref": "week1.run.jsonl L98"
+      },
+      {
+        "date": "2026-05-23",
+        "kind": "gate_block",
+        "severity": "high",
+        "title": "gate held: day7_block1_reading",
+        "what_happened": "reminder printed (Camerer Ch. 4 \u00a74.3 + F&L Ch. 1 \u00a71.1-1.2; finish MW proof or Camerer 4.1/4.2); awaiting human attestation; Block 1 decoupled from Block 2 per CLAUDE.md inviolate rule 1 \u2014 agent proceeds on Block 2 in parallel",
+        "governing_skill_or_rule": "gate-check (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "task halted at a human gate",
+          "expected": "human marks Block 1 complete",
+          "actual": "reminder printed (Camerer Ch. 4 \u00a74.3 + F&L Ch. 1 \u00a71.1-1.2; finish MW proof or Camerer 4.1/4.2); awaiting human attestation; Block 1 decoupled from Block 2 per CLAUDE.md inviolate rule 1 \u2014 agent proceeds on Block 2 in parallel",
+          "reasoning": null,
+          "correction_or_rule": "gate honored \u2014 not cleared without human"
+        },
+        "source_ref": "week1.run.jsonl L111"
+      },
+      {
+        "date": "2026-05-23",
+        "kind": "gate_block",
+        "severity": "high",
+        "title": "gate held: day7_publication_review_gate",
+        "what_happened": "GATE NOTICE PRINTED + state.human_gates_pending updated. Per CLAUDE.md inviolate rule 3 + plan.yaml:3003-3035: most important gate of Week 1, NEVER auto-clears. Day-7 experiment results (baseline run + Days 7.1/7.2/7.3 diagnostic ladder) MU",
+        "governing_skill_or_rule": "gate-check (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "task halted at a human gate",
+          "expected": "human_gates_pending contains 'day7_publication_review'; gate notice printed; agent halts on auto-publication",
+          "actual": "GATE NOTICE PRINTED + state.human_gates_pending updated. Per CLAUDE.md inviolate rule 3 + plan.yaml:3003-3035: most important gate of Week 1, NEVER auto-clears. Day-7 experiment results (baseline run + Days 7.1/7.2/7.3 diagnostic ladder) MUST NOT be auto-published. Block 3 weekly synthesis post (preliminary tag) can stub but the results-announcement post waits for explicit human review of: logs/exp001.jsonl integrity (600 wrapper records + 0 parse_failure events), cooperation rates against the AMENDED range [0.60, 1.00], whether the LLM tracked opponents (per-round logs in results/per_round.jsonl + results_*/per_round.jsonl), and the 4-run robustness diagnostic itself. Resume publication only after human explicit attestation of day7_publication_review.",
+          "reasoning": null,
+          "correction_or_rule": "gate honored \u2014 not cleared without human"
+        },
+        "source_ref": "week1.run.jsonl L125"
+      },
+      {
+        "date": "2026-05-22",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "run-log:friction (H003)",
+        "what_happened": "a_bgt_rsi logs status='escalated' (L88), adding to 'started' (H001) and 'partial_pass' (H002 L76) \u2014 three status values run-log's enum (passed|failed|aborted|halted|skipped) lacks, across three harvests. The enum is systemically incomplete;",
+        "governing_skill_or_rule": "run-log",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "a_bgt_rsi logs status='escalated' (L88), adding to 'started' (H001) and 'partial_pass' (H002 L76) \u2014 three status values run-log's enum (passed|failed|aborted|halted|skipped) lacks, across three harvests. The enum is systemically incomplete; real plan-execution needs start, partial, and escalation states.",
+          "expected": "skill's intended behavior",
+          "actual": "friction \u2014 a_bgt_rsi logs status='escalated' (L88), adding to 'started' (H001) and 'partial_pass' (H002 L76) \u2014 three status values run-log's enum (passed|failed|aborted|halted|skipped) lacks, across three harvests. The enum is systemically incomplete; real plan-execution needs start, partial, and escalation st",
+          "reasoning": null,
+          "correction_or_rule": "run-log: expand the status enum (started/in_progress, partial_pass, escalated) or explicitly declare it a non-exhaustive default the project extends."
+        },
+        "source_ref": "feedback.jsonl:H003 (week1.run.jsonl L88 task=day5_block2_pipeline_implementation)"
+      },
+      {
+        "date": "2026-05-22",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "repro-check:friction (H003)",
+        "what_happened": "An embed run was silently stubbed because MOCK_LLM=1 leaked into the main session env; the fake result was caught only by a WARNING log and a suspiciously-fast 1.1s runtime (vs ~57s real), then deleted and redone. repro-check covers seeds, ",
+        "governing_skill_or_rule": "repro-check",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "An embed run was silently stubbed because MOCK_LLM=1 leaked into the main session env; the fake result was caught only by a WARNING log and a suspiciously-fast 1.1s runtime (vs ~57s real), then deleted and redone. repro-check covers seeds, data, environment, and provenance but has no explicit check that the run executed the real thing rather than a mock/stub.",
+          "expected": "skill's intended behavior",
+          "actual": "friction \u2014 An embed run was silently stubbed because MOCK_LLM=1 leaked into the main session env; the fake result was caught only by a WARNING log and a suspiciously-fast 1.1s runtime (vs ~57s real), then deleted and redone. repro-check covers seeds, data, environment, and provenance but has no explicit check ",
+          "reasoning": null,
+          "correction_or_rule": "repro-check: add a check that the result came from the real pipeline, not a mock \u2014 verify no mock/stub env flag was active and runtime/output is consistent with a genuine run."
+        },
+        "source_ref": "feedback.jsonl:H003 (week1.run.jsonl L90 task=day5_block2_pipeline_implementation)"
+      },
+      {
+        "date": "2026-05-21",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "run-log:friction (H001)",
+        "what_happened": "The entry uses status='started' for a session-start marker. run-log's status enum is passed|failed|aborted|halted|skipped \u2014 it does not anticipate start/in-progress markers that real run logs use.",
+        "governing_skill_or_rule": "run-log",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "The entry uses status='started' for a session-start marker. run-log's status enum is passed|failed|aborted|halted|skipped \u2014 it does not anticipate start/in-progress markers that real run logs use.",
+          "expected": "skill's intended behavior",
+          "actual": "friction \u2014 The entry uses status='started' for a session-start marker. run-log's status enum is passed|failed|aborted|halted|skipped \u2014 it does not anticipate start/in-progress markers that real run logs use.",
+          "reasoning": null,
+          "correction_or_rule": "run-log: state the status enum is a non-exhaustive default, or add 'started'/'in_progress'."
+        },
+        "source_ref": "feedback.jsonl:H001 (week1.run.jsonl L1 task=day_1_start)"
+      },
+      {
+        "date": "2026-05-21",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "gate-check:friction (H001)",
+        "what_happened": "L5 clears a pending gate because a verifiable check passed (credentials present); L7-L8 clear gates by explicit human attestation. gate-check says gates clear only by 'explicit human action' and does not distinguish a gate cleared by attest",
+        "governing_skill_or_rule": "gate-check",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "L5 clears a pending gate because a verifiable check passed (credentials present); L7-L8 clear gates by explicit human attestation. gate-check says gates clear only by 'explicit human action' and does not distinguish a gate cleared by attestation from one cleared by a checkable fact.",
+          "expected": "skill's intended behavior",
+          "actual": "friction \u2014 L5 clears a pending gate because a verifiable check passed (credentials present); L7-L8 clear gates by explicit human attestation. gate-check says gates clear only by 'explicit human action' and does not distinguish a gate cleared by attestation from one cleared by a checkable fact.",
+          "reasoning": null,
+          "correction_or_rule": "gate-check: distinguish attestation-cleared gates from verification-cleared gates (gate condition is a checkable fact)."
+        },
+        "source_ref": "feedback.jsonl:H001 (week1.run.jsonl L5 vs L7-L8)"
+      },
+      {
+        "date": "2026-05-21",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "validate:friction (H002)",
+        "what_happened": "a_bgt_rsi repeatedly finds the declared pass_signal itself mis-specified: L14 a cgroup grep string, L21 a 'FLASHINFER_CUTLASS' log line that encodes a false hardware assumption, L48 a chroma 'default port' that collides with vLLM, L51 a nee",
+        "governing_skill_or_rule": "validate",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "a_bgt_rsi repeatedly finds the declared pass_signal itself mis-specified: L14 a cgroup grep string, L21 a 'FLASHINFER_CUTLASS' log line that encodes a false hardware assumption, L48 a chroma 'default port' that collides with vLLM, L51 a needle 0.85 bar unreachable for the scaffold. validate assumes the criterion is correct and only the result is in question; it has no protocol for 'the check itsel",
+          "expected": "skill's intended behavior",
+          "actual": "friction \u2014 a_bgt_rsi repeatedly finds the declared pass_signal itself mis-specified: L14 a cgroup grep string, L21 a 'FLASHINFER_CUTLASS' log line that encodes a false hardware assumption, L48 a chroma 'default port' that collides with vLLM, L51 a needle 0.85 bar unreachable for the scaffold. validate assumes ",
+          "reasoning": null,
+          "correction_or_rule": "validate: add a protocol for a mis-specified criterion \u2014 verify the underlying intent, report the criterion as buggy, never silently coerce or silently substitute."
+        },
+        "source_ref": "feedback.jsonl:H002 (week1.run.jsonl L14,L21,L48,L51)"
+      },
+      {
+        "date": "2026-05-21",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "validate:friction (H002)",
+        "what_happened": "a_bgt_rsi needed a partial_pass verdict for a task executed correctly where one sub-check's threshold is itself mis-specified (entries>=30, unreachable by design) \u2014 distinct from coercion. validate's verdict set is only pass/fail/inconclusi",
+        "governing_skill_or_rule": "validate",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "a_bgt_rsi needed a partial_pass verdict for a task executed correctly where one sub-check's threshold is itself mis-specified (entries>=30, unreachable by design) \u2014 distinct from coercion. validate's verdict set is only pass/fail/inconclusive; run-log's status enum likewise lacks partial_pass (cf. H001 enum finding).",
+          "expected": "skill's intended behavior",
+          "actual": "friction \u2014 a_bgt_rsi needed a partial_pass verdict for a task executed correctly where one sub-check's threshold is itself mis-specified (entries>=30, unreachable by design) \u2014 distinct from coercion. validate's verdict set is only pass/fail/inconclusive; run-log's status enum likewise lacks partial_pass (cf. H",
+          "reasoning": null,
+          "correction_or_rule": "validate + run-log: consider a partial_pass verdict/status for 'executed correctly, a sub-check is a reported finding', kept distinct from coercion."
+        },
+        "source_ref": "feedback.jsonl:H002 (week1.run.jsonl L76 task=day4_end_of_day_artifacts)"
+      },
+      {
+        "date": "2026-05-21",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "fallback:friction (H002)",
+        "what_happened": "L17's fallback selection was 'human-approved' before being taken; L25's auto-branched from D-008's pre-declaration. fallback treats taking a declared fallback as the agent's call once triggered; it does not address that the fallback selecti",
+        "governing_skill_or_rule": "fallback",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "L17's fallback selection was 'human-approved' before being taken; L25's auto-branched from D-008's pre-declaration. fallback treats taking a declared fallback as the agent's call once triggered; it does not address that the fallback selection may itself be gated on human approval.",
+          "expected": "skill's intended behavior",
+          "actual": "friction \u2014 L17's fallback selection was 'human-approved' before being taken; L25's auto-branched from D-008's pre-declaration. fallback treats taking a declared fallback as the agent's call once triggered; it does not address that the fallback selection may itself be gated on human approval.",
+          "reasoning": null,
+          "correction_or_rule": "fallback: note that a fallback selection may itself be a gated action (run gate-check on the switch), distinct from an auto-branch off a pre-declaration."
+        },
+        "source_ref": "feedback.jsonl:H002 (week1.run.jsonl L17 vs L25)"
+      },
+      {
+        "date": "2026-05-21",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "ship:friction (H002)",
+        "what_happened": "a_bgt_rsi has no pull requests \u2014 it commits to main and integrates parallel work via 'git merge --no-ff worktree-X'. ship's procedure step 5 ('Open / update the PR') assumes a PR-based flow this project does not use.",
+        "governing_skill_or_rule": "ship",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "a_bgt_rsi has no pull requests \u2014 it commits to main and integrates parallel work via 'git merge --no-ff worktree-X'. ship's procedure step 5 ('Open / update the PR') assumes a PR-based flow this project does not use.",
+          "expected": "skill's intended behavior",
+          "actual": "friction \u2014 a_bgt_rsi has no pull requests \u2014 it commits to main and integrates parallel work via 'git merge --no-ff worktree-X'. ship's procedure step 5 ('Open / update the PR') assumes a PR-based flow this project does not use.",
+          "reasoning": null,
+          "correction_or_rule": "ship: make the PR step optional \u2014 support a commit-to-main / merge-worktree integration flow as a first-class alternative."
+        },
+        "source_ref": "feedback.jsonl:H002 (git log \u2014 49 commits, multiple 'Merge Track X' commits)"
+      },
+      {
+        "date": "2026-05-21",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "ship:friction (H002)",
+        "what_happened": "a_bgt_rsi has no unified test runner (no pytest.ini); tests run as per-day enumerated commands ('.venv/bin/python -m pytest', day-specific test sets). ship step 2 ('run the full test suite using the project's own command') assumes one comma",
+        "governing_skill_or_rule": "ship",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "a_bgt_rsi has no unified test runner (no pytest.ini); tests run as per-day enumerated commands ('.venv/bin/python -m pytest', day-specific test sets). ship step 2 ('run the full test suite using the project's own command') assumes one command exists.",
+          "expected": "skill's intended behavior",
+          "actual": "friction \u2014 a_bgt_rsi has no unified test runner (no pytest.ini); tests run as per-day enumerated commands ('.venv/bin/python -m pytest', day-specific test sets). ship step 2 ('run the full test suite using the project's own command') assumes one command exists.",
+          "reasoning": null,
+          "correction_or_rule": "ship + health: handle projects with no unified runner \u2014 accept a per-unit enumerated test set as 'the suite'."
+        },
+        "source_ref": "feedback.jsonl:H002 (week1.run.jsonl L33,L69)"
+      },
+      {
+        "date": "2026-05-21",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "experiment:friction (H002)",
+        "what_happened": "a_bgt_rsi records experiment-shaped results (E1 clock experiment D-021; throughput before/after D-022; metric fields on run-log entries) but keeps no separate experiments.md \u2014 it uses the run log, state.metric_log, and DECISIONS.md. experim",
+        "governing_skill_or_rule": "experiment",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "a_bgt_rsi records experiment-shaped results (E1 clock experiment D-021; throughput before/after D-022; metric fields on run-log entries) but keeps no separate experiments.md \u2014 it uses the run log, state.metric_log, and DECISIONS.md. experiment mandates a separate memory/experiments.md ledger, a parallel store this project deliberately did not want.",
+          "expected": "skill's intended behavior",
+          "actual": "friction \u2014 a_bgt_rsi records experiment-shaped results (E1 clock experiment D-021; throughput before/after D-022; metric fields on run-log entries) but keeps no separate experiments.md \u2014 it uses the run log, state.metric_log, and DECISIONS.md. experiment mandates a separate memory/experiments.md ledger, a para",
+          "reasoning": null,
+          "correction_or_rule": "experiment: allow the experiment ledger to be the run log itself (a tagged entry) rather than mandating a separate experiments.md."
+        },
+        "source_ref": "feedback.jsonl:H002 (week1.run.jsonl L74 metric field; DECISIONS.md D-021)"
+      },
+      {
+        "date": "2026-05-21",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "orchestrate:gap (H002)",
+        "what_happened": "a_bgt_rsi runs a 4-track parallel system on git worktrees with discipline orchestrate does not mention: per-track file-boundary allow-lists (L54-56 'File-boundary check PASS'), pre-merge boundary verification ('git diff --name-only main..wo",
+        "governing_skill_or_rule": "orchestrate",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "a_bgt_rsi runs a 4-track parallel system on git worktrees with discipline orchestrate does not mention: per-track file-boundary allow-lists (L54-56 'File-boundary check PASS'), pre-merge boundary verification ('git diff --name-only main..worktree-X', L79-80), a '--no-ff' merge protocol (L58-60), mock-LLM isolation for side tracks, and completion sentinels ('TRACK C COMPLETE \u2014 ready to merge'). orc",
+          "expected": "skill's intended behavior",
+          "actual": "gap \u2014 a_bgt_rsi runs a 4-track parallel system on git worktrees with discipline orchestrate does not mention: per-track file-boundary allow-lists (L54-56 'File-boundary check PASS'), pre-merge boundary verification ('git diff --name-only main..worktree-X', L79-80), a '--no-ff' merge protocol (L58-60), moc",
+          "reasoning": null,
+          "correction_or_rule": "orchestrate (or a new skill): add a parallel-worktree execution protocol \u2014 per-track file-boundary allow-lists, mock isolation, pre-merge boundary verification, --no-ff merges, completion sentinels."
+        },
+        "source_ref": "feedback.jsonl:H002 (week1.run.jsonl L54-L60,L79-L80)"
+      },
+      {
+        "date": "2026-05-21",
+        "kind": "skill_friction",
+        "severity": "low",
+        "title": "decision-log:gap (H002)",
+        "what_happened": "a_bgt_rsi keeps a 25-entry decision log where every entry carries Date / Decision / Alternatives considered / Rationale / Reversibility / Supersedes, with explicit supersedes-chains (D-022>D-020>D-003) and dated in-place updates (D-019). Th",
+        "governing_skill_or_rule": "decision-log",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "a_bgt_rsi keeps a 25-entry decision log where every entry carries Date / Decision / Alternatives considered / Rationale / Reversibility / Supersedes, with explicit supersedes-chains (D-022>D-020>D-003) and dated in-place updates (D-019). The framework treats DECISIONS.md as a passive memory file with a thin decision/why/supersedes format and has no skill governing how to write a decision entry.",
+          "expected": "skill's intended behavior",
+          "actual": "gap \u2014 a_bgt_rsi keeps a 25-entry decision log where every entry carries Date / Decision / Alternatives considered / Rationale / Reversibility / Supersedes, with explicit supersedes-chains (D-022>D-020>D-003) and dated in-place updates (D-019). The framework treats DECISIONS.md as a passive memory file wit",
+          "reasoning": null,
+          "correction_or_rule": "new skill 'decision-log': capture Alternatives + Reversibility as mandatory fields and maintain supersedes-chains \u2014 adopt a_bgt_rsi's D-xxx format."
+        },
+        "source_ref": "feedback.jsonl:H002 (a_bgt_rsi DECISIONS.md D-001..D-025)"
+      },
+      {
+        "date": "2026-05-21",
+        "kind": "fallback",
+        "severity": "med",
+        "title": "fallback: state_transition",
+        "what_happened": "fallbacks_taken.day5_ml_intern = \"direct_api\" recorded in run_state/week1.state.json. ML-Intern path abandoned at the router (probe failed \u2014 integration-surface mismatch; see day5_block2_ml_intern_router entry). Direct Semantic Scholar API ",
+        "governing_skill_or_rule": "fallback (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "state_transition",
+          "expected": "fallback selection logged as its own run-log entry and written to state.fallbacks_taken (Inviolate Rules 7 + 8)",
+          "actual": "day5_ml_intern: direct_api",
+          "reasoning": null,
+          "correction_or_rule": "declared fallback path taken"
+        },
+        "source_ref": "week1.run.jsonl L86"
+      },
+      {
+        "date": "2026-05-21",
+        "kind": "validation_fail",
+        "severity": "med",
+        "title": "escalated: day5_block2_pipeline_implementation",
+        "what_happened": "Scraper sub-step ran clean (pipeline/arxiv_scraper.py, exit 0, no rate-limiting, 3.3s) but produced only 1 paper with an arXiv ID across cs.MA/cs.GT/econ.TH for --since-days 7 \u2014 far below the >=30 floor (>=50 target). Diagnosis via direct S",
+        "governing_skill_or_rule": "fallback (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day5_block2_pipeline_implementation",
+          "expected": ">=30 papers ingested (>=50 target) into papers_recent collection; --since-days 7 first run",
+          "actual": "Scraper sub-step ran clean (pipeline/arxiv_scraper.py, exit 0, no rate-limiting, 3.3s) but produced only 1 paper with an arXiv ID across cs.MA/cs.GT/econ.TH for --since-days 7 \u2014 far below the >=30 floor (>=50 target). Diagnosis via direct Semantic Scholar bulk-search probes: the free-text-query-as-category proxy returns ample papers (7d totals 13/5/87) but almost none carry an externalIds.ArXiv field within 7 days \u2014 Semantic Scholar lags arXiv on arXiv-ID population. arXiv-ID counts by window: 7d=0/1/0 (sum 1), 30d=6/8/16 (sum 30), 90d=12/23/16 (sum 51). plan.yaml's --since-days 7 assumed S2 holds ~50 recent arXiv papers in 7 days; it does not. Causes ruled out: not rate-limited (keyed allowance, exponential backoff present, 3.3s run); BGE-M3 embed step not yet reached (deferred \u2014 embedding 1 paper is pointless pending a source decision). Per plan on_failure (action: escalate_to_human; anticipated cause 'wrong category filters'): NOT coerced \u2014 escalated to human for a source/window decision. Track A amendments already applied to embed_and_store.py this session (FlagEmbedding -> SentenceTransformerEmbeddingFunction; metadata key embedding_model -> embedding_function) stand regardless of the source decision.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L88"
+      },
+      {
+        "date": "2026-05-20",
+        "kind": "validation_fail",
+        "severity": "low",
+        "title": "partial_pass: day4_end_of_day_artifacts",
+        "what_happened": "git commit fd5eb24 staged 14 paths (tools/mock_payoffs.py + .schema.json, agent_wrapper/wrapper.py, tests/test_tool_call_e2e.py + test_tool_call_robustness.py + test_wrapper_call_with_tools.py, setup/day4_vllm_serve_tools.sh, scripts/test_s",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day4_end_of_day_artifacts",
+          "expected": "commit hash returned; verify_log_integrity==0 on both logs; total day_4 entries >= 30; journal/index.md updated; Day-5 pre-stage passes",
+          "actual": "git commit fd5eb24 staged 14 paths (tools/mock_payoffs.py + .schema.json, agent_wrapper/wrapper.py, tests/test_tool_call_e2e.py + test_tool_call_robustness.py + test_wrapper_call_with_tools.py, setup/day4_vllm_serve_tools.sh, scripts/test_semantic_scholar.py, notes/day5_ml_intern_plan.md, journal/day4.md + index.md, run_state/*; logs/day4_e2e.jsonl + day4_robust.jsonl force-added because logs/*.jsonl is gitignored \u2014 same convention as day2.jsonl). verify_log_integrity('logs/day4_e2e.jsonl')==0, verify_log_integrity('logs/day4_robust.jsonl')==0. journal/index.md updated. Day-5 pre-stage: scripts/test_semantic_scholar.py PASS (arxiv:1706.03762 -> Attention Is All You Need 2017); notes/day5_ml_intern_plan.md authored with attempt + 45-min cap + direct API fallback. FINDING (reported, not coerced per CLAUDE.md inviolate rule 4): plan.yaml's jsonl-integrity check stipulates 'total entries across day 4 >= 30'. Actual: 2 e2e records + 10 robustness records + 6 run_log day_4 entries = 18 total. The prescribed Day-4 task scope (--n 5 trials of 2-record chains plus one e2e chain) cannot reach 30; the threshold appears to anticipate richer Day-4 activity than the prescription allows. Reported here rather than silently inflating runs.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L76"
+      },
+      {
+        "date": "2026-05-20",
+        "kind": "anomaly",
+        "severity": "high",
+        "title": "Anomaly \u2014 tool-call invocation at 100%",
+        "what_happened": "100% rate likely reflects the directive system prompt, not robust tool-using behavior under weaker prompts. A small-N test with a strong prompt is structurally biased upward \u2014 a clean-looking result that does not generalize.",
+        "governing_skill_or_rule": "FR-001",
+        "link_explicit": true,
+        "chain": {
+          "outcome": "Inspected the e2e logs; confirmed the model emitted the tool-call on every prompt; confirmed the system prompt is highly directive (`You MUST call the get_payoff_matrix tool ... do not state any payoff numbers from memory`).",
+          "expected": "Planned floor was 0.80, expecting a non-trivial fraction of bypasses. Observed 1.00.",
+          "actual": "100% rate likely reflects the directive system prompt, not robust tool-using behavior under weaker prompts. A small-N test with a strong prompt is structurally biased upward \u2014 a clean-looking result that does not generalize.",
+          "reasoning": "100% rate likely reflects the directive system prompt, not robust tool-using behavior under weaker prompts. A small-N test with a strong prompt is structurally biased upward \u2014 a clean-looking result that does not generalize.",
+          "correction_or_rule": "Repeat with a softer prompt + a larger N before treating tool-use as robust. Flag any future 100% metric on a small N as suspicious-clean."
+        },
+        "source_ref": "narratives.jsonl#anomaly-tool-call-100pct"
+      },
+      {
+        "date": "2026-05-19",
+        "kind": "validation_fail",
+        "severity": "med",
+        "title": "failed: day3_block2_needle_haystack",
+        "what_happened": "Needle-in-haystack benchmark, real BGE-M3 client wired into tests/needle_in_haystack.py get_chroma_client (HttpClient :8001, SentenceTransformerEmbeddingFunction /mnt/models/bge-m3, cosine space). 3-check validation: CHECK1 top-1 is the nee",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day3_block2_needle_haystack",
+          "expected": "top-1 is the needle sentence; top-1 score >= 0.85 (proceed); score >= 0.7 (investigation floor)",
+          "actual": "Needle-in-haystack benchmark, real BGE-M3 client wired into tests/needle_in_haystack.py get_chroma_client (HttpClient :8001, SentenceTransformerEmbeddingFunction /mnt/models/bge-m3, cosine space). 3-check validation: CHECK1 top-1 is the needle PASS (top-1 chunk-41 text contains 'Schelling-Hardin lemma', needle_found=true); CHECK2 score >= 0.85 proceed band FAIL (score 0.7221, distance 0.27795 \u2014 below 0.85); CHECK3 score >= 0.7 investigation floor PASS (0.7221 >= 0.7, NOT below the hard escalate floor). Result lands in the [0.70,0.85) 'investigate before Day 4' band. on_failure investigation pre-done, all three points clear: (1) collection IS BGE-M3 \u2014 metadata embedding_function=BGE-M3, configuration model_name=/mnt/models/bge-m3, hnsw.space=cosine; (2) needle NOT split \u2014 full needle sentence intact wholly inside chunk-41 which is the top-1 hit; (3) haystack IS 8K \u2014 haystack_tokens_actual=8009, 84 chunks. Retrieval layer is sound (correct chunk retrieved rank-1). The 0.7221 vs plan's expected ~0.92 gap is a benchmark-construction artifact: chunk-41 is 96 tokens of which only the leading 10 are the needle and 86 are repetitive filler, so cosine(10-word query, 96-word mostly-filler chunk)=0.72. hard_checkpoint=false: day_3 NOT aborted. Escalated to human (day3_needle_score_gate). Artifact bench/day3_needle.json.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L51"
+      },
+      {
+        "date": "2026-05-18",
+        "kind": "validation_fail",
+        "severity": "med",
+        "title": "failed: preflight_software_prestaged",
+        "what_happened": "bookmarks OK; clones missing: dgx-spark-playbooks, autoresearch, open_spiel, game-reasoning-arena; weights missing: gemma-4-26b-a4b-nvfp4, bge-m3",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "preflight_software_prestaged",
+          "expected": "all bookmarks, clones, and weight dirs present",
+          "actual": "bookmarks OK; clones missing: dgx-spark-playbooks, autoresearch, open_spiel, game-reasoning-arena; weights missing: gemma-4-26b-a4b-nvfp4, bge-m3",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L4"
+      },
+      {
+        "date": "2026-05-18",
+        "kind": "validation_fail",
+        "severity": "med",
+        "title": "failed: day1_block2_docker_config",
+        "what_happened": "docker restart failed \u2014 dockerd rejected /etc/docker/daemon.json: invalid directive 'cgroupns' (plan command bug; valid key is 'default-cgroupns-mode'). docker.service in failed state, restart-throttled. drop_caches cron was added successfu",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day1_block2_docker_config",
+          "expected": "docker info shows host cgroup; root crontab has drop_caches entry",
+          "actual": "docker restart failed \u2014 dockerd rejected /etc/docker/daemon.json: invalid directive 'cgroupns' (plan command bug; valid key is 'default-cgroupns-mode'). docker.service in failed state, restart-throttled. drop_caches cron was added successfully.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L13"
+      },
+      {
+        "date": "2026-05-18",
+        "kind": "validation_fail",
+        "severity": "med",
+        "title": "failed: day1_block2_vllm_serve",
+        "what_happened": "container exited(1) at MTP speculative-config step \u2014 pydantic ValidationError: drafter model_type 'gemma4_assistant' not recognized. Root cause: pinned image ships vllm 0.19.1.dev6 + transformers 5.5.0, predating merged PR #41745, which add",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day1_block2_vllm_serve",
+          "expected": "vLLM serving with MARLIN MoE backend + MTP engaged; startup-log assertions pass",
+          "actual": "container exited(1) at MTP speculative-config step \u2014 pydantic ValidationError: drafter model_type 'gemma4_assistant' not recognized. Root cause: pinned image ships vllm 0.19.1.dev6 + transformers 5.5.0, predating merged PR #41745, which adds 9 files of MTP support (vllm/config/speculative.py, transformers_utils/model_arch_config_convertor.py, model registry, v1/spec_decode proposer, gpu_model_runner) \u2014 bind-mounting gemma4_mtp.py alone is insufficient. Target model resolved fine as Gemma4ForConditionalGeneration; failure is entirely in the D-019 MTP add-on, not the base vLLM serve.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L16"
+      },
+      {
+        "date": "2026-05-18",
+        "kind": "fallback",
+        "severity": "med",
+        "title": "fallback: day1_block2_vllm_serve",
+        "what_happened": "FALLBACK SELECTED (human-approved): MTP deferred to Week 2+; re-launching vLLM NVFP4 baseline without --speculative-config (the original pre-D-019 task #6). Pinned image cannot support MTP (predates merged PR #41745). Drafter + gemma4_mtp.p",
+        "governing_skill_or_rule": "fallback (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day1_block2_vllm_serve",
+          "expected": "vLLM serving Gemma 4 NVFP4 with MARLIN MoE backend; startup-log + curl assertions pass",
+          "actual": "day1_block2_vllm_serve: MTP -> NVFP4 baseline",
+          "reasoning": null,
+          "correction_or_rule": "declared fallback path taken"
+        },
+        "source_ref": "week1.run.jsonl L17"
+      },
+      {
+        "date": "2026-05-18",
+        "kind": "validation_fail",
+        "severity": "med",
+        "title": "failed: day1_block2_vllm_serve",
+        "what_happened": "vLLM EngineCore failed loading NVFP4 checkpoint \u2014 KeyError 'layers.0.experts.0.down_proj.input_scale' at gemma4.py:1359 load_weights. Pinned image vLLM 0.19.1.dev6 has no param slot for the per-expert NVFP4 input_scale tensors the nvidia/Ge",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day1_block2_vllm_serve",
+          "expected": "vLLM serving Gemma 4 NVFP4 with MARLIN; startup-log + curl assertions pass",
+          "actual": "vLLM EngineCore failed loading NVFP4 checkpoint \u2014 KeyError 'layers.0.experts.0.down_proj.input_scale' at gemma4.py:1359 load_weights. Pinned image vLLM 0.19.1.dev6 has no param slot for the per-expert NVFP4 input_scale tensors the nvidia/Gemma-4-26B-A4B-NVFP4 checkpoint ships. MARLIN MoE backend selected OK. PyTorch warns GB10 CC 12.1 > supported max 12.0 (SM12x gap, D-018). Pinned-image vs pinned-checkpoint incompatibility, not a config error.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L18"
+      },
+      {
+        "date": "2026-05-18",
+        "kind": "validation_fail",
+        "severity": "med",
+        "title": "aborted: day1_block2_vllm_serve",
+        "what_happened": "day_aborted \u2014 task #6 (hard_checkpoint) failed twice; per CLAUDE.md rule 6 and on_failure:abort_day, Block 2 halts. Resolution requires a human version-pin review: pinned vllm/vllm-openai:gemma4-cu130 cannot load nvidia/Gemma-4-26B-A4B-NVFP",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day1_block2_vllm_serve",
+          "expected": "n/a \u2014 hard-checkpoint abort",
+          "actual": "day_aborted \u2014 task #6 (hard_checkpoint) failed twice; per CLAUDE.md rule 6 and on_failure:abort_day, Block 2 halts. Resolution requires a human version-pin review: pinned vllm/vllm-openai:gemma4-cu130 cannot load nvidia/Gemma-4-26B-A4B-NVFP4. A same-pins retry will fail identically.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L19"
+      },
+      {
+        "date": "2026-05-18",
+        "kind": "validation_fail",
+        "severity": "med",
+        "title": "failed: day1_block2_bench",
+        "what_happened": "median single-stream decode 32.03 tok/s (bench/day1.csv; 5 prompts, 256 max_tokens) \u2014 BELOW the plan hard floor of 40. CSV row-count check passes (6 lines). Investigation (notes/day1-bench-debug.md): cache-full NO (buff/cache 1.3GiB), therm",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day1_block2_bench",
+          "expected": "single-stream decode tok/s in [50,110]; >=40 hard floor",
+          "actual": "median single-stream decode 32.03 tok/s (bench/day1.csv; 5 prompts, 256 max_tokens) \u2014 BELOW the plan hard floor of 40. CSV row-count check passes (6 lines). Investigation (notes/day1-bench-debug.md): cache-full NO (buff/cache 1.3GiB), thermal-throttle NO (43C, throttle reasons 0x0), BF16 NO (NVFP4 confirmed). Probable structural cause: GB10 SM12x has no native FP4 \u2014 vLLM marlin weight-only FP4 path 'may degrade performance'; plan ~52 calibration likely does not transfer. Escalated to human per on_failure.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L23"
+      },
+      {
+        "date": "2026-05-18",
+        "kind": "fallback",
+        "severity": "med",
+        "title": "fallback: day1_block2_nemoclaw_router",
+        "what_happened": "router probe \u2014 nemoclaw README present, node v22.22.2 present, but 'which nemoclaw' fails (binary not installed); probe exits non-zero -> on_failure branch. Routing to day1_block2_nemoclaw_fallback (plain-Docker). NemoClaw primary onboardin",
+        "governing_skill_or_rule": "fallback (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day1_block2_nemoclaw_router",
+          "expected": "branch to primary (probe ok) or fallback (probe fails)",
+          "actual": "day1_nemoclaw: NemoClaw -> hardened plain-Docker",
+          "reasoning": null,
+          "correction_or_rule": "declared fallback path taken"
+        },
+        "source_ref": "week1.run.jsonl L25"
+      },
+      {
+        "date": "2026-05-18",
+        "kind": "validation_fail",
+        "severity": "med",
+        "title": "failed: day2_block2_50call_sweep",
+        "what_happened": "5-check validation: #1 50 JSONL lines PASS (wc -l=50); #2 malformed=0 PASS (verify_log_integrity); #3 aggregate tok/s 29.75 FAIL (plan floor 40, computed output_tokens/sum-latency_ms across 50 calls); #4 T=0 determinism PASS (['391','391','",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "day2_block2_50call_sweep",
+          "expected": "50 lines, 0 malformed, aggregate tok/s >= 40, T=0 and T=1/seed=42 determinism all identical",
+          "actual": "5-check validation: #1 50 JSONL lines PASS (wc -l=50); #2 malformed=0 PASS (verify_log_integrity); #3 aggregate tok/s 29.75 FAIL (plan floor 40, computed output_tokens/sum-latency_ms across 50 calls); #4 T=0 determinism PASS (['391','391','391'] identical x3); #5 T=1 seed=42 determinism PASS (['red, green, blue'] identical x3). Determinism \u2014 the plan on_failure's stated concern \u2014 is clean; the sole failure is throughput. 29.75 < Day-1's 32.03 because aggregate-over-latency_ms includes prefill+network, not pure decode. Same structural cause as Day-1 bench (GB10 SM12x has no native FP4; vLLM marlin weight-only path). Not coerced \u2014 reported as FAIL per CLAUDE.md rule 4.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L34"
+      },
+      {
+        "date": "2026-05-18",
+        "kind": "validation_fail",
+        "severity": "med",
+        "title": "aborted: state_transition",
+        "what_happened": "day_aborted \u2014 day2_block2_50call_sweep (hard_checkpoint: true, on_failure: abort_day) failed validation check #3. Per CLAUDE.md rule 6, Block 2 halts and day_2 is aborted. ESCALATION: the failing check is throughput (29.75 tok/s), the same ",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "state_transition",
+          "expected": "n/a \u2014 hard-checkpoint abort",
+          "actual": "day_aborted \u2014 day2_block2_50call_sweep (hard_checkpoint: true, on_failure: abort_day) failed validation check #3. Per CLAUDE.md rule 6, Block 2 halts and day_2 is aborted. ESCALATION: the failing check is throughput (29.75 tok/s), the same structural GB10/FP4 limitation a human accepted as the Day-1 baseline (32.03 tok/s); the plan's on_failure human_message presumes a determinism failure, but determinism PASSED. A same-config retry will fail #3 identically. Resolution requires a human decision \u2014 accept the throughput shortfall (as Day 1) and lift the abort, or treat #3 as truly blocking and tune throughput before Day 3.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L35"
+      },
+      {
+        "date": "2026-05-18",
+        "kind": "validation_fail",
+        "severity": "med",
+        "title": "aborted: state_transition",
+        "what_happened": "HUMAN DECISION (decross1): day_2 abort NOT lifted. Validation check #3 (aggregate tok/s >= 40) treated as truly blocking, not an accepted exception. day_2 remains aborted; Day 3 is gated until throughput is tuned to >= 40 tok/s and the 50-c",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "state_transition",
+          "expected": "human resolves the day_2 hard-checkpoint abort",
+          "actual": "HUMAN DECISION (decross1): day_2 abort NOT lifted. Validation check #3 (aggregate tok/s >= 40) treated as truly blocking, not an accepted exception. day_2 remains aborted; Day 3 is gated until throughput is tuned to >= 40 tok/s and the 50-call sweep re-run passes all 5 checks. Block 3 (#4-#7) does not run. Next work: investigate/tune vLLM throughput, then re-run day2_block2_50call_sweep.",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L36"
+      },
+      {
+        "date": "2026-05-17",
+        "kind": "validation_fail",
+        "severity": "med",
+        "title": "failed: preflight_credentials_staged",
+        "what_happened": "all 5 credentials missing: SEMANTIC_SCHOLAR_API_KEY, ANTHROPIC_API_KEY, HF_TOKEN, GITHUB_TOKEN, NVIDIA_API_KEY",
+        "governing_skill_or_rule": "validate (INFERRED \u2014 run-log row has no skill_used)",
+        "link_explicit": false,
+        "chain": {
+          "outcome": "preflight_credentials_staged",
+          "expected": "shell exit code 0 \u2014 all 5 env vars present",
+          "actual": "all 5 credentials missing: SEMANTIC_SCHOLAR_API_KEY, ANTHROPIC_API_KEY, HF_TOKEN, GITHUB_TOKEN, NVIDIA_API_KEY",
+          "reasoning": null,
+          "correction_or_rule": null
+        },
+        "source_ref": "week1.run.jsonl L2"
+      }
+    ]
+  }
+}
