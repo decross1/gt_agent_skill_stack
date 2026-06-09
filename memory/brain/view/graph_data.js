@@ -32,6 +32,378 @@ window.BRAIN_GRAPH = {
       "title": "Anomaly \u2014 tool-call invocation at 100%"
     },
     {
+      "slug": "apparatus-worker_activity-l451",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L451"
+    },
+    {
+      "slug": "apparatus-worker_activity-l452",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L452"
+    },
+    {
+      "slug": "apparatus-worker_activity-l453",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L453"
+    },
+    {
+      "slug": "apparatus-worker_activity-l454",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L454"
+    },
+    {
+      "slug": "apparatus-worker_activity-l455",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L455"
+    },
+    {
+      "slug": "apparatus-worker_activity-l456",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L456"
+    },
+    {
+      "slug": "apparatus-worker_activity-l457",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L457"
+    },
+    {
+      "slug": "apparatus-worker_activity-l458",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L458"
+    },
+    {
+      "slug": "apparatus-worker_activity-l459",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L459"
+    },
+    {
+      "slug": "apparatus-worker_activity-l460",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L460"
+    },
+    {
+      "slug": "apparatus-worker_activity-l461",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L461"
+    },
+    {
+      "slug": "apparatus-worker_activity-l462",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L462"
+    },
+    {
+      "slug": "apparatus-worker_activity-l463",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L463"
+    },
+    {
+      "slug": "apparatus-worker_activity-l464",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L464"
+    },
+    {
+      "slug": "apparatus-worker_activity-l465",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L465"
+    },
+    {
+      "slug": "apparatus-worker_activity-l466",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L466"
+    },
+    {
+      "slug": "apparatus-worker_activity-l467",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L467"
+    },
+    {
+      "slug": "apparatus-worker_activity-l468",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L468"
+    },
+    {
+      "slug": "apparatus-worker_activity-l469",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L469"
+    },
+    {
+      "slug": "apparatus-worker_activity-l470",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L470"
+    },
+    {
+      "slug": "apparatus-worker_activity-l471",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L471"
+    },
+    {
+      "slug": "apparatus-worker_activity-l472",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L472"
+    },
+    {
+      "slug": "apparatus-worker_activity-l473",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L473"
+    },
+    {
+      "slug": "apparatus-worker_activity-l474",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L474"
+    },
+    {
+      "slug": "apparatus-worker_activity-l475",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L475"
+    },
+    {
+      "slug": "apparatus-worker_activity-l476",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L476"
+    },
+    {
+      "slug": "apparatus-worker_activity-l477",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L477"
+    },
+    {
+      "slug": "apparatus-worker_activity-l478",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L478"
+    },
+    {
+      "slug": "apparatus-worker_activity-l479",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L479"
+    },
+    {
+      "slug": "apparatus-worker_activity-l480",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L480"
+    },
+    {
+      "slug": "apparatus-worker_activity-l481",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L481"
+    },
+    {
+      "slug": "apparatus-worker_activity-l482",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L482"
+    },
+    {
+      "slug": "apparatus-worker_activity-l483",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L483"
+    },
+    {
+      "slug": "apparatus-worker_activity-l484",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L484"
+    },
+    {
+      "slug": "apparatus-worker_activity-l485",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L485"
+    },
+    {
+      "slug": "apparatus-worker_activity-l486",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L486"
+    },
+    {
+      "slug": "apparatus-worker_activity-l487",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L487"
+    },
+    {
+      "slug": "apparatus-worker_activity-l488",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L488"
+    },
+    {
+      "slug": "apparatus-worker_activity-l489",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L489"
+    },
+    {
+      "slug": "apparatus-worker_activity-l490",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L490"
+    },
+    {
+      "slug": "apparatus-worker_activity-l491",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L491"
+    },
+    {
+      "slug": "apparatus-worker_activity-l492",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L492"
+    },
+    {
+      "slug": "apparatus-worker_activity-l493",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L493"
+    },
+    {
+      "slug": "apparatus-worker_activity-l494",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L494"
+    },
+    {
+      "slug": "apparatus-worker_activity-l495",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L495"
+    },
+    {
+      "slug": "apparatus-worker_activity-l496",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L496"
+    },
+    {
+      "slug": "apparatus-worker_activity-l497",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L497"
+    },
+    {
+      "slug": "apparatus-worker_activity-l498",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L498"
+    },
+    {
+      "slug": "apparatus-worker_activity-l499",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L499"
+    },
+    {
+      "slug": "apparatus-worker_activity-l500",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L500"
+    },
+    {
+      "slug": "apparatus-worker_activity-l501",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L501"
+    },
+    {
+      "slug": "apparatus-worker_activity-l502",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L502"
+    },
+    {
+      "slug": "apparatus-worker_activity-l503",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L503"
+    },
+    {
+      "slug": "apparatus-worker_activity-l504",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L504"
+    },
+    {
+      "slug": "apparatus-worker_activity-l505",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L505"
+    },
+    {
+      "slug": "apparatus-worker_activity-l506",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L506"
+    },
+    {
+      "slug": "apparatus-worker_activity-l507",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L507"
+    },
+    {
+      "slug": "apparatus-worker_activity-l508",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L508"
+    },
+    {
+      "slug": "apparatus-worker_activity-l509",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L509"
+    },
+    {
+      "slug": "apparatus-worker_activity-l510",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L510"
+    },
+    {
+      "slug": "apparatus-worker_activity-l511",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L511"
+    },
+    {
+      "slug": "apparatus-worker_activity-l512",
+      "type": "apparatus_event",
+      "date": "2026-06-08",
+      "title": "unknown_apparatus \u2014 worker_activity L512"
+    },
+    {
       "slug": "dec-fw-2026-05-24-reconcile-state-file-lag-against-run-log",
       "type": "correction",
       "date": "2026-05-24",
@@ -258,6 +630,36 @@ window.BRAIN_GRAPH = {
       "type": "decision",
       "date": "2026-05-26",
       "title": "D-035 \u2014 Multi-backend wrapper substrate; Qwen3.6-27B + Anthropic API onboarded; supersedes D-033"
+    },
+    {
+      "slug": "dec-ap-d-036-critic-flip-co-scientist-insight-empirically-tes",
+      "type": "decision",
+      "date": "2026-05-27",
+      "title": "D-036 \u2014 Critic-flip (Co-Scientist insight) empirically tested on three topics \u2014 no observed benefit on this evidence; binding constraint is upstream"
+    },
+    {
+      "slug": "dec-ap-d-037-authorize-dynamic-workflows-amend-d-030-s",
+      "type": "decision",
+      "date": "2026-06-05",
+      "title": "D-037 \u2014 Authorize Dynamic Workflows; amend D-030's single-session constraint"
+    },
+    {
+      "slug": "dec-ap-d-038-ml-intern-uses-semantic-scholar-for",
+      "type": "decision",
+      "date": "2026-06-05",
+      "title": "D-038 \u2014 ML-Intern uses Semantic Scholar for topic-based foundational backfill, scoped distinctly from D-027"
+    },
+    {
+      "slug": "dec-ap-d-039-gemma-4-qat-evaluated-vs",
+      "type": "decision",
+      "date": "2026-06-08",
+      "title": "D-039 \u2014 Gemma 4 QAT evaluated vs the NVFP4 pin (DRAFT, pending exp008 live run)"
+    },
+    {
+      "slug": "dec-ap-d-040-unattended-nara-autonomy-contract-effective",
+      "type": "decision",
+      "date": "2026-06-08",
+      "title": "D-040 \u2014 Unattended Nara autonomy contract (effective at \u03b2; amends the continuous-orchestrator guardrail)"
     },
     {
       "slug": "dec-fw-2026-05-18-added-execution-discipline-skills",
@@ -584,1204 +986,832 @@ window.BRAIN_GRAPH = {
       "title": "Hypothesis \u2014 LLM tool-call invocation rate floor 0.8"
     },
     {
-      "slug": "iter-2026-05-26-011",
+      "slug": "iter-2026-06-08-001",
       "type": "iteration",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara \u2014 loop_memory L11"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara \u2014 loop_memory L47"
     },
     {
-      "slug": "iter-2026-05-27-001",
-      "type": "iteration",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara \u2014 loop_memory L12"
-    },
-    {
-      "slug": "iter-2026-05-27-002",
-      "type": "iteration",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara \u2014 loop_memory L13"
-    },
-    {
-      "slug": "iter-2026-05-27-003",
-      "type": "iteration",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara \u2014 loop_memory L14"
-    },
-    {
-      "slug": "iter-2026-05-27-004",
-      "type": "iteration",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara \u2014 loop_memory L15"
-    },
-    {
-      "slug": "iter-2026-05-27-005",
-      "type": "iteration",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara \u2014 loop_memory L16"
-    },
-    {
-      "slug": "iter-2026-05-27-006",
-      "type": "iteration",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara \u2014 loop_memory L17"
-    },
-    {
-      "slug": "apparatus-calls-l100",
+      "slug": "apparatus-calls-l3047",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L100"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3047"
     },
     {
-      "slug": "apparatus-calls-l101",
+      "slug": "apparatus-calls-l3048",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L101"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3048"
     },
     {
-      "slug": "apparatus-calls-l102",
+      "slug": "apparatus-calls-l3049",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L102"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3049"
     },
     {
-      "slug": "apparatus-calls-l103",
+      "slug": "apparatus-calls-l3050",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L103"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3050"
     },
     {
-      "slug": "apparatus-calls-l104",
+      "slug": "apparatus-calls-l3051",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L104"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3051"
     },
     {
-      "slug": "apparatus-calls-l105",
+      "slug": "apparatus-calls-l3052",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L105"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3052"
     },
     {
-      "slug": "apparatus-calls-l106",
+      "slug": "apparatus-calls-l3053",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L106"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3053"
     },
     {
-      "slug": "apparatus-calls-l107",
+      "slug": "apparatus-calls-l3054",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L107"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3054"
     },
     {
-      "slug": "apparatus-calls-l108",
+      "slug": "apparatus-calls-l3055",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L108"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3055"
     },
     {
-      "slug": "apparatus-calls-l109",
+      "slug": "apparatus-calls-l3056",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L109"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3056"
     },
     {
-      "slug": "apparatus-calls-l110",
+      "slug": "apparatus-calls-l3057",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L110"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3057"
     },
     {
-      "slug": "apparatus-calls-l111",
+      "slug": "apparatus-calls-l3058",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L111"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3058"
     },
     {
-      "slug": "apparatus-calls-l112",
+      "slug": "apparatus-calls-l3059",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L112"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3059"
     },
     {
-      "slug": "apparatus-calls-l113",
+      "slug": "apparatus-calls-l3060",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L113"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3060"
     },
     {
-      "slug": "apparatus-calls-l114",
+      "slug": "apparatus-calls-l3061",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L114"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3061"
     },
     {
-      "slug": "apparatus-calls-l115",
+      "slug": "apparatus-calls-l3062",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L115"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3062"
     },
     {
-      "slug": "apparatus-calls-l116",
+      "slug": "apparatus-calls-l3063",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L116"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3063"
     },
     {
-      "slug": "apparatus-calls-l117",
+      "slug": "apparatus-calls-l3064",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L117"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3064"
     },
     {
-      "slug": "apparatus-calls-l118",
+      "slug": "apparatus-calls-l3065",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L118"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3065"
     },
     {
-      "slug": "apparatus-calls-l119",
+      "slug": "apparatus-calls-l3066",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L119"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3066"
     },
     {
-      "slug": "apparatus-calls-l120",
+      "slug": "apparatus-calls-l3067",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L120"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3067"
     },
     {
-      "slug": "apparatus-calls-l121",
+      "slug": "apparatus-calls-l3068",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L121"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3068"
     },
     {
-      "slug": "apparatus-calls-l122",
+      "slug": "apparatus-calls-l3069",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L122"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3069"
     },
     {
-      "slug": "apparatus-calls-l123",
+      "slug": "apparatus-calls-l3070",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L123"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3070"
     },
     {
-      "slug": "apparatus-calls-l124",
+      "slug": "apparatus-calls-l3071",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L124"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3071"
     },
     {
-      "slug": "apparatus-calls-l125",
+      "slug": "apparatus-calls-l3072",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L125"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3072"
     },
     {
-      "slug": "apparatus-calls-l126",
+      "slug": "apparatus-calls-l3073",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L126"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3073"
     },
     {
-      "slug": "apparatus-calls-l127",
+      "slug": "apparatus-calls-l3074",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L127"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3074"
     },
     {
-      "slug": "apparatus-calls-l128",
+      "slug": "apparatus-calls-l3075",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L128"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3075"
     },
     {
-      "slug": "apparatus-calls-l129",
+      "slug": "apparatus-calls-l3076",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L129"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3076"
     },
     {
-      "slug": "apparatus-calls-l130",
+      "slug": "apparatus-calls-l3077",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L130"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3077"
     },
     {
-      "slug": "apparatus-calls-l131",
+      "slug": "apparatus-calls-l3078",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L131"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3078"
     },
     {
-      "slug": "apparatus-calls-l132",
+      "slug": "apparatus-calls-l3079",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L132"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3079"
     },
     {
-      "slug": "apparatus-calls-l55",
+      "slug": "apparatus-calls-l3080",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L55"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3080"
     },
     {
-      "slug": "apparatus-calls-l56",
+      "slug": "apparatus-calls-l3081",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L56"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3081"
     },
     {
-      "slug": "apparatus-calls-l57",
+      "slug": "apparatus-calls-l3082",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L57"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3082"
     },
     {
-      "slug": "apparatus-calls-l58",
+      "slug": "apparatus-calls-l3083",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L58"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3083"
     },
     {
-      "slug": "apparatus-calls-l59",
+      "slug": "apparatus-calls-l3084",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L59"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3084"
     },
     {
-      "slug": "apparatus-calls-l60",
+      "slug": "apparatus-calls-l3085",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L60"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3085"
     },
     {
-      "slug": "apparatus-calls-l61",
+      "slug": "apparatus-calls-l3086",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L61"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3086"
     },
     {
-      "slug": "apparatus-calls-l62",
+      "slug": "apparatus-calls-l3087",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L62"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3087"
     },
     {
-      "slug": "apparatus-calls-l63",
+      "slug": "apparatus-calls-l3088",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L63"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3088"
     },
     {
-      "slug": "apparatus-calls-l64",
+      "slug": "apparatus-calls-l3089",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L64"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3089"
     },
     {
-      "slug": "apparatus-calls-l65",
+      "slug": "apparatus-calls-l3090",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L65"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3090"
     },
     {
-      "slug": "apparatus-calls-l66",
+      "slug": "apparatus-calls-l3091",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L66"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3091"
     },
     {
-      "slug": "apparatus-calls-l67",
+      "slug": "apparatus-calls-l3092",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L67"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3092"
     },
     {
-      "slug": "apparatus-calls-l68",
+      "slug": "apparatus-calls-l3093",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L68"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3093"
     },
     {
-      "slug": "apparatus-calls-l69",
+      "slug": "apparatus-calls-l3094",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L69"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3094"
     },
     {
-      "slug": "apparatus-calls-l70",
+      "slug": "apparatus-calls-l3095",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L70"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3095"
     },
     {
-      "slug": "apparatus-calls-l71",
+      "slug": "apparatus-calls-l3096",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L71"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3096"
     },
     {
-      "slug": "apparatus-calls-l72",
+      "slug": "apparatus-calls-l3097",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L72"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3097"
     },
     {
-      "slug": "apparatus-calls-l73",
+      "slug": "apparatus-calls-l3098",
       "type": "llm_call",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L73"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3098"
     },
     {
-      "slug": "apparatus-calls-l74",
+      "slug": "apparatus-calls-l3099",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L74"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3099"
     },
     {
-      "slug": "apparatus-calls-l75",
+      "slug": "apparatus-calls-l3100",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L75"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3100"
     },
     {
-      "slug": "apparatus-calls-l76",
+      "slug": "apparatus-calls-l3101",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L76"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3101"
     },
     {
-      "slug": "apparatus-calls-l77",
+      "slug": "apparatus-calls-l3102",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L77"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3102"
     },
     {
-      "slug": "apparatus-calls-l78",
+      "slug": "apparatus-calls-l3103",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L78"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3103"
     },
     {
-      "slug": "apparatus-calls-l79",
+      "slug": "apparatus-calls-l3104",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L79"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3104"
     },
     {
-      "slug": "apparatus-calls-l80",
+      "slug": "apparatus-calls-l3105",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L80"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3105"
     },
     {
-      "slug": "apparatus-calls-l81",
+      "slug": "apparatus-calls-l3106",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L81"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3106"
     },
     {
-      "slug": "apparatus-calls-l82",
+      "slug": "apparatus-calls-l3107",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L82"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3107"
     },
     {
-      "slug": "apparatus-calls-l83",
+      "slug": "apparatus-calls-l3108",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L83"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3108"
     },
     {
-      "slug": "apparatus-calls-l84",
+      "slug": "apparatus-calls-l3109",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L84"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3109"
     },
     {
-      "slug": "apparatus-calls-l85",
+      "slug": "apparatus-calls-l3110",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L85"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3110"
     },
     {
-      "slug": "apparatus-calls-l86",
+      "slug": "apparatus-calls-l3111",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L86"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3111"
     },
     {
-      "slug": "apparatus-calls-l87",
+      "slug": "apparatus-calls-l3112",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L87"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3112"
     },
     {
-      "slug": "apparatus-calls-l88",
+      "slug": "apparatus-calls-l3113",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L88"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3113"
     },
     {
-      "slug": "apparatus-calls-l89",
+      "slug": "apparatus-calls-l3114",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L89"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3114"
     },
     {
-      "slug": "apparatus-calls-l90",
+      "slug": "apparatus-calls-l3115",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L90"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3115"
     },
     {
-      "slug": "apparatus-calls-l91",
+      "slug": "apparatus-calls-l3116",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L91"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3116"
     },
     {
-      "slug": "apparatus-calls-l92",
+      "slug": "apparatus-calls-l3117",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L92"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3117"
     },
     {
-      "slug": "apparatus-calls-l93",
+      "slug": "apparatus-calls-l3118",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L93"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3118"
     },
     {
-      "slug": "apparatus-calls-l94",
+      "slug": "apparatus-calls-l3119",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L94"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3119"
     },
     {
-      "slug": "apparatus-calls-l95",
+      "slug": "apparatus-calls-l3120",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L95"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3120"
     },
     {
-      "slug": "apparatus-calls-l96",
+      "slug": "apparatus-calls-l3121",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L96"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3121"
     },
     {
-      "slug": "apparatus-calls-l97",
+      "slug": "apparatus-calls-l3122",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L97"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3122"
     },
     {
-      "slug": "apparatus-calls-l98",
+      "slug": "apparatus-calls-l3123",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L98"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3123"
     },
     {
-      "slug": "apparatus-calls-l99",
+      "slug": "apparatus-calls-l3124",
       "type": "llm_call",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L99"
-    },
-    {
-      "slug": "event-iter-2026-05-26-010-loop-v0-fallback-none-l263",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L263"
-    },
-    {
-      "slug": "event-iter-2026-05-26-010-loop-v0-iteration-complete-none-l264",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L264"
-    },
-    {
-      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l256",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L256"
-    },
-    {
-      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l257",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L257"
-    },
-    {
-      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l258",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L258"
-    },
-    {
-      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l259",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L259"
-    },
-    {
-      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l260",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L260"
-    },
-    {
-      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l261",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L261"
-    },
-    {
-      "slug": "event-iter-2026-05-26-010-loop-v0-reprompt-none-l262",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L262"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-fallback-none-l280",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L280"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-iteration-complete-none-l281",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L281"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-iteration-start-none-l265",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L265"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l268",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L268"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l271",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L271"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l272",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L272"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l273",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L273"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l274",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L274"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l275",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L275"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l276",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L276"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l277",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L277"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l278",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L278"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-reprompt-none-l279",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L279"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-tool-dispatch-hypothesize-l266",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L266"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-tool-dispatch-retrieve-literature-l269",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L269"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-tool-receipt-hypothesize-l267",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L267"
-    },
-    {
-      "slug": "event-iter-2026-05-26-011-loop-v0-tool-receipt-retrieve-literature-l270",
-      "type": "orchestrator_event",
-      "date": "2026-05-26",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L270"
-    },
-    {
-      "slug": "event-iter-2026-05-27-001-loop-v0-iteration-complete-none-l294",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L294"
-    },
-    {
-      "slug": "event-iter-2026-05-27-001-loop-v0-iteration-start-none-l282",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L282"
-    },
-    {
-      "slug": "event-iter-2026-05-27-001-loop-v0-reprompt-none-l287",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L287"
-    },
-    {
-      "slug": "event-iter-2026-05-27-001-loop-v0-tool-dispatch-critic-loop-v0-l290",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L290"
-    },
-    {
-      "slug": "event-iter-2026-05-27-001-loop-v0-tool-dispatch-hypothesize-l283",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L283"
-    },
-    {
-      "slug": "event-iter-2026-05-27-001-loop-v0-tool-dispatch-journal-writer-l292",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L292"
-    },
-    {
-      "slug": "event-iter-2026-05-27-001-loop-v0-tool-dispatch-novelty-classify-l288",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L288"
-    },
-    {
-      "slug": "event-iter-2026-05-27-001-loop-v0-tool-dispatch-retrieve-literature-l285",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L285"
-    },
-    {
-      "slug": "event-iter-2026-05-27-001-loop-v0-tool-receipt-critic-loop-v0-l291",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L291"
-    },
-    {
-      "slug": "event-iter-2026-05-27-001-loop-v0-tool-receipt-hypothesize-l284",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L284"
-    },
-    {
-      "slug": "event-iter-2026-05-27-001-loop-v0-tool-receipt-journal-writer-l293",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L293"
-    },
-    {
-      "slug": "event-iter-2026-05-27-001-loop-v0-tool-receipt-novelty-classify-l289",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L289"
-    },
-    {
-      "slug": "event-iter-2026-05-27-001-loop-v0-tool-receipt-retrieve-literature-l286",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L286"
-    },
-    {
-      "slug": "event-iter-2026-05-27-002-loop-v0-iteration-complete-none-l307",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L307"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3124"
     },
     {
-      "slug": "event-iter-2026-05-27-002-loop-v0-iteration-start-none-l295",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L295"
-    },
-    {
-      "slug": "event-iter-2026-05-27-002-loop-v0-reprompt-none-l304",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L304"
-    },
-    {
-      "slug": "event-iter-2026-05-27-002-loop-v0-tool-dispatch-critic-loop-v0-l302",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L302"
-    },
-    {
-      "slug": "event-iter-2026-05-27-002-loop-v0-tool-dispatch-hypothesize-l296",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L296"
-    },
-    {
-      "slug": "event-iter-2026-05-27-002-loop-v0-tool-dispatch-journal-writer-l305",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L305"
-    },
-    {
-      "slug": "event-iter-2026-05-27-002-loop-v0-tool-dispatch-novelty-classify-l300",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L300"
-    },
-    {
-      "slug": "event-iter-2026-05-27-002-loop-v0-tool-dispatch-retrieve-literature-l298",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L298"
-    },
-    {
-      "slug": "event-iter-2026-05-27-002-loop-v0-tool-receipt-critic-loop-v0-l303",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L303"
-    },
-    {
-      "slug": "event-iter-2026-05-27-002-loop-v0-tool-receipt-hypothesize-l297",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L297"
-    },
-    {
-      "slug": "event-iter-2026-05-27-002-loop-v0-tool-receipt-journal-writer-l306",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L306"
-    },
-    {
-      "slug": "event-iter-2026-05-27-002-loop-v0-tool-receipt-novelty-classify-l301",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L301"
-    },
-    {
-      "slug": "event-iter-2026-05-27-002-loop-v0-tool-receipt-retrieve-literature-l299",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L299"
-    },
-    {
-      "slug": "event-iter-2026-05-27-003-loop-v0-iteration-complete-none-l320",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L320"
-    },
-    {
-      "slug": "event-iter-2026-05-27-003-loop-v0-iteration-start-none-l308",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L308"
-    },
-    {
-      "slug": "event-iter-2026-05-27-003-loop-v0-reprompt-none-l313",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L313"
-    },
-    {
-      "slug": "event-iter-2026-05-27-003-loop-v0-tool-dispatch-critic-loop-v0-l316",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L316"
-    },
-    {
-      "slug": "event-iter-2026-05-27-003-loop-v0-tool-dispatch-hypothesize-l309",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L309"
+      "slug": "apparatus-calls-l3125",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3125"
     },
     {
-      "slug": "event-iter-2026-05-27-003-loop-v0-tool-dispatch-journal-writer-l318",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L318"
+      "slug": "apparatus-calls-l3126",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3126"
     },
     {
-      "slug": "event-iter-2026-05-27-003-loop-v0-tool-dispatch-novelty-classify-l314",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L314"
+      "slug": "apparatus-calls-l3127",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3127"
     },
     {
-      "slug": "event-iter-2026-05-27-003-loop-v0-tool-dispatch-retrieve-literature-l311",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L311"
+      "slug": "apparatus-calls-l3128",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3128"
     },
     {
-      "slug": "event-iter-2026-05-27-003-loop-v0-tool-receipt-critic-loop-v0-l317",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L317"
+      "slug": "apparatus-calls-l3129",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3129"
     },
     {
-      "slug": "event-iter-2026-05-27-003-loop-v0-tool-receipt-hypothesize-l310",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L310"
+      "slug": "apparatus-calls-l3130",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3130"
     },
     {
-      "slug": "event-iter-2026-05-27-003-loop-v0-tool-receipt-journal-writer-l319",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L319"
+      "slug": "apparatus-calls-l3131",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3131"
     },
     {
-      "slug": "event-iter-2026-05-27-003-loop-v0-tool-receipt-novelty-classify-l315",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L315"
+      "slug": "apparatus-calls-l3132",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3132"
     },
     {
-      "slug": "event-iter-2026-05-27-003-loop-v0-tool-receipt-retrieve-literature-l312",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L312"
+      "slug": "apparatus-calls-l3133",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3133"
     },
     {
-      "slug": "event-iter-2026-05-27-004-loop-v0-iteration-complete-none-l333",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L333"
+      "slug": "apparatus-calls-l3134",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3134"
     },
     {
-      "slug": "event-iter-2026-05-27-004-loop-v0-iteration-start-none-l321",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L321"
+      "slug": "apparatus-calls-l3135",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3135"
     },
     {
-      "slug": "event-iter-2026-05-27-004-loop-v0-reprompt-none-l330",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L330"
+      "slug": "apparatus-calls-l3136",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3136"
     },
     {
-      "slug": "event-iter-2026-05-27-004-loop-v0-tool-dispatch-critic-loop-v0-l328",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L328"
+      "slug": "apparatus-calls-l3137",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3137"
     },
     {
-      "slug": "event-iter-2026-05-27-004-loop-v0-tool-dispatch-hypothesize-l322",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L322"
+      "slug": "apparatus-calls-l3138",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3138"
     },
     {
-      "slug": "event-iter-2026-05-27-004-loop-v0-tool-dispatch-journal-writer-l331",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L331"
+      "slug": "apparatus-calls-l3139",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3139"
     },
     {
-      "slug": "event-iter-2026-05-27-004-loop-v0-tool-dispatch-novelty-classify-l326",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L326"
+      "slug": "apparatus-calls-l3140",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3140"
     },
     {
-      "slug": "event-iter-2026-05-27-004-loop-v0-tool-dispatch-retrieve-literature-l324",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L324"
+      "slug": "apparatus-calls-l3141",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3141"
     },
     {
-      "slug": "event-iter-2026-05-27-004-loop-v0-tool-receipt-critic-loop-v0-l329",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L329"
+      "slug": "apparatus-calls-l3142",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3142"
     },
     {
-      "slug": "event-iter-2026-05-27-004-loop-v0-tool-receipt-hypothesize-l323",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L323"
+      "slug": "apparatus-calls-l3143",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3143"
     },
     {
-      "slug": "event-iter-2026-05-27-004-loop-v0-tool-receipt-journal-writer-l332",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L332"
+      "slug": "apparatus-calls-l3144",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3144"
     },
     {
-      "slug": "event-iter-2026-05-27-004-loop-v0-tool-receipt-novelty-classify-l327",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L327"
+      "slug": "apparatus-calls-l3145",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3145"
     },
     {
-      "slug": "event-iter-2026-05-27-004-loop-v0-tool-receipt-retrieve-literature-l325",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L325"
+      "slug": "apparatus-calls-l3146",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3146"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-fallback-none-l356",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L356"
+      "slug": "apparatus-calls-l3147",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3147"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-iteration-complete-none-l357",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L357"
+      "slug": "apparatus-calls-l3148",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3148"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-iteration-start-none-l334",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L334"
+      "slug": "apparatus-calls-l3149",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3149"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-reprompt-none-l343",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L343"
+      "slug": "apparatus-calls-l3150",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3150"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-reprompt-none-l348",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L348"
+      "slug": "apparatus-calls-l3151",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3151"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-reprompt-none-l353",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L353"
+      "slug": "apparatus-calls-l3152",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3152"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l341",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L341"
+      "slug": "apparatus-calls-l3153",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3153"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l344",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L344"
+      "slug": "apparatus-calls-l3154",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3154"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l346",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L346"
+      "slug": "apparatus-calls-l3155",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3155"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l349",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L349"
+      "slug": "apparatus-calls-l3156",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3156"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l351",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L351"
+      "slug": "apparatus-calls-l3157",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3157"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l354",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L354"
+      "slug": "apparatus-calls-l3158",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3158"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-dispatch-hypothesize-l335",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L335"
+      "slug": "apparatus-calls-l3159",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3159"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-dispatch-novelty-classify-l339",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L339"
+      "slug": "apparatus-calls-l3160",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3160"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-dispatch-retrieve-literature-l337",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L337"
+      "slug": "apparatus-calls-l3161",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3161"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l342",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L342"
+      "slug": "apparatus-calls-l3162",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3162"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l345",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L345"
+      "slug": "apparatus-calls-l3163",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3163"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l347",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L347"
+      "slug": "apparatus-calls-l3164",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3164"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l350",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L350"
+      "slug": "apparatus-calls-l3165",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3165"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l352",
-      "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L352"
+      "slug": "apparatus-calls-l3166",
+      "type": "llm_call",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3166"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l355",
+      "slug": "event-iter-2026-06-08-001-loop-v0-iteration-complete-none-l1000",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L355"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1000"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-receipt-hypothesize-l336",
+      "slug": "event-iter-2026-06-08-001-loop-v0-iteration-start-none-l984",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L336"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L984"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-receipt-novelty-classify-l340",
+      "slug": "event-iter-2026-06-08-001-loop-v0-ml-intern-none-l991",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L340"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L991"
     },
     {
-      "slug": "event-iter-2026-05-27-005-loop-v0-tool-receipt-retrieve-literature-l338",
+      "slug": "event-iter-2026-06-08-001-loop-v0-ml-intern-none-l992",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L338"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L992"
     },
     {
-      "slug": "event-iter-2026-05-27-006-loop-v0-iteration-complete-none-l370",
+      "slug": "event-iter-2026-06-08-001-loop-v0-redteam-retry-none-l987",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L370"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L987"
     },
     {
-      "slug": "event-iter-2026-05-27-006-loop-v0-iteration-start-none-l358",
+      "slug": "event-iter-2026-06-08-001-loop-v0-redteam-retry-none-l988",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L358"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L988"
     },
     {
-      "slug": "event-iter-2026-05-27-006-loop-v0-reprompt-none-l367",
+      "slug": "event-iter-2026-06-08-001-loop-v0-reprompt-none-l997",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L367"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L997"
     },
     {
-      "slug": "event-iter-2026-05-27-006-loop-v0-tool-dispatch-critic-loop-v0-l365",
+      "slug": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-critic-loop-v0-l995",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L365"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L995"
     },
     {
-      "slug": "event-iter-2026-05-27-006-loop-v0-tool-dispatch-hypothesize-l359",
+      "slug": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-hypothesize-l985",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L359"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L985"
     },
     {
-      "slug": "event-iter-2026-05-27-006-loop-v0-tool-dispatch-journal-writer-l368",
+      "slug": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-journal-writer-l998",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L368"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L998"
     },
     {
-      "slug": "event-iter-2026-05-27-006-loop-v0-tool-dispatch-novelty-classify-l363",
+      "slug": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-novelty-classify-l993",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L363"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L993"
     },
     {
-      "slug": "event-iter-2026-05-27-006-loop-v0-tool-dispatch-retrieve-literature-l361",
+      "slug": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-retrieve-literature-l989",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L361"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L989"
     },
     {
-      "slug": "event-iter-2026-05-27-006-loop-v0-tool-receipt-critic-loop-v0-l366",
+      "slug": "event-iter-2026-06-08-001-loop-v0-tool-receipt-critic-loop-v0-l996",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L366"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L996"
     },
     {
-      "slug": "event-iter-2026-05-27-006-loop-v0-tool-receipt-hypothesize-l360",
+      "slug": "event-iter-2026-06-08-001-loop-v0-tool-receipt-hypothesize-l986",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L360"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L986"
     },
     {
-      "slug": "event-iter-2026-05-27-006-loop-v0-tool-receipt-journal-writer-l369",
+      "slug": "event-iter-2026-06-08-001-loop-v0-tool-receipt-journal-writer-l999",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L369"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L999"
     },
     {
-      "slug": "event-iter-2026-05-27-006-loop-v0-tool-receipt-novelty-classify-l364",
+      "slug": "event-iter-2026-06-08-001-loop-v0-tool-receipt-novelty-classify-l994",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L364"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L994"
     },
     {
-      "slug": "event-iter-2026-05-27-006-loop-v0-tool-receipt-retrieve-literature-l362",
+      "slug": "event-iter-2026-06-08-001-loop-v0-tool-receipt-retrieve-literature-l990",
       "type": "orchestrator_event",
-      "date": "2026-05-27",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L362"
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L990"
     },
     {
       "slug": "proposal-p-001",
@@ -1854,6 +1884,30 @@ window.BRAIN_GRAPH = {
       "type": "rule",
       "date": "2026-05-27",
       "title": "FR-003 \u2014 run-log schema: agent (required) and skill_used (optional)"
+    },
+    {
+      "slug": "runlog-applied-tier-polymarket-designonly-via-dynamic-workflow-l938",
+      "type": "run_log_entry",
+      "date": "2026-06-05",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L938"
+    },
+    {
+      "slug": "runlog-autoresearch-loop-tiers-via-dynamic-workflow-l920",
+      "type": "run_log_entry",
+      "date": "2026-06-05",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L920"
+    },
+    {
+      "slug": "runlog-coordinator-brain-alpha-via-dynamic-workflow-l978",
+      "type": "run_log_entry",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L978"
+    },
+    {
+      "slug": "runlog-d040-ratification-cleanup-commit-l983",
+      "type": "run_log_entry",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L983"
     },
     {
       "slug": "runlog-day-1-day-1-start-l1",
@@ -2780,6 +2834,102 @@ window.BRAIN_GRAPH = {
       "title": "a_bgt_rsi: Nara \u2014 week1.run L150"
     },
     {
+      "slug": "runlog-day8-four-track-integration-via-dynamic-workflow-l979",
+      "type": "run_log_entry",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L979"
+    },
+    {
+      "slug": "runlog-day8-precommit-review-via-dynamic-workflow-l981",
+      "type": "run_log_entry",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L981"
+    },
+    {
+      "slug": "runlog-day8-review-fixes-integrator-l982",
+      "type": "run_log_entry",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L982"
+    },
+    {
+      "slug": "runlog-derisk-harden-beta-workflow-start-l1003",
+      "type": "run_log_entry",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1003"
+    },
+    {
+      "slug": "runlog-exp004-combinatorial-auction-via-dynamic-workflow-l887",
+      "type": "run_log_entry",
+      "date": "2026-06-05",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L887"
+    },
+    {
+      "slug": "runlog-exp004-real-run-n150-l903",
+      "type": "run_log_entry",
+      "date": "2026-06-05",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L903"
+    },
+    {
+      "slug": "runlog-exp005-exp006-real-runs-l939",
+      "type": "run_log_entry",
+      "date": "2026-06-05",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L939"
+    },
+    {
+      "slug": "runlog-exp008-analyze-plumbing-stepa-integrator-l980",
+      "type": "run_log_entry",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L980"
+    },
+    {
+      "slug": "runlog-exp008-armc-unified-mem-freeze-incident-l1002",
+      "type": "run_log_entry",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1002"
+    },
+    {
+      "slug": "runlog-exp008-first-live-run-triage-l1001",
+      "type": "run_log_entry",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1001"
+    },
+    {
+      "slug": "runlog-exp008-qat-eval-harness-via-dynamic-workflow-l977",
+      "type": "run_log_entry",
+      "date": "2026-06-08",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L977"
+    },
+    {
+      "slug": "runlog-finding-promotion-block2-via-dynamic-workflow-l976",
+      "type": "run_log_entry",
+      "date": "2026-06-06",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L976"
+    },
+    {
+      "slug": "runlog-instrumentation-block1-via-dynamic-workflow-l975",
+      "type": "run_log_entry",
+      "date": "2026-06-06",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L975"
+    },
+    {
+      "slug": "runlog-loop-v1-build-via-dynamic-workflow-l886",
+      "type": "run_log_entry",
+      "date": "2026-06-05",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L886"
+    },
+    {
+      "slug": "runlog-ml-intern-slice2-via-dynamic-workflow-l937",
+      "type": "run_log_entry",
+      "date": "2026-06-05",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L937"
+    },
+    {
+      "slug": "runlog-next-steps-build-via-dynamic-workflow-l904",
+      "type": "run_log_entry",
+      "date": "2026-06-05",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L904"
+    },
+    {
       "slug": "skill-auto-experiment",
       "type": "skill",
       "date": "",
@@ -3404,6 +3554,1222 @@ window.BRAIN_GRAPH = {
       "type": "stage",
       "date": "2026-05-27",
       "title": "Retrieve \u2014 iter-2026-05-27-006 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-007-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-007 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-007-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-007 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-007-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-007 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-007-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-007 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-007-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-007 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-008-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-008 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-008-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-008 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-008-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-008 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-008-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-008 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-008-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-008 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-009-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-009 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-009-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-009 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-009-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-009 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-009-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-009 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-009-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-009 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-010-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-010 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-010-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-010 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-010-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-010 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-010-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-010 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-010-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-010 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-011-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-011 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-011-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-011 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-011-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-011 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-011-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-011 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-011-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-011 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-012-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-012 (step 5)",
+      "worker": "critic_loop_v0",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-012-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-012 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-012-hypothesize-2",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-012 (step 2)",
+      "worker": "hypothesize",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-012-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-012 (step 6)",
+      "worker": "journal_writer",
+      "step": 6
+    },
+    {
+      "slug": "stage-iter-2026-05-27-012-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-012 (step 4)",
+      "worker": "novelty_classify",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-012-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-012 (step 3)",
+      "worker": "retrieve_literature",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-013 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-013-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-013 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-013-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-013 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-013 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-013 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-014-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-014 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-014-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-014 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-014-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-014 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-014-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-014 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-014-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-014 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-015-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-015 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-015-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-015 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-015-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-015 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-015-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-015 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-015-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-015 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-016-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-016 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-016-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-016 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-016-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-016 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-016-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-016 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-016-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-016 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-017-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-017 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-017-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-017 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-017-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-017 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-017-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-017 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-017-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-017 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-018-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-018 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-018-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-018 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-018-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-018 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-018-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-018 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-018-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-018 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-019-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-019 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-019-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-019 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-019-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-019 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-019-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-019 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-019-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-019 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-020-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-020 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-020-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-020 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-020-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-020 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-020-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-020 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-020-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-020 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-021-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-021 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-021-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-021 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-021-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-021 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-021-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-021 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-021-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-021 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-022-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-022 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-022-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-022 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-022-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-022 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-022-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-022 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-022-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-022 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-023-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-023 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-023-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-023 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-023-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-023 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-023-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-023 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-023-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-023 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-024-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-024 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-024-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-024 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-024-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-024 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-024-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-024 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-024-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-024 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-025-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-025 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-025-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-025 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-025-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-025 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-025-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-025 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-025-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-025 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-026-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-026 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-026-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-026 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-026-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-026 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-026-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-026 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-026-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-026 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-027-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-027 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-027-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-027 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-027-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-027 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-027-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-027 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-027-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-027 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-05-27-028-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Critique \u2014 iter-2026-05-27-028 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-05-27-028-hypothesize-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Hypothesize \u2014 iter-2026-05-27-028 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-05-27-028-journal-writer-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Journal \u2014 iter-2026-05-27-028 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-05-27-028-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Novelty \u2014 iter-2026-05-27-028 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-05-27-028-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-05-27",
+      "title": "Retrieve \u2014 iter-2026-05-27-028 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-06-05-001-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Critique \u2014 iter-2026-06-05-001 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-06-05-001-hypothesize-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Hypothesize \u2014 iter-2026-06-05-001 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-06-05-001-journal-writer-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Journal \u2014 iter-2026-06-05-001 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-06-05-001-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Novelty \u2014 iter-2026-06-05-001 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-06-05-001-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Retrieve \u2014 iter-2026-06-05-001 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-06-05-002-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Critique \u2014 iter-2026-06-05-002 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-06-05-002-hypothesize-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Hypothesize \u2014 iter-2026-06-05-002 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-06-05-002-journal-writer-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Journal \u2014 iter-2026-06-05-002 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-06-05-002-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Novelty \u2014 iter-2026-06-05-002 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-06-05-002-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Retrieve \u2014 iter-2026-06-05-002 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-06-05-003-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Critique \u2014 iter-2026-06-05-003 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-06-05-003-hypothesize-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Hypothesize \u2014 iter-2026-06-05-003 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-06-05-003-journal-writer-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Journal \u2014 iter-2026-06-05-003 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-06-05-003-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Novelty \u2014 iter-2026-06-05-003 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-06-05-003-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Retrieve \u2014 iter-2026-06-05-003 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-06-05-004-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Critique \u2014 iter-2026-06-05-004 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-06-05-004-hypothesize-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Hypothesize \u2014 iter-2026-06-05-004 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-06-05-004-journal-writer-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Journal \u2014 iter-2026-06-05-004 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-06-05-004-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Novelty \u2014 iter-2026-06-05-004 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-06-05-004-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Retrieve \u2014 iter-2026-06-05-004 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-06-05-005-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Critique \u2014 iter-2026-06-05-005 (step 5)",
+      "worker": "critic_loop_v0",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-06-05-005-hypothesize-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Hypothesize \u2014 iter-2026-06-05-005 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-06-05-005-hypothesize-2",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Hypothesize \u2014 iter-2026-06-05-005 (step 2)",
+      "worker": "hypothesize",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-06-05-005-journal-writer-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Journal \u2014 iter-2026-06-05-005 (step 6)",
+      "worker": "journal_writer",
+      "step": 6
+    },
+    {
+      "slug": "stage-iter-2026-06-05-005-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Novelty \u2014 iter-2026-06-05-005 (step 4)",
+      "worker": "novelty_classify",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-06-05-005-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Retrieve \u2014 iter-2026-06-05-005 (step 3)",
+      "worker": "retrieve_literature",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-06-05-006-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Critique \u2014 iter-2026-06-05-006 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-06-05-006-hypothesize-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Hypothesize \u2014 iter-2026-06-05-006 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-06-05-006-journal-writer-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Journal \u2014 iter-2026-06-05-006 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-06-05-006-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Novelty \u2014 iter-2026-06-05-006 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-06-05-006-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-06-05",
+      "title": "Retrieve \u2014 iter-2026-06-05-006 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-06-06-001-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-06-06",
+      "title": "Critique \u2014 iter-2026-06-06-001 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-06-06-001-hypothesize-1",
+      "type": "stage",
+      "date": "2026-06-06",
+      "title": "Hypothesize \u2014 iter-2026-06-06-001 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-06-06-001-journal-writer-1",
+      "type": "stage",
+      "date": "2026-06-06",
+      "title": "Journal \u2014 iter-2026-06-06-001 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-06-06-001-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-06-06",
+      "title": "Novelty \u2014 iter-2026-06-06-001 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-06-06-001-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-06-06",
+      "title": "Retrieve \u2014 iter-2026-06-06-001 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-06-08-001-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-06-08",
+      "title": "Critique \u2014 iter-2026-06-08-001 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-06-08-001-hypothesize-1",
+      "type": "stage",
+      "date": "2026-06-08",
+      "title": "Hypothesize \u2014 iter-2026-06-08-001 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-06-08-001-journal-writer-1",
+      "type": "stage",
+      "date": "2026-06-08",
+      "title": "Journal \u2014 iter-2026-06-08-001 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-06-08-001-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-06-08",
+      "title": "Novelty \u2014 iter-2026-06-08-001 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-06-08-001-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-06-08",
+      "title": "Retrieve \u2014 iter-2026-06-08-001 (step 2)",
       "worker": "retrieve_literature",
       "step": 2
     }
@@ -5108,6 +6474,4388 @@ window.BRAIN_GRAPH = {
       "src_type": "apparatus_event",
       "type": "produced",
       "dst": "apparatus-calls-l132",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l133",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-dispatch-hypothesize-l372",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l133",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-receipt-hypothesize-l373",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l135",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-dispatch-retrieve-literature-l374",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l135",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-receipt-retrieve-literature-l375",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l136",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-dispatch-novelty-classify-l376",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l136",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-receipt-novelty-classify-l377",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l138",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-007-loop-v0-reprompt-none-l378",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l139",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-dispatch-critic-loop-v0-l379",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l139",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-receipt-critic-loop-v0-l380",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l140",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-dispatch-journal-writer-l381",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l140",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-receipt-journal-writer-l382",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-007",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-007-loop-v0-iteration-complete-none-l383",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-007",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l138",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-007",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l141",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l142",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-dispatch-hypothesize-l385",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l142",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-receipt-hypothesize-l386",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l144",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-dispatch-retrieve-literature-l387",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l144",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-receipt-retrieve-literature-l388",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l145",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-008-loop-v0-reprompt-none-l389",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l146",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-dispatch-novelty-classify-l390",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l146",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-receipt-novelty-classify-l391",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l148",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-dispatch-critic-loop-v0-l392",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l148",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-receipt-critic-loop-v0-l393",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l149",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-008-loop-v0-reprompt-none-l394",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l150",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-dispatch-journal-writer-l395",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l150",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-receipt-journal-writer-l396",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-008",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-008-loop-v0-iteration-complete-none-l397",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-008",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l145",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-008",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l149",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-008",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l151",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l152",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-dispatch-hypothesize-l399",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l152",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-receipt-hypothesize-l400",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l154",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-dispatch-retrieve-literature-l401",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l154",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-receipt-retrieve-literature-l402",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l155",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-009-loop-v0-reprompt-none-l403",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l156",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-dispatch-novelty-classify-l404",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l156",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-receipt-novelty-classify-l405",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l158",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-dispatch-critic-loop-v0-l406",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l158",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-receipt-critic-loop-v0-l407",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l159",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-009-loop-v0-reprompt-none-l408",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l160",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-dispatch-journal-writer-l409",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l160",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-receipt-journal-writer-l410",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-009",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-009-loop-v0-iteration-complete-none-l411",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-009",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l155",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-009",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l159",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-009",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l161",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l162",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-dispatch-hypothesize-l413",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l162",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-receipt-hypothesize-l414",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l164",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-dispatch-retrieve-literature-l415",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l164",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-receipt-retrieve-literature-l416",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l165",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-dispatch-novelty-classify-l417",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l165",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-receipt-novelty-classify-l418",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l167",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-dispatch-critic-loop-v0-l419",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l167",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-receipt-critic-loop-v0-l420",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l168",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-010-loop-v0-reprompt-none-l421",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l169",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-dispatch-journal-writer-l422",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l169",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-receipt-journal-writer-l423",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-010-loop-v0-iteration-complete-none-l424",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l168",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-010",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l170",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l171",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-dispatch-hypothesize-l426",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l171",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-receipt-hypothesize-l427",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l173",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-dispatch-retrieve-literature-l428",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l173",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-receipt-retrieve-literature-l429",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l174",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-dispatch-novelty-classify-l430",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l174",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-receipt-novelty-classify-l431",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l176",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-dispatch-critic-loop-v0-l432",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l176",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-receipt-critic-loop-v0-l433",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l177",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-011-loop-v0-reprompt-none-l434",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l178",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-dispatch-journal-writer-l435",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l178",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-receipt-journal-writer-l436",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-011",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-011-loop-v0-iteration-complete-none-l437",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-011",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l177",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-011",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l179",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l180",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-dispatch-hypothesize-l439",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l180",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-receipt-hypothesize-l440",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l182",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-dispatch-hypothesize-l441",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l182",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-receipt-hypothesize-l442",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l184",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-dispatch-retrieve-literature-l443",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l184",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-receipt-retrieve-literature-l444",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l185",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-dispatch-novelty-classify-l445",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l185",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-receipt-novelty-classify-l446",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l187",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-012-loop-v0-reprompt-none-l447",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l188",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-dispatch-critic-loop-v0-l448",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l188",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-receipt-critic-loop-v0-l449",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l189",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-dispatch-journal-writer-l450",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l189",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-receipt-journal-writer-l451",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-012",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-012-loop-v0-iteration-complete-none-l452",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-012",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l182",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-012",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l187",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-012",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l190",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l191",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l454",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l191",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l455",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l193",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l456",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l193",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l457",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l194",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l458",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l194",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l459",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l196",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-reprompt-none-l460",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l197",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l461",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l197",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l462",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l198",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l463",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l198",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l464",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l200",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l467",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l200",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l468",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l202",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l469",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l202",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l470",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l203",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-reprompt-none-l471",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l204",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l472",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l204",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l473",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l206",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l474",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l206",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l475",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l207",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l476",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l207",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l477",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l209",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l480",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l209",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l481",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l211",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l482",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l211",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l483",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l212",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l484",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l212",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l485",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l214",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l486",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l214",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l487",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l215",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-reprompt-none-l488",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l216",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l489",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l216",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l490",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l218",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l493",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l218",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l494",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l220",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l495",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l220",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l496",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l221",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l497",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l221",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l498",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l223",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-reprompt-none-l499",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l224",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l500",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l224",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l501",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l225",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l502",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l225",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l503",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l227",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l506",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l227",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l507",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l229",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l508",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l229",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l509",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l230",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l510",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l230",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l511",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l232",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l512",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l232",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l513",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l233",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-reprompt-none-l514",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l234",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l515",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l234",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l516",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l236",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l519",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l236",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l520",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l238",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l521",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l238",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l522",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l239",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l523",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l239",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l524",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l241",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l525",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l241",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l526",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l242",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-reprompt-none-l527",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l243",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l528",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l243",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l529",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l245",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l532",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l245",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l533",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l247",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l534",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l247",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l535",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l248",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l536",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l248",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l537",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l250",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l538",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l250",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l539",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l251",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-reprompt-none-l540",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l252",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l541",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l252",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l542",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l254",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l545",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l254",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l546",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l256",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l547",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l256",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l548",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l257",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-reprompt-none-l549",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l258",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l550",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l258",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l551",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l260",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l552",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l260",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l553",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l261",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l554",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l261",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l555",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l263",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l558",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l263",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l559",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l265",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l560",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l265",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l561",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l266",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l562",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l266",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l563",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l268",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l564",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l268",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l565",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l269",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-reprompt-none-l566",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l270",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l567",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l270",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l568",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l272",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l571",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l272",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l572",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l274",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l573",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l274",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l574",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l275",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l575",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l275",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l576",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l277",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-reprompt-none-l577",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l278",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l578",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l278",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l579",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l279",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l580",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l279",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l581",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l281",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l584",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l281",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l585",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l283",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l586",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l283",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l587",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l284",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l588",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l284",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l589",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l286",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l590",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l286",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l591",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l287",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-reprompt-none-l592",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l288",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l593",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l288",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l594",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l290",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l597",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l290",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l598",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l292",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l599",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l292",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l600",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l293",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l601",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l293",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l602",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l295",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l603",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l295",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l604",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l296",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-reprompt-none-l605",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l297",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l606",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l297",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l607",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l299",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l610",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l299",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l611",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l301",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l612",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l301",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l613",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l302",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l614",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l302",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l615",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l304",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l616",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l304",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l617",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l305",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l618",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l305",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l619",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l307",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l622",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l307",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l623",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l309",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l624",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l309",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l625",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l310",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l626",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l310",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l627",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l312",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l628",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l312",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l629",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l313",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-reprompt-none-l630",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l314",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l631",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l314",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l632",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l316",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l635",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l316",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l636",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l318",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l637",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l318",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l638",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l319",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l639",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l319",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l640",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l321",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l641",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l321",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l642",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l322",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-reprompt-none-l643",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l323",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l644",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l323",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l645",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l325",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l648",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l325",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l649",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l327",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l650",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l327",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l651",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l328",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-reprompt-none-l652",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l329",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l653",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l329",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l654",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l331",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-reprompt-none-l655",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l332",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l656",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l332",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l657",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l333",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l658",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l333",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l659",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-013",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-013-loop-v0-iteration-complete-none-l660",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-013",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l325",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-013",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l327",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-013",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l328",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-013",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l329",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-013",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l331",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-013",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l332",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-013",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l333",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-013",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l334",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l335",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-dispatch-hypothesize-l662",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l335",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-receipt-hypothesize-l663",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l337",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-dispatch-retrieve-literature-l664",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l337",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-receipt-retrieve-literature-l665",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l338",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-dispatch-novelty-classify-l666",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l338",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-receipt-novelty-classify-l667",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l340",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-dispatch-critic-loop-v0-l668",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l340",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-receipt-critic-loop-v0-l669",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l341",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-014-loop-v0-reprompt-none-l670",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l342",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-dispatch-journal-writer-l671",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l342",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-receipt-journal-writer-l672",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-014",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-014-loop-v0-iteration-complete-none-l673",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-014",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l341",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-014",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l343",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l344",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-dispatch-hypothesize-l675",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l344",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-receipt-hypothesize-l676",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l346",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-dispatch-retrieve-literature-l677",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l346",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-receipt-retrieve-literature-l678",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l347",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-dispatch-novelty-classify-l679",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l347",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-receipt-novelty-classify-l680",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l349",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-dispatch-critic-loop-v0-l681",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l349",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-receipt-critic-loop-v0-l682",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l350",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-015-loop-v0-reprompt-none-l683",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l351",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-dispatch-journal-writer-l684",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l351",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-receipt-journal-writer-l685",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-015",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-015-loop-v0-iteration-complete-none-l686",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-015",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l350",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-015",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l352",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l353",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-dispatch-hypothesize-l688",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l353",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-receipt-hypothesize-l689",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l355",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-dispatch-retrieve-literature-l690",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l355",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-receipt-retrieve-literature-l691",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l356",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-dispatch-novelty-classify-l692",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l356",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-receipt-novelty-classify-l693",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l358",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-dispatch-critic-loop-v0-l694",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l358",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-receipt-critic-loop-v0-l695",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l359",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-016-loop-v0-reprompt-none-l696",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l360",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-dispatch-journal-writer-l697",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l360",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-receipt-journal-writer-l698",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-016",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-016-loop-v0-iteration-complete-none-l699",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-016",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l359",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-016",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l361",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l362",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-dispatch-hypothesize-l701",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l362",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-receipt-hypothesize-l702",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l364",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-dispatch-retrieve-literature-l703",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l364",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-receipt-retrieve-literature-l704",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l365",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-dispatch-novelty-classify-l705",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l365",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-receipt-novelty-classify-l706",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l367",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-dispatch-critic-loop-v0-l707",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l367",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-receipt-critic-loop-v0-l708",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l368",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-017-loop-v0-reprompt-none-l709",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l369",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-dispatch-journal-writer-l710",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l369",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-receipt-journal-writer-l711",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-017",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-017-loop-v0-iteration-complete-none-l712",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-017",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l368",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-017",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l370",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l371",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-dispatch-hypothesize-l714",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l371",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-receipt-hypothesize-l715",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l373",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-dispatch-retrieve-literature-l716",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l373",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-receipt-retrieve-literature-l717",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l374",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-dispatch-novelty-classify-l718",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l374",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-receipt-novelty-classify-l719",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l376",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-dispatch-critic-loop-v0-l720",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l376",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-receipt-critic-loop-v0-l721",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l377",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-018-loop-v0-reprompt-none-l722",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l378",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-dispatch-journal-writer-l723",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l378",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-receipt-journal-writer-l724",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-018",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-018-loop-v0-iteration-complete-none-l725",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-018",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l377",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-018",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l379",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l380",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-dispatch-hypothesize-l727",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l380",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-receipt-hypothesize-l728",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l382",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-dispatch-retrieve-literature-l729",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l382",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-receipt-retrieve-literature-l730",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l383",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-dispatch-novelty-classify-l731",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l383",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-receipt-novelty-classify-l732",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l385",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-dispatch-critic-loop-v0-l733",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l385",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-receipt-critic-loop-v0-l734",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l386",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-019-loop-v0-reprompt-none-l735",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l387",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-dispatch-journal-writer-l736",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l387",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-receipt-journal-writer-l737",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-019",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-019-loop-v0-iteration-complete-none-l738",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-019",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l386",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-019",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l388",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l389",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-dispatch-hypothesize-l740",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l389",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-receipt-hypothesize-l741",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l391",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-dispatch-retrieve-literature-l742",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l391",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-receipt-retrieve-literature-l743",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l392",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-dispatch-novelty-classify-l744",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l392",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-receipt-novelty-classify-l745",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l394",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-dispatch-critic-loop-v0-l746",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l394",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-receipt-critic-loop-v0-l747",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l395",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-020-loop-v0-reprompt-none-l748",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l396",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-dispatch-journal-writer-l749",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l396",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-receipt-journal-writer-l750",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-020",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-020-loop-v0-iteration-complete-none-l751",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-020",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l395",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-020",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l397",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l398",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-dispatch-hypothesize-l753",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l398",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-receipt-hypothesize-l754",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l400",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-dispatch-retrieve-literature-l755",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l400",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-receipt-retrieve-literature-l756",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l401",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-dispatch-novelty-classify-l757",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l401",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-receipt-novelty-classify-l758",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l403",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-dispatch-critic-loop-v0-l759",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l403",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-receipt-critic-loop-v0-l760",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l404",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-021-loop-v0-reprompt-none-l761",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l405",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-dispatch-journal-writer-l762",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l405",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-receipt-journal-writer-l763",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-021",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-021-loop-v0-iteration-complete-none-l764",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-021",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l404",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-021",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l406",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l407",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-dispatch-hypothesize-l766",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l407",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-receipt-hypothesize-l767",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l409",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-dispatch-retrieve-literature-l768",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l409",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-receipt-retrieve-literature-l769",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l410",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-dispatch-novelty-classify-l770",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l410",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-receipt-novelty-classify-l771",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l412",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-dispatch-critic-loop-v0-l772",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l412",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-receipt-critic-loop-v0-l773",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l413",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-022-loop-v0-reprompt-none-l774",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l414",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-dispatch-journal-writer-l775",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l414",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-receipt-journal-writer-l776",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-022",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-022-loop-v0-iteration-complete-none-l777",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-022",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l413",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-022",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l415",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l416",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-dispatch-hypothesize-l779",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l416",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-receipt-hypothesize-l780",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l418",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-dispatch-retrieve-literature-l781",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l418",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-receipt-retrieve-literature-l782",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l419",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-023-loop-v0-reprompt-none-l783",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l420",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-dispatch-novelty-classify-l784",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l420",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-receipt-novelty-classify-l785",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l422",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-dispatch-critic-loop-v0-l786",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l422",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-receipt-critic-loop-v0-l787",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l423",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-dispatch-journal-writer-l788",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l423",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-receipt-journal-writer-l789",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-023",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-023-loop-v0-iteration-complete-none-l790",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-023",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l419",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-023",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l424",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l425",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-dispatch-hypothesize-l792",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l425",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-receipt-hypothesize-l793",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l427",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-dispatch-retrieve-literature-l794",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l427",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-receipt-retrieve-literature-l795",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l428",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-dispatch-novelty-classify-l796",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l428",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-receipt-novelty-classify-l797",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l430",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-dispatch-critic-loop-v0-l798",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l430",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-receipt-critic-loop-v0-l799",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l431",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-024-loop-v0-reprompt-none-l800",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l432",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-dispatch-journal-writer-l801",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l432",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-receipt-journal-writer-l802",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-024",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-024-loop-v0-iteration-complete-none-l803",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-024",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l431",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-024",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l433",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l434",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-dispatch-hypothesize-l805",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l434",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-receipt-hypothesize-l806",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l436",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-025-loop-v0-reprompt-none-l807",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l437",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-dispatch-retrieve-literature-l808",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l437",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-receipt-retrieve-literature-l809",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l438",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-dispatch-novelty-classify-l810",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l438",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-receipt-novelty-classify-l811",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l440",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-025-loop-v0-reprompt-none-l812",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l441",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-dispatch-critic-loop-v0-l813",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l441",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-receipt-critic-loop-v0-l814",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l442",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-025-loop-v0-reprompt-none-l815",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l443",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-dispatch-journal-writer-l816",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l443",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-receipt-journal-writer-l817",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-025",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-025-loop-v0-iteration-complete-none-l818",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-025",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l436",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-025",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l440",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-025",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l442",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-025",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l444",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l445",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-dispatch-hypothesize-l820",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l445",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-receipt-hypothesize-l821",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l447",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-dispatch-retrieve-literature-l822",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l447",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-receipt-retrieve-literature-l823",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l448",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-dispatch-novelty-classify-l824",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l448",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-receipt-novelty-classify-l825",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l450",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-dispatch-critic-loop-v0-l826",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l450",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-receipt-critic-loop-v0-l827",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l451",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-026-loop-v0-reprompt-none-l828",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l452",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-dispatch-journal-writer-l829",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l452",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-receipt-journal-writer-l830",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-026",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-026-loop-v0-iteration-complete-none-l831",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-026",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l451",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-026",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l453",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l454",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-dispatch-hypothesize-l833",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l454",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-receipt-hypothesize-l834",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l456",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-dispatch-retrieve-literature-l835",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l456",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-receipt-retrieve-literature-l836",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l457",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-dispatch-novelty-classify-l837",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l457",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-receipt-novelty-classify-l838",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l459",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-dispatch-critic-loop-v0-l839",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l459",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-receipt-critic-loop-v0-l840",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l460",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-027-loop-v0-reprompt-none-l841",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l461",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-dispatch-journal-writer-l842",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l461",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-receipt-journal-writer-l843",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-027",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-027-loop-v0-iteration-complete-none-l844",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-027",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l460",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-027",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l462",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l463",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-dispatch-hypothesize-l846",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l463",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-receipt-hypothesize-l847",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l465",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-dispatch-retrieve-literature-l848",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l465",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-receipt-retrieve-literature-l849",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l466",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-dispatch-novelty-classify-l850",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l466",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-receipt-novelty-classify-l851",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l468",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-dispatch-critic-loop-v0-l852",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l468",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-receipt-critic-loop-v0-l853",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l469",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-028-loop-v0-reprompt-none-l854",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l470",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-dispatch-journal-writer-l855",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l470",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-receipt-journal-writer-l856",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-028",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-05-27-028-loop-v0-iteration-complete-none-l857",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-028",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l469",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-028",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l471",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l653",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-dispatch-hypothesize-l859",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l653",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-receipt-hypothesize-l860",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l655",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-dispatch-retrieve-literature-l861",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l655",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-receipt-retrieve-literature-l862",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l656",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-001-loop-v0-reprompt-none-l863",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l657",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-dispatch-novelty-classify-l864",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l657",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-receipt-novelty-classify-l865",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l659",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-dispatch-critic-loop-v0-l866",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l659",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-receipt-critic-loop-v0-l867",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l660",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-dispatch-journal-writer-l868",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l660",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-receipt-journal-writer-l869",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-001",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-001-loop-v0-iteration-complete-none-l870",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-001",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l656",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-001",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l661",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l663",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-dispatch-hypothesize-l872",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l663",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-receipt-hypothesize-l873",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l663",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-002-loop-v0-redteam-retry-none-l874",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l666",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-dispatch-retrieve-literature-l875",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l666",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-receipt-retrieve-literature-l876",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l667",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-002-loop-v0-reprompt-none-l877",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l668",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-dispatch-novelty-classify-l878",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l668",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-receipt-novelty-classify-l879",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l670",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-dispatch-critic-loop-v0-l880",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l670",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-receipt-critic-loop-v0-l881",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l671",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-002-loop-v0-reprompt-none-l882",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l672",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-dispatch-journal-writer-l883",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l672",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-receipt-journal-writer-l884",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-002",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-002-loop-v0-iteration-complete-none-l885",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-002",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l667",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-002",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l671",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-002",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l673",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l855",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-dispatch-hypothesize-l889",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l855",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-receipt-hypothesize-l890",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l855",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-003-loop-v0-redteam-retry-none-l891",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l855",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-003-loop-v0-redteam-retry-none-l892",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l859",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-dispatch-retrieve-literature-l893",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l859",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-receipt-retrieve-literature-l894",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l860",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-dispatch-novelty-classify-l895",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l860",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-receipt-novelty-classify-l896",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l862",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-dispatch-critic-loop-v0-l897",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l862",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-receipt-critic-loop-v0-l898",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l863",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-003-loop-v0-reprompt-none-l899",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l864",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-dispatch-journal-writer-l900",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l864",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-receipt-journal-writer-l901",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-003",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-003-loop-v0-iteration-complete-none-l902",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-003",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l863",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-003",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l865",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1077",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-dispatch-hypothesize-l906",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1077",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-receipt-hypothesize-l907",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1077",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-004-loop-v0-redteam-retry-none-l908",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1077",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-004-loop-v0-redteam-retry-none-l909",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1111",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-dispatch-retrieve-literature-l910",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1111",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-receipt-retrieve-literature-l911",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1112",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-dispatch-novelty-classify-l912",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1112",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-receipt-novelty-classify-l913",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1114",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-dispatch-critic-loop-v0-l914",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1114",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-receipt-critic-loop-v0-l915",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1115",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-004-loop-v0-reprompt-none-l916",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1116",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-dispatch-journal-writer-l917",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1116",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-receipt-journal-writer-l918",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-004",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-004-loop-v0-iteration-complete-none-l919",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-004",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l1115",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-004",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l1117",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1311",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-dispatch-hypothesize-l922",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1311",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-receipt-hypothesize-l923",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1313",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-dispatch-hypothesize-l924",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1313",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-receipt-hypothesize-l925",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1313",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-005-loop-v0-redteam-retry-none-l926",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1313",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-005-loop-v0-redteam-retry-none-l927",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1371",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-dispatch-retrieve-literature-l928",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1371",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-receipt-retrieve-literature-l929",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1396",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-dispatch-novelty-classify-l930",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1396",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-receipt-novelty-classify-l931",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1398",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-dispatch-critic-loop-v0-l932",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1398",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-receipt-critic-loop-v0-l933",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1399",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-dispatch-journal-writer-l934",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1399",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-receipt-journal-writer-l935",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-005",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-005-loop-v0-iteration-complete-none-l936",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-005",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l1313",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-005",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l1400",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1828",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-dispatch-hypothesize-l941",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1828",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-receipt-hypothesize-l942",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1828",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-redteam-retry-none-l943",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1828",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-redteam-retry-none-l944",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1832",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-dispatch-retrieve-literature-l945",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1832",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-receipt-retrieve-literature-l946",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1832",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-ml-intern-none-l947",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1832",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-ml-intern-none-l948",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1833",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-reprompt-none-l949",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1834",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-dispatch-novelty-classify-l950",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1834",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-receipt-novelty-classify-l951",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1836",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-dispatch-critic-loop-v0-l952",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1836",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-receipt-critic-loop-v0-l953",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1837",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-reprompt-none-l954",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1838",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-dispatch-journal-writer-l955",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l1838",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-receipt-journal-writer-l956",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-006",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-05-006-loop-v0-iteration-complete-none-l957",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-006",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l1833",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-006",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l1837",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-006",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l1839",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l2165",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-dispatch-hypothesize-l959",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l2165",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-receipt-hypothesize-l960",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l2165",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-06-001-loop-v0-redteam-retry-none-l961",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l2165",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-06-001-loop-v0-redteam-retry-none-l962",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l2169",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-dispatch-retrieve-literature-l963",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l2169",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-receipt-retrieve-literature-l964",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l2169",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-06-001-loop-v0-ml-intern-none-l965",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l2169",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-06-001-loop-v0-ml-intern-none-l966",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l2170",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-dispatch-novelty-classify-l967",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l2170",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-receipt-novelty-classify-l968",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l2172",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-06-001-loop-v0-reprompt-none-l969",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l2173",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-dispatch-critic-loop-v0-l970",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l2173",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-receipt-critic-loop-v0-l971",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l2174",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-dispatch-journal-writer-l972",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l2174",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-receipt-journal-writer-l973",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-06-001",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-06-001-loop-v0-iteration-complete-none-l974",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-06-001",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l2172",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-06-001",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l2175",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l3048",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-hypothesize-l985",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l3048",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-receipt-hypothesize-l986",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l3048",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-08-001-loop-v0-redteam-retry-none-l987",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l3048",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-08-001-loop-v0-redteam-retry-none-l988",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l3052",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-retrieve-literature-l989",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l3052",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-receipt-retrieve-literature-l990",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l3052",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-08-001-loop-v0-ml-intern-none-l991",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l3052",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-08-001-loop-v0-ml-intern-none-l992",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l3053",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-novelty-classify-l993",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l3053",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-receipt-novelty-classify-l994",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l3055",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-critic-loop-v0-l995",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l3055",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-receipt-critic-loop-v0-l996",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l3056",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-08-001-loop-v0-reprompt-none-l997",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l3057",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-journal-writer-l998",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "apparatus-calls-l3057",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-receipt-journal-writer-l999",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-08-001",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-08-001-loop-v0-iteration-complete-none-l1000",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-08-001",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l3056",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-08-001",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "apparatus-calls-l3058",
       "dst_type": "apparatus_event"
     },
     {
@@ -7239,6 +12987,5368 @@ window.BRAIN_GRAPH = {
       "dst_type": "apparatus_event"
     },
     {
+      "src": "iter-2026-05-27-007",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-007-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-007-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l133",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-007-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-dispatch-hypothesize-l372",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-007-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-receipt-hypothesize-l373",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-007",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-007-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-007-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l135",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-007-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-dispatch-retrieve-literature-l374",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-007-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-receipt-retrieve-literature-l375",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-007",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-007-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-007-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l136",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-007-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-dispatch-novelty-classify-l376",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-007-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-receipt-novelty-classify-l377",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-007",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-007-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-007-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l139",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-007-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-dispatch-critic-loop-v0-l379",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-007-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-receipt-critic-loop-v0-l380",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-007",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-007-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-007-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l140",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-007-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-dispatch-journal-writer-l381",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-007-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-007-loop-v0-tool-receipt-journal-writer-l382",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-008",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-008-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-008-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l142",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-008-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-dispatch-hypothesize-l385",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-008-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-receipt-hypothesize-l386",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-008",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-008-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-008-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l144",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-008-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-dispatch-retrieve-literature-l387",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-008-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-receipt-retrieve-literature-l388",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-008",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-008-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-008-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l146",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-008-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-dispatch-novelty-classify-l390",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-008-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-receipt-novelty-classify-l391",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-008",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-008-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-008-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l148",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-008-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-dispatch-critic-loop-v0-l392",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-008-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-receipt-critic-loop-v0-l393",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-008",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-008-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-008-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l150",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-008-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-dispatch-journal-writer-l395",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-008-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-008-loop-v0-tool-receipt-journal-writer-l396",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-009",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-009-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-009-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l152",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-009-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-dispatch-hypothesize-l399",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-009-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-receipt-hypothesize-l400",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-009",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-009-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-009-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l154",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-009-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-dispatch-retrieve-literature-l401",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-009-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-receipt-retrieve-literature-l402",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-009",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-009-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-009-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l156",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-009-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-dispatch-novelty-classify-l404",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-009-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-receipt-novelty-classify-l405",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-009",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-009-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-009-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l158",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-009-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-dispatch-critic-loop-v0-l406",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-009-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-receipt-critic-loop-v0-l407",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-009",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-009-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-009-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l160",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-009-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-dispatch-journal-writer-l409",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-009-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-009-loop-v0-tool-receipt-journal-writer-l410",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-010",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-010-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-010-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l162",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-010-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-dispatch-hypothesize-l413",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-010-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-receipt-hypothesize-l414",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-010",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-010-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-010-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l164",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-010-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-dispatch-retrieve-literature-l415",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-010-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-receipt-retrieve-literature-l416",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-010",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-010-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-010-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l165",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-010-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-dispatch-novelty-classify-l417",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-010-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-receipt-novelty-classify-l418",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-010",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-010-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-010-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l167",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-010-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-dispatch-critic-loop-v0-l419",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-010-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-receipt-critic-loop-v0-l420",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-010",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-010-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-010-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l169",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-010-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-dispatch-journal-writer-l422",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-010-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-010-loop-v0-tool-receipt-journal-writer-l423",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-011",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-011-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-011-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l171",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-011-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-dispatch-hypothesize-l426",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-011-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-receipt-hypothesize-l427",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-011",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-011-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-011-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l173",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-011-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-dispatch-retrieve-literature-l428",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-011-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-receipt-retrieve-literature-l429",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-011",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-011-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-011-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l174",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-011-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-dispatch-novelty-classify-l430",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-011-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-receipt-novelty-classify-l431",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-011",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-011-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-011-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l176",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-011-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-dispatch-critic-loop-v0-l432",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-011-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-receipt-critic-loop-v0-l433",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-011",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-011-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-011-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l178",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-011-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-dispatch-journal-writer-l435",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-011-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-011-loop-v0-tool-receipt-journal-writer-l436",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-012",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-012-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l180",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-dispatch-hypothesize-l439",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-receipt-hypothesize-l440",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-dispatch-hypothesize-l441",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-receipt-hypothesize-l442",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-012",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-012-hypothesize-2",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-hypothesize-2",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l180",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-hypothesize-2",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-dispatch-hypothesize-l439",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-hypothesize-2",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-receipt-hypothesize-l440",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-hypothesize-2",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-dispatch-hypothesize-l441",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-hypothesize-2",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-receipt-hypothesize-l442",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-012",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-012-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l184",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-dispatch-retrieve-literature-l443",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-receipt-retrieve-literature-l444",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-012",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-012-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l185",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-dispatch-novelty-classify-l445",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-receipt-novelty-classify-l446",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-012",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-012-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l188",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-dispatch-critic-loop-v0-l448",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-receipt-critic-loop-v0-l449",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-012",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-012-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l189",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-dispatch-journal-writer-l450",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-012-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-012-loop-v0-tool-receipt-journal-writer-l451",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-013",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-013-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l191",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l454",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l455",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l467",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l468",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l480",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l481",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l493",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l494",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l506",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l507",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l519",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l520",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l532",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l533",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l545",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l546",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l558",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l559",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l571",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l572",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l584",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l585",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l597",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l598",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l610",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l611",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l622",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l623",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l635",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l636",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l648",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l649",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-013",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l193",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l456",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l457",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l469",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l470",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l482",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l483",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l495",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l496",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l508",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l509",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l521",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l522",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l534",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l535",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l547",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l548",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l560",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l561",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l573",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l574",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l586",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l587",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l599",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l600",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l612",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l613",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l624",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l625",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l637",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l638",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l650",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l651",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-013",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l194",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l458",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l459",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l472",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l473",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l484",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l485",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l497",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l498",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l510",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l511",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l523",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l524",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l536",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l537",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l550",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l551",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l562",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l563",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l575",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l576",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l588",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l589",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l601",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l602",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l614",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l615",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l626",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l627",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l639",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l640",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l653",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l654",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-013",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l197",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l461",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l462",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l474",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l475",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l486",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l487",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l500",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l501",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l512",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l513",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l525",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l526",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l538",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l539",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l552",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l553",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l564",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l565",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l578",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l579",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l590",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l591",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l603",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l604",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l616",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l617",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l628",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l629",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l641",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l642",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l656",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l657",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-013",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-013-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l198",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l463",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l464",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l476",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l477",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l489",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l490",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l502",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l503",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l515",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l516",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l528",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l529",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l541",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l542",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l554",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l555",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l567",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l568",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l580",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l581",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l593",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l594",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l606",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l607",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l618",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l619",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l631",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l632",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l644",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l645",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l658",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-013-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l659",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-014",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-014-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-014-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l335",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-014-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-dispatch-hypothesize-l662",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-014-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-receipt-hypothesize-l663",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-014",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-014-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-014-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l337",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-014-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-dispatch-retrieve-literature-l664",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-014-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-receipt-retrieve-literature-l665",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-014",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-014-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-014-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l338",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-014-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-dispatch-novelty-classify-l666",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-014-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-receipt-novelty-classify-l667",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-014",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-014-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-014-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l340",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-014-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-dispatch-critic-loop-v0-l668",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-014-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-receipt-critic-loop-v0-l669",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-014",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-014-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-014-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l342",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-014-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-dispatch-journal-writer-l671",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-014-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-014-loop-v0-tool-receipt-journal-writer-l672",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-015",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-015-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-015-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l344",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-015-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-dispatch-hypothesize-l675",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-015-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-receipt-hypothesize-l676",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-015",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-015-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-015-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l346",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-015-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-dispatch-retrieve-literature-l677",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-015-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-receipt-retrieve-literature-l678",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-015",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-015-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-015-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l347",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-015-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-dispatch-novelty-classify-l679",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-015-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-receipt-novelty-classify-l680",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-015",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-015-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-015-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l349",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-015-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-dispatch-critic-loop-v0-l681",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-015-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-receipt-critic-loop-v0-l682",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-015",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-015-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-015-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l351",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-015-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-dispatch-journal-writer-l684",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-015-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-015-loop-v0-tool-receipt-journal-writer-l685",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-016",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-016-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-016-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l353",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-016-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-dispatch-hypothesize-l688",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-016-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-receipt-hypothesize-l689",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-016",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-016-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-016-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l355",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-016-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-dispatch-retrieve-literature-l690",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-016-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-receipt-retrieve-literature-l691",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-016",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-016-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-016-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l356",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-016-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-dispatch-novelty-classify-l692",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-016-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-receipt-novelty-classify-l693",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-016",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-016-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-016-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l358",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-016-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-dispatch-critic-loop-v0-l694",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-016-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-receipt-critic-loop-v0-l695",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-016",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-016-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-016-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l360",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-016-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-dispatch-journal-writer-l697",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-016-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-016-loop-v0-tool-receipt-journal-writer-l698",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-017",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-017-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-017-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l362",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-017-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-dispatch-hypothesize-l701",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-017-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-receipt-hypothesize-l702",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-017",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-017-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-017-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l364",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-017-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-dispatch-retrieve-literature-l703",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-017-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-receipt-retrieve-literature-l704",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-017",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-017-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-017-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l365",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-017-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-dispatch-novelty-classify-l705",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-017-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-receipt-novelty-classify-l706",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-017",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-017-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-017-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l367",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-017-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-dispatch-critic-loop-v0-l707",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-017-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-receipt-critic-loop-v0-l708",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-017",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-017-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-017-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l369",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-017-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-dispatch-journal-writer-l710",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-017-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-017-loop-v0-tool-receipt-journal-writer-l711",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-018",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-018-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-018-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l371",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-018-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-dispatch-hypothesize-l714",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-018-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-receipt-hypothesize-l715",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-018",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-018-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-018-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l373",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-018-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-dispatch-retrieve-literature-l716",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-018-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-receipt-retrieve-literature-l717",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-018",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-018-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-018-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l374",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-018-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-dispatch-novelty-classify-l718",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-018-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-receipt-novelty-classify-l719",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-018",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-018-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-018-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l376",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-018-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-dispatch-critic-loop-v0-l720",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-018-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-receipt-critic-loop-v0-l721",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-018",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-018-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-018-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l378",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-018-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-dispatch-journal-writer-l723",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-018-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-018-loop-v0-tool-receipt-journal-writer-l724",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-019",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-019-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-019-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l380",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-019-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-dispatch-hypothesize-l727",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-019-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-receipt-hypothesize-l728",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-019",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-019-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-019-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l382",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-019-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-dispatch-retrieve-literature-l729",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-019-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-receipt-retrieve-literature-l730",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-019",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-019-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-019-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l383",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-019-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-dispatch-novelty-classify-l731",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-019-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-receipt-novelty-classify-l732",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-019",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-019-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-019-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l385",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-019-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-dispatch-critic-loop-v0-l733",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-019-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-receipt-critic-loop-v0-l734",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-019",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-019-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-019-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l387",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-019-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-dispatch-journal-writer-l736",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-019-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-019-loop-v0-tool-receipt-journal-writer-l737",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-020",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-020-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-020-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l389",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-020-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-dispatch-hypothesize-l740",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-020-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-receipt-hypothesize-l741",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-020",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-020-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-020-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l391",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-020-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-dispatch-retrieve-literature-l742",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-020-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-receipt-retrieve-literature-l743",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-020",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-020-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-020-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l392",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-020-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-dispatch-novelty-classify-l744",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-020-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-receipt-novelty-classify-l745",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-020",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-020-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-020-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l394",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-020-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-dispatch-critic-loop-v0-l746",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-020-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-receipt-critic-loop-v0-l747",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-020",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-020-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-020-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l396",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-020-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-dispatch-journal-writer-l749",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-020-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-020-loop-v0-tool-receipt-journal-writer-l750",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-021",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-021-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-021-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l398",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-021-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-dispatch-hypothesize-l753",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-021-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-receipt-hypothesize-l754",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-021",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-021-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-021-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l400",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-021-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-dispatch-retrieve-literature-l755",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-021-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-receipt-retrieve-literature-l756",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-021",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-021-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-021-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l401",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-021-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-dispatch-novelty-classify-l757",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-021-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-receipt-novelty-classify-l758",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-021",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-021-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-021-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l403",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-021-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-dispatch-critic-loop-v0-l759",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-021-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-receipt-critic-loop-v0-l760",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-021",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-021-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-021-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l405",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-021-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-dispatch-journal-writer-l762",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-021-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-021-loop-v0-tool-receipt-journal-writer-l763",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-022",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-022-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-022-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l407",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-022-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-dispatch-hypothesize-l766",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-022-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-receipt-hypothesize-l767",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-022",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-022-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-022-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l409",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-022-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-dispatch-retrieve-literature-l768",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-022-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-receipt-retrieve-literature-l769",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-022",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-022-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-022-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l410",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-022-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-dispatch-novelty-classify-l770",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-022-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-receipt-novelty-classify-l771",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-022",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-022-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-022-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l412",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-022-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-dispatch-critic-loop-v0-l772",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-022-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-receipt-critic-loop-v0-l773",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-022",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-022-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-022-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l414",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-022-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-dispatch-journal-writer-l775",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-022-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-022-loop-v0-tool-receipt-journal-writer-l776",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-023",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-023-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-023-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l416",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-023-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-dispatch-hypothesize-l779",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-023-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-receipt-hypothesize-l780",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-023",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-023-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-023-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l418",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-023-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-dispatch-retrieve-literature-l781",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-023-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-receipt-retrieve-literature-l782",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-023",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-023-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-023-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l420",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-023-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-dispatch-novelty-classify-l784",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-023-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-receipt-novelty-classify-l785",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-023",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-023-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-023-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l422",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-023-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-dispatch-critic-loop-v0-l786",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-023-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-receipt-critic-loop-v0-l787",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-023",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-023-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-023-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l423",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-023-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-dispatch-journal-writer-l788",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-023-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-023-loop-v0-tool-receipt-journal-writer-l789",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-024",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-024-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-024-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l425",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-024-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-dispatch-hypothesize-l792",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-024-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-receipt-hypothesize-l793",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-024",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-024-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-024-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l427",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-024-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-dispatch-retrieve-literature-l794",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-024-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-receipt-retrieve-literature-l795",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-024",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-024-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-024-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l428",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-024-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-dispatch-novelty-classify-l796",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-024-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-receipt-novelty-classify-l797",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-024",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-024-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-024-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l430",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-024-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-dispatch-critic-loop-v0-l798",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-024-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-receipt-critic-loop-v0-l799",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-024",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-024-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-024-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l432",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-024-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-dispatch-journal-writer-l801",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-024-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-024-loop-v0-tool-receipt-journal-writer-l802",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-025",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-025-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-025-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l434",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-025-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-dispatch-hypothesize-l805",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-025-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-receipt-hypothesize-l806",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-025",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-025-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-025-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l437",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-025-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-dispatch-retrieve-literature-l808",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-025-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-receipt-retrieve-literature-l809",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-025",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-025-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-025-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l438",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-025-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-dispatch-novelty-classify-l810",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-025-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-receipt-novelty-classify-l811",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-025",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-025-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-025-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l441",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-025-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-dispatch-critic-loop-v0-l813",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-025-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-receipt-critic-loop-v0-l814",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-025",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-025-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-025-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l443",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-025-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-dispatch-journal-writer-l816",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-025-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-025-loop-v0-tool-receipt-journal-writer-l817",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-026",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-026-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-026-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l445",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-026-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-dispatch-hypothesize-l820",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-026-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-receipt-hypothesize-l821",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-026",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-026-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-026-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l447",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-026-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-dispatch-retrieve-literature-l822",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-026-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-receipt-retrieve-literature-l823",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-026",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-026-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-026-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l448",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-026-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-dispatch-novelty-classify-l824",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-026-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-receipt-novelty-classify-l825",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-026",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-026-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-026-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l450",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-026-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-dispatch-critic-loop-v0-l826",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-026-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-receipt-critic-loop-v0-l827",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-026",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-026-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-026-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l452",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-026-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-dispatch-journal-writer-l829",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-026-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-026-loop-v0-tool-receipt-journal-writer-l830",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-027",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-027-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-027-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l454",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-027-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-dispatch-hypothesize-l833",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-027-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-receipt-hypothesize-l834",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-027",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-027-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-027-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l456",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-027-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-dispatch-retrieve-literature-l835",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-027-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-receipt-retrieve-literature-l836",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-027",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-027-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-027-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l457",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-027-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-dispatch-novelty-classify-l837",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-027-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-receipt-novelty-classify-l838",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-027",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-027-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-027-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l459",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-027-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-dispatch-critic-loop-v0-l839",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-027-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-receipt-critic-loop-v0-l840",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-027",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-027-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-027-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l461",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-027-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-dispatch-journal-writer-l842",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-027-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-027-loop-v0-tool-receipt-journal-writer-l843",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-028",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-028-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-028-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l463",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-028-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-dispatch-hypothesize-l846",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-028-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-receipt-hypothesize-l847",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-028",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-028-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-028-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l465",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-028-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-dispatch-retrieve-literature-l848",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-028-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-receipt-retrieve-literature-l849",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-028",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-028-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-028-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l466",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-028-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-dispatch-novelty-classify-l850",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-028-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-receipt-novelty-classify-l851",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-028",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-028-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-028-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l468",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-028-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-dispatch-critic-loop-v0-l852",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-028-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-receipt-critic-loop-v0-l853",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-05-27-028",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-05-27-028-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-05-27-028-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l470",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-028-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-dispatch-journal-writer-l855",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-05-27-028-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-05-27-028-loop-v0-tool-receipt-journal-writer-l856",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-001-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-001-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l653",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-001-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-dispatch-hypothesize-l859",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-001-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-receipt-hypothesize-l860",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-001-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-001-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l655",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-001-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-dispatch-retrieve-literature-l861",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-001-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-receipt-retrieve-literature-l862",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-001-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-001-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l657",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-001-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-dispatch-novelty-classify-l864",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-001-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-receipt-novelty-classify-l865",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-001-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-001-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l659",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-001-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-dispatch-critic-loop-v0-l866",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-001-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-receipt-critic-loop-v0-l867",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-001-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-001-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l660",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-001-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-dispatch-journal-writer-l868",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-001-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-001-loop-v0-tool-receipt-journal-writer-l869",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-002",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-002-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-002-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l663",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-002-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-dispatch-hypothesize-l872",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-002-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-receipt-hypothesize-l873",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-002",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-002-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-002-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l666",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-002-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-dispatch-retrieve-literature-l875",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-002-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-receipt-retrieve-literature-l876",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-002",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-002-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-002-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l668",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-002-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-dispatch-novelty-classify-l878",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-002-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-receipt-novelty-classify-l879",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-002",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-002-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-002-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l670",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-002-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-dispatch-critic-loop-v0-l880",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-002-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-receipt-critic-loop-v0-l881",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-002",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-002-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-002-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l672",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-002-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-dispatch-journal-writer-l883",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-002-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-002-loop-v0-tool-receipt-journal-writer-l884",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-003",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-003-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-003-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l855",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-003-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-dispatch-hypothesize-l889",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-003-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-receipt-hypothesize-l890",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-003",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-003-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-003-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l859",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-003-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-dispatch-retrieve-literature-l893",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-003-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-receipt-retrieve-literature-l894",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-003",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-003-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-003-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l860",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-003-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-dispatch-novelty-classify-l895",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-003-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-receipt-novelty-classify-l896",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-003",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-003-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-003-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l862",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-003-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-dispatch-critic-loop-v0-l897",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-003-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-receipt-critic-loop-v0-l898",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-003",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-003-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-003-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l864",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-003-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-dispatch-journal-writer-l900",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-003-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-003-loop-v0-tool-receipt-journal-writer-l901",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-004",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-004-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-004-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1077",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-004-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-dispatch-hypothesize-l906",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-004-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-receipt-hypothesize-l907",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-004",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-004-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-004-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1111",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-004-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-dispatch-retrieve-literature-l910",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-004-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-receipt-retrieve-literature-l911",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-004",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-004-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-004-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1112",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-004-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-dispatch-novelty-classify-l912",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-004-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-receipt-novelty-classify-l913",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-004",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-004-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-004-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1114",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-004-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-dispatch-critic-loop-v0-l914",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-004-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-receipt-critic-loop-v0-l915",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-004",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-004-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-004-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1116",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-004-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-dispatch-journal-writer-l917",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-004-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-004-loop-v0-tool-receipt-journal-writer-l918",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-005",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-005-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1311",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-dispatch-hypothesize-l922",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-receipt-hypothesize-l923",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-dispatch-hypothesize-l924",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-receipt-hypothesize-l925",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-005",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-005-hypothesize-2",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-hypothesize-2",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1311",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-hypothesize-2",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-dispatch-hypothesize-l922",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-hypothesize-2",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-receipt-hypothesize-l923",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-hypothesize-2",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-dispatch-hypothesize-l924",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-hypothesize-2",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-receipt-hypothesize-l925",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-005",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-005-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1371",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-dispatch-retrieve-literature-l928",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-receipt-retrieve-literature-l929",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-005",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-005-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1396",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-dispatch-novelty-classify-l930",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-receipt-novelty-classify-l931",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-005",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-005-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1398",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-dispatch-critic-loop-v0-l932",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-receipt-critic-loop-v0-l933",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-005",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-005-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1399",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-dispatch-journal-writer-l934",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-005-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-005-loop-v0-tool-receipt-journal-writer-l935",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-006",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-006-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-006-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1828",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-006-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-dispatch-hypothesize-l941",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-006-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-receipt-hypothesize-l942",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-006",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-006-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-006-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1832",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-006-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-dispatch-retrieve-literature-l945",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-006-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-receipt-retrieve-literature-l946",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-006",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-006-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-006-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1834",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-006-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-dispatch-novelty-classify-l950",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-006-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-receipt-novelty-classify-l951",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-006",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-006-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-006-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1836",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-006-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-dispatch-critic-loop-v0-l952",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-006-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-receipt-critic-loop-v0-l953",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-05-006",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-05-006-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-05-006-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l1838",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-006-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-dispatch-journal-writer-l955",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-05-006-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-05-006-loop-v0-tool-receipt-journal-writer-l956",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-06-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-06-001-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-06-001-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l2165",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-06-001-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-dispatch-hypothesize-l959",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-06-001-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-receipt-hypothesize-l960",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-06-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-06-001-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-06-001-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l2169",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-06-001-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-dispatch-retrieve-literature-l963",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-06-001-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-receipt-retrieve-literature-l964",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-06-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-06-001-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-06-001-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l2170",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-06-001-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-dispatch-novelty-classify-l967",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-06-001-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-receipt-novelty-classify-l968",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-06-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-06-001-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-06-001-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l2173",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-06-001-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-dispatch-critic-loop-v0-l970",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-06-001-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-receipt-critic-loop-v0-l971",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-06-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-06-001-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-06-001-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l2174",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-06-001-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-dispatch-journal-writer-l972",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-06-001-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-06-001-loop-v0-tool-receipt-journal-writer-l973",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-08-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-08-001-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-08-001-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l3048",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-08-001-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-hypothesize-l985",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-08-001-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-receipt-hypothesize-l986",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-08-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-08-001-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-08-001-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l3052",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-08-001-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-retrieve-literature-l989",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-08-001-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-receipt-retrieve-literature-l990",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-08-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-08-001-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-08-001-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l3053",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-08-001-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-novelty-classify-l993",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-08-001-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-receipt-novelty-classify-l994",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-08-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-08-001-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-08-001-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l3055",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-08-001-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-critic-loop-v0-l995",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-08-001-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-receipt-critic-loop-v0-l996",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-08-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-08-001-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-08-001-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "apparatus-calls-l3057",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-08-001-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-dispatch-journal-writer-l998",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-08-001-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-08-001-loop-v0-tool-receipt-journal-writer-l999",
+      "dst_type": "apparatus_event"
+    },
+    {
       "src": "harvest-h006-l36",
       "src_type": "harvest_finding",
       "type": "becomes",
@@ -7390,6 +18500,216 @@ window.BRAIN_GRAPH = {
       "src_type": "agent",
       "type": "ran",
       "dst": "iter-2026-05-27-006",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-007",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-008",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-009",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-010",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-011",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-012",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-013",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-014",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-015",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-016",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-017",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-018",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-019",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-020",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-021",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-022",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-023",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-024",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-025",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-026",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-027",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-05-27-028",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-06-05-001",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-06-05-002",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-06-05-003",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-06-05-004",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-06-05-005",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-06-05-006",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-06-06-001",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-06-08-001",
       "dst_type": "iteration"
     },
     {
@@ -8372,52 +19692,6 @@ window.BRAIN_GRAPH = {
     "experiment-day4-tool-call-rate": "# Experiment \u2014 Day 4 end-to-end tool-call invocation rate\n\n**Intent:** Measure tool_call_invocation_rate against the planned floor 0.80 via end-to-end calls through the vLLM (Gemma 4 26B) \u2192 tool-loop wrapper. Same prompt set, deterministic temperature.\n\n**Did:** Ran the e2e tool-call chain test (caller_tag=test_tool_call_e2e); logs at a_bgt_rsi/logs/day4_e2e.jsonl. Each chain: system prompt mandating tool use \u2192 user query \u2192 optional tool call \u2192 optional follow-up turn.\n\n**Observed:** tool_call_invocation_rate = 1.00 across the test set. No bypasses observed in either e2e or robustness variant.\n\n**Would do differently:** None on the run itself. The metric is higher than the floor \u2014 see anomaly-tool-call-100pct for interpretation.\n\n## Links\n\n- **derived_from** \u2192 `hypothesis-day4-tool-call-rate` (hypothesis)\n- **produced** \u2192 `anomaly-tool-call-100pct` (anomaly)\n\n## Referenced by\n\n- `agent-claude-code-main` (agent) \u2014 **authored**\n",
     "anomaly-tool-call-100pct": "# Anomaly \u2014 tool-call invocation at 100%\n\n**Intent:** Planned floor was 0.80, expecting a non-trivial fraction of bypasses. Observed 1.00.\n\n**Did:** Inspected the e2e logs; confirmed the model emitted the tool-call on every prompt; confirmed the system prompt is highly directive (`You MUST call the get_payoff_matrix tool ... do not state any payoff numbers from memory`).\n\n**Observed:** 100% rate likely reflects the directive system prompt, not robust tool-using behavior under weaker prompts. A small-N test with a strong prompt is structurally biased upward \u2014 a clean-looking result that does not generalize.\n\n**Would do differently:** Repeat with a softer prompt + a larger N before treating tool-use as robust. Flag any future 100% metric on a small N as suspicious-clean.\n\n**Corrections honored:** fw-correction-suspicious-clean-100pct-2026-05-24\n\n## Links\n\n- **falsified_by** \u2192 `hypothesis-day4-tool-call-rate` (hypothesis)\n- **linked_to** \u2192 `dec-fw-2026-05-24-treat-100-metrics-in-small-n` (correction)\n\n## Referenced by\n\n- `experiment-day4-tool-call-rate` (experiment) \u2014 **produced**\n- `dec-fw-2026-05-24-treat-100-metrics-in-small-n` (correction) \u2014 **references**\n- `agent-claude-code-main` (agent) \u2014 **authored**\n",
     "s22-5-narrate-sp-002-lifecycle": "# s22_5_narrate_sp_002_lifecycle\n\n**Intent:** Run the spawn-contract protocol against a real Agent-tool child (not a structural mock). Establish that the lifecycle (contract before launch \u2192 real spawn \u2192 child reports \u2192 parent reconciles via validate) holds end-to-end and surface anything the mock could not.\n\n**Did:** Wrote SP-002 contract to spawn.jsonl (skill-frontmatter audit; read-only auth cap; 300s budget; reporting via final agent text). Launched an auditor child with isolation=worktree as belt-and-suspenders on the auth cap. Child returned a well-formed JSON summary in 24 seconds. Parsed, validated against done_condition (8 sub-checks), appended completed entry with result block.\n\n**Observed:** Done-condition validates PASS as written. But: the child reported total=18 while the parent's working tree has total=24. The worktree was branched from HEAD (which lags behind the parent's working tree by 6 uncommitted new skills + 14 modified files); the child therefore audited HEAD's state, not the parent's current view. The result is internally consistent and the child obeyed the contract perfectly \u2014 but the criterion's *intent* (current state) was silently mis-targeted by the choice to use worktree isolation. Two findings worth keeping: (1) worktree isolation is a strong authority enforcer but also an unintended state isolator; (2) the spawn-contract pattern surfaced this divergence cleanly via the structured result + parent_observations \u2014 it would have been invisible in plain orchestrate.\n\n**Would do differently:** For audits that must reflect parent's current working tree: either skip worktree isolation (rely on declarative auth cap + child's honor) OR commit pending state before the spawn OR inline the data in the prompt rather than have the child re-read from disk. For pure-function tasks (analyze this fixed input), worktree isolation is the right call. The contract's task_statement should specify which world the child is operating in \u2014 'current parent working tree' vs 'HEAD-of-branch' vs 'whatever you receive in this prompt'. Propose adding a `state_basis` field to the contract schema for v1.0 \u2014 pending in proposal queue.\n\n**Corrections honored:** FR-001 (suspicious-clean 100% metrics), FR-002 (run-log canonical over state during gate-armed holds)\n\n## Referenced by\n\n- `agent-claude-code-main` (agent) \u2014 **authored**\n",
-    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l256": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L256\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=3198d562-7bb6-4ae4-b4e0-a7fa8114eeb7\n\n## Referenced by\n\n- `apparatus-calls-l54` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l55": "# a_bgt_rsi: Nara/LLM \u2014 calls L55\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if the effect of narrative versus list-based history on LLM cooperation has been previously established.\n\n<|tool_call>call:novelty_classify{hypothesis_text:<|\"|>LLM agents in a repeated Pr\u2026\n\n**Observed:** latency=12744ms tokens_in=8435 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l257` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l257": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L257\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=431ccf95-2463-4f2c-8b63-03269434e8db\n\n## Referenced by\n\n- `apparatus-calls-l55` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l56": "# a_bgt_rsi: Nara/LLM \u2014 calls L56\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if the effect of narrative versus list-based history on LLM cooperation has been previously established.\n\n<|tool_call>call:novelty_classify{hypothesis_text:<|\"|>LLM agents in a repeated Pr\u2026\n\n**Observed:** latency=12860ms tokens_in=9498 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l258` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l258": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L258\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=d915424e-d71f-406f-b80c-1279419c5942\n\n## Referenced by\n\n- `apparatus-calls-l56` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l57": "# a_bgt_rsi: Nara/LLM \u2014 calls L57\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if the effect of narrative versus list-based history on LLM cooperation has been previously established.\n\n<|tool_call>call:novelty_classify{hypothesis_text:<|\"|>LLM agents in a repeated Pr\u2026\n\n**Observed:** latency=13058ms tokens_in=10561 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l259` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l259": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L259\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=72581ce6-238f-482b-9769-5e12c9a0ed70\n\n## Referenced by\n\n- `apparatus-calls-l57` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l58": "# a_bgt_rsi: Nara/LLM \u2014 calls L58\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if the effect of narrative versus list-based history on LLM cooperation has been previously established.\n\n<|tool_call>call:novelty_classify{hypothesis_text:<|\"|>LLM agents in a repeated Pr\u2026\n\n**Observed:** latency=13276ms tokens_in=11624 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l260` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l260": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L260\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=82e9a7e8-886e-45b6-b48e-4b133351cae0\n\n## Referenced by\n\n- `apparatus-calls-l58` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l59": "# a_bgt_rsi: Nara/LLM \u2014 calls L59\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if the effect of narrative versus list-based history on LLM cooperation has been previously established.\n\n<|tool_call>call:novelty_classify{hypothesis_text:<|\"|>LLM agents in a repeated Pr\u2026\n\n**Observed:** latency=13398ms tokens_in=12687 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l261` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l261": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L261\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=ecbb9bc0-4f66-4092-964d-ee9ac2046844\n\n## Referenced by\n\n- `apparatus-calls-l59` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l60": "# a_bgt_rsi: Nara/LLM \u2014 calls L60\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if the effect of narrative versus list-based history on LLM cooperation has been previously established.\n\n<|tool_call>call:novelty_classify{hypothesis_text:<|\"|>LLM agents in a repeated Pr\u2026\n\n**Observed:** latency=13635ms tokens_in=13750 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-010-loop-v0-reprompt-none-l262` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-010-loop-v0-reprompt-none-l262": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L262\n\n_loop_v0_reprompt for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=deb3bd7f-dd4d-4d50-ae9f-bd586e87f6b5\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l60` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-010-loop-v0-fallback-none-l263": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L263\n\n_loop_v0_fallback for iter-2026-05-26-010_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-010-loop-v0-iteration-complete-none-l264": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L264\n\n_loop_v0_iteration_complete for iter-2026-05-26-010_\n\n**Did:** duration_ms=129909 tool_calls_made=['hypothesize', 'retrieve_literature']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-010` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l61": "# a_bgt_rsi: Nara/LLM \u2014 calls L61\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** [{\"id\": \"chatcmpl-tool-a65cac9c685b6930\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative.\\\u2026\n\n**Observed:** latency=1584ms tokens_in=2004 tokens_out=74 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-tool-dispatch-hypothesize-l266` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-tool-receipt-hypothesize-l267` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-011-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-26-011-loop-v0-iteration-start-none-l265": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L265\n\n_loop_v0_iteration_start for iter-2026-05-26-011_\n\n**Did:** topic=In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversat\u2026\n\n**Observed:** parent_request_id=n/a\n",
-    "event-iter-2026-05-26-011-loop-v0-tool-dispatch-hypothesize-l266": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L266\n\n_loop_v0_tool_dispatch for iter-2026-05-26-011_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=0f4ca103-27f5-4e03-acef-64fc89a0a951\n\n## Referenced by\n\n- `apparatus-calls-l61` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-011-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l62": "# a_bgt_rsi: Nara/LLM \u2014 calls L62\n\n_Research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** {\n  \"candidates\": [\n    \"In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.\",\n    \"Narrative-based history p\u2026\n\n**Observed:** latency=2949ms tokens_in=274 tokens_out=198 model=gemma-4-26b-a4b\n",
-    "event-iter-2026-05-26-011-loop-v0-tool-receipt-hypothesize-l267": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L267\n\n_loop_v0_tool_receipt for iter-2026-05-26-011_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=0f4ca103-27f5-4e03-acef-64fc89a0a951\n\n## Referenced by\n\n- `apparatus-calls-l61` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-011-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l63": "# a_bgt_rsi: Nara/LLM \u2014 calls L63\n\n_Evaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** <|\"|><|tool_call>call:hypothesize{topic:<|\"|>In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the most recent 3 rounds of rounds-to-date-to-date rounds-to-date-to-date rounds-to-date-to-date rounds-to-date-to-date rounds-to-date-to-date rounds-to-date-to-date ro\u2026\n\n**Observed:** latency=12035ms tokens_in=2375 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l268` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l64": "# a_bgt_rsi: Nara/LLM \u2014 calls L64\n\n_Continue the chain. Your next tool call must be `retrieve_literature`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-8f3d53719c16c03f\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as \u2026\n\n**Observed:** latency=1742ms tokens_in=3441 tokens_out=110 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-tool-dispatch-retrieve-literature-l269` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-tool-receipt-retrieve-literature-l270` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-26-011-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l268": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L268\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=b289985d-e329-466c-aff8-30abca8af4d4\n\n## Referenced by\n\n- `apparatus-calls-l63` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-011-loop-v0-tool-dispatch-retrieve-literature-l269": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L269\n\n_loop_v0_tool_dispatch for iter-2026-05-26-011_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=f37956d2-0c46-41f3-bf26-b99ddf36c54b\n\n## Referenced by\n\n- `apparatus-calls-l64` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-011-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-26-011-loop-v0-tool-receipt-retrieve-literature-l270": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L270\n\n_loop_v0_tool_receipt for iter-2026-05-26-011_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=f37956d2-0c46-41f3-bf26-b99ddf36c54b\n\n## Referenced by\n\n- `apparatus-calls-l64` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-26-011-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l65": "# a_bgt_rsi: Nara/LLM \u2014 calls L65\n\n_Continue the chain. Your next tool call must be `retrieve_literature`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** thought\n<channel|><|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent nar\u2026\n\n**Observed:** latency=14169ms tokens_in=6519 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l271` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l271": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L271\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=9345e783-00bc-4a27-8ffc-95c6bdd4b5ec\n\n## Referenced by\n\n- `apparatus-calls-l65` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l66": "# a_bgt_rsi: Nara/LLM \u2014 calls L66\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.<|\"\u2026\n\n**Observed:** latency=12441ms tokens_in=7583 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l272` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l272": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L272\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=6df97176-7f61-428f-b964-a17fdbab8107\n\n## Referenced by\n\n- `apparatus-calls-l66` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l67": "# a_bgt_rsi: Nara/LLM \u2014 calls L67\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.<|\"\u2026\n\n**Observed:** latency=12671ms tokens_in=8646 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l273` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l273": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L273\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=7c32bece-72c5-420b-a486-7b8ffb7e91ea\n\n## Referenced by\n\n- `apparatus-calls-l67` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l68": "# a_bgt_rsi: Nara/LLM \u2014 calls L68\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.<|\"\u2026\n\n**Observed:** latency=12938ms tokens_in=9709 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l274` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l274": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L274\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=20cec6cf-fd1e-4786-b4d4-f6037c4d599b\n\n## Referenced by\n\n- `apparatus-calls-l68` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l69": "# a_bgt_rsi: Nara/LLM \u2014 calls L69\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.<|\"\u2026\n\n**Observed:** latency=13059ms tokens_in=10772 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l275` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l275": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L275\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=f579f89b-96b5-4d81-981f-f499126a0cef\n\n## Referenced by\n\n- `apparatus-calls-l69` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l70": "# a_bgt_rsi: Nara/LLM \u2014 calls L70\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.<|\"\u2026\n\n**Observed:** latency=13342ms tokens_in=11835 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l276` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l276": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L276\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=cde14d8e-c6cb-4fcd-a84f-26de63dcc834\n\n## Referenced by\n\n- `apparatus-calls-l70` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l71": "# a_bgt_rsi: Nara/LLM \u2014 calls L71\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.<|\"\u2026\n\n**Observed:** latency=13525ms tokens_in=12898 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l277` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l277": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L277\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=f967dcca-4b85-42e6-9ec6-f75dd78b9bee\n\n## Referenced by\n\n- `apparatus-calls-l71` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l72": "# a_bgt_rsi: Nara/LLM \u2014 calls L72\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.<|\"\u2026\n\n**Observed:** latency=13819ms tokens_in=13961 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l278` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l278": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L278\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=b3b82f86-1b0b-4afc-8927-e68f2dfecc04\n\n## Referenced by\n\n- `apparatus-calls-l72` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l73": "# a_bgt_rsi: Nara/LLM \u2014 calls L73\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|tool_call>call:novelty_classify{hypothesis_text:<|\"|>In a repeated Prisoner's Dilemma, LLM agents will exhibit a statistically significant higher rate of defection when the interaction history is presented as a chronological list compared to when it is presented as a coherent narrative summary.<|\"\u2026\n\n**Observed:** latency=14046ms tokens_in=15024 tokens_out=1024 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l279` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-011-loop-v0-reprompt-none-l279": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L279\n\n_loop_v0_reprompt for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=fb92beef-bb60-49ce-a6bb-d905620a041a\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l73` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-011-loop-v0-fallback-none-l280": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L280\n\n_loop_v0_fallback for iter-2026-05-26-011_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-26-011-loop-v0-iteration-complete-none-l281": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L281\n\n_loop_v0_iteration_complete for iter-2026-05-26-011_\n\n**Did:** duration_ms=148383 tool_calls_made=['hypothesize', 'retrieve_literature']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-26-011` (apparatus_event) \u2014 **produced**\n",
-    "iter-2026-05-26-011": "# a_bgt_rsi: Nara \u2014 loop_memory L11\n\n_In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** (max_depth=12 exhausted; iteration cut short)\n\n**Observed:** tools=2 calls=12 journal=journal/iterations/011.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-reprompt-none-l279` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-fallback-none-l280` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-26-011-loop-v0-iteration-complete-none-l281` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l63` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l65` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l66` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l67` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l68` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l69` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l70` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l71` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l72` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l73` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-26-011-hypothesize-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-26-011-retrieve-literature-1` (stage)\n\n## Referenced by\n\n- `agent-nara` (agent) \u2014 **ran**\n",
     "runlog-day-1-day-1-start-l1": "# a_bgt_rsi: Nara \u2014 week1.run L1\n\n_session started_\n\n**Did:** session started\n\n**Observed:** status=started day=day_1 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h001-l4` (harvest_finding) \u2014 **observed_in**\n",
     "runlog-day-1-preflight-credentials-staged-l2": "# a_bgt_rsi: Nara \u2014 week1.run L2\n\n_shell exit code 0 \u2014 all 5 env vars present_\n\n**Did:** all 5 credentials missing: SEMANTIC_SCHOLAR_API_KEY, ANTHROPIC_API_KEY, HF_TOKEN, GITHUB_TOKEN, NVIDIA_API_KEY\n\n**Observed:** status=failed day=day_1 duration_ms=1000 fallback=None\n\n## Referenced by\n\n- `harvest-h001-l1` (harvest_finding) \u2014 **observed_in**\n- `harvest-h001-l2` (harvest_finding) \u2014 **observed_in**\n",
     "runlog-day-1-preflight-credentials-staged-l3": "# a_bgt_rsi: Nara \u2014 week1.run L3\n\n_shell exit code 0 \u2014 all 5 env vars present_\n\n**Did:** all 5 env vars present\n\n**Observed:** status=passed day=day_1 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h001-l2` (harvest_finding) \u2014 **observed_in**\n",
@@ -8572,160 +19846,226 @@ window.BRAIN_GRAPH = {
     "runlog-day-8-day8-block3-journal-l152": "# a_bgt_rsi: Nara \u2014 week1.run L152\n\n_stub posted with data inserts; D-028 disposition referenced; index row 8 added_\n\n**Did:** journal/day8.md stubbed per plan.yaml agent_action=stub_post_with_data_inserts. Title 'Week-2 entry \u2014 UI v1 online + first real concurrent-track day'. All required data_to_insert fields present with [DATA] markers: current_day=day_8 (advanc\u2026\n\n**Observed:** status=passed day=day_8 duration_ms=0 fallback=None\n",
     "runlog-day-8-day8-end-of-day-artifacts-l153": "# a_bgt_rsi: Nara \u2014 week1.run L153\n\n_current_day == day_9; tier_shift event present; journal URL recorded; human_gates_pending empty_\n\n**Did:** EOD validation: (1) state.current_day advanced day_8 \u2192 day_9 PASS; (2) tier_shift event recorded (run.jsonl entry 2026-05-24T02:27:00Z, 6 shifts) PASS; (3) public Day-8 journal URL recorded \u2014 journal/index.md row 8 added linking journal/day\u2026\n\n**Observed:** status=passed day=day_8 duration_ms=0 fallback=None\n",
     "runlog-day-8-day-end-l154": "# a_bgt_rsi: Nara \u2014 week1.run L154\n\n_day_end event recorded with completed_tasks, no slip, retrospective link_\n\n**Did:** Day 8 closed. Completed: 12 task IDs across Block-1 (reading + problemset), Block-2 (draft_day8_plan, verify_concurrency_infra, merge_track_d_ui_v1, ui_v1_verification, week2_unlock_attestation, merge_track_b_schemas, merge_track_c_fixtures\u2026\n\n**Observed:** status=closed day=day_8 duration_ms=0 fallback=None\n\n## Referenced by\n\n- `harvest-h007-l38` (harvest_finding) \u2014 **observed_in**\n",
-    "apparatus-calls-l74": "# a_bgt_rsi: Nara/LLM \u2014 calls L74\n\n_iteration_id: iter-2026-05-27-001\n\nEvaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** [{\"id\": \"chatcmpl-tool-838d53b2d5a1279c\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative.\\\u2026\n\n**Observed:** latency=2274ms tokens_in=1641 tokens_out=73 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-001-loop-v0-tool-dispatch-hypothesize-l283` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-001-loop-v0-tool-receipt-hypothesize-l284` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-001-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-001-loop-v0-iteration-start-none-l282": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L282\n\n_loop_v0_iteration_start for iter-2026-05-27-001_\n\n**Did:** topic=In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversat\u2026\n\n**Observed:** parent_request_id=n/a\n",
-    "event-iter-2026-05-27-001-loop-v0-tool-dispatch-hypothesize-l283": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L283\n\n_loop_v0_tool_dispatch for iter-2026-05-27-001_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=3ad201ac-998b-4be0-9001-e1b60ef73ebc\n\n## Referenced by\n\n- `apparatus-calls-l74` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-001-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l75": "# a_bgt_rsi: Nara/LLM \u2014 calls L75\n\n_Research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** {\n  \"candidates\": [\n    \"LLM agents in a repeated Prisoner's Dilemma will exhibit significantly higher cooperation rates when the history of interactions is presented as a cohesive narrative compared to a structured list of move sequences.\",\n    \"Presenting interaction history as a chronological lis\u2026\n\n**Observed:** latency=2957ms tokens_in=274 tokens_out=177 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l76": "# a_bgt_rsi: Nara/LLM \u2014 calls L76\n\n_iteration_id: iter-2026-05-27-001\n\nEvaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** [{\"id\": \"chatcmpl-tool-bcc8412985fbaf12\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"LLM agents in a repeated Prisoner's Dilemma will exhibit significantly higher cooperation rates when the history of interactions is presented as a cohesive \u2026\n\n**Observed:** latency=1079ms tokens_in=1988 tokens_out=64 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-001-loop-v0-tool-dispatch-retrieve-literature-l285` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-001-loop-v0-tool-receipt-retrieve-literature-l286` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-001-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-001-loop-v0-tool-receipt-hypothesize-l284": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L284\n\n_loop_v0_tool_receipt for iter-2026-05-27-001_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=3ad201ac-998b-4be0-9001-e1b60ef73ebc\n\n## Referenced by\n\n- `apparatus-calls-l74` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-001-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-001-loop-v0-tool-dispatch-retrieve-literature-l285": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L285\n\n_loop_v0_tool_dispatch for iter-2026-05-27-001_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=6b871346-ca1d-4823-93db-df401804ae3e\n\n## Referenced by\n\n- `apparatus-calls-l76` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-001-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l77": "# a_bgt_rsi: Nara/LLM \u2014 calls L77\n\n_iteration_id: iter-2026-05-27-001\n\nEvaluate this research topic: In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** I have retrieved 10 relevant papers and textbook chunks, including studies on LLM social simulations and the mechanics of repeated games. Now, I will classify the novelty of the hypothesis.\n\n**Observed:** latency=1773ms tokens_in=5163 tokens_out=38 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-001-loop-v0-reprompt-none-l287` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-001` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l78": "# a_bgt_rsi: Nara/LLM \u2014 calls L78\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-bcd967b1bc1f8178\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"LLM agents in a repeated Prisoner's Dilemma will exhibit significantly higher cooperation rates when the history of interactions is presented as a cohesive nar\u2026\n\n**Observed:** latency=2077ms tokens_in=5243 tokens_out=110 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-001-loop-v0-tool-dispatch-novelty-classify-l288` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-001-loop-v0-tool-receipt-novelty-classify-l289` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-001-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l79": "# a_bgt_rsi: Nara/LLM \u2014 calls L79\n\n_Hypothesis:\nLLM agents in a repeated Prisoner's Dilemma will exhibit significantly higher cooperation rates when the history of interactions is presented as a cohesive narrative compared to a structured list of move sequences.\n\nRetrieved ne\u2026_\n\n**Did:** {\n  \"class\": \"novel\",\n  \"rationale\": \"While the retrieved documents discuss LLM agents in multi-agent systems, social simulations, and the mechanics of the Prisoner's Dilemma, none address the specific impact of information representation (narrative vs. structured list) on cooperation rates. The hyp\u2026\n\n**Observed:** latency=2112ms tokens_in=1889 tokens_out=112 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l80": "# a_bgt_rsi: Nara/LLM \u2014 calls L80\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-9d9dc952105af9c5\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"LLM agents in a repeated Prisoner's Dilemma will exhibit significantly higher cooperation rates when the history of interactions is presented as a cohesive narra\u2026\n\n**Observed:** latency=2377ms tokens_in=5564 tokens_out=155 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-001-loop-v0-tool-dispatch-critic-loop-v0-l290` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-001-loop-v0-tool-receipt-critic-loop-v0-l291` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-001-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-001-loop-v0-tool-receipt-retrieve-literature-l286": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L286\n\n_loop_v0_tool_receipt for iter-2026-05-27-001_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=6b871346-ca1d-4823-93db-df401804ae3e\n\n## Referenced by\n\n- `apparatus-calls-l76` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-001-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-001-loop-v0-reprompt-none-l287": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L287\n\n_loop_v0_reprompt for iter-2026-05-27-001_\n\n**Did:** \n\n**Observed:** parent_request_id=9aa5dc9a-499c-4d07-80a1-71858ca7fcf3\n\n## Referenced by\n\n- `apparatus-calls-l77` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-001-loop-v0-tool-dispatch-novelty-classify-l288": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L288\n\n_loop_v0_tool_dispatch for iter-2026-05-27-001_\n\n**Did:** tool=novelty_classify status=n/a\n\n**Observed:** parent_request_id=65b564d7-73b8-4287-8528-1e26d4f5cbb4\n\n## Referenced by\n\n- `apparatus-calls-l78` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-001-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-001-loop-v0-tool-receipt-novelty-classify-l289": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L289\n\n_loop_v0_tool_receipt for iter-2026-05-27-001_\n\n**Did:** tool=novelty_classify status=passed\n\n**Observed:** parent_request_id=65b564d7-73b8-4287-8528-1e26d4f5cbb4\n\n## Referenced by\n\n- `apparatus-calls-l78` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-001-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-001-loop-v0-tool-dispatch-critic-loop-v0-l290": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L290\n\n_loop_v0_tool_dispatch for iter-2026-05-27-001_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=443bbe9f-bb0c-4dba-b474-508040efe4a1\n\n## Referenced by\n\n- `apparatus-calls-l80` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-001-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-001-loop-v0-tool-receipt-critic-loop-v0-l291": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L291\n\n_loop_v0_tool_receipt for iter-2026-05-27-001_\n\n**Did:** tool=critic_loop_v0 status=passed\n\n**Observed:** parent_request_id=443bbe9f-bb0c-4dba-b474-508040efe4a1\n\n## Referenced by\n\n- `apparatus-calls-l80` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-001-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l81": "# a_bgt_rsi: Nara/LLM \u2014 calls L81\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-8c9cf7d1d07529dc\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"iteration_id\\\": \\\"iter-2026-05-27-001\\\", \\\"nara_summary\\\": \\\"The research explores whether the format of interaction history\\u2014narrative versus structured list\\u2014affects cooper\u2026\n\n**Observed:** latency=4154ms tokens_in=5947 tokens_out=224 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-001-loop-v0-tool-dispatch-journal-writer-l292` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-001-loop-v0-tool-receipt-journal-writer-l293` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-001-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-001-loop-v0-tool-dispatch-journal-writer-l292": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L292\n\n_loop_v0_tool_dispatch for iter-2026-05-27-001_\n\n**Did:** tool=journal_writer status=n/a\n\n**Observed:** parent_request_id=351b17ef-3108-487f-ba33-0d3cc1a79cbf\n\n## Referenced by\n\n- `apparatus-calls-l81` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-001-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-001-loop-v0-tool-receipt-journal-writer-l293": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L293\n\n_loop_v0_tool_receipt for iter-2026-05-27-001_\n\n**Did:** tool=journal_writer status=passed\n\n**Observed:** parent_request_id=351b17ef-3108-487f-ba33-0d3cc1a79cbf\n\n## Referenced by\n\n- `apparatus-calls-l81` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-001-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l82": "# a_bgt_rsi: Nara/LLM \u2014 calls L82\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|channel>thought\n<channel|>The research evaluation for the topic of narrative vs. list-based history in LLM-driven Prisoner's Dilemma games is complete.\n\n**Hypothesis:** LLM agents in a repeated Prisoner's Dilemma will exhibit significantly higher cooperation rates when the history of interactions \u2026\n\n**Observed:** latency=4651ms tokens_in=6261 tokens_out=240 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-05-27-001` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-001-loop-v0-iteration-complete-none-l294": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L294\n\n_loop_v0_iteration_complete for iter-2026-05-27-001_\n\n**Did:** duration_ms=34455 tool_calls_made=['hypothesize', 'retrieve_literature', 'novelty_classify', 'critic_loop_v0', 'journal_writer']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-27-001` (apparatus_event) \u2014 **produced**\n",
-    "iter-2026-05-27-001": "# a_bgt_rsi: Nara \u2014 loop_memory L12\n\n_In repeated Prisoner's Dilemma between LLM agents, cooperation rates depend on whether the conversation history of prior rounds is presented as a list versus as a narrative._\n\n**Did:** The research evaluation for the topic of narrative vs. list-based history in LLM-driven Prisoner's Dilemma games is complete.\n\n**Hypothesis:** LLM agents in a repeated Prisoner's Dilemma will exhibit significantly higher cooperation rates when the history of interactions is presented as a cohesive narrative compared to a structured list of move sequences.\n\n**Novelty & Critique:** The hypothesis wa\u2026\n\n**Observed:** tools=5 calls=7 journal=journal/iterations/012.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-001-loop-v0-iteration-complete-none-l294` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l77` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l82` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-27-001-hypothesize-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-001-retrieve-literature-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-001-novelty-classify-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-001-critic-loop-v0-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-001-journal-writer-1` (stage)\n\n## Referenced by\n\n- `agent-nara` (agent) \u2014 **ran**\n",
-    "apparatus-calls-l83": "# a_bgt_rsi: Nara/LLM \u2014 calls L83\n\n_iteration_id: iter-2026-05-27-002\n\nEvaluate this research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dom\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-8174678bbc1ab6d0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-do\u2026\n\n**Observed:** latency=2110ms tokens_in=1648 tokens_out=76 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-002-loop-v0-tool-dispatch-hypothesize-l296` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-002-loop-v0-tool-receipt-hypothesize-l297` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-002-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-002-loop-v0-iteration-start-none-l295": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L295\n\n_loop_v0_iteration_start for iter-2026-05-27-002_\n\n**Did:** topic=In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors c\u2026\n\n**Observed:** parent_request_id=n/a\n",
-    "event-iter-2026-05-27-002-loop-v0-tool-dispatch-hypothesize-l296": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L296\n\n_loop_v0_tool_dispatch for iter-2026-05-27-002_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=b7eb8fcb-ca13-4987-94fb-f0ef83ace71c\n\n## Referenced by\n\n- `apparatus-calls-l83` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-002-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l84": "# a_bgt_rsi: Nara/LLM \u2014 calls L84\n\n_Research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dominant one as the population grows._\n\n**Did:** {\n  \"candidates\": [\n    \"In symmetric 2x2 coordination games on a fixed Erd\u0151s\u2013R\u00e9nyi network, the probability of fictitious play converging to the risk-dominant equilibrium increases monotonically with the average degree of the network nodes.\",\n    \"In symmetric 2x2 coordination games played on a fix\u2026\n\n**Observed:** latency=2770ms tokens_in=281 tokens_out=203 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l85": "# a_bgt_rsi: Nara/LLM \u2014 calls L85\n\n_iteration_id: iter-2026-05-27-002\n\nEvaluate this research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dom\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-a8befa413c19e5cc\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium mor\u2026\n\n**Observed:** latency=1032ms tokens_in=2039 tokens_out=71 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-002-loop-v0-tool-dispatch-retrieve-literature-l298` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-002-loop-v0-tool-receipt-retrieve-literature-l299` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-002-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-002-loop-v0-tool-receipt-hypothesize-l297": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L297\n\n_loop_v0_tool_receipt for iter-2026-05-27-002_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=b7eb8fcb-ca13-4987-94fb-f0ef83ace71c\n\n## Referenced by\n\n- `apparatus-calls-l83` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-002-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-002-loop-v0-tool-dispatch-retrieve-literature-l298": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L298\n\n_loop_v0_tool_dispatch for iter-2026-05-27-002_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=50b20e04-45b6-4f8e-b82a-7f06ae62d2ab\n\n## Referenced by\n\n- `apparatus-calls-l85` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-002-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l86": "# a_bgt_rsi: Nara/LLM \u2014 calls L86\n\n_iteration_id: iter-2026-05-27-002\n\nEvaluate this research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dom\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-9fac37f4759e85f1\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium more f\u2026\n\n**Observed:** latency=2466ms tokens_in=4629 tokens_out=128 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-002-loop-v0-tool-dispatch-novelty-classify-l300` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-002-loop-v0-tool-receipt-novelty-classify-l301` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-002-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l87": "# a_bgt_rsi: Nara/LLM \u2014 calls L87\n\n_Hypothesis:\nIn symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium more frequently than to the payoff-dominant equilibrium as the population s\u2026_\n\n**Did:** {\n  \"class\": \"novel\",\n  \"rationale\": \"While the retrieved documents discuss fictitious play (doc_id='osborne_rubinstein-chunk-345') and coordination games, they do not address the specific interaction between scale-free network topology and the convergence properties of fictitious play toward risk-d\u2026\n\n**Observed:** latency=2427ms tokens_in=1798 tokens_out=127 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l88": "# a_bgt_rsi: Nara/LLM \u2014 calls L88\n\n_iteration_id: iter-2026-05-27-002\n\nEvaluate this research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dom\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-a2ab783050ea1e41\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium more fre\u2026\n\n**Observed:** latency=1213ms tokens_in=4988 tokens_out=89 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-002-loop-v0-tool-dispatch-critic-loop-v0-l302` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-002-loop-v0-tool-receipt-critic-loop-v0-l303` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-002-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-002-loop-v0-tool-receipt-retrieve-literature-l299": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L299\n\n_loop_v0_tool_receipt for iter-2026-05-27-002_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=50b20e04-45b6-4f8e-b82a-7f06ae62d2ab\n\n## Referenced by\n\n- `apparatus-calls-l85` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-002-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-002-loop-v0-tool-dispatch-novelty-classify-l300": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L300\n\n_loop_v0_tool_dispatch for iter-2026-05-27-002_\n\n**Did:** tool=novelty_classify status=n/a\n\n**Observed:** parent_request_id=e3c25cc0-ec8a-495d-9459-5534545b86d4\n\n## Referenced by\n\n- `apparatus-calls-l86` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-002-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-002-loop-v0-tool-receipt-novelty-classify-l301": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L301\n\n_loop_v0_tool_receipt for iter-2026-05-27-002_\n\n**Did:** tool=novelty_classify status=passed\n\n**Observed:** parent_request_id=e3c25cc0-ec8a-495d-9459-5534545b86d4\n\n## Referenced by\n\n- `apparatus-calls-l86` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-002-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-002-loop-v0-tool-dispatch-critic-loop-v0-l302": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L302\n\n_loop_v0_tool_dispatch for iter-2026-05-27-002_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=18064cb0-3393-400c-acce-5dee5b22e746\n\n## Referenced by\n\n- `apparatus-calls-l88` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-002-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l89": "# a_bgt_rsi: Nara/LLM \u2014 calls L89\n\n_iteration_id: iter-2026-05-27-002\n\nEvaluate this research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dom\u2026_\n\n**Did:** The hypothesis has passed the novelty classification as a novel idea. I will now run the critic loop to see if the existing literature can falsify the hypothesis.\n\n**Observed:** latency=975ms tokens_in=5324 tokens_out=32 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-002-loop-v0-reprompt-none-l304` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-002` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-002-loop-v0-tool-receipt-critic-loop-v0-l303": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L303\n\n_loop_v0_tool_receipt for iter-2026-05-27-002_\n\n**Did:** tool=critic_loop_v0 status=passed\n\n**Observed:** parent_request_id=18064cb0-3393-400c-acce-5dee5b22e746\n\n## Referenced by\n\n- `apparatus-calls-l88` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-002-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-002-loop-v0-reprompt-none-l304": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L304\n\n_loop_v0_reprompt for iter-2026-05-27-002_\n\n**Did:** \n\n**Observed:** parent_request_id=7a5a9746-e61e-4265-9592-06f4c4d081de\n\n## Referenced by\n\n- `apparatus-calls-l89` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l90": "# a_bgt_rsi: Nara/LLM \u2014 calls L90\n\n_Continue the chain. Your next tool call must be `journal_writer`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-b2c9d5ba0dbc65c9\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"iteration_id\\\": \\\"iter-2026-05-27-002\\\", \\\"nara_summary\\\": \\\"The research investigated whether fictitious play on scale-free networks in symmetric 2x2 coordination games favors risk-\u2026\n\n**Observed:** latency=3610ms tokens_in=5397 tokens_out=219 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-002-loop-v0-tool-dispatch-journal-writer-l305` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-002-loop-v0-tool-receipt-journal-writer-l306` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-002-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-002-loop-v0-tool-dispatch-journal-writer-l305": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L305\n\n_loop_v0_tool_dispatch for iter-2026-05-27-002_\n\n**Did:** tool=journal_writer status=n/a\n\n**Observed:** parent_request_id=cf14d0bb-528d-4182-94b3-3c1625ea3716\n\n## Referenced by\n\n- `apparatus-calls-l90` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-002-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-002-loop-v0-tool-receipt-journal-writer-l306": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L306\n\n_loop_v0_tool_receipt for iter-2026-05-27-002_\n\n**Did:** tool=journal_writer status=passed\n\n**Observed:** parent_request_id=cf14d0bb-528d-4182-94b3-3c1625ea3716\n\n## Referenced by\n\n- `apparatus-calls-l90` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-002-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l91": "# a_bgt_rsi: Nara/LLM \u2014 calls L91\n\n_Continue the chain. Your next tool call must be `journal_writer`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** thought\n<channel|>The research investigation into the convergence properties of fictitious play on scale-free networks has been completed. \n\n**Summary of Findings:**\nThe study focused on the hypothesis that in symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play wit\u2026\n\n**Observed:** latency=4158ms tokens_in=5707 tokens_out=219 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-05-27-002` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-002-loop-v0-iteration-complete-none-l307": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L307\n\n_loop_v0_iteration_complete for iter-2026-05-27-002_\n\n**Did:** duration_ms=34386 tool_calls_made=['hypothesize', 'retrieve_literature', 'novelty_classify', 'critic_loop_v0', 'journal_writer']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-27-002` (apparatus_event) \u2014 **produced**\n",
-    "iter-2026-05-27-002": "# a_bgt_rsi: Nara \u2014 loop_memory L13\n\n_In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dominant one as the population grows._\n\n**Did:** The research investigation into the convergence properties of fictitious play on scale-free networks has been completed. \n\n**Summary of Findings:**\nThe study focused on the hypothesis that in symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium more frequently than to the payoff-dominant equilibrium as\u2026\n\n**Observed:** tools=5 calls=7 journal=journal/iterations/013.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-002-loop-v0-iteration-complete-none-l307` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l89` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l91` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-27-002-hypothesize-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-002-retrieve-literature-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-002-novelty-classify-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-002-critic-loop-v0-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-002-journal-writer-1` (stage)\n\n## Referenced by\n\n- `agent-nara` (agent) \u2014 **ran**\n",
-    "apparatus-calls-l92": "# a_bgt_rsi: Nara/LLM \u2014 calls L92\n\n_iteration_id: iter-2026-05-27-003\n\nEvaluate this research topic: In finitely repeated prisoner's dilemmas with common knowledge of rationality, subgame perfect equilibrium predicts cooperation in the penultimate round when the stage-game co\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-bae57a52306edbb1\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"In finitely repeated prisoner's dilemmas with common knowledge of rationality, subgame perfect equilibrium predicts cooperation in the penultimate round when the stage-game c\u2026\n\n**Observed:** latency=1358ms tokens_in=1645 tokens_out=72 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-003-loop-v0-tool-dispatch-hypothesize-l309` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-003-loop-v0-tool-receipt-hypothesize-l310` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-003-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-003-loop-v0-iteration-start-none-l308": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L308\n\n_loop_v0_iteration_start for iter-2026-05-27-003_\n\n**Did:** topic=In finitely repeated prisoner's dilemmas with common knowledge of rationality, subgame perfect equil\u2026\n\n**Observed:** parent_request_id=n/a\n",
-    "event-iter-2026-05-27-003-loop-v0-tool-dispatch-hypothesize-l309": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L309\n\n_loop_v0_tool_dispatch for iter-2026-05-27-003_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=382e08de-f3b9-490c-a587-082aecbb3f41\n\n## Referenced by\n\n- `apparatus-calls-l92` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-003-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l93": "# a_bgt_rsi: Nara/LLM \u2014 calls L93\n\n_Research topic: In finitely repeated prisoner's dilemmas with common knowledge of rationality, subgame perfect equilibrium predicts cooperation in the penultimate round when the stage-game cooperation payoff exceeds twice the defection payo\u2026_\n\n**Did:** {\n  \"candidates\": [\n    \"In an infinitely repeated prisoner's dilemma, if players use a Tit-for-Tat strategy, the probability of cooperation in round T-1 increases monotonically as the ratio of cooperation payoff to defection payoff increases.\",\n    \"In a finitely repeated prisoner's dilemma with co\u2026\n\n**Observed:** latency=2850ms tokens_in=278 tokens_out=181 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l94": "# a_bgt_rsi: Nara/LLM \u2014 calls L94\n\n_iteration_id: iter-2026-05-27-003\n\nEvaluate this research topic: In finitely repeated prisoner's dilemmas with common knowledge of rationality, subgame perfect equilibrium predicts cooperation in the penultimate round when the stage-game co\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-9349e5fb94d52537\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In a finitely repeated prisoner's dilemma with common knowledge of rationality, players will deviate from cooperation in the penultimate round if the stage-\u2026\n\n**Observed:** latency=977ms tokens_in=1995 tokens_out=68 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-003-loop-v0-tool-dispatch-retrieve-literature-l311` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-003-loop-v0-tool-receipt-retrieve-literature-l312` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-003-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-003-loop-v0-tool-receipt-hypothesize-l310": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L310\n\n_loop_v0_tool_receipt for iter-2026-05-27-003_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=382e08de-f3b9-490c-a587-082aecbb3f41\n\n## Referenced by\n\n- `apparatus-calls-l92` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-003-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-003-loop-v0-tool-dispatch-retrieve-literature-l311": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L311\n\n_loop_v0_tool_dispatch for iter-2026-05-27-003_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=6ae2f060-2808-493e-9117-257b756cb0f7\n\n## Referenced by\n\n- `apparatus-calls-l94` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-003-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l95": "# a_bgt_rsi: Nara/LLM \u2014 calls L95\n\n_iteration_id: iter-2026-05-27-003\n\nEvaluate this research topic: In finitely repeated prisoner's dilemmas with common knowledge of rationality, subgame perfect equilibrium predicts cooperation in the penultimate round when the stage-game co\u2026_\n\n**Did:** I have successfully retrieved 10 relevant literature neighbors, including foundational texts on repeated games and recent arXiv papers on adaptive punishment. Now, I will classify the novelty of the hypothesis by comparing it to these retrieved works.\n\n**Observed:** latency=1648ms tokens_in=4921 tokens_out=44 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-003-loop-v0-reprompt-none-l313` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-003` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l96": "# a_bgt_rsi: Nara/LLM \u2014 calls L96\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-9961278709bf3c6a\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In a finitely repeated prisoner's dilemma with common knowledge of rationality, players will deviate from cooperation in the penultimate round if the stage-gam\u2026\n\n**Observed:** latency=1785ms tokens_in=5007 tokens_out=112 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-003-loop-v0-tool-dispatch-novelty-classify-l314` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-003-loop-v0-tool-receipt-novelty-classify-l315` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-003-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l97": "# a_bgt_rsi: Nara/LLM \u2014 calls L97\n\n_Hypothesis:\nIn a finitely repeated prisoner's dilemma with common knowledge of rationality, players will deviate from cooperation in the penultimate round if the stage-game cooperation payoff is less than or equal to twice the defection pay\u2026_\n\n**Did:** {\n  \"class\": \"rediscovery\",\n  \"rationale\": \"The hypothesis describes the standard backward induction result in a finitely repeated Prisoner's Dilemma, where players defect in the final periods due to the lack of future consequences. The specific payoff condition mentioned is a variation of the stand\u2026\n\n**Observed:** latency=2185ms tokens_in=1967 tokens_out=117 model=gemma-4-26b-a4b\n",
-    "event-iter-2026-05-27-003-loop-v0-tool-receipt-retrieve-literature-l312": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L312\n\n_loop_v0_tool_receipt for iter-2026-05-27-003_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=6ae2f060-2808-493e-9117-257b756cb0f7\n\n## Referenced by\n\n- `apparatus-calls-l94` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-003-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-003-loop-v0-reprompt-none-l313": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L313\n\n_loop_v0_reprompt for iter-2026-05-27-003_\n\n**Did:** \n\n**Observed:** parent_request_id=caebb79a-ecd4-4af6-8f71-b9cf8c977b7c\n\n## Referenced by\n\n- `apparatus-calls-l95` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-003-loop-v0-tool-dispatch-novelty-classify-l314": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L314\n\n_loop_v0_tool_dispatch for iter-2026-05-27-003_\n\n**Did:** tool=novelty_classify status=n/a\n\n**Observed:** parent_request_id=5a47fe5b-151e-457d-aba0-a1d57b73dda3\n\n## Referenced by\n\n- `apparatus-calls-l96` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-003-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-003-loop-v0-tool-receipt-novelty-classify-l315": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L315\n\n_loop_v0_tool_receipt for iter-2026-05-27-003_\n\n**Did:** tool=novelty_classify status=passed\n\n**Observed:** parent_request_id=5a47fe5b-151e-457d-aba0-a1d57b73dda3\n\n## Referenced by\n\n- `apparatus-calls-l96` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-003-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l98": "# a_bgt_rsi: Nara/LLM \u2014 calls L98\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-a5eddbcf5b3ca078\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In a finitely repeated prisoner's dilemma with common knowledge of rationality, players will deviate from cooperation in the penultimate round if the stage-game \u2026\n\n**Observed:** latency=2422ms tokens_in=5329 tokens_out=158 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-003-loop-v0-tool-dispatch-critic-loop-v0-l316` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-003-loop-v0-tool-receipt-critic-loop-v0-l317` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-003-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-003-loop-v0-tool-dispatch-critic-loop-v0-l316": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L316\n\n_loop_v0_tool_dispatch for iter-2026-05-27-003_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=f8a9c465-c78b-4269-aad5-3d505d1704f3\n\n## Referenced by\n\n- `apparatus-calls-l98` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-003-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-003-loop-v0-tool-receipt-critic-loop-v0-l317": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L317\n\n_loop_v0_tool_receipt for iter-2026-05-27-003_\n\n**Did:** tool=critic_loop_v0 status=passed\n\n**Observed:** parent_request_id=f8a9c465-c78b-4269-aad5-3d505d1704f3\n\n## Referenced by\n\n- `apparatus-calls-l98` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-003-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l99": "# a_bgt_rsi: Nara/LLM \u2014 calls L99\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-ab8ccc5667bd5ace\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"iteration_id\\\": \\\"iter-2026-05-27-003\\\", \\\"nara_summary\\\": \\\"The research topic explores the conditions under which players deviate from cooperation in the penultimate round of a fin\u2026\n\n**Observed:** latency=4064ms tokens_in=5721 tokens_out=241 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-003-loop-v0-tool-dispatch-journal-writer-l318` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-003-loop-v0-tool-receipt-journal-writer-l319` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-003-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-003-loop-v0-tool-dispatch-journal-writer-l318": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L318\n\n_loop_v0_tool_dispatch for iter-2026-05-27-003_\n\n**Did:** tool=journal_writer status=n/a\n\n**Observed:** parent_request_id=c2d819a4-f261-4b2d-8b37-b8630be3a30a\n\n## Referenced by\n\n- `apparatus-calls-l99` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-003-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-003-loop-v0-tool-receipt-journal-writer-l319": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L319\n\n_loop_v0_tool_receipt for iter-2026-05-27-003_\n\n**Did:** tool=journal_writer status=passed\n\n**Observed:** parent_request_id=c2d819a4-f261-4b2d-8b37-b8630be3a30a\n\n## Referenced by\n\n- `apparatus-calls-l99` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-003-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l100": "# a_bgt_rsi: Nara/LLM \u2014 calls L100\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|channel>thought\n<channel|>The research iteration is complete. Here is a summary of the findings:\n\n**Hypothesis:** The study investigated whether, in a finitely repeated Prisoner's Dilemma with common knowledge of rationality, players will deviate from cooperation in the penultimate round if the st\u2026\n\n**Observed:** latency=5379ms tokens_in=6052 tokens_out=263 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-05-27-003` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-003-loop-v0-iteration-complete-none-l320": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L320\n\n_loop_v0_iteration_complete for iter-2026-05-27-003_\n\n**Did:** duration_ms=29499 tool_calls_made=['hypothesize', 'retrieve_literature', 'novelty_classify', 'critic_loop_v0', 'journal_writer']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-27-003` (apparatus_event) \u2014 **produced**\n",
-    "iter-2026-05-27-003": "# a_bgt_rsi: Nara \u2014 loop_memory L14\n\n_In finitely repeated prisoner's dilemmas with common knowledge of rationality, subgame perfect equilibrium predicts cooperation in the penultimate round when the stage-game cooperation payoff exceeds twice the defection payoff._\n\n**Did:** The research iteration is complete. Here is a summary of the findings:\n\n**Hypothesis:** The study investigated whether, in a finitely repeated Prisoner's Dilemma with common knowledge of rationality, players will deviate from cooperation in the penultimate round if the stage-game cooperation payoff is less than or equal to twice the defection payoff.\n\n**Novelty & Critique:** The hypothesis was cla\u2026\n\n**Observed:** tools=5 calls=7 journal=journal/iterations/014.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-003-loop-v0-iteration-complete-none-l320` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l95` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l100` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-27-003-hypothesize-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-003-retrieve-literature-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-003-novelty-classify-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-003-critic-loop-v0-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-003-journal-writer-1` (stage)\n\n## Referenced by\n\n- `agent-nara` (agent) \u2014 **ran**\n",
-    "apparatus-calls-l101": "# a_bgt_rsi: Nara/LLM \u2014 calls L101\n\n_iteration_id: iter-2026-05-27-004\n\nEvaluate this research topic: In repeated public goods games with noisy contribution observation, conditional cooperators using a Bayesian belief over others' types will exhibit faster contribution decay t\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-bc906b814de4d608\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"In repeated public goods games with noisy contribution observation, conditional cooperators using a Bayesian belief over others' types will exhibit faster contribution decay \u2026\n\n**Observed:** latency=1466ms tokens_in=1649 tokens_out=77 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-004-loop-v0-tool-dispatch-hypothesize-l322` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-004-loop-v0-tool-receipt-hypothesize-l323` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-004-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-004-loop-v0-iteration-start-none-l321": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L321\n\n_loop_v0_iteration_start for iter-2026-05-27-004_\n\n**Did:** topic=In repeated public goods games with noisy contribution observation, conditional cooperators using a \u2026\n\n**Observed:** parent_request_id=n/a\n",
-    "event-iter-2026-05-27-004-loop-v0-tool-dispatch-hypothesize-l322": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L322\n\n_loop_v0_tool_dispatch for iter-2026-05-27-004_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=b4c8a92e-e3e6-4936-924e-d0418b230cb6\n\n## Referenced by\n\n- `apparatus-calls-l101` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-004-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l102": "# a_bgt_rsi: Nara/LLM \u2014 calls L102\n\n_Research topic: In repeated public goods games with noisy contribution observation, conditional cooperators using a Bayesian belief over others' types will exhibit faster contribution decay than under perfect observation, even when expected\u2026_\n\n**Did:** {\n  \"candidates\": [\n    \"In repeated public goods games, conditional cooperators using Bayesian belief updating will exhibit a significantly faster rate of contribution decay when observation noise is mean-zero compared to perfect observation conditions.\",\n    \"The presence of mean-zero observation \u2026\n\n**Observed:** latency=2775ms tokens_in=282 tokens_out=171 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l103": "# a_bgt_rsi: Nara/LLM \u2014 calls L103\n\n_iteration_id: iter-2026-05-27-004\n\nEvaluate this research topic: In repeated public goods games with noisy contribution observation, conditional cooperators using a Bayesian belief over others' types will exhibit faster contribution decay t\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-9f0d917099af4963\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In repeated public goods games, conditional cooperators using Bayesian belief updating will exhibit a significantly faster rate of contribution decay when o\u2026\n\n**Observed:** latency=970ms tokens_in=1997 tokens_out=61 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-004-loop-v0-tool-dispatch-retrieve-literature-l324` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-004-loop-v0-tool-receipt-retrieve-literature-l325` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-004-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-004-loop-v0-tool-receipt-hypothesize-l323": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L323\n\n_loop_v0_tool_receipt for iter-2026-05-27-004_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=b4c8a92e-e3e6-4936-924e-d0418b230cb6\n\n## Referenced by\n\n- `apparatus-calls-l101` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-004-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-004-loop-v0-tool-dispatch-retrieve-literature-l324": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L324\n\n_loop_v0_tool_dispatch for iter-2026-05-27-004_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=f6845527-9b75-46f0-8c46-f72bc35f77b6\n\n## Referenced by\n\n- `apparatus-calls-l103` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-004-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-004-loop-v0-tool-receipt-retrieve-literature-l325": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L325\n\n_loop_v0_tool_receipt for iter-2026-05-27-004_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=f6845527-9b75-46f0-8c46-f72bc35f77b6\n\n## Referenced by\n\n- `apparatus-calls-l103` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-004-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l104": "# a_bgt_rsi: Nara/LLM \u2014 calls L104\n\n_iteration_id: iter-2026-05-27-004\n\nEvaluate this research topic: In repeated public goods games with noisy contribution observation, conditional cooperators using a Bayesian belief over others' types will exhibit faster contribution decay t\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-bab9ab05933a3872\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In repeated public goods games, conditional cooperators using Bayesian belief updating will exhibit a significantly faster rate of contribution decay when obse\u2026\n\n**Observed:** latency=2508ms tokens_in=4844 tokens_out=128 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-004-loop-v0-tool-dispatch-novelty-classify-l326` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-004-loop-v0-tool-receipt-novelty-classify-l327` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-004-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l105": "# a_bgt_rsi: Nara/LLM \u2014 calls L105\n\n_Hypothesis:\nIn repeated public goods games, conditional cooperators using Bayesian belief updating will exhibit a significantly faster rate of contribution decay when observation noise is mean-zero compared to perfect observation conditions\u2026_\n\n**Did:** {\n  \"class\": \"novel\",\n  \"rationale\": \"While the retrieved documents discuss Bayesian updating and sequential equilibrium in extensive games, none address the specific dynamics of contribution decay in repeated public goods games under observation noise. The hypothesis proposes a specific comparative\u2026\n\n**Observed:** latency=1736ms tokens_in=1765 tokens_out=98 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l106": "# a_bgt_rsi: Nara/LLM \u2014 calls L106\n\n_iteration_id: iter-2026-05-27-004\n\nEvaluate this research topic: In repeated public goods games with noisy contribution observation, conditional cooperators using a Bayesian belief over others' types will exhibit faster contribution decay t\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-b73f8167c93aa53b\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In repeated public goods games, conditional cooperators using Bayesian belief updating will exhibit a significantly faster rate of contribution decay when observ\u2026\n\n**Observed:** latency=1077ms tokens_in=5165 tokens_out=77 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-004-loop-v0-tool-dispatch-critic-loop-v0-l328` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-004-loop-v0-tool-receipt-critic-loop-v0-l329` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-004-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l107": "# a_bgt_rsi: Nara/LLM \u2014 calls L107\n\n_iteration_id: iter-2026-05-27-004\n\nEvaluate this research topic: In repeated public goods games with noisy contribution observation, conditional cooperators using a Bayesian belief over others' types will exhibit faster contribution decay t\u2026_\n\n**Did:** The hypothesis has been evaluated by a critic, which found that it survives because the existing literature does not provide evidence to falsify the specific claim regarding the rate of contribution decay under mean-zero noise. I will now proceed to the final step of writing the research journal.\n\n**Observed:** latency=1358ms tokens_in=5473 tokens_out=55 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-004-loop-v0-reprompt-none-l330` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-004` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-004-loop-v0-tool-dispatch-novelty-classify-l326": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L326\n\n_loop_v0_tool_dispatch for iter-2026-05-27-004_\n\n**Did:** tool=novelty_classify status=n/a\n\n**Observed:** parent_request_id=2deeb046-d37f-4e5a-8c68-33d1bebd06e5\n\n## Referenced by\n\n- `apparatus-calls-l104` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-004-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-004-loop-v0-tool-receipt-novelty-classify-l327": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L327\n\n_loop_v0_tool_receipt for iter-2026-05-27-004_\n\n**Did:** tool=novelty_classify status=passed\n\n**Observed:** parent_request_id=2deeb046-d37f-4e5a-8c68-33d1bebd06e5\n\n## Referenced by\n\n- `apparatus-calls-l104` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-004-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-004-loop-v0-tool-dispatch-critic-loop-v0-l328": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L328\n\n_loop_v0_tool_dispatch for iter-2026-05-27-004_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=be36e307-e30d-458c-ae56-62f143c092c0\n\n## Referenced by\n\n- `apparatus-calls-l106` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-004-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-004-loop-v0-tool-receipt-critic-loop-v0-l329": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L329\n\n_loop_v0_tool_receipt for iter-2026-05-27-004_\n\n**Did:** tool=critic_loop_v0 status=passed\n\n**Observed:** parent_request_id=be36e307-e30d-458c-ae56-62f143c092c0\n\n## Referenced by\n\n- `apparatus-calls-l106` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-004-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-004-loop-v0-reprompt-none-l330": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L330\n\n_loop_v0_reprompt for iter-2026-05-27-004_\n\n**Did:** \n\n**Observed:** parent_request_id=67e9e8cc-0838-426b-a6b0-f996180577b6\n\n## Referenced by\n\n- `apparatus-calls-l107` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l108": "# a_bgt_rsi: Nara/LLM \u2014 calls L108\n\n_Continue the chain. Your next tool call must be `journal_writer`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-a805a9fbeedb97b6\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"iteration_id\\\": \\\"iter-2026-05-27-004\\\", \\\"nara_summary\\\": \\\"The research investigation focused on the impact of mean-zero observation noise on the contribution decay rates of Bayesi\u2026\n\n**Observed:** latency=3995ms tokens_in=5569 tokens_out=231 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-004-loop-v0-tool-dispatch-journal-writer-l331` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-004-loop-v0-tool-receipt-journal-writer-l332` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-004-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-004-loop-v0-tool-dispatch-journal-writer-l331": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L331\n\n_loop_v0_tool_dispatch for iter-2026-05-27-004_\n\n**Did:** tool=journal_writer status=n/a\n\n**Observed:** parent_request_id=2a8c8e41-e0c0-401a-818d-d02cd61a2d50\n\n## Referenced by\n\n- `apparatus-calls-l108` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-004-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-004-loop-v0-tool-receipt-journal-writer-l332": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L332\n\n_loop_v0_tool_receipt for iter-2026-05-27-004_\n\n**Did:** tool=journal_writer status=passed\n\n**Observed:** parent_request_id=2a8c8e41-e0c0-401a-818d-d02cd61a2d50\n\n## Referenced by\n\n- `apparatus-calls-l108` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-004-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l109": "# a_bgt_rsi: Nara/LLM \u2014 calls L109\n\n_Continue the chain. Your next tool call must be `journal_writer`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** thought\n<channel|>The research investigation explored whether mean-zero observation noise in repeated public goods games accelerates the decay of cooperation among Bayesian conditional cooperators. The core hypothesis is that even when noise is unbiased, the process of Bayesian belief updating will \u2026\n\n**Observed:** latency=4165ms tokens_in=5893 tokens_out=182 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-05-27-004` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-004-loop-v0-iteration-complete-none-l333": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L333\n\n_loop_v0_iteration_complete for iter-2026-05-27-004_\n\n**Did:** duration_ms=30971 tool_calls_made=['hypothesize', 'retrieve_literature', 'novelty_classify', 'critic_loop_v0', 'journal_writer']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-27-004` (apparatus_event) \u2014 **produced**\n",
-    "iter-2026-05-27-004": "# a_bgt_rsi: Nara \u2014 loop_memory L15\n\n_In repeated public goods games with noisy contribution observation, conditional cooperators using a Bayesian belief over others' types will exhibit faster contribution decay than under perfect observation, even when expected observation err\u2026_\n\n**Did:** The research investigation explored whether mean-zero observation noise in repeated public goods games accelerates the decay of cooperation among Bayesian conditional cooperators. The core hypothesis is that even when noise is unbiased, the process of Bayesian belief updating will cause players to perceive a higher probability of defection, leading to a faster breakdown of cooperation compared to \u2026\n\n**Observed:** tools=5 calls=7 journal=journal/iterations/015.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-004-loop-v0-iteration-complete-none-l333` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l107` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l109` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-27-004-hypothesize-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-004-retrieve-literature-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-004-novelty-classify-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-004-critic-loop-v0-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-004-journal-writer-1` (stage)\n\n## Referenced by\n\n- `agent-nara` (agent) \u2014 **ran**\n",
-    "apparatus-calls-l110": "# a_bgt_rsi: Nara/LLM \u2014 calls L110\n\n_iteration_id: iter-2026-05-27-005\n\nEvaluate this research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dom\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-a05dff1e641ea1b2\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-do\u2026\n\n**Observed:** latency=1322ms tokens_in=1648 tokens_out=76 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-dispatch-hypothesize-l335` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-receipt-hypothesize-l336` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-005-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-005-loop-v0-iteration-start-none-l334": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L334\n\n_loop_v0_iteration_start for iter-2026-05-27-005_\n\n**Did:** topic=In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors c\u2026\n\n**Observed:** parent_request_id=n/a\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-dispatch-hypothesize-l335": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L335\n\n_loop_v0_tool_dispatch for iter-2026-05-27-005_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=2944bbc1-32f1-4278-b310-59928c9b35b3\n\n## Referenced by\n\n- `apparatus-calls-l110` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l111": "# a_bgt_rsi: Nara/LLM \u2014 calls L111\n\n_Research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dominant one as the population grows._\n\n**Did:** {\n  \"candidates\": [\n    \"In symmetric 2x2 coordination games on a fixed Erd\u0151s\u2013R\u00e9nyi graph, the probability of fictitious play converging to the risk-dominant equilibrium increases monotonically with the average node degree, approaching 1 as the network density increases.\",\n    \"In symmetric 2x2 coor\u2026\n\n**Observed:** latency=3385ms tokens_in=281 tokens_out=217 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l112": "# a_bgt_rsi: Nara/LLM \u2014 calls L112\n\n_iteration_id: iter-2026-05-27-005\n\nEvaluate this research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dom\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-938f90bbc1bed514\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium mor\u2026\n\n**Observed:** latency=1131ms tokens_in=2345 tokens_out=74 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-dispatch-retrieve-literature-l337` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-receipt-retrieve-literature-l338` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-005-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-receipt-hypothesize-l336": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L336\n\n_loop_v0_tool_receipt for iter-2026-05-27-005_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=2944bbc1-32f1-4278-b310-59928c9b35b3\n\n## Referenced by\n\n- `apparatus-calls-l110` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-dispatch-retrieve-literature-l337": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L337\n\n_loop_v0_tool_dispatch for iter-2026-05-27-005_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=fa2644c3-bd86-4bd3-8faa-148d1b936d53\n\n## Referenced by\n\n- `apparatus-calls-l112` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l113": "# a_bgt_rsi: Nara/LLM \u2014 calls L113\n\n_iteration_id: iter-2026-05-27-005\n\nEvaluate this research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dom\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-9c9bf36b5dd00d59\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium more f\u2026\n\n**Observed:** latency=2552ms tokens_in=5118 tokens_out=133 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-dispatch-novelty-classify-l339` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-receipt-novelty-classify-l340` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-005-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l114": "# a_bgt_rsi: Nara/LLM \u2014 calls L114\n\n_Hypothesis:\nIn symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium more frequently than the payoff-dominant equilibrium as the number of nodes\u2026_\n\n**Did:** {\n  \"class\": \"novel\",\n  \"rationale\": \"While the retrieved neighbors discuss fictitious play (doc_id='osborne_rubinstein-chunk-345') and coordination games, none address the specific interaction between fictitious play and the topology of scale-free networks. The hypothesis proposes a specific asympt\u2026\n\n**Observed:** latency=2304ms tokens_in=1837 tokens_out=121 model=gemma-4-26b-a4b\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-receipt-retrieve-literature-l338": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L338\n\n_loop_v0_tool_receipt for iter-2026-05-27-005_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=fa2644c3-bd86-4bd3-8faa-148d1b936d53\n\n## Referenced by\n\n- `apparatus-calls-l112` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-dispatch-novelty-classify-l339": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L339\n\n_loop_v0_tool_dispatch for iter-2026-05-27-005_\n\n**Did:** tool=novelty_classify status=n/a\n\n**Observed:** parent_request_id=152d665d-2aea-4d60-a1dc-8d2d4f6e736e\n\n## Referenced by\n\n- `apparatus-calls-l113` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-receipt-novelty-classify-l340": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L340\n\n_loop_v0_tool_receipt for iter-2026-05-27-005_\n\n**Did:** tool=novelty_classify status=passed\n\n**Observed:** parent_request_id=152d665d-2aea-4d60-a1dc-8d2d4f6e736e\n\n## Referenced by\n\n- `apparatus-calls-l113` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l115": "# a_bgt_rsi: Nara/LLM \u2014 calls L115\n\n_iteration_id: iter-2026-05-27-005\n\nEvaluate this research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dom\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-87b13b887f881399\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium more fre\u2026\n\n**Observed:** latency=1213ms tokens_in=5471 tokens_out=89 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l341` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l342` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-005-critic-loop-v0-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-2` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-3` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-4` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-5` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-6` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l341": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L341\n\n_loop_v0_tool_dispatch for iter-2026-05-27-005_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=800f348d-f4ff-41e5-97f0-8ed468e90f9c\n\n## Referenced by\n\n- `apparatus-calls-l115` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-critic-loop-v0-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-2` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-3` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-4` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-5` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-6` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l342": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L342\n\n_loop_v0_tool_receipt for iter-2026-05-27-005_\n\n**Did:** tool=critic_loop_v0 status=error\n\n**Observed:** parent_request_id=800f348d-f4ff-41e5-97f0-8ed468e90f9c\n\n## Referenced by\n\n- `apparatus-calls-l115` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-critic-loop-v0-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-2` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-3` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-4` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-5` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-6` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l116": "# a_bgt_rsi: Nara/LLM \u2014 calls L116\n\n_iteration_id: iter-2026-05-27-005\n\nEvaluate this research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dom\u2026_\n\n**Did:** <|channel>thought\n<channel|>I encountered a technical error while attempting to run the critic loop. However, based on the previous steps, I can still provide a preliminary assessment.\n\nThe hypothesis\u2014that fictitious play on scale-free networks favors risk-dominant equilibria as population size incr\u2026\n\n**Observed:** latency=5592ms tokens_in=5718 tokens_out=289 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-reprompt-none-l343` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-005` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l117": "# a_bgt_rsi: Nara/LLM \u2014 calls L117\n\n_Continue the chain. Your next tool call must be `critic_loop_v0`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-8689ab2ea2d06185\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium more fre\u2026\n\n**Observed:** latency=1684ms tokens_in=6047 tokens_out=113 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l344` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l345` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-005` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l118": "# a_bgt_rsi: Nara/LLM \u2014 calls L118\n\n_Continue the chain. Your next tool call must be `critic_loop_v0`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-ad70ce96a242eac7\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium more fre\u2026\n\n**Observed:** latency=1331ms tokens_in=6311 tokens_out=95 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l346` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l347` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-005` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-005-loop-v0-reprompt-none-l343": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L343\n\n_loop_v0_reprompt for iter-2026-05-27-005_\n\n**Did:** \n\n**Observed:** parent_request_id=1b221e48-8dfd-49de-9a5c-c8502412cd1b\n\n## Referenced by\n\n- `apparatus-calls-l116` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l344": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L344\n\n_loop_v0_tool_dispatch for iter-2026-05-27-005_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=1711fdb1-d597-4ddc-af81-23aa15ec1df1\n\n## Referenced by\n\n- `apparatus-calls-l117` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-critic-loop-v0-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-2` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-3` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-4` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-5` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-6` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l345": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L345\n\n_loop_v0_tool_receipt for iter-2026-05-27-005_\n\n**Did:** tool=critic_loop_v0 status=error\n\n**Observed:** parent_request_id=1711fdb1-d597-4ddc-af81-23aa15ec1df1\n\n## Referenced by\n\n- `apparatus-calls-l117` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-critic-loop-v0-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-2` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-3` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-4` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-5` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-6` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l346": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L346\n\n_loop_v0_tool_dispatch for iter-2026-05-27-005_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=8deadce9-69d1-4898-b712-0f1197d55cfd\n\n## Referenced by\n\n- `apparatus-calls-l118` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-critic-loop-v0-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-2` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-3` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-4` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-5` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-6` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l347": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L347\n\n_loop_v0_tool_receipt for iter-2026-05-27-005_\n\n**Did:** tool=critic_loop_v0 status=error\n\n**Observed:** parent_request_id=8deadce9-69d1-4898-b712-0f1197d55cfd\n\n## Referenced by\n\n- `apparatus-calls-l118` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-critic-loop-v0-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-2` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-3` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-4` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-5` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-6` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l119": "# a_bgt_rsi: Nara/LLM \u2014 calls L119\n\n_Continue the chain. Your next tool call must be `critic_loop_v0`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|channel>thought\n<channel|>I am encountering a persistent technical error with the `critic_loop_v0` tool due to a backend configuration issue. Because the `LOOP_V0` chain requires all five steps to be completed in order to proceed to the `journal_writer`, and the critic step is failing, I cannot co\u2026\n\n**Observed:** latency=6966ms tokens_in=6555 tokens_out=355 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-reprompt-none-l348` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-005` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l120": "# a_bgt_rsi: Nara/LLM \u2014 calls L120\n\n_Continue the chain. Your next tool call must be `critic_loop_v0`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-98001234da0eb4b1\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium more fre\u2026\n\n**Observed:** latency=2013ms tokens_in=6950 tokens_out=122 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l349` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l350` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-005` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l121": "# a_bgt_rsi: Nara/LLM \u2014 calls L121\n\n_Continue the chain. Your next tool call must be `critic_loop_v0`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-8474580f36ad02bf\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium more fre\u2026\n\n**Observed:** latency=1354ms tokens_in=7226 tokens_out=95 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l351` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l352` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-005` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-005-loop-v0-reprompt-none-l348": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L348\n\n_loop_v0_reprompt for iter-2026-05-27-005_\n\n**Did:** \n\n**Observed:** parent_request_id=a3b919d7-c007-45b5-9a99-a966401e24e5\n\n## Referenced by\n\n- `apparatus-calls-l119` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l349": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L349\n\n_loop_v0_tool_dispatch for iter-2026-05-27-005_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=a9c6dfe3-e25c-4337-8d94-79936d54db7d\n\n## Referenced by\n\n- `apparatus-calls-l120` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-critic-loop-v0-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-2` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-3` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-4` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-5` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-6` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l350": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L350\n\n_loop_v0_tool_receipt for iter-2026-05-27-005_\n\n**Did:** tool=critic_loop_v0 status=error\n\n**Observed:** parent_request_id=a9c6dfe3-e25c-4337-8d94-79936d54db7d\n\n## Referenced by\n\n- `apparatus-calls-l120` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-critic-loop-v0-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-2` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-3` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-4` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-5` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-6` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l351": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L351\n\n_loop_v0_tool_dispatch for iter-2026-05-27-005_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=4f145495-1443-479a-a65b-076a13465e29\n\n## Referenced by\n\n- `apparatus-calls-l121` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-critic-loop-v0-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-2` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-3` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-4` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-5` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-6` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l352": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L352\n\n_loop_v0_tool_receipt for iter-2026-05-27-005_\n\n**Did:** tool=critic_loop_v0 status=error\n\n**Observed:** parent_request_id=4f145495-1443-479a-a65b-076a13465e29\n\n## Referenced by\n\n- `apparatus-calls-l121` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-critic-loop-v0-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-2` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-3` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-4` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-5` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-6` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l122": "# a_bgt_rsi: Nara/LLM \u2014 calls L122\n\n_Continue the chain. Your next tool call must be `critic_loop_v0`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|channel>thought\n<channel|>The `critic_loop_v0` tool is experiencing a persistent backend error that prevents the formal execution of the fourth step in the LOOP_V0 chain. As a result, I cannot trigger the final `journal_writer` step to produce the automated markdown entry.\n\nHowever, I have complet\u2026\n\n**Observed:** latency=9291ms tokens_in=7475 tokens_out=465 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-reprompt-none-l353` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-005` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l123": "# a_bgt_rsi: Nara/LLM \u2014 calls L123\n\n_Continue the chain. Your next tool call must be `critic_loop_v0`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-914eadc1bf6fcf9b\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium more fre\u2026\n\n**Observed:** latency=1842ms tokens_in=7980 tokens_out=123 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l354` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l355` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-005` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-005-loop-v0-reprompt-none-l353": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L353\n\n_loop_v0_reprompt for iter-2026-05-27-005_\n\n**Did:** \n\n**Observed:** parent_request_id=57e9ee06-c110-4a49-907b-0bc02631a200\n\n## Referenced by\n\n- `iter-2026-05-27-005` (apparatus_event) \u2014 **produced**\n- `apparatus-calls-l122` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-dispatch-critic-loop-v0-l354": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L354\n\n_loop_v0_tool_dispatch for iter-2026-05-27-005_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=c9fd6107-34e3-463f-8b5d-0f2566a5defd\n\n## Referenced by\n\n- `apparatus-calls-l123` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-critic-loop-v0-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-2` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-3` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-4` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-5` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-6` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-005-loop-v0-tool-receipt-critic-loop-v0-l355": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L355\n\n_loop_v0_tool_receipt for iter-2026-05-27-005_\n\n**Did:** tool=critic_loop_v0 status=error\n\n**Observed:** parent_request_id=c9fd6107-34e3-463f-8b5d-0f2566a5defd\n\n## Referenced by\n\n- `apparatus-calls-l123` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-005-critic-loop-v0-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-2` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-3` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-4` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-5` (stage) \u2014 **derived_from**\n- `stage-iter-2026-05-27-005-critic-loop-v0-6` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-005-loop-v0-fallback-none-l356": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L356\n\n_loop_v0_fallback for iter-2026-05-27-005_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-27-005` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-005-loop-v0-iteration-complete-none-l357": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L357\n\n_loop_v0_iteration_complete for iter-2026-05-27-005_\n\n**Did:** duration_ms=51682 tool_calls_made=['hypothesize', 'retrieve_literature', 'novelty_classify', 'critic_loop_v0', 'critic_loop_v0', 'critic_loop_v0', 'critic_loop_v0', 'critic_loop_v0', 'critic_loop_v0']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-27-005` (apparatus_event) \u2014 **produced**\n",
-    "iter-2026-05-27-005": "# a_bgt_rsi: Nara \u2014 loop_memory L16\n\n_In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dominant one as the population grows._\n\n**Did:** (max_depth=12 exhausted; iteration cut short)\n\n**Observed:** tools=9 calls=12 journal=journal/iterations/016.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-reprompt-none-l353` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-fallback-none-l356` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-005-loop-v0-iteration-complete-none-l357` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l116` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l117` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l118` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l119` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l120` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l121` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l122` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l123` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-27-005-hypothesize-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-005-retrieve-literature-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-005-novelty-classify-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-005-critic-loop-v0-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-005-critic-loop-v0-2` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-005-critic-loop-v0-3` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-005-critic-loop-v0-4` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-005-critic-loop-v0-5` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-005-critic-loop-v0-6` (stage)\n\n## Referenced by\n\n- `agent-nara` (agent) \u2014 **ran**\n",
-    "apparatus-calls-l124": "# a_bgt_rsi: Nara/LLM \u2014 calls L124\n\n_iteration_id: iter-2026-05-27-006\n\nEvaluate this research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dom\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-9d24af51dbef113f\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-do\u2026\n\n**Observed:** latency=1344ms tokens_in=1648 tokens_out=76 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-006-loop-v0-tool-dispatch-hypothesize-l359` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-006-loop-v0-tool-receipt-hypothesize-l360` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-006-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-006-loop-v0-iteration-start-none-l358": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L358\n\n_loop_v0_iteration_start for iter-2026-05-27-006_\n\n**Did:** topic=In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors c\u2026\n\n**Observed:** parent_request_id=n/a\n",
-    "event-iter-2026-05-27-006-loop-v0-tool-dispatch-hypothesize-l359": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L359\n\n_loop_v0_tool_dispatch for iter-2026-05-27-006_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=070168f4-5f70-42f0-bcec-256ccbd7a79b\n\n## Referenced by\n\n- `apparatus-calls-l124` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-006-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l125": "# a_bgt_rsi: Nara/LLM \u2014 calls L125\n\n_Research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dominant one as the population grows._\n\n**Did:** {\n  \"candidates\": [\n    \"In symmetric 2x2 coordination games on a fixed scale-free network, the probability of fictitious play agents converging to the risk-dominant equilibrium increases monotonically with the average node degree, whereas convergence to the payoff-dominant equilibrium decreases.\",\n\u2026\n\n**Observed:** latency=4011ms tokens_in=281 tokens_out=260 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l126": "# a_bgt_rsi: Nara/LLM \u2014 calls L126\n\n_iteration_id: iter-2026-05-27-006\n\nEvaluate this research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dom\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-931314639f224783\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In symmetric 2x2 coordination games played on a fixed Erd\\\\\\\\u0151s\\\\\\\\u2013R\\\\\\\\u00e9nyi network, the frequency of convergence to the risk-dominant equilib\u2026\n\n**Observed:** latency=1669ms tokens_in=2112 tokens_out=113 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-006-loop-v0-tool-dispatch-retrieve-literature-l361` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-006-loop-v0-tool-receipt-retrieve-literature-l362` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-006-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-006-loop-v0-tool-receipt-hypothesize-l360": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L360\n\n_loop_v0_tool_receipt for iter-2026-05-27-006_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=070168f4-5f70-42f0-bcec-256ccbd7a79b\n\n## Referenced by\n\n- `apparatus-calls-l124` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-006-hypothesize-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-006-loop-v0-tool-dispatch-retrieve-literature-l361": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L361\n\n_loop_v0_tool_dispatch for iter-2026-05-27-006_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=c4d18b1b-ecd4-495a-8161-5aec79b27981\n\n## Referenced by\n\n- `apparatus-calls-l126` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-006-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l127": "# a_bgt_rsi: Nara/LLM \u2014 calls L127\n\n_iteration_id: iter-2026-05-27-006\n\nEvaluate this research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dom\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-be250877e63d329a\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In symmetric 2x2 coordination games played on a fixed Erd\\\\\\\\u0151s\\\\\\\\u2013R\\\\\\\\u00e9nyi network, the frequency of convergence to the risk-dominant equilibriu\u2026\n\n**Observed:** latency=2689ms tokens_in=4808 tokens_out=155 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-006-loop-v0-tool-dispatch-novelty-classify-l363` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-006-loop-v0-tool-receipt-novelty-classify-l364` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-006-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l128": "# a_bgt_rsi: Nara/LLM \u2014 calls L128\n\n_Hypothesis:\nIn symmetric 2x2 coordination games played on a fixed Erd\\u0151s\\u2013R\\u00e9nyi network, the frequency of convergence to the risk-dominant equilibrium via fictitious play is higher than convergence to the payoff-dominant equili\u2026_\n\n**Did:** {\n  \"class\": \"novel\",\n  \"rationale\": \"The hypothesis proposes a specific relationship between network topology (Erd\u0151s\u2013R\u00e9nyi clustering coefficient) and the convergence properties of fictitious play in coordination games. The retrieved neighbors focus on foundational equilibrium concepts (mixed, corr\u2026\n\n**Observed:** latency=1650ms tokens_in=1869 tokens_out=90 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l129": "# a_bgt_rsi: Nara/LLM \u2014 calls L129\n\n_iteration_id: iter-2026-05-27-006\n\nEvaluate this research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dom\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-bbff316f431d9286\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In symmetric 2x2 coordination games played on a fixed Erd\\\\\\\\u0151s\\\\\\\\u2013R\\\\\\\\u00e9nyi network, the frequency of convergence to the risk-dominant equilibrium \u2026\n\n**Observed:** latency=1602ms tokens_in=5169 tokens_out=125 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-006-loop-v0-tool-dispatch-critic-loop-v0-l365` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-006-loop-v0-tool-receipt-critic-loop-v0-l366` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-006-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-006-loop-v0-tool-receipt-retrieve-literature-l362": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L362\n\n_loop_v0_tool_receipt for iter-2026-05-27-006_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=c4d18b1b-ecd4-495a-8161-5aec79b27981\n\n## Referenced by\n\n- `apparatus-calls-l126` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-006-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-006-loop-v0-tool-dispatch-novelty-classify-l363": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L363\n\n_loop_v0_tool_dispatch for iter-2026-05-27-006_\n\n**Did:** tool=novelty_classify status=n/a\n\n**Observed:** parent_request_id=b0f8e7f1-93c7-4fb2-a7a3-1e8b63e263fb\n\n## Referenced by\n\n- `apparatus-calls-l127` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-006-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-006-loop-v0-tool-receipt-novelty-classify-l364": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L364\n\n_loop_v0_tool_receipt for iter-2026-05-27-006_\n\n**Did:** tool=novelty_classify status=passed\n\n**Observed:** parent_request_id=b0f8e7f1-93c7-4fb2-a7a3-1e8b63e263fb\n\n## Referenced by\n\n- `apparatus-calls-l127` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-006-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-006-loop-v0-tool-dispatch-critic-loop-v0-l365": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L365\n\n_loop_v0_tool_dispatch for iter-2026-05-27-006_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=0d9ac376-b801-4504-be77-d0fe5914264c\n\n## Referenced by\n\n- `apparatus-calls-l129` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-006-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l130": "# a_bgt_rsi: Nara/LLM \u2014 calls L130\n\n_iteration_id: iter-2026-05-27-006\n\nEvaluate this research topic: In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dom\u2026_\n\n**Did:** The critic has evaluated the hypothesis; although there was a minor technical issue with the sub-agent's output format, the hypothesis has survived the critique. I will now compile all findings into a final journal entry.\n\n**Observed:** latency=1000ms tokens_in=5597 tokens_out=44 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-006-loop-v0-reprompt-none-l367` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-006` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-006-loop-v0-tool-receipt-critic-loop-v0-l366": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L366\n\n_loop_v0_tool_receipt for iter-2026-05-27-006_\n\n**Did:** tool=critic_loop_v0 status=passed\n\n**Observed:** parent_request_id=0d9ac376-b801-4504-be77-d0fe5914264c\n\n## Referenced by\n\n- `apparatus-calls-l129` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-006-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-006-loop-v0-reprompt-none-l367": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L367\n\n_loop_v0_reprompt for iter-2026-05-27-006_\n\n**Did:** \n\n**Observed:** parent_request_id=c8eb4485-3f47-426c-97c9-73b00b450447\n\n## Referenced by\n\n- `apparatus-calls-l130` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l131": "# a_bgt_rsi: Nara/LLM \u2014 calls L131\n\n_Continue the chain. Your next tool call must be `journal_writer`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-85d22868bed5806b\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"iteration_id\\\": \\\"iter-2026-05-27-006\\\", \\\"nara_summary\\\": \\\"The research iteration explored the relationship between network topology and learning dynamics in coordination games. Th\u2026\n\n**Observed:** latency=4468ms tokens_in=5682 tokens_out=237 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-006-loop-v0-tool-dispatch-journal-writer-l368` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-05-27-006-loop-v0-tool-receipt-journal-writer-l369` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-05-27-006-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-006-loop-v0-tool-dispatch-journal-writer-l368": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L368\n\n_loop_v0_tool_dispatch for iter-2026-05-27-006_\n\n**Did:** tool=journal_writer status=n/a\n\n**Observed:** parent_request_id=257ec497-1c47-4664-be97-f07c96c853e0\n\n## Referenced by\n\n- `apparatus-calls-l131` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-006-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-05-27-006-loop-v0-tool-receipt-journal-writer-l369": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L369\n\n_loop_v0_tool_receipt for iter-2026-05-27-006_\n\n**Did:** tool=journal_writer status=passed\n\n**Observed:** parent_request_id=257ec497-1c47-4664-be97-f07c96c853e0\n\n## Referenced by\n\n- `apparatus-calls-l131` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-05-27-006-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l132": "# a_bgt_rsi: Nara/LLM \u2014 calls L132\n\n_Continue the chain. Your next tool call must be `journal_writer`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** thought\n<channel|>The research iteration has concluded. Here is a summary of the findings:\n\n**Hypothesis**\nThe investigation focused on a specific mechanism in coordination games: in Erd\u0151s\u2013R\u00e9nyi networks, the frequency of convergence to a risk-dominant equilibrium via fictitious play is predicted to\u2026\n\n**Observed:** latency=5204ms tokens_in=6011 tokens_out=275 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-05-27-006` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-05-27-006-loop-v0-iteration-complete-none-l370": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L370\n\n_loop_v0_iteration_complete for iter-2026-05-27-006_\n\n**Did:** duration_ms=102498 tool_calls_made=['hypothesize', 'retrieve_literature', 'novelty_classify', 'critic_loop_v0', 'journal_writer']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-05-27-006` (apparatus_event) \u2014 **produced**\n",
-    "iter-2026-05-27-006": "# a_bgt_rsi: Nara \u2014 loop_memory L17\n\n_In symmetric 2x2 coordination games played on a fixed network, fictitious play with uniform priors converges to the risk-dominant equilibrium more often than to the payoff-dominant one as the population grows._\n\n**Did:** The research iteration has concluded. Here is a summary of the findings:\n\n**Hypothesis**\nThe investigation focused on a specific mechanism in coordination games: in Erd\u0151s\u2013R\u00e9nyi networks, the frequency of convergence to a risk-dominant equilibrium via fictitious play is predicted to be higher than convergence to a payoff-dominant equilibrium once a specific threshold\u2014determined by the interplay bet\u2026\n\n**Observed:** tools=5 calls=7 journal=journal/iterations/017.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-05-27-006-loop-v0-iteration-complete-none-l370` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l130` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l132` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-05-27-006-hypothesize-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-006-retrieve-literature-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-006-novelty-classify-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-006-critic-loop-v0-1` (stage)\n- **produced** \u2192 `stage-iter-2026-05-27-006-journal-writer-1` (stage)\n\n## Referenced by\n\n- `agent-nara` (agent) \u2014 **ran**\n",
+    "runlog-loop-v1-build-via-dynamic-workflow-l886": "# a_bgt_rsi: Nara \u2014 week1.run L886\n\n_full Loop v1 (v5 steps 1.5/2.5/5/8) integrated, suite green, real smoke closes the learning loop_\n\n**Did:** workflow wf_0ecc5da4-eae: 4 components built+green, spine integrated, suite 500/0; real env-u-MOCK_LLM smoke iter-2026-06-05-001/002 exercised meta_review+redteam(retry fired)+gate_status; closed loop (gate valid -> meta_review read it) con\u2026\n\n**Observed:** status=passed day= duration_ms=570157 fallback=None\n",
+    "runlog-exp004-combinatorial-auction-via-dynamic-workflow-l887": "# a_bgt_rsi: Nara \u2014 week1.run L887\n\n_exp004 combinatorial-auction rung (VCG/first-price/sequential + efficiency + designer seed) built, suite green, Step-5 second leg real_\n\n**Did:** workflow wf_2518c5da-2bc: 8 components built+green, integrated, suite 570/0; 5/5 verify PASS incl independent VCG-pivot recompute + parse-failure gate + repro-check + live-gemma micro-smoke; Step-5 real second leg (cross-rung Vickrey->VCG) \u2026\n\n**Observed:** status=passed day= duration_ms=607453 fallback=None\n",
+    "runlog-exp004-real-run-n150-l903": "# a_bgt_rsi: Nara \u2014 week1.run L903\n\n_real combinatorial-auction run: truthful bundle bidding measured, mechanism efficiency/revenue divergence, cross-rung replication, Tier-3 bridge_\n\n**Did:** 150 trials x 4 bidders, 0 err, 899s; truthful_fraction=0.965 (1737/1800) all mechs YES pf=0; eff vcg/fp=0.999 seq=0.977 (exposure); rev fp=82.93>vcg=63.66>seq=61.14; cross-rung Vickrey->VCG agreement=True; bridged iter-2026-06-05-003\n\n**Observed:** status=passed day= duration_ms=899200 fallback=None\n",
+    "runlog-next-steps-build-via-dynamic-workflow-l904": "# a_bgt_rsi: Nara \u2014 week1.run L904\n\n_exp005/exp006 built+verified, UI surfaced, suite green, gate applied_\n\n**Did:** workflow wf_c4a70caf-a81: exp005 (mechanism-aware bidder) + exp006 (semi-synthetic designer rung) + UI surfacing built; adversarial verify caught sys.modules stub leak (exit-2 collection error) -> fixed at gate (stub pop + tie-robust VCG as\u2026\n\n**Observed:** status=passed day= duration_ms=672426 fallback=None\n",
+    "runlog-autoresearch-loop-tiers-via-dynamic-workflow-l920": "# a_bgt_rsi: Nara \u2014 week1.run L920\n\n_tier registry + single-shot autoresearch driver composing run/analyze/replicate/bridge, verified incl real live bridge; ui untouched_\n\n**Did:** workflow wf_547f203c-9f7: tier_registry (synthetic/semi_synthetic/applied) + single-shot autoresearch driver + AUTORESEARCH.md; verify 3/3 PASS; suite 588->601; real --live smoke bridged iter-2026-06-05-004 (exp004 outcome + cross-rung Vick\u2026\n\n**Observed:** status=passed day= duration_ms=450819 fallback=None\n",
+    "runlog-ml-intern-slice2-via-dynamic-workflow-l937": "# a_bgt_rsi: Nara \u2014 week1.run L937\n\n_escalation seam closed: consumer fetches external lit + re-retrieves, verified + suite green_\n\n**Did:** workflow wf_f4e2ecd0-a2d: workers/ml_intern.py (S2 fetch->BGE-M3->ml_intern_fetched) + nara escalation dispatch (once-guard, re-retrieve, graceful) + chroma_query reg + source_layer enum live_ml_intern + D-038; suite 601->610; S2 client val\u2026\n\n**Observed:** status=passed day= duration_ms=533216 fallback=None\n",
+    "runlog-applied-tier-polymarket-designonly-via-dynamic-workflow-l938": "# a_bgt_rsi: Nara \u2014 week1.run L938\n\n_applied tier scaffolded design-only (paper forecasting, Brier/BSS), no trading surface, verified, registered_\n\n**Did:** workflow wf_e46129b8-632: exp007_polymarket (read-only market_data + LLM forecaster + Brier/BSS scoring + paper-forecasting harness) registered as first applied-tier entry; verify 3/3 PASS incl adversarial NO-trading safety review + real re\u2026\n\n**Observed:** status=passed day= duration_ms=537535 fallback=None\n",
+    "runlog-exp005-exp006-real-runs-l939": "# a_bgt_rsi: Nara \u2014 week1.run L939\n\n_real mechanism-aware shading test + LLM-as-designer efficiency, findings committed_\n\n**Did:** exp005 n=50: VCG mean_signed_residual=-4.90 (most shading) vs first_price -1.57 -- REVERSES strategyproofness theory; exp006 n=40 LLM-designer verdict NO (eff=0.71, feasibility=0.525); both 0 errors\n\n**Observed:** status=passed day= duration_ms=899200 fallback=None\n",
+    "runlog-instrumentation-block1-via-dynamic-workflow-l975": "# a_bgt_rsi: Nara \u2014 week1.run L975\n\n_every run mode emits active_run + real inference internals + run_id, UI-readable, atomic, DATA_SHAPES updated_\n\n**Did:** workflow wf_93cc6fa0-b39: active_run.json (all run modes, atomic) + per-call worker_activity.jsonl (real tok/s, synthetic:false) + run_id contextvar on calls + exp orchestrator-rows; suite 642->664; real smoke confirmed active_run lifecycle\u2026\n\n**Observed:** status=passed day= duration_ms=720328 fallback=None\n",
+    "runlog-finding-promotion-block2-via-dynamic-workflow-l976": "# a_bgt_rsi: Nara \u2014 week1.run L976\n\n_autonomy->human bridge: promote adversarially-defended findings + rubberband via independent LLM, verified_\n\n**Did:** workflow wf_d40a6b9e-9ee: finding_promotion (multi-threshold + independent-Qwen adversarial multi-vote, never-silent) + finding_session (multi-turn, 3 logged feedback paths, no in-place mutation) + UI spec; suite 664->692; real Qwen smoke: \u2026\n\n**Observed:** status=passed day= duration_ms=1210683 fallback=None\n",
+    "runlog-exp008-qat-eval-harness-via-dynamic-workflow-l977": "# a_bgt_rsi: Nara \u2014 week1.run L977\n\n_QAT quality benchmark harness built+verified, eval-only, ready for human-attended :8002 live run_\n\n**Did:** workflow wf_64bd322f-4e3: exp008 QAT-vs-NVFP4 eval harness (config/serve/eval-novelty,toolcall,robustness/analyze) EVAL-ONLY no-swap no-ui; reuses real novelty_classify+gemma_tool_parse; D-039 drafted; suite 692->718; verify caught B1 produ\u2026\n\n**Observed:** status=passed day= duration_ms=778865 fallback=None\n",
+    "runlog-coordinator-brain-alpha-via-dynamic-workflow-l978": "# a_bgt_rsi: Nara \u2014 week1.run L978\n\n_slice-alpha coordinator brain proves the planner decides+plans without mis-sequencing, host/dry-run/opt-in, verified_\n\n**Did:** workflow wf_47ff851f-5d1: coordinator brain (constrained-action planner) built opt-in/behind-flag, nara default UNCHANGED; guardrail verified (off-menu->no_valid_plan, no exec); real plan-only smoke on live gemma produced valid in-budget pl\u2026\n\n**Observed:** status=passed day= duration_ms=662715 fallback=None\n",
+    "runlog-day8-four-track-integration-via-dynamic-workflow-l979": "# a_bgt_rsi: Nara \u2014 week1.run L979\n\n_4 queued tracks driven to completion or gate: Qwen adversary functional+verified, no experiment run pollutes logs/calls.jsonl, exp008 live-ready+runbook, beta/gamma drafted for human ratification_\n\n**Did:** workflow wf_edce491b-354 (4 limbs) -> primary integrated as serial editor: (1) Qwen-skeptic reliability FIXED -- subagent.py max_tokens_per_turn(default 1024)+bounded repair-retry(never coerces); finding_promotion skeptic budget max_turns=4\u2026\n\n**Observed:** status=passed day= duration_ms=None fallback=None\n",
+    "runlog-exp008-analyze-plumbing-stepa-integrator-l980": "# a_bgt_rsi: Nara \u2014 week1.run L980\n\n_exp008 analyze.py consumes eval-driver output and emits H0/H1/INSUFFICIENT with all 3 decision metrics decision-eligible (n>=10), and a turn-key read-only pin reference path exists_\n\n**Did:** Step-A integrator prep so a live exp008 run yields a verdict not INSUFFICIENT: (1) eval_novelty + eval_toolcall now emit analyze-shaped {arm,metric,value} rows to metrics_<eval>_<arm>.jsonl (novelty_agreement+calibration_error per-fixture; \u2026\n\n**Observed:** status=passed day= duration_ms=None fallback=None\n",
+    "runlog-day8-precommit-review-via-dynamic-workflow-l981": "# a_bgt_rsi: Nara \u2014 week1.run L981\n\n_rule-4 code-review gate run before commit; real findings surfaced and triaged_\n\n**Did:** adversarial review workflow wf_744e0f6d-f04 (26 agents, 4 dims->verify) over the uncommitted diff: 22 raised, 15 confirmed real (1 blocker, 7 major, minors/nits), 7 refuted incl. a false 'vllm-qwen unregistered' alarm. Blocker = D-040 ratif\u2026\n\n**Observed:** status=passed day= duration_ms=None fallback=None\n",
+    "runlog-day8-review-fixes-integrator-l982": "# a_bgt_rsi: Nara \u2014 week1.run L982\n\n_all confirmed code-level review findings fixed+verified; harness leak actually closed; commit-ready pending D-040_\n\n**Did:** fixed confirmed code findings as serial integrator: (MAJOR) log-leak fix was incomplete -- log_path on run_iteration only redirected Nara's turns; in-chain workers (hypothesize/novelty_classify/meta_review) read LOOP_V0_CALLS_LOG at import \u2026\n\n**Observed:** status=passed day= duration_ms=None fallback=None\n",
+    "runlog-d040-ratification-cleanup-commit-l983": "# a_bgt_rsi: Nara \u2014 week1.run L983\n\n_D-040 ratification artifacts internally consistent, CLAUDE.md well-formed, governance edits logged+committed_\n\n**Did:** human chose keep+clean for D-040 (human-ratified 2026-06-08). Reconciled + committed (bb3b65b): CLAUDE.md malformed guardrail fixed (stray quote/abs-path/grammar; now 'bounded by D-040 once beta ships', links DECISIONS.md); DECISIONS.md D-0\u2026\n\n**Observed:** status=passed day= duration_ms=None fallback=None\n",
+    "apparatus-worker_activity-l451": "# unknown_apparatus \u2014 worker_activity L451\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:24:55.327364Z\", \"run_id\": null, \"task_id\": \"novelty_classify\", \"tokens_generated\": 81, \"tokens_target\": 512, \"tok_per_s\": 68.35339982491163}\n",
+    "apparatus-worker_activity-l452": "# unknown_apparatus \u2014 worker_activity L452\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:08.456609Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 24, \"tokens_target\": 256, \"tok_per_s\": 42.740462456618786}\n",
+    "apparatus-worker_activity-l453": "# unknown_apparatus \u2014 worker_activity L453\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:08.778673Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 17, \"tokens_target\": 256, \"tok_per_s\": 54.631438025983954}\n",
+    "apparatus-worker_activity-l454": "# unknown_apparatus \u2014 worker_activity L454\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:09.643397Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 38, \"tokens_target\": 256, \"tok_per_s\": 43.98301543405919}\n",
+    "apparatus-worker_activity-l455": "# unknown_apparatus \u2014 worker_activity L455\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:10.638618Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 72, \"tokens_target\": 256, \"tok_per_s\": 72.39373789118076}\n",
+    "apparatus-worker_activity-l456": "# unknown_apparatus \u2014 worker_activity L456\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:11.055004Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 21, \"tokens_target\": 256, \"tok_per_s\": 50.51687126580051}\n",
+    "apparatus-worker_activity-l457": "# unknown_apparatus \u2014 worker_activity L457\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:11.768624Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 40, \"tokens_target\": 256, \"tok_per_s\": 56.10912889316425}\n",
+    "apparatus-worker_activity-l458": "# unknown_apparatus \u2014 worker_activity L458\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:12.190722Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 21, \"tokens_target\": 256, \"tok_per_s\": 49.838647822513586}\n",
+    "apparatus-worker_activity-l459": "# unknown_apparatus \u2014 worker_activity L459\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:12.664381Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 24, \"tokens_target\": 256, \"tok_per_s\": 50.751157314167294}\n",
+    "apparatus-worker_activity-l460": "# unknown_apparatus \u2014 worker_activity L460\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:13.185696Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 23, \"tokens_target\": 256, \"tok_per_s\": 44.18281482223055}\n",
+    "apparatus-worker_activity-l461": "# unknown_apparatus \u2014 worker_activity L461\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:13.610868Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 16, \"tokens_target\": 256, \"tok_per_s\": 37.69960594900011}\n",
+    "apparatus-worker_activity-l462": "# unknown_apparatus \u2014 worker_activity L462\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:14.995155Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 58, \"tokens_target\": 256, \"tok_per_s\": 41.92114104585344}\n",
+    "apparatus-worker_activity-l463": "# unknown_apparatus \u2014 worker_activity L463\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:25:15.362891Z\", \"run_id\": null, \"task_id\": \"exp008_toolcall\", \"tokens_generated\": 15, \"tokens_target\": 256, \"tok_per_s\": 40.87980502888288}\n",
+    "event-iter-2026-06-08-001-loop-v0-iteration-start-none-l984": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L984\n\n_loop_v0_iteration_start for iter-2026-06-08-001_\n\n**Did:** topic=smoke: verify active-run hero\n\n**Observed:** parent_request_id=n/a\n",
+    "apparatus-calls-l3047": "# a_bgt_rsi: Nara/LLM \u2014 calls L3047\n\n_Here are the last 8 loop iterations:\n\n[iter-2026-05-27-028] hypothesis: In repeated single-round sealed-bid second-price auctions with four LLM bidders drawing independent private valuations from U[0, 100] and no priming on auction theory, \u2026_\n\n**Did:** {\n  \"conditioning_bullets\": [\n    \"Maintain focus on mechanism design (VCG, first-price, second-price) where LLM agents demonstrate high truthfulness or predictable shading behaviors.\",\n    \"Leverage the high success rate of combinatorial auction experiments (VCG truthfulness ~96.5%) to explore the \u2026\n\n**Observed:** latency=3169ms tokens_in=1166 tokens_out=147 model=gemma-4-26b-a4b\n",
+    "apparatus-calls-l3048": "# a_bgt_rsi: Nara/LLM \u2014 calls L3048\n\n_iteration_id: iter-2026-06-08-001\n\nEvaluate this research topic: smoke: verify active-run hero\n\nPrior-iteration conditioning:\n- Maintain focus on mechanism design (VCG, first-price, second-price) where LLM agents demonstrate high truthfulne\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-959318e47ecc28e8\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"smoke: verify active-run hero. Focus on mechanism design (VCG, first-price, second-price) where LLM agents demonstrate high truthfulness or predictable shading behaviors. Lev\u2026\n\n**Observed:** latency=1737ms tokens_in=1748 tokens_out=129 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-dispatch-hypothesize-l985` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-receipt-hypothesize-l986` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-redteam-retry-none-l987` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-redteam-retry-none-l988` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-06-08-001-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-worker_activity-l464": "# unknown_apparatus \u2014 worker_activity L464\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:28:03.881590Z\", \"run_id\": \"iter-2026-06-08-001\", \"task_id\": \"meta_review\", \"tokens_generated\": 147, \"tokens_target\": 512, \"tok_per_s\": 46.385425041146526}\n",
+    "event-iter-2026-06-08-001-loop-v0-tool-dispatch-hypothesize-l985": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L985\n\n_loop_v0_tool_dispatch for iter-2026-06-08-001_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=9759e339-72d8-48be-94fa-ebbf638913a4\n\n## Referenced by\n\n- `apparatus-calls-l3048` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l3049": "# a_bgt_rsi: Nara/LLM \u2014 calls L3049\n\n_Research topic: smoke: verify active-run hero. Focus on mechanism design (VCG, first-price, second-price) where LLM agents demonstrate high truthfulness or predictable shading behaviors. Leverage combinatorial auction experiments (VCG truth\u2026_\n\n**Did:** {\n  \"candidates\": [\n    \"LLM agents exhibit higher truthfulness in VCG-based combinatorial auctions compared to first-price auctions, but this truthfulness decays as the number of items increases due to increased computational complexity (cognitive load).\",\n    \"In Cournot duopoly models, providing \u2026\n\n**Observed:** latency=2902ms tokens_in=515 tokens_out=180 model=gemma-4-26b-a4b\n",
+    "apparatus-worker_activity-l465": "# unknown_apparatus \u2014 worker_activity L465\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:28:08.523246Z\", \"run_id\": \"iter-2026-06-08-001\", \"task_id\": \"hypothesize\", \"tokens_generated\": 180, \"tokens_target\": 512, \"tok_per_s\": 62.02476038912502}\n",
+    "event-iter-2026-06-08-001-loop-v0-tool-receipt-hypothesize-l986": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L986\n\n_loop_v0_tool_receipt for iter-2026-06-08-001_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=9759e339-72d8-48be-94fa-ebbf638913a4\n\n## Referenced by\n\n- `apparatus-calls-l3048` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-06-08-001-loop-v0-redteam-retry-none-l987": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L987\n\n_loop_v0_redteam_retry for iter-2026-06-08-001_\n\n**Did:** \n\n**Observed:** parent_request_id=9759e339-72d8-48be-94fa-ebbf638913a4\n\n## Referenced by\n\n- `apparatus-calls-l3048` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l3050": "# a_bgt_rsi: Nara/LLM \u2014 calls L3050\n\n_Research topic: smoke: verify active-run hero\n\n[Red-team critique of the prior hypothesis \u2014 revise to address it]: The hypothesis conflates strategic truthfulness (a property of the mechanism) with computational tractability (an agent's abi\u2026_\n\n**Did:** {\n  \"candidates\": [\n    \"In VCG-based mechanisms, the deviation from truthful bidding in boundedly rational agents is a function of the computational complexity of the optimization problem rather than a failure of incentive compatibility.\",\n    \"As the dimensionality of the valuation space increases\u2026\n\n**Observed:** latency=3063ms tokens_in=511 tokens_out=172 model=gemma-4-26b-a4b\n",
+    "apparatus-worker_activity-l466": "# unknown_apparatus \u2014 worker_activity L466\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:28:17.930416Z\", \"run_id\": \"iter-2026-06-08-001\", \"task_id\": \"hypothesize\", \"tokens_generated\": 172, \"tokens_target\": 512, \"tok_per_s\": 56.15332359232193}\n",
+    "event-iter-2026-06-08-001-loop-v0-redteam-retry-none-l988": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L988\n\n_loop_v0_redteam_retry for iter-2026-06-08-001_\n\n**Did:** \n\n**Observed:** parent_request_id=9759e339-72d8-48be-94fa-ebbf638913a4\n\n## Referenced by\n\n- `apparatus-calls-l3048` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l3051": "# a_bgt_rsi: Nara/LLM \u2014 calls L3051\n\n_Research topic: smoke: verify active-run hero\n\n[Red-team critique of the prior hypothesis \u2014 revise to address it]: The hypothesis conflates a mechanism's structural properties (incentive compatibility) with an agent's ability to compute the\u2026_\n\n**Did:** {\n  \"candidates\": [\n    \"The observed deviation from equilibrium in active-run hero protocols is caused by bounded rationality in agents rather than a failure of incentive compatibility.\",\n    \"The observed deviation from equilibrium in active-run hero protocols is driven by the agent's inability to\u2026\n\n**Observed:** latency=2749ms tokens_in=500 tokens_out=162 model=gemma-4-26b-a4b\n",
+    "apparatus-calls-l3052": "# a_bgt_rsi: Nara/LLM \u2014 calls L3052\n\n_iteration_id: iter-2026-06-08-001\n\nEvaluate this research topic: smoke: verify active-run hero\n\nPrior-iteration conditioning:\n- Maintain focus on mechanism design (VCG, first-price, second-price) where LLM agents demonstrate high truthfulne\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-b87ce1582b4555a5\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"LLM agents exhibit higher truthfulness in VCG-based combinatorial auctions compared to first-price auctions, but this truthfulness decays as the number of i\u2026\n\n**Observed:** latency=1035ms tokens_in=2154 tokens_out=68 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-dispatch-retrieve-literature-l989` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-receipt-retrieve-literature-l990` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-ml-intern-none-l991` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-ml-intern-none-l992` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-06-08-001-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-worker_activity-l467": "# unknown_apparatus \u2014 worker_activity L467\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:28:25.752031Z\", \"run_id\": \"iter-2026-06-08-001\", \"task_id\": \"hypothesize\", \"tokens_generated\": 162, \"tokens_target\": 512, \"tok_per_s\": 58.92575886508863}\n",
+    "event-iter-2026-06-08-001-loop-v0-tool-dispatch-retrieve-literature-l989": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L989\n\n_loop_v0_tool_dispatch for iter-2026-06-08-001_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=c9139bc4-ed84-45c9-aa63-bbb2d329791e\n\n## Referenced by\n\n- `apparatus-calls-l3052` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-06-08-001-loop-v0-tool-receipt-retrieve-literature-l990": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L990\n\n_loop_v0_tool_receipt for iter-2026-06-08-001_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=c9139bc4-ed84-45c9-aa63-bbb2d329791e\n\n## Referenced by\n\n- `apparatus-calls-l3052` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-06-08-001-loop-v0-ml-intern-none-l991": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L991\n\n_loop_v0_ml_intern for iter-2026-06-08-001_\n\n**Did:** \n\n**Observed:** parent_request_id=c9139bc4-ed84-45c9-aa63-bbb2d329791e\n\n## Referenced by\n\n- `apparatus-calls-l3052` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-06-08-001-loop-v0-ml-intern-none-l992": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L992\n\n_loop_v0_ml_intern for iter-2026-06-08-001_\n\n**Did:** \n\n**Observed:** parent_request_id=c9139bc4-ed84-45c9-aa63-bbb2d329791e\n\n## Referenced by\n\n- `apparatus-calls-l3052` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l3053": "# a_bgt_rsi: Nara/LLM \u2014 calls L3053\n\n_iteration_id: iter-2026-06-08-001\n\nEvaluate this research topic: smoke: verify active-run hero\n\nPrior-iteration conditioning:\n- Maintain focus on mechanism design (VCG, first-price, second-price) where LLM agents demonstrate high truthfulne\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-be370505171fa9e4\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"LLM agents exhibit higher truthfulness in VCG-based combinatorial auctions compared to first-price auctions, but this truthfulness decays as the number of item\u2026\n\n**Observed:** latency=2750ms tokens_in=5763 tokens_out=127 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-dispatch-novelty-classify-l993` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-receipt-novelty-classify-l994` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-06-08-001-novelty-classify-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l3054": "# a_bgt_rsi: Nara/LLM \u2014 calls L3054\n\n_Hypothesis:\nLLM agents exhibit higher truthfulness in VCG-based combinatorial auctions compared to first-price auctions, but this truthfulness decays as the number of items increases due to increased computational complexity (cognitive load\u2026_\n\n**Did:** {\n  \"class\": \"novel\",\n  \"rationale\": \"While doc_1 discusses LLM agents' truthfulness in matching mechanisms and doc_7/doc_10 discuss first-price auctions, there is no existing literature in the retrieved set that specifically compares VCG vs. first-price auctions for LLM agents or addresses the deca\u2026\n\n**Observed:** latency=2197ms tokens_in=2049 tokens_out=111 model=gemma-4-26b-a4b\n",
+    "apparatus-calls-l3055": "# a_bgt_rsi: Nara/LLM \u2014 calls L3055\n\n_iteration_id: iter-2026-06-08-001\n\nEvaluate this research topic: smoke: verify active-run hero\n\nPrior-iteration conditioning:\n- Maintain focus on mechanism design (VCG, first-price, second-price) where LLM agents demonstrate high truthfulne\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-b081774be1966d01\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"LLM agents exhibit higher truthfulness in VCG-based combinatorial auctions compared to first-price auctions, but this truthfulness decays as the number of items \u2026\n\n**Observed:** latency=1324ms tokens_in=6098 tokens_out=86 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-dispatch-critic-loop-v0-l995` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-receipt-critic-loop-v0-l996` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-06-08-001-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l3056": "# a_bgt_rsi: Nara/LLM \u2014 calls L3056\n\n_iteration_id: iter-2026-06-08-001\n\nEvaluate this research topic: smoke: verify active-run hero\n\nPrior-iteration conditioning:\n- Maintain focus on mechanism design (VCG, first-price, second-price) where LLM agents demonstrate high truthfulne\u2026_\n\n**Did:** The novelty classification indicates the hypothesis is novel, and the critic has determined that the hypothesis survives because no direct contradictions were found in the literature. I will now proceed to the final step of writing the journal entry.\n\n**Observed:** latency=1069ms tokens_in=6470 tokens_out=43 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-reprompt-none-l997` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-08-001` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-worker_activity-l468": "# unknown_apparatus \u2014 worker_activity L468\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:28:56.190731Z\", \"run_id\": \"iter-2026-06-08-001\", \"task_id\": \"novelty_classify\", \"tokens_generated\": 111, \"tokens_target\": 512, \"tok_per_s\": 50.52385467565117}\n",
+    "event-iter-2026-06-08-001-loop-v0-tool-dispatch-novelty-classify-l993": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L993\n\n_loop_v0_tool_dispatch for iter-2026-06-08-001_\n\n**Did:** tool=novelty_classify status=n/a\n\n**Observed:** parent_request_id=21113dcc-6177-4908-b072-8004227f8b8b\n\n## Referenced by\n\n- `apparatus-calls-l3053` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-novelty-classify-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-06-08-001-loop-v0-tool-receipt-novelty-classify-l994": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L994\n\n_loop_v0_tool_receipt for iter-2026-06-08-001_\n\n**Did:** tool=novelty_classify status=passed\n\n**Observed:** parent_request_id=21113dcc-6177-4908-b072-8004227f8b8b\n\n## Referenced by\n\n- `apparatus-calls-l3053` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-novelty-classify-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-06-08-001-loop-v0-tool-dispatch-critic-loop-v0-l995": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L995\n\n_loop_v0_tool_dispatch for iter-2026-06-08-001_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=de979d32-fa0c-4b7a-83be-9b3569c4fbec\n\n## Referenced by\n\n- `apparatus-calls-l3055` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-06-08-001-loop-v0-tool-receipt-critic-loop-v0-l996": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L996\n\n_loop_v0_tool_receipt for iter-2026-06-08-001_\n\n**Did:** tool=critic_loop_v0 status=passed\n\n**Observed:** parent_request_id=de979d32-fa0c-4b7a-83be-9b3569c4fbec\n\n## Referenced by\n\n- `apparatus-calls-l3055` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-06-08-001-loop-v0-reprompt-none-l997": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L997\n\n_loop_v0_reprompt for iter-2026-06-08-001_\n\n**Did:** \n\n**Observed:** parent_request_id=01829c8e-d9bd-4af2-bb7f-cdfb4a11dce8\n\n## Referenced by\n\n- `apparatus-calls-l3056` (apparatus_event) \u2014 **produced**\n",
+    "apparatus-calls-l3057": "# a_bgt_rsi: Nara/LLM \u2014 calls L3057\n\n_Continue the chain. Your next tool call must be `journal_writer`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-ac315ca005bfe508\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"iteration_id\\\": \\\"iter-2026-06-08-001\\\", \\\"nara_summary\\\": \\\"The research iteration explored the hypothesis that LLM agents demonstrate higher truthfulness in VCG-based combinatorial\u2026\n\n**Observed:** latency=4895ms tokens_in=6554 tokens_out=302 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-dispatch-journal-writer-l998` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-receipt-journal-writer-l999` (apparatus_event)\n\n## Referenced by\n\n- `stage-iter-2026-06-08-001-journal-writer-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-06-08-001-loop-v0-tool-dispatch-journal-writer-l998": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L998\n\n_loop_v0_tool_dispatch for iter-2026-06-08-001_\n\n**Did:** tool=journal_writer status=n/a\n\n**Observed:** parent_request_id=b75ca068-03e7-4060-9f6b-4345933bbab7\n\n## Referenced by\n\n- `apparatus-calls-l3057` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-journal-writer-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-06-08-001-loop-v0-tool-receipt-journal-writer-l999": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L999\n\n_loop_v0_tool_receipt for iter-2026-06-08-001_\n\n**Did:** tool=journal_writer status=passed\n\n**Observed:** parent_request_id=b75ca068-03e7-4060-9f6b-4345933bbab7\n\n## Referenced by\n\n- `apparatus-calls-l3057` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-08-001-journal-writer-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-calls-l3058": "# a_bgt_rsi: Nara/LLM \u2014 calls L3058\n\n_Continue the chain. Your next tool call must be `journal_writer`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** thought\n<channel|>The research iteration focused on the hypothesis that **LLM agents exhibit higher truthfulness in VCG-based combinatorial auctions compared to first-price auctions, but this truthfulness decays as the number of items increases due to increased computational complexity (cognitive lo\u2026\n\n**Observed:** latency=4341ms tokens_in=6947 tokens_out=227 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-06-08-001` (apparatus_event) \u2014 **produced**\n",
+    "event-iter-2026-06-08-001-loop-v0-iteration-complete-none-l1000": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1000\n\n_loop_v0_iteration_complete for iter-2026-06-08-001_\n\n**Did:** duration_ms=69547 tool_calls_made=['hypothesize', 'retrieve_literature', 'novelty_classify', 'critic_loop_v0', 'journal_writer']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-06-08-001` (apparatus_event) \u2014 **produced**\n",
+    "iter-2026-06-08-001": "# a_bgt_rsi: Nara \u2014 loop_memory L47\n\n_smoke: verify active-run hero_\n\n**Did:** The research iteration focused on the hypothesis that **LLM agents exhibit higher truthfulness in VCG-based combinatorial auctions compared to first-price auctions, but this truthfulness decays as the number of items increases due to increased computational complexity (cognitive load).**\n\nThe analysis classified this hypothesis as **novel**, as the current literature (including studies on matching\u2026\n\n**Observed:** tools=5 calls=7 journal=journal/iterations/062.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-08-001-loop-v0-iteration-complete-none-l1000` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l3056` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l3058` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-06-08-001-hypothesize-1` (stage)\n- **produced** \u2192 `stage-iter-2026-06-08-001-retrieve-literature-1` (stage)\n- **produced** \u2192 `stage-iter-2026-06-08-001-novelty-classify-1` (stage)\n- **produced** \u2192 `stage-iter-2026-06-08-001-critic-loop-v0-1` (stage)\n- **produced** \u2192 `stage-iter-2026-06-08-001-journal-writer-1` (stage)\n\n## Referenced by\n\n- `agent-nara` (agent) \u2014 **ran**\n",
+    "apparatus-calls-l3059": "# a_bgt_rsi: Nara/LLM \u2014 calls L3059\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3060": "# a_bgt_rsi: Nara/LLM \u2014 calls L3060\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3061": "# a_bgt_rsi: Nara/LLM \u2014 calls L3061\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3062": "# a_bgt_rsi: Nara/LLM \u2014 calls L3062\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3063": "# a_bgt_rsi: Nara/LLM \u2014 calls L3063\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3064": "# a_bgt_rsi: Nara/LLM \u2014 calls L3064\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3065": "# a_bgt_rsi: Nara/LLM \u2014 calls L3065\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3066": "# a_bgt_rsi: Nara/LLM \u2014 calls L3066\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3067": "# a_bgt_rsi: Nara/LLM \u2014 calls L3067\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3068": "# a_bgt_rsi: Nara/LLM \u2014 calls L3068\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3069": "# a_bgt_rsi: Nara/LLM \u2014 calls L3069\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3070": "# a_bgt_rsi: Nara/LLM \u2014 calls L3070\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3071": "# a_bgt_rsi: Nara/LLM \u2014 calls L3071\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3072": "# a_bgt_rsi: Nara/LLM \u2014 calls L3072\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3073": "# a_bgt_rsi: Nara/LLM \u2014 calls L3073\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3074": "# a_bgt_rsi: Nara/LLM \u2014 calls L3074\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3075": "# a_bgt_rsi: Nara/LLM \u2014 calls L3075\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3076": "# a_bgt_rsi: Nara/LLM \u2014 calls L3076\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3077": "# a_bgt_rsi: Nara/LLM \u2014 calls L3077\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3078": "# a_bgt_rsi: Nara/LLM \u2014 calls L3078\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3079": "# a_bgt_rsi: Nara/LLM \u2014 calls L3079\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3080": "# a_bgt_rsi: Nara/LLM \u2014 calls L3080\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3081": "# a_bgt_rsi: Nara/LLM \u2014 calls L3081\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3082": "# a_bgt_rsi: Nara/LLM \u2014 calls L3082\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3083": "# a_bgt_rsi: Nara/LLM \u2014 calls L3083\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3084": "# a_bgt_rsi: Nara/LLM \u2014 calls L3084\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3085": "# a_bgt_rsi: Nara/LLM \u2014 calls L3085\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3086": "# a_bgt_rsi: Nara/LLM \u2014 calls L3086\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3087": "# a_bgt_rsi: Nara/LLM \u2014 calls L3087\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3088": "# a_bgt_rsi: Nara/LLM \u2014 calls L3088\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3089": "# a_bgt_rsi: Nara/LLM \u2014 calls L3089\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3090": "# a_bgt_rsi: Nara/LLM \u2014 calls L3090\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3091": "# a_bgt_rsi: Nara/LLM \u2014 calls L3091\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3092": "# a_bgt_rsi: Nara/LLM \u2014 calls L3092\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3093": "# a_bgt_rsi: Nara/LLM \u2014 calls L3093\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3094": "# a_bgt_rsi: Nara/LLM \u2014 calls L3094\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3095": "# a_bgt_rsi: Nara/LLM \u2014 calls L3095\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3096": "# a_bgt_rsi: Nara/LLM \u2014 calls L3096\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3097": "# a_bgt_rsi: Nara/LLM \u2014 calls L3097\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3098": "# a_bgt_rsi: Nara/LLM \u2014 calls L3098\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3099": "# a_bgt_rsi: Nara/LLM \u2014 calls L3099\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3100": "# a_bgt_rsi: Nara/LLM \u2014 calls L3100\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3101": "# a_bgt_rsi: Nara/LLM \u2014 calls L3101\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3102": "# a_bgt_rsi: Nara/LLM \u2014 calls L3102\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3103": "# a_bgt_rsi: Nara/LLM \u2014 calls L3103\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3104": "# a_bgt_rsi: Nara/LLM \u2014 calls L3104\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3105": "# a_bgt_rsi: Nara/LLM \u2014 calls L3105\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3106": "# a_bgt_rsi: Nara/LLM \u2014 calls L3106\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3107": "# a_bgt_rsi: Nara/LLM \u2014 calls L3107\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3108": "# a_bgt_rsi: Nara/LLM \u2014 calls L3108\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3109": "# a_bgt_rsi: Nara/LLM \u2014 calls L3109\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3110": "# a_bgt_rsi: Nara/LLM \u2014 calls L3110\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3111": "# a_bgt_rsi: Nara/LLM \u2014 calls L3111\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3112": "# a_bgt_rsi: Nara/LLM \u2014 calls L3112\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-worker_activity-l469": "# unknown_apparatus \u2014 worker_activity L469\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:55.515802Z\", \"run_id\": null, \"task_id\": \"t\", \"tokens_generated\": 3, \"tokens_target\": 3, \"tok_per_s\": 172018.87600128163}\n",
+    "apparatus-worker_activity-l470": "# unknown_apparatus \u2014 worker_activity L470\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:55.534155Z\", \"run_id\": null, \"task_id\": \"t\", \"tokens_generated\": 2, \"tokens_target\": 2, \"tok_per_s\": 104165.87349631354}\n",
+    "apparatus-worker_activity-l471": "# unknown_apparatus \u2014 worker_activity L471\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.233034Z\", \"run_id\": null, \"task_id\": \"t/single\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 165257.15270723673}\n",
+    "apparatus-worker_activity-l472": "# unknown_apparatus \u2014 worker_activity L472\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.233811Z\", \"run_id\": null, \"task_id\": \"t/two_turn\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 225955.77104377103}\n",
+    "apparatus-worker_activity-l473": "# unknown_apparatus \u2014 worker_activity L473\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.233985Z\", \"run_id\": null, \"task_id\": \"t/two_turn\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 332088.52379921445}\n",
+    "apparatus-worker_activity-l474": "# unknown_apparatus \u2014 worker_activity L474\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.234704Z\", \"run_id\": null, \"task_id\": \"t/ctx\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 256563.00303457503}\n",
+    "apparatus-worker_activity-l475": "# unknown_apparatus \u2014 worker_activity L475\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.234886Z\", \"run_id\": null, \"task_id\": \"t/ctx\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 341531.7993574859}\n",
+    "apparatus-worker_activity-l476": "# unknown_apparatus \u2014 worker_activity L476\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.235727Z\", \"run_id\": null, \"task_id\": \"t/bad_json\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 267552.53264228045}\n",
+    "apparatus-worker_activity-l477": "# unknown_apparatus \u2014 worker_activity L477\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.236270Z\", \"run_id\": null, \"task_id\": \"t/bad_args\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 280014.0364053617}\n",
+    "apparatus-worker_activity-l478": "# unknown_apparatus \u2014 worker_activity L478\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.236869Z\", \"run_id\": null, \"task_id\": \"t/hallucinated\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 295935.23799024336}\n",
+    "apparatus-worker_activity-l479": "# unknown_apparatus \u2014 worker_activity L479\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.237389Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 292604.59559625026}\n",
+    "apparatus-worker_activity-l480": "# unknown_apparatus \u2014 worker_activity L480\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.237551Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 350335.02691768087}\n",
+    "apparatus-worker_activity-l481": "# unknown_apparatus \u2014 worker_activity L481\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.237717Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 411726.60914912383}\n",
+    "apparatus-worker_activity-l482": "# unknown_apparatus \u2014 worker_activity L482\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.238855Z\", \"run_id\": null, \"task_id\": \"t/file\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 285653.2027986911}\n",
+    "apparatus-worker_activity-l483": "# unknown_apparatus \u2014 worker_activity L483\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.239027Z\", \"run_id\": null, \"task_id\": \"t/file\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 401669.0947179411}\n",
+    "apparatus-worker_activity-l484": "# unknown_apparatus \u2014 worker_activity L484\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.240259Z\", \"run_id\": null, \"task_id\": \"t/none\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 48150.93719590126}\n",
+    "apparatus-worker_activity-l485": "# unknown_apparatus \u2014 worker_activity L485\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.240854Z\", \"run_id\": null, \"task_id\": \"t/default\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 60620.56875088214}\n",
+    "apparatus-worker_activity-l486": "# unknown_apparatus \u2014 worker_activity L486\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.241457Z\", \"run_id\": null, \"task_id\": \"t/empty\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 60855.91838585355}\n",
+    "apparatus-worker_activity-l487": "# unknown_apparatus \u2014 worker_activity L487\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.241993Z\", \"run_id\": null, \"task_id\": \"t/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 62312.730986855466}\n",
+    "apparatus-worker_activity-l488": "# unknown_apparatus \u2014 worker_activity L488\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.244240Z\", \"run_id\": null, \"task_id\": \"t/file/none\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 56663.33275284308}\n",
+    "apparatus-worker_activity-l489": "# unknown_apparatus \u2014 worker_activity L489\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.244400Z\", \"run_id\": null, \"task_id\": \"t/file/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 71592.33391118817}\n",
+    "apparatus-worker_activity-l490": "# unknown_apparatus \u2014 worker_activity L490\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:32:57.245163Z\", \"run_id\": null, \"task_id\": \"t/legacy\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 52832.52510640392}\n",
+    "apparatus-calls-l3113": "# a_bgt_rsi: Nara/LLM \u2014 calls L3113\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3114": "# a_bgt_rsi: Nara/LLM \u2014 calls L3114\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3115": "# a_bgt_rsi: Nara/LLM \u2014 calls L3115\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3116": "# a_bgt_rsi: Nara/LLM \u2014 calls L3116\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3117": "# a_bgt_rsi: Nara/LLM \u2014 calls L3117\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3118": "# a_bgt_rsi: Nara/LLM \u2014 calls L3118\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3119": "# a_bgt_rsi: Nara/LLM \u2014 calls L3119\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3120": "# a_bgt_rsi: Nara/LLM \u2014 calls L3120\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3121": "# a_bgt_rsi: Nara/LLM \u2014 calls L3121\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3122": "# a_bgt_rsi: Nara/LLM \u2014 calls L3122\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3123": "# a_bgt_rsi: Nara/LLM \u2014 calls L3123\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3124": "# a_bgt_rsi: Nara/LLM \u2014 calls L3124\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3125": "# a_bgt_rsi: Nara/LLM \u2014 calls L3125\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3126": "# a_bgt_rsi: Nara/LLM \u2014 calls L3126\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3127": "# a_bgt_rsi: Nara/LLM \u2014 calls L3127\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3128": "# a_bgt_rsi: Nara/LLM \u2014 calls L3128\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3129": "# a_bgt_rsi: Nara/LLM \u2014 calls L3129\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3130": "# a_bgt_rsi: Nara/LLM \u2014 calls L3130\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3131": "# a_bgt_rsi: Nara/LLM \u2014 calls L3131\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3132": "# a_bgt_rsi: Nara/LLM \u2014 calls L3132\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3133": "# a_bgt_rsi: Nara/LLM \u2014 calls L3133\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3134": "# a_bgt_rsi: Nara/LLM \u2014 calls L3134\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3135": "# a_bgt_rsi: Nara/LLM \u2014 calls L3135\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3136": "# a_bgt_rsi: Nara/LLM \u2014 calls L3136\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3137": "# a_bgt_rsi: Nara/LLM \u2014 calls L3137\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3138": "# a_bgt_rsi: Nara/LLM \u2014 calls L3138\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3139": "# a_bgt_rsi: Nara/LLM \u2014 calls L3139\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3140": "# a_bgt_rsi: Nara/LLM \u2014 calls L3140\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3141": "# a_bgt_rsi: Nara/LLM \u2014 calls L3141\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3142": "# a_bgt_rsi: Nara/LLM \u2014 calls L3142\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3143": "# a_bgt_rsi: Nara/LLM \u2014 calls L3143\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3144": "# a_bgt_rsi: Nara/LLM \u2014 calls L3144\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3145": "# a_bgt_rsi: Nara/LLM \u2014 calls L3145\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3146": "# a_bgt_rsi: Nara/LLM \u2014 calls L3146\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3147": "# a_bgt_rsi: Nara/LLM \u2014 calls L3147\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3148": "# a_bgt_rsi: Nara/LLM \u2014 calls L3148\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3149": "# a_bgt_rsi: Nara/LLM \u2014 calls L3149\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3150": "# a_bgt_rsi: Nara/LLM \u2014 calls L3150\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3151": "# a_bgt_rsi: Nara/LLM \u2014 calls L3151\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3152": "# a_bgt_rsi: Nara/LLM \u2014 calls L3152\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3153": "# a_bgt_rsi: Nara/LLM \u2014 calls L3153\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3154": "# a_bgt_rsi: Nara/LLM \u2014 calls L3154\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3155": "# a_bgt_rsi: Nara/LLM \u2014 calls L3155\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3156": "# a_bgt_rsi: Nara/LLM \u2014 calls L3156\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3157": "# a_bgt_rsi: Nara/LLM \u2014 calls L3157\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3158": "# a_bgt_rsi: Nara/LLM \u2014 calls L3158\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3159": "# a_bgt_rsi: Nara/LLM \u2014 calls L3159\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3160": "# a_bgt_rsi: Nara/LLM \u2014 calls L3160\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3161": "# a_bgt_rsi: Nara/LLM \u2014 calls L3161\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3162": "# a_bgt_rsi: Nara/LLM \u2014 calls L3162\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3163": "# a_bgt_rsi: Nara/LLM \u2014 calls L3163\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3164": "# a_bgt_rsi: Nara/LLM \u2014 calls L3164\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3165": "# a_bgt_rsi: Nara/LLM \u2014 calls L3165\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-calls-l3166": "# a_bgt_rsi: Nara/LLM \u2014 calls L3166\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
+    "apparatus-worker_activity-l491": "# unknown_apparatus \u2014 worker_activity L491\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:39.661464Z\", \"run_id\": null, \"task_id\": \"t\", \"tokens_generated\": 3, \"tokens_target\": 3, \"tok_per_s\": 169685.5412331762}\n",
+    "apparatus-worker_activity-l492": "# unknown_apparatus \u2014 worker_activity L492\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:39.676720Z\", \"run_id\": null, \"task_id\": \"t\", \"tokens_generated\": 2, \"tokens_target\": 2, \"tok_per_s\": 93423.6899049442}\n",
+    "apparatus-worker_activity-l493": "# unknown_apparatus \u2014 worker_activity L493\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.063740Z\", \"run_id\": null, \"task_id\": \"t/single\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 163525.60445920014}\n",
+    "apparatus-worker_activity-l494": "# unknown_apparatus \u2014 worker_activity L494\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.064530Z\", \"run_id\": null, \"task_id\": \"t/two_turn\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 220227.62818935106}\n",
+    "apparatus-worker_activity-l495": "# unknown_apparatus \u2014 worker_activity L495\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.064708Z\", \"run_id\": null, \"task_id\": \"t/two_turn\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 307275.01831501833}\n",
+    "apparatus-worker_activity-l496": "# unknown_apparatus \u2014 worker_activity L496\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.065420Z\", \"run_id\": null, \"task_id\": \"t/ctx\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 258055.18613761445}\n",
+    "apparatus-worker_activity-l497": "# unknown_apparatus \u2014 worker_activity L497\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.065607Z\", \"run_id\": null, \"task_id\": \"t/ctx\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 329641.6737788966}\n",
+    "apparatus-worker_activity-l498": "# unknown_apparatus \u2014 worker_activity L498\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.066442Z\", \"run_id\": null, \"task_id\": \"t/bad_json\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 262824.16018015373}\n",
+    "apparatus-worker_activity-l499": "# unknown_apparatus \u2014 worker_activity L499\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.066987Z\", \"run_id\": null, \"task_id\": \"t/bad_args\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 257838.3017961771}\n",
+    "apparatus-worker_activity-l500": "# unknown_apparatus \u2014 worker_activity L500\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.067596Z\", \"run_id\": null, \"task_id\": \"t/hallucinated\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 292604.59559625026}\n",
+    "apparatus-worker_activity-l501": "# unknown_apparatus \u2014 worker_activity L501\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.068122Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 285911.8157369192}\n",
+    "apparatus-worker_activity-l502": "# unknown_apparatus \u2014 worker_activity L502\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.068290Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 337835.26539344934}\n",
+    "apparatus-worker_activity-l503": "# unknown_apparatus \u2014 worker_activity L503\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.068454Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 396580.5444136657}\n",
+    "apparatus-worker_activity-l504": "# unknown_apparatus \u2014 worker_activity L504\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.069599Z\", \"run_id\": null, \"task_id\": \"t/file\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 282296.19939005154}\n",
+    "apparatus-worker_activity-l505": "# unknown_apparatus \u2014 worker_activity L505\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.069779Z\", \"run_id\": null, \"task_id\": \"t/file\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 314069.7975897976}\n",
+    "apparatus-worker_activity-l506": "# unknown_apparatus \u2014 worker_activity L506\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.070687Z\", \"run_id\": null, \"task_id\": \"t/none\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 52831.22534934068}\n",
+    "apparatus-worker_activity-l507": "# unknown_apparatus \u2014 worker_activity L507\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.071241Z\", \"run_id\": null, \"task_id\": \"t/default\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 52965.437119250215}\n",
+    "apparatus-worker_activity-l508": "# unknown_apparatus \u2014 worker_activity L508\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.071852Z\", \"run_id\": null, \"task_id\": \"t/empty\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 58685.640641652775}\n",
+    "apparatus-worker_activity-l509": "# unknown_apparatus \u2014 worker_activity L509\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.072385Z\", \"run_id\": null, \"task_id\": \"t/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 59980.550456665645}\n",
+    "apparatus-worker_activity-l510": "# unknown_apparatus \u2014 worker_activity L510\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.075078Z\", \"run_id\": null, \"task_id\": \"t/file/none\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 54394.216008105366}\n",
+    "apparatus-worker_activity-l511": "# unknown_apparatus \u2014 worker_activity L511\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.075240Z\", \"run_id\": null, \"task_id\": \"t/file/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 72845.44260515604}\n",
+    "apparatus-worker_activity-l512": "# unknown_apparatus \u2014 worker_activity L512\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-08T13:33:41.076008Z\", \"run_id\": null, \"task_id\": \"t/legacy\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 59296.54428981666}\n",
+    "runlog-exp008-first-live-run-triage-l1001": "# a_bgt_rsi: Nara \u2014 week1.run L1001\n\n_a real H0/H1 once arm C actually serves; no false verdict from infra failure_\n\n**Did:** first live arm-C run: :8002 OOM'd at startup (GB10 128GB unified; prod gemma 50GB + qwen 28GB resident, no --gpu-mem cap on arm C -> vLLM grabbed ~90%). ALL 10 qat novelty calls = APIConnectionError (agreement 0.0 is a CRASH ARTIFACT, not a\u2026\n\n**Observed:** status=observed day= duration_ms=None fallback=None\n",
+    "runlog-exp008-armc-unified-mem-freeze-incident-l1002": "# a_bgt_rsi: Nara \u2014 week1.run L1002\n\n_safe live run; instead a near-machine-hang -- arm C abandoned on this box_\n\n**Did:** INCIDENT: arm C (util 0.46, ~48GiB weights) launch on the GB10 (121GiB UNIFIED mem) thrashed the system -- SSH + UI tracking went down. Root cause: unified memory feeds GPU AND OS; loading a 2nd ~48GiB model alongside the 48GiB production g\u2026\n\n**Observed:** status=recovered day= duration_ms=None fallback=None\n",
+    "runlog-derisk-harden-beta-workflow-start-l1003": "# a_bgt_rsi: Nara \u2014 week1.run L1003\n\n_beta de-risked (substrate gaps named, trust boundary written), novelty skeptic prototyped (MOCK_LLM test green), serve_qat memory guard built, exp008 SHELVE + skeptic-gate decisions drafted for human \u2026_\n\n**Did:** Launched Dynamic Workflow wf_22f76752-fcf (derisk-harden-for-beta): 4 phases Assess->Build->Verify->Synthesize. Assess (A1 beta-gap audit, A2 autonomy trust-boundary, A3 skeptic design, A4 mem-guard spec); Build (B1 preflight_mem.sh, B2 wor\u2026\n\n**Observed:** status=started day= duration_ms=None fallback=None\n",
     "dec-fw-2026-05-18-agent-system-scaffolded": "# 2026-05-18 \u2014 Agent system scaffolded\n\n_framework decision_\n\n**Decision:** Created a portable agent framework (skills + file memory) authored\nto the Agent Skills standard, runnable in both Pi and Claude Code via symlinks.\nAdopted a curated, research-tuned subset of gstack rather than the full\nproduct-oriented framework.\n**Why:** Target harness is Pi; current harness is Claude Code; the project\n(`autoresearch`) is an ML/research pipeline with no product-UI dimension, so\ngstack's CEO/design/QA-browser roles do not apply.\n**Supersedes:** none\n",
     "dec-fw-2026-05-18-added-execution-discipline-skills": "# 2026-05-18 \u2014 Added execution-discipline skills\n\n_framework decision_\n\n**Decision:** Added 4 skills \u2014 `gate-check`, `validate`, `run-log`,\n`resume-state` \u2014 and adapted `experiment` (autonomous loop section) and\n`plan-research` (design-vs-execute pointer).\n**Why:** Explored the primary consumer `/home/decross1/projects/a_bgt_rsi` \u2014 a\ncontract-governed, plan-driven research program (authoritative `plan.yaml`,\nstate-file resume, blocking human gates, JSONL run log, validations never\ncoerced). The original gstack-derived skills were a design/ship loop and did\nnot cover plan-execution discipline, which is this project's core need. The\ngstack safety roles (`/careful`/`/freeze`/`/guard`) dropped on 2026-05-18 are,\nreframed, exactly this gap. Skills stay general-purpose.\n**Supersedes:** partially revises the 2026-05-18 scaffold decision's skill set.\n",
     "dec-fw-2026-05-18-scope-boundary-dev-time-vs-project-runtime": "# 2026-05-18 \u2014 Scope boundary: dev-time vs project-runtime\n\n_framework decision_\n\n**Decision:** Established that this framework is a dev-time harness only; its\nskills must not be loaded into any project's runtime agent. Added `BOUNDARY.md`\nand a `## Scope boundary` section to `AGENTS.md` / `README.md`.\n**Why:** Explored `a_bgt_rsi`'s architecture \u2014 its runtime orchestrator (Gemma 4\n+ OpenClaw + NemoClaw) also runs on Pi. With the dev skills installed globally\nin `~/.pi/agent/skills/`, the apparatus runtime could inherit them. The two\n\"orchestrators\" (dev-time and apparatus-runtime) must stay separate.\n**Supersedes:** none\n",
@@ -8774,6 +20114,11 @@ window.BRAIN_GRAPH = {
     "dec-ap-d-033-exclude-qwen-3-6-entirely-the": "# D-033 \u2014 Exclude Qwen 3.6 entirely; the apparatus stays single-model on Gemma 4\n\n_apparatus decision_\n\n**Date locked.** 2026-05-26.\n\n**Decision.** Drop Qwen 3.6 27B Dense as a planned second model.\nThe apparatus runs single-model on Gemma 4 26B-A4B-NVFP4 indefinitely.\nPer-user direction: keep the machine clean \u2014 one orchestrator model,\none embedding model, one substrate. No Qwen weights are pulled, no\n`/mnt/models/qwen-*` directories are created, no Qwen-related docker\nimages are added.\n\n**Alternatives.**\n\n1. Pull Qwen weights now per the prior D-006 plan (Week 2-3 swap).\n   Rejected: not needed for LOOP_V0 or Part 2; adds ~30-50 GB and\n   substrate complexity (a second served model, routing decisions,\n   per-model metric tracking).\n2. Leave Qwen \"deferred\" per the prior plan. Rejected: deferring\n   indefinitely is functionally exclusion; calling it that\n   honestly tells future-me what to expect.\n3. The chosen path: explicit exclusion, with a documented reopen\n   condition.\n\n**Rationale.**\n\n- **No Qwen on disk.** `/mnt/models/` has only `bge-m3`,\n  `gemma-4-26b-a4b-nvfp4` (active), and the unused\n  `gemma-4-26b-a4b-it-assistant` (also being removed). Qwen was\n  planned but never installed.\n- **The Phase-2 reason for a second model was Elo circularity in\n  novelty scoring** (ARCHITECTURE.md \u00a76 step 6: same-model novelty\n  grading lets the model surface results from its own embedding /\n  output space). The Phase-1 mitigation \u2014 logged human-sample rate\n  on automated novelty calls \u2014 is sufficient when the human is in\n  the loop for every iteration, which is LOOP_V0's design.\n- **Single-substrate simplifies operations.** One served model means\n  one vLLM container, one config, one set of perf measurements, one\n  fail-mode-canary, one model-version stamp on every record. The\n  Phase-1 design (D-012, D-007) explicitly excluded the dual-model\n  routing layer for similar reasons; D-033 extends that posture to\n  \"no second model at all.\"\n- **Reversibility is preserved.** If a specific bottleneck emerges\n  later (Gemma 4 demonstrably fails some class of task that an\n  alternative model handles), the swap pattern is a vLLM container\n  restart with different weights \u2014 minutes of work, not weeks.\n  Starting from a clean \"no second model\" baseline and adding one\n  if needed is cheaper than maintaining a \"second model is planned\n  but not built\" hypothetical.\n\n**What this DOES NOT change.**\n\n- Gemma 4 26B-A4B-NVFP4 remains the inviolate-pinned orchestrator\n  (CLAUDE.md rule 2 unchanged).\n- The Elo-circularity risk on novelty scoring remains real (see\n  ARCHITECTURE.md \u00a76 step 6); the Phase-1 mitigation (logged human\n  sample rate) becomes the *durable* mitigation, not a temporary\n  one until a second model lands.\n- D-006 (defer Qwen 3.6 to Week 2-3) is superseded by this entry.\n- D-012 (dual-model routing excluded) is reinforced, not changed.\n\n**What would reverse this.** (1) Gemma 4 demonstrably fails a\nspecific, narrow task class \u2014 measured against a known benchmark,\nreproducibly, with the failure attributable to model quality rather\nthan prompt or retrieval. (2) A novelty-evaluation second-opinion\nneed that human sampling cannot cover \u2014 e.g., overnight autoresearch\nloops where the human cannot review every call. (3) Compute budget\nexpands such that running two served models concurrently is no\nlonger a cost trade-off.\n\n**`gemma-4-26b-a4b-it-assistant` is RETAINED** (832 MB at\n`/mnt/models/`). It is *not* unused \u2014 the running vLLM container\nloads it as the **MTP speculative-decoding draft model** per D-022's\nlaunch args (`--speculative-config '{\"method\":\"mtp\",\"model\":\n\"/models/gemma-4-26b-a4b-it-assistant\",\"num_speculative_tokens\":4}'`).\nRemoving it breaks vLLM on next restart and gives up the ~52 tok/s\nsingle-stream baseline (D-022's whole point). It is referenced by\n`setup/day2_vllm_serve_mtp.sh` and `setup/day4_vllm_serve_tools.sh`.\n\n*Process note.* An earlier draft of this decision claimed\nit-assistant was unused and removed it; that removal was reverted\n~10 minutes later when the dependency was discovered. The lesson:\n\"check what running containers actually mount before removing\nanything under `/mnt/models/`.\"\n\n**Supersedes.** D-006 (Defer Qwen 3.6 to Week 2-3). D-006 stays in\nthe log as history; D-033 is the active position.\n\n---\n",
     "dec-ap-d-034-path-b-selective-sub-agent-migration-reference-p": "# D-034 \u2014 Path-B selective sub-agent migration; reference-passing is the next architectural fix\n\n_apparatus decision_\n\n**Date locked.** 2026-05-26.\n\n**Decision.** LOOP_V0 workers migrate from Path A (one-shot Nara\ntool_call) to Path B (bounded multi-turn sub-agent) **selectively,\nper worker, when a concrete failure mode justifies it** \u2014 not chain-\nwide. The mechanism is `orchestrator/subagent.py`, which exposes\n`run_subagent(name, *, system_prompt, user_prompt,\nexpected_output_schema, tools, tool_dispatch, budget,\nparent_request_id, ...) \u2192 SubAgentResult` (additional keyword-only\nargs for `log_path` and `model`; see source for the full signature)\nwith hard caps on turns / wall-seconds / tokens and JSON-schema\nvalidation on output. Workers keep an **identical input/output\ncontract** across paths so callers don't change when a worker\nmigrates.\n\nCurrently migrated: `workers/critic_loop_v0` (default budget 6 turns\n/ 90s; optional `query_chroma` tool; observability fields\n`subagent_turns_used`, `subagent_wall_seconds`, `subagent_status`).\nStill on Path A: `hypothesize`, `retrieve_literature`,\n`novelty_classify`, `journal_writer`.\n\n**Companion decision: reference-passing is the next architectural\npriority.** Even with the Gemma inline-tool-call fallback parser\n(`agent_wrapper/gemma_tool_parse.py`, 20 unit tests including the\nreal iter-010 leak sample), the LOOP_V0 chain truncates at the\n`max_tokens=1024` cap because Nara copies the full `neighbors` array\nthrough every downstream tool_call's args. The fix: workers fetch\nheavy payloads by `iteration_id` from `run_state/iteration_cache/\n<iteration_id>/` instead of receiving them in args. Downstream tool\nschemas accept `iteration_id` (required) plus only the new fields\neach step computes. Nara's prompt is rewritten to forbid re-emitting\ncaptured payloads. `journal_writer` gathers everything from cache at\nthe end. See [`LOOP_V0.md`](LOOP_V0.md) \u00a7\"Reference-passing\".\n\n**Alternatives considered.**\n\n- *Wholesale sub-agent migration of all five workers.* Rejected:\n  over-engineering for the cheap steps. One-shot calls are correct\n  for `hypothesize` (single-turn generation), `retrieve_literature`\n  (deterministic tool wrapper), `journal_writer` (deterministic\n  serializer). Multi-turn would only add latency and token cost\n  without changing output quality.\n- *Forked Claude Code worktrees as workers.* Rejected for LOOP_V0:\n  the substrate-swappable runtime keeps the option open for later,\n  but in-process sub-agents are the right primitive for the\n  literature-only slice. The cost ceiling, observability, and\n  determinism trade-offs all favor in-process.\n- *Raise max_tokens above 1024 instead of reference-passing.*\n  Rejected: addresses symptom, not cause. Long inline tool_call\n  emissions are parser-fragile regardless of cap, and re-emitting\n  captured state through args is duplicate-state by construction.\n  Reference-passing fixes both the truncation and the fragility at\n  once.\n- *Migrate off OpenAI tool_calls entirely (custom message protocol).*\n  Deferred. The Gemma parser bridges today's stochastic format\n  mismatch; a protocol change would compound the migration risk\n  while LOOP_V0 is mid-build. Revisit if vLLM upgrade or runtime\n  swap (NemoClawRuntime) makes the parser unnecessary.\n\n**Rationale.**\n\n- *Selective migration preserves the per-worker contract.* Outer\n  callers (Nara, downstream workers) are agnostic to whether a worker\n  is Path A or Path B. Migration is local; rollback is local.\n- *SubAgent is runtime-agnostic.* The wrapper call inside\n  `run_subagent` goes through PyRuntime today; a future\n  NemoClawRuntime swap is mechanical.\n- *Reference-passing is the load-bearing prerequisite for real\n  iterations.* Without it, the chain truncates probabilistically on\n  any iteration whose retrieved neighbors are non-trivial. With it,\n  the chain becomes deterministic at the substrate level \u2014 Gemma's\n  format-choice stochasticity stops mattering at scale.\n- *The Path-B primitive unblocks fan-in/fan-out.* Future Nara \u2192\n  multiple sub-agents (e.g., three critics from different angles) \u2192\n  merged result depends on having `run_subagent` as a primitive.\n  Building it now for one worker is the cheapest path to that\n  future shape.\n\n**What would reverse this.**\n\n- A worker stays on Path A unless multi-turn reasoning is justified\n  by a concrete failure mode observed on real iterations. If\n  `critic_loop_v0` is consistently single-turn in practice, the\n  migration is reverted and the SubAgent primitive is reserved for\n  workers that actually need it.\n- If reference-passing turns out to introduce more state-management\n  complexity than it removes \u2014 e.g., cache lifecycle bugs, race\n  conditions across UI polling, schema drift between cache files and\n  iteration_record \u2014 the alternative is back to direct args with a\n  raised token cap and tighter neighbor-payload trimming at the\n  `retrieve_literature` boundary (return summaries, not full\n  chunk_text, for downstream steps).\n\n**Cross-refs.** D-030 (single-primary session model \u2014 Path B\nsub-agents are in-process, not concurrent sessions). LOOP_V0.md\n\u00a7\"Path B\" + \u00a7\"Reference-passing\". The Gemma parser is documented in\n`agent_wrapper/gemma_tool_parse.py` module docstring; the chain\nre-prompt mechanism is in `orchestrator/nara.py`.\n",
     "dec-ap-d-035-multi-backend-wrapper-substrate-qwen3-6-27b": "# D-035 \u2014 Multi-backend wrapper substrate; Qwen3.6-27B + Anthropic API onboarded; supersedes D-033\n\n_apparatus decision_\n\n**Date locked.** 2026-05-26.\n\n**Supersedes.** [D-033](#d-033--exclude-qwen-36-entirely-the-apparatus-stays-single-model-on-gemma-4) \u2014 the single-model commitment to Gemma 4 is replaced by a tiered, multi-backend apparatus. D-033's same-model novelty mitigation framing is also reconsidered: the Google Co-Scientist paper finding that running the critic on a different model is a load-bearing insight (not a nice-to-have) is the empirical reason to admit a second and third model.\n\n**Decision.** The wrapper becomes backend-pluggable. `agent_wrapper.backends`\nexposes a `Backend` protocol; three backends register at module load:\n\n- **`vllm-gemma`** \u2014 the existing vllm-served Gemma 4 26B-A4B-NVFP4 path.\n  Default. Reads `wrapper._sync_client` / `wrapper._async_client` lazily\n  at call time so the ~30 existing `patch.object(W, \"_sync_client\", \u2026)`\n  mocks across the test suite continue to work unchanged.\n- **`ollama-coder`** \u2014 Qwen3.6-27B dense (Apache 2.0) on Ollama's\n  OpenAI-compatible endpoint at `:11434/v1`. Pulled today at Q4_K_M\n  (17 GB on disk, ID `a50eda8ed977`). Picked over Qwen3-Coder-30B-A3B\n  (MoE), Codestral 25.01 (non-commercial license + 42% SWE-bench vs\n  Qwen's 77.2%), and DeepSeek-R1-Distill-Qwen-32B (no published\n  SWE-bench Verified). Caveat: the 77.2% number uses Qwen's own bash +\n  file-edit scaffold; third-party reproductions are limited as of\n  2026-04-23. Coder tier.\n- **`anthropic`** \u2014 Claude API (default `claude-opus-4-7`) with prompt\n  caching on the system message and tool definitions. Anthropic SDK\n  0.104.1 installed into `.venv-chroma`. Planner tier \u2014 invoked\n  selectively for hard / complex orchestration, never as the\n  per-iteration default (the apparatus stays self-hosted by default).\n\nThe substrate is **additive**: every existing call site defaults to\n`vllm-gemma`, no behavior change. Backend selection is opt-in via a\n`backend=` kwarg on `call_sync` / `call_async` / `call_with_tools`\n(wrapper), `run_subagent` (sub-agent primitive), and `run_iteration`\n(Nara). The `calls.jsonl` schema's `host_metadata` is relaxed to allow\nheterogeneous per-backend shapes (existing fields remain valid; new\n`backend` discriminator added as optional).\n\n**Routing model (today vs deferred).**\n\n- **Today**: declarative \u2014 callers (workers, sub-agent dispatchers,\n  Nara) opt into a backend at the call site. No automatic routing.\n  Coder workloads pass `backend=\"ollama-coder\"`; planning workloads\n  pass `backend=\"anthropic\"`.\n- **Deferred to follow-up slices** (still under the D-035 umbrella):\n  (1) optional `default_model` / `model_tier` field on each tool spec\n  so the runtime can route mechanically rather than each call site\n  hardcoding the brain; (2) a complexity-calculator stub with a\n  threshold-based escalation hook to the planner tier; (3) per-iteration\n  override (a \"this iteration is hard, use SOTA\" flag). These are the\n  obvious next surfaces but are explicitly out of today's scope per\n  the \"for now just onboard and set up\" framing.\n\n**Verification.**\n\n- **Unit / translation tests** \u2014 76 tests across the wrapper + backend\n  registry + Anthropic translation + critic + worker + orchestrator\n  paths all pass. New: `tests/test_backend_registry.py` (8 tests),\n  `tests/test_anthropic_backend.py` (15 tests). Pre-existing\n  `tests/test_dispatch_coding_agent.py` failures (18 errors) are\n  D-030 fallout from archived `agent/ownership.yaml` \u2014 unrelated to\n  this work.\n- **Live smoke \u2014 ollama-coder** \u2014 blocked. The vllm-gemma4 container\n  is holding ~110 GiB of 128 GiB unified memory; Qwen3.6-27B at\n  Q4_K_M requires ~36 GiB at inference time; Ollama returns 500\n  `model requires more system memory (36.0 GiB) than is available\n  (12.2 GiB)`. Substrate is verified by the round-trip (correct\n  request shape on the wire); cohabitation requires either a smaller\n  Qwen quant, a vllm right-sizing pass, or a scheduled stop/start\n  pattern. Tracked as the next-but-one follow-up.\n- **Live smoke \u2014 anthropic** \u2014 blocked on `400 invalid_request_error\n  \u2014 credit balance is too low`. Request shape correct; live verify\n  gated on credit top-up.\n\n**Alternatives considered.**\n\n- *Defer multi-backend until critic-on-different-model is the\n  bottleneck.* Rejected: the reference-passing refactor (D-034) and\n  the multi-backend substrate both touch `wrapper.py`, `subagent.py`,\n  `nara.py`. Laying the substrate first lets reference-passing land on\n  a backend-aware foundation, and avoids cracking open the same files\n  twice.\n- *Adopt an LLM-as-router from day one.* Rejected: premature without\n  evidence the static per-tool tier is wrong. Hook is in place for\n  later (complexity-calculator stub is the deferred follow-up).\n- *Graduate Nara itself to Claude Opus every turn.* Rejected for now:\n  the apparatus design pillar is self-hosted by default; SOTA is the\n  ceiling, not the floor. The substrate permits the graduation later\n  with a one-line change (`run_iteration(..., backend=\"anthropic\")`),\n  but the default stays vllm-gemma.\n- *Re-pull `qwen3.6:35b` to match the pre-D-033 setup.* Rejected:\n  Qwen3.6-27B's SWE-bench Verified (77.2% per Qwen's blog) and\n  Terminal-Bench 2.0 (59.3%) are well ahead of the older 35B sibling\n  for coding-tier workloads, and the smaller footprint helps with the\n  co-residency RAM problem (which is the binding constraint anyway).\n\n**Why this is not a rollback of D-033.** D-033's commitment was to\nthe apparatus staying single-model on Gemma 4 *for novelty scoring* \u2014\nthe same-model novelty-classify worker stays Gemma. What D-035 admits\nis that *other* roles (critic, planner) benefit from a different\nmodel. The novelty-classify worker remains on Gemma per D-033's\nmitigation framing (logged human sampling per ARCHITECTURE.md \u00a76 step\n6). The critic is the worker most likely to flip first, per the\nCo-Scientist insight.\n\n**Pointers.**\n\n- `agent_wrapper/backends/{__i",
+    "dec-ap-d-036-critic-flip-co-scientist-insight-empirically-tes": "# D-036 \u2014 Critic-flip (Co-Scientist insight) empirically tested on three topics \u2014 no observed benefit on this evidence; binding constraint is upstream\n\n_apparatus decision_\n\n**Date locked.** 2026-05-27.\n\n**Refines.** [D-035](#d-035--multi-backend-wrapper-substrate-qwen36-27b--anthropic-api-onboarded-supersedes-d-033) \u2014 the multi-backend substrate stays as-is; the specific *application* of routing the critic to a non-Gemma backend was tested and falsified for this round.\n\n**Decision.** Do not permanently route `workers/critic_loop_v0`'s sub-agent to a non-Gemma backend on the current evidence. The infrastructure (env-driven `CRITIC_BACKEND`, `vllm-qwen` registered, SubAgent's `reasoning_content` fallback, UI divergence-chip) all stays \u2014 it works and is available the moment empirical evidence justifies turning it on. But for these three topics, on this retrieval, the Co-Scientist insight produced *no* divergent verdicts. The binding constraint is upstream of the critic.\n\n**The test.**\n\nPre-committed rule (from `human/sessions/2026-05-27.md`'s Phase-3 plan):\n> *flip-critic-if: Critic returns 'survives' on Topic 2 (rediscovery probe) without surfacing KMR/Young or equivalent risk-dominance literature, OR returns 'survives' on Topic 3 (the deliberately wrong claim). Either failure alone is enough \u2014 both is dispositive.*\n> *keep-critic-if: Critic correctly flags Topic 2 as rediscovery with at least one named citation to the risk-dominance literature, AND falsifies Topic 3 with the backward-induction/unraveling argument spelled out.*\n\nProcedure: ran each topic twice \u2014 once with Gemma critic (Phase 2 baseline), once with `CRITIC_BACKEND=vllm-qwen` (Qwen3.6-27B NVFP4-MTP on :8001).\n\n**Findings.**\n\n| Topic | Gemma critic | Qwen critic | Same verdict? |\n|---|---|---|---|\n| 1 \u2014 open / Bayesian PGG (iter-004 vs iter-009) | `novel/survives` | `novel/survives`, 59.3 s, 2 turns | yes \u2014 identical conclusion, slightly more specific rationale on Qwen (\"doesn't address conditional cooperation, Bayesian belief updating under noisy observations\") |\n| 2 \u2014 rediscovery probe (iter-002 vs iter-007) | `novel/survives`, 4.1 s | `novel/survives`, 52.6 s, 2 turns | yes \u2014 identical conclusion, Qwen named Osborne & Rubinstein explicitly |\n| 3 \u2014 deliberately-wrong PD claim (iter-003 vs iter-008) | `rediscovery/survives` (Gemma critic; novelty also `rediscovery`) | substrate failed: `schema_mismatch` \u2192 critic_loop_v0 fallback `survives` \u2014 but **novelty classified `nonsense` AND Nara's summary engaged with backward induction explicitly**. The chain caught the deliberate wrongness; the critic step didn't get to. | inconclusive at the critic step; chain-as-a-whole correct |\n\n**Cost observed.** Qwen critic ran 12\u201330\u00d7 slower (Gemma 2\u20134 s, Qwen 50\u201360 s) and produced a `schema_mismatch` substrate failure on 1/3 runs even with the `reasoning_content` fallback in place (intermittent Qwen reasoning-placement variance).\n\n**Diagnosis of why both critics agreed.** Both critics follow the same contract: *\"Do NOT invoke knowledge from outside the retrieved set.\"* In all three topics, the retrieved set was Osborne & Rubinstein foundational chunks that don't cover the specialized claims at hand. Both critics correctly reported \"the retrieved literature does not contain results that would falsify this.\" That's the *correct* behavior given the contract \u2014 not \"marking own homework\". The Co-Scientist insight assumed the critic was the bottleneck; for this evidence, it isn't.\n\n**Binding constraints actually surfaced.**\n\n- **Retrieval gap** (Topic 2). KMR 1993 / Young 1993 / Ellison 1993 / Blume 1995 are not in Chroma's foundational layer. A coordination-games-on-networks topic that asks about risk dominance can't get a rediscovery verdict when the rediscovery literature isn't retrievable. **Fix: Track B retrieval expansion** (the next slice).\n- **Hypothesize selection bias** (Topic 1). The worker generated three candidates; candidate #2 contained the exact asymmetric-updating mechanism the user was probing for (\"inflating the posterior probability of 'defector' types\"). The worker selected candidate #1 \u2014 the most generic restatement. **Fix: prompt tightening to prefer mechanism-engaged candidates over linguistic restatements.**\n- **Hypothesize claim sanitization** (Topic 3). The deliberately-wrong claim was rewritten before the critic ever saw it (verb flipped, inequality flipped). **Fix: an `as-stated` mode that bypasses the rewrite when the user signals \"test this claim verbatim\".**\n\n**Reopen conditions.** D-036 falsifies critic-flip *on the current evidence*. The flip reopens cleanly if/when:\n\n1. **Retrieval cooperates AND hypothesize preserves the claim AND the critic still parrots / fails to push back.** That's the actual \"marks own homework\" failure mode the Co-Scientist insight targets. It hasn't been observed.\n2. **A workload arises where the critic's contract has to invoke outside knowledge.** Today the contract is \"only retrieved literature\"; if we widen it (e.g., let the critic call `query_chroma` more aggressively or invoke a broader knowledge base), a different-model critic might surface different judgments.\n3. **The hypothesize and retrieval fixes (Track B + prompt tightening) land, three more iterations run, AND a critic-marks-own-homework pattern emerges in the cleaner data.**\n\n**What stays in the apparatus.**\n\n- `vllm-qwen` backend registration in `agent_wrapper/wrapper.py`.\n- `CRITIC_BACKEND` env var read in `workers/critic_loop_v0.py`.\n- `SubAgent` `reasoning_content` fallback for Qwen-class reasoning models (`orchestrator/subagent.py`).\n- UI divergence chip wiring (sky-accented subagent chip in `ActiveIterationPanel`).\n- The `vllm-qwen` container itself (port 8001) \u2014 keep running. Coder-tier workloads (Phase 2+) will use it; substrate is ready.\n\n**What does NOT change.**\n\n- D-035's multi-backend substrate stands. The infrastructure was the right investment regardless of this specific Co-Scientist application.\n- The novelty",
+    "dec-ap-d-037-authorize-dynamic-workflows-amend-d-030-s": "# D-037 \u2014 Authorize Dynamic Workflows; amend D-030's single-session constraint\n\n_apparatus decision_\n\n**Date locked.** 2026-06-05.\n\n**Amends.** D-030 \u2014 the single-primary operating model is amended, not revoked.\n\n**correction:** Local constraints written for previous-generation tooling must not rate-limit newer shipped Claude Code capabilities. When a managed, bounded, observable primitive ships that handles the failure modes an old prohibition guarded against, amend the prohibition rather than letting it cap the new capability.\n\n**Decision.** Dynamic Workflows (the `Workflow` primitive shipped 2026-05-28 with Opus 4.8) are **permitted** and are the **default vehicle** for parallelizable build / audit / research work in the primary session. D-030's \"no dispatched coding agents / no multi-worktree matrices\" ban is amended: it still governs *manual* parallel human/Claude sessions (the retired track-A/B/C/D machinery); it does **not** govern the Workflow primitive.\n\n**Why D-030 doesn't apply to Workflows.** D-030 reacted to pre-2026-05 tooling \u2014 hand-rolled multi-worktree day-matrices with claim-and-lock coordination that produced merge chaos and stale-HEAD forks. Dynamic Workflows removes the conditions that motivated the ban:\n\n- **Bounded.** Runtime caps a run at 16 concurrent / 1000 total agents; no runaway fan-out.\n- **Observable.** `/workflows` shows live per-agent progress + token cost.\n- **Context-isolated.** The orchestration script (not Claude's context) holds the loop and intermediate state; the parent only sees the synthesized result.\n- **Resumable.** Same script + same args replays cached agent results.\n\n**The guardrails that DO stay** (codified in `CLAUDE.md` \u00a7\"Dynamic Workflow discipline\"): inviolate rules inherit to every subagent; **parallel limbs / serial spine** (build agents create disjoint new files; a single serial integrator owns `orchestrator/nara.py` + `orchestrator/tool_registry.py` + `schema/iteration_record.schema.json`); spawn-contract per build agent; single human-authority commit gate after `code-review` + full suite + real smoke; workflow phases log to `run_state/week1.run.jsonl`. These preserve the SDLC discipline D-030 was really protecting \u2014 without forbidding concurrency.\n\n**Reversibility.** High. Toggle workflows off in `/config`; revert to serial primary-session builds. No data migration. The discipline subsection and this entry document the boundary so re-tightening is a one-edit change.\n\n**What does NOT change.** The single concurrent UI-session rule; the bounded-codegen budget (~100 lines per component, now enforced per-agent); MOCK_LLM discipline; human gates blocking; version pins; the prohibition on continuous-running orchestrators and live Polymarket trading.\n\n**First application.** Loop v1 build (full v5 loop: steps 1.5 / 2.5 / 5 / 8) \u2014 a Build (parallel) \u2192 Integrate (serial) \u2192 Verify workflow. See `human/sessions/2026-06-05.md` and `.claude/plans/elegant-bouncing-gem.md`.\n",
+    "dec-ap-d-038-ml-intern-uses-semantic-scholar-for": "# D-038 \u2014 ML-Intern uses Semantic Scholar for topic-based foundational backfill, scoped distinctly from D-027\n\n_apparatus decision_\n\n**Date locked.** 2026-06-05, LOOP_V0 Slice-2 wiring; serial-integrator spine work.\n\n**Decision.** The Slice-2 `ml_intern` worker (`workers/ml_intern.py`) queries the **Semantic Scholar Graph API** for topic-relevant papers, embeds their abstracts with BGE-M3, and stores them in a dedicated `ml_intern_fetched` Chroma collection (`source_layer: \"live_ml_intern\"`). It fires deterministically, orchestrator-driven, at most once per iteration when `retrieve_literature` signals escalation (weak signal AND narrow foundational coverage), after which retrieval re-runs against the now-registered collection.\n\n**Why this does NOT reopen D-027.** D-027 rejected Semantic Scholar for the **daily-recent arXiv pull** because S2 lags new arXiv-ID indexing by weeks \u2014 the 7-day window sat entirely inside S2's indexing dead-zone. That failure mode is specific to recency-windowed retrieval keyed on freshly-published arXiv IDs. ML-Intern does the **opposite** job: topic-based, all-time relevance search where S2's broad corpus and citation graph are the right source, and indexing lag is irrelevant (the relevant foundational/canon papers are years old and fully indexed). The two uses are complementary, not contradictory: arXiv API for the recent pipeline (D-027 stands), S2 for topic backfill (this entry).\n\n**Containment.** ML-Intern writes only to `ml_intern_fetched`, kept separate from the human-curated `papers_recent` and foundational collections so an automated, unreviewed pull never pollutes them. The worker never raises (inviolate rule 7); any error / 0-stored leaves the original weak retrieval and the chain proceeds.\n\n**Reversibility.** High. Unregister `ml_intern_fetched` from `orchestrator/chroma_query.py:COLLECTIONS` and remove the orchestrator-driven block in `orchestrator/nara.py`; no data migration (the collection is git-ignored Chroma state). The schema enum widening is additive and backwards-compatible.\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\n",
+    "dec-ap-d-039-gemma-4-qat-evaluated-vs": "# D-039 \u2014 Gemma 4 QAT evaluated vs the NVFP4 pin (DRAFT, pending exp008 live run)\n\n_apparatus decision_\n\n**Status.** DRAFT \u2014 disposition PENDING the exp008 live run. Outcome: **[pending exp008 RESULTS.md]**.\n\n**Date drafted.** 2026-06-08. Single-serial-integrator wiring of the `experiments/exp008_qat_eval/` benchmark harness (eval-only, no production swap).\n\n**Trigger.** Gemma 4 QAT (quantization-aware training) is a quant variant of the *exact* model the orchestrator already runs (Gemma 4 26B-A4B). On GB10 the binding throughput constraint is memory bandwidth \u2014 fixed silicon (D-021). Bandwidth is not a lever we can pull, so the only thing a quant change can buy is **quality**, and quality is what determines whether the orchestrator's own judgments (novelty scoring, tool-calling, robustness) are trustworthy. QAT promises near-BF16 quality at 4-bit footprint, so it is worth measuring against the current NVFP4 pin \u2014 strictly as evaluation, not as a deployment.\n\n**Design.** Three arms, eval-only, **NO production swap**:\n- **Arm A** \u2014 the production NVFP4 pin as-is (`/mnt/models/gemma-4-26b-a4b-nvfp4`, `vllm/vllm-openai:v0.21.0`, Marlin MoE), the baseline.\n- **Arm B** \u2014 Gemma 4 QAT as a llama.cpp GGUF quant.\n- **Arm C** \u2014 Gemma 4 QAT unquantized under vLLM.\n\nAll arms are served on a **scratch container, port `:8002` only** (`serve_qat.sh`); the production `:8000` endpoint, image, config, and launch args are never touched. Eval calls log to `experiments/exp008_qat_eval/runs/*.jsonl`, never to production `logs/calls.jsonl`. Greedy decoding (temperature 0), one request at a time, for all quality runs. Eval surfaces: tool-calling, robustness, novelty.\n\n**Planning-confirmed blocker.** Google ships **no vLLM-native W4A16 QAT** for the 26B-A4B variant \u2014 the MoE 4-bit path carries quality loss and only GGUF + unquantized weights exist. So even Arm B/C \"winning\" the eval does **not** yield a drop-in production swap: H1 (adopt QAT) is gated on a serving path that does not exist today. This experiment measures the quality ceiling; it cannot, by itself, authorize a swap.\n\n**Tensions.** CLAUDE.md inviolate rule 2 (version pins are verbatim \u2014 the NVFP4 weights path + vLLM image + Marlin MoE backend); D-017/D-022 (the MTP-enabling image pin); D-018 (SM12.1 build constraints). This entry does not touch any of them \u2014 the harness is a scratch-port benchmark, and the pin stands.\n\n**Reversibility.** The *experiment* is trivial and fully reversible (a scratch container + eval-scratch JSONL under `experiments/exp008_qat_eval/`; nothing in the serial spine, schema, agent_wrapper, workers, run_state, or production serving is touched). A *production swap*, by contrast, is **not** trivially reversible and is explicitly out of scope here \u2014 it would require its own decision once a real W4A16 serving path exists and the eval favors QAT.\n\nCo-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>\n",
+    "dec-ap-d-040-unattended-nara-autonomy-contract-effective": "# D-040 \u2014 Unattended Nara autonomy contract (effective at \u03b2; amends the continuous-orchestrator guardrail)\n\n_apparatus decision_\n\n**Status.** RATIFIED 2026-06-08 by the human (this entry added to `DECISIONS.md`\nand the `CLAUDE.md` out-of-scope guardrail amended to point here). The contract\ntakes effect **only at \u03b2** \u2014 it grants no operative autonomy until Nara is\npackaged as the always-on OpenClaw agent; until then the continuous-orchestrator\nguardrail stands unchanged. The MAY/MUST-NOT boundary below is the agreed\ncontract for that unattended Nara.\n\n**Date drafted.** 2026-06-08. Formalized from the autonomy contract in\n`human/sessions/2026-06-08.md` (lines 14\u201320) and the \u03b1\u2192\u03b2\u2192\u03b3 build path (line 12).\n\n**Amends (on ratification).** The `CLAUDE.md` out-of-scope guardrail\n\"Continuous-running orchestrator \u2014 not yet; LOOP_V0 is single-shot,\nhuman-triggered iterations.\" This contract is the instrument that lifts that\nguardrail \u2014 but **only at \u03b2, only when the human ratifies, and only within the\nbounds below.** The guardrail stays fully in force until then; the \u03b1 coordinator\nbrain shipped 2026-06-08 deliberately stayed host-side, non-continuous, opt-in,\ndefault dry-run precisely so it landed under the *current* (un-amended) rules.\n\n**Context.** \u03b2 packages Nara as an always-on OpenClaw **agent** in the\n`nara-sandbox` NemoClaw runtime \u2014 NOT a worker-runtime swap. The 2026-06-08\nprobe finding established that the sandbox is genuinely isolated (our repo/venv\nare not in it; Python 3.13 vs host 3.12; the model is reachable only via\nOpenClaw's provider routing), so NemoClaw runs OpenClaw agents, not our\nin-process Python workers. \u03b2 therefore = \"package Nara as the OpenClaw agent,\"\nwhich is what makes a *continuous* Nara a real proposition and is why the\nguardrail amendment is needed now and not earlier. (See the D-031/D-008 update\nalso pending from 2026-06-08.)\n\n**Decision.** When ratified, unattended (scheduled, always-on) Nara operates\nunder the following bounded contract. Nara essentially **inherits the\nhuman-session operating discipline** \u2014 every inviolate rule in `CLAUDE.md`\nbinds Nara exactly as it binds a primary session.\n\n### Unattended Nara MAY:\n\n1. **Plan** \u2014 on a schedule, assess whole-system health and in-flight\n   experiments (reading the 2026-06-06 instrumentation:\n   `active_run` / `worker_activity` / `surfaced_findings` \u2014 Nara's \"eyes\"),\n   generate hypotheses, and plan the day.\n2. **Run experiments / loop iterations** \u2014 execute LOOP_V0 iterations and\n   experiment runs within its constraints.\n3. **Spawn agents** \u2014 critic / review / analysis sub-agents (and coding agents\n   under the same discipline) to do bounded work.\n4. **Build new tools and improve the system within constraints** \u2014 additive,\n   bounded work consistent with the bounded-codegen rule (inviolate rule 8).\n5. **Do LIMITED commit/push** \u2014 only behind the verify gate (tests green +\n   `code-review` + a real smoke). Default destination is a `nara/auto/*`\n   branch. **Merges to `main` remain human.**\n6. **Bubble up proposals** \u2014 surface applied/trade IDEAS and proposals through\n   the messaging channels (the bubble-up mechanism), for the human to act on.\n\n### Unattended Nara MUST NOT:\n\n1. **Execute live trades.** Live trading is human-only (consistent with the\n   Polymarket design-only guardrail / D-018). Trade IDEAS may be bubbled up;\n   execution may not.\n2. **Widen its own or its sub-agents' permissions beyond a granted preset.**\n   Permission presets are the constrained-autonomy mechanism (this is the seam\n   \u03b3 builds on); Nara may not self-escalate or grant a sub-agent more than a\n   subset of its own granted preset.\n3. **Bypass the verify gate.** No commit/push without tests-green + the review\n   + smoke gate; no degraded/silent path around it (inviolate rule 7).\n4. **Touch inviolate pins or guardrails.** Version pins (inviolate rule 2),\n   human gates (rule 3), validations-never-coerced (rule 4), mandatory logging\n   (rule 6), and the remaining out-of-scope guardrails stand. Nara does not\n   edit `CLAUDE.md` / `DECISIONS.md` or the inviolate-rule set itself.\n\n**Alternatives considered.**\n\n1. **Keep the hard continuous-orchestrator ban; never go always-on.** Rejected:\n   it forecloses the user's central \u03b2\u2192\u03b3 vision (Nara as a secure, always-on\n   OpenClaw agent) without retiring the *real* protection \u2014 which is the\n   discipline, not the single-shot triggering. The \u03b1 slice already showed the\n   apparatus's discipline can be enforced mechanically (the constrained action\n   menu + `validate_plan`), so \"continuous\" need not mean \"unbounded.\"\n2. **Go always-on with no formal contract (implicit trust).** Rejected: it\n   violates the apparatus's whole premise. Autonomy without a written,\n   ratified MAY/MUST-NOT boundary is exactly what the guardrail exists to\n   prevent.\n3. **The chosen path: a written, human-ratified, preset-bounded contract that\n   amends the guardrail at \u03b2 and inherits every inviolate rule.**\n\n**Rationale.** The continuous-orchestrator guardrail was written for a\nsingle-shot LOOP_V0 with no constrained-action enforcement and no isolated\nruntime. \u03b2 changes both conditions: (a) the \u03b1 coordinator's\n`coordinator_actions.validate_plan` proved a planner can be held to a fixed,\nbudgeted action menu where off-menu / over-budget / bad-arg plans are *rejected,\nnever executed* (verified independently 2026-06-08); and (b) NemoClaw provides\na genuinely isolated sandbox with permission presets as the autonomy lever. With\nthose in place, \"continuous\" is no longer synonymous with \"unbounded,\" so the\nguardrail can be *amended* (not revoked) to permit a disciplined always-on Nara \u2014\nin the same spirit as D-037 amending D-030 for Dynamic Workflows: when a bounded,\nobservable mechanism handles the failure modes an old prohibition guarded\nagainst, amend the prohibition rather than let it cap the capability.\n\n**What does NOT change.** Live-trade prohibition (human-only); version pins;\nhuman gates blocking; validations never coer",
     "stage-iter-2026-05-26-001-query-chroma-1": "# Retrieve \u2014 iter-2026-05-26-001 (step 1)\n\n_worker: query_chroma_\n\n**Step 1 of 2** \u2014 tool `query_chroma` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will query the vector store to retrieve existing literature and theoretical frameworks regarding the dominance of Tit-for-Tat in repeated games.\n\n**Triggered by call:** `fd255e46\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-dispatch-query-chroma-l173` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-receipt-query-chroma-l174` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-001` (iteration) \u2014 **produced**\n",
     "stage-iter-2026-05-26-001-journal-writer-stub-1": "# Journal \u2014 iter-2026-05-26-001 (step 2)\n\n_worker: journal_writer_stub_\n\n**Step 2 of 2** \u2014 tool `journal_writer_stub` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nthought\n<|channel>thought\n<channel|>\n\n**Triggered by call:** `7133efb2\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l2` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-dispatch-journal-writer-stub-l175` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-receipt-journal-writer-stub-l176` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-001` (iteration) \u2014 **produced**\n",
     "stage-iter-2026-05-26-002-query-chroma-1": "# Retrieve \u2014 iter-2026-05-26-002 (step 1)\n\n_worker: query_chroma_\n\n**Step 1 of 2** \u2014 tool `query_chroma` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will query the Chroma vector store to retrieve foundational literature and recent developments regarding the Folk Theorem and its implications for cooperation.\n\n**Triggered by call:** `b1621173\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l4` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-dispatch-query-chroma-l179` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-receipt-query-chroma-l180` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-002` (iteration) \u2014 **produced**\n",
@@ -8833,6 +20178,158 @@ window.BRAIN_GRAPH = {
     "stage-iter-2026-05-27-006-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-006 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved the relevant literature to provide a context for your hypothesis. Now, I will classify the novelty of your hypothesis by comparing it to these existing works.\n\n**Triggered by call:** `b0f8e7f1\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l127` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-006-loop-v0-tool-dispatch-novelty-classify-l363` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-006-loop-v0-tool-receipt-novelty-classify-l364` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-006` (iteration) \u2014 **produced**\n",
     "stage-iter-2026-05-27-006-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-006 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `0d9ac376\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l129` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-006-loop-v0-tool-dispatch-critic-loop-v0-l365` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-006-loop-v0-tool-receipt-critic-loop-v0-l366` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-006` (iteration) \u2014 **produced**\n",
     "stage-iter-2026-05-27-006-journal-writer-1": "# Journal \u2014 iter-2026-05-27-006 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now synthesize the hypothesis, the novelty assessment, and the critique into a final markdown journal entry to conclude this research iteration.\n\n**Triggered by call:** `257ec497\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l131` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-006-loop-v0-tool-dispatch-journal-writer-l368` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-006-loop-v0-tool-receipt-journal-writer-l369` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-006` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-007-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-007 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for the investigation.\n\n**Triggered by call:** `46302c0c\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l133` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-007-loop-v0-tool-dispatch-hypothesize-l372` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-007-loop-v0-tool-receipt-hypothesize-l373` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-007` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-007-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-007 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `1cd772f4\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l135` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-007-loop-v0-tool-dispatch-retrieve-literature-l374` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-007-loop-v0-tool-receipt-retrieve-literature-l375` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-007` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-007-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-007 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved the relevant literature, which includes foundational texts on fictitious play and correlated equilibria, as well as recent work on correlated optimins. Now, I will classify the novelty of the hypothesis by comparing it to these retrieved results.\n\n**Triggered by call:** `299c7c4b\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l136` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-007-loop-v0-tool-dispatch-novelty-classify-l376` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-007-loop-v0-tool-receipt-novelty-classify-l377` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-007` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-007-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-007 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now subject the hypothesis to a critical evaluation, attempting to find contradictions or logical flaws within the retrieved literature to determine if the hypothesis survives scrutiny.\n\n**Triggered by call:** `c5809fdc\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l139` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-007-loop-v0-tool-dispatch-critic-loop-v0-l379` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-007-loop-v0-tool-receipt-critic-loop-v0-l380` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-007` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-007-journal-writer-1": "# Journal \u2014 iter-2026-05-27-007 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Triggered by call:** `2d1496cc\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l140` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-007-loop-v0-tool-dispatch-journal-writer-l381` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-007-loop-v0-tool-receipt-journal-writer-l382` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-007` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-008-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-008 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for investigation.\n\n**Triggered by call:** `4426a88a\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l142` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-008-loop-v0-tool-dispatch-hypothesize-l385` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-008-loop-v0-tool-receipt-hypothesize-l386` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-008` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-008-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-008 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `d9e7fe28\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l144` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-008-loop-v0-tool-dispatch-retrieve-literature-l387` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-008-loop-v0-tool-receipt-retrieve-literature-l388` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-008` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-008-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-008 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if it represents a new insight or a rediscovery of known principles.\n\n**Triggered by call:** `10928514\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l146` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-008-loop-v0-tool-dispatch-novelty-classify-l390` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-008-loop-v0-tool-receipt-novelty-classify-l391` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-008` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-008-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-008 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have classified the hypothesis as \"nonsense\" because it contradicts the fundamental principle of backward induction in finitely repeated games, where defection in the final round is a dominant strategy regardless of the payoff ratio. I will now run the critic loop to attempt to formally falsify the hypothesis using the retrieved literature.\n\n**Triggered by call:** `b64a9680\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l148` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-008-loop-v0-tool-dispatch-critic-loop-v0-l392` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-008-loop-v0-tool-receipt-critic-loop-v0-l393` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-008` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-008-journal-writer-1": "# Journal \u2014 iter-2026-05-27-008 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the novelty classification, and the critique\u2014into a final markdown journal entry.\n\n**Triggered by call:** `49d4100c\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l150` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-008-loop-v0-tool-dispatch-journal-writer-l395` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-008-loop-v0-tool-receipt-journal-writer-l396` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-008` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-009-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-009 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to identify a testable direction.\n\n**Triggered by call:** `fd87b1f0\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l152` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-009-loop-v0-tool-dispatch-hypothesize-l399` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-009-loop-v0-tool-receipt-hypothesize-l400` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-009` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-009-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-009 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `86f34923\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l154` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-009-loop-v0-tool-dispatch-retrieve-literature-l401` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-009-loop-v0-tool-receipt-retrieve-literature-l402` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-009` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-009-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-009 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now classify the novelty of the hypothesis by comparing it against the retrieved literature to see if it represents a new research direction or a rediscovery.\n\n**Triggered by call:** `0bff7ce9\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l156` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-009-loop-v0-tool-dispatch-novelty-classify-l404` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-009-loop-v0-tool-receipt-novelty-classify-l405` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-009` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-009-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-009 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `8a7cd658\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l158` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-009-loop-v0-tool-dispatch-critic-loop-v0-l406` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-009-loop-v0-tool-receipt-critic-loop-v0-l407` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-009` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-009-journal-writer-1": "# Journal \u2014 iter-2026-05-27-009 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the novelty classification, and the critic's verdict\u2014into a final markdown journal entry.\n\n**Triggered by call:** `c6c33b9c\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l160` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-009-loop-v0-tool-dispatch-journal-writer-l409` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-009-loop-v0-tool-receipt-journal-writer-l410` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-009` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-010-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-010 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for the investigation.\n\n**Triggered by call:** `06fba018\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l162` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-010-loop-v0-tool-dispatch-hypothesize-l413` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-010-loop-v0-tool-receipt-hypothesize-l414` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-010` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-010-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-010 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `a055e899\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l164` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-010-loop-v0-tool-dispatch-retrieve-literature-l415` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-010-loop-v0-tool-receipt-retrieve-literature-l416` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-010` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-010-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-010 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved the relevant literature, which includes several foundational texts discussing risk dominance and coordination games in large populations. Now, I will classify the novelty of your hypothesis by comparing it to these existing works.\n\n**Triggered by call:** `8545c133\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l165` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-010-loop-v0-tool-dispatch-novelty-classify-l417` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-010-loop-v0-tool-receipt-novelty-classify-l418` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-010` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-010-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-010 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `d9a312c3\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l167` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-010-loop-v0-tool-dispatch-critic-loop-v0-l419` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-010-loop-v0-tool-receipt-critic-loop-v0-l420` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-010` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-010-journal-writer-1": "# Journal \u2014 iter-2026-05-27-010 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the literature context, the novelty assessment, and the critical verdict\u2014into a final markdown journal entry.\n\n**Triggered by call:** `aad4be1c\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l169` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-010-loop-v0-tool-dispatch-journal-writer-l422` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-010-loop-v0-tool-receipt-journal-writer-l423` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-010` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-011-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-011 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for investigation.\n\n**Triggered by call:** `b6016793\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l171` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-011-loop-v0-tool-dispatch-hypothesize-l426` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-011-loop-v0-tool-receipt-hypothesize-l427` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-011` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-011-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-011 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `42b0c225\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l173` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-011-loop-v0-tool-dispatch-retrieve-literature-l428` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-011-loop-v0-tool-receipt-retrieve-literature-l429` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-011` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-011-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-011 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved the relevant literature, which includes foundational texts on repeated games and subgame perfect equilibrium. Now, I will classify the novelty of your hypothesis by comparing it to these retrieved works.\n\n**Triggered by call:** `4a8d966c\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l174` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-011-loop-v0-tool-dispatch-novelty-classify-l430` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-011-loop-v0-tool-receipt-novelty-classify-l431` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-011` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-011-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-011 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `d5fc20e7\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l176` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-011-loop-v0-tool-dispatch-critic-loop-v0-l432` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-011-loop-v0-tool-receipt-critic-loop-v0-l433` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-011` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-011-journal-writer-1": "# Journal \u2014 iter-2026-05-27-011 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the novelty classification, and the critic's verdict\u2014into a final markdown journal entry.\n\n**Triggered by call:** `d7e91e8b\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l178` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-011-loop-v0-tool-dispatch-journal-writer-l435` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-011-loop-v0-tool-receipt-journal-writer-l436` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-011` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-012-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-012 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 6** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for the investigation.\n\n**Triggered by call:** `53c4899a\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l180` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-012-loop-v0-tool-dispatch-hypothesize-l439` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-012-loop-v0-tool-receipt-hypothesize-l440` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-012-loop-v0-tool-dispatch-hypothesize-l441` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-012-loop-v0-tool-receipt-hypothesize-l442` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-012` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-012-hypothesize-2": "# Hypothesize \u2014 iter-2026-05-27-012 (step 2)\n\n_worker: hypothesize_\n\n**Step 2 of 6** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for the investigation.\n\n**Triggered by call:** `53c4899a\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l180` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-012-loop-v0-tool-dispatch-hypothesize-l439` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-012-loop-v0-tool-receipt-hypothesize-l440` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-012-loop-v0-tool-dispatch-hypothesize-l441` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-012-loop-v0-tool-receipt-hypothesize-l442` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-012` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-012-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-012 (step 3)\n\n_worker: retrieve_literature_\n\n**Step 3 of 6** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have formulated the primary hypothesis: that Bayesian conditional cooperators in noisy public goods games will experience faster contribution decay than those with perfect observation, even with mean-zero error. Now, I will retrieve relevant literature to see how this hypothesis compares to existing research.\n\n**Triggered by call:** `70b9ec6a\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l184` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-012-loop-v0-tool-dispatch-retrieve-literature-l443` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-012-loop-v0-tool-receipt-retrieve-literature-l444` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-012` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-012-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-012 (step 4)\n\n_worker: novelty_classify_\n\n**Step 4 of 6** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Triggered by call:** `0852cb8d\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l185` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-012-loop-v0-tool-dispatch-novelty-classify-l445` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-012-loop-v0-tool-receipt-novelty-classify-l446` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-012` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-012-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-012 (step 5)\n\n_worker: critic_loop_v0_\n\n**Step 5 of 6** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now subject the hypothesis to a rigorous critique to see if any of the retrieved literature provides evidence that could falsify the predicted decay pattern.\n\n**Triggered by call:** `99996402\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l188` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-012-loop-v0-tool-dispatch-critic-loop-v0-l448` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-012-loop-v0-tool-receipt-critic-loop-v0-l449` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-012` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-012-journal-writer-1": "# Journal \u2014 iter-2026-05-27-012 (step 6)\n\n_worker: journal_writer_\n\n**Step 6 of 6** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Triggered by call:** `4ceb6099\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l189` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-012-loop-v0-tool-dispatch-journal-writer-l450` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-012-loop-v0-tool-receipt-journal-writer-l451` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-012` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-013-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-013 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating a specific research hypothesis based on your topic to establish a formal direction for the investigation.\n\n**Triggered by call:** `6298ac6d\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l191` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l454` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l455` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l467` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l468` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l480` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l481` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l493` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l494` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l506` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l507` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l519` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l520` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l532` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l533` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l545` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l546` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l558` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l559` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l571` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l572` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l584` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l585` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l597` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l598` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l610` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l611` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l622` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l623` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l635` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l636` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-hypothesize-l648` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-hypothesize-l649` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-013` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-013-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-013 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `79098bd5\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l193` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l456` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l457` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l469` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l470` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l482` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l483` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l495` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l496` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l508` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l509` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l521` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l522` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l534` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l535` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l547` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l548` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l560` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l561` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l573` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l574` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l586` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l587` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l599` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l600` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l612` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l613` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l624` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l625` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l637` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l638` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-retrieve-literature-l650` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-retrieve-literature-l651` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-013` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-013-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-013 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now classify the novelty of your hypothesis by comparing it against the retrieved literature to determine if it represents a new direction or a rediscovery.\n\n**Triggered by call:** `4916d313\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l194` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l458` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l459` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l472` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l473` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l484` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l485` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l497` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l498` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l510` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l511` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l523` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l524` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l536` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l537` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l550` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l551` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l562` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l563` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l575` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l576` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l588` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l589` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l601` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l602` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l614` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l615` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l626` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l627` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l639` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l640` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-novelty-classify-l653` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-novelty-classify-l654` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-013` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-013-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-013 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now subject the hypothesis to a critical evaluation to see if any of the retrieved literature provides evidence that contradicts your proposed mechanism.\n\n**Triggered by call:** `2a784979\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l197` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l461` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l462` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l474` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l475` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l486` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l487` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l500` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l501` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l512` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l513` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l525` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l526` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l538` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l539` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l552` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l553` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l564` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l565` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l578` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l579` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l590` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l591` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l603` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l604` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l616` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l617` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l628` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l629` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l641` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l642` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-critic-loop-v0-l656` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-critic-loop-v0-l657` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-013` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-013-journal-writer-1": "# Journal \u2014 iter-2026-05-27-013 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nThe hypothesis has survived the critique, as the current literature lacks specific models or empirical findings regarding the impact of noisy observation on the decay rates of conditional cooperators in repeated public goods games.\n\nFinally, I will compile all findings into a formal journal entry.\n\n**Triggered by call:** `a84d52d9\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l198` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l463` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l464` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l476` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l477` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l489` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l490` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l502` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l503` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l515` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l516` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l528` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l529` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l541` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l542` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l554` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l555` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l567` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l568` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l580` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l581` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l593` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l594` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l606` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l607` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l618` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l619` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l631` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l632` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l644` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l645` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-dispatch-journal-writer-l658` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-013-loop-v0-tool-receipt-journal-writer-l659` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-013` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-014-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-014 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating a specific research hypothesis based on your topic to establish a formal direction for the investigation.\n\n**Triggered by call:** `b0273c49\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l335` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-014-loop-v0-tool-dispatch-hypothesize-l662` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-014-loop-v0-tool-receipt-hypothesize-l663` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-014` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-014-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-014 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `32993dda\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l337` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-014-loop-v0-tool-dispatch-retrieve-literature-l664` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-014-loop-v0-tool-receipt-retrieve-literature-l665` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-014` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-014-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-014 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have successfully retrieved 10 relevant literature neighbors, ranging from foundational Bayesian game theory to recent work on introspection dynamics in public goods games. Now, I will classify the novelty of the hypothesis by comparing it to these retrieved works.\n\n**Triggered by call:** `9e5a2d87\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l338` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-014-loop-v0-tool-dispatch-novelty-classify-l666` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-014-loop-v0-tool-receipt-novelty-classify-l667` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-014` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-014-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-014 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `cd288a9e\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l340` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-014-loop-v0-tool-dispatch-critic-loop-v0-l668` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-014-loop-v0-tool-receipt-critic-loop-v0-l669` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-014` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-014-journal-writer-1": "# Journal \u2014 iter-2026-05-27-014 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now finalize the research evaluation by compiling the hypothesis, novelty assessment, and critique into a formal markdown journal entry.\n\n**Triggered by call:** `7a3a38ed\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l342` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-014-loop-v0-tool-dispatch-journal-writer-l671` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-014-loop-v0-tool-receipt-journal-writer-l672` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-014` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-015-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-015 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for the investigation.\n\n**Triggered by call:** `4b6d8551\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l344` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-015-loop-v0-tool-dispatch-hypothesize-l675` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-015-loop-v0-tool-receipt-hypothesize-l676` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-015` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-015-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-015 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `cc8610d7\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l346` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-015-loop-v0-tool-dispatch-retrieve-literature-l677` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-015-loop-v0-tool-receipt-retrieve-literature-l678` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-015` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-015-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-015 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved the relevant literature, which includes foundational texts on Bayesian games and extensive games with imperfect information, as well as recent work on introspection dynamics in public goods games. Now, I will classify the novelty of your hypothesis.\n\n**Triggered by call:** `e651f4e3\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l347` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-015-loop-v0-tool-dispatch-novelty-classify-l679` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-015-loop-v0-tool-receipt-novelty-classify-l680` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-015` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-015-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-015 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `b3d302c3\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l349` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-015-loop-v0-tool-dispatch-critic-loop-v0-l681` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-015-loop-v0-tool-receipt-critic-loop-v0-l682` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-015` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-015-journal-writer-1": "# Journal \u2014 iter-2026-05-27-015 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the novelty assessment, and the critic's verdict\u2014into a final markdown journal entry.\n\n**Triggered by call:** `9db8d1ac\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l351` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-015-loop-v0-tool-dispatch-journal-writer-l684` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-015-loop-v0-tool-receipt-journal-writer-l685` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-015` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-016-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-016 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for the investigation.\n\n**Triggered by call:** `f3ac6b91\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l353` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-016-loop-v0-tool-dispatch-hypothesize-l688` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-016-loop-v0-tool-receipt-hypothesize-l689` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-016` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-016-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-016 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `37419f54\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l355` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-016-loop-v0-tool-dispatch-retrieve-literature-l690` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-016-loop-v0-tool-receipt-retrieve-literature-l691` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-016` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-016-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-016 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved the relevant literature, which includes foundational texts on Bayesian games and extensive games with imperfect information, as well as recent work on introspection dynamics in public goods games.\n\nNow, I will classify the novelty of the hypothesis by comparing it to these retrieved neighbors.\n\n**Triggered by call:** `dc8773bb\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l356` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-016-loop-v0-tool-dispatch-novelty-classify-l692` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-016-loop-v0-tool-receipt-novelty-classify-l693` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-016` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-016-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-016 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `7aa09d3a\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l358` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-016-loop-v0-tool-dispatch-critic-loop-v0-l694` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-016-loop-v0-tool-receipt-critic-loop-v0-l695` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-016` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-016-journal-writer-1": "# Journal \u2014 iter-2026-05-27-016 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the novelty assessment, and the critical review\u2014into a final markdown journal entry.\n\n**Triggered by call:** `c928a3d2\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l360` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-016-loop-v0-tool-dispatch-journal-writer-l697` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-016-loop-v0-tool-receipt-journal-writer-l698` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-016` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-017-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-017 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating a specific research hypothesis based on your topic to establish a formal direction for the investigation.\n\n**Triggered by call:** `4cc8a6a0\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l362` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-017-loop-v0-tool-dispatch-hypothesize-l701` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-017-loop-v0-tool-receipt-hypothesize-l702` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-017` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-017-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-017 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\n\ub098\uba38\uc9c0 \ub2e8\uacc4\ub294 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c \ud638\ucd9c\uc744 \ud1b5\ud574 \ub3c4\uad6c\u2026\n\n**Triggered by call:** `a8941522\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l364` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-017-loop-v0-tool-dispatch-retrieve-literature-l703` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-017-loop-v0-tool-receipt-retrieve-literature-l704` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-017` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-017-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-017 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved the relevant literature, which includes foundational texts on Bayesian games and imperfect information, as well as recent work on introspection dynamics in public goods games. Now, I will classify the novelty of your hypothesis by comparing it against these retrieved results.\n\n**Triggered by call:** `7835dfa0\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l365` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-017-loop-v0-tool-dispatch-novelty-classify-l705` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-017-loop-v0-tool-receipt-novelty-classify-l706` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-017` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-017-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-017 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `c7ffe2ed\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l367` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-017-loop-v0-tool-dispatch-critic-loop-v0-l707` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-017-loop-v0-tool-receipt-critic-loop-v0-l708` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-017` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-017-journal-writer-1": "# Journal \u2014 iter-2026-05-27-017 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now synthesize all the findings\u2014the hypothesis, the novelty assessment, and the successful critique\u2014into a final markdown journal entry.\n\n**Triggered by call:** `82ce7fde\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l369` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-017-loop-v0-tool-dispatch-journal-writer-l710` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-017-loop-v0-tool-receipt-journal-writer-l711` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-017` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-018-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-018 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for the investigation.\n\n**Triggered by call:** `b1b4a892\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l371` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-018-loop-v0-tool-dispatch-hypothesize-l714` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-018-loop-v0-tool-receipt-hypothesize-l715` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-018` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-018-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-018 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `5b7bf460\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l373` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-018-loop-v0-tool-dispatch-retrieve-literature-l716` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-018-loop-v0-tool-receipt-retrieve-literature-l717` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-018` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-018-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-018 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved the relevant literature, which includes foundational texts on coordination games, risk dominance, and limit distributions in large populations. Now, I will classify the novelty of your hypothesis by comparing it to these existing results.\n\n**Triggered by call:** `6c329dbf\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l374` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-018-loop-v0-tool-dispatch-novelty-classify-l718` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-018-loop-v0-tool-receipt-novelty-classify-l719` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-018` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-018-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-018 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `455a9b23\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l376` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-018-loop-v0-tool-dispatch-critic-loop-v0-l720` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-018-loop-v0-tool-receipt-critic-loop-v0-l721` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-018` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-018-journal-writer-1": "# Journal \u2014 iter-2026-05-27-018 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the literature context, the novelty classification, and the critical evaluation\u2014into a final markdown journal entry.\n\n**Triggered by call:** `c342db20\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l378` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-018-loop-v0-tool-dispatch-journal-writer-l723` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-018-loop-v0-tool-receipt-journal-writer-l724` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-018` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-019-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-019 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for the investigation.\n\n**Triggered by call:** `6a8e11e6\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l380` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-019-loop-v0-tool-dispatch-hypothesize-l727` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-019-loop-v0-tool-receipt-hypothesize-l728` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-019` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-019-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-019 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `a186589a\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l382` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-019-loop-v0-tool-dispatch-retrieve-literature-l729` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-019-loop-v0-tool-receipt-retrieve-literature-l730` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-019` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-019-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-019 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have successfully retrieved the relevant literature, which includes foundational texts on coordination games, risk dominance, and the behavior of limit distributions in large populations. Now, I will classify the novelty of the hypothesis by comparing it to these retrieved works.\n\n**Triggered by call:** `d0627733\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l383` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-019-loop-v0-tool-dispatch-novelty-classify-l731` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-019-loop-v0-tool-receipt-novelty-classify-l732` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-019` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-019-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-019 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `a2427666\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l385` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-019-loop-v0-tool-dispatch-critic-loop-v0-l733` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-019-loop-v0-tool-receipt-critic-loop-v0-l734` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-019` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-019-journal-writer-1": "# Journal \u2014 iter-2026-05-27-019 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings from this iteration into a final markdown journal entry to document the hypothesis, its novelty, and the critical evaluation.\n\n**Triggered by call:** `8a132224\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l387` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-019-loop-v0-tool-dispatch-journal-writer-l736` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-019-loop-v0-tool-receipt-journal-writer-l737` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-019` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-020-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-020 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for the investigation.\n\n**Triggered by call:** `d2ecbf08\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l389` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-020-loop-v0-tool-dispatch-hypothesize-l740` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-020-loop-v0-tool-receipt-hypothesize-l741` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-020` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-020-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-020 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `287dbec9\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l391` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-020-loop-v0-tool-dispatch-retrieve-literature-l742` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-020-loop-v0-tool-receipt-retrieve-literature-l743` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-020` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-020-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-020 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved the relevant literature, which includes foundational texts on coordination games, risk dominance, and the behavior of limit distributions in large populations. Now, I will classify the novelty of your hypothesis by comparing it to these existing works.\n\n**Triggered by call:** `9c45b966\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l392` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-020-loop-v0-tool-dispatch-novelty-classify-l744` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-020-loop-v0-tool-receipt-novelty-classify-l745` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-020` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-020-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-020 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `63695a1f\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l394` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-020-loop-v0-tool-dispatch-critic-loop-v0-l746` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-020-loop-v0-tool-receipt-critic-loop-v0-l747` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-020` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-020-journal-writer-1": "# Journal \u2014 iter-2026-05-27-020 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the literature context, the novelty classification, and the critic's verdict\u2014into a final markdown journal entry.\n\n**Triggered by call:** `75f9824e\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l396` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-020-loop-v0-tool-dispatch-journal-writer-l749` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-020-loop-v0-tool-receipt-journal-writer-l750` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-020` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-021-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-021 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for the investigation.\n\n**Triggered by call:** `4eb23719\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l398` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-021-loop-v0-tool-dispatch-hypothesize-l753` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-021-loop-v0-tool-receipt-hypothesize-l754` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-021` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-021-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-021 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `439d49b0\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l400` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-021-loop-v0-tool-dispatch-retrieve-literature-l755` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-021-loop-v0-tool-receipt-retrieve-literature-l756` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-021` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-021-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-021 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved the relevant literature, which includes foundational texts on risk dominance and coordination games. Now, I will classify the novelty of the hypothesis by comparing it to these retrieved works.\n\n**Triggered by call:** `88e672f9\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l401` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-021-loop-v0-tool-dispatch-novelty-classify-l757` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-021-loop-v0-tool-receipt-novelty-classify-l758` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-021` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-021-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-021 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `2131e9e4\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l403` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-021-loop-v0-tool-dispatch-critic-loop-v0-l759` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-021-loop-v0-tool-receipt-critic-loop-v0-l760` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-021` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-021-journal-writer-1": "# Journal \u2014 iter-2026-05-27-021 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile the hypothesis, the novelty classification, and the critic's verdict into a final markdown journal entry.\n\n**Triggered by call:** `20970fbb\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l405` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-021-loop-v0-tool-dispatch-journal-writer-l762` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-021-loop-v0-tool-receipt-journal-writer-l763` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-021` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-022-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-022 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for the investigation.\n\n**Triggered by call:** `33a3984f\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l407` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-022-loop-v0-tool-dispatch-hypothesize-l766` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-022-loop-v0-tool-receipt-hypothesize-l767` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-022` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-022-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-022 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `e0ab5598\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l409` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-022-loop-v0-tool-dispatch-retrieve-literature-l768` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-022-loop-v0-tool-receipt-retrieve-literature-l769` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-022` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-022-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-022 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have successfully retrieved 10 relevant literature chunks, which include foundational texts on coordination games, risk dominance, and limit distributions in large populations. Now, I will classify the novelty of the hypothesis by comparing it to these retrieved works.\n\n**Triggered by call:** `f542b974\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l410` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-022-loop-v0-tool-dispatch-novelty-classify-l770` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-022-loop-v0-tool-receipt-novelty-classify-l771` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-022` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-022-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-022 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `53307504\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l412` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-022-loop-v0-tool-dispatch-critic-loop-v0-l772` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-022-loop-v0-tool-receipt-critic-loop-v0-l773` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-022` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-022-journal-writer-1": "# Journal \u2014 iter-2026-05-27-022 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the literature context, the novelty assessment, and the critique\u2014into a final markdown journal entry.\n\n**Triggered by call:** `63bb4f46\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l414` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-022-loop-v0-tool-dispatch-journal-writer-l775` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-022-loop-v0-tool-receipt-journal-writer-l776` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-022` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-023-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-023 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for investigation.\n\n**Triggered by call:** `177f1016\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l416` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-023-loop-v0-tool-dispatch-hypothesize-l779` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-023-loop-v0-tool-receipt-hypothesize-l780` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-023` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-023-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-023 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `34ea5259\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l418` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-023-loop-v0-tool-dispatch-retrieve-literature-l781` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-023-loop-v0-tool-receipt-retrieve-literature-l782` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-023` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-023-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-023 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now classify the novelty of your hypothesis by comparing it against the retrieved literature to determine if it represents a new insight or a rediscovery of known principles.\n\n**Triggered by call:** `92447acf\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l420` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-023-loop-v0-tool-dispatch-novelty-classify-l784` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-023-loop-v0-tool-receipt-novelty-classify-l785` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-023` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-023-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-023 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have classified the hypothesis as \"nonsense\" because it directly contradicts the standard backward induction result in game theory, which dictates that in a finitely repeated Prisoner's Dilemma with common knowledge of rationality, players will defect in every period, including the penultimate one.\n\nNow, I will run the critic loop to attempt to formally falsify the hypothesis using the retrieved literature.\n\n**Triggered by call:** `4fe248c5\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l422` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-023-loop-v0-tool-dispatch-critic-loop-v0-l786` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-023-loop-v0-tool-receipt-critic-loop-v0-l787` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-023` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-023-journal-writer-1": "# Journal \u2014 iter-2026-05-27-023 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Triggered by call:** `edbfddb6\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l423` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-023-loop-v0-tool-dispatch-journal-writer-l788` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-023-loop-v0-tool-receipt-journal-writer-l789` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-023` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-024-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-024 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for investigation.\n\n**Triggered by call:** `8fc3f223\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l425` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-024-loop-v0-tool-dispatch-hypothesize-l792` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-024-loop-v0-tool-receipt-hypothesize-l793` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-024` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-024-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-024 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `d4aca670\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l427` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-024-loop-v0-tool-dispatch-retrieve-literature-l794` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-024-loop-v0-tool-receipt-retrieve-literature-l795` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-024` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-024-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-024 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved the relevant literature, which includes foundational texts on repeated games and subgame perfect equilibria. Now, I will classify the novelty of the hypothesis by comparing it to these retrieved works.\n\n**Triggered by call:** `6dfb998a\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l428` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-024-loop-v0-tool-dispatch-novelty-classify-l796` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-024-loop-v0-tool-receipt-novelty-classify-l797` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-024` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-024-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-024 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `2fa89a57\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l430` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-024-loop-v0-tool-dispatch-critic-loop-v0-l798` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-024-loop-v0-tool-receipt-critic-loop-v0-l799` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-024` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-024-journal-writer-1": "# Journal \u2014 iter-2026-05-27-024 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the literature context, the novelty classification, and the critical falsification\u2014into a final markdown journal entry.\n\n**Triggered by call:** `e0dee277\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l432` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-024-loop-v0-tool-dispatch-journal-writer-l801` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-024-loop-v0-tool-receipt-journal-writer-l802` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-024` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-025-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-025 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for investigation.\n\n**Triggered by call:** `ba58be3d\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l434` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-025-loop-v0-tool-dispatch-hypothesize-l805` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-025-loop-v0-tool-receipt-hypothesize-l806` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-025` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-025-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-025 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have selected the primary hypothesis and will now query the literature to find existing research that relates to this specific claim about penultimate round cooperation.\n\n**Triggered by call:** `dba1898d\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l437` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-025-loop-v0-tool-dispatch-retrieve-literature-l808` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-025-loop-v0-tool-receipt-retrieve-literature-l809` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-025` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-025-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-025 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Triggered by call:** `29ca099c\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l438` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-025-loop-v0-tool-dispatch-novelty-classify-l810` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-025-loop-v0-tool-receipt-novelty-classify-l811` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-025` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-025-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-025 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `2ec54035\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l441` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-025-loop-v0-tool-dispatch-critic-loop-v0-l813` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-025-loop-v0-tool-receipt-critic-loop-v0-l814` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-025` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-025-journal-writer-1": "# Journal \u2014 iter-2026-05-27-025 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the novelty classification, and the critical verdict\u2014into a final markdown journal entry.\n\n**Triggered by call:** `1f4c5733\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l443` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-025-loop-v0-tool-dispatch-journal-writer-l816` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-025-loop-v0-tool-receipt-journal-writer-l817` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-025` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-026-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-026 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for investigation.\n\n**Triggered by call:** `759ba30f\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l445` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-026-loop-v0-tool-dispatch-hypothesize-l820` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-026-loop-v0-tool-receipt-hypothesize-l821` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-026` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-026-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-026 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `3407fc65\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l447` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-026-loop-v0-tool-dispatch-retrieve-literature-l822` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-026-loop-v0-tool-receipt-retrieve-literature-l823` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-026` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-026-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-026 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved 10 relevant literature chunks, which include foundational discussions on repeated games, subgame perfect equilibrium, and the discrepancy between theory and human behavior in the Prisoner's Dilemma.\n\nNow, I will classify the novelty of the hypothesis by comparing it against these retrieved neighbors.\n\n**Triggered by call:** `5ea5206c\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l448` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-026-loop-v0-tool-dispatch-novelty-classify-l824` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-026-loop-v0-tool-receipt-novelty-classify-l825` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-026` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-026-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-026 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `87d1ebc3\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l450` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-026-loop-v0-tool-dispatch-critic-loop-v0-l826` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-026-loop-v0-tool-receipt-critic-loop-v0-l827` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-026` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-026-journal-writer-1": "# Journal \u2014 iter-2026-05-27-026 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the literature context, the novelty classification, and the critical falsification\u2014into a final markdown journal entry.\n\n**Triggered by call:** `a1ef4ca1\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l452` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-026-loop-v0-tool-dispatch-journal-writer-l829` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-026-loop-v0-tool-receipt-journal-writer-l830` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-026` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-027-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-027 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses based on your topic to establish a formal direction for investigation.\n\n**Triggered by call:** `e4205c6e\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l454` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-027-loop-v0-tool-dispatch-hypothesize-l833` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-027-loop-v0-tool-receipt-hypothesize-l834` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-027` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-027-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-027 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `1bf2848d\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l456` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-027-loop-v0-tool-dispatch-retrieve-literature-l835` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-027-loop-v0-tool-receipt-retrieve-literature-l836` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-027` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-027-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-027 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved 10 relevant literature chunks, which include foundational discussions on repeated games, subgame perfect equilibria, and the discrepancy between theoretical predictions and human behavior in the Prisoner's Dilemma.\n\nNow, I will classify the novelty of your hypothesis by comparing it against these retrieved results.\n\n**Triggered by call:** `3c8471f2\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l457` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-027-loop-v0-tool-dispatch-novelty-classify-l837` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-027-loop-v0-tool-receipt-novelty-classify-l838` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-027` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-027-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-027 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `4118791e\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l459` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-027-loop-v0-tool-dispatch-critic-loop-v0-l839` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-027-loop-v0-tool-receipt-critic-loop-v0-l840` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-027` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-027-journal-writer-1": "# Journal \u2014 iter-2026-05-27-027 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the literature context, the novelty classification, and the critical falsification\u2014into a final markdown journal entry.\n\n**Triggered by call:** `69de16de\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l461` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-027-loop-v0-tool-dispatch-journal-writer-l842` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-027-loop-v0-tool-receipt-journal-writer-l843` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-027` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-028-hypothesize-1": "# Hypothesize \u2014 iter-2026-05-27-028 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating a specific research hypothesis based on your topic to establish a formal testable statement.\n\n**Triggered by call:** `0927935a\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l463` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-028-loop-v0-tool-dispatch-hypothesize-l846` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-028-loop-v0-tool-receipt-hypothesize-l847` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-028` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-028-retrieve-literature-1": "# Retrieve \u2014 iter-2026-05-27-028 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `bfba0c2e\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l465` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-028-loop-v0-tool-dispatch-retrieve-literature-l848` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-028-loop-v0-tool-receipt-retrieve-literature-l849` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-028` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-028-novelty-classify-1": "# Novelty \u2014 iter-2026-05-27-028 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved 10 relevant literature neighbors, ranging from foundational textbook theory on second-price auctions to recent arXiv papers on auction manipulation and learning. Now, I will classify the novelty of the hypothesis against these results.\n\n**Triggered by call:** `a23679a6\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l466` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-028-loop-v0-tool-dispatch-novelty-classify-l850` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-028-loop-v0-tool-receipt-novelty-classify-l851` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-028` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-028-critic-loop-v0-1": "# Critique \u2014 iter-2026-05-27-028 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `4bb64aaa\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l468` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-028-loop-v0-tool-dispatch-critic-loop-v0-l852` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-028-loop-v0-tool-receipt-critic-loop-v0-l853` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-028` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-05-27-028-journal-writer-1": "# Journal \u2014 iter-2026-05-27-028 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the novelty classification, and the critic's verdict\u2014into a final markdown journal entry.\n\n**Triggered by call:** `e6a672ec\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l470` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-028-loop-v0-tool-dispatch-journal-writer-l855` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-27-028-loop-v0-tool-receipt-journal-writer-l856` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-27-028` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-001-hypothesize-1": "# Hypothesize \u2014 iter-2026-06-05-001 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating a specific research hypothesis based on your topic to establish a testable foundation for the investigation.\n\n**Triggered by call:** `b129b0b3\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l653` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-001-loop-v0-tool-dispatch-hypothesize-l859` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-001-loop-v0-tool-receipt-hypothesize-l860` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-001-retrieve-literature-1": "# Retrieve \u2014 iter-2026-06-05-001 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `bb1e4707\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l655` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-001-loop-v0-tool-dispatch-retrieve-literature-l861` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-001-loop-v0-tool-receipt-retrieve-literature-l862` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-001-novelty-classify-1": "# Novelty \u2014 iter-2026-06-05-001 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if it represents a new research direction or a rediscovery.\n\n**Triggered by call:** `4e4d709d\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l657` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-001-loop-v0-tool-dispatch-novelty-classify-l864` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-001-loop-v0-tool-receipt-novelty-classify-l865` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-001-critic-loop-v0-1": "# Critique \u2014 iter-2026-06-05-001 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have classified the hypothesis as a \"rediscovery,\" as the behavior described\u2014bidders shading their bids more aggressively as competition decreases\u2014is a fundamental result of classical auction theory for first-price sealed-bid auctions.\n\nNow, I will run the critic loop to see if the hypothesis can be further falsified or if it requires restatement to be more scientifically rigorous.\n\n**Triggered by call:** `fb39ff3f\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l659` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-001-loop-v0-tool-dispatch-critic-loop-v0-l866` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-001-loop-v0-tool-receipt-critic-loop-v0-l867` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-001-journal-writer-1": "# Journal \u2014 iter-2026-06-05-001 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Triggered by call:** `707db522\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l660` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-001-loop-v0-tool-dispatch-journal-writer-l868` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-001-loop-v0-tool-receipt-journal-writer-l869` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-002-hypothesize-1": "# Hypothesize \u2014 iter-2026-06-05-002 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating a specific, testable hypothesis based on your topic of LLM agents in a Stag-Hunt game on a ring network.\n\n**Triggered by call:** `327ad51f\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l663` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-002-loop-v0-tool-dispatch-hypothesize-l872` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-002-loop-v0-tool-receipt-hypothesize-l873` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-002` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-002-retrieve-literature-1": "# Retrieve \u2014 iter-2026-06-05-002 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nway\nI have generated a primary hypothesis focusing on the convergence toward the payoff-dominant equilibrium in a ring network of LLM agents.\n\n**Triggered by call:** `7a825e0f\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l666` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-002-loop-v0-tool-dispatch-retrieve-literature-l875` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-002-loop-v0-tool-receipt-retrieve-literature-l876` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-002` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-002-novelty-classify-1": "# Novelty \u2014 iter-2026-06-05-002 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if it represents a new insight or a rediscovery of known principles.\n\n**Triggered by call:** `c777a1c0\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l668` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-002-loop-v0-tool-dispatch-novelty-classify-l878` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-002-loop-v0-tool-receipt-novelty-classify-l879` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-002` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-002-critic-loop-v0-1": "# Critique \u2014 iter-2026-06-05-002 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `4ac178c3\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l670` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-002-loop-v0-tool-dispatch-critic-loop-v0-l880` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-002-loop-v0-tool-receipt-critic-loop-v0-l881` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-002` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-002-journal-writer-1": "# Journal \u2014 iter-2026-06-05-002 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the novelty classification, and the critic's verdict\u2014into a final markdown journal entry.\n\n**Triggered by call:** `706f2056\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l672` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-002-loop-v0-tool-dispatch-journal-writer-l883` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-002-loop-v0-tool-receipt-journal-writer-l884` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-002` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-003-hypothesize-1": "# Hypothesize \u2014 iter-2026-06-05-003 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating a specific research hypothesis based on your topic of LLM behavior in VCG combinatorial auctions.\n\n**Triggered by call:** `b7cfad24\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l855` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-003-loop-v0-tool-dispatch-hypothesize-l889` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-003-loop-v0-tool-receipt-hypothesize-l890` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-003` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-003-retrieve-literature-1": "# Retrieve \u2014 iter-2026-06-05-003 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\ntemplate\n\n**Triggered by call:** `33fabaa8\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l859` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-003-loop-v0-tool-dispatch-retrieve-literature-l893` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-003-loop-v0-tool-receipt-retrieve-literature-l894` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-003` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-003-novelty-classify-1": "# Novelty \u2014 iter-2026-06-05-003 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved the relevant literature, which includes foundational texts on Nash Equilibrium and second-price auctions, as well as recent arXiv papers on gradient dynamics in auctions and VCG-based aggregation in multi-agent systems. I will now classify the novelty of the hypothesis.\n\n**Triggered by call:** `95e5ee1a\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l860` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-003-loop-v0-tool-dispatch-novelty-classify-l895` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-003-loop-v0-tool-receipt-novelty-classify-l896` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-003` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-003-critic-loop-v0-1": "# Critique \u2014 iter-2026-06-05-003 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `0abaefd8\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l862` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-003-loop-v0-tool-dispatch-critic-loop-v0-l897` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-003-loop-v0-tool-receipt-critic-loop-v0-l898` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-003` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-003-journal-writer-1": "# Journal \u2014 iter-2026-06-05-003 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings into a final markdown journal entry to document this research iteration.\n\n**Triggered by call:** `ee651fb7\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l864` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-003-loop-v0-tool-dispatch-journal-writer-l900` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-003-loop-v0-tool-receipt-journal-writer-l901` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-003` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-004-hypothesize-1": "# Hypothesize \u2014 iter-2026-06-05-004 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating a specific research hypothesis based on your experimental finding regarding VCG truthfulness in combinatorial auctions.\n\n**Triggered by call:** `6540d84d\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1077` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-004-loop-v0-tool-dispatch-hypothesize-l906` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-004-loop-v0-tool-receipt-hypothesize-l907` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-004` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-004-retrieve-literature-1": "# Retrieve \u2014 iter-2026-06-05-004 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\n<|\"|>thought\n\n**Triggered by call:** `5a115e52\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1111` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-004-loop-v0-tool-dispatch-retrieve-literature-l910` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-004-loop-v0-tool-receipt-retrieve-literature-l911` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-004` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-004-novelty-classify-1": "# Novelty \u2014 iter-2026-06-05-004 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved the relevant literature, which includes foundational texts on learning in games and recent arXiv papers on VCG-based aggregation. Now, I will classify the novelty of your hypothesis by comparing it to these retrieved results.\n\n**Triggered by call:** `671dc6ce\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1112` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-004-loop-v0-tool-dispatch-novelty-classify-l912` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-004-loop-v0-tool-receipt-novelty-classify-l913` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-004` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-004-critic-loop-v0-1": "# Critique \u2014 iter-2026-06-05-004 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `b1e1876c\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1114` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-004-loop-v0-tool-dispatch-critic-loop-v0-l914` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-004-loop-v0-tool-receipt-critic-loop-v0-l915` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-004` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-004-journal-writer-1": "# Journal \u2014 iter-2026-06-05-004 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the novelty assessment, and the critique\u2014into a final markdown journal entry.\n\n**Triggered by call:** `354df785\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1116` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-004-loop-v0-tool-dispatch-journal-writer-l917` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-004-loop-v0-tool-receipt-journal-writer-l918` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-004` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-005-hypothesize-1": "# Hypothesize \u2014 iter-2026-06-05-005 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 6** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating a specific research hypothesis based on your topic to establish a concrete direction for the investigation.\n\n**Triggered by call:** `6fb1fcbe\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1311` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-005-loop-v0-tool-dispatch-hypothesize-l922` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-005-loop-v0-tool-receipt-hypothesize-l923` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-005-loop-v0-tool-dispatch-hypothesize-l924` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-005-loop-v0-tool-receipt-hypothesize-l925` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-005` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-005-hypothesize-2": "# Hypothesize \u2014 iter-2026-06-05-005 (step 2)\n\n_worker: hypothesize_\n\n**Step 2 of 6** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating a specific research hypothesis based on your topic to establish a concrete direction for the investigation.\n\n**Triggered by call:** `6fb1fcbe\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1311` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-005-loop-v0-tool-dispatch-hypothesize-l922` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-005-loop-v0-tool-receipt-hypothesize-l923` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-005-loop-v0-tool-dispatch-hypothesize-l924` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-005-loop-v0-tool-receipt-hypothesize-l925` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-005` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-005-retrieve-literature-1": "# Retrieve \u2014 iter-2026-06-05-005 (step 3)\n\n_worker: retrieve_literature_\n\n**Step 3 of 6** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have formulated a specific hypothesis focusing on how the moments accountant handles non-Gaussian gradient noise in deep neural networks. Now, I will retrieve relevant literature to see how this hypothesis compares to existing research.\n\n**Triggered by call:** `0ae14ca9\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1371` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-005-loop-v0-tool-dispatch-retrieve-literature-l928` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-005-loop-v0-tool-receipt-retrieve-literature-l929` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-005` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-005-novelty-classify-1": "# Novelty \u2014 iter-2026-06-05-005 (step 4)\n\n_worker: novelty_classify_\n\n**Step 4 of 6** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Triggered by call:** `58f476e0\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1396` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-005-loop-v0-tool-dispatch-novelty-classify-l930` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-005-loop-v0-tool-receipt-novelty-classify-l931` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-005` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-005-critic-loop-v0-1": "# Critique \u2014 iter-2026-06-05-005 (step 5)\n\n_worker: critic_loop_v0_\n\n**Step 5 of 6** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have classified the novelty of the hypothesis as \"unclear\" because the retrieved literature\u2014which is heavily focused on game theory and market mechanisms\u2014does not contain direct technical comparisons between the moments accountant and R\u00e9nyi differential privacy for non-Gaussian noise. Now, I will run the critic loop to attempt to falsify the hypothesis using the available information.\n\n**Triggered by call:** `3b3d1220\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1398` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-005-loop-v0-tool-dispatch-critic-loop-v0-l932` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-005-loop-v0-tool-receipt-critic-loop-v0-l933` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-005` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-005-journal-writer-1": "# Journal \u2014 iter-2026-06-05-005 (step 6)\n\n_worker: journal_writer_\n\n**Step 6 of 6** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Triggered by call:** `54a21d54\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1399` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-005-loop-v0-tool-dispatch-journal-writer-l934` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-005-loop-v0-tool-receipt-journal-writer-l935` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-005` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-006-hypothesize-1": "# Hypothesize \u2014 iter-2026-06-05-006 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating a specific research hypothesis based on your experimental finding regarding designer efficiency in mechanism design.\n\n**Triggered by call:** `b1a3fb75\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1828` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-006-loop-v0-tool-dispatch-hypothesize-l941` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-006-loop-v0-tool-receipt-hypothesize-l942` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-006` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-006-retrieve-literature-1": "# Retrieve \u2014 iter-2026-06-05-006 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `b8786e3c\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1832` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-006-loop-v0-tool-dispatch-retrieve-literature-l945` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-006-loop-v0-tool-receipt-retrieve-literature-l946` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-006` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-006-novelty-classify-1": "# Novelty \u2014 iter-2026-06-05-006 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now classify the novelty of the hypothesis by comparing it against the retrieved literature to determine if it represents a new insight or a rediscovery.\n\n**Triggered by call:** `12292558\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1834` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-006-loop-v0-tool-dispatch-novelty-classify-l950` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-006-loop-v0-tool-receipt-novelty-classify-l951` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-006` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-006-critic-loop-v0-1": "# Critique \u2014 iter-2026-06-05-006 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `6bc9b86e\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1836` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-006-loop-v0-tool-dispatch-critic-loop-v0-l952` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-006-loop-v0-tool-receipt-critic-loop-v0-l953` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-006` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-05-006-journal-writer-1": "# Journal \u2014 iter-2026-06-05-006 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now synthesize all the findings\u2014the hypothesis, the novelty classification, and the critic's verdict\u2014into a final markdown journal entry.\n\n**Triggered by call:** `340152b2\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1838` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-006-loop-v0-tool-dispatch-journal-writer-l955` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-05-006-loop-v0-tool-receipt-journal-writer-l956` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-05-006` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-06-001-hypothesize-1": "# Hypothesize \u2014 iter-2026-06-06-001 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating specific research hypotheses to narrow down your topic into a testable claim.\n\n**Triggered by call:** `ca99a778\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l2165` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-06-001-loop-v0-tool-dispatch-hypothesize-l959` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-06-001-loop-v0-tool-receipt-hypothesize-l960` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-06-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-06-001-retrieve-literature-1": "# Retrieve \u2014 iter-2026-06-06-001 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have formulated a specific hypothesis focusing on how cognitive load affects the convergence rate and stability of LLM agents in a Cournot duopoly.\n\n**Triggered by call:** `da1f71e1\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l2169` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-06-001-loop-v0-tool-dispatch-retrieve-literature-l963` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-06-001-loop-v0-tool-receipt-retrieve-literature-l964` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-06-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-06-001-novelty-classify-1": "# Novelty \u2014 iter-2026-06-06-001 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Triggered by call:** `11cb0d2a\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l2170` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-06-001-loop-v0-tool-dispatch-novelty-classify-l967` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-06-001-loop-v0-tool-receipt-novelty-classify-l968` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-06-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-06-001-critic-loop-v0-1": "# Critique \u2014 iter-2026-06-06-001 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now run the critic loop to attempt to falsify the hypothesis using the retrieved literature.\n\n**Triggered by call:** `7135cc9c\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l2173` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-06-001-loop-v0-tool-dispatch-critic-loop-v0-l970` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-06-001-loop-v0-tool-receipt-critic-loop-v0-l971` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-06-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-06-001-journal-writer-1": "# Journal \u2014 iter-2026-06-06-001 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Triggered by call:** `653cf85b\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l2174` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-06-001-loop-v0-tool-dispatch-journal-writer-l972` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-06-001-loop-v0-tool-receipt-journal-writer-l973` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-06-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-08-001-hypothesize-1": "# Hypothesize \u2014 iter-2026-06-08-001 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating a specific research hypothesis based on your topic and the provided conditioning.\n\n**Triggered by call:** `9759e339\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l3048` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-dispatch-hypothesize-l985` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-receipt-hypothesize-l986` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-08-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-08-001-retrieve-literature-1": "# Retrieve \u2014 iter-2026-06-08-001 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\n<|\"|>thought\n\n**Triggered by call:** `c9139bc4\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l3052` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-dispatch-retrieve-literature-l989` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-receipt-retrieve-literature-l990` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-08-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-08-001-novelty-classify-1": "# Novelty \u2014 iter-2026-06-08-001 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved 10 relevant papers, including studies on LLM agents in matching mechanisms and the strategic behavior of models in auction settings. Now, I will classify the novelty of the hypothesis against these findings.\n\n**Triggered by call:** `21113dcc\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l3053` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-dispatch-novelty-classify-l993` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-receipt-novelty-classify-l994` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-08-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-08-001-critic-loop-v0-1": "# Critique \u2014 iter-2026-06-08-001 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `de979d32\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l3055` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-dispatch-critic-loop-v0-l995` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-receipt-critic-loop-v0-l996` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-08-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-08-001-journal-writer-1": "# Journal \u2014 iter-2026-06-08-001 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings into a final markdown journal entry to document the research iteration.\n\n**Triggered by call:** `b75ca068\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l3057` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-dispatch-journal-writer-l998` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-08-001-loop-v0-tool-receipt-journal-writer-l999` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-08-001` (iteration) \u2014 **produced**\n",
     "harvest-h001-l1": "# H001 \u2014 run-log:confirmed\n\n_week1.run.jsonl L2 task=preflight_credentials_staged_\n\n**Source skill:** `run-log`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L2 task=preflight_credentials_staged\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** A failed step is logged with full rigor: status=failed, observable_actual names all 5 missing credentials. Matches run-log's 'log the failure too'.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n- **observed_in** \u2192 `runlog-day-1-preflight-credentials-staged-l2` (run_log_entry)\n",
     "harvest-h001-l2": "# H001 \u2014 run-log:confirmed\n\n_week1.run.jsonl L2->L3 task=preflight_credentials_staged_\n\n**Source skill:** `run-log`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L2->L3 task=preflight_credentials_staged\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** The task fails (L2) then passes on re-run (L3) as a new appended entry; the failed entry is never edited. Matches run-log's 'append only \u2014 a correction is a new entry'.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n- **observed_in** \u2192 `runlog-day-1-preflight-credentials-staged-l2` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-1-preflight-credentials-staged-l3` (run_log_entry)\n",
     "harvest-h001-l3": "# H001 \u2014 run-log:confirmed\n\n_week1.run.jsonl L5 task=state_transition_\n\n**Source skill:** `run-log`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L5 task=state_transition\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** A state transition (gate cleared, task moved to completed_tasks) is logged as its own standalone entry, not buried in another task's line. Matches run-log's 'state transitions get their own entries'.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n- **observed_in** \u2192 `runlog-day-1-state-transition-l5` (run_log_entry)\n",
@@ -8909,7 +20406,7 @@ window.BRAIN_GRAPH = {
     "skill-slip-ladder": "# slip-ladder \u2014 Layer B / core\n\n_dev-time_\n\n**Layer:** B\n\n**Pack:** core\n\n**Runtime safety:** dev-time\n\n**Description:** Declare a bounded sequence of deadline extensions when a task is on the right approach but not finishing inside its time budget. Use when [[fallback]] does not fit because there is no alternative approach to switch to \u2014 only \"more time, same approach, with a stated cap\". Each slip is logged; the cap is real; resolution criterion is declared upfront.\n\n## Referenced by\n\n- `proposal-p-003` (proposal) \u2014 **targets**\n",
     "skill-spawn-contract": "# spawn-contract \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Spawn an autonomous child agent under an explicit, bounded contract. Use when a parent agent (dev-time or runtime) hands a task to a child that will execute without a human in the loop \u2014 captures task statement, done-condition, skill subset, authority cap, budget, self-gating rules, reporting format, and escalation path into one durable record before the child is launched.\n\n## Referenced by\n\n- `proposal-p-004` (proposal) \u2014 **targets**\n",
     "skill-validate": "# validate \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Run a validation as a set of independent pass/fail checks. Use when a task or experiment defines explicit success criteria \u2014 checks each signal separately, reports pass or fail honestly, and never coerces a near-miss into a pass.\n\n## Referenced by\n\n- `harvest-h002-l10` (harvest_finding) \u2014 **about**\n- `harvest-h002-l11` (harvest_finding) \u2014 **about**\n- `harvest-h002-l12` (harvest_finding) \u2014 **about**\n- `harvest-h003-l26` (harvest_finding) \u2014 **about**\n- `harvest-h003-l27` (harvest_finding) \u2014 **about**\n- `harvest-h007-l39` (harvest_finding) \u2014 **about**\n- `spawn-sp-001` (spawn) \u2014 **uses**\n- `spawn-sp-002` (spawn) \u2014 **uses**\n",
-    "agent-nara": "# Agent \u2014 nara\n\n_567 narratives across 12 raw label(s)_\n\n**Canonical agent id:** `nara`\n\n**Raw labels seen in narratives:** nara, nara.run_iteration, nara:loop_v0_fallback, nara:loop_v0_iteration_complete, nara:loop_v0_iteration_start, nara:loop_v0_reprompt, nara:loop_v0_tool_dispatch, nara:loop_v0_tool_receipt, orchestrator:orchestrator_dispatch, orchestrator:orchestrator_receipt, orchestrator:orchestrator_reject, orchestrator:worker_invocation\n\n**Total narratives:** 567\n\n**First seen:** 2026-05-17\n\n## Links\n\n- **ran** \u2192 `iter-2026-05-26-001` (iteration)\n- **ran** \u2192 `iter-2026-05-26-002` (iteration)\n- **ran** \u2192 `iter-2026-05-26-003` (iteration)\n- **ran** \u2192 `iter-2026-05-26-004` (iteration)\n- **ran** \u2192 `iter-2026-05-26-005` (iteration)\n- **ran** \u2192 `iter-2026-05-26-006` (iteration)\n- **ran** \u2192 `iter-2026-05-26-007` (iteration)\n- **ran** \u2192 `iter-2026-05-26-008` (iteration)\n- **ran** \u2192 `iter-2026-05-26-009` (iteration)\n- **ran** \u2192 `iter-2026-05-26-010` (iteration)\n- **ran** \u2192 `iter-2026-05-26-011` (iteration)\n- **ran** \u2192 `iter-2026-05-27-001` (iteration)\n- **ran** \u2192 `iter-2026-05-27-002` (iteration)\n- **ran** \u2192 `iter-2026-05-27-003` (iteration)\n- **ran** \u2192 `iter-2026-05-27-004` (iteration)\n- **ran** \u2192 `iter-2026-05-27-005` (iteration)\n- **ran** \u2192 `iter-2026-05-27-006` (iteration)\n",
+    "agent-nara": "# Agent \u2014 nara\n\n_4150 narratives across 15 raw label(s)_\n\n**Canonical agent id:** `nara`\n\n**Raw labels seen in narratives:** nara, nara.run_iteration, nara:loop_v0_fallback, nara:loop_v0_iteration_complete, nara:loop_v0_iteration_failed, nara:loop_v0_iteration_start, nara:loop_v0_ml_intern, nara:loop_v0_redteam_retry, nara:loop_v0_reprompt, nara:loop_v0_tool_dispatch, nara:loop_v0_tool_receipt, orchestrator:orchestrator_dispatch, orchestrator:orchestrator_receipt, orchestrator:orchestrator_reject, orchestrator:worker_invocation\n\n**Total narratives:** 4150\n\n**First seen:** 2026-05-17\n\n## Links\n\n- **ran** \u2192 `iter-2026-05-26-001` (iteration)\n- **ran** \u2192 `iter-2026-05-26-002` (iteration)\n- **ran** \u2192 `iter-2026-05-26-003` (iteration)\n- **ran** \u2192 `iter-2026-05-26-004` (iteration)\n- **ran** \u2192 `iter-2026-05-26-005` (iteration)\n- **ran** \u2192 `iter-2026-05-26-006` (iteration)\n- **ran** \u2192 `iter-2026-05-26-007` (iteration)\n- **ran** \u2192 `iter-2026-05-26-008` (iteration)\n- **ran** \u2192 `iter-2026-05-26-009` (iteration)\n- **ran** \u2192 `iter-2026-05-26-010` (iteration)\n- **ran** \u2192 `iter-2026-05-26-011` (iteration)\n- **ran** \u2192 `iter-2026-05-27-001` (iteration)\n- **ran** \u2192 `iter-2026-05-27-002` (iteration)\n- **ran** \u2192 `iter-2026-05-27-003` (iteration)\n- **ran** \u2192 `iter-2026-05-27-004` (iteration)\n- **ran** \u2192 `iter-2026-05-27-005` (iteration)\n- **ran** \u2192 `iter-2026-05-27-006` (iteration)\n- **ran** \u2192 `iter-2026-05-27-007` (iteration)\n- **ran** \u2192 `iter-2026-05-27-008` (iteration)\n- **ran** \u2192 `iter-2026-05-27-009` (iteration)\n- **ran** \u2192 `iter-2026-05-27-010` (iteration)\n- **ran** \u2192 `iter-2026-05-27-011` (iteration)\n- **ran** \u2192 `iter-2026-05-27-012` (iteration)\n- **ran** \u2192 `iter-2026-05-27-013` (iteration)\n- **ran** \u2192 `iter-2026-05-27-014` (iteration)\n- **ran** \u2192 `iter-2026-05-27-015` (iteration)\n- **ran** \u2192 `iter-2026-05-27-016` (iteration)\n- **ran** \u2192 `iter-2026-05-27-017` (iteration)\n- **ran** \u2192 `iter-2026-05-27-018` (iteration)\n- **ran** \u2192 `iter-2026-05-27-019` (iteration)\n- **ran** \u2192 `iter-2026-05-27-020` (iteration)\n- **ran** \u2192 `iter-2026-05-27-021` (iteration)\n- **ran** \u2192 `iter-2026-05-27-022` (iteration)\n- **ran** \u2192 `iter-2026-05-27-023` (iteration)\n- **ran** \u2192 `iter-2026-05-27-024` (iteration)\n- **ran** \u2192 `iter-2026-05-27-025` (iteration)\n- **ran** \u2192 `iter-2026-05-27-026` (iteration)\n- **ran** \u2192 `iter-2026-05-27-027` (iteration)\n- **ran** \u2192 `iter-2026-05-27-028` (iteration)\n- **ran** \u2192 `iter-2026-06-05-001` (iteration)\n- **ran** \u2192 `iter-2026-06-05-002` (iteration)\n- **ran** \u2192 `iter-2026-06-05-003` (iteration)\n- **ran** \u2192 `iter-2026-06-05-004` (iteration)\n- **ran** \u2192 `iter-2026-06-05-005` (iteration)\n- **ran** \u2192 `iter-2026-06-05-006` (iteration)\n- **ran** \u2192 `iter-2026-06-06-001` (iteration)\n- **ran** \u2192 `iter-2026-06-08-001` (iteration)\n",
     "agent-day9-critic": "# Agent \u2014 day9_critic\n\n_60 narratives across 21 raw label(s)_\n\n**Canonical agent id:** `day9_critic`\n\n**Raw labels seen in narratives:** day9_critic, day9_critic_001_spurious_causation_pd_length, day9_critic_002_prompt_leakage_cooperation, day9_critic_003_misspecified_payoff, day9_critic_004_sample_size_insufficient, day9_critic_005_post_hoc_rationale, day9_critic_006_overgeneralization, day9_critic_007_selection_bias, day9_critic_008_confounded_treatment, day9_critic_009_measurement_artifact, day9_critic_010_circular_reasoning, day9_critic_011_goodhart, day9_critic_012_regression_to_mean, day9_critic_013_missing_baseline, day9_critic_014_temperature_artifact, day9_critic_015_ungrounded_extrapolation, day9_critic_016_ambiguous_construct, day9_critic_017_publication_threshold, day9_critic_018_anthropomorphic_attribution, day9_critic_019_mis_specified_construct_validity, day9_critic_020_sound_cooperation_lockin\n\n**Total narratives:** 60\n\n**First seen:** 2026-05-25\n",
     "agent-claude-code-main": "# Agent \u2014 claude-code-main\n\n_15 narratives across 1 raw label(s)_\n\n**Canonical agent id:** `claude-code-main`\n\n**Raw labels seen in narratives:** claude-code-main\n\n**Total narratives:** 15\n\n**First seen:** 2026-05-20\n\n## Links\n\n- **authored** \u2192 `s13-3-author-narrate-skill` (reflection)\n- **authored** \u2192 `hypothesis-day4-tool-call-rate` (reflection)\n- **authored** \u2192 `experiment-day4-tool-call-rate` (reflection)\n- **authored** \u2192 `anomaly-tool-call-100pct` (reflection)\n- **authored** \u2192 `s22-5-narrate-sp-002-lifecycle` (reflection)\n",
     "agent-human-decross1": "# Agent \u2014 human:decross1\n\n_5 narratives across 1 raw label(s)_\n\n**Canonical agent id:** `human:decross1`\n\n**Raw labels seen in narratives:** human:decross1\n\n**Total narratives:** 5\n\n**First seen:** 2026-05-24\n",
