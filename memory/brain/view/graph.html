@@ -54,6 +54,11 @@
   .v-apparatus     { background: #fef3c7; color: #92400e; }
   header .tab-btn { font-size: 12px; padding: 4px 10px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; }
   header .tab-btn.active { background: #2563eb; color: white; border-color: #2563eb; }
+  header .viewnav { display: inline-flex; border: 1px solid #ccc; border-radius: 5px; overflow: hidden; margin-right: 4px; }
+  header .viewnav a { font-size: 12px; padding: 4px 11px; text-decoration: none; color: #333; background: #fff; border-right: 1px solid #ddd; font-weight: 600; }
+  header .viewnav a:last-child { border-right: 0; }
+  header .viewnav a.active { background: #2563eb; color: #fff; }
+  header .viewnav a:not(.active):hover { background: #f3f4f6; }
   header .toggle-label { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; padding: 4px 9px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; user-select: none; }
   header .toggle-label input { margin: 0; }
   header .toggle-label.checked { background: #ecfdf5; border-color: #10b981; color: #065f46; }
@@ -77,6 +82,10 @@
     aside .page-content blockquote { color: #999; }
     aside .proposal-item { background: #222; border-color: #444; }
     header .tab-btn { background: #2a2a2a; color: #ddd; border-color: #444; }
+    header .viewnav { border-color: #444; }
+    header .viewnav a { background: #2a2a2a; color: #ddd; border-right-color: #444; }
+    header .viewnav a.active { background: #2563eb; color: #fff; }
+    header .viewnav a:not(.active):hover { background: #333; }
     header .toggle-label { background: #2a2a2a; color: #ddd; border-color: #444; }
     header .toggle-label.checked { background: #064e3b; border-color: #10b981; color: #6ee7b7; }
     aside .action-btn { background: #2a2a2a; color: #ddd; border-color: #444; }
@@ -104,6 +113,7 @@
 <body>
 <header>
   <div class="row">
+    <span class="viewnav"><a href="dashboard.html">Dashboard</a><a href="graph.html" class="active">Graph</a></span>
     <h1>Brain — graph</h1>
     <button class="tab-btn active" id="tab-graph">Graph</button>
     <button class="tab-btn" id="tab-proposals">Proposals (0)</button>

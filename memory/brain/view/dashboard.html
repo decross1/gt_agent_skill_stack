@@ -24,6 +24,11 @@
   /* controls — graph.html idioms */
   .tab-btn { font-size: 12px; padding: 4px 10px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; color: #333; }
   .tab-btn.active { background: #2563eb; color: white; border-color: #2563eb; }
+  .viewnav { display: inline-flex; border: 1px solid #ccc; border-radius: 5px; overflow: hidden; }
+  .viewnav a { font-size: 12px; padding: 4px 11px; text-decoration: none; color: #333; background: #fff; border-right: 1px solid #ddd; font-weight: 600; }
+  .viewnav a:last-child { border-right: 0; }
+  .viewnav a.active { background: #2563eb; color: #fff; }
+  .viewnav a:not(.active):hover { background: #f3f4f6; }
   .toggle-label { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; padding: 4px 9px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; user-select: none; color: #333; }
   .toggle-label.checked { background: #ecfdf5; border-color: #10b981; color: #065f46; }
   .action-btn { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 3px; cursor: pointer; user-select: none; background: #fff; border: 1px solid #ccc; color: #333; font-weight: 500; text-decoration: none; }
@@ -156,6 +161,10 @@
     header { background: #222; border-color: #333; }
     header .ident { color: #aaa; }
     .tab-btn { background: #2a2a2a; color: #ddd; border-color: #444; }
+    .viewnav { border-color: #444; }
+    .viewnav a { background: #2a2a2a; color: #ddd; border-right-color: #444; }
+    .viewnav a.active { background: #2563eb; color: #fff; }
+    .viewnav a:not(.active):hover { background: #333; }
     .toggle-label { background: #2a2a2a; color: #ddd; border-color: #444; }
     .toggle-label.checked { background: #064e3b; border-color: #10b981; color: #6ee7b7; }
     .action-btn { background: #2a2a2a; color: #ddd; border-color: #444; }
@@ -200,12 +209,12 @@
 <header>
   <div class="hwrap">
     <div class="row">
+      <span class="viewnav"><a href="dashboard.html" class="active">Dashboard</a><a href="graph.html">Graph</a></span>
       <h1>Brain — functional review</h1>
       <span class="ident" id="ident-pair"></span>
       <span class="ident" id="firewall-pulse" title=""></span>
       <span class="spacer"></span>
       <span class="ident muted" id="asof"></span>
-      <a class="action-btn primary" href="graph.html" id="explore-link">Explore the full graph &rarr;</a>
     </div>
     <div class="row" id="act-tabs">
       <button class="tab-btn active" data-target="act1">&#9312; The System</button>
