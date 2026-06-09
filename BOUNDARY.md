@@ -34,9 +34,9 @@ a human *build* a project.
 > **Rule.** Dev-only skills must never be loaded into any project's runtime
 > agent. They assume a developer, a dev harness, and a build task.
 
-**Runtime-safe core — Layer A** (`runtime-safe: true`). The five
+**Runtime-safe core — Layer A** (`runtime-safe: true`). The six
 execution-discipline skills: `resume-state`, `gate-check`, `validate`,
-`run-log`, `fallback`. Domain-agnostic, and designed to be embedded in an
+`run-log`, `fallback`, `spawn-contract`. Domain-agnostic, and designed to be embedded in an
 autonomously spawned or runtime agent — that is what the designation means.
 
 > **Rule.** A runtime agent may include the runtime-safe core *by deliberate

@@ -107,12 +107,12 @@ generality. The plan separates them (Phase 2) without breaking symlinks — via
 
 | Layer | Skills | Role |
 |---|---|---|
-| **A — Core discipline** | `resume-state`, `gate-check`, `validate`, `run-log`, `fallback` | Domain-agnostic. The product. |
+| **A — Core discipline** | `resume-state`, `gate-check`, `validate`, `run-log`, `fallback`, `spawn-contract` | Domain-agnostic. The product. |
 | **B — Research vertical** | `plan-research`, `experiment`, `auto-experiment`, `repro-check`, `investigate`, `code-review`, `ship`, `health` | One optional vertical pack among future ones. |
 | **C — Orchestration & meta** | `orchestrate`, `harvest`, agent profiles, `context-save/restore` | Infrastructure. |
 
 **Runtime-safe core** = the subset of Layer A that may be embedded in a spawned
-or runtime agent: `gate-check`, `validate`, `run-log`, `fallback`, `resume-state`
+or runtime agent: `gate-check`, `validate`, `run-log`, `fallback`, `resume-state`, `spawn-contract`
 — rewritten (Phase 5) to assume no human in the loop and no dev harness.
 
 ---

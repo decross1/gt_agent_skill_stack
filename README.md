@@ -114,7 +114,7 @@ Two operational scripts wrap the above with pidfile + log + lifecycle:
 
 The framework is primarily a **dev-time harness** — it helps build projects.
 Skills fall in two classes: **dev-only** skills (Layers B and C) that must never
-enter a project's runtime agent, and a **runtime-safe core** (the 5 Layer-A
+enter a project's runtime agent, and a **runtime-safe core** (the 6 Layer-A
 skills) that may be deliberately embedded in a spawned or runtime agent. Full
 policy in `BOUNDARY.md`.
 

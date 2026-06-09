@@ -16,7 +16,7 @@ it in one of three layers.
 
 ### Layer A — Core discipline
 
-Domain-agnostic execution discipline: the framework's reusable core. These five
+Domain-agnostic execution discipline: the framework's reusable core. These six
 are the **runtime-safe core** (`runtime-safe: true`) — designated safe to embed
 in autonomously spawned / runtime agents, not only dev-time sessions. The
 `runtime-safe` contract they must satisfy is defined in `BOUNDARY.md`; per-skill
@@ -29,6 +29,7 @@ conformance is verified in Phase 3.
 | `validate` | Run validations as independent pass/fail checks; never coerce a near-miss. |
 | `fallback` | Switch to a declared alternative — explicit, time-capped, logged. |
 | `run-log` | Append a structured JSONL entry per executed step — append-only, auditable. |
+| `spawn-contract` | Spawn an autonomous child agent under an explicit, bounded contract: task, done-condition, skill subset, authority cap, budget, escalation. |
 
 ### Layer B — Research & build vertical
 
@@ -45,6 +46,11 @@ A vertical pack for research / ML-pipeline engineering. Dev-time only
 | `experiment` | Log a single run to the ledger (config, seed, data, metrics). |
 | `auto-experiment` | Run an unattended sequence of experiments under a fixed budget. |
 | `repro-check` | Gate a result on reproducibility before it is trusted. |
+| `brain-recall` | Bounded read-only query of the brain for top-N relevant prior corrections, anomalies, decisions. |
+| `narrate` | Human-readable reflection after a task: intent, deltas, lessons, corrections honored. |
+| `propose` | File a durable, reviewable proposal to improve a brain page, rule, or skill. |
+| `review-proposal` | Route an open proposal to accept/reject/human-review against active rules. |
+| `slip-ladder` | Bounded logged deadline extensions (same approach, stated cap) when fallback does not fit. |
 
 ### Layer C — Orchestration & meta
 
@@ -129,7 +135,7 @@ projects. The word "orchestrator" names two systems that must not be conflated:
 
 **Rule.** Skills fall in two classes. **Dev-only skills** (Layers B and C) must
 never be loaded into any project's runtime agent. The **runtime-safe core** (the
-5 Layer-A skills) may be *deliberately* embedded in a spawned / runtime agent —
+6 Layer-A skills) may be *deliberately* embedded in a spawned / runtime agent —
 never inherited by accident. The leak vector is the global `~/.pi/agent/skills/`
 directory; a project whose runtime runs on Pi must pin its own skill discovery.
 Full policy, the `runtime-safe` contract, and verification steps in `BOUNDARY.md`.
