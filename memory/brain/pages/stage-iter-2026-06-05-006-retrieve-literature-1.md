@@ -4,7 +4,7 @@ type: "stage"
 date: "2026-06-05"
 source: "loop_memory.jsonl + week1.run.jsonl"
 edges:
-  - {type: derived_from, dst: "apparatus-calls-l1832", dst_type: "apparatus_event"}
+  - {type: derived_from, dst: "apparatus-calls-l536", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-006-loop-v0-tool-dispatch-retrieve-literature-l945", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-006-loop-v0-tool-receipt-retrieve-literature-l946", dst_type: "apparatus_event"}
 ---
@@ -21,7 +21,7 @@ _worker: retrieve_literature_
 
 ## Links
 
-- **derived_from** → `apparatus-calls-l1832` (apparatus_event)
+- **derived_from** → `apparatus-calls-l536` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-006-loop-v0-tool-dispatch-retrieve-literature-l945` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-006-loop-v0-tool-receipt-retrieve-literature-l946` (apparatus_event)
 

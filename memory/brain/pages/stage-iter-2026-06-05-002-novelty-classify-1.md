@@ -4,7 +4,7 @@ type: "stage"
 date: "2026-06-05"
 source: "loop_memory.jsonl + week1.run.jsonl"
 edges:
-  - {type: derived_from, dst: "apparatus-calls-l668", dst_type: "apparatus_event"}
+  - {type: derived_from, dst: "apparatus-calls-l488", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-002-loop-v0-tool-dispatch-novelty-classify-l878", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-002-loop-v0-tool-receipt-novelty-classify-l879", dst_type: "apparatus_event"}
 ---
@@ -25,7 +25,7 @@ I will now classify the novelty of the hypothesis by comparing it against the re
 
 ## Links
 
-- **derived_from** → `apparatus-calls-l668` (apparatus_event)
+- **derived_from** → `apparatus-calls-l488` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-002-loop-v0-tool-dispatch-novelty-classify-l878` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-002-loop-v0-tool-receipt-novelty-classify-l879` (apparatus_event)
 

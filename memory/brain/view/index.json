@@ -30,448 +30,580 @@
     "title": "Anomaly \u2014 tool-call invocation at 100%"
   },
   {
-    "slug": "apparatus-worker_activity-l493",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L493"
-  },
-  {
-    "slug": "apparatus-worker_activity-l494",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L494"
-  },
-  {
-    "slug": "apparatus-worker_activity-l495",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L495"
-  },
-  {
-    "slug": "apparatus-worker_activity-l496",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L496"
-  },
-  {
-    "slug": "apparatus-worker_activity-l497",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L497"
-  },
-  {
-    "slug": "apparatus-worker_activity-l498",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L498"
-  },
-  {
-    "slug": "apparatus-worker_activity-l499",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L499"
-  },
-  {
-    "slug": "apparatus-worker_activity-l500",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L500"
-  },
-  {
-    "slug": "apparatus-worker_activity-l501",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L501"
-  },
-  {
-    "slug": "apparatus-worker_activity-l502",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L502"
-  },
-  {
-    "slug": "apparatus-worker_activity-l503",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L503"
-  },
-  {
-    "slug": "apparatus-worker_activity-l504",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L504"
-  },
-  {
-    "slug": "apparatus-worker_activity-l505",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L505"
-  },
-  {
-    "slug": "apparatus-worker_activity-l506",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L506"
-  },
-  {
-    "slug": "apparatus-worker_activity-l507",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L507"
-  },
-  {
-    "slug": "apparatus-worker_activity-l508",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L508"
-  },
-  {
-    "slug": "apparatus-worker_activity-l509",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L509"
-  },
-  {
-    "slug": "apparatus-worker_activity-l510",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L510"
-  },
-  {
-    "slug": "apparatus-worker_activity-l511",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L511"
-  },
-  {
-    "slug": "apparatus-worker_activity-l512",
-    "type": "apparatus_event",
-    "date": "2026-06-08",
-    "title": "unknown_apparatus \u2014 worker_activity L512"
-  },
-  {
-    "slug": "apparatus-worker_activity-l513",
+    "slug": "apparatus-worker_activity-l1156",
     "type": "apparatus_event",
     "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L513"
+    "title": "unknown_apparatus \u2014 worker_activity L1156"
   },
   {
-    "slug": "apparatus-worker_activity-l514",
+    "slug": "apparatus-worker_activity-l1157",
     "type": "apparatus_event",
     "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L514"
+    "title": "unknown_apparatus \u2014 worker_activity L1157"
   },
   {
-    "slug": "apparatus-worker_activity-l515",
+    "slug": "apparatus-worker_activity-l1158",
     "type": "apparatus_event",
     "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L515"
+    "title": "unknown_apparatus \u2014 worker_activity L1158"
   },
   {
-    "slug": "apparatus-worker_activity-l516",
+    "slug": "apparatus-worker_activity-l1159",
     "type": "apparatus_event",
     "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L516"
+    "title": "unknown_apparatus \u2014 worker_activity L1159"
   },
   {
-    "slug": "apparatus-worker_activity-l517",
+    "slug": "apparatus-worker_activity-l1160",
     "type": "apparatus_event",
     "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L517"
+    "title": "unknown_apparatus \u2014 worker_activity L1160"
   },
   {
-    "slug": "apparatus-worker_activity-l518",
+    "slug": "apparatus-worker_activity-l1161",
     "type": "apparatus_event",
     "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L518"
+    "title": "unknown_apparatus \u2014 worker_activity L1161"
   },
   {
-    "slug": "apparatus-worker_activity-l519",
+    "slug": "apparatus-worker_activity-l1162",
     "type": "apparatus_event",
     "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L519"
+    "title": "unknown_apparatus \u2014 worker_activity L1162"
   },
   {
-    "slug": "apparatus-worker_activity-l520",
+    "slug": "apparatus-worker_activity-l1163",
     "type": "apparatus_event",
     "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L520"
+    "title": "unknown_apparatus \u2014 worker_activity L1163"
   },
   {
-    "slug": "apparatus-worker_activity-l521",
+    "slug": "apparatus-worker_activity-l1164",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L521"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1164"
   },
   {
-    "slug": "apparatus-worker_activity-l522",
+    "slug": "apparatus-worker_activity-l1165",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L522"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1165"
   },
   {
-    "slug": "apparatus-worker_activity-l523",
+    "slug": "apparatus-worker_activity-l1166",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L523"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1166"
   },
   {
-    "slug": "apparatus-worker_activity-l524",
+    "slug": "apparatus-worker_activity-l1167",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L524"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1167"
   },
   {
-    "slug": "apparatus-worker_activity-l525",
+    "slug": "apparatus-worker_activity-l1168",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L525"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1168"
   },
   {
-    "slug": "apparatus-worker_activity-l526",
+    "slug": "apparatus-worker_activity-l1169",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L526"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1169"
   },
   {
-    "slug": "apparatus-worker_activity-l527",
+    "slug": "apparatus-worker_activity-l1170",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L527"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1170"
   },
   {
-    "slug": "apparatus-worker_activity-l528",
+    "slug": "apparatus-worker_activity-l1171",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L528"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1171"
   },
   {
-    "slug": "apparatus-worker_activity-l529",
+    "slug": "apparatus-worker_activity-l1172",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L529"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1172"
   },
   {
-    "slug": "apparatus-worker_activity-l530",
+    "slug": "apparatus-worker_activity-l1173",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L530"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1173"
   },
   {
-    "slug": "apparatus-worker_activity-l531",
+    "slug": "apparatus-worker_activity-l1174",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L531"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1174"
   },
   {
-    "slug": "apparatus-worker_activity-l532",
+    "slug": "apparatus-worker_activity-l1175",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L532"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1175"
   },
   {
-    "slug": "apparatus-worker_activity-l533",
+    "slug": "apparatus-worker_activity-l1176",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L533"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1176"
   },
   {
-    "slug": "apparatus-worker_activity-l534",
+    "slug": "apparatus-worker_activity-l1177",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L534"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1177"
   },
   {
-    "slug": "apparatus-worker_activity-l535",
+    "slug": "apparatus-worker_activity-l1178",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L535"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1178"
   },
   {
-    "slug": "apparatus-worker_activity-l536",
+    "slug": "apparatus-worker_activity-l1179",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L536"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1179"
   },
   {
-    "slug": "apparatus-worker_activity-l537",
+    "slug": "apparatus-worker_activity-l1180",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L537"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1180"
   },
   {
-    "slug": "apparatus-worker_activity-l538",
+    "slug": "apparatus-worker_activity-l1181",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L538"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1181"
   },
   {
-    "slug": "apparatus-worker_activity-l539",
+    "slug": "apparatus-worker_activity-l1182",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L539"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1182"
   },
   {
-    "slug": "apparatus-worker_activity-l540",
+    "slug": "apparatus-worker_activity-l1183",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L540"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1183"
   },
   {
-    "slug": "apparatus-worker_activity-l541",
+    "slug": "apparatus-worker_activity-l1184",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L541"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1184"
   },
   {
-    "slug": "apparatus-worker_activity-l542",
+    "slug": "apparatus-worker_activity-l1185",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L542"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1185"
   },
   {
-    "slug": "apparatus-worker_activity-l543",
+    "slug": "apparatus-worker_activity-l1186",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L543"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1186"
   },
   {
-    "slug": "apparatus-worker_activity-l544",
+    "slug": "apparatus-worker_activity-l1187",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L544"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1187"
   },
   {
-    "slug": "apparatus-worker_activity-l545",
+    "slug": "apparatus-worker_activity-l1188",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L545"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1188"
   },
   {
-    "slug": "apparatus-worker_activity-l546",
+    "slug": "apparatus-worker_activity-l1189",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L546"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1189"
   },
   {
-    "slug": "apparatus-worker_activity-l547",
+    "slug": "apparatus-worker_activity-l1190",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L547"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1190"
   },
   {
-    "slug": "apparatus-worker_activity-l548",
+    "slug": "apparatus-worker_activity-l1191",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L548"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1191"
   },
   {
-    "slug": "apparatus-worker_activity-l549",
+    "slug": "apparatus-worker_activity-l1192",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L549"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1192"
   },
   {
-    "slug": "apparatus-worker_activity-l550",
+    "slug": "apparatus-worker_activity-l1193",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L550"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1193"
   },
   {
-    "slug": "apparatus-worker_activity-l551",
+    "slug": "apparatus-worker_activity-l1194",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L551"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1194"
   },
   {
-    "slug": "apparatus-worker_activity-l552",
+    "slug": "apparatus-worker_activity-l1195",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L552"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1195"
   },
   {
-    "slug": "apparatus-worker_activity-l553",
+    "slug": "apparatus-worker_activity-l1196",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L553"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1196"
   },
   {
-    "slug": "apparatus-worker_activity-l554",
+    "slug": "apparatus-worker_activity-l1197",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L554"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1197"
   },
   {
-    "slug": "apparatus-worker_activity-l555",
+    "slug": "apparatus-worker_activity-l1198",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L555"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1198"
   },
   {
-    "slug": "apparatus-worker_activity-l556",
+    "slug": "apparatus-worker_activity-l1199",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L556"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1199"
   },
   {
-    "slug": "apparatus-worker_activity-l557",
+    "slug": "apparatus-worker_activity-l1200",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L557"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1200"
   },
   {
-    "slug": "apparatus-worker_activity-l558",
+    "slug": "apparatus-worker_activity-l1201",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L558"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1201"
   },
   {
-    "slug": "apparatus-worker_activity-l559",
+    "slug": "apparatus-worker_activity-l1202",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L559"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1202"
   },
   {
-    "slug": "apparatus-worker_activity-l560",
+    "slug": "apparatus-worker_activity-l1203",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L560"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1203"
   },
   {
-    "slug": "apparatus-worker_activity-l561",
+    "slug": "apparatus-worker_activity-l1204",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L561"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1204"
   },
   {
-    "slug": "apparatus-worker_activity-l562",
+    "slug": "apparatus-worker_activity-l1205",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L562"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1205"
   },
   {
-    "slug": "apparatus-worker_activity-l563",
+    "slug": "apparatus-worker_activity-l1206",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L563"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1206"
   },
   {
-    "slug": "apparatus-worker_activity-l564",
+    "slug": "apparatus-worker_activity-l1207",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L564"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1207"
   },
   {
-    "slug": "apparatus-worker_activity-l565",
+    "slug": "apparatus-worker_activity-l1208",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L565"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1208"
   },
   {
-    "slug": "apparatus-worker_activity-l566",
+    "slug": "apparatus-worker_activity-l1209",
     "type": "apparatus_event",
-    "date": "2026-06-09",
-    "title": "unknown_apparatus \u2014 worker_activity L566"
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1209"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1210",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1210"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1211",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1211"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1212",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1212"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1213",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1213"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1214",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1214"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1215",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1215"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1216",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1216"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1217",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1217"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1218",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1218"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1219",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1219"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1220",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1220"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1221",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1221"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1222",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1222"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1223",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1223"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1224",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1224"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1225",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1225"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1226",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1226"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1227",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1227"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1228",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1228"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1229",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1229"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1230",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1230"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1231",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1231"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1232",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1232"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1233",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1233"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1234",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1234"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1235",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1235"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1236",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1236"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1237",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1237"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1238",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1238"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1239",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1239"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1240",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1240"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1241",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1241"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1242",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1242"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1243",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1243"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1244",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1244"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1245",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1245"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1246",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1246"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1247",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1247"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1248",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1248"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1249",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1249"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1250",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1250"
+  },
+  {
+    "slug": "apparatus-worker_activity-l1251",
+    "type": "apparatus_event",
+    "date": "2026-06-10",
+    "title": "unknown_apparatus \u2014 worker_activity L1251"
   },
   {
     "slug": "correction-exp008-armc-gb10-unified-mem-oom-2026-06-09",
@@ -728,14 +860,56 @@
   {
     "slug": "dec-ap-d-039-gemma-4-qat-evaluated-vs",
     "type": "decision",
-    "date": "2026-06-08",
-    "title": "D-039 \u2014 Gemma 4 QAT evaluated vs the NVFP4 pin (DRAFT, pending exp008 live run)"
+    "date": "2026-06-09",
+    "title": "D-039 \u2014 Gemma 4 QAT evaluated vs the NVFP4 pin \u2014 SHELVED"
   },
   {
     "slug": "dec-ap-d-040-unattended-nara-autonomy-contract-effective",
     "type": "decision",
     "date": "2026-06-08",
     "title": "D-040 \u2014 Unattended Nara autonomy contract (effective at \u03b2; amends the continuous-orchestrator guardrail)"
+  },
+  {
+    "slug": "dec-ap-d-041-is-gated-on-a",
+    "type": "decision",
+    "date": "2026-06-09",
+    "title": "D-041 \u2014 \u03b2 is gated on a validated independent novelty skeptic + the memory guard"
+  },
+  {
+    "slug": "dec-ap-d-042-orchestrate-experiment-repro-check",
+    "type": "decision",
+    "date": "2026-06-09",
+    "title": "D-042 \u2014 orchestrate / experiment / repro-check / plan-research are intentionally REFERENCED-ONLY (harvest re-flags resolved)"
+  },
+  {
+    "slug": "dec-ap-d-043-run-log-schema-bump-agent-required",
+    "type": "decision",
+    "date": "2026-06-09",
+    "title": "D-043 \u2014 run-log schema bump: `agent` (required) + `skill_used` (optional); inviolate rule 6 amended"
+  },
+  {
+    "slug": "dec-ap-d-044-d-041-skeptic-ladder-step-1",
+    "type": "decision",
+    "date": "2026-06-09",
+    "title": "D-044 \u2014 D-041 skeptic ladder step 1 VALIDATED: vllm-qwen is the standing independent skeptic; attack() seam shipped (default off)"
+  },
+  {
+    "slug": "dec-ap-d-045-literature-pipe-refinement-landed-embedding-anch",
+    "type": "decision",
+    "date": "2026-06-09",
+    "title": "D-045 \u2014 Literature-pipe refinement landed: embedding anchors FALSIFIED as off-domain separators; R0 LLM-topicality gate + two-axis novelty + critic hardening; bar honestly NOT met, residuals characterized"
+  },
+  {
+    "slug": "dec-ap-d-046-human-write-back-contract-blessed-ui",
+    "type": "decision",
+    "date": "2026-06-10",
+    "title": "D-046 \u2014 Human write-back contract blessed: UI POSTs exec blessed CLIs; defer-to-dev-session queue + startup triage step"
+  },
+  {
+    "slug": "dec-ap-d-048-test-pollution-purge-one-logged-surgical",
+    "type": "decision",
+    "date": "2026-06-10",
+    "title": "D-048 \u2014 Test-pollution purge (one logged surgical cleanup) + the autouse no-live-artifacts guard"
   },
   {
     "slug": "dec-fw-2026-05-18-added-execution-discipline-skills",
@@ -1062,760 +1236,628 @@
     "title": "Hypothesis \u2014 LLM tool-call invocation rate floor 0.8"
   },
   {
-    "slug": "apparatus-calls-l3150",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3150"
-  },
-  {
-    "slug": "apparatus-calls-l3151",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3151"
-  },
-  {
-    "slug": "apparatus-calls-l3152",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3152"
-  },
-  {
-    "slug": "apparatus-calls-l3153",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3153"
-  },
-  {
-    "slug": "apparatus-calls-l3154",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3154"
-  },
-  {
-    "slug": "apparatus-calls-l3155",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3155"
-  },
-  {
-    "slug": "apparatus-calls-l3156",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3156"
-  },
-  {
-    "slug": "apparatus-calls-l3157",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3157"
-  },
-  {
-    "slug": "apparatus-calls-l3158",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3158"
-  },
-  {
-    "slug": "apparatus-calls-l3159",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3159"
-  },
-  {
-    "slug": "apparatus-calls-l3160",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3160"
-  },
-  {
-    "slug": "apparatus-calls-l3161",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3161"
-  },
-  {
-    "slug": "apparatus-calls-l3162",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3162"
-  },
-  {
-    "slug": "apparatus-calls-l3163",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3163"
-  },
-  {
-    "slug": "apparatus-calls-l3164",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3164"
-  },
-  {
-    "slug": "apparatus-calls-l3165",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3165"
-  },
-  {
-    "slug": "apparatus-calls-l3166",
-    "type": "llm_call",
-    "date": "2026-06-08",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3166"
-  },
-  {
-    "slug": "apparatus-calls-l3167",
-    "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3167"
-  },
-  {
-    "slug": "apparatus-calls-l3168",
-    "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3168"
-  },
-  {
-    "slug": "apparatus-calls-l3169",
-    "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3169"
-  },
-  {
-    "slug": "apparatus-calls-l3170",
-    "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3170"
-  },
-  {
-    "slug": "apparatus-calls-l3171",
-    "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3171"
-  },
-  {
-    "slug": "apparatus-calls-l3172",
-    "type": "llm_call",
+    "slug": "iter-2026-06-09-008",
+    "type": "iteration",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3172"
+    "title": "a_bgt_rsi: Nara \u2014 loop_memory L55"
   },
   {
-    "slug": "apparatus-calls-l3173",
+    "slug": "apparatus-calls-l4743",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3173"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4743"
   },
   {
-    "slug": "apparatus-calls-l3174",
+    "slug": "apparatus-calls-l4744",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3174"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4744"
   },
   {
-    "slug": "apparatus-calls-l3175",
+    "slug": "apparatus-calls-l4745",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3175"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4745"
   },
   {
-    "slug": "apparatus-calls-l3176",
+    "slug": "apparatus-calls-l4746",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3176"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4746"
   },
   {
-    "slug": "apparatus-calls-l3177",
+    "slug": "apparatus-calls-l4747",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3177"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4747"
   },
   {
-    "slug": "apparatus-calls-l3178",
+    "slug": "apparatus-calls-l4748",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3178"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4748"
   },
   {
-    "slug": "apparatus-calls-l3179",
+    "slug": "apparatus-calls-l4749",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3179"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4749"
   },
   {
-    "slug": "apparatus-calls-l3180",
+    "slug": "apparatus-calls-l4750",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3180"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4750"
   },
   {
-    "slug": "apparatus-calls-l3181",
+    "slug": "apparatus-calls-l4751",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3181"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4751"
   },
   {
-    "slug": "apparatus-calls-l3182",
+    "slug": "apparatus-calls-l4752",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3182"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4752"
   },
   {
-    "slug": "apparatus-calls-l3183",
+    "slug": "apparatus-calls-l4753",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3183"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4753"
   },
   {
-    "slug": "apparatus-calls-l3184",
+    "slug": "apparatus-calls-l4754",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3184"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4754"
   },
   {
-    "slug": "apparatus-calls-l3185",
+    "slug": "apparatus-calls-l4755",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3185"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4755"
   },
   {
-    "slug": "apparatus-calls-l3186",
+    "slug": "apparatus-calls-l4756",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3186"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4756"
   },
   {
-    "slug": "apparatus-calls-l3187",
+    "slug": "apparatus-calls-l4757",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3187"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4757"
   },
   {
-    "slug": "apparatus-calls-l3188",
+    "slug": "apparatus-calls-l4758",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3188"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4758"
   },
   {
-    "slug": "apparatus-calls-l3189",
+    "slug": "apparatus-calls-l4759",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3189"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4759"
   },
   {
-    "slug": "apparatus-calls-l3190",
+    "slug": "apparatus-calls-l4760",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3190"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4760"
   },
   {
-    "slug": "apparatus-calls-l3191",
+    "slug": "apparatus-calls-l4761",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3191"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4761"
   },
   {
-    "slug": "apparatus-calls-l3192",
+    "slug": "apparatus-calls-l4762",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3192"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4762"
   },
   {
-    "slug": "apparatus-calls-l3193",
+    "slug": "apparatus-calls-l4763",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3193"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4763"
   },
   {
-    "slug": "apparatus-calls-l3194",
+    "slug": "apparatus-calls-l4764",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3194"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4764"
   },
   {
-    "slug": "apparatus-calls-l3195",
+    "slug": "apparatus-calls-l4765",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3195"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4765"
   },
   {
-    "slug": "apparatus-calls-l3196",
+    "slug": "apparatus-calls-l4766",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3196"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4766"
   },
   {
-    "slug": "apparatus-calls-l3197",
+    "slug": "apparatus-calls-l4767",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3197"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4767"
   },
   {
-    "slug": "apparatus-calls-l3198",
+    "slug": "apparatus-calls-l4768",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3198"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4768"
   },
   {
-    "slug": "apparatus-calls-l3199",
+    "slug": "apparatus-calls-l4769",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3199"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4769"
   },
   {
-    "slug": "apparatus-calls-l3200",
+    "slug": "apparatus-calls-l4770",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3200"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4770"
   },
   {
-    "slug": "apparatus-calls-l3201",
+    "slug": "apparatus-calls-l4771",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3201"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4771"
   },
   {
-    "slug": "apparatus-calls-l3202",
+    "slug": "apparatus-calls-l4772",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3202"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4772"
   },
   {
-    "slug": "apparatus-calls-l3203",
+    "slug": "apparatus-calls-l4773",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3203"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4773"
   },
   {
-    "slug": "apparatus-calls-l3204",
+    "slug": "apparatus-calls-l4774",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3204"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4774"
   },
   {
-    "slug": "apparatus-calls-l3205",
+    "slug": "apparatus-calls-l4775",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3205"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4775"
   },
   {
-    "slug": "apparatus-calls-l3206",
+    "slug": "apparatus-calls-l4776",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3206"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4776"
   },
   {
-    "slug": "apparatus-calls-l3207",
+    "slug": "apparatus-calls-l4777",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3207"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4777"
   },
   {
-    "slug": "apparatus-calls-l3208",
+    "slug": "apparatus-calls-l4778",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3208"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4778"
   },
   {
-    "slug": "apparatus-calls-l3209",
+    "slug": "apparatus-calls-l4779",
     "type": "llm_call",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3209"
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4779"
   },
   {
-    "slug": "apparatus-calls-l3210",
+    "slug": "apparatus-calls-l4780",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3210"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4780"
   },
   {
-    "slug": "apparatus-calls-l3211",
+    "slug": "apparatus-calls-l4781",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3211"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4781"
   },
   {
-    "slug": "apparatus-calls-l3212",
+    "slug": "apparatus-calls-l4782",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3212"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4782"
   },
   {
-    "slug": "apparatus-calls-l3213",
+    "slug": "apparatus-calls-l4783",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3213"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4783"
   },
   {
-    "slug": "apparatus-calls-l3214",
+    "slug": "apparatus-calls-l4784",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3214"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4784"
   },
   {
-    "slug": "apparatus-calls-l3215",
+    "slug": "apparatus-calls-l4785",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3215"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4785"
   },
   {
-    "slug": "apparatus-calls-l3216",
+    "slug": "apparatus-calls-l4786",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3216"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4786"
   },
   {
-    "slug": "apparatus-calls-l3217",
+    "slug": "apparatus-calls-l4787",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3217"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4787"
   },
   {
-    "slug": "apparatus-calls-l3218",
+    "slug": "apparatus-calls-l4788",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3218"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4788"
   },
   {
-    "slug": "apparatus-calls-l3219",
+    "slug": "apparatus-calls-l4789",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3219"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4789"
   },
   {
-    "slug": "apparatus-calls-l3220",
+    "slug": "apparatus-calls-l4790",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3220"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4790"
   },
   {
-    "slug": "apparatus-calls-l3221",
+    "slug": "apparatus-calls-l4791",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3221"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4791"
   },
   {
-    "slug": "apparatus-calls-l3222",
+    "slug": "apparatus-calls-l4792",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3222"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4792"
   },
   {
-    "slug": "apparatus-calls-l3223",
+    "slug": "apparatus-calls-l4793",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3223"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4793"
   },
   {
-    "slug": "apparatus-calls-l3224",
+    "slug": "apparatus-calls-l4794",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3224"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4794"
   },
   {
-    "slug": "apparatus-calls-l3225",
+    "slug": "apparatus-calls-l4795",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3225"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4795"
   },
   {
-    "slug": "apparatus-calls-l3226",
+    "slug": "apparatus-calls-l4796",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3226"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4796"
   },
   {
-    "slug": "apparatus-calls-l3227",
+    "slug": "apparatus-calls-l4797",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3227"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4797"
   },
   {
-    "slug": "apparatus-calls-l3228",
+    "slug": "apparatus-calls-l4798",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3228"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4798"
   },
   {
-    "slug": "apparatus-calls-l3229",
+    "slug": "apparatus-calls-l4799",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3229"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4799"
   },
   {
-    "slug": "apparatus-calls-l3230",
+    "slug": "apparatus-calls-l4800",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3230"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4800"
   },
   {
-    "slug": "apparatus-calls-l3231",
+    "slug": "apparatus-calls-l4801",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3231"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4801"
   },
   {
-    "slug": "apparatus-calls-l3232",
+    "slug": "apparatus-calls-l4802",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3232"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4802"
   },
   {
-    "slug": "apparatus-calls-l3233",
+    "slug": "apparatus-calls-l4803",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3233"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4803"
   },
   {
-    "slug": "apparatus-calls-l3234",
+    "slug": "apparatus-calls-l4804",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3234"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4804"
   },
   {
-    "slug": "apparatus-calls-l3235",
+    "slug": "apparatus-calls-l4805",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3235"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4805"
   },
   {
-    "slug": "apparatus-calls-l3236",
+    "slug": "apparatus-calls-l4806",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3236"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4806"
   },
   {
-    "slug": "apparatus-calls-l3237",
+    "slug": "apparatus-calls-l4807",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3237"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4807"
   },
   {
-    "slug": "apparatus-calls-l3238",
+    "slug": "apparatus-calls-l4808",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3238"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4808"
   },
   {
-    "slug": "apparatus-calls-l3239",
+    "slug": "apparatus-calls-l4809",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3239"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4809"
   },
   {
-    "slug": "apparatus-calls-l3240",
+    "slug": "apparatus-calls-l4810",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3240"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4810"
   },
   {
-    "slug": "apparatus-calls-l3241",
+    "slug": "apparatus-calls-l4811",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3241"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4811"
   },
   {
-    "slug": "apparatus-calls-l3242",
+    "slug": "apparatus-calls-l4812",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3242"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4812"
   },
   {
-    "slug": "apparatus-calls-l3243",
+    "slug": "apparatus-calls-l4813",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3243"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4813"
   },
   {
-    "slug": "apparatus-calls-l3244",
+    "slug": "apparatus-calls-l4814",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3244"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4814"
   },
   {
-    "slug": "apparatus-calls-l3245",
+    "slug": "apparatus-calls-l4815",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3245"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4815"
   },
   {
-    "slug": "apparatus-calls-l3246",
+    "slug": "apparatus-calls-l4816",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3246"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4816"
   },
   {
-    "slug": "apparatus-calls-l3247",
+    "slug": "apparatus-calls-l4817",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3247"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4817"
   },
   {
-    "slug": "apparatus-calls-l3248",
+    "slug": "apparatus-calls-l4818",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3248"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4818"
   },
   {
-    "slug": "apparatus-calls-l3249",
+    "slug": "apparatus-calls-l4819",
     "type": "llm_call",
-    "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3249"
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4819"
   },
   {
-    "slug": "apparatus-calls-l3250",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-007-loop-v0-iteration-complete-none-l1167",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3250"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1167"
   },
   {
-    "slug": "apparatus-calls-l3251",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-007-loop-v0-reprompt-none-l1159",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3251"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1159"
   },
   {
-    "slug": "apparatus-calls-l3252",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-007-loop-v0-reprompt-none-l1164",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3252"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1164"
   },
   {
-    "slug": "apparatus-calls-l3253",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-007-loop-v0-tool-dispatch-critic-loop-v0-l1162",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3253"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1162"
   },
   {
-    "slug": "apparatus-calls-l3254",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-007-loop-v0-tool-dispatch-journal-writer-l1165",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3254"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1165"
   },
   {
-    "slug": "apparatus-calls-l3255",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-007-loop-v0-tool-dispatch-novelty-classify-l1160",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3255"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1160"
   },
   {
-    "slug": "apparatus-calls-l3256",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-007-loop-v0-tool-receipt-critic-loop-v0-l1163",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3256"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1163"
   },
   {
-    "slug": "apparatus-calls-l3257",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-007-loop-v0-tool-receipt-journal-writer-l1166",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3257"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1166"
   },
   {
-    "slug": "apparatus-calls-l3258",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-007-loop-v0-tool-receipt-novelty-classify-l1161",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3258"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1161"
   },
   {
-    "slug": "apparatus-calls-l3259",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-iteration-complete-none-l1184",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3259"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1184"
   },
   {
-    "slug": "apparatus-calls-l3260",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-iteration-start-none-l1168",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3260"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1168"
   },
   {
-    "slug": "apparatus-calls-l3261",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-redteam-retry-none-l1171",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3261"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1171"
   },
   {
-    "slug": "apparatus-calls-l3262",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-redteam-retry-none-l1172",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3262"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1172"
   },
   {
-    "slug": "apparatus-calls-l3263",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-reprompt-none-l1179",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3263"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1179"
   },
   {
-    "slug": "apparatus-calls-l3264",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-tool-dispatch-critic-loop-v0-l1180",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3264"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1180"
   },
   {
-    "slug": "apparatus-calls-l3265",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-tool-dispatch-hypothesize-l1169",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3265"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1169"
   },
   {
-    "slug": "apparatus-calls-l3266",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-tool-dispatch-hypothesize-l1173",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3266"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1173"
   },
   {
-    "slug": "apparatus-calls-l3267",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-tool-dispatch-journal-writer-l1182",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3267"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1182"
   },
   {
-    "slug": "apparatus-calls-l3268",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-tool-dispatch-novelty-classify-l1177",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3268"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1177"
   },
   {
-    "slug": "apparatus-calls-l3269",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-tool-dispatch-retrieve-literature-l1175",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3269"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1175"
   },
   {
-    "slug": "apparatus-calls-l3270",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-tool-receipt-critic-loop-v0-l1181",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3270"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1181"
   },
   {
-    "slug": "apparatus-calls-l3271",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-tool-receipt-hypothesize-l1170",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3271"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1170"
   },
   {
-    "slug": "apparatus-calls-l3272",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-tool-receipt-hypothesize-l1174",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3272"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1174"
   },
   {
-    "slug": "apparatus-calls-l3273",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-tool-receipt-journal-writer-l1183",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3273"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1183"
   },
   {
-    "slug": "apparatus-calls-l3274",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-tool-receipt-novelty-classify-l1178",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3274"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1178"
   },
   {
-    "slug": "apparatus-calls-l3275",
-    "type": "llm_call",
+    "slug": "event-iter-2026-06-09-008-loop-v0-tool-receipt-retrieve-literature-l1176",
+    "type": "orchestrator_event",
     "date": "2026-06-09",
-    "title": "a_bgt_rsi: Nara/LLM \u2014 calls L3275"
+    "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1176"
   },
   {
     "slug": "proposal-p-001",
@@ -1860,6 +1902,48 @@
     "title": "P-007 \u2014 Live-ish brain: cron-driven ingest + regen + auto-refresh"
   },
   {
+    "slug": "proposal-p-008",
+    "type": "proposal",
+    "date": "2026-06-09",
+    "title": "P-008 \u2014 Adopt run-log `agent` attribution in a_bgt_rsi (reconcile inviolate rule 6) so unattended multi-agent runs are reconstructible"
+  },
+  {
+    "slug": "proposal-p-009",
+    "type": "proposal",
+    "date": "2026-06-09",
+    "title": "P-009 \u2014 A discriminative gate/threshold calibrated on a single observed failure instance is brittle \u2014 calibrate + regression-test against a varied/adversarial labelled set"
+  },
+  {
+    "slug": "proposal-p-010",
+    "type": "proposal",
+    "date": "2026-06-09",
+    "title": "P-010 \u2014 Sequence code-review BEFORE the first expensive real-model measurement"
+  },
+  {
+    "slug": "critic-emit-mlintern-nemoclaw-2026-06-09",
+    "type": "reflection",
+    "date": "2026-06-09",
+    "title": "critic_emit_mlintern_nemoclaw_2026-06-09"
+  },
+  {
+    "slug": "demo1-lit-falsification-real-run",
+    "type": "reflection",
+    "date": "2026-06-09",
+    "title": "demo1_lit_falsification_real_run"
+  },
+  {
+    "slug": "demo2b-nemoclaw-agent-autonomy",
+    "type": "reflection",
+    "date": "2026-06-09",
+    "title": "demo2b_nemoclaw_agent_autonomy"
+  },
+  {
+    "slug": "morning-loop-governance-2026-06-09",
+    "type": "reflection",
+    "date": "2026-06-09",
+    "title": "morning_loop_governance_2026-06-09"
+  },
+  {
     "slug": "reflection-exp008-error-as-zero-insufficient-2026-06-09",
     "type": "reflection",
     "date": "2026-06-09",
@@ -1876,6 +1960,18 @@
     "type": "reflection",
     "date": "2026-05-25",
     "title": "s22_5_narrate_sp_002_lifecycle"
+  },
+  {
+    "slug": "session-2026-06-09-evening",
+    "type": "reflection",
+    "date": "2026-06-09",
+    "title": "session-2026-06-09-evening"
+  },
+  {
+    "slug": "validation-session-workflow-start",
+    "type": "reflection",
+    "date": "2026-06-09",
+    "title": "validation_session_workflow_start"
   },
   {
     "slug": "rule-fr-001",
@@ -1896,6 +1992,36 @@
     "title": "FR-003 \u2014 run-log schema: agent (required) and skill_used (optional)"
   },
   {
+    "slug": "runlog-2026-06-10-workflow-build-phase-l1219",
+    "type": "run_log_entry",
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1219"
+  },
+  {
+    "slug": "runlog-2026-06-10-workstream-a-provenance-emit-l1217",
+    "type": "run_log_entry",
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1217"
+  },
+  {
+    "slug": "runlog-2026-06-10-workstream-b-writeback-contract-l1218",
+    "type": "run_log_entry",
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1218"
+  },
+  {
+    "slug": "runlog-2026-06-10-workstream-d-hygiene-purge-l1220",
+    "type": "run_log_entry",
+    "date": "2026-06-10",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1220"
+  },
+  {
+    "slug": "runlog-a-l1129",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1129"
+  },
+  {
     "slug": "runlog-applied-tier-polymarket-designonly-via-dynamic-workflow-l938",
     "type": "run_log_entry",
     "date": "2026-06-05",
@@ -1908,6 +2034,12 @@
     "title": "a_bgt_rsi: Nara \u2014 week1.run L920"
   },
   {
+    "slug": "runlog-b-l1130",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1130"
+  },
+  {
     "slug": "runlog-beta-substrate-gap-audit-va1-refute-l1004",
     "type": "run_log_entry",
     "date": "2026-06-09",
@@ -1918,6 +2050,12 @@
     "type": "run_log_entry",
     "date": "2026-06-08",
     "title": "a_bgt_rsi: Nara \u2014 week1.run L978"
+  },
+  {
+    "slug": "runlog-critic-emit-mlintern-nemoclaw-start-l1046",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1046"
   },
   {
     "slug": "runlog-d040-ratification-cleanup-commit-l983",
@@ -2868,6 +3006,30 @@
     "title": "a_bgt_rsi: Nara \u2014 week1.run L982"
   },
   {
+    "slug": "runlog-demo1-lit-falsification-real-run-l1091",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1091"
+  },
+  {
+    "slug": "runlog-demo2a-nemoclaw-seam-run-loop-iteration-l1092",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1092"
+  },
+  {
+    "slug": "runlog-demo2b-fallback-selection-l1095",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1095"
+  },
+  {
+    "slug": "runlog-demo2b-nemoclaw-agent-autonomy-l1094",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1094"
+  },
+  {
     "slug": "runlog-derisk-beta-integration-verify-gate-l1006",
     "type": "run_log_entry",
     "date": "2026-06-09",
@@ -2934,10 +3096,130 @@
     "title": "a_bgt_rsi: Nara \u2014 week1.run L976"
   },
   {
+    "slug": "runlog-h-l1125",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1125"
+  },
+  {
     "slug": "runlog-instrumentation-block1-via-dynamic-workflow-l975",
     "type": "run_log_entry",
     "date": "2026-06-06",
     "title": "a_bgt_rsi: Nara \u2014 week1.run L975"
+  },
+  {
+    "slug": "runlog-limb-a-critic-relevance-l1047",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1047"
+  },
+  {
+    "slug": "runlog-limb-a-morning-topic-build-l1026",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1026"
+  },
+  {
+    "slug": "runlog-limb-a-run-loop-iteration-tool-l1086",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1086"
+  },
+  {
+    "slug": "runlog-limb-b-agent-bundle-runnable-l1087",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1087"
+  },
+  {
+    "slug": "runlog-limb-b-mlintern-rootcause-l1048",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1048"
+  },
+  {
+    "slug": "runlog-limb-b-runlog-agent-build-l1027",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1027"
+  },
+  {
+    "slug": "runlog-limb-c-emit-prereqs-l1049",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1049"
+  },
+  {
+    "slug": "runlog-limb-c-governance-drafts-l1028",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1028"
+  },
+  {
+    "slug": "runlog-limb-c-skeptic-ladder-l1127",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1127"
+  },
+  {
+    "slug": "runlog-limb-c-ui-validation-harness-l1088",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1088"
+  },
+  {
+    "slug": "runlog-limb-d-lit-falsification-battery-l1089",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1089"
+  },
+  {
+    "slug": "runlog-limb-d-nemoclaw-probe-l1029",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1029"
+  },
+  {
+    "slug": "runlog-limb-d-nemoclaw-toolplane-l1050",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1050"
+  },
+  {
+    "slug": "runlog-limb-d-t1c-t1d-068-l1132",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1132"
+  },
+  {
+    "slug": "runlog-limb-e-experiment-construction-spec-l1090",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1090"
+  },
+  {
+    "slug": "runlog-limb-e-reverse-path-l1128",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1128"
+  },
+  {
+    "slug": "runlog-limb-f-exp009-cournot-l1126",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1126"
+  },
+  {
+    "slug": "runlog-limb-g-t2-mcp-probe-l1131",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1131"
+  },
+  {
+    "slug": "runlog-lit-battery-post-t1-final-l1135",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1135"
   },
   {
     "slug": "runlog-loop-v1-build-via-dynamic-workflow-l886",
@@ -2952,10 +3234,58 @@
     "title": "a_bgt_rsi: Nara \u2014 week1.run L937"
   },
   {
+    "slug": "runlog-morning-loop-governance-workflow-start-l1007",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1007"
+  },
+  {
+    "slug": "runlog-nemoclaw-beta-seam-proven-l1069",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1069"
+  },
+  {
     "slug": "runlog-next-steps-build-via-dynamic-workflow-l904",
     "type": "run_log_entry",
     "date": "2026-06-05",
     "title": "a_bgt_rsi: Nara \u2014 week1.run L904"
+  },
+  {
+    "slug": "runlog-skeptic-ladder-step1-live-test-l1133",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1133"
+  },
+  {
+    "slug": "runlog-t2-mcp-agent-autonomy-drive-l1186",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1186"
+  },
+  {
+    "slug": "runlog-t3-dispatcher-worked-examples-l1134",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1134"
+  },
+  {
+    "slug": "runlog-validation-session-workflow-start-l1070",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1070"
+  },
+  {
+    "slug": "runlog-validation-session-workflow-start-l1093",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1093"
+  },
+  {
+    "slug": "runlog-workflow-s-synthesis-l1030",
+    "type": "run_log_entry",
+    "date": "2026-06-09",
+    "title": "a_bgt_rsi: Nara \u2014 week1.run L1030"
   },
   {
     "slug": "skill-auto-experiment",
@@ -4800,5 +5130,349 @@
     "title": "Retrieve \u2014 iter-2026-06-08-001 (step 2)",
     "worker": "retrieve_literature",
     "step": 2
+  },
+  {
+    "slug": "stage-iter-2026-06-09-001-critic-loop-v0-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Critique \u2014 iter-2026-06-09-001 (step 4)",
+    "worker": "critic_loop_v0",
+    "step": 4
+  },
+  {
+    "slug": "stage-iter-2026-06-09-001-hypothesize-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Hypothesize \u2014 iter-2026-06-09-001 (step 1)",
+    "worker": "hypothesize",
+    "step": 1
+  },
+  {
+    "slug": "stage-iter-2026-06-09-001-journal-writer-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Journal \u2014 iter-2026-06-09-001 (step 5)",
+    "worker": "journal_writer",
+    "step": 5
+  },
+  {
+    "slug": "stage-iter-2026-06-09-001-novelty-classify-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Novelty \u2014 iter-2026-06-09-001 (step 3)",
+    "worker": "novelty_classify",
+    "step": 3
+  },
+  {
+    "slug": "stage-iter-2026-06-09-001-retrieve-literature-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Retrieve \u2014 iter-2026-06-09-001 (step 2)",
+    "worker": "retrieve_literature",
+    "step": 2
+  },
+  {
+    "slug": "stage-iter-2026-06-09-002-critic-loop-v0-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Critique \u2014 iter-2026-06-09-002 (step 5)",
+    "worker": "critic_loop_v0",
+    "step": 5
+  },
+  {
+    "slug": "stage-iter-2026-06-09-002-hypothesize-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Hypothesize \u2014 iter-2026-06-09-002 (step 1)",
+    "worker": "hypothesize",
+    "step": 1
+  },
+  {
+    "slug": "stage-iter-2026-06-09-002-hypothesize-2",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Hypothesize \u2014 iter-2026-06-09-002 (step 2)",
+    "worker": "hypothesize",
+    "step": 2
+  },
+  {
+    "slug": "stage-iter-2026-06-09-002-journal-writer-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Journal \u2014 iter-2026-06-09-002 (step 6)",
+    "worker": "journal_writer",
+    "step": 6
+  },
+  {
+    "slug": "stage-iter-2026-06-09-002-novelty-classify-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Novelty \u2014 iter-2026-06-09-002 (step 4)",
+    "worker": "novelty_classify",
+    "step": 4
+  },
+  {
+    "slug": "stage-iter-2026-06-09-002-retrieve-literature-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Retrieve \u2014 iter-2026-06-09-002 (step 3)",
+    "worker": "retrieve_literature",
+    "step": 3
+  },
+  {
+    "slug": "stage-iter-2026-06-09-003-critic-loop-v0-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Critique \u2014 iter-2026-06-09-003 (step 4)",
+    "worker": "critic_loop_v0",
+    "step": 4
+  },
+  {
+    "slug": "stage-iter-2026-06-09-003-hypothesize-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Hypothesize \u2014 iter-2026-06-09-003 (step 1)",
+    "worker": "hypothesize",
+    "step": 1
+  },
+  {
+    "slug": "stage-iter-2026-06-09-003-journal-writer-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Journal \u2014 iter-2026-06-09-003 (step 5)",
+    "worker": "journal_writer",
+    "step": 5
+  },
+  {
+    "slug": "stage-iter-2026-06-09-003-novelty-classify-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Novelty \u2014 iter-2026-06-09-003 (step 3)",
+    "worker": "novelty_classify",
+    "step": 3
+  },
+  {
+    "slug": "stage-iter-2026-06-09-003-retrieve-literature-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Retrieve \u2014 iter-2026-06-09-003 (step 2)",
+    "worker": "retrieve_literature",
+    "step": 2
+  },
+  {
+    "slug": "stage-iter-2026-06-09-004-critic-loop-v0-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Critique \u2014 iter-2026-06-09-004 (step 4)",
+    "worker": "critic_loop_v0",
+    "step": 4
+  },
+  {
+    "slug": "stage-iter-2026-06-09-004-hypothesize-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Hypothesize \u2014 iter-2026-06-09-004 (step 1)",
+    "worker": "hypothesize",
+    "step": 1
+  },
+  {
+    "slug": "stage-iter-2026-06-09-004-journal-writer-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Journal \u2014 iter-2026-06-09-004 (step 5)",
+    "worker": "journal_writer",
+    "step": 5
+  },
+  {
+    "slug": "stage-iter-2026-06-09-004-novelty-classify-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Novelty \u2014 iter-2026-06-09-004 (step 3)",
+    "worker": "novelty_classify",
+    "step": 3
+  },
+  {
+    "slug": "stage-iter-2026-06-09-004-retrieve-literature-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Retrieve \u2014 iter-2026-06-09-004 (step 2)",
+    "worker": "retrieve_literature",
+    "step": 2
+  },
+  {
+    "slug": "stage-iter-2026-06-09-005-critic-loop-v0-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Critique \u2014 iter-2026-06-09-005 (step 4)",
+    "worker": "critic_loop_v0",
+    "step": 4
+  },
+  {
+    "slug": "stage-iter-2026-06-09-005-hypothesize-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Hypothesize \u2014 iter-2026-06-09-005 (step 1)",
+    "worker": "hypothesize",
+    "step": 1
+  },
+  {
+    "slug": "stage-iter-2026-06-09-005-journal-writer-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Journal \u2014 iter-2026-06-09-005 (step 5)",
+    "worker": "journal_writer",
+    "step": 5
+  },
+  {
+    "slug": "stage-iter-2026-06-09-005-novelty-classify-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Novelty \u2014 iter-2026-06-09-005 (step 3)",
+    "worker": "novelty_classify",
+    "step": 3
+  },
+  {
+    "slug": "stage-iter-2026-06-09-005-retrieve-literature-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Retrieve \u2014 iter-2026-06-09-005 (step 2)",
+    "worker": "retrieve_literature",
+    "step": 2
+  },
+  {
+    "slug": "stage-iter-2026-06-09-006-critic-loop-v0-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Critique \u2014 iter-2026-06-09-006 (step 5)",
+    "worker": "critic_loop_v0",
+    "step": 5
+  },
+  {
+    "slug": "stage-iter-2026-06-09-006-hypothesize-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Hypothesize \u2014 iter-2026-06-09-006 (step 1)",
+    "worker": "hypothesize",
+    "step": 1
+  },
+  {
+    "slug": "stage-iter-2026-06-09-006-hypothesize-2",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Hypothesize \u2014 iter-2026-06-09-006 (step 2)",
+    "worker": "hypothesize",
+    "step": 2
+  },
+  {
+    "slug": "stage-iter-2026-06-09-006-journal-writer-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Journal \u2014 iter-2026-06-09-006 (step 6)",
+    "worker": "journal_writer",
+    "step": 6
+  },
+  {
+    "slug": "stage-iter-2026-06-09-006-novelty-classify-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Novelty \u2014 iter-2026-06-09-006 (step 4)",
+    "worker": "novelty_classify",
+    "step": 4
+  },
+  {
+    "slug": "stage-iter-2026-06-09-006-retrieve-literature-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Retrieve \u2014 iter-2026-06-09-006 (step 3)",
+    "worker": "retrieve_literature",
+    "step": 3
+  },
+  {
+    "slug": "stage-iter-2026-06-09-007-critic-loop-v0-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Critique \u2014 iter-2026-06-09-007 (step 4)",
+    "worker": "critic_loop_v0",
+    "step": 4
+  },
+  {
+    "slug": "stage-iter-2026-06-09-007-hypothesize-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Hypothesize \u2014 iter-2026-06-09-007 (step 1)",
+    "worker": "hypothesize",
+    "step": 1
+  },
+  {
+    "slug": "stage-iter-2026-06-09-007-journal-writer-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Journal \u2014 iter-2026-06-09-007 (step 5)",
+    "worker": "journal_writer",
+    "step": 5
+  },
+  {
+    "slug": "stage-iter-2026-06-09-007-novelty-classify-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Novelty \u2014 iter-2026-06-09-007 (step 3)",
+    "worker": "novelty_classify",
+    "step": 3
+  },
+  {
+    "slug": "stage-iter-2026-06-09-007-retrieve-literature-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Retrieve \u2014 iter-2026-06-09-007 (step 2)",
+    "worker": "retrieve_literature",
+    "step": 2
+  },
+  {
+    "slug": "stage-iter-2026-06-09-008-critic-loop-v0-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Critique \u2014 iter-2026-06-09-008 (step 5)",
+    "worker": "critic_loop_v0",
+    "step": 5
+  },
+  {
+    "slug": "stage-iter-2026-06-09-008-hypothesize-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Hypothesize \u2014 iter-2026-06-09-008 (step 1)",
+    "worker": "hypothesize",
+    "step": 1
+  },
+  {
+    "slug": "stage-iter-2026-06-09-008-hypothesize-2",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Hypothesize \u2014 iter-2026-06-09-008 (step 2)",
+    "worker": "hypothesize",
+    "step": 2
+  },
+  {
+    "slug": "stage-iter-2026-06-09-008-journal-writer-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Journal \u2014 iter-2026-06-09-008 (step 6)",
+    "worker": "journal_writer",
+    "step": 6
+  },
+  {
+    "slug": "stage-iter-2026-06-09-008-novelty-classify-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Novelty \u2014 iter-2026-06-09-008 (step 4)",
+    "worker": "novelty_classify",
+    "step": 4
+  },
+  {
+    "slug": "stage-iter-2026-06-09-008-retrieve-literature-1",
+    "type": "stage",
+    "date": "2026-06-09",
+    "title": "Retrieve \u2014 iter-2026-06-09-008 (step 3)",
+    "worker": "retrieve_literature",
+    "step": 3
   }
 ]

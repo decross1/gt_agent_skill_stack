@@ -4,7 +4,7 @@ type: "stage"
 date: "2026-06-05"
 source: "loop_memory.jsonl + week1.run.jsonl"
 edges:
-  - {type: derived_from, dst: "apparatus-calls-l659", dst_type: "apparatus_event"}
+  - {type: derived_from, dst: "apparatus-calls-l479", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-001-loop-v0-tool-dispatch-critic-loop-v0-l866", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-001-loop-v0-tool-receipt-critic-loop-v0-l867", dst_type: "apparatus_event"}
 ---
@@ -27,7 +27,7 @@ Now, I will run the critic loop to see if the hypothesis can be further falsifie
 
 ## Links
 
-- **derived_from** → `apparatus-calls-l659` (apparatus_event)
+- **derived_from** → `apparatus-calls-l479` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-001-loop-v0-tool-dispatch-critic-loop-v0-l866` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-001-loop-v0-tool-receipt-critic-loop-v0-l867` (apparatus_event)
 

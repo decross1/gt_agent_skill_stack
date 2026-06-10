@@ -4,7 +4,7 @@ type: "stage"
 date: "2026-06-05"
 source: "loop_memory.jsonl + week1.run.jsonl"
 edges:
-  - {type: derived_from, dst: "apparatus-calls-l670", dst_type: "apparatus_event"}
+  - {type: derived_from, dst: "apparatus-calls-l490", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-002-loop-v0-tool-dispatch-critic-loop-v0-l880", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-002-loop-v0-tool-receipt-critic-loop-v0-l881", dst_type: "apparatus_event"}
 ---
@@ -21,7 +21,7 @@ _worker: critic_loop_v0_
 
 ## Links
 
-- **derived_from** → `apparatus-calls-l670` (apparatus_event)
+- **derived_from** → `apparatus-calls-l490` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-002-loop-v0-tool-dispatch-critic-loop-v0-l880` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-002-loop-v0-tool-receipt-critic-loop-v0-l881` (apparatus_event)
 

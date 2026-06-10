@@ -4,7 +4,7 @@ type: "stage"
 date: "2026-06-05"
 source: "loop_memory.jsonl + week1.run.jsonl"
 edges:
-  - {type: derived_from, dst: "apparatus-calls-l666", dst_type: "apparatus_event"}
+  - {type: derived_from, dst: "apparatus-calls-l486", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-002-loop-v0-tool-dispatch-retrieve-literature-l875", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-002-loop-v0-tool-receipt-retrieve-literature-l876", dst_type: "apparatus_event"}
 ---
@@ -26,7 +26,7 @@ I have generated a primary hypothesis focusing on the convergence toward the pay
 
 ## Links
 
-- **derived_from** → `apparatus-calls-l666` (apparatus_event)
+- **derived_from** → `apparatus-calls-l486` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-002-loop-v0-tool-dispatch-retrieve-literature-l875` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-002-loop-v0-tool-receipt-retrieve-literature-l876` (apparatus_event)
 

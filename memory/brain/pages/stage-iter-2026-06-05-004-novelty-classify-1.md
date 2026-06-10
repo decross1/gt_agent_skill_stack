@@ -4,7 +4,7 @@ type: "stage"
 date: "2026-06-05"
 source: "loop_memory.jsonl + week1.run.jsonl"
 edges:
-  - {type: derived_from, dst: "apparatus-calls-l1112", dst_type: "apparatus_event"}
+  - {type: derived_from, dst: "apparatus-calls-l512", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-004-loop-v0-tool-dispatch-novelty-classify-l912", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-004-loop-v0-tool-receipt-novelty-classify-l913", dst_type: "apparatus_event"}
 ---
@@ -25,7 +25,7 @@ I have retrieved the relevant literature, which includes foundational texts on l
 
 ## Links
 
-- **derived_from** → `apparatus-calls-l1112` (apparatus_event)
+- **derived_from** → `apparatus-calls-l512` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-004-loop-v0-tool-dispatch-novelty-classify-l912` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-004-loop-v0-tool-receipt-novelty-classify-l913` (apparatus_event)
 

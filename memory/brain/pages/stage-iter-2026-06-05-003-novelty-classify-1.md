@@ -4,7 +4,7 @@ type: "stage"
 date: "2026-06-05"
 source: "loop_memory.jsonl + week1.run.jsonl"
 edges:
-  - {type: derived_from, dst: "apparatus-calls-l860", dst_type: "apparatus_event"}
+  - {type: derived_from, dst: "apparatus-calls-l500", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-003-loop-v0-tool-dispatch-novelty-classify-l895", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-003-loop-v0-tool-receipt-novelty-classify-l896", dst_type: "apparatus_event"}
 ---
@@ -25,7 +25,7 @@ I have retrieved the relevant literature, which includes foundational texts on N
 
 ## Links
 
-- **derived_from** → `apparatus-calls-l860` (apparatus_event)
+- **derived_from** → `apparatus-calls-l500` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-003-loop-v0-tool-dispatch-novelty-classify-l895` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-003-loop-v0-tool-receipt-novelty-classify-l896` (apparatus_event)
 

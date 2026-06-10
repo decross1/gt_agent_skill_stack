@@ -51,17 +51,25 @@ edges:
   - {type: ran, dst: "iter-2026-06-05-006", dst_type: "iteration"}
   - {type: ran, dst: "iter-2026-06-06-001", dst_type: "iteration"}
   - {type: ran, dst: "iter-2026-06-08-001", dst_type: "iteration"}
+  - {type: ran, dst: "iter-2026-06-09-001", dst_type: "iteration"}
+  - {type: ran, dst: "iter-2026-06-09-002", dst_type: "iteration"}
+  - {type: ran, dst: "iter-2026-06-09-003", dst_type: "iteration"}
+  - {type: ran, dst: "iter-2026-06-09-004", dst_type: "iteration"}
+  - {type: ran, dst: "iter-2026-06-09-005", dst_type: "iteration"}
+  - {type: ran, dst: "iter-2026-06-09-006", dst_type: "iteration"}
+  - {type: ran, dst: "iter-2026-06-09-007", dst_type: "iteration"}
+  - {type: ran, dst: "iter-2026-06-09-008", dst_type: "iteration"}
 ---
 
 # Agent — nara
 
-_4261 narratives across 15 raw label(s)_
+_5714 narratives across 15 raw label(s)_
 
 **Canonical agent id:** `nara`
 
 **Raw labels seen in narratives:** nara, nara.run_iteration, nara:loop_v0_fallback, nara:loop_v0_iteration_complete, nara:loop_v0_iteration_failed, nara:loop_v0_iteration_start, nara:loop_v0_ml_intern, nara:loop_v0_redteam_retry, nara:loop_v0_reprompt, nara:loop_v0_tool_dispatch, nara:loop_v0_tool_receipt, orchestrator:orchestrator_dispatch, orchestrator:orchestrator_receipt, orchestrator:orchestrator_reject, orchestrator:worker_invocation
 
-**Total narratives:** 4261
+**Total narratives:** 5714
 
 **First seen:** 2026-05-17
 
@@ -114,3 +122,11 @@ _4261 narratives across 15 raw label(s)_
 - **ran** → `iter-2026-06-05-006` (iteration)
 - **ran** → `iter-2026-06-06-001` (iteration)
 - **ran** → `iter-2026-06-08-001` (iteration)
+- **ran** → `iter-2026-06-09-001` (iteration)
+- **ran** → `iter-2026-06-09-002` (iteration)
+- **ran** → `iter-2026-06-09-003` (iteration)
+- **ran** → `iter-2026-06-09-004` (iteration)
+- **ran** → `iter-2026-06-09-005` (iteration)
+- **ran** → `iter-2026-06-09-006` (iteration)
+- **ran** → `iter-2026-06-09-007` (iteration)
+- **ran** → `iter-2026-06-09-008` (iteration)

@@ -4,7 +4,7 @@ type: "stage"
 date: "2026-06-08"
 source: "loop_memory.jsonl + week1.run.jsonl"
 edges:
-  - {type: derived_from, dst: "apparatus-calls-l3053", dst_type: "apparatus_event"}
+  - {type: derived_from, dst: "apparatus-calls-l569", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-08-001-loop-v0-tool-dispatch-novelty-classify-l993", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-08-001-loop-v0-tool-receipt-novelty-classify-l994", dst_type: "apparatus_event"}
 ---
@@ -25,7 +25,7 @@ I have retrieved 10 relevant papers, including studies on LLM agents in matching
 
 ## Links
 
-- **derived_from** → `apparatus-calls-l3053` (apparatus_event)
+- **derived_from** → `apparatus-calls-l569` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-08-001-loop-v0-tool-dispatch-novelty-classify-l993` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-08-001-loop-v0-tool-receipt-novelty-classify-l994` (apparatus_event)
 

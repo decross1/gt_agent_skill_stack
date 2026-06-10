@@ -4,7 +4,7 @@ type: "stage"
 date: "2026-06-05"
 source: "loop_memory.jsonl + week1.run.jsonl"
 edges:
-  - {type: derived_from, dst: "apparatus-calls-l1398", dst_type: "apparatus_event"}
+  - {type: derived_from, dst: "apparatus-calls-l528", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-005-loop-v0-tool-dispatch-critic-loop-v0-l932", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-005-loop-v0-tool-receipt-critic-loop-v0-l933", dst_type: "apparatus_event"}
 ---
@@ -25,7 +25,7 @@ I have classified the novelty of the hypothesis as "unclear" because the retriev
 
 ## Links
 
-- **derived_from** → `apparatus-calls-l1398` (apparatus_event)
+- **derived_from** → `apparatus-calls-l528` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-005-loop-v0-tool-dispatch-critic-loop-v0-l932` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-005-loop-v0-tool-receipt-critic-loop-v0-l933` (apparatus_event)
 

@@ -1,15 +1,17 @@
 ---
 slug: "dec-ap-d-039-gemma-4-qat-evaluated-vs"
 type: "decision"
-date: "2026-06-08"
+date: "2026-06-09"
 source: "a_bgt_rsi/DECISIONS.md"
 ---
 
-# D-039 — Gemma 4 QAT evaluated vs the NVFP4 pin (DRAFT, pending exp008 live run)
+# D-039 — Gemma 4 QAT evaluated vs the NVFP4 pin — SHELVED
 
 _apparatus decision_
 
-**Status.** DRAFT — disposition PENDING the exp008 live run. Outcome: **[pending exp008 RESULTS.md]**.
+**Status.** Ratified 2026-06-09 (human-authorized decross1). Disposition: **SHELVE the exp008 live run.**
+
+**Disposition (2026-06-09) — SHELVE.** No interpretable or deployable result is reachable here: (1) Google ships no vLLM-native W4A16 QAT for 26B-A4B, so even a win yields no production swap — the NVFP4 pin stands (inviolate rule 2); (2) arm C OOM-froze the box and the new memory guard now mechanically refuses it; (3) arm B carries an uninterpretable llama.cpp-vs-vLLM engine confound (arm C was the only disambiguator); (4) N≈10 is directional only. **Revisit** only on a dedicated-GPU box, with production paused behind the guard, or if a vLLM-native W4A16 path ships. The `experiments/exp008_qat_eval/` harness is preserved as-is; nothing in production serving is touched.
 
 **Date drafted.** 2026-06-08. Single-serial-integrator wiring of the `experiments/exp008_qat_eval/` benchmark harness (eval-only, no production swap).
 

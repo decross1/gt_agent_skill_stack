@@ -19,3 +19,4 @@ _dev-time_
 ## Referenced by
 
 - `harvest-h002-l17` (harvest_finding) — **about**
+- `proposal-p-010` (proposal) — **targets**

@@ -4,7 +4,7 @@ type: "stage"
 date: "2026-06-05"
 source: "loop_memory.jsonl + week1.run.jsonl"
 edges:
-  - {type: derived_from, dst: "apparatus-calls-l1311", dst_type: "apparatus_event"}
+  - {type: derived_from, dst: "apparatus-calls-l519", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-005-loop-v0-tool-dispatch-hypothesize-l922", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-005-loop-v0-tool-receipt-hypothesize-l923", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-005-loop-v0-tool-dispatch-hypothesize-l924", dst_type: "apparatus_event"}
@@ -27,7 +27,7 @@ I will begin by generating a specific research hypothesis based on your topic to
 
 ## Links
 
-- **derived_from** → `apparatus-calls-l1311` (apparatus_event)
+- **derived_from** → `apparatus-calls-l519` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-005-loop-v0-tool-dispatch-hypothesize-l922` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-005-loop-v0-tool-receipt-hypothesize-l923` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-005-loop-v0-tool-dispatch-hypothesize-l924` (apparatus_event)

@@ -4,7 +4,7 @@ type: "stage"
 date: "2026-06-05"
 source: "loop_memory.jsonl + week1.run.jsonl"
 edges:
-  - {type: derived_from, dst: "apparatus-calls-l859", dst_type: "apparatus_event"}
+  - {type: derived_from, dst: "apparatus-calls-l499", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-003-loop-v0-tool-dispatch-retrieve-literature-l893", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-003-loop-v0-tool-receipt-retrieve-literature-l894", dst_type: "apparatus_event"}
 ---
@@ -25,7 +25,7 @@ template
 
 ## Links
 
-- **derived_from** → `apparatus-calls-l859` (apparatus_event)
+- **derived_from** → `apparatus-calls-l499` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-003-loop-v0-tool-dispatch-retrieve-literature-l893` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-003-loop-v0-tool-receipt-retrieve-literature-l894` (apparatus_event)
 

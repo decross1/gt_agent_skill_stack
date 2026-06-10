@@ -127,3 +127,5 @@ at D-040. Until both are done, this contract is inert and the guardrail stands
 unamended.
 
 Co-Authored-By: Claude Opus 4.8 <noreply@anthropic.com>
+
+---

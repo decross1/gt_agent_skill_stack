@@ -4,7 +4,7 @@ type: "stage"
 date: "2026-06-05"
 source: "loop_memory.jsonl + week1.run.jsonl"
 edges:
-  - {type: derived_from, dst: "apparatus-calls-l1396", dst_type: "apparatus_event"}
+  - {type: derived_from, dst: "apparatus-calls-l526", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-005-loop-v0-tool-dispatch-novelty-classify-l930", dst_type: "apparatus_event"}
   - {type: derived_from, dst: "event-iter-2026-06-05-005-loop-v0-tool-receipt-novelty-classify-l931", dst_type: "apparatus_event"}
 ---
@@ -21,7 +21,7 @@ _worker: novelty_classify_
 
 ## Links
 
-- **derived_from** → `apparatus-calls-l1396` (apparatus_event)
+- **derived_from** → `apparatus-calls-l526` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-005-loop-v0-tool-dispatch-novelty-classify-l930` (apparatus_event)
 - **derived_from** → `event-iter-2026-06-05-005-loop-v0-tool-receipt-novelty-classify-l931` (apparatus_event)
 

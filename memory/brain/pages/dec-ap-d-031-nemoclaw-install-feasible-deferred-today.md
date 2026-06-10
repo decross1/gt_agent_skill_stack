@@ -18,6 +18,18 @@ stub in `orchestrator/runtime.py`. The substrate-swappable design
 the human, or interactively), implementing `NemoClawRuntime` is
 mechanical and Nara does not change.
 
+**Amendment (2026-06-09, human-authorized decross1) — the "mechanical
+NemoClawRuntime swap" is FALSIFIED.** β is **not** a drop-in
+`NemoClawRuntime`-as-dispatch-subclass swap. The 2026-06-09 de-risk proved
+nara-sandbox is genuinely isolated (no apparatus deps), so β is a real **port**:
+an **OpenClaw agent bundle** (`agent/nemoclaw_nara/`) driving a **host-side tool
+plane** (`orchestrator/tool_plane.py`) around the unchanged host spine;
+`PyRuntime` stays the host default. **Empirically confirmed** the same day — the
+write-capable seam ran end-to-end: a sandbox-originated `run_loop_iteration` drove
+a full host iteration (`iter-2026-06-09-003`, `seed.source="nemoclaw_agent"`).
+This amends D-008's alpha framing and the D-030/D-031 "mechanical swap" language;
+`LOOP_V0.md:229` corrected to match.
+
 **Investigation summary** (≈10 min of the 90-min cap):
 
 Status of NemoClaw as of 2026-05-26 (vs. Day-1's D-008 state in
