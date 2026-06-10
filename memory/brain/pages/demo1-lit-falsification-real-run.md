@@ -16,3 +16,7 @@ source: "memory/brain/narratives.jsonl"
 **Would do differently:** The 2026-06-09 lexical-overlap gate was calibrated on ONE bug instance (overlap 0.043) and is brittle -- calibrate gates against an adversarial/varied set, never a single instance. Next: add a SEMANTIC topicality signal (centroid cosine vs a GT-domain anchor, or a cheap LLM topicality check) alongside lexical overlap; give the critic explicit restatement-detection + an off-domain-temper rule; de-drift the corpus (constrain retrieve_literature to curated GT collections -- the ML-arXiv / day3_* pollution defeats the gate).
 
 **Corrections honored:** inviolate-rule-4-no-coercion, mock-llm-discipline
+
+## Referenced by
+
+- `agent-integrator` (agent) — **authored**

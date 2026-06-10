@@ -1,7 +1,7 @@
 window.BRAIN_SUMMARY = {
   "schema_version": 2,
-  "generated_at": "2026-06-10T09:03:03Z",
-  "repo": "/home/decross1/projects/agent_system/.claude/worktrees/brain-overhaul",
+  "generated_at": "2026-06-10T09:25:39Z",
+  "repo": "/home/decross1/projects/agent_system",
   "consumer": "/home/decross1/projects/a_bgt_rsi",
   "window": {
     "default_days": 7,
@@ -13,9 +13,9 @@ window.BRAIN_SUMMARY = {
   "status_strip": {
     "system": "attention",
     "needs_you": {
-      "total": 21,
+      "total": 22,
       "high": 0,
-      "med": 19,
+      "med": 20,
       "low": 2
     },
     "drift": {
@@ -327,6 +327,23 @@ window.BRAIN_SUMMARY = {
       }
     },
     {
+      "id": "P-011",
+      "kind": "proposal_review",
+      "severity": "med",
+      "reversible": true,
+      "age_days": 0,
+      "since": "2026-06-10T05:30:49.435177+00:00",
+      "title": "P-011 — Env-gated stubs must be asserted per-shell, not assumed from the interactive default (open)",
+      "detail": "latest verdict 'open'; route via the review-proposal skill (target rule:mock-llm-discipline)",
+      "action_cmd": "review memory/brain/proposals.jsonl P-011  # run the review-proposal skill",
+      "source": "memory/brain/proposals.jsonl",
+      "surface": "framework",
+      "link": {
+        "skill": null,
+        "url": "memory/brain/proposals.jsonl"
+      }
+    },
+    {
       "id": "iter-2026-06-10-001",
       "kind": "gate_verdict",
       "severity": "med",
@@ -442,7 +459,7 @@ window.BRAIN_SUMMARY = {
       "last_seen": "2026-06-10",
       "runs_by_day": {
         "2026-06-09": 4,
-        "2026-06-10": 8
+        "2026-06-10": 11
       },
       "evidence": "mixed"
     },
@@ -505,7 +522,7 @@ window.BRAIN_SUMMARY = {
       },
       "usage": {
         "explicit": 2,
-        "inferred": 32,
+        "inferred": 33,
         "last_used": "2026-06-10"
       }
     },
@@ -585,7 +602,7 @@ window.BRAIN_SUMMARY = {
         "firewall_violation": false
       },
       "usage": {
-        "explicit": 0,
+        "explicit": 1,
         "inferred": 29,
         "last_used": "2026-06-10"
       }
@@ -629,8 +646,8 @@ window.BRAIN_SUMMARY = {
         "firewall_violation": false
       },
       "usage": {
-        "explicit": 3,
-        "inferred": 37,
+        "explicit": 5,
+        "inferred": 39,
         "last_used": "2026-06-10"
       }
     },
@@ -698,7 +715,7 @@ window.BRAIN_SUMMARY = {
       },
       "usage": {
         "explicit": 8,
-        "inferred": 78,
+        "inferred": 80,
         "last_used": "2026-06-10"
       }
     },
@@ -1321,6 +1338,26 @@ window.BRAIN_SUMMARY = {
       },
       {
         "agent": "claude-code-main",
+        "skill": "fallback",
+        "explicit": 0,
+        "inferred": 1,
+        "methods": {
+          "skill_used": 0,
+          "status": 0,
+          "task": 0,
+          "harvest": 0,
+          "contract": 1
+        },
+        "by_day": {
+          "2026-06-10": {
+            "e": 0,
+            "i": 1
+          }
+        },
+        "last": "2026-06-10"
+      },
+      {
+        "agent": "claude-code-main",
         "skill": "gate-check",
         "explicit": 0,
         "inferred": 2,
@@ -1366,6 +1403,26 @@ window.BRAIN_SUMMARY = {
       },
       {
         "agent": "claude-code-main",
+        "skill": "resume-state",
+        "explicit": 1,
+        "inferred": 0,
+        "methods": {
+          "skill_used": 1,
+          "status": 0,
+          "task": 0,
+          "harvest": 0,
+          "contract": 0
+        },
+        "by_day": {
+          "2026-06-10": {
+            "e": 1,
+            "i": 0
+          }
+        },
+        "last": "2026-06-10"
+      },
+      {
+        "agent": "claude-code-main",
         "skill": "review-proposal",
         "explicit": 0,
         "inferred": 1,
@@ -1382,17 +1439,22 @@ window.BRAIN_SUMMARY = {
       {
         "agent": "claude-code-main",
         "skill": "run-log",
-        "explicit": 0,
-        "inferred": 2,
+        "explicit": 2,
+        "inferred": 4,
         "methods": {
-          "skill_used": 0,
+          "skill_used": 2,
           "status": 0,
           "task": 0,
           "harvest": 0,
-          "contract": 2
+          "contract": 4
         },
-        "by_day": {},
-        "last": "2026-05-25"
+        "by_day": {
+          "2026-06-10": {
+            "e": 2,
+            "i": 2
+          }
+        },
+        "last": "2026-06-10"
       },
       {
         "agent": "claude-code-main",
@@ -1413,21 +1475,25 @@ window.BRAIN_SUMMARY = {
         "agent": "claude-code-main",
         "skill": "validate",
         "explicit": 2,
-        "inferred": 26,
+        "inferred": 28,
         "methods": {
           "skill_used": 2,
           "status": 1,
           "task": 23,
           "harvest": 0,
-          "contract": 2
+          "contract": 4
         },
         "by_day": {
           "2026-06-09": {
             "e": 2,
             "i": 0
+          },
+          "2026-06-10": {
+            "e": 0,
+            "i": 2
           }
         },
-        "last": "2026-06-09"
+        "last": "2026-06-10"
       },
       {
         "agent": "nara",
@@ -1963,6 +2029,49 @@ window.BRAIN_SUMMARY = {
       ],
       "authority_cap": "worktree-isolated; edit ONLY orchestrator/active_run.py + schema/active_run.schema.json + create tests/test_active_run_registry.py IN THE WORKTREE; no spine (nara.py/tool_registry.py/iteration_record…",
       "budget": "single limb, <=20 min",
+      "age_days": 0
+    },
+    {
+      "spawn_id": "SP-004",
+      "surface": "framework",
+      "date": "2026-06-10",
+      "status": "spawned",
+      "agent": "claude-code-main",
+      "task": "wf_a16994cf_build_overhaul",
+      "done_check": "pending",
+      "done_check_raw": null,
+      "skill_subset": [
+        "validate",
+        "run-log",
+        "fallback"
+      ],
+      "authority_cap": "Per-agent disjoint file contracts; append-only ledgers untouchable; no server restarts; no git commits; spine files read-only (drafts only).",
+      "budget": {
+        "wall_time_seconds": 6600,
+        "iterations": null,
+        "cost_usd": null
+      },
+      "age_days": 0
+    },
+    {
+      "spawn_id": "SP-003",
+      "surface": "framework",
+      "date": "2026-06-10",
+      "status": "completed",
+      "agent": "claude-code-main",
+      "task": "wf_1f3f3f4c_design_rubberband",
+      "done_check": "pass",
+      "done_check_raw": "pass",
+      "skill_subset": [
+        "validate",
+        "run-log"
+      ],
+      "authority_cap": "Mockup agents: write exactly one new file each under the brain-overhaul worktree mockups dir; read-only elsewhere. Judge: write SPEC.md + screenshots only. Gallery: screenshots only; read-only on liv…",
+      "budget": {
+        "wall_time_seconds": 2400,
+        "iterations": null,
+        "cost_usd": null
+      },
       "age_days": 0
     },
     {
@@ -2559,8 +2668,8 @@ window.BRAIN_SUMMARY = {
         "dormant_days": 16
       },
       "proposals": {
-        "open": 3,
-        "newest": "2026-06-09"
+        "open": 4,
+        "newest": "2026-06-10"
       },
       "review": {
         "accepted": 5,
@@ -2576,6 +2685,24 @@ window.BRAIN_SUMMARY = {
     },
     "state": "half-dormant",
     "chains": [
+      {
+        "proposal_id": "P-011",
+        "title": "Env-gated stubs must be asserted per-shell, not assumed from the interactive default",
+        "target": "mock-llm-discipline",
+        "target_type": "rule",
+        "origin_harvest": [],
+        "final_verdict": "open",
+        "rule_cited": null,
+        "filed_date": "2026-06-10",
+        "decided_at": null,
+        "lifecycle": [
+          {
+            "ts": "2026-06-10T05:30:49.435177+00:00",
+            "verdict": "open",
+            "actor": "claude-code-main"
+          }
+        ]
+      },
       {
         "proposal_id": "P-008",
         "title": "Adopt run-log `agent` attribution in a_bgt_rsi (reconcile inviolate rule 6) so unattended multi-age…",
@@ -2825,6 +2952,28 @@ window.BRAIN_SUMMARY = {
     },
     {
       "date": "2026-06-10",
+      "ts": "2026-06-10T05:30:49.435177+00:00",
+      "kind": "proposal_filed",
+      "id": "P-011",
+      "title": "Env-gated stubs must be asserted per-shell, not assumed from the interactive default",
+      "agent": "claude-code-main",
+      "verdict": null,
+      "is_flag": false,
+      "skill": null
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T05:30:16.715554Z",
+      "kind": "reflection_written",
+      "id": "2026-06-10-workflow-build-phase",
+      "title": "2026-06-10-workflow-build-phase",
+      "agent": "claude-code-main",
+      "verdict": null,
+      "is_flag": false,
+      "skill": null
+    },
+    {
+      "date": "2026-06-10",
       "ts": "2026-06-10T00:00:00Z",
       "kind": "spawn_launched",
       "id": "s2-recon-skeptic",
@@ -2897,6 +3046,28 @@ window.BRAIN_SUMMARY = {
       "title": "SP-wf-2026-06-10-build-R — Multi-run registry in orchestrator/active_run.py (per-run files under ru…",
       "agent": "workflow",
       "verdict": "freeform",
+      "is_flag": false,
+      "skill": "spawn-contract"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T00:00:00Z",
+      "kind": "spawn_launched",
+      "id": "SP-004",
+      "title": "SP-004 — wf_a16994cf_build_overhaul",
+      "agent": "claude-code-main",
+      "verdict": "pending",
+      "is_flag": false,
+      "skill": "spawn-contract"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T00:00:00Z",
+      "kind": "spawn_launched",
+      "id": "SP-003",
+      "title": "SP-003 — wf_1f3f3f4c_design_rubberband",
+      "agent": "claude-code-main",
+      "verdict": "pass",
       "is_flag": false,
       "skill": "spawn-contract"
     },
@@ -3617,10 +3788,10 @@ window.BRAIN_SUMMARY = {
     }
   ],
   "attribution": {
-    "agent_rows": 268,
-    "total_rows": 1411,
-    "skill_used_rows": 19,
-    "note": "raw run-log rows carry agent on 268/1411 and skill_used on 19/1411; the attribution ladder infers the rest and labels every inference (P-008 open: make agent required in the consumer run-log)."
+    "agent_rows": 271,
+    "total_rows": 1414,
+    "skill_used_rows": 22,
+    "note": "raw run-log rows carry agent on 271/1414 and skill_used on 22/1414; the attribution ladder infers the rest and labels every inference (P-008 open: make agent required in the consumer run-log)."
   },
   "days": [
     {
@@ -3671,7 +3842,7 @@ window.BRAIN_SUMMARY = {
     {
       "date": "2026-06-10",
       "file": "2026-06-10.md",
-      "bytes": 83260
+      "bytes": 1757660
     }
   ]
 };

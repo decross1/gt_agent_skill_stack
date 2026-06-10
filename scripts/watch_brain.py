@@ -33,6 +33,7 @@ REPO = Path(__file__).resolve().parent.parent
 CONSUMER = REPO.parent / "a_bgt_rsi"
 INGEST = REPO / "scripts" / "ingest_apparatus.py"
 PROJECT_PAGES = REPO / "scripts" / "project_pages.py"
+PROJECT_MAP = REPO / "scripts" / "project_map.py"
 PROJECT_SUMMARY = REPO / "scripts" / "project_summary.py"
 RENDER_BRAIN = REPO / "scripts" / "render_brain.py"
 
@@ -116,6 +117,7 @@ def run_pipeline(verbose: bool = False) -> bool:
     steps = [
         ([sys.executable, str(INGEST)], "ingest"),
         ([sys.executable, str(PROJECT_PAGES)], "project_pages"),
+        ([sys.executable, str(PROJECT_MAP)], "project_map"),
         ([sys.executable, str(PROJECT_SUMMARY)], "project_summary"),
         ([sys.executable, str(RENDER_BRAIN), "--day", today], "render_brain"),
     ]

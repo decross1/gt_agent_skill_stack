@@ -16,3 +16,7 @@ source: "memory/brain/narratives.jsonl"
 **Would do differently:** Probe the agent's NATIVE tool inventory BEFORE authoring a path-b SKILL.md -- the shell-tool assumption was the load-bearing unknown, and path-a (MCP) was always the real route. Next session: confirm the openclaw.json MCP-server schema from the v2026.5.18 clone/docs, register the tool plane, re-drive.
 
 **Corrections honored:** inviolate-rule-7-fallback, D-013, D-014
+
+## Referenced by
+
+- `agent-integrator` (agent) — **authored**

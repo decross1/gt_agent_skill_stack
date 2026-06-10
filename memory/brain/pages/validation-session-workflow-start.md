@@ -16,3 +16,7 @@ source: "memory/brain/narratives.jsonl"
 **Would do differently:** Process held well -- flat StructuredOutput schemas (no truncation loops this time, unlike 2026-06-09 morning), must-have-first ordering surfaced the headline finding early, all real-model runs serial under env -u MOCK_LLM. The real work is now the lit-pipe weaknesses, not the harness.
 
 **Corrections honored:** D-037, inviolate-rule-3-spawn-ledger, inviolate-rule-4-no-coercion, inviolate-rule-6-logging, mock-llm-discipline
+
+## Referenced by
+
+- `agent-integrator` (agent) — **authored**

@@ -18,10 +18,118 @@
     "title": "Agent \u2014 human:decross1"
   },
   {
+    "slug": "agent-integrator",
+    "type": "agent",
+    "date": "2026-06-09",
+    "title": "Agent \u2014 integrator"
+  },
+  {
     "slug": "agent-nara",
     "type": "agent",
     "date": "2026-05-17",
     "title": "Agent \u2014 nara"
+  },
+  {
+    "slug": "agent-workflow-a",
+    "type": "agent",
+    "date": "2026-06-09",
+    "title": "Agent \u2014 workflow:A"
+  },
+  {
+    "slug": "agent-workflow-b",
+    "type": "agent",
+    "date": "2026-06-09",
+    "title": "Agent \u2014 workflow:B"
+  },
+  {
+    "slug": "agent-workflow-h",
+    "type": "agent",
+    "date": "2026-06-09",
+    "title": "Agent \u2014 workflow:H"
+  },
+  {
+    "slug": "agent-workflow-integrator",
+    "type": "agent",
+    "date": "2026-06-10",
+    "title": "Agent \u2014 workflow:integrator"
+  },
+  {
+    "slug": "agent-workflow-limb-a",
+    "type": "agent",
+    "date": "2026-06-09",
+    "title": "Agent \u2014 workflow:limb-a"
+  },
+  {
+    "slug": "agent-workflow-limb-b",
+    "type": "agent",
+    "date": "2026-06-09",
+    "title": "Agent \u2014 workflow:limb-b"
+  },
+  {
+    "slug": "agent-workflow-limb-c",
+    "type": "agent",
+    "date": "2026-06-09",
+    "title": "Agent \u2014 workflow:limb-c"
+  },
+  {
+    "slug": "agent-workflow-limb-c-skeptic-ladder",
+    "type": "agent",
+    "date": "2026-06-09",
+    "title": "Agent \u2014 workflow:limb-c-skeptic-ladder"
+  },
+  {
+    "slug": "agent-workflow-limb-d",
+    "type": "agent",
+    "date": "2026-06-09",
+    "title": "Agent \u2014 workflow:limb-d"
+  },
+  {
+    "slug": "agent-workflow-limb-d-t1c-t1d-068",
+    "type": "agent",
+    "date": "2026-06-09",
+    "title": "Agent \u2014 workflow:limb-d-t1c-t1d-068"
+  },
+  {
+    "slug": "agent-workflow-limb-e",
+    "type": "agent",
+    "date": "2026-06-09",
+    "title": "Agent \u2014 workflow:limb-e"
+  },
+  {
+    "slug": "agent-workflow-limb-e-reverse-path",
+    "type": "agent",
+    "date": "2026-06-09",
+    "title": "Agent \u2014 workflow:limb-E-reverse-path"
+  },
+  {
+    "slug": "agent-workflow-limb-f-exp009-cournot",
+    "type": "agent",
+    "date": "2026-06-09",
+    "title": "Agent \u2014 workflow:limb-F-exp009-cournot"
+  },
+  {
+    "slug": "agent-workflow-limb-g-t2-mcp-probe",
+    "type": "agent",
+    "date": "2026-06-09",
+    "title": "Agent \u2014 workflow:limb-g-t2-mcp-probe"
+  },
+  {
+    "slug": "agent-workflow-registry",
+    "type": "agent",
+    "date": "2026-06-10",
+    "title": "Agent \u2014 workflow:registry"
+  },
+  {
+    "slug": "agent-workflow-synthesis",
+    "type": "agent",
+    "date": "2026-06-09",
+    "title": "Agent \u2014 workflow:synthesis"
+  },
+  {
+    "slug": "agent-workflow-ui-handoff",
+    "type": "agent",
+    "date": "2026-06-10",
+    "title": "Agent \u2014 workflow:ui-handoff"
   },
   {
     "slug": "anomaly-tool-call-100pct",
