@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>brain · governance — m3 immersive</title>
+<style>
+/* ====== BEGIN SHARED TOKENS v1 (synced copy; checked by scripts/check_design_tokens.py) ====== */
+:root {
+  --bg:#09090b; --surface:#18181b; --surface-2:rgba(24,24,27,.4);
+  --border:#27272a; --border-2:#3f3f46;
+  --text:#e4e4e7; --text-dim:#a1a1aa; --text-faint:#71717a; --text-ghost:#52525b;
+  --accent:#10b981; --ok:#34d399; --warn:#fbbf24; --bad:#f87171; --idle:#38bdf8;
+  --ok-bg:#022c22; --warn-bg:#451a03; --bad-bg:#450a0a;
+  --agent-nara:#34d399; --agent-coordinator:#7dd3fc; --agent-workflow:#a5b4fc;
+  --agent-claude:#c084fc; --agent-human:#a1a1aa; --agent-nemoclaw:#a78bfa; --agent-other:#fda4af;
+  --font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+/* ====== END SHARED TOKENS v1 ====== */
+
+* { box-sizing:border-box }
+html,body { margin:0; padding:0 }
+body { background:var(--bg); color:var(--text); font:13px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif; overflow-x:hidden }
+a { color:var(--text-dim); text-decoration:none }
+a:hover { color:var(--text) }
+.mono { font-family:var(--font-mono) }
+.card { background:var(--surface-2); border:1px solid var(--border); border-radius:6px }
+.slab { font-size:11px; text-transform:uppercase; letter-spacing:.14em; color:var(--text-faint) }
+.dot { width:7px; height:7px; border-radius:50%; display:inline-block; flex:none }
+
+/* ---------- stage: the map IS the canvas ---------- */
+#stage { position:relative; height:100vh; min-height:620px; overflow:hidden;
+  background:
+    radial-gradient(820px 560px at 33% 56%, rgba(16,185,129,.055), transparent 62%),
+    radial-gradient(1000px 700px at 86% 12%, rgba(125,211,252,.04), transparent 60%),
+    radial-gradient(700px 500px at 70% 92%, rgba(192,132,252,.035), transparent 60%),
+    var(--bg); }
+#map { position:absolute; inset:0; width:100%; height:100%; display:block }
+.skl-label { font:10px var(--font-mono); fill:var(--text-dim) }
+.agt-label { font:10.5px var(--font-mono); fill:var(--text-dim) }
+.pack-label { font:10px var(--font-mono); fill:var(--text-ghost); letter-spacing:.24em; text-transform:uppercase }
+.hint { font:8.5px var(--font-mono); fill:var(--text-ghost) }
+.hot { cursor:pointer }
+.pulse { transform-box:fill-box; transform-origin:center; animation:pulse 2.6s ease-out infinite }
+@keyframes pulse { 0%{transform:scale(1);opacity:.5} 70%{transform:scale(1.55);opacity:0} 100%{transform:scale(1.55);opacity:0} }
+@keyframes bob { 0%,100%{transform:translate(-50%,0)} 50%{transform:translate(-50%,5px)} }
+#cue { position:absolute; bottom:8px; left:50%; transform:translate(-50%,0); color:var(--text-ghost); z-index:20; font-size:14px; animation:bob 2.4s infinite; user-select:none }
+
+/* ---------- floating chrome ---------- */
+#hdr { position:absolute; top:0; left:0; right:0; height:46px; z-index:30;
+  display:flex; align-items:center; gap:14px; padding:0 16px;
+  border-bottom:1px solid rgba(39,39,42,.7);
+  background:linear-gradient(rgba(9,9,11,.74), rgba(9,9,11,.38));
+  -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px); }
+.wm { display:flex; align-items:center; gap:8px; font-size:13px; white-space:nowrap }
+.wm .ld { width:8px; height:8px; border-radius:50%; background:var(--accent); box-shadow:0 0 10px rgba(16,185,129,.7) }
+.wm b { font-weight:600 } .wm i { font-style:normal; color:var(--text-faint) }
+.vnav { display:flex; border:1px solid var(--border); border-radius:6px; overflow:hidden }
+.vnav span { padding:3px 11px; font-size:11.5px; color:var(--text-faint); cursor:default }
+.vnav span.on { background:var(--surface); color:var(--text) }
+.sp { flex:1 }
+.step { display:flex; border:1px solid var(--border); border-radius:6px; overflow:hidden }
+.step b { width:17px; text-align:center; padding:3px 0; font:9.5px var(--font-mono); font-weight:400; color:var(--text-ghost); border-right:1px solid rgba(39,39,42,.6); cursor:default }
+.step b:last-child { border-right:none }
+.step b.on { color:var(--accent); background:rgba(16,185,129,.09) }
+.asof { font:10.5px var(--font-mono); color:var(--text-faint) }
+.xnav { font-size:11.5px; color:var(--text-dim); cursor:pointer; white-space:nowrap }
+.xnav:hover { color:var(--accent) }
+
+#status { position:absolute; top:58px; left:50%; transform:translateX(-50%); z-index:25;
+  display:flex; align-items:stretch; -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px); white-space:nowrap }
+.seg { display:flex; align-items:center; gap:6px; padding:7px 12px; border-right:1px solid var(--border); cursor:default }
+.seg:last-child { border-right:none }
+.seg .k { font-size:9.5px; text-transform:uppercase; letter-spacing:.1em; color:var(--text-faint) }
+.seg .v { font:11.5px var(--font-mono); color:var(--text) }
+
+/* ---------- inbox: chips + overlay ---------- */
+#chips { position:absolute; top:58px; right:16px; display:flex; gap:6px; z-index:27 }
+.chip { display:flex; align-items:center; gap:5px; padding:5px 9px; font:10.5px var(--font-mono);
+  cursor:pointer; -webkit-backdrop-filter:blur(12px); backdrop-filter:blur(12px) }
+.chip:hover { border-color:var(--border-2) }
+#inbox { position:absolute; top:94px; right:16px; width:342px; z-index:26; padding:10px;
+  -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px); box-shadow:0 14px 40px rgba(0,0,0,.5) }
+#inbox .x, #panel .x { position:absolute; top:5px; right:9px; color:var(--text-ghost); cursor:pointer; font-size:12px }
+#inbox .x:hover, #panel .x:hover { color:var(--text) }
+.empty { color:var(--text-faint); font-size:11.5px; padding:10px; text-align:center }
+.ib-hi { background:rgba(69,10,10,.42); border:1px solid rgba(248,113,113,.28); border-radius:6px; padding:9px 10px 10px; margin-bottom:7px }
+.ib-meta { display:flex; align-items:center; gap:7px; font:10px var(--font-mono); color:var(--text-faint) }
+.ib-meta .age { margin-left:auto; color:var(--text-ghost) }
+.ib-title { font-size:11.5px; margin:6px 0 7px; color:var(--text); line-height:1.4 }
+.ib-cmd { display:flex; align-items:center; gap:8px; background:rgba(9,9,11,.85); border:1px solid var(--border); border-radius:4px; padding:5px 8px; font:10.5px var(--font-mono); color:var(--ok); overflow:hidden }
+.ib-cmd code { flex:1; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+.ib-cmd button { border:none; background:none; color:var(--text-faint); cursor:pointer; font-size:12px; padding:0 }
+.ib-cmd button:hover { color:var(--text) }
+.ib-row { display:flex; align-items:center; gap:7px; padding:6px 4px; border-top:1px solid rgba(39,39,42,.5); font-size:11px }
+.ib-kind { font:9.5px var(--font-mono); color:var(--text-faint) }
+.ib-count { font:9px var(--font-mono); border:1px solid var(--border); border-radius:999px; padding:0 5px; color:var(--text-dim) }
+.ib-t { flex:1; white-space:nowrap; overflow:hidden; color:var(--text-dim) }
+.ib-age { font:9.5px var(--font-mono); color:var(--text-ghost) }
+
+/* ---------- skill detail panel ---------- */
+#panel { position:absolute; right:16px; bottom:54px; width:342px; z-index:25; padding:12px;
+  -webkit-backdrop-filter:blur(14px); backdrop-filter:blur(14px); box-shadow:0 14px 40px rgba(0,0,0,.5); max-height:46vh; overflow:auto }
+.p-head { display:flex; align-items:center; gap:7px; flex-wrap:wrap; padding-right:14px }
+.p-name { font:12.5px var(--font-mono); color:var(--text) }
+.badge { font:9px var(--font-mono); padding:1px 7px; border-radius:999px; border:1px solid var(--border-2); color:var(--text-dim); cursor:default }
+.badge.warn { color:var(--warn); border-color:rgba(251,191,36,.45); background:rgba(69,26,3,.5) }
+.badge.rs { color:var(--ok); border-color:rgba(16,185,129,.45) }
+.badge.ok { color:var(--ok); border-color:rgba(52,211,153,.4) }
+.badge.fresh { color:var(--text); border-style:dashed }
+.badge.ghost { color:var(--text-ghost) }
+.p-sec { margin-top:10px; padding-top:8px; border-top:1px solid rgba(39,39,42,.6) }
+.u-row { display:flex; align-items:center; gap:7px; margin-top:6px; font:10.5px var(--font-mono); color:var(--text-dim) }
+.u-row .nm { width:118px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
+.u-bar { flex:1; height:5px; border-radius:2px; background:rgba(39,39,42,.5); overflow:hidden; display:flex }
+.u-e { height:100% } .u-i { height:100%; opacity:.4 }
+.u-n { color:var(--text-faint); font-size:10px }
+.p-prop { display:flex; align-items:center; gap:7px; margin-top:7px; font-size:11px; color:var(--text-dim) }
+.p-conf { margin-top:7px; font:11px var(--font-mono); color:var(--warn); cursor:default }
+
+/* ---------- hover card ---------- */
+#hovercard { position:absolute; z-index:40; pointer-events:none; display:none; padding:7px 10px; min-width:104px;
+  background:rgba(9,9,11,.92); border:1px solid var(--border-2); border-radius:6px; box-shadow:0 10px 28px rgba(0,0,0,.55) }
+.hc1 { font:11.5px var(--font-mono); color:var(--text) }
+.hc2 { font-size:10.5px; color:var(--text-dim); margin-top:2px }
+
+/* ---------- below the fold ---------- */
+#fold { position:relative; border-top:1px solid var(--border); background:var(--bg) }
+#fold .wrap { max-width:1280px; margin:0 auto; padding:26px 24px 36px; display:flex; flex-direction:column; gap:16px }
+.band .slab { margin-bottom:7px }
+.loopstrip { display:flex; align-items:center; gap:12px; padding:10px 14px; flex-wrap:wrap }
+.lseg { display:flex; align-items:baseline; gap:7px; cursor:default }
+.lk { font-size:10.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-faint) }
+.lv { font:11.5px var(--font-mono); color:var(--text) }
+.arr { color:var(--text-ghost) }
+.grid2 { display:grid; grid-template-columns:1.35fr 1fr; gap:16px; align-items:start }
+.rows .row { display:flex; align-items:center; gap:9px; padding:6px 12px; border-top:1px solid rgba(39,39,42,.55); font-size:11.5px }
+.rows .row:first-child { border-top:none }
+.row .grow { flex:1; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; color:var(--text-dim) }
+.row .id { font:10.5px var(--font-mono); color:var(--text) }
+.row .ghost { font:10px var(--font-mono); color:var(--text-ghost) }
+.pill { font:9.5px var(--font-mono); padding:1.5px 8px; border-radius:999px; border:1px solid }
+.pill.pass { color:var(--ok); background:var(--ok-bg); border-color:rgba(52,211,153,.35) }
+.pill.freeform { color:var(--warn); background:var(--warn-bg); border-color:rgba(251,191,36,.35) }
+.tag { font:9px var(--font-mono); text-transform:uppercase; letter-spacing:.07em; padding:1px 6px; border-radius:3px; border:1px solid var(--border); color:var(--text-faint) }
+.tag.decision { color:var(--idle); border-color:rgba(56,189,248,.35) }
+.tag.proposal { color:var(--warn); border-color:rgba(251,191,36,.35) }
+.tag.correction { color:var(--bad); border-color:rgba(248,113,113,.35) }
+.row.flag { background:rgba(69,10,10,.4) }
+.nbadge { font:9.5px var(--font-mono); border:1px solid var(--border); border-radius:999px; padding:0 6px; color:var(--text-dim) }
+.nbadge.zero { color:var(--text-ghost) }
+.foot { color:var(--text-ghost); font-size:11px; text-align:center; padding:6px 0 0 }
+.foot .xnav { font-size:11px }
+</style>
+</head>
+<body>
+
+<!-- ============ STAGE — full-viewport map, chrome floats ============ -->
+<section id="stage">
+  <svg id="map" aria-label="agent-skill cluster map"></svg>
+  <div id="hovercard"></div>
+
+  <header id="hdr">
+    <div class="wm"><span class="ld"></span><b>brain</b><i>· governance</i></div>
+    <nav class="vnav" title="view"><span class="on">Dashboard</span><span title="full graph view">Map</span></nav>
+    <div class="sp"></div>
+    <div class="step" id="step" title="observation window (days) — visual only"></div>
+    <span class="asof" title="as of">2026-06-10</span>
+    <span class="xnav" title="cross-nav to the apparatus view">apparatus →</span>
+  </header>
+
+  <div id="status"  class="card"></div>
+  <div id="chips"></div>
+  <aside id="inbox" class="card"></aside>
+  <aside id="panel" class="card"></aside>
+  <div id="cue" title="more below">▾</div>
+</section>
+
+<!-- ============ BELOW THE FOLD ============ -->
+<main id="fold"><div class="wrap">
+
+  <div class="band">
+    <div class="slab">healing loop</div>
+    <div class="loopstrip card" id="loopstrip"></div>
+  </div>
+
+  <div class="grid2">
+    <div class="band">
+      <div class="slab">timeline</div>
+      <div class="rows card" id="timeline"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div class="band">
+        <div class="slab">contracts</div>
+        <div class="rows card" id="contracts"></div>
+      </div>
+      <div class="band">
+        <div class="slab">rules</div>
+        <div class="rows card" id="rules"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">schema v2 · generated 2026-06-10 · <span class="xnav">apparatus →</span></div>
+</div></main>
+
+<script>
+const DATA = {
+  as_of: "2026-06-10", window_days: 7,
+  status: { system:"attention", needs_you:{total:19,high:1,med:16,low:2}, drift:2,
+            loop:{state:"half-dormant",days:16}, firewall:"intact", freshness_days:0 },
+  inbox: [
+    {kind:"stale_run",sev:"high",age:"41m",count:1,title:"active_run.json stale — confirm no live process, then remove",cmd:"ls -la run_state/active_run.json"},
+    {kind:"gate_verdict",sev:"med",age:"1d",count:14,title:"iter-2026-06-09-008 awaiting gate verdict (+13 older)",cmd:"python -m orchestrator.gate_cli --iteration-id iter-2026-06-09-008 --verdict <valid|invalid|needs_revision> --note '<why>'"},
+    {kind:"proposal_review",sev:"med",age:"1d",count:3,title:"P-008 run-log agent attribution — open (+2 more)",cmd:"review memory/brain/proposals.jsonl P-008"},
+    {kind:"drift",sev:"low",age:"16d",count:2,title:"experiment misused · run-log friction x3 + diverged x1",cmd:"see memory/conformance.md"}
+  ],
+  agents: [
+    {id:"claude-code-main",hue:"var(--agent-claude)",runs:137},
+    {id:"nara",hue:"var(--agent-nara)",runs:111},
+    {id:"coordinator",hue:"var(--agent-coordinator)",runs:33},
+    {id:"workflow",hue:"var(--agent-workflow)",runs:9},
+    {id:"nemoclaw_agent",hue:"var(--agent-nemoclaw)",runs:3},
+    {id:"human:decross1",hue:"var(--agent-human)",runs:6}
+  ],
+  skill_states: {
+    drift:["experiment","run-log"],
+    healed:["resume-state","slip-ladder"],
+    fresh:["narrate","propose","review-proposal","brain-recall","slip-ladder"],
+    by_design:["orchestrate","repro-check","plan-research"],
+    runtime_safe:["resume-state","gate-check","validate","fallback","run-log","spawn-contract"]
+  },
+  matrix: [
+    {a:"nara",s:"validate",e:6,i:4},{a:"nara",s:"gate-check",e:3,i:2},{a:"nara",s:"fallback",e:2,i:3},
+    {a:"nara",s:"run-log",e:3,i:8},{a:"nara",s:"slip-ladder",e:0,i:1},
+    {a:"claude-code-main",s:"run-log",e:0,i:20},{a:"claude-code-main",s:"validate",e:0,i:11},
+    {a:"claude-code-main",s:"gate-check",e:0,i:6},{a:"claude-code-main",s:"decision-log",e:0,i:9},
+    {a:"claude-code-main",s:"harvest",e:0,i:8},{a:"claude-code-main",s:"narrate",e:0,i:9},
+    {a:"claude-code-main",s:"propose",e:0,i:10},{a:"claude-code-main",s:"review-proposal",e:0,i:8},
+    {a:"claude-code-main",s:"ship",e:0,i:5},{a:"claude-code-main",s:"code-review",e:0,i:4},
+    {a:"claude-code-main",s:"investigate",e:0,i:3},
+    {a:"coordinator",s:"run-log",e:0,i:33},
+    {a:"workflow",s:"validate",e:2,i:0},{a:"workflow",s:"run-log",e:3,i:0},{a:"workflow",s:"spawn-contract",e:0,i:6},
+    {a:"human:decross1",s:"gate-check",e:0,i:4},{a:"human:decross1",s:"decision-log",e:0,i:2}
+  ],
+  loop: {harvest:{n:42,dormant_days:16}, proposals_open:3, review:{ok:6,rej:1,human:0}, enacted:{rules:3,skills:2}},
+  contracts: [
+    {id:"SP-002",agent:"workflow",check:"pass",budget:"300s",age:"16d"},
+    {id:"SP-wf-evening-G",agent:"workflow",check:"freeform",budget:"900s",age:"1d"},
+    {id:"SP-wf-evening-D",agent:"workflow",check:"pass",budget:"1800s",age:"1d"}
+  ],
+  timeline: [
+    {d:"06-09",kind:"proposal",id:"P-008",t:"run-log agent attribution in a_bgt_rsi",agent:"claude-code-main"},
+    {d:"06-09",kind:"correction",id:"corr-armc",t:"do not launch 2nd large model alongside gemma (48GiB)",agent:"claude-code-main",flag:true},
+    {d:"06-09",kind:"decision",id:"D-043",t:"run-log schema: agent required, skill_used optional",agent:"human:decross1"},
+    {d:"06-09",kind:"decision",id:"D-042",t:"4 skills intentionally referenced-only",agent:"human:decross1"},
+    {d:"06-08",kind:"decision",id:"D-040",t:"unattended Nara autonomy contract (at beta)",agent:"human:decross1"},
+    {d:"06-08",kind:"reflection",id:"refl-008",t:"errored eval-worker call is not a measurement",agent:"claude-code-main"}
+  ],
+  rules: [
+    {id:"FR-001",t:"treat 100% metrics in small-N tests as suspicious-clean",n:1},
+    {id:"FR-002",t:"reconcile state-file lag against run-log during gate-armed periods",n:0},
+    {id:"FR-003",t:"run-log schema: agent required + skill_used optional",n:0}
+  ]
+};
+
+/* pack membership — read from .agents/skills/*/SKILL.md frontmatter */
+const PACKS = {
+  meta:     ["orchestrate","harvest","decision-log","context-save","context-restore"],
+  brain:    ["brain-recall","narrate","propose","review-proposal"],
+  core:     ["resume-state","gate-check","validate","fallback","run-log","spawn-contract","slip-ladder"],
+  research: ["plan-research","investigate","code-review","health","ship","experiment","auto-experiment","repro-check"]
+};
+const PACK_ORDER = ["meta","brain","core","research"];      // top → bottom sectors
+const AGENT_ORDER = ["nemoclaw_agent","coordinator","claude-code-main","nara","workflow","human:decross1"];
+
+const $ = id => document.getElementById(id);
+const SVGNS = "http://www.w3.org/2000/svg";
+const sevHue = {high:"var(--bad)", med:"var(--warn)", low:"var(--idle)"};
+const clip = (s,n) => s.length>n ? s.slice(0,n).trimEnd()+"…" : s;
+const skillPack = {}; for (const p in PACKS) PACKS[p].forEach(s => skillPack[s]=p);
+const stateSets = {}; for (const k in DATA.skill_states) stateSets[k] = new Set(DATA.skill_states[k]);
+const agentById = {}; DATA.agents.forEach(a => agentById[a.id]=a);
+const usageOf = s => DATA.matrix.filter(m=>m.s===s);
+const CONF_NOTE = {"run-log":"friction ×3 · diverged ×1","experiment":"misused ×1"};
+
+/* ---------- header stepper (visual only) ---------- */
+$("step").innerHTML = [1,2,3,4,5,6,7].map(n =>
+  `<b class="${n===DATA.window_days?'on':''}" title="window: ${n}d">${n}</b>`).join("");
+
+/* ---------- status strip ---------- */
+(function(){
+  const s = DATA.status, n = s.needs_you;
+  $("status").innerHTML = [
+    `<div class="seg" title="system status: ${s.system}"><span class="dot" style="background:var(--warn);box-shadow:0 0 8px rgba(251,191,36,.6)"></span><span class="v">${s.system}</span></div>`,
+    `<div class="seg" title="${n.total} items await a human: ${n.high} high · ${n.med} med · ${n.low} low"><span class="k">needs you</span><span class="v" style="color:var(--bad)">${n.total}</span></div>`,
+    `<div class="seg" title="skills drifting: ${DATA.skill_states.drift.join(', ')}"><span class="k">drift</span><span class="v" style="color:var(--warn)">${s.drift}</span></div>`,
+    `<div class="seg" title="healing loop ${s.loop.state} — harvest idle ${s.loop.days}d"><span class="k">loop</span><span class="v" style="color:var(--warn)">${s.loop.state}</span><span class="v" style="color:var(--text-faint)">${s.loop.days}d</span></div>`,
+    `<div class="seg" title="runtime firewall ${s.firewall} — dev-only skills not leaked"><span class="k">fw</span><span class="v" style="color:var(--ok)">✓</span></div>`,
+    `<div class="seg" title="observations ${s.freshness_days} days old"><span class="k">fresh</span><span class="v" style="color:var(--ok)">${s.freshness_days}d</span></div>`
+  ].join("");
+})();
+
+/* ---------- needs-you: chips + overlay (statically open) ---------- */
+(function(){
+  const n = DATA.status.needs_you;
+  $("chips").innerHTML = [["high",n.high],["med",n.med],["low",n.low]].map(([s,c]) =>
+    `<span class="chip card" onclick="toggleInbox()" title="${c} ${s}-severity item${c===1?'':'s'} — click to open inbox"><span class="dot" style="width:6px;height:6px;background:${sevHue[s]}"></span>${c}</span>`
+  ).join("");
+
+  const box = $("inbox");
+  if (!DATA.inbox.length) { box.innerHTML = `<div class="empty">nothing needs you</div>`; return; }
+  const [top, ...rest] = DATA.inbox;
+  box.innerHTML =
+    `<span class="x" onclick="toggleInbox()" title="collapse">✕</span>` +
+    `<div class="ib-hi" title="${top.title}">
+       <div class="ib-meta"><span class="dot" style="background:${sevHue[top.sev]}"></span><span>${top.kind}</span><span class="age">${top.age}</span></div>
+       <div class="ib-title">${top.title}</div>
+       <div class="ib-cmd"><code id="topcmd">${top.cmd}</code><button onclick="copyCmd()" title="copy command">⧉</button></div>
+     </div>` +
+    rest.map(it =>
+      `<div class="ib-row" title="${it.title} — ${it.cmd}">
+         <span class="dot" style="width:6px;height:6px;background:${sevHue[it.sev]}"></span>
+         <span class="ib-kind">${it.kind}</span><span class="ib-count">×${it.count}</span>
+         <span class="ib-t">${clip(it.title,26)}</span><span class="ib-age">${it.age}</span>
+       </div>`).join("");
+})();
+function toggleInbox(){ const b=$("inbox"); b.style.display = b.style.display==="none" ? "" : "none"; }
+function copyCmd(){ const t=$("topcmd").textContent; if(navigator.clipboard) navigator.clipboard.writeText(t); }
+
+/* ---------- the map ---------- */
+let nodePos = {}, pinned = true;
+function el(tag, attrs, parent){ const e=document.createElementNS(SVGNS,tag);
+  for(const k in attrs) e.setAttribute(k,attrs[k]); parent.appendChild(e); return e; }
+function tip(g, text){ const t=document.createElementNS(SVGNS,"title"); t.textContent=text; g.appendChild(t); }
+const P = (cx,cy,r,deg) => { const a=deg*Math.PI/180; return [cx+r*Math.cos(a), cy+r*Math.sin(a)]; };
+
+function buildMap(){
+  const svg = $("map"), st = $("stage");
+  svg.innerHTML = ""; nodePos = {};
+  const W = st.clientWidth, H = st.clientHeight;
+  svg.setAttribute("width",W); svg.setAttribute("height",H);
+  const cx = Math.max(400, Math.min(580,(W-380)*0.46));
+  const cy = H*0.55;
+  const R  = Math.min(H*0.435, 398);
+  const packRad = {meta:R-30, brain:R-8, core:R-18, research:R};
+
+  const gG = el("g",{},svg), gE = el("g",{},svg), gS = el("g",{},svg), gA = el("g",{},svg);
+
+  /* sector geometry */
+  const gap = 0.9, total = 24 + gap*PACK_ORDER.length;
+  let a0 = -72; const sectors = {};
+  PACK_ORDER.forEach(p => {
+    const n = PACKS[p].length, span = 144*(n+gap)/total, pad = 144*gap/total/2;
+    sectors[p] = {from:a0+pad, to:a0+span-pad, n}; a0 += span;
+  });
+
+  /* guides: agent orbit + pack arcs + labels */
+  const rA = R*0.52;
+  const [ax1,ay1] = P(cx,cy,rA,112), [ax2,ay2] = P(cx,cy,rA,248);
+  el("path",{d:`M ${ax1} ${ay1} A ${rA} ${rA} 0 0 1 ${ax2} ${ay2}`,fill:"none",
+    stroke:"var(--border)","stroke-dasharray":"1 6",opacity:.55},gG);
+  PACK_ORDER.forEach(p => {
+    const s = sectors[p], r = packRad[p]+24;
+    const [x1,y1] = P(cx,cy,r,s.from), [x2,y2] = P(cx,cy,r,s.to);
+    el("path",{d:`M ${x1} ${y1} A ${r} ${r} 0 0 1 ${x2} ${y2}`,fill:"none",
+      stroke:"var(--border)","stroke-dasharray":"1 5",opacity:.7},gG);
+    const mid = (s.from+s.to)/2, [lx,ly] = P(cx,cy,packRad[p]+44,mid);
+    const lbl = el("text",{x:lx,y:ly+3,class:"pack-label"},gG); lbl.textContent = p;
+    tip(lbl, `${p} pack — ${s.n} skills`);
+  });
+
+  /* skill node positions */
+  PACK_ORDER.forEach(p => {
+    const s = sectors[p], stepA = (s.to-s.from)/s.n;
+    PACKS[p].forEach((name,i) => {
+      const [x,y] = P(cx,cy,packRad[p], s.from + stepA*(i+0.5));
+      nodePos[name] = {x,y,kind:"skill"};
+    });
+  });
+  /* agent node positions (top → bottom on the left arc) */
+  AGENT_ORDER.forEach((id,i) => {
+    const deg = 244 - i*(128/5);
+    const [x,y] = P(cx,cy,rA,deg);
+    nodePos[id] = {x,y,kind:"agent",r:8+Math.sqrt(agentById[id].runs)*1.6};
+  });
+
+  /* edges */
+  DATA.matrix.forEach(m => {
+    const A = nodePos[m.a], S = nodePos[m.s]; if(!A||!S) return;
+    const mx=(A.x+S.x)/2, my=(A.y+S.y)/2;
+    const qx=mx+(cx-mx)*0.5, qy=my+(cy-my)*0.5;
+    const w = 1+2*Math.sqrt(m.e+m.i);
+    const pa = el("path",{d:`M ${A.x} ${A.y} Q ${qx} ${qy} ${S.x} ${S.y}`,fill:"none",
+      stroke:agentById[m.a].hue,"stroke-opacity":.55,"stroke-width":w,"stroke-linecap":"round"},gE);
+    if (m.e===0) pa.setAttribute("stroke-dasharray","7 6");
+    tip(pa, `${m.a} → ${m.s}  ·  explicit ${m.e} · inferred ${m.i}`);
+  });
+
+  /* skill nodes */
+  for (const name in skillPack){
+    const {x,y} = nodePos[name];
+    const g = el("g",{transform:`translate(${x},${y})`,class:"hot"},gS);
+    if (stateSets.by_design.has(name)) g.setAttribute("opacity",.42);
+    if (stateSets.drift.has(name)){
+      el("circle",{r:17,fill:"none",stroke:"var(--warn)","stroke-width":1,opacity:.22},g);
+      el("circle",{r:12.5,fill:"none",stroke:"var(--warn)","stroke-width":1.3,opacity:.9},g);
+    }
+    if (stateSets.healed.has(name)){
+      el("circle",{r:12.5,fill:"none",stroke:"var(--ok)","stroke-width":1.3,opacity:.6},g);
+      el("circle",{r:12.5,fill:"none",stroke:"var(--ok)","stroke-width":1.6,class:"pulse"},g);
+    }
+    if (stateSets.fresh.has(name))
+      el("circle",{r:10,fill:"none",stroke:"#fff","stroke-width":1,"stroke-dasharray":"3 3.5",opacity:.6},g);
+    el("circle",{r:7,fill:"var(--surface)",stroke:"var(--border-2)","stroke-width":1.2},g);
+    if (stateSets.runtime_safe.has(name))
+      el("circle",{r:4.2,fill:"none",stroke:"var(--accent)","stroke-width":1.1},g);
+    const t = el("text",{x:12,y:3.5,class:"skl-label"},g); t.textContent = name;
+    if (stateSets.by_design.has(name)){
+      const r = el("text",{x:12+name.length*6.1+4,y:3.5,class:"hint"},g); r.textContent="⊘";
+      tip(r,"ref-only — referenced, not executed (by design)");
+    }
+    const states = Object.keys(stateSets).filter(k=>stateSets[k].has(name)).join(" · ")||"steady";
+    const u = usageOf(name), te = u.reduce((s,m)=>s+m.e,0), ti = u.reduce((s,m)=>s+m.i,0);
+    tip(g, `${name} — ${skillPack[name]} pack\n${states}\nexplicit ${te} · inferred ${ti} · ${u.length} agent${u.length===1?"":"s"}`);
+    g.addEventListener("mouseenter",()=>{ pinned=false; hover(name); });
+    g.addEventListener("mouseleave",()=>{ if(!pinned) hideHover(); });
+    g.addEventListener("click",()=>selectSkill(name));
+    if (name==="run-log") g.id = "n-runlog";
+  }
+
+  /* agent nodes */
+  AGENT_ORDER.forEach(id => {
+    const a = agentById[id], {x,y,r} = nodePos[id];
+    const g = el("g",{transform:`translate(${x},${y})`,class:"hot"},gA);
+    const zero = !DATA.matrix.some(m=>m.a===id);
+    if (zero) g.setAttribute("opacity",.45);
+    const c = el("circle",{r:r,fill:a.hue,"fill-opacity":.12,stroke:a.hue,"stroke-width":1.5},g);
+    if (zero) c.setAttribute("stroke-dasharray","4 3");
+    el("circle",{r:3,fill:a.hue},g);
+    const t = el("text",{x:-(r+9),y:3.5,class:"agt-label","text-anchor":"end"},g); t.textContent = id;
+    if (zero){
+      const h = el("text",{x:-(r+9),y:16,class:"hint","text-anchor":"end"},g);
+      h.textContent = "awaiting attribution";
+      tip(h,"3 runs logged, none attributed to a skill yet");
+    }
+    tip(g, `${id} — ${a.runs} runs in window`);
+    g.addEventListener("mouseenter",()=>{ pinned=false; hover(id); });
+    g.addEventListener("mouseleave",()=>{ if(!pinned) hideHover(); });
+  });
+
+  /* selection ring on the open-panel skill */
+  markSelected(selected);
+  if (pinned) hover("nara");           // static hover-card demo
+}
+
+let selRing = null, selected = "run-log";
+function markSelected(name){
+  if (selRing) selRing.remove(); selRing = null;
+  const p = nodePos[name]; if(!p) return;
+  selRing = el("circle",{cx:p.x,cy:p.y,r:16,fill:"none",stroke:"var(--text-dim)",
+    "stroke-dasharray":"2 3",opacity:.55},$("map"));
+}
+function selectSkill(name){ selected = name; markSelected(name); renderPanel(name); $("panel").style.display=""; }
+
+/* ---------- hover card ---------- */
+function hover(name){
+  const p = nodePos[name]; if(!p) return;
+  const hc = $("hovercard");
+  if (p.kind==="agent"){
+    hc.innerHTML = `<div class="hc1">${name}</div><div class="hc2">${agentById[name].runs} runs</div>`;
+    hc.style.left = (p.x + (p.r||10) + 12)+"px"; hc.style.top = (p.y-16)+"px";
+  } else {
+    const u = usageOf(name), te=u.reduce((s,m)=>s+m.e,0), ti=u.reduce((s,m)=>s+m.i,0);
+    hc.innerHTML = `<div class="hc1">${name}</div><div class="hc2">e${te} · i${ti} · ${skillPack[name]}</div>`;
+    hc.style.left = (p.x+16)+"px"; hc.style.top = (p.y-46)+"px";
+  }
+  hc.style.display = "block";
+}
+function hideHover(){ $("hovercard").style.display = "none"; }
+
+/* ---------- skill detail panel (click affordance — statically open on run-log) ---------- */
+function renderPanel(name){
+  const u = usageOf(name).sort((a,b)=>(b.e+b.i)-(a.e+a.i));
+  const max = Math.max(1,...u.map(m=>m.e+m.i));
+  const badges = [`<span class="badge" title="${skillPack[name]} pack">${skillPack[name]}</span>`];
+  if (stateSets.runtime_safe.has(name)) badges.push(`<span class="badge rs" title="in the runtime-safe core — may be embedded in spawned agents">runtime-safe</span>`);
+  if (stateSets.drift.has(name))  badges.push(`<span class="badge warn" title="governance state: drifting from its contract">drift</span>`);
+  if (stateSets.healed.has(name)) badges.push(`<span class="badge ok" title="governance state: healed this window">healed</span>`);
+  if (stateSets.fresh.has(name))  badges.push(`<span class="badge fresh" title="new this window">fresh</span>`);
+  if (stateSets.by_design.has(name)) badges.push(`<span class="badge ghost" title="referenced-only, by design (D-042)">ref-only</span>`);
+
+  let html = `<span class="x" onclick="document.getElementById('panel').style.display='none'" title="close">✕</span>
+    <div class="p-head"><span class="p-name">${name}</span>${badges.join("")}</div>
+    <div class="p-sec"><div class="slab" title="explicit (solid) vs inferred (faded) attributions per agent">usage</div>` +
+    (u.length ? u.map(m => `
+      <div class="u-row" title="${m.a}: explicit ${m.e} · inferred ${m.i}">
+        <span class="dot" style="width:6px;height:6px;background:${agentById[m.a].hue}"></span>
+        <span class="nm">${m.a}</span>
+        <span class="u-bar"><span class="u-e" style="width:${m.e/max*100}%;background:${agentById[m.a].hue}"></span><span class="u-i" style="width:${m.i/max*100}%;background:${agentById[m.a].hue}"></span></span>
+        <span class="u-n">${m.e}·${m.i}</span></div>`).join("")
+      : `<div class="empty">no attributions in window</div>`) + `</div>`;
+
+  if (name==="run-log") html += `
+    <div class="p-sec"><div class="slab">proposal</div>
+      <div class="p-prop" title="P-008 run-log agent attribution in a_bgt_rsi — open, filed 06-09 by claude-code-main">
+        <span class="dot" style="width:6px;height:6px;background:${sevHue.med}"></span>
+        <span class="mono" style="color:var(--text)">P-008</span><span>agent attribution</span></div></div>`;
+
+  if (CONF_NOTE[name]) html += `
+    <div class="p-sec"><div class="p-conf" title="conformance — see memory/conformance.md">${CONF_NOTE[name]}</div></div>`;
+
+  $("panel").innerHTML = html;
+}
+renderPanel(selected);
+
+/* ---------- below the fold ---------- */
+(function(){
+  const L = DATA.loop;
+  $("loopstrip").innerHTML = [
+    `<span class="lseg" title="harvest findings logged · dormant ${L.harvest.dormant_days} days"><span class="lk">harvest</span><span class="lv">${L.harvest.n}</span><span class="lv" style="color:var(--warn)">◐ ${L.harvest.dormant_days}d</span></span>`,
+    `<span class="arr">→</span>`,
+    `<span class="lseg" title="proposals awaiting review"><span class="lk">proposals</span><span class="lv" style="color:var(--warn)">${L.proposals_open} open</span></span>`,
+    `<span class="arr">→</span>`,
+    `<span class="lseg" title="review-proposal verdicts: accepted · rejected · human"><span class="lk">review</span><span class="lv" style="color:var(--ok)">✓${L.review.ok}</span><span class="lv" style="color:var(--bad)">✗${L.review.rej}</span></span>`,
+    `<span class="arr">→</span>`,
+    `<span class="lseg" title="enacted into active rules and skill edits"><span class="lk">enacted</span><span class="lv">${L.enacted.rules} rules · ${L.enacted.skills} skills</span></span>`
+  ].join("");
+
+  $("contracts").innerHTML = DATA.contracts.map(c => `
+    <div class="row" title="${c.id} — done-check ${c.check} · budget ${c.budget}">
+      <span class="id">${c.id}</span>
+      <span class="dot" style="width:6px;height:6px;background:${agentById[c.agent].hue}"></span>
+      <span class="grow">${c.agent}</span>
+      <span class="pill ${c.check}">${c.check}</span>
+      <span class="ghost">${c.budget}</span><span class="ghost">${c.age}</span></div>`).join("");
+
+  $("timeline").innerHTML = DATA.timeline.map(t => `
+    <div class="row ${t.flag?'flag':''}" title="${t.t} — by ${t.agent}">
+      <span class="ghost">${t.d}</span><span class="tag ${t.kind}">${t.kind}</span>
+      <span class="id">${t.id}</span><span class="grow">${clip(t.t,46)}</span>
+      <span class="dot" style="width:6px;height:6px;background:${agentById[t.agent].hue}" title="${t.agent}"></span></div>`).join("");
+
+  $("rules").innerHTML = DATA.rules.map(r => `
+    <div class="row" title="${r.t} — fired ×${r.n} this window">
+      <span class="id">${r.id}</span><span class="grow">${clip(r.t,38)}</span>
+      <span class="nbadge ${r.n? '':'zero'}">${r.n? '×'+r.n : '0'}</span></div>`).join("");
+})();
+
+buildMap();
+let rT; window.addEventListener("resize",()=>{ clearTimeout(rT); rT=setTimeout(buildMap,120); });
+</script>
+</body>
+</html>

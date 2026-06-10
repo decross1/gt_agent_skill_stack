@@ -2,897 +2,731 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Brain — functional review</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>brain · governance</title>
+<link rel="stylesheet" href="tokens.css">
 <style>
-  /* ---- theme reused VERBATIM from graph.html ---- */
-  :root { color-scheme: light dark; }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  body { background: #fff; color: #111; }
+html{color-scheme:dark}
+body{margin:0;background:var(--bg);color:var(--text);font:13px/1.45 system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.mono{font-family:var(--font-mono)}
+a{color:var(--text-dim);text-decoration:none;cursor:pointer}
+a:hover{color:var(--text)}
 
-  /* verdict pills — copied verbatim from graph.html */
-  .v-open          { background: #fde68a; color: #92400e; }
-  .v-auto-accept,
-  .v-accepted      { background: #d1fae5; color: #065f46; }
-  .v-auto-reject,
-  .v-rejected      { background: #fee2e2; color: #991b1b; }
-  .v-human-review  { background: #dbeafe; color: #1e3a8a; }
-  .v-framework     { background: #e0e7ff; color: #3730a3; }
-  .v-apparatus     { background: #fef3c7; color: #92400e; }
-  .verdict { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 600; vertical-align: middle; }
+/* header */
+header{display:flex;align-items:center;gap:16px;height:56px;padding:0 18px;border-bottom:1px solid var(--border)}
+.brand{font-weight:600;letter-spacing:.02em;white-space:nowrap}
+.brand .sep{color:var(--text-ghost);font-weight:400;margin:0 4px}
+.brand .sub{color:var(--text-faint);font-weight:500}
+nav.views{display:flex;gap:2px;background:var(--surface-2);border:1px solid var(--border);border-radius:6px;padding:2px}
+nav.views .v{padding:3px 11px;border-radius:4px;color:var(--text-faint);font-size:12px}
+nav.views .v.on{background:#27272a;color:var(--text)}
+.hspace{flex:1}
+.stepper{display:flex;gap:3px;align-items:center}
+.tick{appearance:none;width:15px;height:15px;border:1px solid var(--border);border-radius:3px;display:grid;place-items:center;
+  font-size:9px;color:var(--text-ghost);font-family:var(--font-mono);background:var(--surface-2);padding:0;cursor:pointer}
+.tick.fill{background:#1b2a24;border-color:#1f3d33}
+.tick.on{background:var(--ok-bg);border-color:var(--accent);color:var(--ok)}
+.asof{font-family:var(--font-mono);color:var(--text-faint);font-size:12px}
+.xnav{font-size:12px;white-space:nowrap}
 
-  /* controls — graph.html idioms */
-  .tab-btn { font-size: 12px; padding: 4px 10px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; color: #333; }
-  .tab-btn.active { background: #2563eb; color: white; border-color: #2563eb; }
-  .viewnav { display: inline-flex; border: 1px solid #ccc; border-radius: 5px; overflow: hidden; }
-  .viewnav a { font-size: 12px; padding: 4px 11px; text-decoration: none; color: #333; background: #fff; border-right: 1px solid #ddd; font-weight: 600; }
-  .viewnav a:last-child { border-right: 0; }
-  .viewnav a.active { background: #2563eb; color: #fff; }
-  .viewnav a:not(.active):hover { background: #f3f4f6; }
-  .toggle-label { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; padding: 4px 9px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; user-select: none; color: #333; }
-  .toggle-label.checked { background: #ecfdf5; border-color: #10b981; color: #065f46; }
-  .action-btn { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 3px; cursor: pointer; user-select: none; background: #fff; border: 1px solid #ccc; color: #333; font-weight: 500; text-decoration: none; }
-  .action-btn:hover { background: #f3f4f6; }
-  .action-btn.primary { background: #eff6ff; border-color: #93c5fd; color: #1e3a8a; }
-  .action-btn.primary:hover { background: #dbeafe; }
-  .action-btn.warn { background: #fef2f2; border-color: #fca5a5; color: #991b1b; }
-  .legend { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
-  .toggle-page { font-size: 11px; cursor: pointer; user-select: none; color: #2563eb; text-decoration: underline; background: none; border: 0; padding: 0; }
+main{padding:0 18px 28px}
+section{margin-top:12px}
+.band{border:1px solid var(--border);background:var(--surface-2);border-radius:6px;overflow:hidden}
+.sec{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--text-faint);margin:0 2px 6px}
+.dot{width:8px;height:8px;border-radius:50%;flex:none}
+.d-half{background:conic-gradient(var(--warn) 0 50%,var(--border-2) 50% 100%)}
 
-  /* cards — graph.html .proposal-item + .cluster-card patterns */
-  .card { padding: 8px 10px; border: 1px solid #ddd; border-radius: 6px; margin: 8px 0; background: #f7f7f7; }
-  .cluster-card { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px; padding: 10px 12px; margin: 8px 0; }
-  .cluster-card h3 { margin: 0 0 6px 0; font-size: 12px; font-weight: 600; color: #0c4a6e; }
-  .cluster-card .pill { display: inline-block; padding: 1px 6px; border-radius: 8px; background: #fff; border: 1px solid #bae6fd; font-size: 10px; margin: 2px 3px 2px 0; }
+/* status strip */
+#status{display:flex;height:46px;align-items:stretch}
+.seg{flex:1;display:flex;align-items:center;gap:9px;padding:0 16px;border-left:1px solid var(--border);min-width:0;cursor:pointer}
+.seg:first-child{border-left:none}
+.seg:hover{background:var(--surface-2)}
+.seg .k{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-faint);white-space:nowrap}
+.seg .v{font-family:var(--font-mono);font-size:14px;color:var(--text)}
+.seg .v.warn{color:var(--warn)} .seg .v.ok{color:var(--ok)} .seg .v.bad{color:var(--bad)}
+.seg .v.dim{font-size:12px;color:var(--text-dim)}
+.ticksv{display:flex;gap:2px;align-items:flex-end;height:12px}
+.ticksv i{width:3px;border-radius:1px;display:block}
 
-  /* ---- dashboard layout: single scrollable briefing column ---- */
-  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px 60px; }
+/* needs-you inbox */
+#inbox{display:grid;grid-template-columns:1fr minmax(380px,40%);min-height:188px}
+.irows{display:flex;flex-direction:column;justify-content:center;padding:6px 0;min-width:0}
+.irow{display:flex;align-items:center;gap:10px;padding:0 16px;height:44px;min-width:0;cursor:pointer}
+.irow:hover{background:var(--surface-2)}
+.irow + .irow{border-top:1px solid var(--border)}
+.kind{font-family:var(--font-mono);font-size:10px;color:var(--text-ghost);width:118px;flex:none;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cnt{font-family:var(--font-mono);font-size:10px;color:var(--text-faint);background:var(--surface);border:1px solid var(--border);
+  border-radius:999px;padding:0 7px;line-height:15px;flex:none}
+.ititle{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text-dim)}
+.age{font-family:var(--font-mono);font-size:11px;color:var(--text-ghost);flex:none}
+.cardcol{border-left:1px solid var(--border);padding:12px;display:flex}
+.dcard{flex:1;display:flex;flex-direction:column;gap:9px;border:1px solid rgba(248,113,113,.32);
+  background:rgba(69,10,10,.16);border-radius:6px;padding:12px 14px;min-width:0;cursor:pointer}
+.dcard .top{display:flex;align-items:center;gap:10px}
+.dcard .ttl{font-size:13px;color:var(--text)}
+.empty{display:flex;align-items:center;justify-content:center;color:var(--text-ghost);grid-column:1/-1;min-height:188px}
 
-  header { position: sticky; top: 0; z-index: 50; background: #fafafa; border-bottom: 1px solid #ddd; }
-  header .hwrap { max-width: 1100px; margin: 0 auto; padding: 8px 16px; display: flex; flex-direction: column; gap: 6px; }
-  header .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  header h1 { margin: 0; font-size: 14px; font-weight: 600; }
-  header .spacer { flex: 1; }
-  .muted { color: #888; }
-  .ident { font-size: 12px; color: #555; }
-  .dot-ok  { color: #10b981; font-weight: 700; }
-  .dot-bad { color: #ef4444; font-weight: 700; }
-  .dot-warn{ color: #fbbf24; font-weight: 700; }
+/* embedded cluster map */
+#mapband{position:relative}
+#map{display:block;width:100%;height:52vh;min-height:430px}
+#mapnote{position:absolute;inset:0;display:grid;place-items:center;color:var(--text-ghost);
+  font-family:var(--font-mono);font-size:11px;pointer-events:none}
+#mapnote[hidden]{display:none}
 
-  /* window stepper */
-  .stepper { display: inline-flex; border: 1px solid #ccc; border-radius: 4px; overflow: hidden; }
-  .stepper button { font-size: 12px; padding: 3px 8px; border: 0; border-right: 1px solid #ddd; background: #fff; cursor: pointer; color: #333; }
-  .stepper button:last-child { border-right: 0; }
-  .stepper button.on { background: #2563eb; color: #fff; }
-  .winline { font-size: 12px; color: #555; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-  .status-strip { font-size: 11px; color: #666; display: flex; gap: 14px; flex-wrap: wrap; }
-  .status-strip b { color: #444; font-weight: 600; }
+/* loop strip */
+.strip{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.ls{display:flex;align-items:center;gap:9px;border:1px solid var(--border);background:var(--surface-2);
+  border-radius:6px;padding:7px 13px;cursor:pointer}
+.ls:hover{border-color:var(--border-2)}
+.ls .k{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--text-faint)}
+.ls .v{font-family:var(--font-mono);font-size:12.5px;color:var(--text)}
+.ls .v.ok{color:var(--ok)} .ls .v.bad{color:var(--bad)} .ls .v.warn{color:var(--warn)} .ls .v.dim{color:var(--text-dim)}
+.arrow{color:var(--text-ghost)}
 
-  /* lead flag banner */
-  .flag-banner { font-size: 12px; border-top: 1px dashed #ddd; padding-top: 6px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-  .flag-banner.calm { color: #065f46; }
-  .flag-banner .lead { cursor: pointer; color: #991b1b; font-weight: 600; }
-  .flag-banner.calm .lead { color: #065f46; cursor: default; }
+/* row bands: contracts · timeline · rules */
+.row{display:flex;align-items:center;gap:11px;height:34px;padding:0 14px;min-width:0;cursor:pointer}
+.row:hover{background:var(--surface-2)}
+.row + .row{border-top:1px solid var(--border)}
+.rid{font-family:var(--font-mono);font-size:11px;color:var(--text);flex:none;max-width:190px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rid.w{width:128px}
+.rtxt{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--text-dim)}
+.rmono{font-family:var(--font-mono);font-size:11px;color:var(--text-faint);flex:none}
+.aid{display:flex;align-items:center;gap:6px;width:150px;flex:none;font-family:var(--font-mono);font-size:11px;color:var(--text-dim)}
+.row.flag{background:var(--warn-bg);background:color-mix(in srgb,var(--warn-bg) 55%,transparent);
+  box-shadow:inset 2px 0 0 var(--warn)}
+.row.more .rtxt{color:var(--text-faint);font-size:12px}
+.nbadge{font-family:var(--font-mono);font-size:10px;color:var(--warn);background:var(--warn-bg);
+  border:1px solid rgba(251,191,36,.3);border-radius:999px;padding:0 7px;line-height:15px;flex:none}
+.nzero{font-family:var(--font-mono);font-size:10px;color:var(--text-ghost);flex:none}
 
-  /* act bands */
-  .band { margin: 26px 0 4px; padding: 6px 10px; background: repeating-linear-gradient(45deg,#f0f0f0,#f0f0f0 6px,#f7f7f7 6px,#f7f7f7 12px); border: 1px solid #e3e3e3; border-radius: 4px; }
-  .band h2 { margin: 0; font-size: 14px; font-weight: 700; letter-spacing: 0.4px; }
-  .band .sub { font-size: 12px; color: #666; margin-top: 2px; }
-  .band .climax { color: #b45309; font-weight: 700; }
-  .standing-mark { font-size: 11px; color: #888; font-style: italic; }
-
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  @media (max-width: 760px) { .grid2 { grid-template-columns: 1fr; } }
-  h3.cardh { font-size: 12px; margin: 0 0 6px; font-weight: 600; color: #444; }
-  .kv { margin: 3px 0; }
-  .kv b { color: #444; }
-  .chip { display: inline-block; padding: 1px 7px; border-radius: 10px; font-size: 11px; margin: 2px 4px 2px 0; border: 1px solid #ddd; background: #fff; color: #222; cursor: default; }
-  .bar { height: 9px; border-radius: 3px; display: inline-block; vertical-align: middle; }
-  .barwrap { display: flex; align-items: center; gap: 8px; margin: 3px 0; font-size: 11px; }
-  .barlabel { width: 80px; color: #555; }
-  .warnbox { background: #fffbeb; border: 1px solid #fde68a; color: #92400e; border-radius: 4px; padding: 6px 8px; font-size: 11px; margin: 6px 0; }
-
-  /* agent cards */
-  .agent-card { border: 1px solid #ddd; border-radius: 6px; padding: 8px 10px; margin: 6px 0; background: #fff; }
-  .agent-card .nm { font-weight: 600; }
-  .agent-card .role { color: #666; font-size: 11px; margin: 3px 0; }
-  .leans .chip { background: #f5f3ff; border-color: #ddd6fe; }
-
-  /* timeline */
-  .tl-row { display: flex; align-items: baseline; gap: 8px; padding: 4px 0; border-bottom: 1px solid #f0f0f0; font-size: 12px; }
-  .tl-row .d { color: #888; white-space: nowrap; font-variant-numeric: tabular-nums; }
-  .tl-row .kd { width: 130px; color: #555; white-space: nowrap; }
-  .tl-row .ti { flex: 1; }
-  .tl-row .ac { color: #888; white-space: nowrap; font-size: 11px; }
-  .tl-row.is-flag { background: #fff7ed33; }
-  .win-edge { text-align: center; color: #aaa; font-size: 11px; border-top: 1px dashed #ddd; margin: 8px 0; padding-top: 6px; }
-  .empty-state { padding: 14px; text-align: center; color: #888; font-style: italic; background: #fafafa; border: 1px dashed #ddd; border-radius: 6px; }
-  .empty-state.calm { color: #065f46; background: #ecfdf5; border-color: #a7f3d0; font-style: normal; }
-
-  /* loop spine */
-  .spine { display: flex; align-items: stretch; gap: 6px; flex-wrap: wrap; margin: 8px 0; }
-  .stage-box { flex: 1; min-width: 130px; border: 1px solid #ddd; border-radius: 6px; padding: 8px; background: #fff; border-left-width: 4px; }
-  .stage-box .nm { font-weight: 600; font-size: 12px; }
-  .stage-box .ct { font-size: 11px; color: #555; margin-top: 3px; }
-  .arrow { align-self: center; color: #aaa; font-size: 16px; }
-
-  /* chains */
-  .chain-row { border: 1px solid #ddd; border-radius: 6px; padding: 6px 8px; margin: 5px 0; background: #fff; font-size: 12px; }
-  .chain-row .head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; cursor: pointer; }
-  .chain-row .pid { font-weight: 600; }
-  .chain-row .mini { color: #555; font-size: 11px; }
-  .chain-row .win-tag { font-size: 10px; color: #2563eb; border: 1px solid #bfdbfe; border-radius: 8px; padding: 0 6px; background: #eff6ff; }
-  .chain-row .win-tag.out { color: #888; border-color: #e5e5e5; background: #f7f7f7; }
-  .lifecycle { margin: 6px 0 2px; padding-left: 4px; border-left: 2px solid #eee; }
-  .lifecycle .step { padding: 3px 0 3px 8px; font-size: 11px; }
-  .lifecycle .rsn { color: #666; font-style: italic; margin-top: 2px; }
-
-  /* flag lane */
-  .flag-filter { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 6px 0; }
-  .flag-card { border: 1px solid #ddd; border-left-width: 5px; border-radius: 6px; padding: 8px 10px; margin: 8px 0; background: #fff; }
-  .flag-card.sev-high { border-left-color: #ef4444; }
-  .flag-card.sev-med  { border-left-color: #fbbf24; }
-  .flag-card.sev-low  { border-left-color: #64748b; }
-  .flag-card .fhead { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; cursor: pointer; }
-  .sev-badge { font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 3px; }
-  .sev-badge.high { background: #fee2e2; color: #991b1b; }
-  .sev-badge.med  { background: #fef3c7; color: #92400e; }
-  .sev-badge.low  { background: #f1f5f9; color: #475569; }
-  .badge-explicit { background: #d1fae5; color: #065f46; font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 3px; }
-  .badge-inferred { background: #f3f4f6; color: #555; font-size: 10px; font-weight: 600; padding: 1px 6px; border-radius: 3px; border: 1px dashed #bbb; cursor: help; }
-  .flag-card .gov { font-size: 11px; color: #555; margin-top: 4px; }
-  .flag-card .title { flex: 1; font-weight: 500; }
-  .chain-table { margin-top: 8px; border-top: 1px solid #eee; padding-top: 6px; font-size: 12px; }
-  .chain-table .crow { display: grid; grid-template-columns: 90px 1fr; gap: 8px; padding: 3px 0; }
-  .chain-table .clabel { color: #777; font-weight: 600; text-transform: uppercase; font-size: 10px; letter-spacing: 0.3px; padding-top: 1px; }
-  .chain-table .cval { color: #222; }
-  .chain-table .cval.reason { font-style: italic; color: #555; }
-  .src-ref { font-size: 10px; color: #888; margin-top: 6px; }
-  .gap-card { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px; padding: 10px 12px; margin: 12px 0 6px; font-size: 11px; color: #0c4a6e; }
-  .gap-card b { color: #075985; }
-  .widen-note { font-size: 11px; color: #666; margin: 6px 0; padding: 6px 8px; border: 1px dashed #ddd; border-radius: 4px; }
-
-  footer { margin-top: 32px; padding-top: 12px; border-top: 1px solid #ddd; font-size: 11px; color: #888; }
-  a { color: #2563eb; }
-  .hidden { display: none !important; }
-
-  @media (prefers-color-scheme: dark) {
-    body { background: #1a1a1a; color: #ddd; }
-    header { background: #222; border-color: #333; }
-    header .ident { color: #aaa; }
-    .tab-btn { background: #2a2a2a; color: #ddd; border-color: #444; }
-    .viewnav { border-color: #444; }
-    .viewnav a { background: #2a2a2a; color: #ddd; border-right-color: #444; }
-    .viewnav a.active { background: #2563eb; color: #fff; }
-    .viewnav a:not(.active):hover { background: #333; }
-    .toggle-label { background: #2a2a2a; color: #ddd; border-color: #444; }
-    .toggle-label.checked { background: #064e3b; border-color: #10b981; color: #6ee7b7; }
-    .action-btn { background: #2a2a2a; color: #ddd; border-color: #444; }
-    .action-btn:hover { background: #333; }
-    .action-btn.primary { background: #1e3a5f; border-color: #3b82f6; color: #93c5fd; }
-    .action-btn.warn { background: #4a1a1a; border-color: #ef4444; color: #fca5a5; }
-    .card { background: #181818; border-color: #333; }
-    .cluster-card { background: #0c2a3d; border-color: #0c4a6e; color: #cbd5e1; }
-    .cluster-card h3 { color: #93c5fd; }
-    .cluster-card .pill { background: #1e293b; border-color: #334155; color: #cbd5e1; }
-    .band { background: repeating-linear-gradient(45deg,#242424,#242424 6px,#1e1e1e 6px,#1e1e1e 12px); border-color: #333; }
-    .band .sub { color: #999; }
-    .band .climax { color: #fbbf24; }
-    .agent-card { background: #181818; border-color: #333; }
-    .agent-card .role { color: #999; }
-    .leans .chip { background: #2a1f4d; border-color: #4c3a8c; color: #ddd; }
-    .chip { background: #222; border-color: #444; color: #ddd; }
-    .stage-box { background: #181818; border-color: #333; }
-    .chain-row { background: #181818; border-color: #333; }
-    .chain-row .win-tag { background: #15233a; border-color: #1e3a5f; }
-    .chain-row .win-tag.out { background: #222; border-color: #333; }
-    .flag-card { background: #181818; border-color: #333; }
-    .badge-inferred { background: #2a2a2a; color: #bbb; border-color: #555; }
-    .sev-badge.low { background: #1e293b; color: #94a3b8; }
-    .gap-card { background: #0c2a3d; border-color: #0c4a6e; color: #cbd5e1; }
-    .gap-card b { color: #93c5fd; }
-    .stepper button { background: #2a2a2a; color: #ddd; border-color: #444; }
-    .stepper { border-color: #444; }
-    .winline, .status-strip, .ident, .muted { color: #999; }
-    .warnbox { background: #3a2f1a; border-color: #6b5417; color: #fcd34d; }
-    .empty-state { background: #181818; border-color: #333; color: #888; }
-    .empty-state.calm { color: #6ee7b7; background: #064e3b; border-color: #10b981; }
-    .win-edge { border-color: #333; }
-    .widen-note { color: #999; border-color: #333; }
-    .tl-row { border-color: #262626; }
-    .chain-table { border-color: #333; }
-    h3.cardh, .kv b { color: #aaa; }
-  }
+/* per-day chips */
+.chips{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.chipday{font-family:var(--font-mono);font-size:11px;color:var(--text-dim);border:1px solid var(--border);
+  background:var(--surface-2);border-radius:6px;padding:4px 10px;white-space:nowrap;cursor:pointer}
+.chipday:hover{border-color:var(--border-2);color:var(--text)}
+footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var(--text-ghost);display:flex;gap:8px;flex-wrap:wrap}
 </style>
 </head>
 <body>
+
 <header>
-  <div class="hwrap">
-    <div class="row">
-      <span class="viewnav"><a href="dashboard.html" class="active">Dashboard</a><a href="graph.html">Graph</a></span>
-      <h1>Brain — functional review</h1>
-      <span class="ident" id="ident-pair"></span>
-      <span class="ident" id="firewall-pulse" title=""></span>
-      <span class="spacer"></span>
-      <span class="ident muted" id="asof"></span>
-    </div>
-    <div class="row" id="act-tabs">
-      <button class="tab-btn active" data-target="act1">&#9312; The System</button>
-      <button class="tab-btn" data-target="act2" id="tab2">&#9313; What it did</button>
-      <button class="tab-btn" data-target="act3" id="tab3">&#9314; How it learned &middot; slipped</button>
-    </div>
-    <div class="row winline">
-      <span><b>Window:</b></span>
-      <span class="stepper" id="window-stepper"></span>
-      <span id="window-span"></span>
-    </div>
-    <div class="row status-strip" id="status-strip"></div>
-    <div class="flag-banner" id="flag-banner"></div>
-  </div>
+  <div class="brand">brain<span class="sep">·</span><span class="sub">governance</span></div>
+  <nav class="views" title="view">
+    <a class="v on" href="dashboard.html">Dashboard</a><a class="v" href="graph.html">Map</a>
+  </nav>
+  <div class="hspace"></div>
+  <div class="stepper" id="stepper"></div>
+  <div class="asof" id="asof"></div>
+  <a class="xnav" id="apparatus" title="open the apparatus dashboard">apparatus →</a>
 </header>
 
-<div class="wrap">
+<main>
+  <section class="band" id="status"></section>
 
-  <!-- ===================== ACT I ===================== -->
-  <div class="band" id="act1">
-    <h2>&#9617;&#9617; ACT I &mdash; HERE IS THE SYSTEM &#9617;&#9617;</h2>
-    <div class="sub">the cast on this machine, the skills they are given, the rules in force, the firewall intact
-      &nbsp; <span class="standing-mark">&#10178; standing state &mdash; not windowed</span></div>
-  </div>
+  <section class="band" id="inbox">
+    <div class="irows" id="irows"></div>
+    <div class="cardcol" id="icard"></div>
+  </section>
 
-  <div class="grid2">
-    <div class="card">
-      <h3 class="cardh" id="cast-h">Cast</h3>
-      <div id="cast-body"></div>
-      <div class="muted" style="font-size:11px;margin-top:6px;">note: no per-role attribution in the trace &mdash; all work is logged as <code>claude-code-main</code> (same root cause as the Act III attribution gap; shown, not hidden).</div>
-    </div>
-    <div class="card">
-      <h3 class="cardh" id="skills-h">Skills</h3>
-      <div id="skills-rollup"></div>
-      <div class="warnbox" id="skills-warn"></div>
-      <div style="font-size:11px;margin-top:4px;" id="skills-audit"></div>
-      <button class="toggle-page" id="skills-toggle">show 24 skills &#9662;</button>
-      <div id="skills-grid" class="hidden" style="margin-top:6px;"></div>
-    </div>
-  </div>
+  <section class="band" id="mapband">
+    <canvas id="map"></canvas>
+    <div id="mapnote" hidden>map data not generated — scripts/project_map.py</div>
+  </section>
 
-  <div class="grid2">
-    <div class="card">
-      <h3 class="cardh" id="rules-h">Rules in force</h3>
-      <div id="rules-body"></div>
-    </div>
-    <div class="card">
-      <h3 class="cardh">Firewall (dev-time &#8646; runtime)</h3>
-      <div id="firewall-body"></div>
-    </div>
-  </div>
+  <section id="loopband">
+    <span class="sec" title="harvest → propose → review → enact: the self-healing loop">loop</span>
+    <div class="strip" id="loopstrip"></div>
+  </section>
 
-  <!-- ===================== ACT II ===================== -->
-  <div class="band" id="act2">
-    <h2>&#9617;&#9617; ACT II &mdash; HERE IS WHAT IT DID &#9617;&#9617;</h2>
-    <div class="sub" id="act2-sub"></div>
-  </div>
-  <div class="card">
-    <div id="act2-summary" class="muted" style="font-size:12px;margin-bottom:6px;"></div>
-    <div id="timeline"></div>
-  </div>
+  <section id="contractsband">
+    <span class="sec" title="spawn contracts: bounded autonomous children">contracts</span>
+    <div class="band" id="contracts"></div>
+  </section>
 
-  <!-- ===================== ACT III ===================== -->
-  <div class="band" id="act3">
-    <h2>&#9617;&#9617; ACT III &mdash; HOW IT LEARNED &mdash; AND WHERE IT SLIPPED &#9617;&#9617; <span class="climax">&#9733; THE CLIMAX</span></h2>
-    <div class="sub">the self-improvement loop, the memory floor, and the flag lane</div>
-  </div>
+  <section id="timelineband">
+    <span class="sec" title="brain events in the selected window">timeline</span>
+    <div class="band" id="timeline"></div>
+  </section>
 
-  <!-- 3A loop -->
-  <div class="card">
-    <h3 class="cardh">3A &middot; The self-improvement loop <span class="muted" style="font-weight:400;">(spine = standing state; chains windowed-tagged, not hidden)</span></h3>
-    <div class="muted" style="font-size:11px;">harvest_finding &mdash;becomes&rarr; proposal &mdash;review[accept/reject/human-review]&rarr; rule / skill</div>
-    <div class="spine" id="loop-spine"></div>
-    <div id="loop-health"></div>
-    <div class="warnbox" id="loop-signal"></div>
-    <div style="margin-top:8px;">
-      <div class="muted" style="font-size:11px;margin-bottom:4px;">chains (recent-first; click a row to expand its lifecycle)</div>
-      <div id="loop-chains"></div>
-      <button class="toggle-page" id="chains-toggle">show all 8 &#9662;</button>
-    </div>
-  </div>
+  <section id="rulesband">
+    <span class="sec" title="active framework rules distilled from corrections">rules</span>
+    <div class="band" id="rules"></div>
+  </section>
 
-  <!-- 3B memory -->
-  <div class="card">
-    <h3 class="cardh">3B &middot; Memory: the recall floor + freshness <span class="muted" style="font-weight:400;">(standing state &middot; not windowed)</span></h3>
-    <div id="memory-body"></div>
-  </div>
+  <section id="daysband">
+    <span class="sec" title="per-day rendered brain views">days</span>
+    <div class="chips" id="days"></div>
+  </section>
 
-  <!-- 3C flag lane -->
-  <div class="card">
-    <h3 class="cardh">3C &middot; The flag lane <span class="muted" style="font-weight:400;">(windowed &middot; recent-first; each card drills a causal chain)</span></h3>
-    <div class="flag-filter" id="flag-filter">
-      <span id="flag-count" style="font-size:12px;font-weight:600;"></span>
-      <span class="muted" style="font-size:11px;">filter:</span>
-      <button class="tab-btn active" data-flt="all">all</button>
-      <button class="tab-btn" data-flt="explicit">&#10007; explicit</button>
-      <button class="tab-btn" data-flt="inferred">&#9676; inferred</button>
-    </div>
-    <div id="flag-lane"></div>
-    <div class="gap-card" id="gap-card"></div>
-    <div class="widen-note" id="widen-note"></div>
-  </div>
+  <footer id="foot"></footer>
+</main>
 
-  <footer id="footer"></footer>
-</div>
-
+<script src="summary_data.js"></script>
+<script src="map_data.js"></script>
+<script src="ui.js"></script>
+<script src="map.js"></script>
 <script>
+(function () {
 "use strict";
+const D = window.BRAIN_SUMMARY, U = window.UI;
+const $ = id => document.getElementById(id);
+if (!D) {
+  document.querySelector("main").innerHTML =
+    '<div class="empty mono">summary_data.js missing — run scripts/project_summary.py</div>';
+  return;
+}
+const esc = U.esc;
 
-// ---- color palette per type — copied verbatim from graph.html ----
-const TYPE_COLORS = {
-  reflection: "#3b82f6", apparatus_event: "#a3a3a3", experiment: "#22c55e",
-  hypothesis: "#f59e0b", anomaly: "#ef4444", correction: "#a855f7", decision: "#64748b",
-  iteration: "#0ea5e9", stage: "#8b5cf6", orchestrator_event: "#14b8a6", llm_call: "#ec4899",
-  run_log_entry: "#0284c7", harvest_finding: "#6366f1", proposal: "#fbbf24", rule: "#10b981",
-  agent: "#0d9488", skill: "#7c3aed", spawn: "#dc2626", _default: "#cccccc",
-  // dashboard-local kinds reuse the closest type hue
-  proposal_filed: "#fbbf24", proposal_reviewed: "#fbbf24", decision_logged: "#64748b",
-  correction_written: "#a855f7", reflection_written: "#3b82f6", harvest_run: "#6366f1",
-  spawn_launched: "#dc2626", rule_activated: "#10b981",
-  validation_fail: "#ef4444", fallback: "#f59e0b", gate_block: "#ef4444",
-  slip: "#fbbf24", skill_friction: "#6366f1", proposal_rejected: "#ef4444"
+/* ---------- window state (persisted; ←/→ steps) ---------- */
+let windowDays = D.window.default_days || 7;
+try {
+  const s = parseInt(localStorage.getItem("brain.windowDays"), 10);
+  if (s >= D.window.min_days && s <= D.window.max_days) windowDays = s;
+} catch (_) {}
+
+const asof = D.generated_at.slice(0, 10);
+const dayDiff = date => Math.round(
+  (Date.parse(asof + "T00:00:00Z") - Date.parse(String(date).slice(0, 10) + "T00:00:00Z")) / 864e5);
+const inWin = date => { const dd = dayDiff(date); return dd >= 0 && dd < windowDays; };
+const winStart = () => new Date(Date.parse(asof + "T00:00:00Z") - (windowDays - 1) * 864e5)
+  .toISOString().slice(0, 10);
+
+// re-slice a matrix cell to the window from its by_day buckets
+function sliceCell(c) {
+  if (!c.by_day) return { e: c.explicit || 0, i: c.inferred || 0 };
+  let e = 0, i = 0;
+  for (const d in c.by_day) if (inWin(d)) { e += c.by_day[d].e || 0; i += c.by_day[d].i || 0; }
+  return { e, i };
+}
+const agentRuns = a => {
+  let n = 0;
+  for (const d in (a.runs_by_day || {})) if (inWin(d)) n += a.runs_by_day[d];
+  return n;
 };
-function colorFor(t) { return TYPE_COLORS[t] || TYPE_COLORS._default; }
-function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
-function $(id) { return document.getElementById(id); }
 
-// Layer hues for skill chips (A=core purple, B=research, C=meta) — all use the skill hue family.
-const LAYER_HUE = { A: "#7c3aed", B: "#6d28d9", C: "#5b21b6" };
-
-let DATA = null;
-const FALLBACK_DAYS = 7;
-
-// ---------- load summary.json the same static (served-over-http) way graph.html loads its data ----------
-fetch("summary.json")
-  .then(r => r.json())
-  .then(d => { DATA = d; init(); })
-  .catch(err => {
-    document.querySelector(".wrap").innerHTML =
-      '<div class="empty-state">Could not load <code>summary.json</code>. Serve this directory over http (python3 -m http.server 5174) and open dashboard.html.<br>' + esc(err) + "</div>";
-  });
-
-// ---- date helpers (UTC, day-resolution; generated_at is the immutable "as of") ----
-function asOfDate() { return new Date(DATA.generated_at); }
-function dayDiff(isoDate) {
-  // whole days between event date and generated_at
-  const ev = new Date(isoDate.slice(0, 10) + "T00:00:00Z");
-  const now = new Date(DATA.generated_at.slice(0, 10) + "T00:00:00Z");
-  return Math.round((now - ev) / 86400000);
-}
-function inWindow(isoDate, days) {
-  if (!isoDate) return false;
-  const dd = dayDiff(isoDate);
-  return dd >= 0 && dd <= days;
-}
-function windowStartStr(days) {
-  const now = new Date(DATA.generated_at.slice(0, 10) + "T00:00:00Z");
-  now.setUTCDate(now.getUTCDate() - days);
-  return now.toISOString().slice(0, 10);
-}
-
-let windowDays = FALLBACK_DAYS;
-let flagFilter = "all";
-
-function init() {
-  // restore persisted window (mirrors graph.html localStorage idiom), clamp to [min,max]
-  try {
-    const stored = parseInt(localStorage.getItem("brain.windowDays"), 10);
-    if (stored >= DATA.window.min_days && stored <= DATA.window.max_days) windowDays = stored;
-  } catch (_) {}
-
-  renderStaticHeader();
-  renderWindowStepper();
-  renderAct1();          // standing — rendered once
-  renderLoopSpineAndChains(); // standing spine + chains (tagged)
-  renderMemory();        // standing
-  renderFooter();
-  wireTabs();
-  wireFlagFilter();
-  wireKeys();
-
-  recomputeWindow();     // fills Act II, flag lane, banner, tab counts
-}
-
-// ---------------- sticky header (static parts) ----------------
-function renderStaticHeader() {
-  const repo = DATA.repo.split("/").pop();
-  const cons = DATA.consumer.split("/").pop();
-  $("ident-pair").textContent = repo + " → " + cons;
-
-  const fw = DATA.standing.firewall;
-  const ok = fw.status === "intact" && fw.violations.length === 0;
-  $("firewall-pulse").innerHTML = (ok ? '<span class="dot-ok">●</span> firewall intact'
-                                       : '<span class="dot-bad">●</span> firewall ' + esc(fw.status));
-  $("firewall-pulse").title = "runtime-safe core (" + fw.runtime_safe_count + "): " +
-    fw.runtime_safe_core.join(", ") + "  —  violations: " + fw.violations.length;
-
-  const gen = DATA.generated_at;
-  $("asof").innerHTML = "◷ as of " + esc(gen.slice(0, 10)) + " " + esc(gen.slice(11, 16)) + "Z";
-
-  // standing status strip — four always-true derived health signals
-  const lh = DATA.act3_loop_and_memory.loop_health;
-  const rf = DATA.act3_loop_and_memory.memory.recall_floor;
-  const sk = DATA.act1_system.skills.rollup;
-  const floorDot = rf.freshness === "fresh" ? '<span class="dot-ok">●</span>'
-                 : rf.freshness === "aging" ? '<span class="dot-warn">●</span>'
-                 : '<span class="dot-bad">●</span>';
-  $("status-strip").innerHTML =
-    '<span>firewall <span class="dot-ok">✓</span> <b>intact</b></span>' +
-    '<span>loop <span class="dot-warn">◐</span> <b>half-dormant ' + lh.harvest_dormant_days + 'd</b></span>' +
-    '<span>floor ' + floorDot + ' <b>' + esc(rf.freshness) + ' ' + rf.age_days + 'd</b></span>' +
-    '<span>skills <b>' + sk.with_run_log_invocation + '/' + sk.total + ' run</b></span>';
-}
-
-// ---------------- window stepper ----------------
-function renderWindowStepper() {
-  const w = DATA.window;
-  const host = $("window-stepper");
-  host.innerHTML = "";
-  for (let n = w.min_days; n <= w.max_days; n++) {
-    const b = document.createElement("button");
-    b.textContent = n;
-    b.dataset.n = n;
-    if (n === windowDays) b.className = "on";
-    b.addEventListener("click", () => setWindow(n));
-    host.appendChild(b);
+/* ---------- header ---------- */
+function renderStepper() {
+  const st = $("stepper");
+  st.innerHTML = "";
+  st.title = "window: last " + windowDays + " day" + (windowDays === 1 ? "" : "s") +
+    " (" + winStart() + " → " + asof + ") · ←/→ to step";
+  for (let d = D.window.min_days; d <= D.window.max_days; d++) {
+    const t = document.createElement("button");
+    t.className = d === windowDays ? "tick on" : d < windowDays ? "tick fill" : "tick";
+    if (d === D.window.min_days || d === D.window.max_days) t.textContent = d;
+    t.addEventListener("click", () => setWindow(d));
+    st.appendChild(t);
   }
 }
 function setWindow(n) {
+  if (n === windowDays || n < D.window.min_days || n > D.window.max_days) return;
   windowDays = n;
   try { localStorage.setItem("brain.windowDays", String(n)); } catch (_) {}
-  [...$("window-stepper").children].forEach(b => b.classList.toggle("on", +b.dataset.n === n));
-  recomputeWindow();
+  renderStepper();
+  renderTimeline();
+  mountMap();
 }
-function wireKeys() {
-  document.addEventListener("keydown", e => {
-    if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
-    if (e.key === "ArrowLeft" && windowDays > DATA.window.min_days) setWindow(windowDays - 1);
-    if (e.key === "ArrowRight" && windowDays < DATA.window.max_days) setWindow(windowDays + 1);
-  });
-}
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+  if (e.key === "ArrowLeft") setWindow(windowDays - 1);
+  if (e.key === "ArrowRight") setWindow(windowDays + 1);
+});
+$("asof").textContent = asof;
+$("asof").title = "as of " + U.fmtTs(D.generated_at);
+$("apparatus").href = "http://" + (location.hostname || "localhost") + ":5173";
 
-// One pass: re-filter every WINDOWED region; STANDING regions are untouched.
-function recomputeWindow() {
-  $("window-span").textContent = "showing " + windowStartStr(windowDays) + " → " + DATA.generated_at.slice(0, 10) + "  (last " + windowDays + " day" + (windowDays === 1 ? "" : "s") + ")";
-  renderTimeline();   // Act II
-  renderFlagLane();   // Act III-C
-  renderFlagBanner(); // header lead banner
-  updateTabCounts();
-}
-
-// ---------------- ACT I ----------------
-function renderAct1() {
-  const a1 = DATA.act1_system;
-
-  // Cast
-  $("cast-h").textContent = "Cast · " + a1.agents.length + " dev agents";
-  // present in a stable role order: planner, builder, experimenter, auditor
-  const order = ["planner", "builder", "experimenter", "auditor"];
-  const agents = [...a1.agents].sort((x, y) => order.indexOf(x.name) - order.indexOf(y.name));
-  $("cast-body").innerHTML = agents.map(a => {
-    const leans = a.leans_on.map(s => '<span class="chip" title="leans on this skill">' + esc(s) + "</span>").join("");
-    return '<div class="agent-card">' +
-      '<div class="nm"><span class="legend" style="background:' + colorFor("agent") + '"></span>' + esc(a.name) + "</div>" +
-      '<div class="role">' + esc(a.role) + "</div>" +
-      '<div class="leans">' + leans + "</div>" +
-      '<div class="muted" style="font-size:11px;">authored ' + (a.authored_corrections.length || "—") + " · " + a.activity_count + " runs</div>" +
-      "</div>";
-  }).join("");
-
-  // Skills
-  const r = a1.skills.rollup;
-  $("skills-h").textContent = "Skills · " + r.total + "  (referenced vs actually-run)";
-  const layers = [["A", r.by_layer.A], ["B", r.by_layer.B], ["C", r.by_layer.C]];
-  const maxL = Math.max(...layers.map(l => l[1]));
-  let rollup = '';
-  for (const [L, n] of layers) {
-    const w = Math.round((n / maxL) * 150);
-    const rs = (L === "A") ? '  (' + r.runtime_safe + ' runtime-safe ●)' : "";
-    rollup += '<div class="barwrap"><span class="barlabel">Layer ' + L + ' ·' + n + '·</span>' +
-      '<span class="bar" style="width:' + w + 'px;background:' + LAYER_HUE[L] + '"></span><span>' + rs + "</span></div>";
-  }
-  rollup += '<div style="font-size:11px;margin-top:4px;border-top:1px solid #eee;padding-top:4px;">referenced ' + r.referenced + ' · with run-log invocation <b>' + r.with_run_log_invocation + "</b></div>";
-  $("skills-rollup").innerHTML = rollup;
-  $("skills-warn").innerHTML = "⚠ referenced ≠ run: every skill " + r.with_run_log_invocation +
-    " invocations (skill_used " + DATA.standing.attribution_gap.skill_used_populated + "/" +
-    DATA.standing.attribution_gap.total_run_log_rows + ") &mdash; <a href='#act3'>attribution gap &rarr; Act III</a>";
-  $("skills-audit").innerHTML = '<span class="muted">audit truth:</span> SP-002 saw ' + r.audited_at_head +
-    " @HEAD · " + r.audited_in_working_tree + " in tree";
-
-  // skills grid (collapsible)
-  $("skills-grid").innerHTML = a1.skills.items.map(s => {
-    const rs = s.runtime_safe ? " ●" : "";
-    const nr = s.referenced_but_not_run ? " ◌" : "";
-    const tip = s.purpose.replace(/"/g, "'") +
-      "  | harvest " + s.invoked_evidence.harvest_findings +
-      " (friction " + s.invoked_evidence.harvest_friction + ")" +
-      " | last_seen " + (s.invoked_evidence.last_seen || "—") +
-      " | run-log invocations " + s.invoked_evidence.run_log_invocations;
-    return '<span class="chip" title="' + esc(tip) + '" style="border-left:3px solid ' + LAYER_HUE[s.layer] + '">' +
-      esc(s.name) + ' <span class="muted">' + s.layer + rs + nr + "</span></span>";
-  }).join("");
-
-  // Rules
-  $("rules-h").textContent = "Rules in force · " + a1.rules.length + " framework";
-  $("rules-body").innerHTML = a1.rules.map(rl => {
-    const enf = rl.enforced_count > 0
-      ? ' <span class="verdict v-auto-reject">enforced ×' + rl.enforced_count +
-        (rl.rejected_proposals.length ? " (→" + esc(rl.rejected_proposals.join(",")) + ")" : "") + "</span>"
-      : "";
-    return '<div class="kv" style="border-bottom:1px solid #f0f0f0;padding:4px 0;">' +
-      '<b>' + esc(rl.id) + '</b> ' + esc(rl.title) + enf +
-      '<div class="muted" style="font-size:11px;">' + esc(rl.imperative) + "</div>" +
-      '<div class="muted" style="font-size:10px;">enacted-by: ' + (rl.enacted_by.map(esc).join(", ") || "—") + " · " + esc(rl.source_decision_date) + "</div>" +
-      "</div>";
-  }).join("");
-
-  // Firewall
-  const fw = a1.firewall;
-  $("firewall-body").innerHTML =
-    '<div style="font-size:14px;margin-bottom:4px;"><span class="dot-ok">●</span> <b>' + esc(fw.status.toUpperCase()) + "</b></div>" +
-    '<div class="kv"><b>runtime-safe core ·' + fw.runtime_safe_count + '·:</b> ' +
-      fw.runtime_safe_core.map(s => '<span class="chip" style="border-color:#a7f3d0;background:#ecfdf5">' + esc(s) + "</span>").join("") + "</div>" +
-    '<div class="kv"><b>dev-only ·' + fw.dev_only_count + '·</b> &nbsp; violations: <b>' + fw.violations.length + "</b></div>" +
-    '<div class="muted" style="font-size:11px;margin-top:4px;">' + esc(fw.invariant) + "</div>";
-
-  $("skills-toggle").addEventListener("click", () => {
-    const g = $("skills-grid");
-    const open = g.classList.toggle("hidden") === false;
-    $("skills-toggle").innerHTML = (open ? "hide skills ▴" : "show " + r.total + " skills ▾");
-  });
-}
-
-// ---------------- ACT II (windowed) ----------------
-function renderTimeline() {
-  const all = DATA.act2_activity.timeline;
-  const host = $("timeline");
-  const inWin = all.filter(t => inWindow(t.date, windowDays));
-  const olderCount = all.length - inWin.length;
-  const oldestAll = all.reduce((m, t) => (t.date < m ? t.date : m), all[0] ? all[0].date : "");
-
-  // summary bar (counts of windowed events by kind)
-  const KIND_LABEL = {
-    proposal_filed: "proposal filed", proposal_reviewed: "proposal reviewed",
-    decision_logged: "decision", correction_written: "correction",
-    reflection_written: "reflection", harvest_run: "harvest", spawn_launched: "spawn",
-    rule_activated: "rule"
+/* ---------- status strip (6 segments; click scrolls to band) ---------- */
+function renderStatus() {
+  const s = D.status_strip, host = $("status");
+  host.innerHTML = "";
+  const seg = (target, title) => {
+    const e = document.createElement("div");
+    e.className = "seg";
+    e.title = title;
+    e.addEventListener("click", () => {
+      const t = $(target);
+      if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+    host.appendChild(e);
+    return e;
   };
-  if (inWin.length) {
-    const counts = {};
-    for (const t of inWin) counts[t.kind] = (counts[t.kind] || 0) + 1;
-    const parts = Object.entries(counts).map(([k, c]) => c + " " + (KIND_LABEL[k] || k));
-    $("act2-summary").textContent = "in last " + windowDays + "d: " + parts.join(" · ");
-  } else {
-    $("act2-summary").textContent = "";
-  }
+  const SYS = { ok: ["var(--ok)", "ok"], attention: ["var(--warn)", "warn"], critical: ["var(--bad)", "bad"] };
+  const sy = SYS[s.system] || SYS.attention;
+  let e = seg("inbox", "system: " + s.system);
+  e.innerHTML = '<span class="dot" style="background:' + sy[0] + '"></span><span class="v ' + sy[1] + '">' + esc(s.system) + "</span>";
 
-  let html = "";
-  if (inWin.length === 0) {
-    html += '<div class="empty-state">0 brain events in last ' + windowDays + 'd &mdash; quiet window' +
-      '<div style="margin-top:8px;"><button class="action-btn" id="tl-show10">show most-recent 10 anyway</button> ' +
-      '<a class="action-btn primary" href="graph.html">Explore &rarr;</a></div></div>';
-  } else {
-    for (const t of inWin) {
-      const verdict = t.verdict ? ' <span class="verdict v-' + esc(t.verdict.replace(/_/g, "-")) + '">' + esc(t.verdict) + "</span>" : "";
-      const flag = t.is_flag ? ' <a class="toggle-page" href="#act3">▸flag</a>' : "";
-      html += '<div class="tl-row' + (t.is_flag ? " is-flag" : "") + '">' +
-        '<span class="d">' + esc(t.date) + "</span>" +
-        '<span class="kd"><span class="legend" style="background:' + colorFor(t.kind) + '"></span>' + esc((KIND_LABEL[t.kind] || t.kind)) + "</span>" +
-        '<span class="ti">' + esc(t.id) + " &mdash; " + esc(t.title) + verdict + flag + "</span>" +
-        '<span class="ac">' + esc(t.actor) + "</span>" +
-        "</div>";
-    }
-  }
-  if (olderCount > 0) {
-    html += '<div class="win-edge">··· window edge (' + windowDays + 'd) ···</div>' +
-      '<div class="muted" style="font-size:11px;">◌ ' + olderCount + ' older brain events (to ' + esc(oldestAll) + ') past the window &rarr; ' +
-      '<button class="action-btn" id="tl-show-recent">show most-recent 10</button> ' +
-      '<a class="action-btn primary" href="graph.html">Explore &rarr;</a></div>' +
-      '<div id="tl-older" class="hidden" style="margin-top:6px;border-top:1px dashed #ddd;padding-top:6px;"></div>';
-  }
-  host.innerHTML = html;
+  const n = s.needs_you;
+  e = seg("inbox", n.high + " high · " + n.med + " med · " + n.low + " low");
+  e.innerHTML = '<span class="k">needs you</span><span class="v">' + n.total + '</span>' +
+    '<span class="ticksv">' +
+    [["high", 10, "var(--bad)"], ["med", 7, "var(--warn)"], ["low", 4, "var(--idle)"]].map(b =>
+      '<i style="height:' + b[1] + "px;background:" + b[2] + ";opacity:" + (n[b[0]] ? 1 : .25) + '"></i>').join("") +
+    "</span>";
 
-  // older-events in-place reveal (greyed; max window stays at max_days)
-  function revealOlder() {
-    const older = all.filter(t => !inWindow(t.date, windowDays)).slice(0, 10);
-    const box = $("tl-older");
-    if (!box) return;
-    box.classList.remove("hidden");
-    box.innerHTML = older.map(t =>
-      '<div class="tl-row" style="opacity:.6"><span class="d">' + esc(t.date) + '</span>' +
-      '<span class="kd"><span class="legend" style="background:' + colorFor(t.kind) + '"></span>' + esc((KIND_LABEL[t.kind] || t.kind)) + "</span>" +
-      '<span class="ti">' + esc(t.id) + " &mdash; " + esc(t.title) + "</span>" +
-      '<span class="ac">' + esc(t.actor) + "</span></div>").join("");
-  }
-  const b1 = $("tl-show-recent"); if (b1) b1.addEventListener("click", revealOlder);
-  const b2 = $("tl-show10"); if (b2) b2.addEventListener("click", () => {
-    // quiet-window variant: render the 10 most-recent regardless
-    const recent = [...all].slice(0, 10);
-    host.innerHTML = recent.map(t =>
-      '<div class="tl-row" style="opacity:.6"><span class="d">' + esc(t.date) + '</span>' +
-      '<span class="kd"><span class="legend" style="background:' + colorFor(t.kind) + '"></span>' + esc((KIND_LABEL[t.kind] || t.kind)) + "</span>" +
-      '<span class="ti">' + esc(t.id) + " &mdash; " + esc(t.title) + "</span>" +
-      '<span class="ac">' + esc(t.actor) + "</span></div>").join("") +
-      '<div class="muted" style="font-size:11px;margin-top:6px;">(most-recent 10, ignoring the ' + windowDays + 'd window) · <a href="graph.html">Explore &rarr;</a></div>';
-  });
+  e = seg("mapband", "skills drifting from contract — worst: " + (s.drift.worst || "—"));
+  e.innerHTML = '<span class="k">drift</span><span class="v warn">' + s.drift.skills + "</span>";
+
+  const lp = s.loop;
+  const ldot = lp.state === "active" ? '<span class="dot" style="background:var(--ok)"></span>'
+    : lp.state === "dormant" ? '<span class="dot" style="background:var(--border-2)"></span>'
+    : '<span class="dot d-half"></span>';
+  e = seg("loopband", "healing loop " + lp.state + " for " + lp.dormant_days + " days");
+  e.innerHTML = ldot + '<span class="k">loop</span><span class="v dim">' + esc(lp.state) + " · " + lp.dormant_days + "d</span>";
+
+  const fw = s.firewall, fwOk = fw.status === "intact" && !fw.violations;
+  e = seg("mapband", "dev-time / runtime firewall: " + fw.status + " · violations " + (fw.violations || 0));
+  e.innerHTML = '<span class="k">fw</span>' +
+    (fwOk ? '<span class="v ok">✓</span>' : '<span class="v bad">✗ ' + fw.violations + "</span>");
+
+  const fr = s.freshness;
+  const fcls = fr.recall_floor_age_days <= 1 ? "ok" : fr.recall_floor_age_days <= 3 ? "warn" : "bad";
+  e = seg("daysband", "recall floor: " + fr.recall_floor + " · newest event " + fr.newest_event);
+  e.innerHTML = '<span class="k">fresh</span><span class="v ' + fcls + '">' + fr.recall_floor_age_days + "d</span>";
 }
 
-// ---------------- ACT III-A loop spine + chains (standing) ----------------
-function renderLoopSpineAndChains() {
-  const a3 = DATA.act3_loop_and_memory;
-  const lh = a3.loop_health;
-  const cm = DATA.act2_activity.counts_all_time;
+/* ---------- needs-you inbox ---------- */
+const RANK = { high: 0, med: 1, low: 2 };
+const sorted = () => (D.inbox || []).slice()
+  .sort((a, b) => RANK[a.severity] - RANK[b.severity] || a.age_days - b.age_days);
 
-  // count produced rules / new skills
-  const newSkills = a3.loop_chains.filter(c => c.produced_skill).length;
-
-  const stages = [
-    { nm: "harvest_finding", ct: cm.harvest_findings + " · indexed", type: "harvest_finding" },
-    { nm: "proposal", ct: cm.proposals + " filed", type: "proposal" },
-    { nm: "review (verdict)", ct: "✓" + lh.accepted + "  ✗" + lh.auto_rejected + "  open " + lh.open_proposals, type: "proposal" },
-    { nm: "rule / skill", ct: cm.rules + " rule · " + newSkills + " new skill", type: "rule" }
-  ];
-  let spine = "";
-  stages.forEach((s, i) => {
-    spine += '<div class="stage-box" style="border-left-color:' + colorFor(s.type) + '">' +
-      '<div class="nm"><span class="legend" style="background:' + colorFor(s.type) + '"></span>' + esc(s.nm) + "</div>" +
-      '<div class="ct">' + esc(s.ct) + "</div></div>";
-    if (i < stages.length - 1) spine += '<span class="arrow">&rarr;</span>';
-  });
-  $("loop-spine").innerHTML = spine;
-
-  $("loop-health").innerHTML = '<div style="font-size:12px;margin-top:6px;">loop health <span class="dot-warn">◐</span> &nbsp;' +
-    "open <b>" + lh.open_proposals + "</b> · accepted <b>" + lh.accepted + "</b> · auto-rejected <b>" + lh.auto_rejected +
-    "</b> · human-review <b>" + lh.human_review_pending + "</b></div>";
-  $("loop-signal").innerHTML = "⚠ HALF-DORMANT: " + esc(lh.signal) +
-    " &nbsp; newest harvest " + esc(lh.newest_harvest) + " · newest proposal " + esc(lh.newest_proposal) +
-    ' &nbsp; <a href="graph.html">Explore &rarr;</a>';
-
-  // chains, recent-first by filed_date (fall back to first lifecycle ts)
-  const chains = [...a3.loop_chains].sort((a, b) => chainDate(b).localeCompare(chainDate(a)));
-  renderChains(chains, false);
-  $("chains-toggle").addEventListener("click", () => {
-    const showAll = $("chains-toggle").dataset.all !== "1";
-    $("chains-toggle").dataset.all = showAll ? "1" : "0";
-    $("chains-toggle").innerHTML = showAll ? "collapse routine accepts ▴" : "show all " + chains.length + " ▾";
-    renderChains(chains, showAll);
-  });
-}
-function chainDate(c) {
-  if (c.filed_date) return c.filed_date;
-  if (c.verdict_lifecycle && c.verdict_lifecycle.length) return c.verdict_lifecycle[0].ts.slice(0, 10);
-  return "0000-00-00";
-}
-function verdictPillClass(v) { return "v-" + String(v).replace(/_/g, "-"); }
-function renderChains(chains, showAll) {
-  // Default: show open + rejected first; collapse routine accepts so the eye lands on the interesting ones.
-  const interesting = c => c.final_verdict === "open" || c.auto_rejected_by || (c.origin_harvest && c.origin_harvest.length);
-  const shown = showAll ? chains : chains.filter(interesting);
-  const host = $("loop-chains");
-  host.innerHTML = shown.map(c => {
-    const d = chainDate(c);
-    const win = inWindow(d, windowDays);
-    const winTag = win
-      ? '<span class="win-tag">IN WINDOW</span>'
-      : '<span class="win-tag out">outside ' + windowDays + 'd · Explore</span>';
-    const fvClass = verdictPillClass(c.final_verdict);
-    const origin = (c.origin_harvest && c.origin_harvest.length) ? esc(c.origin_harvest.join(",")) : "—";
-    const produced = c.produced_rule ? "rule " + esc(c.produced_rule)
-                   : c.produced_skill ? "skill " + esc(c.produced_skill) : "—";
-    const rej = c.auto_rejected_by ? ' ✗ auto-rejected by <b>' + esc(c.auto_rejected_by) + "</b>" : "";
-    const mini = origin + " &rarr; " + esc(c.target) + " (" + esc(c.target_type) + ") &rarr; " + produced + rej;
-    return '<div class="chain-row" data-pid="' + esc(c.proposal_id) + '">' +
-      '<div class="head">' +
-        '<span class="pid">' + esc(c.proposal_id) + "</span>" +
-        '<span class="verdict ' + fvClass + '">' + esc(c.final_verdict) + "</span>" +
-        winTag +
-        '<span class="toggle-page">expand &#9662;</span>' +
-        '<span class="mini" style="flex-basis:100%;">' + mini + "</span>" +
-      "</div>" +
-      '<div class="lifecycle hidden">' + lifecycleHTML(c) + "</div>" +
-      "</div>";
-  }).join("");
-
-  host.querySelectorAll(".chain-row .head").forEach(h => h.addEventListener("click", () => {
-    const lc = h.parentElement.querySelector(".lifecycle");
-    const t = h.querySelector(".toggle-page");
-    const open = lc.classList.toggle("hidden") === false;
-    if (t) t.innerHTML = open ? "collapse ▴" : "expand ▾";
-  }));
-}
-function lifecycleHTML(c) {
-  const title = '<div style="font-size:11px;margin-bottom:4px;"><b>' + esc(c.title) + "</b></div>";
-  const steps = c.verdict_lifecycle.map(s => {
-    const rsn = s.reasoning ? '<div class="rsn">' + esc(s.reasoning) + "</div>" : "";
-    return '<div class="step"><span class="verdict ' + verdictPillClass(s.verdict) + '">' + esc(s.verdict) + "</span> " +
-      '<span class="muted">' + esc(s.ts.slice(0, 16).replace("T", " ")) + "Z · " + esc(s.actor) + "</span>" + rsn + "</div>";
-  }).join("");
-  let extra = "";
-  if (c.rule_cited_title) extra += '<div class="step muted">rule cited: ' + esc(c.rule_cited_title) + "</div>";
-  return title + steps + extra;
-}
-
-// ---------------- ACT III-B memory (standing) ----------------
-function renderMemory() {
-  const m = DATA.act3_loop_and_memory.memory;
-  const rf = m.recall_floor;
-  const dot = rf.freshness === "fresh" ? '<span class="dot-ok">●</span>'
-            : rf.freshness === "aging" ? '<span class="dot-warn">●</span>'
-            : '<span class="dot-bad">●</span>';
-  $("memory-body").innerHTML =
-    '<div class="kv">recall floor (what <code>resume-state</code> / <code>brain-recall</code> surface): newest correction <b>' +
-      esc(rf.newest_correction_date) + "</b> · age <b>" + rf.age_days + "d</b></div>" +
-    '<div class="kv">freshness ' + dot + " <b>" + esc(rf.freshness.toUpperCase()) +
-      '</b> <span class="muted" title="fresh ≤ 3d · aging 4–14d · stale &gt; 14d → dormant floor">(fresh ≤3d · aging 4–14d · stale &gt;14d)</span>' +
-      " &nbsp; corrections <b>" + rf.corrections_total + "</b> · reflections <b>" + rf.reflections_total + "</b></div>";
-}
-
-// ---------------- ACT III-C flag lane (windowed) ----------------
-function windowedFlags() {
-  return DATA.act3_loop_and_memory.flags
-    .filter(f => inWindow(f.date, windowDays))
-    .sort((a, b) => b.date.localeCompare(a.date));
-}
-function renderFlagLane() {
-  const all = windowedFlags();
-  const flags = all.filter(f => flagFilter === "all" ? true
-                              : flagFilter === "explicit" ? f.link_explicit
-                              : !f.link_explicit);
-  const host = $("flag-lane");
-
-  // count line + per-severity
-  const sev = { high: 0, med: 0, low: 0 };
-  for (const f of all) sev[f.severity] = (sev[f.severity] || 0) + 1;
-  $("flag-count").innerHTML = "⚡ " + all.length + " flag" + (all.length === 1 ? "" : "s") +
-    " in last " + windowDays + "d &nbsp;<span class='muted' style='font-weight:400'>" +
-    sev.high + " high · " + sev.med + " med · " + sev.low + " low</span>";
-
-  if (all.length === 0) {
-    host.innerHTML = '<div class="empty-state calm">0 flags in last ' + windowDays + 'd &mdash; healthy ' +
-      '<span class="dot-ok">●</span><div style="margin-top:6px;"><span class="muted">a quiet window is itself a useful signal.</span> ' +
-      '<a class="action-btn" href="graph.html">widen / Explore &rarr;</a></div></div>';
-  } else if (flags.length === 0) {
-    host.innerHTML = '<div class="empty-state">no <b>' + esc(flagFilter) + '</b> flags in last ' + windowDays + 'd (try [all]).</div>';
-  } else {
-    host.innerHTML = flags.map(flagCardHTML).join("");
-    host.querySelectorAll(".flag-card .fhead").forEach(h => h.addEventListener("click", () => {
-      const body = h.parentElement.querySelector(".chain-table");
-      const t = h.querySelector(".fexpand");
-      const open = body.classList.toggle("hidden") === false;
-      if (t) t.textContent = open ? "▴" : "▸";
-    }));
-  }
-  renderGapCard();
-  renderWidenNote();
-}
-function flagCardHTML(f) {
-  const sevClass = "sev-" + f.severity;
-  const badge = f.link_explicit
-    ? '<span class="badge-explicit">✗ explicit</span>'
-    : '<span class="badge-inferred" title="raw run-log row has no skill_used — governing skill inferred from status semantics. Click the gap card below.">&#9676; inferred &#9432;</span>';
-  const c = f.chain || {};
-  const crow = (label, val, cls) => val
-    ? '<div class="crow"><div class="clabel">' + label + '</div><div class="cval' + (cls ? " " + cls : "") + '">' + esc(val) + "</div></div>"
-    : "";
-  const reasoning = c.reasoning
-    ? crow("reasoning", c.reasoning, "reason")
-    : (!f.link_explicit ? '<div class="crow"><div class="clabel">reasoning</div><div class="cval reason muted">not captured in raw row (inferred flag)</div></div>' : "");
-  const chainTable =
-    '<div class="chain-table hidden">' +
-      crow("outcome", c.outcome) +
-      crow("expected", c.expected) +
-      crow("actual", c.actual) +
-      reasoning +
-      crow("correction", c.correction_or_rule) +
-      '<div class="src-ref">source: ' + esc(f.source_ref) + ' · <a href="graph.html">Explore #focus</a></div>' +
-    "</div>";
-  return '<div class="flag-card ' + sevClass + '">' +
-    '<div class="fhead">' +
-      '<span class="sev-badge ' + f.severity + '">' + esc(f.severity.toUpperCase()) + "</span>" +
-      '<span class="verdict" style="background:transparent;color:#888;border:1px solid #ddd;">' + esc(f.kind) + "</span>" +
-      badge +
-      '<span class="muted" style="font-size:11px;">' + esc(f.date) + "</span>" +
-      '<span class="title">' + esc(f.title) + "</span>" +
-      '<span class="fexpand toggle-page">▸</span>' +
-    "</div>" +
-    '<div class="gov">governing &rsaquo; ' + esc(f.governing_skill_or_rule) + "</div>" +
-    chainTable +
-    "</div>";
-}
-function renderGapCard() {
-  const g = DATA.standing.attribution_gap;
-  $("gap-card").innerHTML =
-    "ⓘ <b>Why some flags say &ldquo;inferred&rdquo;:</b> raw run-log carries no <code>skill_used</code> (" +
-    g.skill_used_populated + "/" + g.total_run_log_rows + ") and <code>agent</code> on only " +
-    g.agent_populated + "/" + g.total_run_log_rows + " rows (" + g.consumer_rows + " consumer + " + g.framework_rows + " framework). " +
-    "<b>" + g.explicit_kinds.join(" · ") + "</b> carry an EXPLICIT skill/rule link; run-log-derived flags (<b>" +
-    g.inferred_kinds.join(" / ") + "</b>) are INFERRED from status semantics. " +
-    "<b>" + esc(g.fix_proposal) + "</b> (open · human-gated) is the in-flight fix &mdash; the lane gets richer once it lands.";
-}
-function renderWidenNote() {
-  // Compute what lives OUTSIDE the current window so the widen-note is honest & data-driven.
-  const out = DATA.act3_loop_and_memory.flags.filter(f => !inWindow(f.date, windowDays));
-  if (out.length === 0) { $("widen-note").innerHTML = ""; return; }
-  const byKind = {};
-  for (const f of out) byKind[f.kind] = (byKind[f.kind] || 0) + 1;
-  const parts = Object.entries(byKind).sort((a, b) => b[1] - a[1]).map(([k, c]) => c + " " + k);
-  $("widen-note").innerHTML = "more flags live outside " + windowDays + "d (" + parts.join(", ") +
-    ") &mdash; max window is " + DATA.window.max_days + "d by design; deep discipline history lives in the " +
-    '<a href="graph.html">graph &rarr;</a>';
-}
-
-// ---------------- lead flag banner (header) ----------------
-function renderFlagBanner() {
-  const all = windowedFlags();
-  const host = $("flag-banner");
-  const sev = { high: 0, med: 0, low: 0 };
-  for (const f of all) sev[f.severity] = (sev[f.severity] || 0) + 1;
-  if (all.length === 0) {
-    host.className = "flag-banner calm";
-    host.innerHTML = '⚡ <span class="lead">0 flags in last ' + windowDays + 'd &mdash; healthy <span class="dot-ok">●</span></span>';
+function renderInbox() {
+  const items = sorted();
+  if (!items.length) {
+    $("inbox").innerHTML = '<div class="empty">nothing needs you — loop unblocked</div>';
     return;
   }
-  host.className = "flag-banner";
-  // highest-severity flag (high > med > low), most recent within that
-  const rank = { high: 3, med: 2, low: 1 };
-  const top = [...all].sort((a, b) => (rank[b.severity] - rank[a.severity]) || b.date.localeCompare(a.date))[0];
-  const sevTxt = top.severity.toUpperCase() + " · " + (top.link_explicit ? "explicit" : "inferred");
-  host.innerHTML = '⚡ <b>' + all.length + " flags in last " + windowDays + "d</b> · " +
-    sev.high + " high " + sev.med + " med " + sev.low + " low" +
-    ' &nbsp; <span class="lead" id="banner-lead">▸ ' + esc(top.title.slice(0, 70)) + (top.title.length > 70 ? "…" : "") +
-    " (" + sevTxt + ")</span>";
-  const lead = $("banner-lead");
-  if (lead) lead.addEventListener("click", () => {
-    document.getElementById("act3").scrollIntoView({ behavior: "smooth" });
+  const top = items[0];
+  const rows = $("irows"), card = $("icard");
+  rows.innerHTML = ""; card.innerHTML = "";
+
+  const groups = new Map();
+  items.slice(1).forEach(it => {
+    if (!groups.has(it.kind)) groups.set(it.kind, []);
+    groups.get(it.kind).push(it);
+  });
+  for (const [kind, list] of groups) {
+    const it = list[0];
+    const r = document.createElement("div");
+    r.className = "irow";
+    r.title = it.action_cmd || it.detail || "";
+    r.innerHTML =
+      '<span class="dot" style="background:' + U.sevColor(it.severity) + '"></span>' +
+      '<span class="kind">' + esc(kind) + '</span>' +
+      '<span class="cnt">×' + list.length + '</span>' +
+      '<span class="ititle">' + esc(it.title) + '</span>' +
+      '<span class="age">' + U.fmtAge(it.age_days) + "</span>";
+    r.addEventListener("click", () => openInboxKind(kind));
+    rows.appendChild(r);
+  }
+
+  const c = document.createElement("div");
+  c.className = "dcard";
+  c.title = top.detail || "";
+  c.innerHTML =
+    '<div class="top"><span class="dot" style="background:' + U.sevColor(top.severity) + '"></span>' +
+    '<span class="kind" style="color:var(--bad)">' + esc(top.kind) + '</span>' +
+    '<span style="flex:1"></span><span class="age">' + U.fmtAge(top.age_days) + "</span></div>" +
+    '<div class="ttl">' + esc(top.title) + "</div>" +
+    (top.action_cmd ? U.copyBlock(top.action_cmd) : "");
+  c.addEventListener("click", e => {
+    if (e.target.closest("[data-copy]")) return;
+    openInboxKind(top.kind);
+  });
+  card.appendChild(c);
+}
+
+function openInboxKind(kind) {
+  const list = sorted().filter(it => it.kind === kind);
+  const html = list.map(it => {
+    const inc = (D.incidents || []).find(x => x.id === it.id);
+    return '<div class="ui-item">' +
+      '<div class="ui-row">' + U.sevPill(it.severity) +
+      '<span class="ui-id" style="flex:1;width:auto" title="' + esc(it.id) + '">' + esc(it.id) + "</span>" +
+      (it.reversible === false ? '<span class="ui-chip warn" title="this action does not undo">irreversible</span>' : "") +
+      '<span class="ui-num">' + U.fmtAge(it.age_days) + "</span></div>" +
+      '<div class="ui-title">' + esc(it.title) + "</div>" +
+      (it.detail ? '<div class="ui-note">' + esc(it.detail) + "</div>" : "") +
+      (it.action_cmd ? U.copyBlock(it.action_cmd) : "") +
+      '<div class="ui-row" style="min-height:20px"><span class="ui-num">' + esc(it.surface || "") +
+      " · " + esc(it.source || "") + "</span><span style='flex:1'></span>" +
+      (it.link && it.link.skill ? '<span class="ui-chip" data-skill="' + esc(it.link.skill) + '">' + esc(it.link.skill) + "</span>" : "") +
+      "</div>" +
+      (inc ? (inc.kv || []).map(p => U.kv(p[0], esc(p[1]))).join("") +
+        (inc.body ? '<div class="ui-note">' + esc(inc.body) + "</div>" : "") : "") +
+      "</div>";
+  }).join("");
+  U.panel.open(kind + " × " + list.length, html);
+}
+
+/* ---------- embedded cluster map (BrainMap is B2's frozen interface) ---------- */
+function mountMap() {
+  const ok = typeof window.BrainMap !== "undefined" && window.BRAIN_MAP;
+  $("mapnote").hidden = !!ok;
+  if (!ok) return;
+  BrainMap.mount($("map"), {
+    summary: D, map: window.BRAIN_MAP,
+    windowDays: windowDays, embedded: true,
+    onSelect: openNode
   });
 }
+let rsz;
+window.addEventListener("resize", () => { clearTimeout(rsz); rsz = setTimeout(mountMap, 180); });
 
-// ---------------- tab counts + scroll-spy ----------------
-function updateTabCounts() {
-  const n2 = DATA.act2_activity.timeline.filter(t => inWindow(t.date, windowDays)).length;
-  const n3 = windowedFlags().length;
-  $("tab2").innerHTML = "&#9313; What it did (" + n2 + ")";
-  $("tab3").innerHTML = "&#9314; How it learned &middot; slipped &#9889;" + n3;
+function openNode(node) {
+  if (!node) return;
+  const name = node.label || String(node.id || "").replace(/^(skill|agent):/, "");
+  if (node.type === "agent") return openAgent(name);
+  if (node.type === "skill") return openSkill(name);
+  const card = window.BRAIN_MAP && BRAIN_MAP.cards && BRAIN_MAP.cards[node.id];
+  if (card) U.panel.open(card.title || name,
+    '<div class="ui-note">' + esc(card.one_line || "") + "</div>" +
+    U.kv("date", esc(card.date || "")) + U.kv("source", esc(card.source || "")));
 }
-function wireTabs() {
-  const tabs = [...document.querySelectorAll("#act-tabs .tab-btn")];
-  tabs.forEach(t => t.addEventListener("click", () => {
-    const el = document.getElementById(t.dataset.target);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  }));
-  // scroll-spy via IntersectionObserver: active tab tracks the act in view
-  const acts = ["act1", "act2", "act3"].map(id => document.getElementById(id));
-  const io = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        tabs.forEach(t => t.classList.toggle("active", t.dataset.target === e.target.id));
-      }
+document.addEventListener("click", e => {
+  const c = e.target.closest && e.target.closest("[data-skill]");
+  if (c) openSkill(c.getAttribute("data-skill"));
+});
+
+/* ---------- side-panel builders ---------- */
+const STATE_CHIP = {
+  drift: ["warn", "drift"], healed: ["ok", "healed"], new: ["", "new"],
+  by_design: ["", "ref-only by design"], untested: ["", "untested"],
+  firewall_violation: ["warn", "firewall"], ok: null
+};
+function usageRows(filterKey, filterVal, hueOf) {
+  const rows = (D.matrix.cells || [])
+    .filter(c => c[filterKey] === filterVal)
+    .map(c => ({ c, w: sliceCell(c) }))
+    .filter(x => x.w.e + x.w.i > 0)
+    .sort((a, b) => (b.w.e + b.w.i) - (a.w.e + a.w.i));
+  if (!rows.length) return '<div class="ui-note">no usage in window</div>';
+  const mx = Math.max(...rows.map(x => x.w.e + x.w.i));
+  return rows.map(x => {
+    const other = filterKey === "skill" ? x.c.agent : x.c.skill;
+    const hue = hueOf(x.c);
+    return '<div class="ui-row" title="' + esc(other) + ": " + x.w.e + " explicit · " + x.w.i + ' inferred">' +
+      '<span class="ui-dot" style="background:' + hue + '"></span>' +
+      '<span class="ui-id">' + esc(other) + '</span>' +
+      '<span class="ui-bar">' +
+      (x.w.e ? '<i style="width:' + (x.w.e / mx * 100).toFixed(1) + "%;background:" + hue + '"></i>' : "") +
+      (x.w.i ? '<i style="width:' + (x.w.i / mx * 100).toFixed(1) + "%;background:" + hue + ';opacity:.32"></i>' : "") +
+      '</span><span class="ui-num">e' + x.w.e + "·i" + x.w.i + "</span></div>";
+  }).join("");
+}
+const usageLegend = '<span class="ui-dot" style="width:6px;height:6px;background:var(--text-dim)" title="solid = explicit"></span>' +
+  '<span class="ui-dot" style="width:6px;height:6px;background:none;border:1px solid var(--text-dim)" title="faded = inferred"></span>';
+
+function openSkill(name) {
+  const s = (D.skills || []).find(x => x.name === name);
+  if (!s) return;
+  const g = s.governance || {};
+  let chips = '<span class="ui-chip">' + esc(s.pack) + "</span>";
+  if (s.runtime_safe) chips += '<span class="ui-chip rt" title="member of the 6-skill runtime-safe core">runtime-safe</span>';
+  const st = STATE_CHIP[g.state];
+  if (st) chips += '<span class="ui-chip ' + st[0] + '">' + esc(st[1]) + "</span>";
+  let html = '<div class="ui-row" style="flex-wrap:wrap">' + chips + "</div>" +
+    '<div class="ui-note">' + esc(s.purpose || "") + "</div>";
+
+  html += '<div class="ui-sec" title="' + esc(D.matrix.method_note || "") + '">usage ' + usageLegend + "</div>" +
+    usageRows("skill", name, c => U.agentHue(c.agent));
+  const u = s.usage || {};
+  html += U.kv("window e·i", (() => {
+    const w = (D.matrix.cells || []).filter(c => c.skill === name)
+      .reduce((a, c) => { const x = sliceCell(c); a.e += x.e; a.i += x.i; return a; }, { e: 0, i: 0 });
+    return "e" + w.e + " · i" + w.i;
+  })()) + U.kv("all-time e·i", "e" + (u.explicit || 0) + " · i" + (u.inferred || 0)) +
+    U.kv("last used", esc(u.last_used || "—"));
+
+  const props = (D.inbox || []).filter(it => it.kind === "proposal_review" && it.link && it.link.skill === name);
+  const heal = g.healed;
+  if (props.length || (heal && heal.proposal_id)) {
+    html += '<div class="ui-div"></div><div class="ui-sec">proposal</div>';
+    props.forEach(p => {
+      html += '<div class="ui-row" title="' + esc(p.title) + '">' +
+        '<span class="ui-dot" style="background:var(--idle)"></span>' +
+        '<span class="ui-id" style="color:var(--text)">' + esc(p.id) + '</span>' +
+        "<span style='flex:1'></span><span class='ui-pill warn'>open</span></div>";
     });
-  }, { rootMargin: "-40% 0px -55% 0px" });
-  acts.forEach(a => { if (a) io.observe(a); });
-}
-function wireFlagFilter() {
-  const btns = [...document.querySelectorAll("#flag-filter .tab-btn")];
-  btns.forEach(b => b.addEventListener("click", () => {
-    flagFilter = b.dataset.flt;
-    btns.forEach(x => x.classList.toggle("active", x === b));
-    renderFlagLane();
-  }));
+    if (heal && heal.proposal_id) {
+      html += '<div class="ui-row"><span class="ui-dot" style="background:var(--ok)"></span>' +
+        '<span class="ui-id" style="color:var(--text)">' + esc(heal.proposal_id) + '</span>' +
+        "<span style='flex:1'></span><span class='ui-pill ok'>accepted " + esc(heal.accepted_at || "") + "</span></div>";
+    }
+  }
+
+  html += '<div class="ui-div"></div>';
+  if (g.conformance) html += '<div class="ui-note" title="memory/conformance.md">▲ ' + esc(g.conformance) + "</div>";
+  if (g.drift && g.drift.open_note) html += '<div class="ui-note" style="color:var(--warn)">' + esc(g.drift.open_note) + "</div>";
+  if (g.healed && g.healed.rule_id) html += U.kv("healed by", esc(g.healed.rule_id) + " · " + esc(g.healed.accepted_at || ""));
+  if (g.new) html += U.kv("born", esc(g.new.born) + " · " + esc(g.new.via));
+  U.panel.open(name, html);
 }
 
-// ---------------- footer ----------------
-function renderFooter() {
-  $("footer").innerHTML = "schema v" + DATA.schema_version + " · generated_at " +
-    esc(DATA.generated_at) + " · reads <code>summary.json</code> · " +
-    "deep history &amp; apparatus telemetry (iteration / stage / llm_call — ~590 nodes) → " +
-    '<a href="graph.html">graph.html</a>';
+function openAgent(id) {
+  const a = (D.agents || []).find(x => x.id === id);
+  if (!a) return;
+  let html = '<div class="ui-row">' +
+    '<span class="ui-dot" style="background:' + U.agentHue(id) + '"></span>' +
+    '<span class="ui-chip">' + esc(a.kind) + "</span>" +
+    '<span class="ui-chip" title="attribution evidence quality">' + esc(a.evidence) + "</span></div>" +
+    U.kv("runs / " + windowDays + "d", String(agentRuns(a))) +
+    U.kv("first seen", esc(a.first_seen)) + U.kv("last seen", esc(a.last_seen)) +
+    '<div class="ui-sec" title="' + esc(D.matrix.method_note || "") + '">skills ' + usageLegend + "</div>" +
+    usageRows("agent", id, () => U.agentHue(id));
+  U.panel.open(id, html);
 }
+
+/* ---------- healing-loop strip ---------- */
+function renderLoop() {
+  const L = D.loop, st = $("loopstrip");
+  st.innerHTML = "";
+  const seg = (k, vals, title) => {
+    const e = document.createElement("div");
+    e.className = "ls";
+    e.title = title;
+    e.innerHTML = '<span class="k">' + esc(k) + "</span>" +
+      vals.map(v => '<span class="v ' + v[0] + '">' + v[1] + "</span>").join("");
+    e.addEventListener("click", openLoop);
+    st.appendChild(e);
+  };
+  const arr = () => {
+    const a = document.createElement("span");
+    a.className = "arrow"; a.textContent = "→";
+    st.appendChild(a);
+  };
+  const hv = L.stages.harvest, pr = L.stages.proposals, rv = L.stages.review, en = L.stages.enacted;
+  seg("harvest", [["", String(hv.all)], ["warn", "◐ " + hv.dormant_days + "d"]],
+    hv.all + " findings · newest " + hv.newest + " · dormant " + hv.dormant_days + "d");
+  arr();
+  seg("proposals", [["", String(pr.open)], ["dim", "open"]], pr.open + " open · newest " + pr.newest);
+  arr();
+  seg("review", [["ok", "✓" + (rv.accepted + rv.auto_accept)], ["bad", "✗" + rv.auto_reject]],
+    rv.accepted + " accepted · " + rv.auto_accept + " auto-accept · " + rv.auto_reject +
+    " auto-reject · " + rv.human_review + " to human");
+  arr();
+  seg("enacted", [["", en.rules + " rules"], ["dim", "· " + (en.skills_created + en.skills_healed) + " skills"]],
+    en.rules + " rules · " + en.skills_created + " skill created · " + en.skills_healed + " healed");
+}
+function openLoop() {
+  const L = D.loop;
+  let html = U.kv("state", esc(L.state)) +
+    U.kv("newest harvest", esc(L.stages.harvest.newest) + " · " + L.stages.harvest.dormant_days + "d ago") +
+    U.kv("open proposals", String(L.stages.proposals.open)) +
+    '<div class="ui-sec">chains</div>';
+  html += (L.chains || []).map(ch => {
+    const cls = ch.verdict === "accepted" ? "ok" : ch.verdict === "open" ? "warn" : "bad";
+    return '<div class="ui-item"><div class="ui-row">' +
+      '<span class="ui-id" style="color:var(--text)">' + esc(ch.proposal_id) + "</span>" +
+      '<span class="ui-note" style="flex:1">' + esc(ch.title) + "</span>" +
+      '<span class="ui-pill ' + cls + '">' + esc(ch.verdict) + "</span></div>" +
+      (ch.produced ? '<div class="ui-note">→ ' + esc(ch.produced) + "</div>" : "") +
+      '<div class="ui-row" style="min-height:18px"><span class="ui-num">' + esc(ch.date) + "</span>" +
+      (ch.target ? '<span class="ui-chip" data-skill="' + esc(ch.target) + '">' + esc(ch.target) + "</span>" : "") +
+      "</div></div>";
+  }).join("") || '<div class="ui-note">no chains yet</div>';
+  U.panel.open("healing loop", html);
+}
+
+/* ---------- contracts ---------- */
+function contractRow(c) {
+  const cls = c.done_check === "pass" ? "ok" : c.done_check === "fail" ? "bad" : "warn";
+  const r = document.createElement("div");
+  r.className = "row";
+  r.title = "spawn " + c.spawn_id + " · " + (c.task || "") + " · check: " + c.done_check;
+  r.innerHTML =
+    '<span class="rid w">' + esc(c.spawn_id) + "</span>" +
+    '<span class="aid"><span class="dot" style="background:' + U.agentHue(c.agent) + '"></span>' + esc(c.agent) + "</span>" +
+    '<span class="ui-pill ' + cls + '">' + esc(c.done_check) + "</span>" +
+    "<span style='flex:1'></span>" +
+    '<span class="rmono">' + (c.budget && c.budget.wall_s ? c.budget.wall_s + "s" : "—") + "</span>" +
+    '<span class="rmono">' + U.fmtAge(c.age_days) + "</span>";
+  r.addEventListener("click", () => openContract(c));
+  return r;
+}
+function renderContracts() {
+  const host = $("contracts");
+  host.innerHTML = "";
+  const all = D.contracts || [];
+  (all.length > 9 ? all.slice(0, 8) : all).forEach(c => host.appendChild(contractRow(c)));
+  if (all.length > 9) {
+    const r = document.createElement("div");
+    r.className = "row more";
+    r.innerHTML = '<span class="rtxt">show all ' + all.length + "</span>";
+    r.addEventListener("click", () => U.panel.open("contracts · " + all.length, all.map(c => {
+      const cls = c.done_check === "pass" ? "ok" : c.done_check === "fail" ? "bad" : "warn";
+      return '<div class="ui-item"><div class="ui-row">' +
+        '<span class="ui-dot" style="background:' + U.agentHue(c.agent) + '"></span>' +
+        '<span class="ui-id" style="color:var(--text)">' + esc(c.spawn_id) + "</span>" +
+        '<span class="ui-note" style="flex:1">' + esc(c.task || "") + "</span>" +
+        '<span class="ui-pill ' + cls + '">' + esc(c.done_check) + "</span>" +
+        '<span class="ui-num">' + U.fmtAge(c.age_days) + "</span></div></div>";
+    }).join("")));
+    host.appendChild(r);
+  }
+}
+function openContract(c) {
+  const cls = c.done_check === "pass" ? "ok" : c.done_check === "fail" ? "bad" : "warn";
+  const html =
+    '<div class="ui-row"><span class="ui-dot" style="background:' + U.agentHue(c.agent) + '"></span>' +
+    '<span class="ui-id" style="width:auto">' + esc(c.agent) + "</span>" +
+    '<span class="ui-chip">' + esc(c.surface) + "</span>" +
+    "<span style='flex:1'></span><span class='ui-pill " + cls + "'>" + esc(c.done_check) + "</span></div>" +
+    '<div class="ui-title">' + esc(c.task || "") + "</div>" +
+    U.kv("date", esc(c.date) + " · " + U.fmtAge(c.age_days) + " ago") +
+    U.kv("status", esc(c.status)) +
+    U.kv("done-check", esc(c.done_check_raw || "")) +
+    U.kv("authority cap", esc(c.authority_cap || "")) +
+    U.kv("budget", esc(JSON.stringify(c.budget || {}))) +
+    '<div class="ui-sec">skill subset</div><div class="ui-row" style="flex-wrap:wrap">' +
+    (c.skill_subset || []).map(s => '<span class="ui-chip" data-skill="' + esc(s) + '">' + esc(s) + "</span>").join("") +
+    "</div>";
+  U.panel.open(c.spawn_id, html);
+}
+
+/* ---------- timeline ---------- */
+const KIND_COLOR = {
+  proposal: "var(--idle)", proposal_review: "var(--idle)", decision: "var(--accent)",
+  correction: "var(--bad)", reflection: "var(--text-faint)", spawn: "var(--agent-other)",
+  harvest: "var(--agent-nemoclaw)", rule: "var(--ok)"
+};
+const kindColor = k => KIND_COLOR[k] || "var(--text-ghost)";
+const winRows = () => (D.timeline || []).filter(t => inWin(t.date))
+  .sort((a, b) => String(b.ts || b.date).localeCompare(String(a.ts || a.date)));
+
+function tlRow(t) {
+  const r = document.createElement("div");
+  r.className = "row" + (t.is_flag ? " flag" : "");
+  r.title = t.kind + " " + t.id + " · " + (t.agent || "") +
+    (t.verdict ? " · " + t.verdict : "") + (t.skill ? " · skill: " + t.skill : "") +
+    (t.is_flag ? " · ⚑ flagged" : "");
+  r.innerHTML =
+    '<span class="rmono">' + U.fmtDate(t.date) + "</span>" +
+    '<span class="dot" style="background:' + kindColor(t.kind) + '" title="' + esc(t.kind) + '"></span>' +
+    '<span class="rid">' + esc(t.id) + "</span>" +
+    '<span class="rtxt">— ' + esc(t.title) + "</span>" +
+    '<span class="dot" style="background:' + U.agentHue(t.agent) + '" title="' + esc(t.agent || "") + '"></span>';
+  r.addEventListener("click", () => openTimeline());
+  return r;
+}
+function renderTimeline() {
+  const host = $("timeline");
+  host.innerHTML = "";
+  const rows = winRows();
+  if (!rows.length) {
+    host.innerHTML = '<div class="row" style="cursor:default"><span class="rtxt" style="color:var(--text-ghost)">0 brain events in last ' +
+      windowDays + "d</span></div>";
+    return;
+  }
+  (rows.length > 9 ? rows.slice(0, 8) : rows).forEach(t => host.appendChild(tlRow(t)));
+  if (rows.length > 9) {
+    const r = document.createElement("div");
+    r.className = "row more";
+    r.innerHTML = '<span class="rtxt">show all ' + rows.length + "</span>";
+    r.addEventListener("click", () => openTimeline());
+    host.appendChild(r);
+  }
+}
+function openTimeline() {
+  const rows = winRows();
+  const html = rows.map(t =>
+    '<div class="ui-item' + (t.is_flag ? '" style="box-shadow:inset 2px 0 0 var(--warn);padding-left:8px' : "") + '">' +
+    '<div class="ui-row" style="min-height:20px">' +
+    '<span class="ui-num">' + esc(t.date) + "</span>" +
+    '<span class="ui-dot" style="width:6px;height:6px;background:' + kindColor(t.kind) + '"></span>' +
+    '<span class="ui-num">' + esc(t.kind) + "</span>" +
+    '<span class="ui-id" style="flex:1;width:auto;color:var(--text)">' + esc(t.id) + "</span>" +
+    (t.verdict ? '<span class="ui-pill warn">' + esc(t.verdict) + "</span>" : "") +
+    '<span class="ui-dot" style="background:' + U.agentHue(t.agent) + '" title="' + esc(t.agent || "") + '"></span></div>' +
+    '<div class="ui-note">' + esc(t.title) + "</div>" +
+    (t.skill ? '<div class="ui-row" style="min-height:18px"><span class="ui-chip" data-skill="' + esc(t.skill) + '">' + esc(t.skill) + "</span></div>" : "") +
+    "</div>").join("");
+  U.panel.open("timeline · last " + windowDays + "d · " + rows.length + " events", html);
+}
+
+/* ---------- rules ---------- */
+function ruleRow(x) {
+  const r = document.createElement("div");
+  r.className = "row";
+  r.title = x.imperative || "";
+  r.innerHTML =
+    '<span class="rid w">' + esc(x.id) + "</span>" +
+    '<span class="rtxt">' + esc(x.title) + "</span>" +
+    (x.enforced_count > 0 ? '<span class="nbadge">×' + x.enforced_count + "</span>" : '<span class="nzero">—</span>');
+  r.addEventListener("click", () => {
+    U.panel.open(x.id,
+      '<div class="ui-title">' + esc(x.title) + "</div>" +
+      '<div class="ui-note">' + esc(x.imperative || "") + "</div>" +
+      U.kv("enforced", "×" + (x.enforced_count || 0)) +
+      U.kv("since", esc(x.date || "")) +
+      (x.extends_skill ? '<div class="ui-sec">extends</div><div class="ui-row"><span class="ui-chip" data-skill="' +
+        esc(x.extends_skill) + '">' + esc(x.extends_skill) + "</span></div>" : ""));
+  });
+  return r;
+}
+function renderRules() {
+  const host = $("rules");
+  host.innerHTML = "";
+  const all = D.rules || [];
+  (all.length > 9 ? all.slice(0, 8) : all).forEach(x => host.appendChild(ruleRow(x)));
+  if (all.length > 9) {
+    const r = document.createElement("div");
+    r.className = "row more";
+    r.innerHTML = '<span class="rtxt">show all ' + all.length + "</span>";
+    r.addEventListener("click", () => U.panel.open("rules · " + all.length, all.map(x =>
+      '<div class="ui-item"><div class="ui-row">' +
+      '<span class="ui-id" style="color:var(--text)">' + esc(x.id) + "</span>" +
+      '<span class="ui-note" style="flex:1">' + esc(x.title) + "</span>" +
+      '<span class="ui-num">×' + (x.enforced_count || 0) + "</span></div>" +
+      '<div class="ui-note">' + esc(x.imperative || "") + "</div></div>").join("")));
+    host.appendChild(r);
+  }
+}
+
+/* ---------- per-day chips ---------- */
+function renderDays() {
+  const host = $("days");
+  host.innerHTML = "";
+  const days = (D.days || []).slice().sort((a, b) => b.date.localeCompare(a.date));
+  days.slice(0, 8).forEach(d => {
+    const a = document.createElement("a");
+    a.className = "chipday";
+    a.href = d.file;
+    a.title = d.date + " rendered view · " + d.bytes + " bytes";
+    a.textContent = U.fmtDate(d.date) + " · " + U.fmtBytes(d.bytes);
+    host.appendChild(a);
+  });
+  if (days.length > 8) {
+    const m = document.createElement("span");
+    m.className = "chipday";
+    m.textContent = "all " + days.length;
+    m.title = "open the full day list";
+    m.addEventListener("click", () => U.panel.open("days · " + days.length, days.map(d =>
+      '<div class="ui-row"><a class="ui-id" style="width:auto" href="' + esc(d.file) + '">' + esc(d.date) +
+      '</a><span style="flex:1"></span><span class="ui-num">' + U.fmtBytes(d.bytes) + "</span></div>").join("")));
+    host.appendChild(m);
+  }
+}
+
+/* ---------- footer ---------- */
+$("foot").innerHTML = "schema v" + D.schema_version + " · generated " + esc(U.fmtTs(D.generated_at)) +
+  ' · sources <span title="' + esc(D.repo + " → " + D.consumer) + '">' +
+  esc(D.repo.split("/").pop() + " → " + D.consumer.split("/").pop()) + "</span>" +
+  ' · <span title="' + esc((D.attribution || {}).note || "") + '">agent ' +
+  (D.attribution || {}).agent_rows + "/" + (D.attribution || {}).total_rows + "</span>";
+
+/* ---------- init ---------- */
+renderStepper();
+renderStatus();
+renderInbox();
+mountMap();
+renderLoop();
+renderContracts();
+renderTimeline();
+renderRules();
+renderDays();
+})();
 </script>
 </body>
 </html>

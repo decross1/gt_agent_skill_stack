@@ -10,9 +10,10 @@ when relevant), not here.
 
 ## Skills
 
-Located in `.agents/skills/`, each a `SKILL.md`. Every skill carries two
-frontmatter fields — `layer` (A/B/C) and `runtime-safe` (true/false) — placing
-it in one of three layers.
+Located in `.agents/skills/`, each a `SKILL.md`. Every skill carries three
+frontmatter fields — `layer` (A/B/C), `runtime-safe` (true/false), and `pack`
+(`core`/`research`/`meta`/`brain`, see `.agents/PACKS.md`) — 24 skills across
+three layers.
 
 ### Layer A — Core discipline
 
@@ -33,7 +34,8 @@ conformance is verified in Phase 3.
 
 ### Layer B — Research & build vertical
 
-A vertical pack for research / ML-pipeline engineering. Dev-time only
+Vertical skills for research / ML-pipeline engineering — the `research` and
+`brain` packs, plus `slip-ladder` from `core`. Dev-time only
 (`runtime-safe: false`).
 
 | Skill | Purpose |
@@ -103,6 +105,7 @@ and Claude Code's memory tool operate *on top* of these; the files are canonical
 | `memory/conformance.md` | Per-skill conformance dashboard, updated by `harvest`. |
 | `memory/session-latest.md` | Transient handoff snapshot — overwritten each session. |
 | `memory/projects.md` | Registry of projects on this machine (see Roadmap). |
+| `memory/brain/` | Append-only brain substrate (JSONL + projected pages); viewed via `dashboard.html` + `graph.html` — status strip + needs-you inbox + agent↔skill cluster map (schema v2). |
 
 The framework runs its own development as a plan-driven project — `plan.md` with
 `run_state/framework.state.json` and `run_state/framework.run.jsonl`. It dogfoods

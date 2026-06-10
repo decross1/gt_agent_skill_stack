@@ -24,12 +24,15 @@ agent_system/
 ├── AGENTS.md            canonical context file  (CLAUDE.md → symlink)
 ├── BOUNDARY.md          dev-time vs project-runtime scope boundary
 ├── install.sh           wires the system into Pi and/or Claude Code
+├── .agents/PACKS.md     skill-pack matrix (core / research / meta / brain)
 ├── .agents/skills/      canonical skills  (.claude/skills → symlink)
 │   ├── resume-state/    resume a plan-driven project from its state file
 │   ├── gate-check/      halt at human gates / irreversible actions
 │   ├── validate/        independent pass/fail checks, never coerced
 │   ├── fallback/        explicit, time-capped, logged path switching
 │   ├── run-log/         append-only JSONL execution log
+│   ├── spawn-contract/  bounded contract for an autonomous child agent
+│   ├── slip-ladder/     bounded, logged deadline extensions
 │   ├── plan-research/   falsifiable research planning
 │   ├── investigate/     evidence-based debugging
 │   ├── code-review/     pre-merge diff review
@@ -38,8 +41,13 @@ agent_system/
 │   ├── experiment/      log a single run to the ledger
 │   ├── auto-experiment/ unattended experiment loop under a budget
 │   ├── repro-check/     reproducibility gate
+│   ├── brain-recall/    bounded read-only brain query
+│   ├── narrate/         post-task human-readable reflection
+│   ├── propose/         file a durable improvement proposal
+│   ├── review-proposal/ route a proposal to accept/reject/human-review
 │   ├── context-save/    persist a session handoff
 │   ├── context-restore/ rebuild context on resume
+│   ├── decision-log/    durable decision record with rationale
 │   ├── orchestrate/     decompose + delegate a multi-role task
 │   └── harvest/         score the skills against a consumer's trace
 ├── .agents/agents/      dev agent profiles (.claude/agents → symlink)
@@ -50,8 +58,11 @@ agent_system/
 └── memory/
     ├── DECISIONS.md     append-only decisions log
     ├── experiments.md   experiment ledger
+    ├── feedback.jsonl   harvest findings ledger (append-only)
+    ├── conformance.md   per-skill conformance dashboard
     ├── session-latest.md transient session handoff
-    └── projects.md      machine-wide project registry
+    ├── projects.md      machine-wide project registry
+    └── brain/           brain substrate + view pages (see Brain section)
 ```
 
 ## Install
@@ -94,17 +105,18 @@ of these files; the files are canonical. `DECISIONS.md` is append-only.
 ## Brain (Phase 3.5)
 
 Append-only JSONL substrate under `memory/brain/` (narratives, edges, proposals)
-plus deterministic projections to markdown pages and a single-file graph viewer
-at `memory/brain/view/graph.html`. Apparatus runtimes (e.g. `a_bgt_rsi`) emit
-JSONL; `scripts/ingest_apparatus.py` projects it into narratives + lineage
-edges; `scripts/project_pages.py` renders pages + the graph index;
-`scripts/render_brain.py` emits the per-day join. The brain firewall is
-strict — apparatus never reads from the brain (see `BOUNDARY.md`).
+plus deterministic projections to markdown pages and two single-file view pages
+in `memory/brain/view/` — `dashboard.html` + `graph.html`: status strip +
+needs-you inbox + agent↔skill cluster map (schema v2). Apparatus runtimes
+(e.g. `a_bgt_rsi`) emit JSONL; `scripts/ingest_apparatus.py` projects it into
+narratives + lineage edges; `scripts/project_pages.py` renders pages + the
+graph index; `scripts/render_brain.py` emits the per-day join. The brain
+firewall is strict — apparatus never reads from the brain (see `BOUNDARY.md`).
 
 Two operational scripts wrap the above with pidfile + log + lifecycle:
 
 - `scripts/serve_brain.sh` — HTTP server (default `127.0.0.1:5174`) serving
-  the graph viewer + per-day markdown. `BRAIN_BIND=0.0.0.0` for LAN.
+  the view pages + per-day markdown. `BRAIN_BIND=0.0.0.0` for LAN.
 - `scripts/watch_brain.sh` — pure-stdlib polling daemon that fires the
   ingest → project → render pipeline on apparatus JSONL changes
   (debounced ~1.5s). Run `scripts/watch_brain.sh start` once and the brain
