@@ -2,1086 +2,300 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Brain — graph view</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>brain · map</title>
+<link rel="stylesheet" href="tokens.css">
 <style>
-  :root { color-scheme: light dark; }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; height: 100%; font: 13px/1.4 system-ui, -apple-system, "Segoe UI", sans-serif; }
-  body { display: grid; grid-template-columns: 1fr 320px; grid-template-rows: auto 1fr; height: 100vh; overflow: hidden; }
-  header { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 6px; padding: 8px 14px; border-bottom: 1px solid #ddd; background: #fafafa; }
-  header .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-  header h1 { margin: 0; font-size: 14px; font-weight: 600; }
-  header .spacer { flex: 1; }
-  header .filters { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-  header label { font-size: 12px; user-select: none; display: inline-flex; align-items: center; gap: 4px; }
-  header select { font: 12px system-ui; padding: 3px 6px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; }
-  aside { display: flex; flex-direction: column; }
-  aside .panel-body { flex: 1; min-height: 0; }
-  aside .panel-footer { border-top: 1px solid #ddd; padding-top: 8px; margin-top: 8px; font-size: 11px; color: #888; display: flex; flex-wrap: wrap; gap: 10px; }
-  aside .panel-footer .stat { white-space: nowrap; }
-  #canvas-wrap { position: relative; background: #fff; overflow: hidden; }
-  canvas { display: block; width: 100%; height: 100%; cursor: grab; }
-  canvas.dragging { cursor: grabbing; }
-  aside { border-left: 1px solid #ddd; padding: 12px 14px; overflow-y: auto; background: #f7f7f7; font-size: 12px; }
-  aside h2 { font-size: 13px; margin: 0 0 8px 0; font-weight: 600; }
-  aside .kv { margin: 4px 0; }
-  aside .kv b { color: #444; }
-  aside .neighbours { margin-top: 10px; }
-  aside .neighbours li { margin: 3px 0; }
-  aside ul { padding-left: 16px; margin: 4px 0; }
-  aside .empty { color: #888; font-style: italic; }
-  aside .page-content { margin-top: 10px; padding-top: 10px; border-top: 1px solid #ddd; font-size: 12px; }
-  aside .page-content h1 { font-size: 14px; margin: 8px 0 4px; }
-  aside .page-content h2 { font-size: 13px; margin: 8px 0 4px; }
-  aside .page-content h3 { font-size: 12px; margin: 6px 0 3px; }
-  aside .page-content code { font-family: ui-monospace, monospace; background: #eee; padding: 1px 4px; border-radius: 3px; font-size: 11px; }
-  aside .page-content pre { background: #eee; padding: 6px 8px; border-radius: 4px; overflow-x: auto; font-size: 11px; }
-  aside .page-content ul, aside .page-content ol { padding-left: 18px; }
-  aside .page-content p { margin: 4px 0; }
-  aside .page-content blockquote { border-left: 2px solid #999; padding-left: 8px; color: #555; margin: 4px 0; }
-  aside .toggle-page { display: inline-block; margin: 6px 0; font-size: 11px; cursor: pointer; user-select: none; color: #2563eb; text-decoration: underline; background: none; border: 0; padding: 0; }
-  aside .proposal-item { padding: 6px 8px; border: 1px solid #ddd; border-radius: 4px; margin: 6px 0; cursor: pointer; background: #fff; }
-  aside .proposal-item:hover { border-color: #2563eb; }
-  aside .proposal-item .pid { font-weight: 600; }
-  aside .proposal-item .verdict { display: inline-block; padding: 1px 6px; border-radius: 3px; font-size: 10px; font-weight: 600; margin-left: 6px; vertical-align: middle; }
-  .v-open          { background: #fde68a; color: #92400e; }
-  .v-auto-accept,
-  .v-accepted      { background: #d1fae5; color: #065f46; }
-  .v-auto-reject,
-  .v-rejected      { background: #fee2e2; color: #991b1b; }
-  .v-human-review  { background: #dbeafe; color: #1e3a8a; }
-  .v-framework     { background: #e0e7ff; color: #3730a3; }
-  .v-apparatus     { background: #fef3c7; color: #92400e; }
-  header .tab-btn { font-size: 12px; padding: 4px 10px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; }
-  header .tab-btn.active { background: #2563eb; color: white; border-color: #2563eb; }
-  header .viewnav { display: inline-flex; border: 1px solid #ccc; border-radius: 5px; overflow: hidden; margin-right: 4px; }
-  header .viewnav a { font-size: 12px; padding: 4px 11px; text-decoration: none; color: #333; background: #fff; border-right: 1px solid #ddd; font-weight: 600; }
-  header .viewnav a:last-child { border-right: 0; }
-  header .viewnav a.active { background: #2563eb; color: #fff; }
-  header .viewnav a:not(.active):hover { background: #f3f4f6; }
-  header .toggle-label { display: inline-flex; align-items: center; gap: 5px; font-size: 12px; padding: 4px 9px; border: 1px solid #ccc; background: #fff; border-radius: 4px; cursor: pointer; user-select: none; }
-  header .toggle-label input { margin: 0; }
-  header .toggle-label.checked { background: #ecfdf5; border-color: #10b981; color: #065f46; }
-  .legend { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
-  /* Panel-side action buttons (focus, clear, show-page). One styling base, modifier classes for color tone. */
-  aside .action-btn { display: inline-block; margin: 6px 4px 6px 0; font-size: 11px; padding: 3px 9px; border-radius: 3px; cursor: pointer; user-select: none; background: #fff; border: 1px solid #ccc; color: #333; font-weight: 500; }
-  aside .action-btn:hover { background: #f3f4f6; }
-  aside .action-btn.primary { background: #eff6ff; border-color: #93c5fd; color: #1e3a8a; }
-  aside .action-btn.primary:hover { background: #dbeafe; }
-  aside .action-btn.warn    { background: #fef2f2; border-color: #fca5a5; color: #991b1b; }
-  aside .action-btn.warn:hover { background: #fee2e2; }
-  /* Cluster summary card — appears when focus is active. */
-  aside .cluster-card { background: #f0f9ff; border: 1px solid #bae6fd; border-radius: 6px; padding: 8px 10px; margin: 4px 0 10px 0; font-size: 11px; }
-  aside .cluster-card h3 { margin: 0 0 4px 0; font-size: 12px; font-weight: 600; color: #0c4a6e; }
-  aside .cluster-card .pill { display: inline-block; padding: 1px 6px; border-radius: 8px; background: #fff; border: 1px solid #bae6fd; font-size: 10px; margin: 2px 3px 2px 0; }
-  aside .cluster-card .highlight { padding: 3px 0; border-top: 1px dashed #bae6fd; }
-  aside .cluster-card .highlight:first-of-type { border-top: 0; }
-  aside .cluster-card .highlight .label { color: #0c4a6e; font-weight: 600; }
-  @media (prefers-color-scheme: dark) {
-    aside .page-content code, aside .page-content pre { background: #2a2a2a; }
-    aside .page-content blockquote { color: #999; }
-    aside .proposal-item { background: #222; border-color: #444; }
-    header .tab-btn { background: #2a2a2a; color: #ddd; border-color: #444; }
-    header .viewnav { border-color: #444; }
-    header .viewnav a { background: #2a2a2a; color: #ddd; border-right-color: #444; }
-    header .viewnav a.active { background: #2563eb; color: #fff; }
-    header .viewnav a:not(.active):hover { background: #333; }
-    header .toggle-label { background: #2a2a2a; color: #ddd; border-color: #444; }
-    header .toggle-label.checked { background: #064e3b; border-color: #10b981; color: #6ee7b7; }
-    aside .action-btn { background: #2a2a2a; color: #ddd; border-color: #444; }
-    aside .action-btn:hover { background: #333; }
-    aside .action-btn.primary { background: #1e3a5f; border-color: #3b82f6; color: #93c5fd; }
-    aside .action-btn.primary:hover { background: #1e3a5f; }
-    aside .action-btn.warn    { background: #4a1a1a; border-color: #ef4444; color: #fca5a5; }
-    aside .action-btn.warn:hover { background: #4a1a1a; }
-    aside .cluster-card { background: #0c2a3d; border-color: #0c4a6e; color: #cbd5e1; }
-    aside .cluster-card h3 { color: #93c5fd; }
-    aside .cluster-card .pill { background: #1e293b; border-color: #334155; color: #cbd5e1; }
-    aside .cluster-card .highlight .label { color: #93c5fd; }
-  }
-  @media (prefers-color-scheme: dark) {
-    body { background: #1a1a1a; color: #ddd; }
-    header { background: #222; border-color: #333; }
-    header select { background: #2a2a2a; color: #ddd; border-color: #444; }
-    aside .kv b { color: #aaa; }
-    aside { background: #181818; border-color: #333; }
-    aside .panel-footer { color: #888; border-top-color: #333; }
-    #canvas-wrap { background: #1a1a1a; }
-  }
+html{color-scheme:dark;height:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:13px/1.45 system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+  height:100vh;display:flex;flex-direction:column;overflow:hidden}
+.mono{font-family:var(--font-mono)}
+a{color:var(--text-dim);text-decoration:none;cursor:pointer}
+a:hover{color:var(--text)}
+
+/* header — same idiom as dashboard.html */
+header{display:flex;align-items:center;gap:16px;height:56px;padding:0 18px;border-bottom:1px solid var(--border);flex:none}
+.brand{font-weight:600;letter-spacing:.02em;white-space:nowrap}
+.brand .sep{color:var(--text-ghost);font-weight:400;margin:0 4px}
+.brand .sub{color:var(--text-faint);font-weight:500}
+nav.views{display:flex;gap:2px;background:var(--surface-2);border:1px solid var(--border);border-radius:6px;padding:2px}
+nav.views .v{padding:3px 11px;border-radius:4px;color:var(--text-faint);font-size:12px}
+nav.views .v.on{background:#27272a;color:var(--text)}
+.hspace{flex:1}
+.stepper{display:flex;gap:3px;align-items:center}
+.tick{appearance:none;width:15px;height:15px;border:1px solid var(--border);border-radius:3px;display:grid;place-items:center;
+  font-size:9px;color:var(--text-ghost);font-family:var(--font-mono);background:var(--surface-2);padding:0;cursor:pointer}
+.tick.fill{background:#1b2a24;border-color:#1f3d33}
+.tick.on{background:var(--ok-bg);border-color:var(--accent);color:var(--ok)}
+.asof{font-family:var(--font-mono);color:var(--text-faint);font-size:12px}
+.xnav{font-size:12px;white-space:nowrap}
+
+/* full-canvas map */
+#mapwrap{flex:1;position:relative;min-height:0}
+#map{display:block;width:100%;height:100%}
+#mapnote{position:absolute;inset:0;display:grid;place-items:center;color:var(--text-ghost);
+  font-family:var(--font-mono);font-size:11px;pointer-events:none}
+#mapnote[hidden]{display:none}
+
+/* legend — glyphs only, meanings in tooltips (SPEC §10) */
+#legend{display:flex;align-items:center;gap:14px;height:30px;padding:0 18px;border-top:1px solid var(--border);flex:none}
+.lg{display:flex;align-items:center;gap:5px;cursor:help}
+.lline{width:22px;height:0;border-top:2px solid var(--text-faint)}
+.lline.dash{border-top-style:dashed}
+.lball{width:11px;height:11px;border-radius:50%;background:var(--surface);border:1px solid var(--border-2);position:relative}
+.lball.fw{box-shadow:0 0 0 2.5px rgba(248,113,113,.55)}
+.lball.drift{box-shadow:0 0 0 2.5px rgba(251,191,36,.55)}
+.lball.heal{box-shadow:0 0 0 2.5px rgba(52,211,153,.45),0 0 9px 2px rgba(52,211,153,.35)}
+.lball.fresh{border:1px dashed rgba(255,255,255,.7)}
+.lball.ref{opacity:.4}
+.lball.dim{opacity:.55;border-style:dotted}
+.lball.rt::after{content:"";position:absolute;inset:2.5px;border-radius:50%;border:1.5px solid var(--accent)}
 </style>
 </head>
 <body>
+
 <header>
-  <div class="row">
-    <span class="viewnav"><a href="dashboard.html">Dashboard</a><a href="graph.html" class="active">Graph</a></span>
-    <h1>Brain — graph</h1>
-    <button class="tab-btn active" id="tab-graph">Graph</button>
-    <button class="tab-btn" id="tab-proposals">Proposals (0)</button>
-    <button class="tab-btn" id="tab-decisions">Decisions (0)</button>
-    <button class="tab-btn" id="toggle-mechanics" title="Show/hide per-iteration plumbing (orchestrator_event + llm_call). Off by default — the graph defaults to the Research view.">Mechanics</button>
-    <div class="spacer"></div>
-    <select id="mode-toggle" title="Switch which sub-graph is on the canvas. Execution = agents + runs + tool calls. Self-improvement = harvest → proposal → rule. All = both (debug).">
-      <option value="execution">mode: execution</option>
-      <option value="self_improvement">mode: self-improvement</option>
-      <option value="all">mode: all</option>
-    </select>
-    <select id="focus-iteration" title="Isolate the subgraph reachable from one iteration" style="max-width: 280px;">
-      <option value="" selected>focus: all iterations</option>
-    </select>
-    <select id="date-range" title="Filter nodes by date">
-      <option value="all" selected>window: all time</option>
-      <option value="1">window: last 24h</option>
-      <option value="3">window: last 3d</option>
-      <option value="7">window: last 7d</option>
-      <option value="30">window: last 30d</option>
-    </select>
-    <label class="toggle-label" id="toggle-hide-isolated-label" title="Hide nodes that have zero edges in the current view — strips drifting unconnected dots so clusters read clearly. Default on in self-improvement mode."><input type="checkbox" id="toggle-hide-isolated"> hide isolated</label>
-  </div>
-  <div class="row filters" id="filters"></div>
+  <div class="brand">brain<span class="sep">·</span><span class="sub">governance</span></div>
+  <nav class="views" title="view">
+    <a class="v" href="dashboard.html">Dashboard</a><a class="v on" href="graph.html">Map</a>
+  </nav>
+  <div class="hspace"></div>
+  <div class="stepper" id="stepper"></div>
+  <div class="asof" id="asof"></div>
+  <a class="xnav" id="apparatus" title="open the apparatus dashboard">apparatus →</a>
 </header>
-<div id="canvas-wrap"><canvas id="g"></canvas></div>
-<aside id="panel">
-  <div class="panel-body" id="panel-body">
-    <h2>Select a node</h2>
-    <div class="empty">Click any node to inspect.</div>
-  </div>
-  <div class="panel-footer">
-    <span class="stat" id="stat-nodes">nodes —</span>
-    <span class="stat" id="stat-edges">edges —</span>
-    <span class="stat" id="stat-dangling">dangling —</span>
-    <span class="stat" id="stat-asof" title="data freshness — re-run scripts/project_pages.py to refresh">as of —</span>
-  </div>
-</aside>
-<script src="graph_data.js"></script>
+
+<div id="mapwrap">
+  <canvas id="map"></canvas>
+  <div id="mapnote" hidden>map data not generated — scripts/project_map.py</div>
+</div>
+
+<section id="legend">
+  <span class="lg" title="solid edge — explicit attribution (e &gt; 0)"><span class="lline"></span></span>
+  <span class="lg" title="dashed edge — inferred only (i &gt; 0, no explicit attribution)"><span class="lline dash"></span></span>
+  <span class="lg" title="skill, no governance signal"><span class="lball"></span></span>
+  <span class="lg" title="red halo — runtime-safe firewall violation"><span class="lball fw"></span></span>
+  <span class="lg" title="amber halo — governance drift"><span class="lball drift"></span></span>
+  <span class="lg" title="green pulse — healed this window"><span class="lball heal"></span></span>
+  <span class="lg" title="dashed white outline — new this window"><span class="lball fresh"></span></span>
+  <span class="lg" title="muted + tag — referenced-only, by design (D-042)"><span class="lball ref"></span></span>
+  <span class="lg" title="dim — untested by any consumer trace"><span class="lball dim"></span></span>
+  <span class="lg" title="inner emerald ring — runtime-safe core"><span class="lball rt"></span></span>
+</section>
+
+<script src="summary_data.js"></script>
+<script src="map_data.js"></script>
+<script src="ui.js"></script>
+<script src="map.js"></script>
 <script>
+(function () {
 "use strict";
+// degrade gracefully when ui.js is absent at dev time: minimal esc/kv/panel shim
+const U = window.UI || (function () {
+  const esc = s => String(s == null ? "" : s)
+    .replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  let el = null;
+  function open(title, html) {
+    if (!el) {
+      el = document.createElement("aside");
+      el.style.cssText = "position:fixed;top:0;right:0;bottom:0;width:380px;z-index:40;overflow:auto;" +
+        "background:var(--bg);border-left:1px solid var(--border-2);padding:12px 14px;font-size:12px";
+      document.body.appendChild(el);
+      document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+    }
+    el.innerHTML = '<div style="display:flex;gap:10px;align-items:center"><b class="mono" style="flex:1">' +
+      esc(title) + '</b><button id="ui-shim-x" style="all:unset;cursor:pointer;color:var(--text-faint)">✕</button></div>' + html;
+    el.style.display = "block";
+    el.querySelector("#ui-shim-x").addEventListener("click", close);
+  }
+  function close() { if (el) el.style.display = "none"; }
+  return { esc, agentHue: () => "var(--agent-other)",
+    kv: (k, v) => '<div class="ui-kv" style="display:flex;gap:10px"><span style="color:var(--text-faint);width:98px;flex:none">' +
+      esc(k) + '</span><span class="mono">' + v + "</span></div>",
+    panel: { open, close, isOpen: () => false } };
+})();
+const esc = U.esc;
+const D = window.BRAIN_SUMMARY || null;
+const M = window.BRAIN_MAP || null;
+const $ = id => document.getElementById(id);
+$("mapnote").hidden = !!M;
 
-// ---- color palette per type --------------------------------------------------
-const TYPE_COLORS = {
-  reflection:         "#3b82f6",   // blue — agent-authored reflections
-  apparatus_event:    "#a3a3a3",   // gray — uncategorized apparatus events (fallback)
-  experiment:         "#22c55e",   // green
-  hypothesis:         "#f59e0b",   // amber
-  anomaly:            "#ef4444",   // red
-  correction:         "#a855f7",   // purple
-  decision:           "#64748b",   // slate
-  // Apparatus sub-kinds (derived in scripts/project_pages.py::kind_from_narrative)
-  iteration:          "#0ea5e9",   // sky — top-level LOOP_V0 iteration records
-  stage:              "#8b5cf6",   // violet — fallback when a stage's worker isn't in STAGE_COLORS
-  orchestrator_event: "#14b8a6",   // teal — Nara's dispatch/receipt events (mechanics view)
-  llm_call:           "#ec4899",   // pink — vLLM wrapper calls (mechanics view)
-  run_log_entry:      "#0284c7",   // sky-deep — canonical [[run-log]] task records (pre-LOOP_V0 day-task entries; observed_in target for findings)
-  // Self-improvement loop (synthesized in scripts/project_pages.py::synthesize_loop_entities)
-  harvest_finding:    "#6366f1",   // indigo — raw signal from harvest passes
-  proposal:           "#fbbf24",   // amber-light — candidate change in flight
-  rule:               "#10b981",   // emerald — settled active discipline
-  // Agent + skill (synthesized in scripts/project_pages.py::synthesize_agent_skill_entities)
-  agent:              "#0d9488",   // deep teal — a decision-making actor (nara, claude-code-main, …)
-  skill:              "#7c3aed",   // royal purple — a framework skill used by agents
-  // Spawn contract (synthesized in scripts/project_pages.py::synthesize_spawn_entities)
-  spawn:              "#dc2626",   // crimson — autonomous spawn under explicit contract
-  // fallback
-  _default:           "#cccccc"
+const WIN_MIN = (D && D.window && D.window.min_days) || 1;
+const WIN_MAX = (D && D.window && D.window.max_days) || 7;
+const asof = ((D && D.window && D.window.newest_event) ||
+  (M && M.generated_at) || "").slice(0, 10);
+$("asof").textContent = asof;
+$("asof").title = "as of " + asof;
+$("apparatus").href = "http://" + (location.hostname || "localhost") + ":5173";
+
+/* ---------- window stepper (shared brain.windowDays key; ←/→ steps) ---------- */
+let windowDays = (D && D.window && D.window.default_days) || 7;
+try {
+  const s = parseInt(localStorage.getItem("brain.windowDays"), 10);
+  if (s >= WIN_MIN && s <= WIN_MAX) windowDays = s;
+} catch (_) {}
+function renderStepper() {
+  const st = $("stepper");
+  st.innerHTML = "";
+  st.title = "window: last " + windowDays + " day" + (windowDays === 1 ? "" : "s") + " · ←/→ to step";
+  for (let d = WIN_MIN; d <= WIN_MAX; d++) {
+    const t = document.createElement("button");
+    t.className = d === windowDays ? "tick on" : d < windowDays ? "tick fill" : "tick";
+    if (d === WIN_MIN || d === WIN_MAX) t.textContent = d;
+    t.addEventListener("click", () => setWindow(d));
+    st.appendChild(t);
+  }
+}
+function setWindow(n) {
+  if (n === windowDays || n < WIN_MIN || n > WIN_MAX) return;
+  windowDays = n;
+  try { localStorage.setItem("brain.windowDays", String(n)); } catch (_) {}
+  renderStepper();
+  mountMap();
+}
+document.addEventListener("keydown", e => {
+  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
+  if (e.key === "ArrowLeft") setWindow(windowDays - 1);
+  if (e.key === "ArrowRight") setWindow(windowDays + 1);
+});
+
+/* ---------- full-viewport BrainMap ---------- */
+let inst = null, demoShown = false;
+function mountMap() {
+  if (!M || typeof window.BrainMap === "undefined") return;
+  inst = BrainMap.mount($("map"), {
+    summary: D, map: M, windowDays: windowDays, embedded: false, onSelect: openNode
+  });
+  if (!demoShown) { demoShown = true; inst.demoCard(); }  // SPEC §7 affordance demo
+}
+
+/* ---------- side panel: governance detail + view-lineage ---------- */
+const dayDiff = d => Math.round((Date.parse(asof) - Date.parse(String(d).slice(0, 10))) / 864e5);
+const inWin = d => { if (!d) return false; const x = dayDiff(d); return x >= 0 && x < windowDays; };
+function sliceCell(c) {
+  if (!c.by_day) return { e: c.explicit || 0, i: c.inferred || 0 };
+  let e = 0, i = 0;
+  for (const d in c.by_day) if (inWin(d)) { e += c.by_day[d].e || 0; i += c.by_day[d].i || 0; }
+  return { e, i };
+}
+const hueOf = id => (window.UI ? window.UI.agentHue(id) : "var(--agent-other)");
+const usageLegend = '<span class="ui-dot" style="width:6px;height:6px;background:var(--text-dim)" title="solid = explicit"></span>' +
+  '<span class="ui-dot" style="width:6px;height:6px;background:none;border:1px solid var(--text-dim)" title="faded = inferred"></span>';
+
+function usageRows(filterKey, filterVal) {
+  const rows = (((D || {}).matrix || {}).cells || [])
+    .filter(c => c[filterKey] === filterVal)
+    .map(c => ({ c, w: sliceCell(c) }))
+    .filter(x => x.w.e + x.w.i > 0)
+    .sort((a, b) => (b.w.e + b.w.i) - (a.w.e + a.w.i));
+  if (!rows.length) return '<div class="ui-note">no usage in window</div>';
+  const mx = Math.max(...rows.map(x => x.w.e + x.w.i));
+  return rows.map(x => {
+    const other = filterKey === "skill" ? x.c.agent : x.c.skill;
+    const hue = filterKey === "skill" ? hueOf(x.c.agent) : hueOf(filterVal);
+    return '<div class="ui-row" title="' + esc(other) + ": " + x.w.e + " explicit · " + x.w.i + ' inferred">' +
+      '<span class="ui-dot" style="background:' + hue + '"></span>' +
+      '<span class="ui-id">' + esc(other) + '</span>' +
+      '<span class="ui-bar">' +
+      (x.w.e ? '<i style="width:' + (x.w.e / mx * 100).toFixed(1) + "%;background:" + hue + '"></i>' : "") +
+      (x.w.i ? '<i style="width:' + (x.w.i / mx * 100).toFixed(1) + "%;background:" + hue + ';opacity:.32"></i>' : "") +
+      '</span><span class="ui-num">e' + x.w.e + "·i" + x.w.i + "</span></div>";
+  }).join("");
+}
+const lineageBtn = id =>
+  '<div class="ui-row" style="margin-top:8px"><button data-lineage="' + esc(id) +
+  '" style="all:unset;cursor:pointer;font:11px var(--font-mono);color:var(--text-dim);' +
+  'border:1px solid var(--border-2);border-radius:5px;padding:4px 10px">view lineage ⌖</button></div>';
+const cardBlock = id => {
+  const c = (M && M.cards && M.cards[id]) || null;
+  if (!c) return "";
+  return (c.one_line ? '<div class="ui-note">' + esc(c.one_line) + "</div>" : "") +
+    (c.date ? U.kv("date", esc(c.date)) : "") +
+    (c.source ? U.kv("source", esc(c.source)) : "") +
+    (c.page ? '<div class="ui-row" style="min-height:20px"><a class="ui-num" href="' + esc(c.page) + '">' +
+      esc(c.page.replace("../pages/", "pages/")) + "</a></div>" : "");
 };
 
-// Per-worker color for `stage` nodes — same dimension as TYPE_COLORS, finer
-// grain. Stages share one filter checkbox; an inline legend renders these
-// swatches so the user can read the 5-stage pipeline at a glance. Aliases
-// (Part 1 names) map to the same hue as the canonical Part 2 worker.
-const STAGE_COLORS = {
-  hypothesize:         "#c084fc",   // light purple — generative / idea formation
-  retrieve_literature: "#06b6d4",   // cyan — information gathering
-  query_chroma:        "#06b6d4",   // alias (LOOP_V0 Part 1)
-  novelty_classify:    "#84cc16",   // lime — assessment / classification
-  critic_loop_v0:      "#f97316",   // orange — challenge / objection
-  journal_writer:      "#94a3b8",   // slate-light — closing / archival
-  journal_writer_stub: "#94a3b8",   // alias (LOOP_V0 Part 1)
-  summarize_paper:     "#fbbf24",   // gold
-  play_pd_match:       "#dc2626",   // crimson — game-theory pop
-};
-// Pretty labels for the stage-color legend (parallel keys to STAGE_COLORS, but
-// only one entry per canonical worker — aliases reuse the same row).
-const STAGE_LEGEND = [
-  ["hypothesize",         "Hypothesize"],
-  ["retrieve_literature", "Retrieve"],
-  ["novelty_classify",    "Novelty"],
-  ["critic_loop_v0",      "Critique"],
-  ["journal_writer",      "Journal"],
-];
+function openSkill(node) {
+  const name = node.label;
+  const s = ((D || {}).skills || []).find(x => x.name === name) || null;
+  const g = (s && s.governance) || {};
+  let chips = '<span class="ui-chip">' + esc(node.pack || (s && s.pack) || "?") + "</span>";
+  if (s && s.runtime_safe) chips += '<span class="ui-chip rt" title="member of the 6-skill runtime-safe core">runtime-safe</span>';
+  if (g.firewall_violation) chips += '<span class="ui-chip warn">firewall</span>';
+  if (g.drift && g.drift.active) chips += '<span class="ui-chip warn">drift</span>';
+  let html = '<div class="ui-row" style="flex-wrap:wrap">' + chips + "</div>" +
+    (s ? '<div class="ui-note">' + esc(s.purpose || "") + "</div>" : cardBlock(node.id));
 
-function colorFor(node) {
-  // Accept either a string type (legacy callers) or a full node object.
-  if (typeof node === "string") return TYPE_COLORS[node] || TYPE_COLORS._default;
-  if (!node) return TYPE_COLORS._default;
-  if (node.type === "stage" && node.worker && STAGE_COLORS[node.worker]) {
-    return STAGE_COLORS[node.worker];
+  html += '<div class="ui-sec" title="' + esc(((D || {}).matrix || {}).method_note || "") + '">usage ' +
+    usageLegend + "</div>" + usageRows("skill", name);
+
+  // governance detail: drift findings (D-042 referenced-only dispositions),
+  // heal chain, conformance verdict
+  html += '<div class="ui-div"></div><div class="ui-sec">governance</div>';
+  if (g.referenced_only_by_design) {
+    html += '<div class="ui-note" title="a_bgt_rsi D-042: four skills are intentionally referenced-only in the consumer">' +
+      "referenced-only by design (D-042) — drift findings carry this disposition</div>";
   }
-  return TYPE_COLORS[node.type] || TYPE_COLORS._default;
+  if (g.drift) {
+    const cls = g.drift.classes || {};
+    const parts = Object.keys(cls).sort().map(k => k + " ×" + cls[k]).join(" · ");
+    html += '<div class="ui-note" style="color:var(--warn)">▲ ' + esc(parts || "misuse") +
+      (g.drift.latest ? " · latest " + esc(g.drift.latest) : "") + "</div>";
+    if (g.drift.open_note) html += '<div class="ui-note">' + esc(g.drift.open_note) + "</div>";
+  }
+  if (g.healed && (g.healed.proposal_id || g.healed.rule_id)) {
+    html += U.kv("heal chain", esc([g.healed.proposal_id, g.healed.rule_id].filter(Boolean).join(" → ")) +
+      (g.healed.accepted_at ? " · " + esc(g.healed.accepted_at) : ""));
+  }
+  if (g.new) html += U.kv("born", esc(g.new.born || "") + " · " + esc(g.new.via || ""));
+  if (g.conformance && g.conformance.status) {
+    html += '<div class="ui-note" title="memory/conformance.md">verdict: ' + esc(g.conformance.status) + "</div>";
+  } else if (!s) {
+    html += '<div class="ui-note">summary_data.js absent — governance detail unavailable</div>';
+  }
+  html += lineageBtn(node.id);
+  U.panel.open(name, html);
 }
 
-// ---- load data ---------------------------------------------------------------
-const DATA = (typeof window.BRAIN_GRAPH === "object" && window.BRAIN_GRAPH) || { nodes: [], edges: [], pages: {}, proposals: [] };
-const PAGES = DATA.pages || {};
-const PROPOSALS = DATA.proposals || [];
+function openAgent(node) {
+  const id = node.label;
+  const a = ((D || {}).agents || []).find(x => x.id === id) || null;
+  let runs = 0;
+  if (a) for (const d in (a.runs_by_day || {})) if (inWin(d)) runs += a.runs_by_day[d];
+  let html = '<div class="ui-row"><span class="ui-dot" style="background:' + hueOf(id) + '"></span>' +
+    (a ? '<span class="ui-chip">' + esc(a.kind) + '</span><span class="ui-chip" title="attribution evidence quality">' +
+      esc(a.evidence) + "</span>" : "") + "</div>" +
+    U.kv("runs / " + windowDays + "d", String(runs)) +
+    (a ? U.kv("first seen", esc(a.first_seen || "—")) + U.kv("last seen", esc(a.last_seen || "—")) : cardBlock(node.id)) +
+    '<div class="ui-sec">skills ' + usageLegend + "</div>" + usageRows("agent", id) +
+    lineageBtn(node.id);
+  U.panel.open(id, html);
+}
 
-// View modes — split the canvas into two purpose-built sub-graphs.
-//
-//   execution        — agents + iterations + stages + plumbing. "What ran,
-//                      by whom, with what?" Default landing view.
-//   self_improvement — harvest_finding → proposal → rule chain plus the
-//                      corrections that enact rules. "What discipline are
-//                      we adopting?" Smaller graph, denser meaning.
-//   all              — both, for debug.
-//
-// `decision` is hidden in every mode; the Decisions tab is the entry point.
-// Mode is persisted in localStorage. Changing the dropdown reloads the page —
-// simpler than dynamic re-render and the flash is acceptable for a research
-// tool. Hard-refresh-friendly: bookmark a mode by selecting it once.
-const VIEW_MODES = {
-  // Execution mode shows agents + their runs + framework skills they use.
-  // Self-improvement loop entities (findings/proposals/rules) are hidden.
-  execution: new Set(["decision", "harvest_finding", "proposal", "rule", "correction"]),
-  // Self-improvement mode shows the framework's meta-loop. Skill is shared
-  // with execution mode because it sits at the join — agents invoke it,
-  // findings audit it, proposals target it. run_log_entry stays visible too
-  // because findings now edge into it (observed_in) — the chain is
-  // harvest_finding → observed_in → run_log_entry → (skill_used) → skill.
-  self_improvement: new Set([
-    "decision",
-    "iteration", "stage", "orchestrator_event", "llm_call",
-    "reflection", "hypothesis", "anomaly", "experiment", "apparatus_event",
-    "agent",
-  ]),
-  all: new Set(["decision"]),
-};
-const STORED_MODE = (() => {
-  try { return localStorage.getItem("brain.viewMode"); } catch (_) { return null; }
+function openOther(node) {
+  const c = (M && M.cards && M.cards[node.id]) || {};
+  const html = '<div class="ui-row"><span class="ui-chip">' + esc(node.type) + "</span></div>" +
+    (c.title ? '<div class="ui-title">' + esc(c.title) + "</div>" : "") +
+    cardBlock(node.id) + lineageBtn(node.id);
+  U.panel.open(node.label || node.id, html);
+}
+
+function openNode(node) {
+  if (!node) return;
+  if (node.type === "skill") return openSkill(node);
+  if (node.type === "agent") return openAgent(node);
+  return openOther(node);
+}
+document.addEventListener("click", e => {
+  const b = e.target.closest && e.target.closest("[data-lineage]");
+  if (b && inst) inst.egoMode(b.getAttribute("data-lineage"));
+});
+
+/* ---------- init ---------- */
+renderStepper();
+mountMap();
 })();
-const VIEW_MODE = (STORED_MODE && VIEW_MODES[STORED_MODE]) ? STORED_MODE : "execution";
-const GRAPH_HIDDEN_TYPES = VIEW_MODES[VIEW_MODE];
-
-// Detect dark mode (used for canvas text + future contrast-aware bits)
-const IS_DARK = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-const nodesById = new Map();
-DATA.nodes.forEach(n => {
-  if (GRAPH_HIDDEN_TYPES.has(n.type)) return;
-  nodesById.set(n.slug, { ...n, x: 0, y: 0, vx: 0, vy: 0 });
-});
-
-const dangling = [];
-const edges = [];
-DATA.edges.forEach(e => {
-  const s = nodesById.get(e.src), d = nodesById.get(e.dst);
-  if (s && d) edges.push({ ...e, _s: s, _d: d });
-  else dangling.push(e);
-});
-
-document.getElementById("stat-nodes").textContent = `nodes ${nodesById.size}`;
-document.getElementById("stat-edges").textContent = `edges ${edges.length}`;
-document.getElementById("stat-dangling").textContent = `dangling ${dangling.length}`;
-document.getElementById("tab-proposals").textContent = `Proposals (${PROPOSALS.length})`;
-
-// Data-freshness stamp from the most recent timestamp in nodes/edges/proposals.
-(function setAsOf() {
-  const stamps = [];
-  for (const n of DATA.nodes) if (n.date) stamps.push(n.date);
-  for (const e of DATA.edges) if (e.timestamp) stamps.push(e.timestamp);
-  for (const p of DATA.proposals) if (p.timestamp) stamps.push(p.timestamp);
-  if (stamps.length === 0) return;
-  stamps.sort();
-  const latest = stamps[stamps.length - 1].slice(0, 10);
-  document.getElementById("stat-asof").textContent = `as of ${latest}`;
-})();
-
-// ---- filters: grouped by category --------------------------------------------
-// Three categories, rendered as labeled rows so the header reads cleanly:
-//   Research  — the story (iterations, decisions, corrections, anomalies,
-//               experiments, hypotheses, reflections, stages). Default ON.
-//   Mechanics — per-iteration plumbing (orchestrator_event, llm_call).
-//               Default OFF — the Mechanics button in the header flips both.
-//   Other     — catch-all (apparatus_event: legacy + uncategorized).
-//               Default OFF.
-// Types that exist in the graph but aren't listed here land in Research as a
-// safety net (new entity types appear visible by default).
-// `decision` is intentionally absent — hidden from the graph via
-// GRAPH_HIDDEN_TYPES. The Decisions tab remains the entry point for them.
-const FILTER_GROUPS = [
-  { key: "actors",    label: "Actors",    defaultOn: true,
-    types: ["agent", "skill", "spawn"] },
-  { key: "research",  label: "Research",  defaultOn: true,
-    types: ["iteration", "stage", "run_log_entry", "correction", "anomaly", "experiment", "hypothesis", "reflection"] },
-  { key: "loop",      label: "Loop",      defaultOn: true,
-    types: ["harvest_finding", "proposal", "rule"] },
-  { key: "mechanics", label: "Mechanics", defaultOn: false,
-    types: ["orchestrator_event", "llm_call"] },
-  { key: "other",     label: "Other",     defaultOn: false,
-    types: ["apparatus_event"] },
-];
-const MECHANICS_TYPES = FILTER_GROUPS.find(g => g.key === "mechanics").types;
-const typesSeen = new Set();
-nodesById.forEach(n => typesSeen.add(n.type));
-
-// Assign each seen type to a group (default to research if unrecognized).
-const typeGroup = new Map();
-for (const g of FILTER_GROUPS) for (const t of g.types) typeGroup.set(t, g);
-for (const t of typesSeen) if (!typeGroup.has(t)) typeGroup.set(t, FILTER_GROUPS[0]);
-
-const enabledTypes = new Set(
-  [...typesSeen].filter(t => typeGroup.get(t).defaultOn)
-);
-const filtersDiv = document.getElementById("filters");
-const typeCheckboxes = new Map(); // type -> <input>
-
-function renderFilters() {
-  filtersDiv.innerHTML = "";
-  for (const g of FILTER_GROUPS) {
-    const typesInGroup = g.types.filter(t => typesSeen.has(t));
-    if (typesInGroup.length === 0) continue;
-    const row = document.createElement("span");
-    row.className = "filter-group";
-    row.style.cssText = "display:inline-flex;align-items:center;gap:6px;margin-right:14px;";
-    const head = document.createElement("span");
-    head.style.cssText = "font-size:11px;color:#888;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;";
-    head.textContent = g.label;
-    row.appendChild(head);
-    for (const t of typesInGroup) {
-      const id = `flt-${t}`;
-      const checked = enabledTypes.has(t) ? "checked" : "";
-      const lbl = document.createElement("label");
-      lbl.innerHTML = `<input type="checkbox" id="${id}" ${checked}> <span class="legend" style="background:${colorFor(t)}"></span>${t}`;
-      row.appendChild(lbl);
-      const input = lbl.querySelector("input");
-      typeCheckboxes.set(t, input);
-      input.addEventListener("change", e => {
-        if (e.target.checked) enabledTypes.add(t); else enabledTypes.delete(t);
-        refreshMechanicsButton();
-      });
-    }
-    filtersDiv.appendChild(row);
-  }
-  // Per-worker stage legend (only if stages are present + visible).
-  if (typesSeen.has("stage")) {
-    const legend = document.createElement("span");
-    legend.className = "stage-legend";
-    legend.style.cssText = "display:inline-flex;align-items:center;gap:8px;margin-left:8px;padding-left:10px;border-left:1px solid #ddd;";
-    const head = document.createElement("span");
-    head.style.cssText = "font-size:11px;color:#888;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;";
-    head.textContent = "Stage";
-    legend.appendChild(head);
-    for (const [worker, pretty] of STAGE_LEGEND) {
-      const swatch = document.createElement("span");
-      swatch.style.cssText = "display:inline-flex;align-items:center;gap:3px;font-size:12px;color:#666;";
-      swatch.innerHTML = `<span class="legend" style="background:${STAGE_COLORS[worker]}"></span>${pretty}`;
-      legend.appendChild(swatch);
-    }
-    filtersDiv.appendChild(legend);
-  }
-}
-renderFilters();
-
-// ---- Mechanics preset toggle -------------------------------------------------
-// Single-click flip of orchestrator_event + llm_call together. Active state
-// reflects whether *both* mechanical kinds are currently enabled.
-const mechBtn = document.getElementById("toggle-mechanics");
-function mechanicsAllOn() {
-  return MECHANICS_TYPES.every(t => enabledTypes.has(t));
-}
-function refreshMechanicsButton() {
-  if (!mechBtn) return;
-  mechBtn.classList.toggle("active", mechanicsAllOn());
-}
-if (mechBtn) {
-  mechBtn.addEventListener("click", () => {
-    const turnOn = !mechanicsAllOn();
-    for (const t of MECHANICS_TYPES) {
-      if (!typesSeen.has(t)) continue;
-      if (turnOn) enabledTypes.add(t); else enabledTypes.delete(t);
-      const cb = typeCheckboxes.get(t);
-      if (cb) cb.checked = turnOn;
-    }
-    refreshMechanicsButton();
-  });
-  refreshMechanicsButton();
-}
-
-// ---- time-window scrubber + last-updated stamp ------------------------------
-// Default: "all" (show everything not filtered out by type). Users can narrow.
-const DATE_NOW = new Date();
-const dateRangeSelect = document.getElementById("date-range");
-let dateWindowDays = null; // null = no date filter
-dateRangeSelect.addEventListener("change", e => {
-  const v = e.target.value;
-  dateWindowDays = v === "all" ? null : parseInt(v, 10);
-});
-
-// Mode toggle — reflect the stored mode in the dropdown; on change, persist
-// and reload. Reload (rather than dynamic re-build) keeps node lookup, edge
-// indexing, and the simulation in a single coherent initial pass.
-const modeSelect = document.getElementById("mode-toggle");
-modeSelect.value = VIEW_MODE;
-modeSelect.addEventListener("change", e => {
-  try { localStorage.setItem("brain.viewMode", e.target.value); } catch (_) {}
-  location.reload();
-});
-
-// Hide-isolated toggle — strips nodes that have zero edges under the current
-// filters. Default ON in self_improvement (lots of unconnected run_log_entry
-// nodes); OFF in execution/all (where positional context matters more). The
-// user can flip per-mode; we persist per-mode so each mode has its own
-// memory of the preference.
-const STORED_HIDE_ISOLATED_KEY = `brain.hideIsolated.${VIEW_MODE}`;
-const STORED_HIDE_ISOLATED = (() => {
-  try { return localStorage.getItem(STORED_HIDE_ISOLATED_KEY); } catch (_) { return null; }
-})();
-let hideIsolated;
-if (STORED_HIDE_ISOLATED === "true") hideIsolated = true;
-else if (STORED_HIDE_ISOLATED === "false") hideIsolated = false;
-else hideIsolated = (VIEW_MODE === "self_improvement");  // default
-const hideIsolatedBox = document.getElementById("toggle-hide-isolated");
-const hideIsolatedLabel = document.getElementById("toggle-hide-isolated-label");
-function reflectHideIsolated() {
-  if (hideIsolatedLabel) hideIsolatedLabel.classList.toggle("checked", hideIsolated);
-}
-if (hideIsolatedBox) {
-  hideIsolatedBox.checked = hideIsolated;
-  reflectHideIsolated();
-  hideIsolatedBox.addEventListener("change", e => {
-    hideIsolated = e.target.checked;
-    try { localStorage.setItem(STORED_HIDE_ISOLATED_KEY, String(hideIsolated)); } catch (_) {}
-    reflectHideIsolated();
-  });
-}
-
-function inDateWindow(n) {
-  if (dateWindowDays === null) return true;
-  const d = (n.date || "").slice(0, 10);
-  if (!d) return false; // dateless nodes drop when scrubbed
-  const dt = new Date(d + "T00:00:00Z");
-  const cutoff = new Date(DATE_NOW); cutoff.setUTCDate(cutoff.getUTCDate() - dateWindowDays);
-  return dt >= cutoff;
-}
-
-// ---- focus-on-iteration picker ----------------------------------------------
-// Populate the dropdown from iteration nodes (newest first by slug — slugs
-// already encode date + counter). Selecting one BFS's outgoing edges from
-// the iteration and limits the visible set to the reachable subgraph. This
-// keeps the focused iteration AND its stages/events/calls/journal visible,
-// without losing the mechanics-view debug path when toggled on.
-const focusSelect = document.getElementById("focus-iteration");
-let focusVisibleSlugs = null;   // null = no focus
-function computeFocusReachable(rootSlug) {
-  const reachable = new Set([rootSlug]);
-  const queue = [rootSlug];
-  while (queue.length) {
-    const cur = queue.shift();
-    for (const e of edges) {
-      if (e.src === cur && !reachable.has(e.dst)) {
-        reachable.add(e.dst);
-        queue.push(e.dst);
-      }
-    }
-  }
-  return reachable;
-}
-// Cluster focus — bidirectional BFS from a node. Returns every node in the
-// connected component (following edges in either direction). Used by the
-// "Focus this cluster" button on the node-detail panel — answers "what is
-// this node related to?" by hiding everything not in its component.
-function computeClusterReachable(rootSlug) {
-  const reachable = new Set([rootSlug]);
-  const queue = [rootSlug];
-  while (queue.length) {
-    const cur = queue.shift();
-    for (const e of edges) {
-      if (e.src === cur && !reachable.has(e.dst)) {
-        reachable.add(e.dst);
-        queue.push(e.dst);
-      }
-      if (e.dst === cur && !reachable.has(e.src)) {
-        reachable.add(e.src);
-        queue.push(e.src);
-      }
-    }
-  }
-  return reachable;
-}
-function inFocus(node) {
-  if (!focusVisibleSlugs) return true;
-  return focusVisibleSlugs.has(node.slug);
-}
-if (focusSelect) {
-  // Populate options: iteration nodes, newest first (slug suffix is -NNN counter).
-  const iters = DATA.nodes.filter(n => n.type === "iteration");
-  iters.sort((a, b) => b.slug.localeCompare(a.slug));
-  for (const it of iters) {
-    const opt = document.createElement("option");
-    opt.value = it.slug;
-    opt.textContent = it.slug + (it.title && it.title !== it.slug ? "  —  " + it.title.replace(/^a_bgt_rsi:\s*Nara\s*—\s*/, "").slice(0, 60) : "");
-    focusSelect.appendChild(opt);
-  }
-  focusSelect.addEventListener("change", e => {
-    const v = e.target.value;
-    focusVisibleSlugs = v ? computeFocusReachable(v) : null;
-  });
-}
-
-// ---- layout: simple force-directed (repulsion + spring) ----------------------
-const canvas = document.getElementById("g");
-const ctx = canvas.getContext("2d");
-function resize() {
-  const dpr = window.devicePixelRatio || 1;
-  const w = canvas.parentElement.clientWidth;
-  const h = canvas.parentElement.clientHeight;
-  canvas.width = w * dpr; canvas.height = h * dpr;
-  canvas.style.width = w + "px"; canvas.style.height = h + "px";
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-}
-window.addEventListener("resize", resize); resize();
-
-// Initial positions: spiral so nothing starts on top of another.
-let i = 0;
-nodesById.forEach(n => {
-  const a = i * 0.7, r = 30 + i * 6;
-  n.x = canvas.clientWidth / 2 + Math.cos(a) * r;
-  n.y = canvas.clientHeight / 2 + Math.sin(a) * r;
-  i++;
-});
-
-const REPULSE = 1800;        // node-node repulsion strength
-const SPRING_K = 0.02;       // edge spring stiffness
-const SPRING_REST = 90;      // edge rest length
-const CENTER_K = 0.005;      // weak pull to center
-const DAMP = 0.85;
-const MAX_FORCE = 30;
-
-function step() {
-  const cw = canvas.clientWidth, ch = canvas.clientHeight;
-  const list = [...nodesById.values()];
-
-  // O(n^2) repulsion — fine for small N.
-  for (let a = 0; a < list.length; a++) {
-    const A = list[a];
-    for (let b = a + 1; b < list.length; b++) {
-      const B = list[b];
-      let dx = A.x - B.x, dy = A.y - B.y;
-      let d2 = dx*dx + dy*dy;
-      if (d2 < 0.01) { dx = (Math.random() - 0.5); dy = (Math.random() - 0.5); d2 = 1; }
-      const d = Math.sqrt(d2);
-      const f = REPULSE / d2;
-      const fx = (dx / d) * f, fy = (dy / d) * f;
-      A.vx += fx; A.vy += fy;
-      B.vx -= fx; B.vy -= fy;
-    }
-  }
-  // Spring along edges.
-  for (const e of edges) {
-    const A = e._s, B = e._d;
-    const dx = B.x - A.x, dy = B.y - A.y;
-    const d = Math.sqrt(dx*dx + dy*dy) || 1;
-    const f = SPRING_K * (d - SPRING_REST);
-    const fx = (dx / d) * f, fy = (dy / d) * f;
-    A.vx += fx; A.vy += fy;
-    B.vx -= fx; B.vy -= fy;
-  }
-  // Centering.
-  for (const N of list) {
-    N.vx += (cw / 2 - N.x) * CENTER_K;
-    N.vy += (ch / 2 - N.y) * CENTER_K;
-  }
-  // Integrate.
-  for (const N of list) {
-    if (N === dragNode) { N.vx = N.vy = 0; continue; }
-    N.vx = Math.max(-MAX_FORCE, Math.min(MAX_FORCE, N.vx)) * DAMP;
-    N.vy = Math.max(-MAX_FORCE, Math.min(MAX_FORCE, N.vy)) * DAMP;
-    N.x += N.vx; N.y += N.vy;
-    N.x = Math.max(20, Math.min(cw - 20, N.x));
-    N.y = Math.max(20, Math.min(ch - 20, N.y));
-  }
-}
-
-// Predicates split out so the draw loop and the pick loop agree on
-// visibility, and the hide-isolated pass can reuse the same gating.
-function nodePassesGating(N) {
-  if (!enabledTypes.has(N.type)) return false;
-  if (!inDateWindow(N)) return false;
-  if (!inFocus(N)) return false;
-  return true;
-}
-function edgePassesGating(e) {
-  return nodePassesGating(e._s) && nodePassesGating(e._d);
-}
-// Recomputed per render frame so the toggle takes effect immediately.
-// Contains every node touched by at least one visible edge — anything not in
-// this set is isolated under the current filters.
-let connectedNodes = new Set();
-function recomputeConnected() {
-  connectedNodes = new Set();
-  for (const e of edges) {
-    if (!edgePassesGating(e)) continue;
-    connectedNodes.add(e._s.slug);
-    connectedNodes.add(e._d.slug);
-  }
-}
-function isVisible(N) {
-  if (!nodePassesGating(N)) return false;
-  if (hideIsolated && !connectedNodes.has(N.slug)) return false;
-  return true;
-}
-
-function draw() {
-  const cw = canvas.clientWidth, ch = canvas.clientHeight;
-  ctx.clearRect(0, 0, cw, ch);
-
-  recomputeConnected();
-
-  // edges first
-  ctx.lineWidth = 1.2;
-  ctx.strokeStyle = "rgba(120,120,120,0.45)";
-  for (const e of edges) {
-    if (!edgePassesGating(e)) continue;
-    ctx.beginPath();
-    ctx.moveTo(e._s.x, e._s.y);
-    ctx.lineTo(e._d.x, e._d.y);
-    ctx.stroke();
-    // tiny arrowhead near dst
-    const dx = e._d.x - e._s.x, dy = e._d.y - e._s.y;
-    const d = Math.sqrt(dx*dx + dy*dy) || 1;
-    const ax = e._d.x - (dx / d) * 9, ay = e._d.y - (dy / d) * 9;
-    const px = -dy / d, py = dx / d;
-    ctx.fillStyle = "rgba(120,120,120,0.55)";
-    ctx.beginPath();
-    ctx.moveTo(e._d.x - (dx / d) * 4, e._d.y - (dy / d) * 4);
-    ctx.lineTo(ax + px * 3, ay + py * 3);
-    ctx.lineTo(ax - px * 3, ay - py * 3);
-    ctx.closePath();
-    ctx.fill();
-  }
-
-  // nodes
-  ctx.font = "11px system-ui";
-  ctx.textBaseline = "middle";
-  for (const N of nodesById.values()) {
-    if (!isVisible(N)) continue;
-    const r = N === selected ? 9 : 6;
-    ctx.fillStyle = colorFor(N);
-    ctx.beginPath();
-    ctx.arc(N.x, N.y, r, 0, Math.PI * 2);
-    ctx.fill();
-    if (N === selected || N === hovered) {
-      ctx.lineWidth = 2;
-      ctx.strokeStyle = "#000";
-      ctx.stroke();
-    }
-    // label
-    if (N === selected || N === hovered || nodesById.size <= 80) {
-      ctx.fillStyle = IS_DARK ? "rgba(230,230,230,0.92)" : "rgba(0,0,0,0.85)";
-      ctx.fillText(N.slug, N.x + r + 3, N.y);
-    }
-  }
-}
-
-// ---- interaction -------------------------------------------------------------
-let selected = null, hovered = null, dragNode = null;
-let dragStart = null;
-function pick(mx, my) {
-  let best = null, bestD2 = 144; // 12px radius
-  for (const N of nodesById.values()) {
-    if (!isVisible(N)) continue;
-    const dx = N.x - mx, dy = N.y - my;
-    const d2 = dx*dx + dy*dy;
-    if (d2 < bestD2) { bestD2 = d2; best = N; }
-  }
-  return best;
-}
-canvas.addEventListener("mousemove", e => {
-  const r = canvas.getBoundingClientRect();
-  const mx = e.clientX - r.left, my = e.clientY - r.top;
-  if (dragNode) {
-    dragNode.x = mx; dragNode.y = my; dragNode.vx = dragNode.vy = 0;
-  } else {
-    hovered = pick(mx, my);
-  }
-});
-canvas.addEventListener("mousedown", e => {
-  const r = canvas.getBoundingClientRect();
-  const n = pick(e.clientX - r.left, e.clientY - r.top);
-  if (n) { dragNode = n; canvas.classList.add("dragging"); }
-});
-window.addEventListener("mouseup", () => {
-  if (dragNode) { selected = dragNode; updatePanel(); }
-  dragNode = null;
-  canvas.classList.remove("dragging");
-});
-
-// ---- tiny markdown renderer (headings, bold, italic, code, links, lists, blockquote) ----
-function escHTML(s) { return s.replace(/[&<>]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;"}[c])); }
-function safeHref(u) {
-  // Allowlist: http/https/file/mailto + relative + anchor + slug-link.
-  // Reject javascript:, data:, vbscript:, etc. Conservative — agent-authored
-  // page content can carry adversarial URLs even on a home-lab box.
-  u = String(u).trim();
-  if (/^(https?:|file:|mailto:|#|\/|\.\.?\/)/i.test(u)) return u;
-  if (/^[a-z0-9][a-z0-9._/-]*\.md(#.*)?$/i.test(u)) return u; // bare page refs
-  return "#";
-}
-function mdInline(s) {
-  s = escHTML(s);
-  s = s.replace(/`([^`]+)`/g, "<code>$1</code>");
-  s = s.replace(/\*\*([^*]+)\*\*/g, "<b>$1</b>");
-  s = s.replace(/(^|[\s(])\*([^*\s][^*]*?)\*/g, "$1<i>$2</i>");
-  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_, label, url) =>
-    `<a href="${escHTML(safeHref(url))}">${label}</a>`);
-  return s;
-}
-function renderMarkdown(src) {
-  const out = [];
-  const lines = src.split("\n");
-  let inCode = false, inList = null, buf = [];
-  const flushPara = () => { if (buf.length) { out.push("<p>" + mdInline(buf.join(" ")) + "</p>"); buf = []; } };
-  const closeList = () => { if (inList) { out.push(`</${inList}>`); inList = null; } };
-  for (let raw of lines) {
-    if (raw.startsWith("```")) {
-      flushPara(); closeList();
-      if (!inCode) { out.push("<pre><code>"); inCode = true; } else { out.push("</code></pre>"); inCode = false; }
-      continue;
-    }
-    if (inCode) { out.push(escHTML(raw)); continue; }
-    if (!raw.trim()) { flushPara(); closeList(); continue; }
-    let m;
-    if ((m = raw.match(/^(#{1,6})\s+(.+)$/))) {
-      flushPara(); closeList();
-      const lv = m[1].length; out.push(`<h${lv}>${mdInline(m[2])}</h${lv}>`); continue;
-    }
-    if ((m = raw.match(/^>\s?(.*)$/))) {
-      flushPara(); closeList();
-      out.push(`<blockquote>${mdInline(m[1])}</blockquote>`); continue;
-    }
-    if ((m = raw.match(/^[-*]\s+(.+)$/))) {
-      flushPara();
-      if (inList !== "ul") { closeList(); out.push("<ul>"); inList = "ul"; }
-      out.push(`<li>${mdInline(m[1])}</li>`); continue;
-    }
-    if ((m = raw.match(/^\d+\.\s+(.+)$/))) {
-      flushPara();
-      if (inList !== "ol") { closeList(); out.push("<ol>"); inList = "ol"; }
-      out.push(`<li>${mdInline(m[1])}</li>`); continue;
-    }
-    buf.push(raw);
-  }
-  flushPara(); closeList();
-  return out.join("\n");
-}
-
-// ---- side-panel modes -------------------------------------------------------
-let panelMode = "node";   // "node" | "proposals" | "proposal" | "decisions" | "decision"
-let selectedProposal = null;
-let selectedDecisionSlug = null;
-let pageExpanded = false;
-
-// Decisions live in DATA.nodes (so cross-reference edges from corrections still
-// resolve), but the graph default-hides them via the "history" filter group.
-// The dedicated Decisions tab is the primary entry point for browsing them.
-const DECISION_NODES = DATA.nodes.filter(n => n.type === "decision");
-DECISION_NODES.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
-document.getElementById("tab-decisions").textContent = `Decisions (${DECISION_NODES.length})`;
-
-function tabButtons() {
-  document.getElementById("tab-graph").classList.toggle("active", panelMode === "node");
-  document.getElementById("tab-proposals").classList.toggle("active", panelMode === "proposals" || panelMode === "proposal");
-  document.getElementById("tab-decisions").classList.toggle("active", panelMode === "decisions" || panelMode === "decision");
-}
-
-// Cluster summary card — describes the set of nodes currently in focus.
-// Auto-generated from cluster contents: type counts, date span, edge-type
-// counts, and short named highlights of structurally important nodes
-// (rules, corrections, proposals, findings, spawns, agents, skills).
-// Returns "" when no focus is active.
-function renderClusterCard() {
-  if (!focusVisibleSlugs || focusVisibleSlugs.size === 0) return "";
-  const slugs = focusVisibleSlugs;
-  const nodes = [];
-  slugs.forEach(s => { const n = nodesById.get(s); if (n) nodes.push(n); });
-  const inEdges = edges.filter(e => slugs.has(e._s.slug) && slugs.has(e._d.slug));
-  // type counts
-  const typeCounts = {};
-  for (const N of nodes) typeCounts[N.type] = (typeCounts[N.type] || 0) + 1;
-  // edge counts
-  const edgeCounts = {};
-  for (const E of inEdges) edgeCounts[E.type] = (edgeCounts[E.type] || 0) + 1;
-  // date span
-  const dates = nodes.map(n => (n.date || "").slice(0, 10)).filter(Boolean).sort();
-  const span = dates.length ? (dates[0] === dates[dates.length-1] ? dates[0] : `${dates[0]} → ${dates[dates.length-1]}`) : "—";
-
-  // Highlight selection — priority order, capped count per type so a big
-  // cluster doesn't flood the card. The intent is "what is this cluster
-  // *about*", not a node listing.
-  const PRIORITY = ["rule","correction","proposal","spawn","harvest_finding","agent","skill","reflection","anomaly","hypothesis","experiment","iteration","run_log_entry"];
-  const PER_TYPE_CAP = { rule: 3, correction: 3, proposal: 5, spawn: 3, harvest_finding: 4, agent: 4, skill: 5, reflection: 3, anomaly: 3, hypothesis: 3, experiment: 3, iteration: 3, run_log_entry: 3 };
-  const highlights = [];
-  for (const t of PRIORITY) {
-    const ofType = nodes.filter(n => n.type === t);
-    if (!ofType.length) continue;
-    const cap = PER_TYPE_CAP[t] || 3;
-    for (const N of ofType.slice(0, cap)) {
-      const title = (N.title || N.slug).replace(/^Agent\s+—\s+/, "").slice(0, 70);
-      highlights.push({ type: t, slug: N.slug, label: title });
-    }
-    if (ofType.length > cap) highlights.push({ type: t, slug: null, label: `…and ${ofType.length - cap} more ${t}` });
-  }
-
-  let html = `<div class="cluster-card"><h3>Cluster — ${nodes.length} node${nodes.length===1?"":"s"}, ${inEdges.length} edge${inEdges.length===1?"":"s"}</h3>`;
-  html += `<div class="kv"><b>Spans:</b> ${span}</div>`;
-  // type pills
-  html += `<div style="margin:4px 0;">`;
-  const typeOrder = Object.keys(typeCounts).sort((a,b) => typeCounts[b] - typeCounts[a]);
-  for (const t of typeOrder) {
-    html += `<span class="pill"><span class="legend" style="background:${colorFor(t)}"></span>${typeCounts[t]} ${t}</span>`;
-  }
-  html += `</div>`;
-  // edge type counts as inline text
-  if (Object.keys(edgeCounts).length) {
-    const edgeStr = Object.entries(edgeCounts).sort((a,b) => b[1]-a[1]).map(([t,c]) => `<i>${t}</i> ${c}`).join(" · ");
-    html += `<div style="margin:4px 0;color:#0c4a6e;"><b>Connections:</b> ${edgeStr}</div>`;
-  }
-  // highlights
-  if (highlights.length) {
-    html += `<div style="margin-top:6px;">`;
-    for (const h of highlights) {
-      if (h.slug) {
-        html += `<div class="highlight"><span class="label">${h.type}:</span> <a href="#" data-slug="${h.slug}">${h.label}</a></div>`;
-      } else {
-        html += `<div class="highlight" style="color:#64748b;font-style:italic;">${h.label}</div>`;
-      }
-    }
-    html += `</div>`;
-  }
-  html += `</div>`;
-  return html;
-}
-document.getElementById("tab-graph").addEventListener("click", () => {
-  panelMode = "node"; selectedProposal = null; selectedDecisionSlug = null; updatePanel();
-});
-document.getElementById("tab-proposals").addEventListener("click", () => {
-  panelMode = "proposals"; selectedProposal = null; selectedDecisionSlug = null; updatePanel();
-});
-document.getElementById("tab-decisions").addEventListener("click", () => {
-  panelMode = "decisions"; selectedProposal = null; selectedDecisionSlug = null; updatePanel();
-});
-
-function renderProposalsList() {
-  if (PROPOSALS.length === 0) return `<h2>Proposals</h2><div class="empty">No proposals filed yet. Use the <code>propose</code> skill to file one.</div>`;
-  const parts = [`<h2>Proposals (${PROPOSALS.length})</h2>`];
-  for (const p of PROPOSALS) {
-    const verdict = p.verdict || p.status || "open";
-    parts.push(
-      `<div class="proposal-item" data-pid="${escHTML(p.proposal_id || "")}">` +
-        `<div><span class="pid">${escHTML(p.proposal_id || "?")}</span>` +
-        ` <span class="verdict v-${escHTML((verdict + "").replace(/_/g, "-"))}">${escHTML(verdict)}</span></div>` +
-        `<div style="margin-top:4px">${escHTML(p.title || "")}</div>` +
-        `<div class="kv" style="font-size:11px;color:#666">→ <code>${escHTML(p.target || "?")}</code> (${escHTML(p.target_type || "?")})</div>` +
-      `</div>`
-    );
-  }
-  return parts.join("");
-}
-
-function renderDecisionsList() {
-  if (DECISION_NODES.length === 0) {
-    return `<h2>Decisions</h2><div class="empty">No decisions recorded yet. Use the <code>decision-log</code> skill to record one.</div>`;
-  }
-  const parts = [`<h2>Decisions (${DECISION_NODES.length})</h2>`,
-    `<div class="empty" style="font-style:normal;margin:4px 0 8px;font-size:11px;">Newest first. Click any row for the full text.</div>`];
-  for (const d of DECISION_NODES) {
-    // Slugs follow project_pages.py: dec-fw-* (framework) vs dec-ap-* (apparatus).
-    const side = d.slug.startsWith("dec-fw") ? "framework" : "apparatus";
-    parts.push(
-      `<div class="proposal-item" data-decision-slug="${d.slug}">` +
-        `<div><span class="pid">${d.date || "—"}</span>` +
-        ` <span class="verdict v-${side}">${side}</span></div>` +
-        `<div style="margin-top:4px">${escHTML(d.title || d.slug)}</div>` +
-      `</div>`
-    );
-  }
-  return parts.join("");
-}
-
-function renderDecisionDetail(slug) {
-  const node = nodesById.get(slug);
-  if (!node) return renderDecisionsList();
-  const side = slug.startsWith("dec-fw") ? "framework" : "apparatus";
-  const page = PAGES[slug] || "";
-  const parts = [
-    `<button class="toggle-page" id="back-to-decisions">← all decisions</button>`,
-    `<h2>${escHTML(node.title || slug)} <span class="verdict v-${side}">${side}</span></h2>`,
-    `<div class="kv"><b>Date:</b> ${node.date || "—"}</div>`,
-    `<div class="kv"><b>Slug:</b> <code>${slug}</code></div>`,
-  ];
-  if (page) {
-    parts.push(`<div class="page-content">${renderMarkdown(page)}</div>`);
-  } else {
-    parts.push(`<div class="empty">No page content available.</div>`);
-  }
-  // Backlinks — corrections / proposals / experiments that reference this decision.
-  const ins = edges.filter(e => e._d && e._d.slug === slug);
-  if (ins.length) {
-    parts.push(`<div class="neighbours"><b>Referenced by (${ins.length})</b><ul>`);
-    for (const e of ins) parts.push(`<li><a href="#" data-slug="${e.src}">${e.src}</a> — <i>${e.type}</i></li>`);
-    parts.push(`</ul></div>`);
-  }
-  return parts.join("");
-}
-
-function renderProposalDetail(p) {
-  if (!p) return renderProposalsList();
-  const verdict = p.verdict || p.status || "open";
-  const parts = [
-    `<button class="toggle-page" id="back-to-list">← all proposals</button>`,
-    `<h2>${escHTML(p.proposal_id || "")} <span class="verdict v-${escHTML((verdict + "").replace(/_/g, "-"))}">${escHTML(verdict)}</span></h2>`,
-    `<div class="kv"><b>Title:</b> ${escHTML(p.title || "")}</div>`,
-    `<div class="kv"><b>Target:</b> <code>${escHTML(p.target || "?")}</code> (${escHTML(p.target_type || "?")})</div>`,
-    `<div class="kv"><b>Filed:</b> ${escHTML(p.timestamp || "")} by ${escHTML(p.agent_id || "?")}</div>`,
-  ];
-  // mdInline() already escapes HTML internally — passing pre-escaped input
-  // double-escapes (harmless but redundant). Pass raw and let mdInline handle.
-  if (p.change) parts.push(`<div class="kv"><b>Change:</b><div>${mdInline(p.change)}</div></div>`);
-  if (p.reasoning) parts.push(`<div class="kv"><b>Reasoning:</b><div>${mdInline(p.reasoning)}</div></div>`);
-  if (p.verdict_reasoning) parts.push(`<div class="kv"><b>Verdict reasoning:</b><div>${mdInline(p.verdict_reasoning)}</div></div>`);
-  if (p.rule_cited) parts.push(`<div class="kv"><b>Rule cited:</b> ${escHTML(p.rule_cited)}</div>`);
-  if (p.references && p.references.length) {
-    parts.push(`<div class="kv"><b>References:</b><ul>`);
-    for (const r of p.references) parts.push(`<li><a href="#" data-slug="${escHTML(r)}">${escHTML(r)}</a></li>`);
-    parts.push(`</ul></div>`);
-  }
-  return parts.join("");
-}
-
-function updatePanel() {
-  tabButtons();
-  // Write into #panel-body so the sticky #panel-footer (graph stats) survives.
-  const body = document.getElementById("panel-body");
-  if (panelMode === "proposals") { body.innerHTML = renderProposalsList(); }
-  else if (panelMode === "proposal") { body.innerHTML = renderProposalDetail(selectedProposal); }
-  else if (panelMode === "decisions") { body.innerHTML = renderDecisionsList(); }
-  else if (panelMode === "decision") { body.innerHTML = renderDecisionDetail(selectedDecisionSlug); }
-  else if (!selected) {
-    // No node selected — but if focus is active, the cluster card is
-    // still worth showing so the user has context for what they're
-    // looking at on the canvas.
-    const clusterCard = renderClusterCard();
-    const clearBtn = focusVisibleSlugs
-      ? `<button class="action-btn warn" id="clear-focus-btn">× clear focus</button>`
-      : "";
-    body.innerHTML = clusterCard + `<h2>Select a node</h2><div class="empty">Click any node to inspect.</div>` + clearBtn;
-  }
-  else {
-    const outs = edges.filter(e => e._s === selected);
-    const ins  = edges.filter(e => e._d === selected);
-    const parts = [];
-    // Cluster summary at the top when a focus is active — describes the
-    // visible subgraph independent of which node is currently selected.
-    parts.push(renderClusterCard());
-    parts.push(`<h2><span class="legend" style="background:${colorFor(selected)}"></span>${selected.slug}</h2>`);
-    // One-line summary for stage nodes — answers "what did this step do?"
-    // without making the user toggle the page body. Parses the page content
-    // we already embed in graph_data.js (no extra projection work). Shows
-    // worker name + status + first sentence of Nara's reasoning, if any.
-    if (selected.type === "stage" && PAGES[selected.slug]) {
-      const page = PAGES[selected.slug];
-      const stepM = page.match(/\*\*Step \d+ of \d+\*\* — tool `([^`]+)`(?:\s+\(([^)]+)\))?/);
-      const statusM = page.match(/\*\*Status:\*\*\s+([^\n]+)/);
-      const reasonM = page.match(/\*\*Reasoning[^*]*\*\*\s*\n+\s*([^\n]+)/);
-      if (stepM || statusM) {
-        const worker = stepM ? (stepM[2] || stepM[1]) : "?";
-        const status = statusM ? statusM[1].trim() : "?";
-        const reason = reasonM ? reasonM[1].slice(0, 90).replace(/[<>]/g, "") : "";
-        const statusClass = `v-${status.replace(/[^a-z]/gi, "-")}`;
-        parts.push(
-          `<div class="kv" style="font-size:13px;padding:6px 8px;background:rgba(139,92,246,0.08);border-radius:4px;margin:6px 0;">` +
-          `<b>${worker}</b> <span class="verdict ${statusClass}" style="margin-left:6px">${status}</span>` +
-          (reason ? `<div style="margin-top:4px;color:#666;font-size:12px;font-style:italic;">${reason}${reason.length >= 90 ? "…" : ""}</div>` : "") +
-          `</div>`
-        );
-      }
-    }
-    parts.push(`<div class="kv"><b>Type:</b> ${selected.type}</div>`);
-    if (selected.date) parts.push(`<div class="kv"><b>Date:</b> ${selected.date}</div>`);
-    if (selected.title && selected.title !== selected.slug) parts.push(`<div class="kv"><b>Title:</b> ${selected.title}</div>`);
-    parts.push(`<div class="kv"><b>Page:</b> <a href="../pages/${selected.slug}.md">${selected.slug}.md</a></div>`);
-    // Action row — cluster focus / clear focus + show/hide page. Cluster
-    // focus is bidirectional BFS from the selected node; clear-focus is
-    // shown when a focus (from any source — this button or the focus
-    // dropdown) is active.
-    parts.push(`<div style="margin:8px 0 4px 0;">`);
-    if (focusVisibleSlugs) {
-      parts.push(`<button class="action-btn warn" id="clear-focus-btn">× clear focus (${focusVisibleSlugs.size} nodes)</button>`);
-    } else {
-      parts.push(`<button class="action-btn primary" id="focus-cluster-btn">⌖ focus this cluster</button>`);
-    }
-    parts.push(`<button class="action-btn" id="toggle-page-btn">${pageExpanded ? "hide page" : "show page"}</button>`);
-    parts.push(`</div>`);
-    if (pageExpanded && PAGES[selected.slug]) {
-      parts.push(`<div class="page-content">${renderMarkdown(PAGES[selected.slug])}</div>`);
-    }
-    parts.push(`<div class="neighbours"><b>Outgoing (${outs.length})</b><ul>`);
-    if (outs.length === 0) parts.push(`<li class="empty">none</li>`);
-    for (const e of outs) parts.push(`<li><i>${e.type}</i> → <a href="#" data-slug="${e.dst}">${e.dst}</a></li>`);
-    parts.push(`</ul></div>`);
-    parts.push(`<div class="neighbours"><b>Incoming (${ins.length})</b><ul>`);
-    if (ins.length === 0) parts.push(`<li class="empty">none</li>`);
-    for (const e of ins) parts.push(`<li><a href="#" data-slug="${e.src}">${e.src}</a> — <i>${e.type}</i></li>`);
-    parts.push(`</ul></div>`);
-    body.innerHTML = parts.join("");
-    const tp = document.getElementById("toggle-page-btn");
-    if (tp) tp.addEventListener("click", () => { pageExpanded = !pageExpanded; updatePanel(); });
-  }
-  // Focus / clear-focus listeners — wired here (outside the selected
-  // branch) because the no-selection branch can also render the clear
-  // button.
-  const fc = document.getElementById("focus-cluster-btn");
-  if (fc) fc.addEventListener("click", () => {
-    if (!selected) return;
-    focusVisibleSlugs = computeClusterReachable(selected.slug);
-    // Match dropdown to "all iterations" since the focus is now
-    // node-driven rather than iteration-driven; the dropdown's
-    // iteration option no longer reflects what's on screen.
-    if (focusSelect) focusSelect.value = "";
-    updatePanel();
-  });
-  const clf = document.getElementById("clear-focus-btn");
-  if (clf) clf.addEventListener("click", () => {
-    focusVisibleSlugs = null;
-    if (focusSelect) focusSelect.value = "";
-    updatePanel();
-  });
-  body.querySelectorAll("a[data-slug]").forEach(a => a.addEventListener("click", ev => {
-    ev.preventDefault();
-    const n = nodesById.get(a.dataset.slug);
-    if (n) { panelMode = "node"; selected = n; pageExpanded = false; updatePanel(); }
-  }));
-  body.querySelectorAll(".proposal-item[data-pid]").forEach(el => el.addEventListener("click", () => {
-    const pid = el.dataset.pid;
-    selectedProposal = PROPOSALS.find(p => p.proposal_id === pid);
-    panelMode = "proposal"; updatePanel();
-  }));
-  body.querySelectorAll(".proposal-item[data-decision-slug]").forEach(el => el.addEventListener("click", () => {
-    selectedDecisionSlug = el.dataset.decisionSlug;
-    panelMode = "decision"; updatePanel();
-  }));
-  const back = document.getElementById("back-to-list");
-  if (back) back.addEventListener("click", () => { panelMode = "proposals"; selectedProposal = null; updatePanel(); });
-  const backDec = document.getElementById("back-to-decisions");
-  if (backDec) backDec.addEventListener("click", () => { panelMode = "decisions"; selectedDecisionSlug = null; updatePanel(); });
-}
-
-// ---- animation loop ----------------------------------------------------------
-let frame = 0;
-function loop() {
-  if (frame < 600) { step(); }   // run simulation for ~10s then idle
-  draw();
-  frame++;
-  requestAnimationFrame(loop);
-}
-loop();
 </script>
 </body>
 </html>

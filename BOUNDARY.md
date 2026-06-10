@@ -27,8 +27,10 @@ Every skill carries a `layer` and a `runtime-safe` frontmatter field.
 
 **Dev-only skills — Layers B and C** (`runtime-safe: false`). The research
 vertical (`plan-research`, `investigate`, `code-review`, `health`, `ship`,
-`experiment`, `auto-experiment`, `repro-check`) and the orchestration / meta
-layer (`orchestrate`, `harvest`, `context-save`, `context-restore`). These help
+`experiment`, `auto-experiment`, `repro-check`), the brain pack
+(`brain-recall`, `narrate`, `propose`, `review-proposal`), the `slip-ladder`
+discipline extension, and the orchestration / meta layer (`orchestrate`,
+`harvest`, `decision-log`, `context-save`, `context-restore`). These help
 a human *build* a project.
 
 > **Rule.** Dev-only skills must never be loaded into any project's runtime
@@ -98,7 +100,8 @@ leak closed.
 The brain (Phase 3.5: `memory/brain/`, the `narrate` / `propose` /
 `review-proposal` / `brain-recall` skills, the `ingest_apparatus.py` /
 `render_brain.py` / `project_pages.py` / `regen_rules.py` scripts, the
-`graph.html` viewer) is a **dev-time observation and reflection substrate**.
+`dashboard.html` / `graph.html` view pages) is a **dev-time observation and
+reflection substrate**.
 It has a specific, narrow relationship to apparatus runtime:
 
 - The apparatus runtime **emits into** the brain *indirectly* — its own JSONL

@@ -1,4 +1,4 @@
-{
+window.BRAIN_SUMMARY = {
   "schema_version": 2,
   "generated_at": "2026-06-10T09:03:03Z",
   "repo": "/home/decross1/projects/agent_system/.claude/worktrees/brain-overhaul",
@@ -3674,4 +3674,4 @@
       "bytes": 83260
     }
   ]
-}
+};
