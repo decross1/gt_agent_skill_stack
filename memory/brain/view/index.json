@@ -2040,6 +2040,24 @@
     "title": "P-011 \u2014 Env-gated stubs must be asserted per-shell, not assumed from the interactive default"
   },
   {
+    "slug": "proposal-p-012",
+    "type": "proposal",
+    "date": "2026-06-10",
+    "title": "P-012 \u2014 Prune stale day7/day8 worktrees in a_bgt_rsi"
+  },
+  {
+    "slug": "proposal-p-013",
+    "type": "proposal",
+    "date": "2026-06-10",
+    "title": "P-013 \u2014 Decide tracking policy for regenerated brain view artifacts"
+  },
+  {
+    "slug": "proposal-p-014",
+    "type": "proposal",
+    "date": "2026-06-10",
+    "title": "P-014 \u2014 Extract shared livePaths.ts walk-up helper in a_bgt_rsi frontend tests"
+  },
+  {
     "slug": "2026-06-10-workflow-build-phase",
     "type": "reflection",
     "date": "2026-06-10",
@@ -2074,6 +2092,12 @@
     "type": "reflection",
     "date": "2026-06-09",
     "title": "Reflection \u2014 an errored eval-worker call is not a measurement; scoring it 0 fabricates a verdict (rule 4). Emit decision rows only for genuinely served calls -> down arm reads honest INSUFFICIENT"
+  },
+  {
+    "slug": "reflection-ui-overhaul-2026-06-10",
+    "type": "reflection",
+    "date": "2026-06-10",
+    "title": "ui_overhaul_2026_06_10"
   },
   {
     "slug": "s13-3-author-narrate-skill",

@@ -1,6 +1,6 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-06-10T09:25:39Z",
+  "generated_at": "2026-06-10T10:10:41Z",
   "repo": "/home/decross1/projects/agent_system",
   "consumer": "/home/decross1/projects/a_bgt_rsi",
   "window": {
@@ -13,9 +13,9 @@
   "status_strip": {
     "system": "attention",
     "needs_you": {
-      "total": 22,
+      "total": 25,
       "high": 0,
-      "med": 20,
+      "med": 23,
       "low": 2
     },
     "drift": {
@@ -378,6 +378,57 @@
       }
     },
     {
+      "id": "P-012",
+      "kind": "proposal_review",
+      "severity": "med",
+      "reversible": true,
+      "age_days": 0,
+      "since": "2026-06-10T10:30:00Z",
+      "title": "P-012 — Prune stale day7/day8 worktrees in a_bgt_rsi (open)",
+      "detail": "latest verdict 'open'; route via the review-proposal skill (target rule:a_bgt_rsi worktree hygiene)",
+      "action_cmd": "review memory/brain/proposals.jsonl P-012  # run the review-proposal skill",
+      "source": "memory/brain/proposals.jsonl",
+      "surface": "framework",
+      "link": {
+        "skill": null,
+        "url": "memory/brain/proposals.jsonl"
+      }
+    },
+    {
+      "id": "P-013",
+      "kind": "proposal_review",
+      "severity": "med",
+      "reversible": true,
+      "age_days": 0,
+      "since": "2026-06-10T10:30:00Z",
+      "title": "P-013 — Decide tracking policy for regenerated brain view artifacts (open)",
+      "detail": "latest verdict 'open'; route via the review-proposal skill (target rule:memory/brain/view tracking)",
+      "action_cmd": "review memory/brain/proposals.jsonl P-013  # run the review-proposal skill",
+      "source": "memory/brain/proposals.jsonl",
+      "surface": "framework",
+      "link": {
+        "skill": null,
+        "url": "memory/brain/proposals.jsonl"
+      }
+    },
+    {
+      "id": "P-014",
+      "kind": "proposal_review",
+      "severity": "med",
+      "reversible": true,
+      "age_days": 0,
+      "since": "2026-06-10T10:30:00Z",
+      "title": "P-014 — Extract shared livePaths.ts walk-up helper in a_bgt_rsi frontend tests (open)",
+      "detail": "latest verdict 'open'; route via the review-proposal skill (target skill:a_bgt_rsi ui/frontend/tests)",
+      "action_cmd": "review memory/brain/proposals.jsonl P-014  # run the review-proposal skill",
+      "source": "memory/brain/proposals.jsonl",
+      "surface": "framework",
+      "link": {
+        "skill": "a_bgt_rsi ui/frontend/tests",
+        "url": "memory/brain/proposals.jsonl"
+      }
+    },
+    {
       "id": "drift-experiment",
       "kind": "drift",
       "severity": "low",
@@ -459,7 +510,7 @@
       "last_seen": "2026-06-10",
       "runs_by_day": {
         "2026-06-09": 4,
-        "2026-06-10": 11
+        "2026-06-10": 13
       },
       "evidence": "mixed"
     },
@@ -714,7 +765,7 @@
         "firewall_violation": false
       },
       "usage": {
-        "explicit": 8,
+        "explicit": 9,
         "inferred": 80,
         "last_used": "2026-06-10"
       }
@@ -1107,9 +1158,9 @@
         "firewall_violation": false
       },
       "usage": {
-        "explicit": 0,
+        "explicit": 1,
         "inferred": 3,
-        "last_used": "2026-05-21"
+        "last_used": "2026-06-10"
       }
     },
     {
@@ -1458,6 +1509,26 @@
       },
       {
         "agent": "claude-code-main",
+        "skill": "ship",
+        "explicit": 1,
+        "inferred": 0,
+        "methods": {
+          "skill_used": 1,
+          "status": 0,
+          "task": 0,
+          "harvest": 0,
+          "contract": 0
+        },
+        "by_day": {
+          "2026-06-10": {
+            "e": 1,
+            "i": 0
+          }
+        },
+        "last": "2026-06-10"
+      },
+      {
+        "agent": "claude-code-main",
         "skill": "spawn-contract",
         "explicit": 0,
         "inferred": 5,
@@ -1474,10 +1545,10 @@
       {
         "agent": "claude-code-main",
         "skill": "validate",
-        "explicit": 2,
+        "explicit": 3,
         "inferred": 28,
         "methods": {
-          "skill_used": 2,
+          "skill_used": 3,
           "status": 1,
           "task": 23,
           "harvest": 0,
@@ -1489,7 +1560,7 @@
             "i": 0
           },
           "2026-06-10": {
-            "e": 0,
+            "e": 1,
             "i": 2
           }
         },
@@ -2035,11 +2106,11 @@
       "spawn_id": "SP-004",
       "surface": "framework",
       "date": "2026-06-10",
-      "status": "spawned",
+      "status": "completed",
       "agent": "claude-code-main",
       "task": "wf_a16994cf_build_overhaul",
-      "done_check": "pending",
-      "done_check_raw": null,
+      "done_check": "pass",
+      "done_check_raw": "pass",
       "skill_subset": [
         "validate",
         "run-log",
@@ -2668,7 +2739,7 @@
         "dormant_days": 16
       },
       "proposals": {
-        "open": 4,
+        "open": 7,
         "newest": "2026-06-10"
       },
       "review": {
@@ -2698,6 +2769,60 @@
         "lifecycle": [
           {
             "ts": "2026-06-10T05:30:49.435177+00:00",
+            "verdict": "open",
+            "actor": "claude-code-main"
+          }
+        ]
+      },
+      {
+        "proposal_id": "P-012",
+        "title": "Prune stale day7/day8 worktrees in a_bgt_rsi",
+        "target": "a_bgt_rsi worktree hygiene",
+        "target_type": "rule",
+        "origin_harvest": [],
+        "final_verdict": "open",
+        "rule_cited": null,
+        "filed_date": "2026-06-10",
+        "decided_at": null,
+        "lifecycle": [
+          {
+            "ts": "2026-06-10T10:30:00Z",
+            "verdict": "open",
+            "actor": "claude-code-main"
+          }
+        ]
+      },
+      {
+        "proposal_id": "P-013",
+        "title": "Decide tracking policy for regenerated brain view artifacts",
+        "target": "memory/brain/view tracking",
+        "target_type": "rule",
+        "origin_harvest": [],
+        "final_verdict": "open",
+        "rule_cited": null,
+        "filed_date": "2026-06-10",
+        "decided_at": null,
+        "lifecycle": [
+          {
+            "ts": "2026-06-10T10:30:00Z",
+            "verdict": "open",
+            "actor": "claude-code-main"
+          }
+        ]
+      },
+      {
+        "proposal_id": "P-014",
+        "title": "Extract shared livePaths.ts walk-up helper in a_bgt_rsi frontend tests",
+        "target": "a_bgt_rsi ui/frontend/tests",
+        "target_type": "skill",
+        "origin_harvest": [],
+        "final_verdict": "open",
+        "rule_cited": null,
+        "filed_date": "2026-06-10",
+        "decided_at": null,
+        "lifecycle": [
+          {
+            "ts": "2026-06-10T10:30:00Z",
             "verdict": "open",
             "actor": "claude-code-main"
           }
@@ -2930,6 +3055,50 @@
   "timeline": [
     {
       "date": "2026-06-10",
+      "ts": "2026-06-10T10:32:00Z",
+      "kind": "reflection_written",
+      "id": "reflection-ui-overhaul-2026-06-10",
+      "title": "ui_overhaul_2026_06_10",
+      "agent": "claude-code-main",
+      "verdict": null,
+      "is_flag": false,
+      "skill": null
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T10:30:00Z",
+      "kind": "proposal_filed",
+      "id": "P-014",
+      "title": "Extract shared livePaths.ts walk-up helper in a_bgt_rsi frontend tests",
+      "agent": "claude-code-main",
+      "verdict": null,
+      "is_flag": false,
+      "skill": "a_bgt_rsi ui/frontend/tests"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T10:30:00Z",
+      "kind": "proposal_filed",
+      "id": "P-013",
+      "title": "Decide tracking policy for regenerated brain view artifacts",
+      "agent": "claude-code-main",
+      "verdict": null,
+      "is_flag": false,
+      "skill": null
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T10:30:00Z",
+      "kind": "proposal_filed",
+      "id": "P-012",
+      "title": "Prune stale day7/day8 worktrees in a_bgt_rsi",
+      "agent": "claude-code-main",
+      "verdict": null,
+      "is_flag": false,
+      "skill": null
+    },
+    {
+      "date": "2026-06-10",
       "ts": "2026-06-10T06:12:17.406189Z",
       "kind": "run_flag",
       "id": "runflag-week1.run-L1247",
@@ -3056,7 +3225,7 @@
       "id": "SP-004",
       "title": "SP-004 — wf_a16994cf_build_overhaul",
       "agent": "claude-code-main",
-      "verdict": "pending",
+      "verdict": "pass",
       "is_flag": false,
       "skill": "spawn-contract"
     },
@@ -3788,10 +3957,10 @@
     }
   ],
   "attribution": {
-    "agent_rows": 271,
-    "total_rows": 1414,
-    "skill_used_rows": 22,
-    "note": "raw run-log rows carry agent on 271/1414 and skill_used on 22/1414; the attribution ladder infers the rest and labels every inference (P-008 open: make agent required in the consumer run-log)."
+    "agent_rows": 273,
+    "total_rows": 1416,
+    "skill_used_rows": 24,
+    "note": "raw run-log rows carry agent on 273/1416 and skill_used on 24/1416; the attribution ladder infers the rest and labels every inference (P-008 open: make agent required in the consumer run-log)."
   },
   "days": [
     {

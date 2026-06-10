@@ -15,17 +15,18 @@ edges:
   - {type: authored, dst: "critic-emit-mlintern-nemoclaw-2026-06-09", dst_type: "reflection"}
   - {type: authored, dst: "session-2026-06-09-evening", dst_type: "reflection"}
   - {type: authored, dst: "2026-06-10-workflow-build-phase", dst_type: "reflection"}
+  - {type: authored, dst: "reflection-ui-overhaul-2026-06-10", dst_type: "reflection"}
 ---
 
 # Agent — claude-code-main
 
-_41 narratives across 1 raw label(s)_
+_45 narratives across 1 raw label(s)_
 
 **Canonical agent id:** `claude-code-main`
 
 **Raw labels seen in narratives:** claude-code-main
 
-**Total narratives:** 41
+**Total narratives:** 45
 
 **First seen:** 2026-05-20
 
@@ -42,3 +43,4 @@ _41 narratives across 1 raw label(s)_
 - **authored** → `critic-emit-mlintern-nemoclaw-2026-06-09` (reflection)
 - **authored** → `session-2026-06-09-evening` (reflection)
 - **authored** → `2026-06-10-workflow-build-phase` (reflection)
+- **authored** → `reflection-ui-overhaul-2026-06-10` (reflection)

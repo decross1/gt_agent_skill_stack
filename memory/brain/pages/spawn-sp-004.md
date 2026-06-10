@@ -11,9 +11,9 @@ edges:
 
 # SP-004 — wf_a16994cf_build_overhaul
 
-_status: spawned_
+_status: completed_
 
-**Status:** `spawned`
+**Status:** `completed`
 
 **Parent task:** `ui_overhaul_p2_build`
 
@@ -28,6 +28,10 @@ _status: spawned_
 **Authority cap:** Per-agent disjoint file contracts; append-only ledgers untouchable; no server restarts; no git commits; spine files read-only (drafts only).
 
 **Budget:** wall_time=6600s iterations=None cost_usd=None
+
+**Done condition check:** `pass`
+
+**Child summary:** 8/8 tracks done (one session-limit interruption mid-flight; resumed from journal, interrupted agents audited prior partial work line-by-line rather than re-authoring). a_bgt_rsi: T1.1-T1.5 + 2 baseline finds fixed (backend 311/0, frontend 737/737, tsc clean), inbox hero single-mount + T1.6 + T3.1-3.3 + tokens + brain cross-nav, spine diffs drafted+verified (apply clean), docs closure + live-verifi
 
 ## Links
 
