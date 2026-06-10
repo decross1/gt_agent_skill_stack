@@ -25,11 +25,16 @@ rows with a stale fixture run_id.
 each file: coordinator_cycles 140→117 (−23 boom rows), calls.jsonl 4,819→879 (−3,930
 fake-model − 10 test-context topicality rows), worker_activity 1,251→1,163 (−88; lands
 exactly on the session-start baseline, confirming the dropped rows were all same-day
-test artifacts). Malformed lines are never dropped. (b) The leak is closed structurally:
-all writer defaults now resolve at CALL time (worker_activity, coordinator_cycle_log,
-coordinator bubbles, nara's calls-log sentinel) and `tests/conftest.py` gains an
-AUTOUSE `_no_live_artifacts` fixture redirecting every such default to tmp_path —
-the invariant is "a full pytest run adds ZERO rows to run_state/, logs/, memory/".
+test artifacts), and — found by the same-day adversarial review AFTER the new
+`subagent_start/finish` events shipped — week1.run.jsonl 1,402→1,192 (−210 fixture
+sub-agent rows: `subagent:"t"`, `run_id:null`, written live by `tests/test_subagent.py`
+through the new `runtime.append_run_log` before the guard covered it). Malformed lines
+are never dropped. (b) The leak is closed structurally: all writer defaults now resolve
+at CALL time (worker_activity, coordinator_cycle_log, coordinator bubbles, nara's
+calls-log sentinel) and `tests/conftest.py` gains an AUTOUSE `_no_live_artifacts`
+fixture redirecting every such default to tmp_path — including `runtime.RUN_LOG_PATH`
+and the D-046 ledgers — the invariant is "a full pytest run adds ZERO rows to
+run_state/, logs/, memory/".
 (c) Operating rule: pytest runs are invoked with explicit `MOCK_LLM=1` (the inverse
 discipline of `env -u MOCK_LLM` for real runs — do not rely on the shell default).
 Stray finished-run redirects deleted (`run_state/battery_run*.log`,

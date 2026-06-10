@@ -29,3 +29,5 @@ _runtime-safe_
 - `proposal-p-008` (proposal) — **targets**
 - `spawn-sp-001` (spawn) — **uses**
 - `spawn-sp-002` (spawn) — **uses**
+- `spawn-sp-003` (spawn) — **uses**
+- `spawn-sp-004` (spawn) — **uses**

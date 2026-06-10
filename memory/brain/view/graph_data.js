@@ -32,580 +32,460 @@ window.BRAIN_GRAPH = {
       "title": "Anomaly \u2014 tool-call invocation at 100%"
     },
     {
-      "slug": "apparatus-worker_activity-l1156",
+      "slug": "apparatus-worker_activity-l2523",
       "type": "apparatus_event",
-      "date": "2026-06-09",
-      "title": "unknown_apparatus \u2014 worker_activity L1156"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1157",
-      "type": "apparatus_event",
-      "date": "2026-06-09",
-      "title": "unknown_apparatus \u2014 worker_activity L1157"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1158",
-      "type": "apparatus_event",
-      "date": "2026-06-09",
-      "title": "unknown_apparatus \u2014 worker_activity L1158"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1159",
-      "type": "apparatus_event",
-      "date": "2026-06-09",
-      "title": "unknown_apparatus \u2014 worker_activity L1159"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1160",
-      "type": "apparatus_event",
-      "date": "2026-06-09",
-      "title": "unknown_apparatus \u2014 worker_activity L1160"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1161",
-      "type": "apparatus_event",
-      "date": "2026-06-09",
-      "title": "unknown_apparatus \u2014 worker_activity L1161"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1162",
-      "type": "apparatus_event",
-      "date": "2026-06-09",
-      "title": "unknown_apparatus \u2014 worker_activity L1162"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1163",
-      "type": "apparatus_event",
-      "date": "2026-06-09",
-      "title": "unknown_apparatus \u2014 worker_activity L1163"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1164",
-      "type": "apparatus_event",
-      "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1164"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1165",
-      "type": "apparatus_event",
-      "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1165"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1166",
-      "type": "apparatus_event",
-      "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1166"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1167",
-      "type": "apparatus_event",
-      "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1167"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1168",
-      "type": "apparatus_event",
-      "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1168"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1169",
-      "type": "apparatus_event",
-      "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1169"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1170",
-      "type": "apparatus_event",
-      "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1170"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1171",
-      "type": "apparatus_event",
-      "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1171"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1172",
-      "type": "apparatus_event",
-      "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1172"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1173",
-      "type": "apparatus_event",
-      "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1173"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1174",
-      "type": "apparatus_event",
-      "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1174"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1175",
-      "type": "apparatus_event",
-      "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1175"
-    },
-    {
-      "slug": "apparatus-worker_activity-l1176",
-      "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1176"
+      "title": "unknown_apparatus \u2014 worker_activity L2523"
     },
     {
-      "slug": "apparatus-worker_activity-l1177",
+      "slug": "apparatus-worker_activity-l2524",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1177"
+      "title": "unknown_apparatus \u2014 worker_activity L2524"
     },
     {
-      "slug": "apparatus-worker_activity-l1178",
+      "slug": "apparatus-worker_activity-l2525",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1178"
+      "title": "unknown_apparatus \u2014 worker_activity L2525"
     },
     {
-      "slug": "apparatus-worker_activity-l1179",
+      "slug": "apparatus-worker_activity-l2526",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1179"
+      "title": "unknown_apparatus \u2014 worker_activity L2526"
     },
     {
-      "slug": "apparatus-worker_activity-l1180",
+      "slug": "apparatus-worker_activity-l2527",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1180"
+      "title": "unknown_apparatus \u2014 worker_activity L2527"
     },
     {
-      "slug": "apparatus-worker_activity-l1181",
+      "slug": "apparatus-worker_activity-l2528",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1181"
+      "title": "unknown_apparatus \u2014 worker_activity L2528"
     },
     {
-      "slug": "apparatus-worker_activity-l1182",
+      "slug": "apparatus-worker_activity-l2529",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1182"
+      "title": "unknown_apparatus \u2014 worker_activity L2529"
     },
     {
-      "slug": "apparatus-worker_activity-l1183",
+      "slug": "apparatus-worker_activity-l2530",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1183"
+      "title": "unknown_apparatus \u2014 worker_activity L2530"
     },
     {
-      "slug": "apparatus-worker_activity-l1184",
+      "slug": "apparatus-worker_activity-l2531",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1184"
+      "title": "unknown_apparatus \u2014 worker_activity L2531"
     },
     {
-      "slug": "apparatus-worker_activity-l1185",
+      "slug": "apparatus-worker_activity-l2532",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1185"
+      "title": "unknown_apparatus \u2014 worker_activity L2532"
     },
     {
-      "slug": "apparatus-worker_activity-l1186",
+      "slug": "apparatus-worker_activity-l2533",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1186"
+      "title": "unknown_apparatus \u2014 worker_activity L2533"
     },
     {
-      "slug": "apparatus-worker_activity-l1187",
+      "slug": "apparatus-worker_activity-l2534",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1187"
+      "title": "unknown_apparatus \u2014 worker_activity L2534"
     },
     {
-      "slug": "apparatus-worker_activity-l1188",
+      "slug": "apparatus-worker_activity-l2535",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1188"
+      "title": "unknown_apparatus \u2014 worker_activity L2535"
     },
     {
-      "slug": "apparatus-worker_activity-l1189",
+      "slug": "apparatus-worker_activity-l2536",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1189"
+      "title": "unknown_apparatus \u2014 worker_activity L2536"
     },
     {
-      "slug": "apparatus-worker_activity-l1190",
+      "slug": "apparatus-worker_activity-l2537",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1190"
+      "title": "unknown_apparatus \u2014 worker_activity L2537"
     },
     {
-      "slug": "apparatus-worker_activity-l1191",
+      "slug": "apparatus-worker_activity-l2538",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1191"
+      "title": "unknown_apparatus \u2014 worker_activity L2538"
     },
     {
-      "slug": "apparatus-worker_activity-l1192",
+      "slug": "apparatus-worker_activity-l2539",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1192"
+      "title": "unknown_apparatus \u2014 worker_activity L2539"
     },
     {
-      "slug": "apparatus-worker_activity-l1193",
+      "slug": "apparatus-worker_activity-l2540",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1193"
+      "title": "unknown_apparatus \u2014 worker_activity L2540"
     },
     {
-      "slug": "apparatus-worker_activity-l1194",
+      "slug": "apparatus-worker_activity-l2541",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1194"
+      "title": "unknown_apparatus \u2014 worker_activity L2541"
     },
     {
-      "slug": "apparatus-worker_activity-l1195",
+      "slug": "apparatus-worker_activity-l2542",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1195"
+      "title": "unknown_apparatus \u2014 worker_activity L2542"
     },
     {
-      "slug": "apparatus-worker_activity-l1196",
+      "slug": "apparatus-worker_activity-l2543",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1196"
+      "title": "unknown_apparatus \u2014 worker_activity L2543"
     },
     {
-      "slug": "apparatus-worker_activity-l1197",
+      "slug": "apparatus-worker_activity-l2544",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1197"
+      "title": "unknown_apparatus \u2014 worker_activity L2544"
     },
     {
-      "slug": "apparatus-worker_activity-l1198",
+      "slug": "apparatus-worker_activity-l2545",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1198"
+      "title": "unknown_apparatus \u2014 worker_activity L2545"
     },
     {
-      "slug": "apparatus-worker_activity-l1199",
+      "slug": "apparatus-worker_activity-l2546",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1199"
+      "title": "unknown_apparatus \u2014 worker_activity L2546"
     },
     {
-      "slug": "apparatus-worker_activity-l1200",
+      "slug": "apparatus-worker_activity-l2547",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1200"
+      "title": "unknown_apparatus \u2014 worker_activity L2547"
     },
     {
-      "slug": "apparatus-worker_activity-l1201",
+      "slug": "apparatus-worker_activity-l2548",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1201"
+      "title": "unknown_apparatus \u2014 worker_activity L2548"
     },
     {
-      "slug": "apparatus-worker_activity-l1202",
+      "slug": "apparatus-worker_activity-l2549",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1202"
+      "title": "unknown_apparatus \u2014 worker_activity L2549"
     },
     {
-      "slug": "apparatus-worker_activity-l1203",
+      "slug": "apparatus-worker_activity-l2550",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1203"
+      "title": "unknown_apparatus \u2014 worker_activity L2550"
     },
     {
-      "slug": "apparatus-worker_activity-l1204",
+      "slug": "apparatus-worker_activity-l2551",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1204"
+      "title": "unknown_apparatus \u2014 worker_activity L2551"
     },
     {
-      "slug": "apparatus-worker_activity-l1205",
+      "slug": "apparatus-worker_activity-l2552",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1205"
+      "title": "unknown_apparatus \u2014 worker_activity L2552"
     },
     {
-      "slug": "apparatus-worker_activity-l1206",
+      "slug": "apparatus-worker_activity-l2553",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1206"
+      "title": "unknown_apparatus \u2014 worker_activity L2553"
     },
     {
-      "slug": "apparatus-worker_activity-l1207",
+      "slug": "apparatus-worker_activity-l2554",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1207"
+      "title": "unknown_apparatus \u2014 worker_activity L2554"
     },
     {
-      "slug": "apparatus-worker_activity-l1208",
+      "slug": "apparatus-worker_activity-l2555",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1208"
+      "title": "unknown_apparatus \u2014 worker_activity L2555"
     },
     {
-      "slug": "apparatus-worker_activity-l1209",
+      "slug": "apparatus-worker_activity-l2556",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1209"
+      "title": "unknown_apparatus \u2014 worker_activity L2556"
     },
     {
-      "slug": "apparatus-worker_activity-l1210",
+      "slug": "apparatus-worker_activity-l2557",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1210"
+      "title": "unknown_apparatus \u2014 worker_activity L2557"
     },
     {
-      "slug": "apparatus-worker_activity-l1211",
+      "slug": "apparatus-worker_activity-l2558",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1211"
+      "title": "unknown_apparatus \u2014 worker_activity L2558"
     },
     {
-      "slug": "apparatus-worker_activity-l1212",
+      "slug": "apparatus-worker_activity-l2559",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1212"
+      "title": "unknown_apparatus \u2014 worker_activity L2559"
     },
     {
-      "slug": "apparatus-worker_activity-l1213",
+      "slug": "apparatus-worker_activity-l2560",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1213"
+      "title": "unknown_apparatus \u2014 worker_activity L2560"
     },
     {
-      "slug": "apparatus-worker_activity-l1214",
+      "slug": "apparatus-worker_activity-l2561",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1214"
+      "title": "unknown_apparatus \u2014 worker_activity L2561"
     },
     {
-      "slug": "apparatus-worker_activity-l1215",
+      "slug": "apparatus-worker_activity-l2562",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1215"
+      "title": "unknown_apparatus \u2014 worker_activity L2562"
     },
     {
-      "slug": "apparatus-worker_activity-l1216",
+      "slug": "apparatus-worker_activity-l2563",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1216"
+      "title": "unknown_apparatus \u2014 worker_activity L2563"
     },
     {
-      "slug": "apparatus-worker_activity-l1217",
+      "slug": "apparatus-worker_activity-l2564",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1217"
+      "title": "unknown_apparatus \u2014 worker_activity L2564"
     },
     {
-      "slug": "apparatus-worker_activity-l1218",
+      "slug": "apparatus-worker_activity-l2565",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1218"
+      "title": "unknown_apparatus \u2014 worker_activity L2565"
     },
     {
-      "slug": "apparatus-worker_activity-l1219",
+      "slug": "apparatus-worker_activity-l2566",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1219"
+      "title": "unknown_apparatus \u2014 worker_activity L2566"
     },
     {
-      "slug": "apparatus-worker_activity-l1220",
+      "slug": "apparatus-worker_activity-l2567",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1220"
+      "title": "unknown_apparatus \u2014 worker_activity L2567"
     },
     {
-      "slug": "apparatus-worker_activity-l1221",
+      "slug": "apparatus-worker_activity-l2568",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1221"
+      "title": "unknown_apparatus \u2014 worker_activity L2568"
     },
     {
-      "slug": "apparatus-worker_activity-l1222",
+      "slug": "apparatus-worker_activity-l2569",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1222"
+      "title": "unknown_apparatus \u2014 worker_activity L2569"
     },
     {
-      "slug": "apparatus-worker_activity-l1223",
+      "slug": "apparatus-worker_activity-l2570",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1223"
+      "title": "unknown_apparatus \u2014 worker_activity L2570"
     },
     {
-      "slug": "apparatus-worker_activity-l1224",
+      "slug": "apparatus-worker_activity-l2571",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1224"
+      "title": "unknown_apparatus \u2014 worker_activity L2571"
     },
     {
-      "slug": "apparatus-worker_activity-l1225",
+      "slug": "apparatus-worker_activity-l2572",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1225"
+      "title": "unknown_apparatus \u2014 worker_activity L2572"
     },
     {
-      "slug": "apparatus-worker_activity-l1226",
+      "slug": "apparatus-worker_activity-l2573",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1226"
+      "title": "unknown_apparatus \u2014 worker_activity L2573"
     },
     {
-      "slug": "apparatus-worker_activity-l1227",
+      "slug": "apparatus-worker_activity-l2574",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1227"
+      "title": "unknown_apparatus \u2014 worker_activity L2574"
     },
     {
-      "slug": "apparatus-worker_activity-l1228",
+      "slug": "apparatus-worker_activity-l2575",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1228"
+      "title": "unknown_apparatus \u2014 worker_activity L2575"
     },
     {
-      "slug": "apparatus-worker_activity-l1229",
+      "slug": "apparatus-worker_activity-l2576",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1229"
+      "title": "unknown_apparatus \u2014 worker_activity L2576"
     },
     {
-      "slug": "apparatus-worker_activity-l1230",
+      "slug": "apparatus-worker_activity-l2577",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1230"
+      "title": "unknown_apparatus \u2014 worker_activity L2577"
     },
     {
-      "slug": "apparatus-worker_activity-l1231",
+      "slug": "apparatus-worker_activity-l2578",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1231"
+      "title": "unknown_apparatus \u2014 worker_activity L2578"
     },
     {
-      "slug": "apparatus-worker_activity-l1232",
+      "slug": "apparatus-worker_activity-l2579",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1232"
+      "title": "unknown_apparatus \u2014 worker_activity L2579"
     },
     {
-      "slug": "apparatus-worker_activity-l1233",
+      "slug": "apparatus-worker_activity-l2580",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1233"
+      "title": "unknown_apparatus \u2014 worker_activity L2580"
     },
     {
-      "slug": "apparatus-worker_activity-l1234",
+      "slug": "apparatus-worker_activity-l2581",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1234"
+      "title": "unknown_apparatus \u2014 worker_activity L2581"
     },
     {
-      "slug": "apparatus-worker_activity-l1235",
+      "slug": "apparatus-worker_activity-l2582",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1235"
+      "title": "unknown_apparatus \u2014 worker_activity L2582"
     },
     {
-      "slug": "apparatus-worker_activity-l1236",
+      "slug": "apparatus-worker_activity-l2583",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1236"
+      "title": "unknown_apparatus \u2014 worker_activity L2583"
     },
     {
-      "slug": "apparatus-worker_activity-l1237",
+      "slug": "apparatus-worker_activity-l2584",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1237"
+      "title": "unknown_apparatus \u2014 worker_activity L2584"
     },
     {
-      "slug": "apparatus-worker_activity-l1238",
+      "slug": "apparatus-worker_activity-l2585",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1238"
+      "title": "unknown_apparatus \u2014 worker_activity L2585"
     },
     {
-      "slug": "apparatus-worker_activity-l1239",
+      "slug": "apparatus-worker_activity-l2586",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1239"
+      "title": "unknown_apparatus \u2014 worker_activity L2586"
     },
     {
-      "slug": "apparatus-worker_activity-l1240",
+      "slug": "apparatus-worker_activity-l2587",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1240"
+      "title": "unknown_apparatus \u2014 worker_activity L2587"
     },
     {
-      "slug": "apparatus-worker_activity-l1241",
+      "slug": "apparatus-worker_activity-l2588",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1241"
+      "title": "unknown_apparatus \u2014 worker_activity L2588"
     },
     {
-      "slug": "apparatus-worker_activity-l1242",
+      "slug": "apparatus-worker_activity-l2589",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1242"
+      "title": "unknown_apparatus \u2014 worker_activity L2589"
     },
     {
-      "slug": "apparatus-worker_activity-l1243",
+      "slug": "apparatus-worker_activity-l2590",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1243"
+      "title": "unknown_apparatus \u2014 worker_activity L2590"
     },
     {
-      "slug": "apparatus-worker_activity-l1244",
+      "slug": "apparatus-worker_activity-l2591",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1244"
+      "title": "unknown_apparatus \u2014 worker_activity L2591"
     },
     {
-      "slug": "apparatus-worker_activity-l1245",
+      "slug": "apparatus-worker_activity-l2592",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1245"
+      "title": "unknown_apparatus \u2014 worker_activity L2592"
     },
     {
-      "slug": "apparatus-worker_activity-l1246",
+      "slug": "apparatus-worker_activity-l2593",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1246"
+      "title": "unknown_apparatus \u2014 worker_activity L2593"
     },
     {
-      "slug": "apparatus-worker_activity-l1247",
+      "slug": "apparatus-worker_activity-l2594",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1247"
+      "title": "unknown_apparatus \u2014 worker_activity L2594"
     },
     {
-      "slug": "apparatus-worker_activity-l1248",
+      "slug": "apparatus-worker_activity-l2595",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1248"
+      "title": "unknown_apparatus \u2014 worker_activity L2595"
     },
     {
-      "slug": "apparatus-worker_activity-l1249",
+      "slug": "apparatus-worker_activity-l2596",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1249"
+      "title": "unknown_apparatus \u2014 worker_activity L2596"
     },
     {
-      "slug": "apparatus-worker_activity-l1250",
+      "slug": "apparatus-worker_activity-l2597",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1250"
+      "title": "unknown_apparatus \u2014 worker_activity L2597"
     },
     {
-      "slug": "apparatus-worker_activity-l1251",
+      "slug": "apparatus-worker_activity-l2598",
       "type": "apparatus_event",
       "date": "2026-06-10",
-      "title": "unknown_apparatus \u2014 worker_activity L1251"
+      "title": "unknown_apparatus \u2014 worker_activity L2598"
     },
     {
       "slug": "correction-exp008-armc-gb10-unified-mem-oom-2026-06-09",
@@ -906,6 +786,12 @@ window.BRAIN_GRAPH = {
       "type": "decision",
       "date": "2026-06-10",
       "title": "D-046 \u2014 Human write-back contract blessed: UI POSTs exec blessed CLIs; defer-to-dev-session queue + startup triage step"
+    },
+    {
+      "slug": "dec-ap-d-047-multi-run-active-run-registry-per-run-files",
+      "type": "decision",
+      "date": "2026-06-10",
+      "title": "D-047 \u2014 Multi-run active-run registry (per-run files + foreground mirror)"
     },
     {
       "slug": "dec-ap-d-048-test-pollution-purge-one-logged-surgical",
@@ -1238,628 +1124,748 @@ window.BRAIN_GRAPH = {
       "title": "Hypothesis \u2014 LLM tool-call invocation rate floor 0.8"
     },
     {
-      "slug": "iter-2026-06-09-008",
+      "slug": "iter-2026-06-10-002",
       "type": "iteration",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara \u2014 loop_memory L55"
-    },
-    {
-      "slug": "apparatus-calls-l4743",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4743"
-    },
-    {
-      "slug": "apparatus-calls-l4744",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4744"
-    },
-    {
-      "slug": "apparatus-calls-l4745",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4745"
-    },
-    {
-      "slug": "apparatus-calls-l4746",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4746"
-    },
-    {
-      "slug": "apparatus-calls-l4747",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4747"
-    },
-    {
-      "slug": "apparatus-calls-l4748",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4748"
-    },
-    {
-      "slug": "apparatus-calls-l4749",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4749"
-    },
-    {
-      "slug": "apparatus-calls-l4750",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4750"
-    },
-    {
-      "slug": "apparatus-calls-l4751",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4751"
-    },
-    {
-      "slug": "apparatus-calls-l4752",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4752"
-    },
-    {
-      "slug": "apparatus-calls-l4753",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4753"
-    },
-    {
-      "slug": "apparatus-calls-l4754",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4754"
-    },
-    {
-      "slug": "apparatus-calls-l4755",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4755"
-    },
-    {
-      "slug": "apparatus-calls-l4756",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4756"
-    },
-    {
-      "slug": "apparatus-calls-l4757",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4757"
-    },
-    {
-      "slug": "apparatus-calls-l4758",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4758"
-    },
-    {
-      "slug": "apparatus-calls-l4759",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4759"
-    },
-    {
-      "slug": "apparatus-calls-l4760",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4760"
-    },
-    {
-      "slug": "apparatus-calls-l4761",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4761"
-    },
-    {
-      "slug": "apparatus-calls-l4762",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4762"
-    },
-    {
-      "slug": "apparatus-calls-l4763",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4763"
-    },
-    {
-      "slug": "apparatus-calls-l4764",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4764"
-    },
-    {
-      "slug": "apparatus-calls-l4765",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4765"
-    },
-    {
-      "slug": "apparatus-calls-l4766",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4766"
-    },
-    {
-      "slug": "apparatus-calls-l4767",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4767"
-    },
-    {
-      "slug": "apparatus-calls-l4768",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4768"
-    },
-    {
-      "slug": "apparatus-calls-l4769",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4769"
-    },
-    {
-      "slug": "apparatus-calls-l4770",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4770"
-    },
-    {
-      "slug": "apparatus-calls-l4771",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4771"
-    },
-    {
-      "slug": "apparatus-calls-l4772",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4772"
-    },
-    {
-      "slug": "apparatus-calls-l4773",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4773"
-    },
-    {
-      "slug": "apparatus-calls-l4774",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4774"
-    },
-    {
-      "slug": "apparatus-calls-l4775",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4775"
-    },
-    {
-      "slug": "apparatus-calls-l4776",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4776"
-    },
-    {
-      "slug": "apparatus-calls-l4777",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4777"
-    },
-    {
-      "slug": "apparatus-calls-l4778",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4778"
-    },
-    {
-      "slug": "apparatus-calls-l4779",
-      "type": "llm_call",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4779"
-    },
-    {
-      "slug": "apparatus-calls-l4780",
-      "type": "llm_call",
       "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4780"
+      "title": "a_bgt_rsi: Nara \u2014 loop_memory L57"
     },
     {
-      "slug": "apparatus-calls-l4781",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4781"
-    },
-    {
-      "slug": "apparatus-calls-l4782",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4782"
-    },
-    {
-      "slug": "apparatus-calls-l4783",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4783"
-    },
-    {
-      "slug": "apparatus-calls-l4784",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4784"
-    },
-    {
-      "slug": "apparatus-calls-l4785",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4785"
-    },
-    {
-      "slug": "apparatus-calls-l4786",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4786"
-    },
-    {
-      "slug": "apparatus-calls-l4787",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4787"
-    },
-    {
-      "slug": "apparatus-calls-l4788",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4788"
-    },
-    {
-      "slug": "apparatus-calls-l4789",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4789"
-    },
-    {
-      "slug": "apparatus-calls-l4790",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4790"
-    },
-    {
-      "slug": "apparatus-calls-l4791",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4791"
-    },
-    {
-      "slug": "apparatus-calls-l4792",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4792"
-    },
-    {
-      "slug": "apparatus-calls-l4793",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4793"
-    },
-    {
-      "slug": "apparatus-calls-l4794",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4794"
-    },
-    {
-      "slug": "apparatus-calls-l4795",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4795"
-    },
-    {
-      "slug": "apparatus-calls-l4796",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4796"
-    },
-    {
-      "slug": "apparatus-calls-l4797",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4797"
-    },
-    {
-      "slug": "apparatus-calls-l4798",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4798"
-    },
-    {
-      "slug": "apparatus-calls-l4799",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4799"
-    },
-    {
-      "slug": "apparatus-calls-l4800",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4800"
-    },
-    {
-      "slug": "apparatus-calls-l4801",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4801"
-    },
-    {
-      "slug": "apparatus-calls-l4802",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4802"
-    },
-    {
-      "slug": "apparatus-calls-l4803",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4803"
-    },
-    {
-      "slug": "apparatus-calls-l4804",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4804"
-    },
-    {
-      "slug": "apparatus-calls-l4805",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4805"
-    },
-    {
-      "slug": "apparatus-calls-l4806",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4806"
-    },
-    {
-      "slug": "apparatus-calls-l4807",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4807"
-    },
-    {
-      "slug": "apparatus-calls-l4808",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4808"
-    },
-    {
-      "slug": "apparatus-calls-l4809",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4809"
-    },
-    {
-      "slug": "apparatus-calls-l4810",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4810"
-    },
-    {
-      "slug": "apparatus-calls-l4811",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4811"
-    },
-    {
-      "slug": "apparatus-calls-l4812",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4812"
-    },
-    {
-      "slug": "apparatus-calls-l4813",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4813"
-    },
-    {
-      "slug": "apparatus-calls-l4814",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4814"
-    },
-    {
-      "slug": "apparatus-calls-l4815",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4815"
-    },
-    {
-      "slug": "apparatus-calls-l4816",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4816"
-    },
-    {
-      "slug": "apparatus-calls-l4817",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4817"
-    },
-    {
-      "slug": "apparatus-calls-l4818",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4818"
-    },
-    {
-      "slug": "apparatus-calls-l4819",
-      "type": "llm_call",
-      "date": "2026-06-10",
-      "title": "a_bgt_rsi: Nara/LLM \u2014 calls L4819"
-    },
-    {
-      "slug": "event-iter-2026-06-09-007-loop-v0-iteration-complete-none-l1167",
+      "slug": "apparatus-orchestrator-l335",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1167"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L335"
     },
     {
-      "slug": "event-iter-2026-06-09-007-loop-v0-reprompt-none-l1159",
+      "slug": "apparatus-orchestrator-l336",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1159"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L336"
     },
     {
-      "slug": "event-iter-2026-06-09-007-loop-v0-reprompt-none-l1164",
+      "slug": "apparatus-orchestrator-l337",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1164"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L337"
     },
     {
-      "slug": "event-iter-2026-06-09-007-loop-v0-tool-dispatch-critic-loop-v0-l1162",
+      "slug": "apparatus-orchestrator-l338",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1162"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L338"
     },
     {
-      "slug": "event-iter-2026-06-09-007-loop-v0-tool-dispatch-journal-writer-l1165",
+      "slug": "apparatus-orchestrator-l339",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1165"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L339"
     },
     {
-      "slug": "event-iter-2026-06-09-007-loop-v0-tool-dispatch-novelty-classify-l1160",
+      "slug": "apparatus-orchestrator-l340",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1160"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L340"
     },
     {
-      "slug": "event-iter-2026-06-09-007-loop-v0-tool-receipt-critic-loop-v0-l1163",
+      "slug": "apparatus-orchestrator-l341",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1163"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L341"
     },
     {
-      "slug": "event-iter-2026-06-09-007-loop-v0-tool-receipt-journal-writer-l1166",
+      "slug": "apparatus-orchestrator-l342",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1166"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L342"
     },
     {
-      "slug": "event-iter-2026-06-09-007-loop-v0-tool-receipt-novelty-classify-l1161",
+      "slug": "apparatus-orchestrator-l343",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1161"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L343"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-iteration-complete-none-l1184",
+      "slug": "apparatus-orchestrator-l344",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1184"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L344"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-iteration-start-none-l1168",
+      "slug": "apparatus-orchestrator-l345",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1168"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L345"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-redteam-retry-none-l1171",
+      "slug": "apparatus-orchestrator-l346",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1171"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L346"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-redteam-retry-none-l1172",
+      "slug": "apparatus-orchestrator-l347",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1172"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L347"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-reprompt-none-l1179",
+      "slug": "apparatus-orchestrator-l348",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1179"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L348"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-tool-dispatch-critic-loop-v0-l1180",
+      "slug": "apparatus-orchestrator-l349",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1180"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L349"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-tool-dispatch-hypothesize-l1169",
+      "slug": "apparatus-orchestrator-l350",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1169"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L350"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-tool-dispatch-hypothesize-l1173",
+      "slug": "apparatus-orchestrator-l351",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1173"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L351"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-tool-dispatch-journal-writer-l1182",
+      "slug": "apparatus-orchestrator-l352",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1182"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L352"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-tool-dispatch-novelty-classify-l1177",
+      "slug": "apparatus-orchestrator-l353",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1177"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L353"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-tool-dispatch-retrieve-literature-l1175",
+      "slug": "apparatus-orchestrator-l354",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1175"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L354"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-tool-receipt-critic-loop-v0-l1181",
+      "slug": "apparatus-orchestrator-l355",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1181"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L355"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-tool-receipt-hypothesize-l1170",
+      "slug": "apparatus-orchestrator-l356",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1170"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L356"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-tool-receipt-hypothesize-l1174",
+      "slug": "apparatus-orchestrator-l357",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1174"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L357"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-tool-receipt-journal-writer-l1183",
+      "slug": "apparatus-orchestrator-l358",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1183"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L358"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-tool-receipt-novelty-classify-l1178",
+      "slug": "apparatus-orchestrator-l359",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1178"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L359"
     },
     {
-      "slug": "event-iter-2026-06-09-008-loop-v0-tool-receipt-retrieve-literature-l1176",
+      "slug": "apparatus-orchestrator-l360",
       "type": "orchestrator_event",
-      "date": "2026-06-09",
-      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1176"
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L360"
+    },
+    {
+      "slug": "apparatus-orchestrator-l361",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L361"
+    },
+    {
+      "slug": "apparatus-orchestrator-l362",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L362"
+    },
+    {
+      "slug": "apparatus-orchestrator-l363",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L363"
+    },
+    {
+      "slug": "apparatus-orchestrator-l364",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L364"
+    },
+    {
+      "slug": "apparatus-orchestrator-l365",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L365"
+    },
+    {
+      "slug": "apparatus-orchestrator-l366",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L366"
+    },
+    {
+      "slug": "apparatus-orchestrator-l367",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L367"
+    },
+    {
+      "slug": "apparatus-orchestrator-l368",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L368"
+    },
+    {
+      "slug": "apparatus-orchestrator-l369",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L369"
+    },
+    {
+      "slug": "apparatus-orchestrator-l370",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L370"
+    },
+    {
+      "slug": "apparatus-orchestrator-l371",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L371"
+    },
+    {
+      "slug": "apparatus-orchestrator-l372",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L372"
+    },
+    {
+      "slug": "apparatus-orchestrator-l373",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L373"
+    },
+    {
+      "slug": "apparatus-orchestrator-l374",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L374"
+    },
+    {
+      "slug": "apparatus-orchestrator-l375",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L375"
+    },
+    {
+      "slug": "apparatus-orchestrator-l376",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L376"
+    },
+    {
+      "slug": "apparatus-orchestrator-l377",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L377"
+    },
+    {
+      "slug": "apparatus-orchestrator-l378",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L378"
+    },
+    {
+      "slug": "apparatus-orchestrator-l379",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L379"
+    },
+    {
+      "slug": "apparatus-orchestrator-l380",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L380"
+    },
+    {
+      "slug": "apparatus-orchestrator-l381",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L381"
+    },
+    {
+      "slug": "apparatus-orchestrator-l382",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L382"
+    },
+    {
+      "slug": "apparatus-orchestrator-l383",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L383"
+    },
+    {
+      "slug": "apparatus-orchestrator-l384",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L384"
+    },
+    {
+      "slug": "apparatus-orchestrator-l385",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L385"
+    },
+    {
+      "slug": "apparatus-orchestrator-l386",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L386"
+    },
+    {
+      "slug": "apparatus-orchestrator-l387",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L387"
+    },
+    {
+      "slug": "apparatus-orchestrator-l388",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L388"
+    },
+    {
+      "slug": "apparatus-orchestrator-l389",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L389"
+    },
+    {
+      "slug": "apparatus-orchestrator-l390",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L390"
+    },
+    {
+      "slug": "apparatus-orchestrator-l391",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L391"
+    },
+    {
+      "slug": "apparatus-orchestrator-l392",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L392"
+    },
+    {
+      "slug": "apparatus-orchestrator-l393",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L393"
+    },
+    {
+      "slug": "apparatus-orchestrator-l394",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L394"
+    },
+    {
+      "slug": "apparatus-orchestrator-l395",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L395"
+    },
+    {
+      "slug": "apparatus-orchestrator-l396",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L396"
+    },
+    {
+      "slug": "apparatus-orchestrator-l397",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L397"
+    },
+    {
+      "slug": "apparatus-orchestrator-l398",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L398"
+    },
+    {
+      "slug": "apparatus-orchestrator-l399",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L399"
+    },
+    {
+      "slug": "apparatus-orchestrator-l400",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L400"
+    },
+    {
+      "slug": "apparatus-orchestrator-l401",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L401"
+    },
+    {
+      "slug": "apparatus-orchestrator-l402",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L402"
+    },
+    {
+      "slug": "apparatus-orchestrator-l403",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L403"
+    },
+    {
+      "slug": "apparatus-orchestrator-l404",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L404"
+    },
+    {
+      "slug": "apparatus-orchestrator-l405",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L405"
+    },
+    {
+      "slug": "apparatus-orchestrator-l406",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L406"
+    },
+    {
+      "slug": "apparatus-orchestrator-l407",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L407"
+    },
+    {
+      "slug": "apparatus-orchestrator-l408",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L408"
+    },
+    {
+      "slug": "apparatus-orchestrator-l409",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L409"
+    },
+    {
+      "slug": "apparatus-orchestrator-l410",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L410"
+    },
+    {
+      "slug": "apparatus-orchestrator-l411",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L411"
+    },
+    {
+      "slug": "apparatus-orchestrator-l412",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L412"
+    },
+    {
+      "slug": "apparatus-orchestrator-l413",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L413"
+    },
+    {
+      "slug": "apparatus-orchestrator-l414",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L414"
+    },
+    {
+      "slug": "apparatus-orchestrator-l415",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L415"
+    },
+    {
+      "slug": "apparatus-orchestrator-l416",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L416"
+    },
+    {
+      "slug": "apparatus-orchestrator-l417",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L417"
+    },
+    {
+      "slug": "apparatus-orchestrator-l418",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L418"
+    },
+    {
+      "slug": "apparatus-orchestrator-l419",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L419"
+    },
+    {
+      "slug": "apparatus-orchestrator-l420",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L420"
+    },
+    {
+      "slug": "apparatus-orchestrator-l421",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L421"
+    },
+    {
+      "slug": "apparatus-orchestrator-l422",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L422"
+    },
+    {
+      "slug": "apparatus-orchestrator-l423",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L423"
+    },
+    {
+      "slug": "apparatus-orchestrator-l424",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L424"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-active-step-none-l1232",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1232"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-active-step-none-l1233",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1233"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-active-step-none-l1234",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1234"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-active-step-none-l1236",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1236"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-active-step-none-l1238",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1238"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-active-step-none-l1247",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1247"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-active-step-none-l1248",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1248"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-active-step-none-l1250",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1250"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-active-step-none-l1252",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1252"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-active-step-none-l1255",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1255"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-active-step-none-l1256",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1256"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-active-step-none-l1258",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1258"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-active-step-none-l1260",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1260"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-active-step-none-l1264",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1264"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-active-step-none-l1267",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1267"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-active-step-none-l1269",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1269"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-iteration-complete-none-l1271",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1271"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-iteration-start-none-l1231",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1231"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-ml-intern-none-l1253",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1253"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-ml-intern-none-l1254",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1254"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-redteam-retry-none-l1241",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1241"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-redteam-retry-none-l1244",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1244"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-reprompt-none-l1266",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1266"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-tool-dispatch-critic-loop-v0-l1261",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1261"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-tool-dispatch-hypothesize-l1235",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1235"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-tool-dispatch-journal-writer-l1268",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1268"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-tool-dispatch-novelty-classify-l1257",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1257"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-tool-dispatch-retrieve-literature-l1249",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1249"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-tool-receipt-critic-loop-v0-l1265",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1265"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-tool-receipt-hypothesize-l1237",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1237"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-tool-receipt-journal-writer-l1270",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1270"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-tool-receipt-novelty-classify-l1259",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1259"
+    },
+    {
+      "slug": "event-iter-2026-06-10-002-loop-v0-tool-receipt-retrieve-literature-l1251",
+      "type": "orchestrator_event",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1251"
     },
     {
       "slug": "proposal-p-001",
@@ -1920,6 +1926,18 @@ window.BRAIN_GRAPH = {
       "type": "proposal",
       "date": "2026-06-09",
       "title": "P-010 \u2014 Sequence code-review BEFORE the first expensive real-model measurement"
+    },
+    {
+      "slug": "proposal-p-011",
+      "type": "proposal",
+      "date": "2026-06-10",
+      "title": "P-011 \u2014 Env-gated stubs must be asserted per-shell, not assumed from the interactive default"
+    },
+    {
+      "slug": "2026-06-10-workflow-build-phase",
+      "type": "reflection",
+      "date": "2026-06-10",
+      "title": "2026-06-10-workflow-build-phase"
     },
     {
       "slug": "critic-emit-mlintern-nemoclaw-2026-06-09",
@@ -1994,10 +2012,76 @@ window.BRAIN_GRAPH = {
       "title": "FR-003 \u2014 run-log schema: agent (required) and skill_used (optional)"
     },
     {
+      "slug": "runlog-2026-06-10-gate-framework-code-review-l1230",
+      "type": "run_log_entry",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1230"
+    },
+    {
+      "slug": "runlog-2026-06-10-phase5-stretch-t3-real-runs-l1272",
+      "type": "run_log_entry",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1272"
+    },
+    {
+      "slug": "runlog-2026-06-10-s2-recon-workflow-l1274",
+      "type": "run_log_entry",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1274"
+    },
+    {
+      "slug": "runlog-2026-06-10-s2-session-start-l1273",
+      "type": "run_log_entry",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1273"
+    },
+    {
+      "slug": "runlog-2026-06-10-wf-build-limb-r-l1190",
+      "type": "run_log_entry",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1190"
+    },
+    {
+      "slug": "runlog-2026-06-10-wf-build-limb-r-l1401",
+      "type": "run_log_entry",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1401"
+    },
+    {
+      "slug": "runlog-2026-06-10-wf-build-limb-u-l1191",
+      "type": "run_log_entry",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1191"
+    },
+    {
+      "slug": "runlog-2026-06-10-wf-build-limb-u-l1402",
+      "type": "run_log_entry",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1402"
+    },
+    {
+      "slug": "runlog-2026-06-10-workflow-build-phase-l1188",
+      "type": "run_log_entry",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1188"
+    },
+    {
+      "slug": "runlog-2026-06-10-workflow-build-phase-l1192",
+      "type": "run_log_entry",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1192"
+    },
+    {
       "slug": "runlog-2026-06-10-workflow-build-phase-l1219",
       "type": "run_log_entry",
       "date": "2026-06-10",
       "title": "a_bgt_rsi: Nara \u2014 week1.run L1219"
+    },
+    {
+      "slug": "runlog-2026-06-10-workflow-build-phase-l1403",
+      "type": "run_log_entry",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1403"
     },
     {
       "slug": "runlog-2026-06-10-workstream-a-provenance-emit-l1217",
@@ -2006,10 +2090,22 @@ window.BRAIN_GRAPH = {
       "title": "a_bgt_rsi: Nara \u2014 week1.run L1217"
     },
     {
+      "slug": "runlog-2026-06-10-workstream-b-writeback-contract-l1187",
+      "type": "run_log_entry",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1187"
+    },
+    {
       "slug": "runlog-2026-06-10-workstream-b-writeback-contract-l1218",
       "type": "run_log_entry",
       "date": "2026-06-10",
       "title": "a_bgt_rsi: Nara \u2014 week1.run L1218"
+    },
+    {
+      "slug": "runlog-2026-06-10-workstream-d-hygiene-purge-l1189",
+      "type": "run_log_entry",
+      "date": "2026-06-10",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1189"
     },
     {
       "slug": "runlog-2026-06-10-workstream-d-hygiene-purge-l1220",
@@ -3260,6 +3356,12 @@ window.BRAIN_GRAPH = {
       "title": "a_bgt_rsi: Nara \u2014 week1.run L1133"
     },
     {
+      "slug": "runlog-t2-mcp-agent-autonomy-drive-l1185",
+      "type": "run_log_entry",
+      "date": "2026-06-09",
+      "title": "a_bgt_rsi: Nara \u2014 week1.run L1185"
+    },
+    {
       "slug": "runlog-t2-mcp-agent-autonomy-drive-l1186",
       "type": "run_log_entry",
       "date": "2026-06-09",
@@ -3444,6 +3546,18 @@ window.BRAIN_GRAPH = {
       "type": "spawn",
       "date": "2026-05-25",
       "title": "SP-002 \u2014 sp_002_skill_frontmatter_audit"
+    },
+    {
+      "slug": "spawn-sp-003",
+      "type": "spawn",
+      "date": "2026-06-10",
+      "title": "SP-003 \u2014 wf_1f3f3f4c_design_rubberband"
+    },
+    {
+      "slug": "spawn-sp-004",
+      "type": "spawn",
+      "date": "2026-06-10",
+      "title": "SP-004 \u2014 wf_a16994cf_build_overhaul"
     },
     {
       "slug": "stage-iter-2026-05-26-001-journal-writer-stub-1",
@@ -5476,6 +5590,86 @@ window.BRAIN_GRAPH = {
       "title": "Retrieve \u2014 iter-2026-06-09-008 (step 3)",
       "worker": "retrieve_literature",
       "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-06-10-001-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-06-10",
+      "title": "Critique \u2014 iter-2026-06-10-001 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-06-10-001-hypothesize-1",
+      "type": "stage",
+      "date": "2026-06-10",
+      "title": "Hypothesize \u2014 iter-2026-06-10-001 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-06-10-001-journal-writer-1",
+      "type": "stage",
+      "date": "2026-06-10",
+      "title": "Journal \u2014 iter-2026-06-10-001 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-06-10-001-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-06-10",
+      "title": "Novelty \u2014 iter-2026-06-10-001 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-06-10-001-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-06-10",
+      "title": "Retrieve \u2014 iter-2026-06-10-001 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
+    },
+    {
+      "slug": "stage-iter-2026-06-10-002-critic-loop-v0-1",
+      "type": "stage",
+      "date": "2026-06-10",
+      "title": "Critique \u2014 iter-2026-06-10-002 (step 4)",
+      "worker": "critic_loop_v0",
+      "step": 4
+    },
+    {
+      "slug": "stage-iter-2026-06-10-002-hypothesize-1",
+      "type": "stage",
+      "date": "2026-06-10",
+      "title": "Hypothesize \u2014 iter-2026-06-10-002 (step 1)",
+      "worker": "hypothesize",
+      "step": 1
+    },
+    {
+      "slug": "stage-iter-2026-06-10-002-journal-writer-1",
+      "type": "stage",
+      "date": "2026-06-10",
+      "title": "Journal \u2014 iter-2026-06-10-002 (step 5)",
+      "worker": "journal_writer",
+      "step": 5
+    },
+    {
+      "slug": "stage-iter-2026-06-10-002-novelty-classify-1",
+      "type": "stage",
+      "date": "2026-06-10",
+      "title": "Novelty \u2014 iter-2026-06-10-002 (step 3)",
+      "worker": "novelty_classify",
+      "step": 3
+    },
+    {
+      "slug": "stage-iter-2026-06-10-002-retrieve-literature-1",
+      "type": "stage",
+      "date": "2026-06-10",
+      "title": "Retrieve \u2014 iter-2026-06-10-002 (step 2)",
+      "worker": "retrieve_literature",
+      "step": 2
     }
   ],
   "edges": [
@@ -13275,6 +13469,48 @@ window.BRAIN_GRAPH = {
       "src_type": "apparatus_event",
       "type": "produced",
       "dst": "apparatus-calls-l4779",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "reflection-2026-06-10-workflow-build-phase",
+      "src_type": "reflection",
+      "type": "produced",
+      "dst": "D-046",
+      "dst_type": "decision"
+    },
+    {
+      "src": "reflection-2026-06-10-workflow-build-phase",
+      "src_type": "reflection",
+      "type": "produced",
+      "dst": "D-047",
+      "dst_type": "decision"
+    },
+    {
+      "src": "reflection-2026-06-10-workflow-build-phase",
+      "src_type": "reflection",
+      "type": "produced",
+      "dst": "D-048",
+      "dst_type": "decision"
+    },
+    {
+      "src": "reflection-2026-06-10-workflow-build-phase",
+      "src_type": "reflection",
+      "type": "references",
+      "dst": "D-037",
+      "dst_type": "decision"
+    },
+    {
+      "src": "iter-2026-06-10-001",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-10-001-loop-v0-iteration-complete-none-l1229",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-10-002",
+      "src_type": "apparatus_event",
+      "type": "produced",
+      "dst": "event-iter-2026-06-10-002-loop-v0-iteration-complete-none-l1271",
       "dst_type": "apparatus_event"
     },
     {
@@ -22126,6 +22362,216 @@ window.BRAIN_GRAPH = {
       "dst_type": "apparatus_event"
     },
     {
+      "src": "iter-2026-06-10-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-10-001-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-10-001-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-001-loop-v0-tool-dispatch-hypothesize-l1197",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-10-001-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-001-loop-v0-tool-receipt-hypothesize-l1199",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-10-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-10-001-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-10-001-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-001-loop-v0-tool-dispatch-retrieve-literature-l1211",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-10-001-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-001-loop-v0-tool-receipt-retrieve-literature-l1213",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-10-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-10-001-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-10-001-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-001-loop-v0-tool-dispatch-novelty-classify-l1215",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-10-001-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-001-loop-v0-tool-receipt-novelty-classify-l1217",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-10-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-10-001-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-10-001-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-001-loop-v0-tool-dispatch-critic-loop-v0-l1219",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-10-001-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-001-loop-v0-tool-receipt-critic-loop-v0-l1223",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-10-001",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-10-001-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-10-001-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-001-loop-v0-tool-dispatch-journal-writer-l1226",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-10-001-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-001-loop-v0-tool-receipt-journal-writer-l1228",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-10-002",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-10-002-hypothesize-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-10-002-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-002-loop-v0-tool-dispatch-hypothesize-l1235",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-10-002-hypothesize-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-002-loop-v0-tool-receipt-hypothesize-l1237",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-10-002",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-10-002-retrieve-literature-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-10-002-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-002-loop-v0-tool-dispatch-retrieve-literature-l1249",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-10-002-retrieve-literature-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-002-loop-v0-tool-receipt-retrieve-literature-l1251",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-10-002",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-10-002-novelty-classify-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-10-002-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-002-loop-v0-tool-dispatch-novelty-classify-l1257",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-10-002-novelty-classify-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-002-loop-v0-tool-receipt-novelty-classify-l1259",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-10-002",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-10-002-critic-loop-v0-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-10-002-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-002-loop-v0-tool-dispatch-critic-loop-v0-l1261",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-10-002-critic-loop-v0-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-002-loop-v0-tool-receipt-critic-loop-v0-l1265",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "iter-2026-06-10-002",
+      "src_type": "iteration",
+      "type": "produced",
+      "dst": "stage-iter-2026-06-10-002-journal-writer-1",
+      "dst_type": "stage"
+    },
+    {
+      "src": "stage-iter-2026-06-10-002-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-002-loop-v0-tool-dispatch-journal-writer-l1268",
+      "dst_type": "apparatus_event"
+    },
+    {
+      "src": "stage-iter-2026-06-10-002-journal-writer-1",
+      "src_type": "stage",
+      "type": "derived_from",
+      "dst": "event-iter-2026-06-10-002-loop-v0-tool-receipt-journal-writer-l1270",
+      "dst_type": "apparatus_event"
+    },
+    {
       "src": "harvest-h006-l36",
       "src_type": "harvest_finding",
       "type": "becomes",
@@ -22546,6 +22992,20 @@ window.BRAIN_GRAPH = {
       "dst_type": "iteration"
     },
     {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-06-10-001",
+      "dst_type": "iteration"
+    },
+    {
+      "src": "agent-nara",
+      "src_type": "agent",
+      "type": "ran",
+      "dst": "iter-2026-06-10-002",
+      "dst_type": "iteration"
+    },
+    {
       "src": "agent-claude-code-main",
       "src_type": "agent",
       "type": "authored",
@@ -22613,6 +23073,13 @@ window.BRAIN_GRAPH = {
       "src_type": "agent",
       "type": "authored",
       "dst": "session-2026-06-09-evening",
+      "dst_type": "reflection"
+    },
+    {
+      "src": "agent-claude-code-main",
+      "src_type": "agent",
+      "type": "authored",
+      "dst": "2026-06-10-workflow-build-phase",
       "dst_type": "reflection"
     },
     {
@@ -23566,6 +24033,41 @@ window.BRAIN_GRAPH = {
       "type": "uses",
       "dst": "skill-run-log",
       "dst_type": "skill"
+    },
+    {
+      "src": "spawn-sp-003",
+      "src_type": "spawn",
+      "type": "uses",
+      "dst": "skill-validate",
+      "dst_type": "skill"
+    },
+    {
+      "src": "spawn-sp-003",
+      "src_type": "spawn",
+      "type": "uses",
+      "dst": "skill-run-log",
+      "dst_type": "skill"
+    },
+    {
+      "src": "spawn-sp-004",
+      "src_type": "spawn",
+      "type": "uses",
+      "dst": "skill-validate",
+      "dst_type": "skill"
+    },
+    {
+      "src": "spawn-sp-004",
+      "src_type": "spawn",
+      "type": "uses",
+      "dst": "skill-run-log",
+      "dst_type": "skill"
+    },
+    {
+      "src": "spawn-sp-004",
+      "src_type": "spawn",
+      "type": "uses",
+      "dst": "skill-fallback",
+      "dst_type": "skill"
     }
   ],
   "pages": {
@@ -23792,212 +24294,227 @@ window.BRAIN_GRAPH = {
     "runlog-skeptic-ladder-step1-live-test-l1133": "# a_bgt_rsi: Nara \u2014 week1.run L1133\n\n_both falsifiable claims refuted with citations; true survivor not refuted_\n\n**Did:** vllm-qwen attack(): falsifiable_01 refuted (osborne_rubinstein-chunk-850), falsifiable_02 refuted (chunk-831), novel_on_01 survives_attack \u2014 3/3 PASS; ollama-coder path failed (OLLAMA_MODEL unset + memory thrash), fallback to resident vllm-\u2026\n\n**Observed:** status=passed day= duration_ms=415000 fallback=None\n",
     "runlog-t3-dispatcher-worked-examples-l1134": "# a_bgt_rsi: Nara \u2014 week1.run L1134\n\n_both surviving theses route deterministically to pre-registered specs (design doc worked examples)_\n\n**Did:** dispatch(iter-2026-05-27-001) -> exp001_repeated_pd full spec (history_framing list/narrative); dispatch(iter-2026-06-06-001) -> exp009_cournot full spec (few_shot_marginal_cost absent/explicit)\n\n**Observed:** status=passed day= duration_ms=2000 fallback=None\n",
     "runlog-lit-battery-post-t1-final-l1135": "# a_bgt_rsi: Nara \u2014 week1.run L1135\n\n_locked bar: >=0.80 acc AND recall 1.0 AND 0 ungated (NOT MET; revision cap reached, stopping per rule 7)_\n\n**Did:** verdict_acc 0.636, gate recall 0.875 (7/8 off-domain via R0 topicality), ungated novel/survives 1 (fase_off_01, domain-boundary LLM-behavior claim), canary_on_03 full survives-skeptic path PASS; over-gating 3 (novel_on_02 + 2 nonsense)\n\n**Observed:** status=failed day= duration_ms=2100000 fallback=None\n",
-    "apparatus-calls-l4743": "# a_bgt_rsi: Nara/LLM \u2014 calls L4743\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-9e9c4a4e728ed0db\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"Ranking refactoring opportunities by semantic entropy reduces post-release defect density because high semantic entropy increases the cognitive load of develop\u2026\n\n**Observed:** latency=1627ms tokens_in=5387 tokens_out=110 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-09-007-loop-v0-tool-dispatch-novelty-classify-l1160` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-09-007-loop-v0-tool-receipt-novelty-classify-l1161` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-09-007` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l4744": "# a_bgt_rsi: Nara/LLM \u2014 calls L4744\n\n_Hypothesis:\nRanking refactoring opportunities by semantic entropy reduces post-release defect density because high semantic entropy increases the cognitive load of developers, causing them to deviate from optimal maintenance strategies (Nas\u2026_\n\n**Did:** {\n  \"phenomenon\": \"ambiguous\",\n  \"substrate\": \"na\",\n  \"predicted_direction\": \"silent\",\n  \"rationale\": \"The hypothesis attempts to link semantic entropy in code to developer cognitive load and Nash equilibria, but the retrieved literature focuses on semantic entropy in LLM code generation (doc_id 260\u2026\n\n**Observed:** latency=2969ms tokens_in=2229 tokens_out=151 model=gemma-4-26b-a4b\n",
-    "apparatus-worker_activity-l1156": "# unknown_apparatus \u2014 worker_activity L1156\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T21:27:27.407476Z\", \"run_id\": \"iter-2026-06-09-007\", \"task_id\": \"novelty_classify\", \"tokens_generated\": 151, \"tokens_target\": 512, \"tok_per_s\": 50.85298726869529}\n",
-    "event-iter-2026-06-09-007-loop-v0-reprompt-none-l1159": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1159\n\n_loop_v0_reprompt for iter-2026-06-09-007_\n\n**Did:** \n\n**Observed:** parent_request_id=282812f5-35d6-436d-b7e8-a35ebb2b30ad\n\n## Referenced by\n\n- `apparatus-calls-l4742` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-06-09-007-loop-v0-tool-dispatch-novelty-classify-l1160": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1160\n\n_loop_v0_tool_dispatch for iter-2026-06-09-007_\n\n**Did:** tool=novelty_classify status=n/a\n\n**Observed:** parent_request_id=f7efaf7a-7c8e-4e69-9bec-9e552d7c0142\n\n## Referenced by\n\n- `apparatus-calls-l4743` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-007-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-09-007-loop-v0-tool-receipt-novelty-classify-l1161": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1161\n\n_loop_v0_tool_receipt for iter-2026-06-09-007_\n\n**Did:** tool=novelty_classify status=passed\n\n**Observed:** parent_request_id=f7efaf7a-7c8e-4e69-9bec-9e552d7c0142\n\n## Referenced by\n\n- `apparatus-calls-l4743` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-007-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l4745": "# a_bgt_rsi: Nara/LLM \u2014 calls L4745\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-a0af747d6ecaf4df\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"Ranking refactoring opportunities by semantic entropy reduces post-release defect density because high semantic entropy increases the cognitive load of developer\u2026\n\n**Observed:** latency=1241ms tokens_in=5738 tokens_out=85 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-09-007-loop-v0-tool-dispatch-critic-loop-v0-l1162` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-09-007-loop-v0-tool-receipt-critic-loop-v0-l1163` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-09-007` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-06-09-007-loop-v0-tool-dispatch-critic-loop-v0-l1162": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1162\n\n_loop_v0_tool_dispatch for iter-2026-06-09-007_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=a1ca6cd4-8a20-4b2c-a8ee-8c05636ad270\n\n## Referenced by\n\n- `apparatus-calls-l4745` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-007-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l4746": "# a_bgt_rsi: Nara/LLM \u2014 calls L4746\n\n_Continue the chain. Your next tool call must be `novelty_classify`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** I will now run the critic loop to attempt to falsify the hypothesis using the retrieved neighbors.\n\n**Observed:** latency=639ms tokens_in=6126 tokens_out=20 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-09-007-loop-v0-reprompt-none-l1164` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-09-007` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-06-09-007-loop-v0-tool-receipt-critic-loop-v0-l1163": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1163\n\n_loop_v0_tool_receipt for iter-2026-06-09-007_\n\n**Did:** tool=critic_loop_v0 status=passed\n\n**Observed:** parent_request_id=a1ca6cd4-8a20-4b2c-a8ee-8c05636ad270\n\n## Referenced by\n\n- `apparatus-calls-l4745` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-007-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-09-007-loop-v0-reprompt-none-l1164": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1164\n\n_loop_v0_reprompt for iter-2026-06-09-007_\n\n**Did:** \n\n**Observed:** parent_request_id=9d68ff64-c831-4154-85e9-52fc7b1e88da\n\n## Referenced by\n\n- `apparatus-calls-l4746` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l4747": "# a_bgt_rsi: Nara/LLM \u2014 calls L4747\n\n_Continue the chain. Your next tool call must be `journal_writer`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-a310d1c89bd4d56e\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"iteration_id\\\": \\\"iter-2026-06-09-007\\\", \\\"nara_summary\\\": \\\"The research explores a novel intersection between software engineering metrics (semantic entropy) and behavioral game th\u2026\n\n**Observed:** latency=5029ms tokens_in=6187 tokens_out=252 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-09-007-loop-v0-tool-dispatch-journal-writer-l1165` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-09-007-loop-v0-tool-receipt-journal-writer-l1166` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-09-007` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-06-09-007-loop-v0-tool-dispatch-journal-writer-l1165": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1165\n\n_loop_v0_tool_dispatch for iter-2026-06-09-007_\n\n**Did:** tool=journal_writer status=n/a\n\n**Observed:** parent_request_id=3c1b2971-ea7b-451c-a6e5-4149cf98f0cc\n\n## Referenced by\n\n- `apparatus-calls-l4747` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-007-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-09-007-loop-v0-tool-receipt-journal-writer-l1166": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1166\n\n_loop_v0_tool_receipt for iter-2026-06-09-007_\n\n**Did:** tool=journal_writer status=passed\n\n**Observed:** parent_request_id=3c1b2971-ea7b-451c-a6e5-4149cf98f0cc\n\n## Referenced by\n\n- `apparatus-calls-l4747` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-007-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l4748": "# a_bgt_rsi: Nara/LLM \u2014 calls L4748\n\n_Continue the chain. Your next tool call must be `journal_writer`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** thought\n<channel|>This iteration explored a highly interdisciplinary hypothesis: that ranking refactoring opportunities by **semantic entropy** can reduce post-release defect density by mitigating the cognitive load that causes developers to deviate from optimal maintenance strategies (modeled as Na\u2026\n\n**Observed:** latency=6586ms tokens_in=6530 tokens_out=294 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-06-09-007` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-06-09-007-loop-v0-iteration-complete-none-l1167": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1167\n\n_loop_v0_iteration_complete for iter-2026-06-09-007_\n\n**Did:** duration_ms=59431 tool_calls_made=['hypothesize', 'retrieve_literature', 'novelty_classify', 'critic_loop_v0', 'journal_writer']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-06-09-007` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l4749": "# a_bgt_rsi: Nara/LLM \u2014 calls L4749\n\n_Apparatus state snapshot:\n{\n  \"in_flight\": {\n    \"active\": true,\n    \"run\": {\n      \"run_id\": \"coordinator_6d8a2c4e\",\n      \"kind\": \"coordinator\",\n      \"label\": \"coordinator_cycle\"\n    }\n  },\n  \"recent_findings\": [\n    {\n      \"iteration_i\u2026_\n\n**Did:** [\n  {\n    \"action\": \"promote_findings\",\n    \"args\": {\n      \"max_candidates\": 5\n    }\n  }\n]\n\n**Observed:** latency=989ms tokens_in=2347 tokens_out=38 model=gemma-4-26b-a4b\n",
-    "apparatus-worker_activity-l1157": "# unknown_apparatus \u2014 worker_activity L1157\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T21:28:23.388867Z\", \"run_id\": \"coordinator_6d8a2c4e\", \"task_id\": \"coordinator.plan\", \"tokens_generated\": 38, \"tokens_target\": 512, \"tok_per_s\": 38.407678876504036}\n",
-    "apparatus-calls-l4750": "# a_bgt_rsi: Nara/LLM \u2014 calls L4750\n\n_CLAIM:\nIncreasing the context window size in a repeated Prisoner's Dilemma leads to higher cooperation rates specifically because agents can maintain longer-term memory of previous rounds' payoffs, rather than through improved instruction f\u2026_\n\n**Did:** {\n  \"verdict\": \"refuted\",\n  \"attack\": \"The claim conflates context window size with functional memory and falsely isolates it from instruction following, ignoring that in LLMs a larger window merely increases token capacity and is empirically inseparable from prompt length, formatting, and attention\u2026\n\n**Observed:** latency=87435ms tokens_in=614 tokens_out=1658 model=qwen3.6-27b-nvfp4-mtp\n",
-    "apparatus-calls-l4751": "# a_bgt_rsi: Nara/LLM \u2014 calls L4751\n\n_CLAIM:\nIncreasing the context window size in a repeated Prisoner's Dilemma leads to higher cooperation rates specifically because agents can maintain longer-term memory of previous rounds' payoffs, rather than through improved instruction f\u2026_\n\n**Did:** {\n  \"verdict\": \"refuted\",\n  \"attack\": \"The claim commits a severe confounding error by treating context window size as a pure memory capacity variable while artificially disentangling it from instruction following. In LLMs, longer context windows primarily prevent system prompt truncation and reduce\u2026\n\n**Observed:** latency=100592ms tokens_in=614 tokens_out=2033 model=qwen3.6-27b-nvfp4-mtp\n",
-    "apparatus-calls-l4752": "# a_bgt_rsi: Nara/LLM \u2014 calls L4752\n\n_CLAIM:\nIncreasing the context window size in a repeated Prisoner's Dilemma leads to higher cooperation rates specifically because agents can maintain longer-term memory of previous rounds' payoffs, rather than through improved instruction f\u2026_\n\n**Did:** {\n  \"verdict\": \"refuted\",\n  \"attack\": \"The claim falsely disentangles 'memory' from 'instruction following' in LLMs, where a larger context window inherently improves the model's ability to parse and adhere to complex prompts, making the causal attribution spurious. Furthermore, classical game theor\u2026\n\n**Observed:** latency=77310ms tokens_in=614 tokens_out=1628 model=qwen3.6-27b-nvfp4-mtp\n",
-    "apparatus-calls-l4753": "# a_bgt_rsi: Nara/LLM \u2014 calls L4753\n\n_CLAIM:\nLLM agents in a repeated Prisoner's Dilemma will exhibit significantly higher cooperation rates when the history of interactions is presented as a cohesive narrative compared to a structured list of move sequences.\n\nNovelty classific\u2026_\n\n**Did:** {\n  \"verdict\": \"refuted\",\n  \"attack\": \"The claim likely confounds narrative structure with prosocial linguistic framing: narratives inherently contain moralizing or relational cues that trigger RLHF-induced cooperation biases, whereas neutral lists do not. Without controlling for token length, atten\u2026\n\n**Observed:** latency=107773ms tokens_in=577 tokens_out=2188 model=qwen3.6-27b-nvfp4-mtp\n",
-    "apparatus-calls-l4754": "# a_bgt_rsi: Nara/LLM \u2014 calls L4754\n\n_CLAIM:\nLLM agents in a repeated Prisoner's Dilemma will exhibit significantly higher cooperation rates when the history of interactions is presented as a cohesive narrative compared to a structured list of move sequences.\n\nNovelty classific\u2026_\n\n**Did:** {\n  \"verdict\": \"refuted\",\n  \"attack\": \"The claim fundamentally confounds narrative framing with prompt length, lexical density, and RLHF alignment artifacts. LLMs do not extract strategic insights from narratives any more than from lists; instead, the prosocial language inherent in narrative histori\u2026\n\n**Observed:** latency=86335ms tokens_in=577 tokens_out=1705 model=qwen3.6-27b-nvfp4-mtp\n",
-    "apparatus-calls-l4755": "# a_bgt_rsi: Nara/LLM \u2014 calls L4755\n\n_CLAIM:\nLLM agents in a repeated Prisoner's Dilemma will exhibit significantly higher cooperation rates when the history of interactions is presented as a cohesive narrative compared to a structured list of move sequences.\n\nNovelty classific\u2026_\n\n**Did:** {\n  \"verdict\": \"refuted\",\n  \"attack\": \"The claim confounds representational format with implicit moral priming, as narrative histories inevitably embed evaluative language and causal connectors that act as hidden cooperative instructions rather than testing pure structure. This contradicts establish\u2026\n\n**Observed:** latency=112227ms tokens_in=577 tokens_out=2308 model=qwen3.6-27b-nvfp4-mtp\n",
-    "apparatus-calls-l4756": "# a_bgt_rsi: Nara/LLM \u2014 calls L4756\n\n_CLAIM:\nIn symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium more frequently than to the payoff-dominant equilibrium as the population size $\u2026_\n\n**Did:** \n\n**Observed:** latency=155029ms tokens_in=619 tokens_out=3072 model=qwen3.6-27b-nvfp4-mtp\n",
-    "apparatus-calls-l4757": "# a_bgt_rsi: Nara/LLM \u2014 calls L4757\n\n_Your previous message was not a valid JSON object matching the required schema. Reply with ONLY the JSON object \u2014 no thinking, no prose, no markdown fences._\n\n**Did:** {\"verdict\": \"refuted\", \"attack\": \"The claim contradicts established results in network game theory showing that scale-free topologies typically favor the payoff-dominant equilibrium due to the disproportionate influence of high-degree hubs,\n\n**Observed:** latency=148353ms tokens_in=660 tokens_out=3072 model=qwen3.6-27b-nvfp4-mtp\n",
-    "apparatus-calls-l4758": "# a_bgt_rsi: Nara/LLM \u2014 calls L4758\n\n_CLAIM:\nIn symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium more frequently than to the payoff-dominant equilibrium as the population size $\u2026_\n\n**Did:** {\n  \"verdict\": \"refuted\",\n  \"attack\": \"The claim contains a fundamental logical contradiction: it specifies a 'fixed scale-free network' while simultaneously claiming behavior changes as 'population size N increases', which is impossible since network size is defined by N. Furthermore, fictitious pl\u2026\n\n**Observed:** latency=129182ms tokens_in=619 tokens_out=2599 model=qwen3.6-27b-nvfp4-mtp\n",
     "session-2026-06-09-evening": "# session-2026-06-09-evening\n\n**Intent:** Run the next_session_plan as one Dynamic Workflow + serial integration: make the literature pipe falsify accurately (T1), ship the D-041 independent skeptic under the human's Qwen->Gemma-persona->Claude ladder, wire path-a MCP agent autonomy (T2), build the reverse-path thesis->experiment constructor (T3), and feed the live UI worktree real data \u2014 inside a 3-4h budget.\n\n**Did:** Fanned 8 build limbs (wf_3fc91fc6-0de, all green, spawn-ledgered), then integrated serially: applied DRAFT spine patches, ingested the 8 LLM-agent GT papers (068 corpus gap), built+calibrated the domain anchor, ran the skeptic ladder live test, ran the 22-case battery twice (pre/post the one rule-7 revision cycle: R0 LLM topicality + critic STEP-3), re-ran the 068 p-beauty topic and an off-domain FASE-class topic live, ran a real coordinator cycle with the working Qwen finding-skeptic, registered the MCP server in the sandbox, and landed two verify-gated commits (fedf53c apparatus, d5bd020 docs).\n\n**Observed:** (1) BOTH corpus-derived embedding anchors FAILED the pre-declared separation rule (gaps -0.079/-0.075): distance-to-corpus structurally conflates novel-on-domain with camouflaged-off-domain \u2014 the load-bearing negative result; asking the model the domain question directly (R0) caught 7/8 off-domain instead. (2) The framework code-review caught TWO blockers the green suite missed \u2014 a dict-shaped test stub masked a production-dead R0, and journal_writer rejected the new undecidable verdict; adversarial review of a 1000-test-green diff earns its cost. (3) The battery bar honestly FAILED (0.636/0.875/1-ungated vs the 0.80/1.0/0 bar) while the live pipe now resolves the original bug class correctly (iter-007 gated; 068 re-run -> rediscovery/restated {known, unstudied_llm, matches}, exactly the external review's predicted correction). (4) The in-sandbox agent's gemma gRPC channel broke independently of the MCP change (h2 broken pipe; /mcp itself proven from inside the sandbox) \u2014 T2 re-drive carries over. (5) ollama-qwen paged a second 27B copy beside the resident vllm-qwen and thrashed the unified pool for 15 min before the ladder test was redirected to vllm-qwen.\n\n**Would do differently:** Run the framework code-review BEFORE the first expensive real-model measurement, not in parallel with it \u2014 the dead-R0 blocker invalidated a ~20-min battery run that had to be killed and restarted. Also: when a contract names a module path that does not exist yet (orchestrator/novelty_skeptic.py), say explicitly whether it is create-new or a known-file edit; limb C resolved the ambiguity well but by luck of reading the line-number citation.\n\n**Corrections honored:** D-037, D-038, D-041, D-043, D-044, P-009, inviolate-rule-4, inviolate-rule-7\n\n## Links\n\n- **produced** \u2192 `D-045` (decision)\n- **produced** \u2192 `D-044` (decision)\n- **references** \u2192 `P-009` (correction)\n\n## Referenced by\n\n- `embedding-anchor-off-domain-separator` (hypothesis) \u2014 **falsified_by**\n- `agent-claude-code-main` (agent) \u2014 **authored**\n",
-    "apparatus-calls-l4759": "# a_bgt_rsi: Nara/LLM \u2014 calls L4759\n\n_CLAIM:\nIn symmetric 2x2 coordination games played on a fixed scale-free network, fictitious play with uniform priors converges to the risk-dominant equilibrium more frequently than to the payoff-dominant equilibrium as the population size $\u2026_\n\n**Did:** \n\n**Observed:** latency=163771ms tokens_in=619 tokens_out=3072 model=qwen3.6-27b-nvfp4-mtp\n",
-    "apparatus-calls-l4760": "# a_bgt_rsi: Nara/LLM \u2014 calls L4760\n\n_CLAIM:\nIn repeated public goods games, conditional cooperators using Bayesian belief updating will exhibit a significantly faster rate of contribution decay when observation noise is mean-zero compared to perfect observation conditions.\n\nNo\u2026_\n\n**Did:** {\n  \"verdict\": \"refuted\",\n  \"attack\": \"The claim contradicts established experimental and theoretical findings in repeated public goods games, where observation noise typically sustains cooperation longer by obscuring free-riding and preventing precise punishment. For Bayesian conditional cooperator\u2026\n\n**Observed:** latency=90015ms tokens_in=551 tokens_out=1750 model=qwen3.6-27b-nvfp4-mtp\n",
-    "apparatus-calls-l4761": "# a_bgt_rsi: Nara/LLM \u2014 calls L4761\n\n_CLAIM:\nIn repeated public goods games, conditional cooperators using Bayesian belief updating will exhibit a significantly faster rate of contribution decay when observation noise is mean-zero compared to perfect observation conditions.\n\nNo\u2026_\n\n**Did:** {\"verdict\":\"refuted\",\"attack\":\"The claim contradicts standard Bayesian learning theory: mean-zero observation noise increases measurement variance, which reduces the Bayesian update weight on new signals. This dampens the speed of belief convergence, meaning rational conditional cooperators should e\u2026\n\n**Observed:** latency=120903ms tokens_in=551 tokens_out=2412 model=qwen3.6-27b-nvfp4-mtp\n",
-    "apparatus-calls-l4762": "# a_bgt_rsi: Nara/LLM \u2014 calls L4762\n\n_CLAIM:\nIn repeated public goods games, conditional cooperators using Bayesian belief updating will exhibit a significantly faster rate of contribution decay when observation noise is mean-zero compared to perfect observation conditions.\n\nNo\u2026_\n\n**Did:** {\n  \"verdict\": \"refuted\",\n  \"attack\": \"The claim contradicts established theory in repeated games with imperfect monitoring, where symmetric observation noise typically slows contribution decay by obscuring defection and preventing precise punishment coordination. Under Bayesian updating, mean-zero \u2026\n\n**Observed:** latency=110829ms tokens_in=551 tokens_out=2102 model=qwen3.6-27b-nvfp4-mtp\n",
-    "apparatus-calls-l4763": "# a_bgt_rsi: Nara/LLM \u2014 calls L4763\n\n_CLAIM:\nIn symmetric 2x2 coordination games played on a fixed Erd\u0151s\u2013R\u00e9nyi network, the frequency of convergence to the risk-dominant equilibrium via fictitious play is higher than convergence to the payoff-dominant equilibrium when the payof\u2026_\n\n**Did:** {\n  \"verdict\": \"refuted\",\n  \"attack\": \"The claim relies on an undefined 'payoff-to-risk ratio' and incorrectly posits that fictitious play convergence depends on the global clustering coefficient of an Erd\u0151s\u2013R\u00e9nyi graph. Risk dominance is strictly determined by the payoff matrix parameters (specific\u2026\n\n**Observed:** latency=107945ms tokens_in=547 tokens_out=2170 model=qwen3.6-27b-nvfp4-mtp\n",
-    "apparatus-calls-l4764": "# a_bgt_rsi: Nara/LLM \u2014 calls L4764\n\n_CLAIM:\nIn symmetric 2x2 coordination games played on a fixed Erd\u0151s\u2013R\u00e9nyi network, the frequency of convergence to the risk-dominant equilibrium via fictitious play is higher than convergence to the payoff-dominant equilibrium when the payof\u2026_\n\n**Did:** {\n  \"verdict\": \"refuted\",\n  \"attack\": \"Fictitious play is inherently a global learning rule requiring observation of all opponents' strategies, making it ill-defined on sparse Erd\u0151s\u2013R\u00e9nyi networks without ad-hoc local modifications that fundamentally alter convergence dynamics. Even if locally adapt\u2026\n\n**Observed:** latency=106032ms tokens_in=547 tokens_out=2148 model=qwen3.6-27b-nvfp4-mtp\n",
-    "apparatus-calls-l4765": "# a_bgt_rsi: Nara/LLM \u2014 calls L4765\n\n_CLAIM:\nIn symmetric 2x2 coordination games played on a fixed Erd\u0151s\u2013R\u00e9nyi network, the frequency of convergence to the risk-dominant equilibrium via fictitious play is higher than convergence to the payoff-dominant equilibrium when the payof\u2026_\n\n**Did:** {\"verdict\":\"refuted\",\"attack\":\"The claim conflates distinct concepts: fictitious play convergence in 2x2 coordination games is strictly determined by payoff parameters and initialization, not network topology. The 'payoff-to-risk ratio' is an undefined, non-standard metric, and Erd\u0151s\u2013R\u00e9nyi clusterin\u2026\n\n**Observed:** latency=123467ms tokens_in=547 tokens_out=2579 model=qwen3.6-27b-nvfp4-mtp\n",
-    "event-iter-2026-06-09-008-loop-v0-iteration-start-none-l1168": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1168\n\n_loop_v0_iteration_start for iter-2026-06-09-008_\n\n**Did:** topic=The impact of payoff-dominance vs risk-dominance shifts on agent cooperation under stochastic histor\u2026\n\n**Observed:** parent_request_id=n/a\n",
-    "apparatus-calls-l4766": "# a_bgt_rsi: Nara/LLM \u2014 calls L4766\n\n_Here are the last 8 loop iterations:\n\n[iter-2026-06-08-001] hypothesis: The observed deviation from equilibrium in active-run hero protocols occurs because the computational complexity of the equilibrium exceeds the agent's bounded rational\u2026_\n\n**Did:** {\n  \"conditioning_bullets\": [\n    \"Prioritize hypotheses that link semantic entropy metrics to specific structural outcomes like execution trace variance or cyclomatic complexity.\",\n    \"Avoid 'rediscovery' loops by steering away from classic game theory benchmarks like the Keynesian beauty contest \u2026\n\n**Observed:** latency=2729ms tokens_in=948 tokens_out=132 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l4767": "# a_bgt_rsi: Nara/LLM \u2014 calls L4767\n\n_iteration_id: iter-2026-06-09-008\n\nEvaluate this research topic: The impact of payoff-dominance vs risk-dominance shifts on agent cooperation under stochastic history disclosure in repeated games.\n\nPrior-iteration conditioning:\n- Prioritize\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-97d895b047e3c591\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"The impact of payoff-dominance vs risk-dominance shifts on agent cooperation under stochastic history disclosure in repeated games. Focus on how information disclosure trigge\u2026\n\n**Observed:** latency=1474ms tokens_in=1751 tokens_out=80 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-dispatch-hypothesize-l1169` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-receipt-hypothesize-l1170` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-09-008-loop-v0-redteam-retry-none-l1171` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-09-008-loop-v0-redteam-retry-none-l1172` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-09-008` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-worker_activity-l1158": "# unknown_apparatus \u2014 worker_activity L1158\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T22:33:01.174145Z\", \"run_id\": \"iter-2026-06-09-008\", \"task_id\": \"meta_review\", \"tokens_generated\": 132, \"tokens_target\": 512, \"tok_per_s\": 48.363156572194555}\n",
-    "event-iter-2026-06-09-008-loop-v0-tool-dispatch-hypothesize-l1169": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1169\n\n_loop_v0_tool_dispatch for iter-2026-06-09-008_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=4142af28-af62-4a01-870d-5468af051db9\n\n## Referenced by\n\n- `apparatus-calls-l4767` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-008-hypothesize-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-06-09-008-hypothesize-2` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l4768": "# a_bgt_rsi: Nara/LLM \u2014 calls L4768\n\n_Research topic: The impact of payoff-dominance vs risk-dominance shifts on agent cooperation under stochastic history disclosure in repeated games. Focus on how information disclosure triggers transitions between these states and the inters\u2026_\n\n**Did:** {\n  \"candidates\": [\n    \"In repeated games, stochastic history disclosure triggers a transition from payoff-dominance to risk-dominance when the computational cost of tracking non-stationary beliefs exceeds the agents' bounded rationality threshold.\",\n    \"Transitions from payoff-dominant to risk-do\u2026\n\n**Observed:** latency=3492ms tokens_in=463 tokens_out=191 model=gemma-4-26b-a4b\n",
-    "apparatus-worker_activity-l1159": "# unknown_apparatus \u2014 worker_activity L1159\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T22:33:06.143415Z\", \"run_id\": \"iter-2026-06-09-008\", \"task_id\": \"hypothesize\", \"tokens_generated\": 191, \"tokens_target\": 512, \"tok_per_s\": 54.69563503223668}\n",
-    "event-iter-2026-06-09-008-loop-v0-tool-receipt-hypothesize-l1170": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1170\n\n_loop_v0_tool_receipt for iter-2026-06-09-008_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=4142af28-af62-4a01-870d-5468af051db9\n\n## Referenced by\n\n- `apparatus-calls-l4767` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-008-hypothesize-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-06-09-008-hypothesize-2` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-09-008-loop-v0-redteam-retry-none-l1171": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1171\n\n_loop_v0_redteam_retry for iter-2026-06-09-008_\n\n**Did:** \n\n**Observed:** parent_request_id=4142af28-af62-4a01-870d-5468af051db9\n\n## Referenced by\n\n- `apparatus-calls-l4767` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l4769": "# a_bgt_rsi: Nara/LLM \u2014 calls L4769\n\n_Research topic: The impact of payoff-dominance vs risk-dominance shifts on agent cooperation under stochastic history disclosure in repeated games.\n\n[Red-team critique of the prior hypothesis \u2014 revise to address it]: The hypothesis is vague\u2026_\n\n**Did:** {\n  \"candidates\": [\n    \"The impact of payoff-dominance vs risk-dominance shifts on agent cooperation under stochastic history disclosure in repeated games.\",\n    \"In repeated coordination games, a transition from payoff-dominance to risk-dominance reduces cooperation rates more sharply under stocha\u2026\n\n**Observed:** latency=6326ms tokens_in=520 tokens_out=240 model=gemma-4-26b-a4b\n",
-    "apparatus-worker_activity-l1160": "# unknown_apparatus \u2014 worker_activity L1160\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T22:33:20.878305Z\", \"run_id\": \"iter-2026-06-09-008\", \"task_id\": \"hypothesize\", \"tokens_generated\": 240, \"tokens_target\": 512, \"tok_per_s\": 37.93994032593205}\n",
-    "event-iter-2026-06-09-008-loop-v0-redteam-retry-none-l1172": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1172\n\n_loop_v0_redteam_retry for iter-2026-06-09-008_\n\n**Did:** \n\n**Observed:** parent_request_id=4142af28-af62-4a01-870d-5468af051db9\n\n## Referenced by\n\n- `apparatus-calls-l4767` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l4770": "# a_bgt_rsi: Nara/LLM \u2014 calls L4770\n\n_Research topic: The impact of payoff-dominance vs risk-dominance shifts on agent cooperation under stochastic history disclosure in repeated games.\n\n[Red-team critique of the prior hypothesis \u2014 revise to address it]: The comparison between \u2026_\n\n**Did:** {\n  \"candidates\": [\n    \"The impact of payoff-dominance vs risk-dominance shifts on agent cooperation under stochastic history disclosure in repeated games.\",\n    \"Shifts from payoff-dominance to risk-dominance regimes reduce cooperation rates more significantly under Bernoulli-distributed history d\u2026\n\n**Observed:** latency=3501ms tokens_in=542 tokens_out=212 model=gemma-4-26b-a4b\n",
-    "apparatus-worker_activity-l1161": "# unknown_apparatus \u2014 worker_activity L1161\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T22:33:33.253274Z\", \"run_id\": \"iter-2026-06-09-008\", \"task_id\": \"hypothesize\", \"tokens_generated\": 212, \"tokens_target\": 512, \"tok_per_s\": 60.55974861494313}\n",
-    "apparatus-calls-l4771": "# a_bgt_rsi: Nara/LLM \u2014 calls L4771\n\n_iteration_id: iter-2026-06-09-008\n\nEvaluate this research topic: The impact of payoff-dominance vs risk-dominance shifts on agent cooperation under stochastic history disclosure in repeated games.\n\nPrior-iteration conditioning:\n- Prioritize\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-abf4327375953bcb\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"The impact of payoff-dominance vs risk-dominance shifts on agent cooperation under stochastic history disclosure in repeated games. Focus on how information disclosure trigge\u2026\n\n**Observed:** latency=876ms tokens_in=2119 tokens_out=61 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-dispatch-hypothesize-l1173` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-receipt-hypothesize-l1174` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-09-008` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-06-09-008-loop-v0-tool-dispatch-hypothesize-l1173": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1173\n\n_loop_v0_tool_dispatch for iter-2026-06-09-008_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=272b1f04-5f17-477c-9874-28825b1987b1\n\n## Referenced by\n\n- `apparatus-calls-l4771` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-008-hypothesize-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-06-09-008-hypothesize-2` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l4772": "# a_bgt_rsi: Nara/LLM \u2014 calls L4772\n\n_Research topic: The impact of payoff-dominance vs risk-dominance shifts on agent cooperation under stochastic history disclosure in repeated games. Focus on how information disclosure triggers transitions between these states and the inters\u2026_\n\n**Did:** {\n  \"candidates\": [\n    \"Shifts from payoff-dominance to risk-dominance regimes decrease cooperation rates because stochastic history disclosure increases the computational cost of distinguishing between coordination failures and intentional defection.\",\n    \"In repeated games, stochastic history di\u2026\n\n**Observed:** latency=3288ms tokens_in=463 tokens_out=196 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l4773": "# a_bgt_rsi: Nara/LLM \u2014 calls L4773\n\n_iteration_id: iter-2026-06-09-008\n\nEvaluate this research topic: The impact of payoff-dominance vs risk-dominance shifts on agent cooperation under stochastic history disclosure in repeated games.\n\nPrior-iteration conditioning:\n- Prioritize\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-80853d79b6fb1d58\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In repeated games, stochastic history disclosure triggers a transition from payoff-dominant to risk-dominant equilibria by increasing the entropy of the bel\u2026\n\n**Observed:** latency=1698ms tokens_in=2479 tokens_out=116 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-dispatch-retrieve-literature-l1175` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-receipt-retrieve-literature-l1176` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-09-008` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l4774": "# a_bgt_rsi: Nara/LLM \u2014 calls L4774\n\n_iteration_id: iter-2026-06-09-008\n\nEvaluate this research topic: The impact of payoff-dominance vs risk-dominance shifts on agent cooperation under stochastic history disclosure in repeated games.\n\nPrior-iteration conditioning:\n- Prioritize\u2026_\n\n**Did:** [{\"id\": \"chatcmpl-tool-ac569e618f674928\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In repeated games, stochastic history disclosure triggers a transition from payoff-dominant to risk-dominant equilibria by increasing the entropy of the belief\u2026\n\n**Observed:** latency=1722ms tokens_in=5214 tokens_out=87 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-dispatch-novelty-classify-l1177` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-receipt-novelty-classify-l1178` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-09-008` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l4775": "# a_bgt_rsi: Nara/LLM \u2014 calls L4775\n\n_Hypothesis:\nIn repeated games, stochastic history disclosure triggers a transition from payoff-dominant to risk-dominant equilibria by increasing the entropy of the belief state, which forces boundedly rational agents to favor risk-dominant\u2026_\n\n**Did:** {\n  \"phenomenon\": \"novel\",\n  \"substrate\": \"na\",\n  \"predicted_direction\": \"silent\",\n  \"rationale\": \"While the neighbors discuss belief systems, sequential equilibria, and bounded rationality, none address the specific mechanism of 'stochastic history disclosure' as a driver for shifting from payoff-d\u2026\n\n**Observed:** latency=2004ms tokens_in=2079 tokens_out=107 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l4776": "# a_bgt_rsi: Nara/LLM \u2014 calls L4776\n\n_iteration_id: iter-2026-06-09-008\n\nEvaluate this research topic: The impact of payoff-dominance vs risk-dominance shifts on agent cooperation under stochastic history disclosure in repeated games.\n\nPrior-iteration conditioning:\n- Prioritize\u2026_\n\n**Did:** The novelty classification indicates that the hypothesis is novel, as existing literature on belief systems and sequential equilibria does not specifically link stochastic history disclosure to the entropy-driven shift between payoff and risk dominance. Next, I will run the critic loop to attempt to\u2026\n\n**Observed:** latency=1157ms tokens_in=5521 tokens_out=59 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-09-008-loop-v0-reprompt-none-l1179` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-09-008` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-calls-l4777": "# a_bgt_rsi: Nara/LLM \u2014 calls L4777\n\n_Continue the chain. Your next tool call must be `critic_loop_v0`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-84baa7f6b51f182b\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"In repeated games, stochastic history disclosure triggers a transition from payoff-dominant to risk-dominant equilibria by increasing the entropy of the belief s\u2026\n\n**Observed:** latency=1624ms tokens_in=5624 tokens_out=114 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-dispatch-critic-loop-v0-l1180` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-receipt-critic-loop-v0-l1181` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-09-008` (apparatus_event) \u2014 **produced**\n",
-    "apparatus-worker_activity-l1162": "# unknown_apparatus \u2014 worker_activity L1162\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T22:33:44.182279Z\", \"run_id\": \"iter-2026-06-09-008\", \"task_id\": \"hypothesize\", \"tokens_generated\": 196, \"tokens_target\": 512, \"tok_per_s\": 59.604011277553944}\n",
-    "apparatus-worker_activity-l1163": "# unknown_apparatus \u2014 worker_activity L1163\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-09T22:33:57.977116Z\", \"run_id\": \"iter-2026-06-09-008\", \"task_id\": \"novelty_classify\", \"tokens_generated\": 107, \"tokens_target\": 512, \"tok_per_s\": 53.386380040754794}\n",
-    "event-iter-2026-06-09-008-loop-v0-tool-receipt-hypothesize-l1174": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1174\n\n_loop_v0_tool_receipt for iter-2026-06-09-008_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=272b1f04-5f17-477c-9874-28825b1987b1\n\n## Referenced by\n\n- `apparatus-calls-l4771` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-008-hypothesize-1` (stage) \u2014 **derived_from**\n- `stage-iter-2026-06-09-008-hypothesize-2` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-09-008-loop-v0-tool-dispatch-retrieve-literature-l1175": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1175\n\n_loop_v0_tool_dispatch for iter-2026-06-09-008_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=1214eb8e-d898-41ef-97a3-d52677818759\n\n## Referenced by\n\n- `apparatus-calls-l4773` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-008-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-09-008-loop-v0-tool-receipt-retrieve-literature-l1176": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1176\n\n_loop_v0_tool_receipt for iter-2026-06-09-008_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=1214eb8e-d898-41ef-97a3-d52677818759\n\n## Referenced by\n\n- `apparatus-calls-l4773` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-008-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-09-008-loop-v0-tool-dispatch-novelty-classify-l1177": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1177\n\n_loop_v0_tool_dispatch for iter-2026-06-09-008_\n\n**Did:** tool=novelty_classify status=n/a\n\n**Observed:** parent_request_id=2e87e58c-8b2f-4e05-845a-79eb68a24cd2\n\n## Referenced by\n\n- `apparatus-calls-l4774` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-008-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-09-008-loop-v0-tool-receipt-novelty-classify-l1178": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1178\n\n_loop_v0_tool_receipt for iter-2026-06-09-008_\n\n**Did:** tool=novelty_classify status=passed\n\n**Observed:** parent_request_id=2e87e58c-8b2f-4e05-845a-79eb68a24cd2\n\n## Referenced by\n\n- `apparatus-calls-l4774` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-008-novelty-classify-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-09-008-loop-v0-reprompt-none-l1179": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1179\n\n_loop_v0_reprompt for iter-2026-06-09-008_\n\n**Did:** \n\n**Observed:** parent_request_id=be2e9770-c794-4189-8bf8-a0b69b5e6b55\n\n## Referenced by\n\n- `apparatus-calls-l4776` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-06-09-008-loop-v0-tool-dispatch-critic-loop-v0-l1180": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1180\n\n_loop_v0_tool_dispatch for iter-2026-06-09-008_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=a5367515-832e-4593-ae75-68e21ca579c1\n\n## Referenced by\n\n- `apparatus-calls-l4777` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-008-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-09-008-loop-v0-tool-receipt-critic-loop-v0-l1181": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1181\n\n_loop_v0_tool_receipt for iter-2026-06-09-008_\n\n**Did:** tool=critic_loop_v0 status=passed\n\n**Observed:** parent_request_id=a5367515-832e-4593-ae75-68e21ca579c1\n\n## Referenced by\n\n- `apparatus-calls-l4777` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-008-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l4778": "# a_bgt_rsi: Nara/LLM \u2014 calls L4778\n\n_Continue the chain. Your next tool call must be `critic_loop_v0`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** [{\"id\": \"chatcmpl-tool-80135e091d272f6e\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"iteration_id\\\": \\\"iter-2026-06-09-008\\\", \\\"nara_summary\\\": \\\"The research investigation explored the hypothesis that stochastic history disclosure in repeated games triggers a shift \u2026\n\n**Observed:** latency=3732ms tokens_in=6045 tokens_out=196 model=gemma-4-26b-a4b\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-dispatch-journal-writer-l1182` (apparatus_event)\n- **produced** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-receipt-journal-writer-l1183` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-09-008` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-06-09-008-loop-v0-tool-dispatch-journal-writer-l1182": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1182\n\n_loop_v0_tool_dispatch for iter-2026-06-09-008_\n\n**Did:** tool=journal_writer status=n/a\n\n**Observed:** parent_request_id=cc1119f3-59df-4c6b-a413-9bee0ccd5c3a\n\n## Referenced by\n\n- `apparatus-calls-l4778` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-008-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "event-iter-2026-06-09-008-loop-v0-tool-receipt-journal-writer-l1183": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1183\n\n_loop_v0_tool_receipt for iter-2026-06-09-008_\n\n**Did:** tool=journal_writer status=passed\n\n**Observed:** parent_request_id=cc1119f3-59df-4c6b-a413-9bee0ccd5c3a\n\n## Referenced by\n\n- `apparatus-calls-l4778` (apparatus_event) \u2014 **produced**\n- `stage-iter-2026-06-09-008-journal-writer-1` (stage) \u2014 **derived_from**\n",
-    "apparatus-calls-l4779": "# a_bgt_rsi: Nara/LLM \u2014 calls L4779\n\n_Continue the chain. Your next tool call must be `critic_loop_v0`. Emit narration AND the tool_call in the same assistant message._\n\n**Did:** <|channel>thought\n<channel|>The research investigation focused on the hypothesis that **stochastic history disclosure in repeated games triggers a transition from payoff-dominant to risk-dominant equilibria by increasing the entropy of the agent's belief state, forcing boundedly rational agents to f\u2026\n\n**Observed:** latency=5146ms tokens_in=6329 tokens_out=274 model=gemma-4-26b-a4b\n\n## Referenced by\n\n- `iter-2026-06-09-008` (apparatus_event) \u2014 **produced**\n",
-    "event-iter-2026-06-09-008-loop-v0-iteration-complete-none-l1184": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1184\n\n_loop_v0_iteration_complete for iter-2026-06-09-008_\n\n**Did:** duration_ms=75891 tool_calls_made=['hypothesize', 'hypothesize', 'retrieve_literature', 'novelty_classify', 'critic_loop_v0', 'journal_writer']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-06-09-008` (apparatus_event) \u2014 **produced**\n",
-    "iter-2026-06-09-008": "# a_bgt_rsi: Nara \u2014 loop_memory L55\n\n_The impact of payoff-dominance vs risk-dominance shifts on agent cooperation under stochastic history disclosure in repeated games._\n\n**Did:** The research investigation focused on the hypothesis that **stochastic history disclosure in repeated games triggers a transition from payoff-dominant to risk-dominant equilibria by increasing the entropy of the agent's belief state, forcing boundedly rational agents to favor risk-dominant strategies to minimize regret.**\n\nThe analysis yielded the following results:\n*   **Novelty:** The hypothesis\u2026\n\n**Observed:** tools=6 calls=8 journal=journal/iterations/071.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-09-008-loop-v0-iteration-complete-none-l1184` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l4767` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l4771` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l4773` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l4774` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l4776` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l4777` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l4778` (apparatus_event)\n- **produced** \u2192 `apparatus-calls-l4779` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-06-09-008-hypothesize-1` (stage)\n- **produced** \u2192 `stage-iter-2026-06-09-008-hypothesize-2` (stage)\n- **produced** \u2192 `stage-iter-2026-06-09-008-retrieve-literature-1` (stage)\n- **produced** \u2192 `stage-iter-2026-06-09-008-novelty-classify-1` (stage)\n- **produced** \u2192 `stage-iter-2026-06-09-008-critic-loop-v0-1` (stage)\n- **produced** \u2192 `stage-iter-2026-06-09-008-journal-writer-1` (stage)\n\n## Referenced by\n\n- `agent-nara` (agent) \u2014 **ran**\n",
     "runlog-t2-mcp-agent-autonomy-drive-l1186": "# a_bgt_rsi: Nara \u2014 week1.run L1186\n\n_6 PASS criteria of docs/nemoclaw_agent_run_runbook.md_\n\n**Did:** in-sandbox agent via native MCP: read get_apparatus_state then run_loop_iteration (H1 witnessed both); iter-2026-06-09-008 seed.source=nemoclaw_agent novel/survives 76s; agent report grounded+honest; client connectionTimeout (15s) cut the s\u2026\n\n**Observed:** status=passed day= duration_ms=540000 fallback=None\n",
-    "apparatus-calls-l4780": "# a_bgt_rsi: Nara/LLM \u2014 calls L4780\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4781": "# a_bgt_rsi: Nara/LLM \u2014 calls L4781\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-worker_activity-l1164": "# unknown_apparatus \u2014 worker_activity L1164\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.775667Z\", \"run_id\": null, \"task_id\": \"t/single\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 145960.22837257353}\n",
-    "apparatus-worker_activity-l1165": "# unknown_apparatus \u2014 worker_activity L1165\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.776601Z\", \"run_id\": null, \"task_id\": \"t/two_turn\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 215519.92613556533}\n",
-    "apparatus-worker_activity-l1166": "# unknown_apparatus \u2014 worker_activity L1166\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.776789Z\", \"run_id\": null, \"task_id\": \"t/two_turn\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 324844.7461729291}\n",
-    "apparatus-worker_activity-l1167": "# unknown_apparatus \u2014 worker_activity L1167\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.777607Z\", \"run_id\": null, \"task_id\": \"t/ctx\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 277775.6626568361}\n",
-    "apparatus-worker_activity-l1168": "# unknown_apparatus \u2014 worker_activity L1168\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.777792Z\", \"run_id\": null, \"task_id\": \"t/ctx\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 354709.7301047207}\n",
-    "apparatus-worker_activity-l1169": "# unknown_apparatus \u2014 worker_activity L1169\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.778599Z\", \"run_id\": null, \"task_id\": \"t/bad_json\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 286438.0899535827}\n",
-    "apparatus-worker_activity-l1170": "# unknown_apparatus \u2014 worker_activity L1170\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.779205Z\", \"run_id\": null, \"task_id\": \"t/bad_args\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 303694.37266659125}\n",
-    "apparatus-worker_activity-l1171": "# unknown_apparatus \u2014 worker_activity L1171\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.779749Z\", \"run_id\": null, \"task_id\": \"t/hallucinated\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 291516.25553172425}\n",
-    "apparatus-worker_activity-l1172": "# unknown_apparatus \u2014 worker_activity L1172\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.780303Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 301926.67210302845}\n",
-    "apparatus-worker_activity-l1173": "# unknown_apparatus \u2014 worker_activity L1173\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.780473Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 233554.14451646584}\n",
-    "apparatus-worker_activity-l1174": "# unknown_apparatus \u2014 worker_activity L1174\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.780633Z\", \"run_id\": null, \"task_id\": \"t/max_depth\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 428673.67614180775}\n",
-    "apparatus-worker_activity-l1175": "# unknown_apparatus \u2014 worker_activity L1175\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.781766Z\", \"run_id\": null, \"task_id\": \"t/file\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 257411.79584302256}\n",
-    "apparatus-worker_activity-l1176": "# unknown_apparatus \u2014 worker_activity L1176\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.781954Z\", \"run_id\": null, \"task_id\": \"t/file\", \"tokens_generated\": 5, \"tokens_target\": 5, \"tok_per_s\": 366777.7366353544}\n",
-    "apparatus-worker_activity-l1177": "# unknown_apparatus \u2014 worker_activity L1177\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.782809Z\", \"run_id\": null, \"task_id\": \"t/none\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 55162.693244284616}\n",
-    "apparatus-worker_activity-l1178": "# unknown_apparatus \u2014 worker_activity L1178\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.783392Z\", \"run_id\": null, \"task_id\": \"t/default\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 62689.270434376456}\n",
-    "apparatus-worker_activity-l1179": "# unknown_apparatus \u2014 worker_activity L1179\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.783937Z\", \"run_id\": null, \"task_id\": \"t/empty\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 63516.22738834664}\n",
-    "apparatus-worker_activity-l1180": "# unknown_apparatus \u2014 worker_activity L1180\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.784501Z\", \"run_id\": null, \"task_id\": \"t/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 67058.57007244567}\n",
-    "apparatus-worker_activity-l1181": "# unknown_apparatus \u2014 worker_activity L1181\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.785288Z\", \"run_id\": null, \"task_id\": \"t/async/default\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 42143.88193735772}\n",
-    "apparatus-worker_activity-l1182": "# unknown_apparatus \u2014 worker_activity L1182\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.786065Z\", \"run_id\": null, \"task_id\": \"t/async/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 47673.126315322115}\n",
-    "apparatus-worker_activity-l1183": "# unknown_apparatus \u2014 worker_activity L1183\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.786780Z\", \"run_id\": null, \"task_id\": \"t/file/none\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 51482.35916860451}\n",
-    "apparatus-worker_activity-l1184": "# unknown_apparatus \u2014 worker_activity L1184\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.787345Z\", \"run_id\": null, \"task_id\": \"t/file/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 64301.69320597658}\n",
-    "apparatus-worker_activity-l1185": "# unknown_apparatus \u2014 worker_activity L1185\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.788135Z\", \"run_id\": null, \"task_id\": \"t/legacy\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 59865.17752007137}\n",
-    "apparatus-worker_activity-l1186": "# unknown_apparatus \u2014 worker_activity L1186\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.840925Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 11312965.352298168}\n",
-    "apparatus-worker_activity-l1187": "# unknown_apparatus \u2014 worker_activity L1187\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.841417Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 15822314.592005894}\n",
-    "apparatus-worker_activity-l1188": "# unknown_apparatus \u2014 worker_activity L1188\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.841833Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 18118402.429867115}\n",
-    "apparatus-worker_activity-l1189": "# unknown_apparatus \u2014 worker_activity L1189\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.842207Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 20159433.447547525}\n",
-    "apparatus-worker_activity-l1190": "# unknown_apparatus \u2014 worker_activity L1190\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.842333Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 19531456.552978627}\n",
-    "apparatus-worker_activity-l1191": "# unknown_apparatus \u2014 worker_activity L1191\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.842720Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 19999847.7112922}\n",
-    "apparatus-worker_activity-l1192": "# unknown_apparatus \u2014 worker_activity L1192\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.842843Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 22317315.126006756}\n",
-    "apparatus-worker_activity-l1193": "# unknown_apparatus \u2014 worker_activity L1193\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.842972Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 25257084.95148486}\n",
-    "apparatus-worker_activity-l1194": "# unknown_apparatus \u2014 worker_activity L1194\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.843339Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 3072, \"tok_per_s\": 23147223.368364323}\n",
-    "apparatus-worker_activity-l1195": "# unknown_apparatus \u2014 worker_activity L1195\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.843708Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 80, \"tokens_target\": 1024, \"tok_per_s\": 45044229.638175145}\n",
-    "apparatus-worker_activity-l1196": "# unknown_apparatus \u2014 worker_activity L1196\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.844071Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 80, \"tokens_target\": 1024, \"tok_per_s\": 47616045.41019956}\n",
-    "apparatus-worker_activity-l1197": "# unknown_apparatus \u2014 worker_activity L1197\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.844513Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 19377249.2488157}\n",
-    "apparatus-worker_activity-l1198": "# unknown_apparatus \u2014 worker_activity L1198\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.844899Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 20658813.352573354}\n",
-    "apparatus-worker_activity-l1199": "# unknown_apparatus \u2014 worker_activity L1199\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.845026Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 21007421.354854487}\n",
-    "apparatus-worker_activity-l1200": "# unknown_apparatus \u2014 worker_activity L1200\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.845426Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 21555670.243412796}\n",
-    "apparatus-worker_activity-l1201": "# unknown_apparatus \u2014 worker_activity L1201\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.845558Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 23808022.70509978}\n",
-    "apparatus-worker_activity-l1202": "# unknown_apparatus \u2014 worker_activity L1202\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.845935Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 21188787.844104588}\n",
-    "apparatus-worker_activity-l1203": "# unknown_apparatus \u2014 worker_activity L1203\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.846060Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 21735664.453441296}\n",
-    "apparatus-worker_activity-l1204": "# unknown_apparatus \u2014 worker_activity L1204\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.846195Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 24999809.63911525}\n",
-    "apparatus-worker_activity-l1205": "# unknown_apparatus \u2014 worker_activity L1205\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.846795Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 24041238.712566473}\n",
-    "apparatus-worker_activity-l1206": "# unknown_apparatus \u2014 worker_activity L1206\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.847154Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 22937075.01201602}\n",
-    "apparatus-worker_activity-l1207": "# unknown_apparatus \u2014 worker_activity L1207\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.847275Z\", \"run_id\": null, \"task_id\": \"subagent.t\", \"tokens_generated\": 40, \"tokens_target\": 1024, \"tok_per_s\": 23153462.51212938}\n",
-    "apparatus-worker_activity-l1208": "# unknown_apparatus \u2014 worker_activity L1208\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.864893Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 117259.12678824943}\n",
-    "apparatus-worker_activity-l1209": "# unknown_apparatus \u2014 worker_activity L1209\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:55:58.865106Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 195314.56552978625}\n",
-    "apparatus-calls-l4782": "# a_bgt_rsi: Nara/LLM \u2014 calls L4782\n\n_H1 original hypothesis_\n\n**Did:** Please provide the hypothesis you would like me to evaluate.\n\n**Observed:** latency=548ms tokens_in=210 tokens_out=12 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l4783": "# a_bgt_rsi: Nara/LLM \u2014 calls L4783\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4784": "# a_bgt_rsi: Nara/LLM \u2014 calls L4784\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4785": "# a_bgt_rsi: Nara/LLM \u2014 calls L4785\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4786": "# a_bgt_rsi: Nara/LLM \u2014 calls L4786\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- keep X\n- stop Y\n- Z surprised_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4787": "# a_bgt_rsi: Nara/LLM \u2014 calls L4787\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4788": "# a_bgt_rsi: Nara/LLM \u2014 calls L4788\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4789": "# a_bgt_rsi: Nara/LLM \u2014 calls L4789\n\n_H1 original hypothesis_\n\n**Did:** Please provide the hypothesis you would like me to evaluate.\n\n**Observed:** latency=253ms tokens_in=210 tokens_out=12 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l4790": "# a_bgt_rsi: Nara/LLM \u2014 calls L4790\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4791": "# a_bgt_rsi: Nara/LLM \u2014 calls L4791\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4792": "# a_bgt_rsi: Nara/LLM \u2014 calls L4792\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4793": "# a_bgt_rsi: Nara/LLM \u2014 calls L4793\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic\n\nPrior-iteration conditioning:\n- BULLET_ALPHA\n- BULLET_BETA\n- BULLET_GAMMA_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4794": "# a_bgt_rsi: Nara/LLM \u2014 calls L4794\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4795": "# a_bgt_rsi: Nara/LLM \u2014 calls L4795\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4796": "# a_bgt_rsi: Nara/LLM \u2014 calls L4796\n\n_H1 original hypothesis_\n\n**Did:** Please provide the text of the hypothesis you would like me to evaluate.\n\n**Observed:** latency=299ms tokens_in=210 tokens_out=15 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l4797": "# a_bgt_rsi: Nara/LLM \u2014 calls L4797\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4798": "# a_bgt_rsi: Nara/LLM \u2014 calls L4798\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4799": "# a_bgt_rsi: Nara/LLM \u2014 calls L4799\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4800": "# a_bgt_rsi: Nara/LLM \u2014 calls L4800\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4801": "# a_bgt_rsi: Nara/LLM \u2014 calls L4801\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4802": "# a_bgt_rsi: Nara/LLM \u2014 calls L4802\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4803": "# a_bgt_rsi: Nara/LLM \u2014 calls L4803\n\n_H3 revised again_\n\n**Did:** Please provide the text of the hypothesis \"H3 revised again\" so that I can evaluate it. Currently, I only have the label, not the content of the claim.\n\n**Observed:** latency=598ms tokens_in=210 tokens_out=36 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l4804": "# a_bgt_rsi: Nara/LLM \u2014 calls L4804\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4805": "# a_bgt_rsi: Nara/LLM \u2014 calls L4805\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4806": "# a_bgt_rsi: Nara/LLM \u2014 calls L4806\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4807": "# a_bgt_rsi: Nara/LLM \u2014 calls L4807\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4808": "# a_bgt_rsi: Nara/LLM \u2014 calls L4808\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"hypothesize\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4809": "# a_bgt_rsi: Nara/LLM \u2014 calls L4809\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"retrieve_literature\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"k\\\": 10}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4810": "# a_bgt_rsi: Nara/LLM \u2014 calls L4810\n\n_H1 original hypothesis_\n\n**Did:** Please provide the text of the hypothesis you would like me to evaluate.\n\n**Observed:** latency=296ms tokens_in=210 tokens_out=15 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l4811": "# a_bgt_rsi: Nara/LLM \u2014 calls L4811\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"novelty_classify\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4812": "# a_bgt_rsi: Nara/LLM \u2014 calls L4812\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"critic_loop_v0\", \"arguments\": \"{\\\"hypothesis_text\\\": \\\"h\\\", \\\"iteration_id\\\": \\\"i\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4813": "# a_bgt_rsi: Nara/LLM \u2014 calls L4813\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** [{\"id\": \"call_0\", \"type\": \"function\", \"function\": {\"name\": \"journal_writer\", \"arguments\": \"{\\\"topic\\\": \\\"t\\\", \\\"iteration_id\\\": \\\"i\\\", \\\"nara_summary\\\": \\\"s\\\"}\"}}]\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-calls-l4814": "# a_bgt_rsi: Nara/LLM \u2014 calls L4814\n\n_iteration_id: iter-2026-06-05-001\n\nEvaluate this research topic: test topic_\n\n**Did:** Final summary of the iteration.\n\n**Observed:** latency=0ms tokens_in=1 tokens_out=1 model=fake-model\n",
-    "apparatus-worker_activity-l1210": "# unknown_apparatus \u2014 worker_activity L1210\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:08.584113Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"topicality_check\", \"tokens_generated\": 12, \"tokens_target\": 256, \"tok_per_s\": 21.91578855611723}\n",
-    "apparatus-worker_activity-l1211": "# unknown_apparatus \u2014 worker_activity L1211\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:08.585081Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 38989.15463243704}\n",
-    "apparatus-worker_activity-l1212": "# unknown_apparatus \u2014 worker_activity L1212\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:08.585458Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 200962.34774471272}\n",
-    "apparatus-worker_activity-l1213": "# unknown_apparatus \u2014 worker_activity L1213\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:08.585714Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 137061.75950982896}\n",
-    "apparatus-worker_activity-l1214": "# unknown_apparatus \u2014 worker_activity L1214\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:08.585976Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 452864.5398566006}\n",
-    "apparatus-worker_activity-l1215": "# unknown_apparatus \u2014 worker_activity L1215\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:08.588745Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 124499.023015827}\n",
-    "apparatus-worker_activity-l1216": "# unknown_apparatus \u2014 worker_activity L1216\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:08.588972Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 214042.02611382437}\n",
-    "apparatus-worker_activity-l1217": "# unknown_apparatus \u2014 worker_activity L1217\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:08.937773Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"topicality_check\", \"tokens_generated\": 12, \"tokens_target\": 256, \"tok_per_s\": 47.476579624017376}\n",
-    "apparatus-worker_activity-l1218": "# unknown_apparatus \u2014 worker_activity L1218\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:08.938722Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 42115.780505981566}\n",
-    "apparatus-worker_activity-l1219": "# unknown_apparatus \u2014 worker_activity L1219\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:08.939044Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 155479.55748624384}\n",
-    "apparatus-worker_activity-l1220": "# unknown_apparatus \u2014 worker_activity L1220\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:08.939321Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 200324.9671641791}\n",
-    "apparatus-worker_activity-l1221": "# unknown_apparatus \u2014 worker_activity L1221\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:08.939606Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 452864.5398566006}\n",
-    "apparatus-worker_activity-l1222": "# unknown_apparatus \u2014 worker_activity L1222\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:08.942597Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 194694.80036264734}\n",
-    "apparatus-worker_activity-l1223": "# unknown_apparatus \u2014 worker_activity L1223\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:08.942827Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 223999.54605194533}\n",
-    "apparatus-worker_activity-l1224": "# unknown_apparatus \u2014 worker_activity L1224\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:09.338106Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"topicality_check\", \"tokens_generated\": 15, \"tokens_target\": 256, \"tok_per_s\": 50.1294283143242}\n",
-    "apparatus-worker_activity-l1225": "# unknown_apparatus \u2014 worker_activity L1225\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:09.339137Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 63710.31678879758}\n",
-    "apparatus-worker_activity-l1226": "# unknown_apparatus \u2014 worker_activity L1226\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:09.339501Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 172170.58029343383}\n",
-    "apparatus-worker_activity-l1227": "# unknown_apparatus \u2014 worker_activity L1227\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:09.339755Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 158638.0769742188}\n",
-    "apparatus-worker_activity-l1228": "# unknown_apparatus \u2014 worker_activity L1228\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:09.340007Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 694528.9935316948}\n",
-    "apparatus-worker_activity-l1229": "# unknown_apparatus \u2014 worker_activity L1229\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:09.342836Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 180642.97173620458}\n",
-    "apparatus-worker_activity-l1230": "# unknown_apparatus \u2014 worker_activity L1230\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:09.343058Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 274123.5190196579}\n",
-    "apparatus-worker_activity-l1231": "# unknown_apparatus \u2014 worker_activity L1231\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:10.040424Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"topicality_check\", \"tokens_generated\": 36, \"tokens_target\": 256, \"tok_per_s\": 60.20697815840781}\n",
-    "apparatus-worker_activity-l1232": "# unknown_apparatus \u2014 worker_activity L1232\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:10.041198Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 73098.36095037103}\n",
-    "apparatus-worker_activity-l1233": "# unknown_apparatus \u2014 worker_activity L1233\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:10.041553Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 217775.4434641517}\n",
-    "apparatus-worker_activity-l1234": "# unknown_apparatus \u2014 worker_activity L1234\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:10.041800Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 207646.8427770257}\n",
-    "apparatus-worker_activity-l1235": "# unknown_apparatus \u2014 worker_activity L1235\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:10.042057Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 844800.8056648308}\n",
-    "apparatus-worker_activity-l1236": "# unknown_apparatus \u2014 worker_activity L1236\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:10.044617Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 162343.78953734503}\n",
-    "apparatus-worker_activity-l1237": "# unknown_apparatus \u2014 worker_activity L1237\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:10.044832Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 288020.8755364807}\n",
-    "apparatus-worker_activity-l1238": "# unknown_apparatus \u2014 worker_activity L1238\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:10.431257Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"topicality_check\", \"tokens_generated\": 15, \"tokens_target\": 256, \"tok_per_s\": 50.69146488878697}\n",
-    "apparatus-worker_activity-l1239": "# unknown_apparatus \u2014 worker_activity L1239\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:10.432178Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 69752.93623932179}\n",
-    "apparatus-worker_activity-l1240": "# unknown_apparatus \u2014 worker_activity L1240\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:10.432504Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 194096.4974692697}\n",
-    "apparatus-worker_activity-l1241": "# unknown_apparatus \u2014 worker_activity L1241\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:10.432749Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 256140.70229007633}\n",
-    "apparatus-worker_activity-l1242": "# unknown_apparatus \u2014 worker_activity L1242\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:10.433011Z\", \"run_id\": \"iter-2026-06-05-001\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 1, \"tokens_target\": 1024, \"tok_per_s\": 548247.0380393158}\n",
-    "apparatus-worker_activity-l1243": "# unknown_apparatus \u2014 worker_activity L1243\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:46.544105Z\", \"run_id\": null, \"task_id\": \"t/none\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 23139.74083292926}\n",
-    "apparatus-worker_activity-l1244": "# unknown_apparatus \u2014 worker_activity L1244\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:46.545038Z\", \"run_id\": null, \"task_id\": \"t/default\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 43282.95168799758}\n",
-    "apparatus-worker_activity-l1245": "# unknown_apparatus \u2014 worker_activity L1245\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:46.545707Z\", \"run_id\": null, \"task_id\": \"t/empty\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 54394.216008105366}\n",
-    "apparatus-worker_activity-l1246": "# unknown_apparatus \u2014 worker_activity L1246\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:46.546334Z\", \"run_id\": null, \"task_id\": \"t/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 59185.41638187631}\n",
-    "apparatus-worker_activity-l1247": "# unknown_apparatus \u2014 worker_activity L1247\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:46.547202Z\", \"run_id\": null, \"task_id\": \"t/async/default\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 39431.586786875014}\n",
-    "apparatus-worker_activity-l1248": "# unknown_apparatus \u2014 worker_activity L1248\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:46.548031Z\", \"run_id\": null, \"task_id\": \"t/async/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 49135.88028829653}\n",
-    "apparatus-worker_activity-l1249": "# unknown_apparatus \u2014 worker_activity L1249\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:46.549344Z\", \"run_id\": null, \"task_id\": \"t/file/none\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 1861.8369061800452}\n",
-    "apparatus-worker_activity-l1250": "# unknown_apparatus \u2014 worker_activity L1250\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:46.549573Z\", \"run_id\": null, \"task_id\": \"t/file/populated\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 61333.89449632994}\n",
-    "apparatus-worker_activity-l1251": "# unknown_apparatus \u2014 worker_activity L1251\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T04:56:46.550393Z\", \"run_id\": null, \"task_id\": \"t/legacy\", \"tokens_generated\": 1, \"tokens_target\": 1, \"tok_per_s\": 55703.5600747043}\n",
     "runlog-2026-06-10-workstream-a-provenance-emit-l1217": "# a_bgt_rsi: Nara \u2014 week1.run L1217\n\n_every LLM call attributable to (run, role, backend, model); no silent unregistered work; targeted tests green_\n\n**Did:** backend field on all 4 call-record producers + calls schema; worker_activity backend/model + call_async/nara/subagent emission; subagent run_id + start/finish events; nara set_run_id leak fixed (wrapper extraction, 3 regression tests green)\u2026\n\n**Observed:** status=passed day= duration_ms=4500000 fallback=None\n",
     "runlog-2026-06-10-workstream-b-writeback-contract-l1218": "# a_bgt_rsi: Nara \u2014 week1.run L1218\n\n_blessed CLI contract the UI session can build B4 write-back against_\n\n**Did:** orchestrator/todo_cli.py (ack/defer/list-deferred/close, 11 tests green); finding_session --set-status one-shot + source_iteration_id join fix (15 tests green); docs/human_writeback_contract.md; DECISIONS D-046; CLAUDE.md startup step 6 (li\u2026\n\n**Observed:** status=passed day= duration_ms=1800000 fallback=None\n",
     "runlog-2026-06-10-workflow-build-phase-l1219": "# a_bgt_rsi: Nara \u2014 week1.run L1219\n\n_2 limbs green; integrator applies serially_\n\n**Did:** Dynamic Workflow build phase launching: limb R (registry, worktree) + limb U (UI handoff doc); spawn contracts SP-wf-2026-06-10-build-{R,U} appended\n\n**Observed:** status=started day= duration_ms=0 fallback=None\n",
-    "apparatus-calls-l4815": "# a_bgt_rsi: Nara/LLM \u2014 calls L4815\n\n_H1 original hypothesis_\n\n**Did:** Please provide the text of the hypothesis you would like me to evaluate.\n\n**Observed:** latency=664ms tokens_in=210 tokens_out=15 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l4816": "# a_bgt_rsi: Nara/LLM \u2014 calls L4816\n\n_H1 original hypothesis_\n\n**Did:** Please provide the hypothesis you would like me to evaluate.\n\n**Observed:** latency=243ms tokens_in=210 tokens_out=12 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l4817": "# a_bgt_rsi: Nara/LLM \u2014 calls L4817\n\n_H1 original hypothesis_\n\n**Did:** Please provide the text of the hypothesis you would like me to evaluate.\n\n**Observed:** latency=302ms tokens_in=210 tokens_out=15 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l4818": "# a_bgt_rsi: Nara/LLM \u2014 calls L4818\n\n_H3 revised again_\n\n**Did:** {\"domain\": \"unsure\", \"reason\": \"The input 'H3 revised again' is insufficient to identify a research hypothesis or any scientific claim.\"}\n\n**Observed:** latency=592ms tokens_in=210 tokens_out=33 model=gemma-4-26b-a4b\n",
-    "apparatus-calls-l4819": "# a_bgt_rsi: Nara/LLM \u2014 calls L4819\n\n_H1 original hypothesis_\n\n**Did:** Please provide the text of the hypothesis you would like me to evaluate.\n\n**Observed:** latency=292ms tokens_in=210 tokens_out=15 model=gemma-4-26b-a4b\n",
     "runlog-2026-06-10-workstream-d-hygiene-purge-l1220": "# a_bgt_rsi: Nara \u2014 week1.run L1220\n\n_full pytest adds zero rows to live artifacts; dashboard failure triage unpoisoned_\n\n**Did:** autouse _no_live_artifacts conftest guard (active_run, worker_activity, cycle/health/bubble defaults, nara calls-log sentinel, topicality) + call-time default resolution in 4 modules; purge with backups: cycles 140->117, calls 4819->879 (39\u2026\n\n**Observed:** status=passed day= duration_ms=1500000 fallback=None\n",
+    "runlog-2026-06-10-wf-build-limb-r-l1401": "# a_bgt_rsi: Nara \u2014 week1.run L1401\n\n_concurrent runs stop clobbering active_run.json; zero call-site churn_\n\n**Did:** registry built in worktree; 17 tests green there; integrated with kind-surface fix; suite 1068 green\n\n**Observed:** status=passed day= duration_ms=640000 fallback=None\n",
+    "runlog-2026-06-10-wf-build-limb-u-l1402": "# a_bgt_rsi: Nara \u2014 week1.run L1402\n\n_self-contained RENDER work order for the UI session_\n\n**Did:** docs/ui_session_handoff_2026-06-10.md (538 lines) authored; carry-overs verified; transfer condition pinned\n\n**Observed:** status=passed day= duration_ms=640000 fallback=None\n",
+    "runlog-2026-06-10-workflow-build-phase-l1403": "# a_bgt_rsi: Nara \u2014 week1.run L1403\n\n_2 limbs green; integrator applies serially_\n\n**Did:** workflow wf_27141574-2c6 complete: 2/2 limbs green (~195k tokens, ~11 min); registry integrated (1 regression caught at gate), D-047 appended, ledger closed\n\n**Observed:** status=passed day= duration_ms=700000 fallback=None\n",
+    "2026-06-10-workflow-build-phase": "# 2026-06-10-workflow-build-phase\n\n**Intent:** Make the apparatus legible from the dashboard (every LLM call attributable to run/role/backend; concurrent runs visible; human gates resolvable from the UI) by shipping the EMIT side + a blessed write-back contract in one session, fanning the disjoint-new-file work to two workflow limbs while keeping spine edits, the ratified purge, integration, and the gate serial.\n\n**Did:** Serial: backend/model provenance on all four call-record producers + worker-activity coverage (call_async/nara/subagent were blind spots); fixed the nara set_run_id leak via a mechanical registration wrapper; steps[] status board with dynamic redteam/ml_intern chips; registered six unregistered LLM entry points; todo_cli (ack/defer/list/close) + finding_session --set-status + docs/human_writeback_contract.md + CLAUDE.md triage step (D-046); call-time default resolution + autouse no-live-artifacts conftest guard + surgical purge with backups (D-048). Workflow wf_27141574-2c6: limb R built the multi-run registry in an isolated worktree (D-047), limb U authored the 538-line UI handoff doc; I integrated R, caught a regression, closed the ledger.\n\n**Observed:** Three deltas from plan. (1) The pollution was 23x larger than scoped: 3,930 of 4,819 calls.jsonl rows were fake-model (82% of the canonical call log), not ~171 \u2014 tail-sampling under-measured it. (2) MOCK_LLM=1 is set only in the human's INTERACTIVE shell; non-interactive shells (tests, agents) run unmocked, so the suite had been making REAL Gemma calls via topicality.check and stamping them with a stale fixture run_id. (3) Limb R's worktree rewrite silently regressed the kind surface (dropped 'coordinator' from _KINDS and the schema enum); the existing join-contract test caught it at integration \u2014 the dictated-semantics prompt did not immunize against losing untouched-but-rewritten lines. Also found in passing: finding_session read finding.get('iteration_id') while promotion writes source_iteration_id, so every REAL promoted finding silently lost its iteration join.\n\n**Would do differently:** When dictating a rewrite of an existing file to a limb, dictate the INVARIANTS to preserve (enums, public constants) as an explicit checklist, not just the new semantics \u2014 'fix your implementation, not the test' caught one class of drift but only because a contract test existed. Verify environment assumptions (MOCK_LLM) with `env | grep` in the FIRST shell command of a session rather than trusting memory notes about the interactive shell. Measure pollution with a full scan, not a tail sample, before sizing a purge.\n\n**Corrections honored:** D-043, D-044, D-045\n\n## Referenced by\n\n- `agent-claude-code-main` (agent) \u2014 **authored**\n",
+    "runlog-t2-mcp-agent-autonomy-drive-l1185": "# a_bgt_rsi: Nara \u2014 week1.run L1185\n\n_6 PASS criteria of docs/nemoclaw_agent_run_runbook.md_\n\n**Did:** in-sandbox agent via native MCP: read get_apparatus_state then run_loop_iteration (H1 witnessed both); iter-2026-06-09-008 seed.source=nemoclaw_agent novel/survives 76s; agent report grounded+honest; client connectionTimeout (15s) cut the s\u2026\n\n**Observed:** status=passed day= duration_ms=540000 fallback=None\n",
+    "runlog-2026-06-10-workstream-b-writeback-contract-l1187": "# a_bgt_rsi: Nara \u2014 week1.run L1187\n\n_blessed CLI contract the UI session can build B4 write-back against_\n\n**Did:** orchestrator/todo_cli.py (ack/defer/list-deferred/close, 11 tests green); finding_session --set-status one-shot + source_iteration_id join fix (15 tests green); docs/human_writeback_contract.md; DECISIONS D-046; CLAUDE.md startup step 6 (li\u2026\n\n**Observed:** status=passed day= duration_ms=1800000 fallback=None\n",
+    "runlog-2026-06-10-workflow-build-phase-l1188": "# a_bgt_rsi: Nara \u2014 week1.run L1188\n\n_2 limbs green; integrator applies serially_\n\n**Did:** Dynamic Workflow build phase launching: limb R (registry, worktree) + limb U (UI handoff doc); spawn contracts SP-wf-2026-06-10-build-{R,U} appended\n\n**Observed:** status=started day= duration_ms=0 fallback=None\n",
+    "runlog-2026-06-10-workstream-d-hygiene-purge-l1189": "# a_bgt_rsi: Nara \u2014 week1.run L1189\n\n_full pytest adds zero rows to live artifacts; dashboard failure triage unpoisoned_\n\n**Did:** autouse _no_live_artifacts conftest guard (active_run, worker_activity, cycle/health/bubble defaults, nara calls-log sentinel, topicality) + call-time default resolution in 4 modules; purge with backups: cycles 140->117, calls 4819->879 (39\u2026\n\n**Observed:** status=passed day= duration_ms=1500000 fallback=None\n",
+    "runlog-2026-06-10-wf-build-limb-r-l1190": "# a_bgt_rsi: Nara \u2014 week1.run L1190\n\n_concurrent runs stop clobbering active_run.json; zero call-site churn_\n\n**Did:** registry built in worktree; 17 tests green there; integrated with kind-surface fix; suite 1068 green\n\n**Observed:** status=passed day= duration_ms=640000 fallback=None\n",
+    "runlog-2026-06-10-wf-build-limb-u-l1191": "# a_bgt_rsi: Nara \u2014 week1.run L1191\n\n_self-contained RENDER work order for the UI session_\n\n**Did:** docs/ui_session_handoff_2026-06-10.md (538 lines) authored; carry-overs verified; transfer condition pinned\n\n**Observed:** status=passed day= duration_ms=640000 fallback=None\n",
+    "runlog-2026-06-10-workflow-build-phase-l1192": "# a_bgt_rsi: Nara \u2014 week1.run L1192\n\n_2 limbs green; integrator applies serially_\n\n**Did:** workflow wf_27141574-2c6 complete: 2/2 limbs green (~195k tokens, ~11 min); registry integrated (1 regression caught at gate), D-047 appended, ledger closed\n\n**Observed:** status=passed day= duration_ms=700000 fallback=None\n",
+    "runlog-2026-06-10-gate-framework-code-review-l1230": "# a_bgt_rsi: Nara \u2014 week1.run L1230\n\n_no blocking findings outstanding before commit_\n\n**Did:** two adversarial reviewers over working-tree diff vs 8357e4e: 2 code blockers (B1 run-log test leak w/ 210 live junk rows -> RUN_LOG_PATH guard + purge; B2 nested-registration orphan -> ownership stack + parent re-mirror + 2 new tests) + 1 d\u2026\n\n**Observed:** status=passed day= duration_ms=2100000 fallback=None\n",
+    "apparatus-orchestrator-l335": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L335\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l336": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L336\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l337": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L337\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-worker_activity-l2523": "# unknown_apparatus \u2014 worker_activity L2523\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:08:41.220492Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t21_f0\", \"tokens_generated\": 116, \"tokens_target\": 256, \"tok_per_s\": 63.6209448655243}\n",
+    "apparatus-orchestrator-l338": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L338\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l339": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L339\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l340": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L340\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-orchestrator-l341": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L341\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l342": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L342\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l343": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L343\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-orchestrator-l344": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L344\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l345": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L345\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l346": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L346\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-orchestrator-l347": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L347\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l348": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L348\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l349": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L349\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-orchestrator-l350": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L350\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l351": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L351\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l352": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L352\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-worker_activity-l2524": "# unknown_apparatus \u2014 worker_activity L2524\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:08:45.014118Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t21_f1\", \"tokens_generated\": 256, \"tokens_target\": 256, \"tok_per_s\": 67.49366398196142}\n",
+    "apparatus-worker_activity-l2525": "# unknown_apparatus \u2014 worker_activity L2525\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:08:46.915740Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t22_f0\", \"tokens_generated\": 126, \"tokens_target\": 256, \"tok_per_s\": 66.32998003096091}\n",
+    "apparatus-worker_activity-l2526": "# unknown_apparatus \u2014 worker_activity L2526\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:08:48.695130Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t22_f1\", \"tokens_generated\": 118, \"tokens_target\": 256, \"tok_per_s\": 66.34452147127799}\n",
+    "apparatus-worker_activity-l2527": "# unknown_apparatus \u2014 worker_activity L2527\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:08:50.423777Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t23_f0\", \"tokens_generated\": 118, \"tokens_target\": 256, \"tok_per_s\": 68.37404765404479}\n",
+    "apparatus-worker_activity-l2528": "# unknown_apparatus \u2014 worker_activity L2528\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:08:52.256921Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t23_f1\", \"tokens_generated\": 118, \"tokens_target\": 256, \"tok_per_s\": 64.3974135460745}\n",
+    "apparatus-worker_activity-l2529": "# unknown_apparatus \u2014 worker_activity L2529\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:08:54.192922Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t24_f0\", \"tokens_generated\": 124, \"tokens_target\": 256, \"tok_per_s\": 64.14368019358312}\n",
+    "apparatus-worker_activity-l2530": "# unknown_apparatus \u2014 worker_activity L2530\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:08:55.925647Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t24_f1\", \"tokens_generated\": 120, \"tokens_target\": 256, \"tok_per_s\": 69.28506688502202}\n",
+    "apparatus-worker_activity-l2531": "# unknown_apparatus \u2014 worker_activity L2531\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:08:57.651715Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t25_f0\", \"tokens_generated\": 118, \"tokens_target\": 256, \"tok_per_s\": 68.47487281013373}\n",
+    "apparatus-worker_activity-l2532": "# unknown_apparatus \u2014 worker_activity L2532\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:08:59.431986Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t25_f1\", \"tokens_generated\": 120, \"tokens_target\": 256, \"tok_per_s\": 67.43310996301014}\n",
+    "apparatus-worker_activity-l2533": "# unknown_apparatus \u2014 worker_activity L2533\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:01.206028Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t26_f0\", \"tokens_generated\": 116, \"tokens_target\": 256, \"tok_per_s\": 65.49203831972311}\n",
+    "apparatus-orchestrator-l353": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L353\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l354": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L354\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l355": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L355\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-orchestrator-l356": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L356\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l357": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L357\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l358": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L358\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-worker_activity-l2534": "# unknown_apparatus \u2014 worker_activity L2534\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:05.112073Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t26_f1\", \"tokens_generated\": 256, \"tokens_target\": 256, \"tok_per_s\": 65.5502968056957}\n",
+    "apparatus-worker_activity-l2535": "# unknown_apparatus \u2014 worker_activity L2535\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:06.894454Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t27_f0\", \"tokens_generated\": 119, \"tokens_target\": 256, \"tok_per_s\": 66.87331145323402}\n",
+    "apparatus-worker_activity-l2536": "# unknown_apparatus \u2014 worker_activity L2536\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:08.672540Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t27_f1\", \"tokens_generated\": 118, \"tokens_target\": 256, \"tok_per_s\": 66.39001293083363}\n",
+    "apparatus-worker_activity-l2537": "# unknown_apparatus \u2014 worker_activity L2537\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:10.349231Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t28_f0\", \"tokens_generated\": 120, \"tokens_target\": 256, \"tok_per_s\": 71.68194586255504}\n",
+    "apparatus-orchestrator-l359": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L359\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l360": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L360\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l361": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L361\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-worker_activity-l2538": "# unknown_apparatus \u2014 worker_activity L2538\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:14.340000Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t28_f1\", \"tokens_generated\": 256, \"tokens_target\": 256, \"tok_per_s\": 64.15951731787112}\n",
+    "apparatus-orchestrator-l362": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L362\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l363": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L363\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l364": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L364\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-orchestrator-l365": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L365\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l366": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L366\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l367": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L367\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-orchestrator-l368": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L368\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l369": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L369\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l370": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L370\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-orchestrator-l371": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L371\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l372": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L372\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l373": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L373\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-worker_activity-l2539": "# unknown_apparatus \u2014 worker_activity L2539\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:18.323158Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t29_f0\", \"tokens_generated\": 256, \"tokens_target\": 256, \"tok_per_s\": 64.30650511160465}\n",
+    "apparatus-worker_activity-l2540": "# unknown_apparatus \u2014 worker_activity L2540\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:20.204578Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t29_f1\", \"tokens_generated\": 116, \"tokens_target\": 256, \"tok_per_s\": 61.68139355539989}\n",
+    "apparatus-worker_activity-l2541": "# unknown_apparatus \u2014 worker_activity L2541\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:21.990765Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t30_f0\", \"tokens_generated\": 118, \"tokens_target\": 256, \"tok_per_s\": 66.16083445225401}\n",
+    "apparatus-worker_activity-l2542": "# unknown_apparatus \u2014 worker_activity L2542\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:24.330883Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t30_f1\", \"tokens_generated\": 154, \"tokens_target\": 256, \"tok_per_s\": 65.827226363185}\n",
+    "apparatus-worker_activity-l2543": "# unknown_apparatus \u2014 worker_activity L2543\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:26.322889Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t31_f0\", \"tokens_generated\": 131, \"tokens_target\": 256, \"tok_per_s\": 65.86773170304615}\n",
+    "apparatus-worker_activity-l2544": "# unknown_apparatus \u2014 worker_activity L2544\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:28.104053Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t31_f1\", \"tokens_generated\": 118, \"tokens_target\": 256, \"tok_per_s\": 66.27794361687997}\n",
+    "apparatus-worker_activity-l2545": "# unknown_apparatus \u2014 worker_activity L2545\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:29.884775Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t32_f0\", \"tokens_generated\": 120, \"tokens_target\": 256, \"tok_per_s\": 67.49658530289035}\n",
+    "apparatus-worker_activity-l2546": "# unknown_apparatus \u2014 worker_activity L2546\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:32.276945Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t32_f1\", \"tokens_generated\": 154, \"tokens_target\": 256, \"tok_per_s\": 64.40123536045992}\n",
+    "apparatus-worker_activity-l2547": "# unknown_apparatus \u2014 worker_activity L2547\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:34.118343Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t33_f0\", \"tokens_generated\": 118, \"tokens_target\": 256, \"tok_per_s\": 64.25031784416984}\n",
+    "apparatus-orchestrator-l374": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L374\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l375": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L375\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l376": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L376\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-worker_activity-l2548": "# unknown_apparatus \u2014 worker_activity L2548\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:36.764421Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t33_f1\", \"tokens_generated\": 169, \"tokens_target\": 256, \"tok_per_s\": 63.88479460677816}\n",
+    "apparatus-worker_activity-l2549": "# unknown_apparatus \u2014 worker_activity L2549\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:38.653280Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t34_f0\", \"tokens_generated\": 124, \"tokens_target\": 256, \"tok_per_s\": 65.81686556000626}\n",
+    "apparatus-orchestrator-l377": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L377\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l378": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L378\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l379": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L379\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-worker_activity-l2550": "# unknown_apparatus \u2014 worker_activity L2550\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:42.408167Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t34_f1\", \"tokens_generated\": 256, \"tokens_target\": 256, \"tok_per_s\": 68.19270800450818}\n",
+    "apparatus-worker_activity-l2551": "# unknown_apparatus \u2014 worker_activity L2551\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:46.118148Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t35_f0\", \"tokens_generated\": 256, \"tokens_target\": 256, \"tok_per_s\": 69.09646459389982}\n",
+    "apparatus-orchestrator-l380": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L380\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l381": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L381\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l382": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L382\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-worker_activity-l2552": "# unknown_apparatus \u2014 worker_activity L2552\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:50.038720Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t35_f1\", \"tokens_generated\": 256, \"tokens_target\": 256, \"tok_per_s\": 65.30315293463832}\n",
+    "apparatus-worker_activity-l2553": "# unknown_apparatus \u2014 worker_activity L2553\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:51.878125Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t36_f0\", \"tokens_generated\": 126, \"tokens_target\": 256, \"tok_per_s\": 68.6092996274982}\n",
+    "apparatus-orchestrator-l383": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L383\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l384": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L384\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l385": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L385\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-worker_activity-l2554": "# unknown_apparatus \u2014 worker_activity L2554\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:55.573545Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t36_f1\", \"tokens_generated\": 256, \"tokens_target\": 256, \"tok_per_s\": 69.28943483290874}\n",
+    "apparatus-orchestrator-l386": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L386\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l387": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L387\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l388": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L388\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-orchestrator-l389": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L389\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l390": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L390\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l391": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L391\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-orchestrator-l392": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L392\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l393": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L393\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l394": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L394\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-orchestrator-l395": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L395\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l396": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L396\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l397": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L397\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-worker_activity-l2555": "# unknown_apparatus \u2014 worker_activity L2555\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:09:59.698956Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t37_f0\", \"tokens_generated\": 256, \"tokens_target\": 256, \"tok_per_s\": 62.09787941107692}\n",
+    "apparatus-worker_activity-l2556": "# unknown_apparatus \u2014 worker_activity L2556\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:01.485948Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t37_f1\", \"tokens_generated\": 118, \"tokens_target\": 256, \"tok_per_s\": 66.06477408832029}\n",
+    "apparatus-worker_activity-l2557": "# unknown_apparatus \u2014 worker_activity L2557\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:03.271088Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t38_f0\", \"tokens_generated\": 118, \"tokens_target\": 256, \"tok_per_s\": 66.20631564213788}\n",
+    "apparatus-worker_activity-l2558": "# unknown_apparatus \u2014 worker_activity L2558\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:05.057053Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t38_f1\", \"tokens_generated\": 122, \"tokens_target\": 256, \"tok_per_s\": 68.33715796778768}\n",
+    "apparatus-worker_activity-l2559": "# unknown_apparatus \u2014 worker_activity L2559\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:06.880823Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t39_f0\", \"tokens_generated\": 116, \"tokens_target\": 256, \"tok_per_s\": 63.70110226527859}\n",
+    "apparatus-worker_activity-l2560": "# unknown_apparatus \u2014 worker_activity L2560\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:08.655630Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t39_f1\", \"tokens_generated\": 120, \"tokens_target\": 256, \"tok_per_s\": 67.63613533729333}\n",
+    "apparatus-worker_activity-l2561": "# unknown_apparatus \u2014 worker_activity L2561\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:10.434207Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t40_f0\", \"tokens_generated\": 116, \"tokens_target\": 256, \"tok_per_s\": 65.40028265513268}\n",
+    "apparatus-worker_activity-l2562": "# unknown_apparatus \u2014 worker_activity L2562\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:12.270391Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t40_f1\", \"tokens_generated\": 120, \"tokens_target\": 256, \"tok_per_s\": 65.37624521353511}\n",
+    "apparatus-worker_activity-l2563": "# unknown_apparatus \u2014 worker_activity L2563\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:14.208593Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t41_f0\", \"tokens_generated\": 124, \"tokens_target\": 256, \"tok_per_s\": 64.06960974611698}\n",
+    "apparatus-orchestrator-l398": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L398\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l399": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L399\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l400": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L400\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-orchestrator-l401": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L401\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l402": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L402\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l403": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L403\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-worker_activity-l2564": "# unknown_apparatus \u2014 worker_activity L2564\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:17.787601Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t41_f1\", \"tokens_generated\": 256, \"tokens_target\": 256, \"tok_per_s\": 71.54107644697963}\n",
+    "apparatus-worker_activity-l2565": "# unknown_apparatus \u2014 worker_activity L2565\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:19.714625Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t42_f0\", \"tokens_generated\": 121, \"tokens_target\": 256, \"tok_per_s\": 62.95056987607575}\n",
+    "apparatus-worker_activity-l2566": "# unknown_apparatus \u2014 worker_activity L2566\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:21.606742Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t42_f1\", \"tokens_generated\": 119, \"tokens_target\": 256, \"tok_per_s\": 62.9213573045485}\n",
+    "apparatus-worker_activity-l2567": "# unknown_apparatus \u2014 worker_activity L2567\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:23.487489Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t43_f0\", \"tokens_generated\": 116, \"tokens_target\": 256, \"tok_per_s\": 61.84972897621521}\n",
+    "apparatus-orchestrator-l404": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L404\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l405": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L405\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l406": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L406\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-orchestrator-l407": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L407\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l408": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L408\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l409": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L409\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-orchestrator-l410": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L410\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l411": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L411\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l412": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L412\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-worker_activity-l2568": "# unknown_apparatus \u2014 worker_activity L2568\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:25.775278Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t43_f1\", \"tokens_generated\": 154, \"tokens_target\": 256, \"tok_per_s\": 67.34265420472865}\n",
+    "apparatus-worker_activity-l2569": "# unknown_apparatus \u2014 worker_activity L2569\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:29.575242Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t44_f0\", \"tokens_generated\": 256, \"tokens_target\": 256, \"tok_per_s\": 67.42072500766697}\n",
+    "apparatus-worker_activity-l2570": "# unknown_apparatus \u2014 worker_activity L2570\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:31.477396Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t44_f1\", \"tokens_generated\": 122, \"tokens_target\": 256, \"tok_per_s\": 64.15861709353538}\n",
+    "apparatus-worker_activity-l2571": "# unknown_apparatus \u2014 worker_activity L2571\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:33.314339Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t45_f0\", \"tokens_generated\": 118, \"tokens_target\": 256, \"tok_per_s\": 64.40307258802103}\n",
+    "apparatus-worker_activity-l2572": "# unknown_apparatus \u2014 worker_activity L2572\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:35.093002Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t45_f1\", \"tokens_generated\": 116, \"tokens_target\": 256, \"tok_per_s\": 65.24975680227784}\n",
+    "apparatus-worker_activity-l2573": "# unknown_apparatus \u2014 worker_activity L2573\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:36.969422Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t46_f0\", \"tokens_generated\": 116, \"tokens_target\": 256, \"tok_per_s\": 61.97203101460292}\n",
+    "apparatus-orchestrator-l413": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L413\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l414": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L414\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l415": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L415\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-worker_activity-l2574": "# unknown_apparatus \u2014 worker_activity L2574\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:40.457610Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t46_f1\", \"tokens_generated\": 256, \"tokens_target\": 256, \"tok_per_s\": 73.40880146312632}\n",
+    "apparatus-worker_activity-l2575": "# unknown_apparatus \u2014 worker_activity L2575\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:42.290325Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t47_f0\", \"tokens_generated\": 119, \"tokens_target\": 256, \"tok_per_s\": 65.03135200411371}\n",
+    "apparatus-orchestrator-l416": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L416\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l417": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L417\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l418": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L418\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-worker_activity-l2576": "# unknown_apparatus \u2014 worker_activity L2576\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:46.301231Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t47_f1\", \"tokens_generated\": 256, \"tokens_target\": 256, \"tok_per_s\": 63.839322551737915}\n",
+    "apparatus-orchestrator-l419": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L419\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l420": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L420\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l421": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L421\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-orchestrator-l422": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L422\n\n_orchestrator_dispatch for task_type=experiment_trial_\n\n**Did:** dispatching experiment_trial\n\n**Observed:** status=dispatched\n",
+    "apparatus-orchestrator-l423": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L423\n\n_worker_invocation for task_type=experiment_trial_\n\n**Did:** running experiment_trial\n\n**Observed:** status=running\n",
+    "apparatus-orchestrator-l424": "# a_bgt_rsi: Nara/Orchestrator \u2014 orchestrator L424\n\n_orchestrator_receipt for task_type=experiment_trial_\n\n**Did:** experiment_trial passed\n\n**Observed:** status=passed\n",
+    "apparatus-worker_activity-l2577": "# unknown_apparatus \u2014 worker_activity L2577\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:50.168142Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t48_f0\", \"tokens_generated\": 256, \"tokens_target\": 256, \"tok_per_s\": 66.23730076467847}\n",
+    "apparatus-worker_activity-l2578": "# unknown_apparatus \u2014 worker_activity L2578\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:51.870317Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t48_f1\", \"tokens_generated\": 118, \"tokens_target\": 256, \"tok_per_s\": 69.33938351727737}\n",
+    "apparatus-worker_activity-l2579": "# unknown_apparatus \u2014 worker_activity L2579\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:53.746292Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t49_f0\", \"tokens_generated\": 116, \"tokens_target\": 256, \"tok_per_s\": 61.998726003712626}\n",
+    "apparatus-worker_activity-l2580": "# unknown_apparatus \u2014 worker_activity L2580\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:10:55.576717Z\", \"run_id\": \"exp009_cournot_2026-06-10T06:02:56.453799Z\", \"task_id\": \"exp009_firm_explicit_t49_f1\", \"tokens_generated\": 119, \"tokens_target\": 256, \"tok_per_s\": 65.04495957340572}\n",
+    "event-iter-2026-06-10-002-loop-v0-iteration-start-none-l1231": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1231\n\n_loop_v0_iteration_start for iter-2026-06-10-002_\n\n**Did:** topic=In a symmetric Cournot duopoly with linear demand and constant marginal cost, LLM agents' convergenc\u2026\n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-06-10-002-loop-v0-active-step-none-l1232": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1232\n\n_loop_v0_active_step for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n",
+    "apparatus-worker_activity-l2581": "# unknown_apparatus \u2014 worker_activity L2581\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:11:44.655142Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"meta_review\", \"tokens_generated\": 137, \"tokens_target\": 512, \"tok_per_s\": 49.00805982553645}\n",
+    "apparatus-worker_activity-l2582": "# unknown_apparatus \u2014 worker_activity L2582\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:11:46.054126Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 88, \"tokens_target\": 1024, \"tok_per_s\": 63.409924314236605}\n",
+    "event-iter-2026-06-10-002-loop-v0-active-step-none-l1233": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1233\n\n_loop_v0_active_step for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-06-10-002-loop-v0-active-step-none-l1234": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1234\n\n_loop_v0_active_step for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-06-10-002-loop-v0-tool-dispatch-hypothesize-l1235": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1235\n\n_loop_v0_tool_dispatch for iter-2026-06-10-002_\n\n**Did:** tool=hypothesize status=n/a\n\n**Observed:** parent_request_id=c502cb94-46bb-42cf-8394-0ffbf2f2063e\n\n## Referenced by\n\n- `stage-iter-2026-06-10-002-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-worker_activity-l2583": "# unknown_apparatus \u2014 worker_activity L2583\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:11:49.118758Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"hypothesize\", \"tokens_generated\": 207, \"tokens_target\": 512, \"tok_per_s\": 67.57398826815029}\n",
+    "apparatus-worker_activity-l2584": "# unknown_apparatus \u2014 worker_activity L2584\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:11:55.530240Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"subagent.redteam_critic\", \"tokens_generated\": 329, \"tokens_target\": 1024, \"tok_per_s\": 51.400360280174496}\n",
+    "event-iter-2026-06-10-002-loop-v0-active-step-none-l1236": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1236\n\n_loop_v0_active_step for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-06-10-002-loop-v0-tool-receipt-hypothesize-l1237": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1237\n\n_loop_v0_tool_receipt for iter-2026-06-10-002_\n\n**Did:** tool=hypothesize status=passed\n\n**Observed:** parent_request_id=c502cb94-46bb-42cf-8394-0ffbf2f2063e\n\n## Referenced by\n\n- `stage-iter-2026-06-10-002-hypothesize-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-06-10-002-loop-v0-active-step-none-l1238": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1238\n\n_loop_v0_active_step for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-06-10-002-loop-v0-redteam-retry-none-l1241": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1241\n\n_loop_v0_redteam_retry for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=c502cb94-46bb-42cf-8394-0ffbf2f2063e\n",
+    "apparatus-worker_activity-l2585": "# unknown_apparatus \u2014 worker_activity L2585\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:11:59.687705Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"hypothesize\", \"tokens_generated\": 249, \"tokens_target\": 512, \"tok_per_s\": 59.907112494793566}\n",
+    "apparatus-worker_activity-l2586": "# unknown_apparatus \u2014 worker_activity L2586\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:12:05.516824Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"subagent.redteam_critic\", \"tokens_generated\": 317, \"tokens_target\": 1024, \"tok_per_s\": 54.39478335821839}\n",
+    "event-iter-2026-06-10-002-loop-v0-redteam-retry-none-l1244": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1244\n\n_loop_v0_redteam_retry for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=c502cb94-46bb-42cf-8394-0ffbf2f2063e\n",
+    "apparatus-worker_activity-l2587": "# unknown_apparatus \u2014 worker_activity L2587\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:12:09.195603Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"hypothesize\", \"tokens_generated\": 236, \"tokens_target\": 512, \"tok_per_s\": 64.1689347122765}\n",
+    "apparatus-worker_activity-l2588": "# unknown_apparatus \u2014 worker_activity L2588\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:12:17.405148Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"subagent.redteam_critic\", \"tokens_generated\": 418, \"tokens_target\": 1024, \"tok_per_s\": 50.92400899301309}\n",
+    "apparatus-worker_activity-l2589": "# unknown_apparatus \u2014 worker_activity L2589\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:12:18.410757Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 76, \"tokens_target\": 1024, \"tok_per_s\": 76.41067751714726}\n",
+    "event-iter-2026-06-10-002-loop-v0-active-step-none-l1247": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1247\n\n_loop_v0_active_step for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-06-10-002-loop-v0-active-step-none-l1248": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1248\n\n_loop_v0_active_step for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-06-10-002-loop-v0-tool-dispatch-retrieve-literature-l1249": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1249\n\n_loop_v0_tool_dispatch for iter-2026-06-10-002_\n\n**Did:** tool=retrieve_literature status=n/a\n\n**Observed:** parent_request_id=93fb34df-7317-4798-aa85-7f23a477422f\n\n## Referenced by\n\n- `stage-iter-2026-06-10-002-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-worker_activity-l2590": "# unknown_apparatus \u2014 worker_activity L2590\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:12:25.101137Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"topicality_check\", \"tokens_generated\": 43, \"tokens_target\": 256, \"tok_per_s\": 60.76594183484176}\n",
+    "event-iter-2026-06-10-002-loop-v0-active-step-none-l1250": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1250\n\n_loop_v0_active_step for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-06-10-002-loop-v0-tool-receipt-retrieve-literature-l1251": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1251\n\n_loop_v0_tool_receipt for iter-2026-06-10-002_\n\n**Did:** tool=retrieve_literature status=passed\n\n**Observed:** parent_request_id=93fb34df-7317-4798-aa85-7f23a477422f\n\n## Referenced by\n\n- `stage-iter-2026-06-10-002-retrieve-literature-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-06-10-002-loop-v0-active-step-none-l1252": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1252\n\n_loop_v0_active_step for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-06-10-002-loop-v0-ml-intern-none-l1253": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1253\n\n_loop_v0_ml_intern for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=93fb34df-7317-4798-aa85-7f23a477422f\n",
+    "event-iter-2026-06-10-002-loop-v0-ml-intern-none-l1254": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1254\n\n_loop_v0_ml_intern for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=93fb34df-7317-4798-aa85-7f23a477422f\n",
+    "event-iter-2026-06-10-002-loop-v0-active-step-none-l1255": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1255\n\n_loop_v0_active_step for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n",
+    "apparatus-worker_activity-l2591": "# unknown_apparatus \u2014 worker_activity L2591\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:12:35.160995Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"topicality_check\", \"tokens_generated\": 43, \"tokens_target\": 256, \"tok_per_s\": 60.887386871282054}\n",
+    "apparatus-worker_activity-l2592": "# unknown_apparatus \u2014 worker_activity L2592\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:12:38.018334Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 148, \"tokens_target\": 1024, \"tok_per_s\": 51.83821078286686}\n",
+    "event-iter-2026-06-10-002-loop-v0-active-step-none-l1256": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1256\n\n_loop_v0_active_step for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-06-10-002-loop-v0-tool-dispatch-novelty-classify-l1257": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1257\n\n_loop_v0_tool_dispatch for iter-2026-06-10-002_\n\n**Did:** tool=novelty_classify status=n/a\n\n**Observed:** parent_request_id=cdf33d70-e91c-4db1-abe5-4fd2a904000c\n\n## Referenced by\n\n- `stage-iter-2026-06-10-002-novelty-classify-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-worker_activity-l2593": "# unknown_apparatus \u2014 worker_activity L2593\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:12:40.642065Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"novelty_classify\", \"tokens_generated\": 149, \"tokens_target\": 512, \"tok_per_s\": 56.82715161668389}\n",
+    "apparatus-worker_activity-l2594": "# unknown_apparatus \u2014 worker_activity L2594\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:12:41.957463Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 96, \"tokens_target\": 1024, \"tok_per_s\": 73.6127483682593}\n",
+    "apparatus-worker_activity-l2595": "# unknown_apparatus \u2014 worker_activity L2595\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:12:44.123419Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"subagent.critic_loop_v0\", \"tokens_generated\": 118, \"tokens_target\": 1024, \"tok_per_s\": 54.523439476232205}\n",
+    "apparatus-worker_activity-l2596": "# unknown_apparatus \u2014 worker_activity L2596\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:12:45.952975Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 85, \"tokens_target\": 1024, \"tok_per_s\": 46.75160284655149}\n",
+    "event-iter-2026-06-10-002-loop-v0-active-step-none-l1258": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1258\n\n_loop_v0_active_step for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-06-10-002-loop-v0-tool-receipt-novelty-classify-l1259": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1259\n\n_loop_v0_tool_receipt for iter-2026-06-10-002_\n\n**Did:** tool=novelty_classify status=passed\n\n**Observed:** parent_request_id=cdf33d70-e91c-4db1-abe5-4fd2a904000c\n\n## Referenced by\n\n- `stage-iter-2026-06-10-002-novelty-classify-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-06-10-002-loop-v0-active-step-none-l1260": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1260\n\n_loop_v0_active_step for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-06-10-002-loop-v0-tool-dispatch-critic-loop-v0-l1261": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1261\n\n_loop_v0_tool_dispatch for iter-2026-06-10-002_\n\n**Did:** tool=critic_loop_v0 status=n/a\n\n**Observed:** parent_request_id=3c083c3e-d9d4-488a-8ce1-17569cb197ac\n\n## Referenced by\n\n- `stage-iter-2026-06-10-002-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-06-10-002-loop-v0-active-step-none-l1264": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1264\n\n_loop_v0_active_step for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-06-10-002-loop-v0-tool-receipt-critic-loop-v0-l1265": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1265\n\n_loop_v0_tool_receipt for iter-2026-06-10-002_\n\n**Did:** tool=critic_loop_v0 status=passed\n\n**Observed:** parent_request_id=3c083c3e-d9d4-488a-8ce1-17569cb197ac\n\n## Referenced by\n\n- `stage-iter-2026-06-10-002-critic-loop-v0-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-06-10-002-loop-v0-reprompt-none-l1266": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1266\n\n_loop_v0_reprompt for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=68f69adf-d33c-4e5e-92e0-e9e3a3356550\n",
+    "apparatus-worker_activity-l2597": "# unknown_apparatus \u2014 worker_activity L2597\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:12:50.516552Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 249, \"tokens_target\": 1024, \"tok_per_s\": 54.58112793284716}\n",
+    "event-iter-2026-06-10-002-loop-v0-active-step-none-l1267": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1267\n\n_loop_v0_active_step for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-06-10-002-loop-v0-tool-dispatch-journal-writer-l1268": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1268\n\n_loop_v0_tool_dispatch for iter-2026-06-10-002_\n\n**Did:** tool=journal_writer status=n/a\n\n**Observed:** parent_request_id=a4bfa5bc-8ef4-4eb8-8dd1-9b95a011d2b5\n\n## Referenced by\n\n- `stage-iter-2026-06-10-002-journal-writer-1` (stage) \u2014 **derived_from**\n",
+    "event-iter-2026-06-10-002-loop-v0-active-step-none-l1269": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1269\n\n_loop_v0_active_step for iter-2026-06-10-002_\n\n**Did:** \n\n**Observed:** parent_request_id=n/a\n",
+    "event-iter-2026-06-10-002-loop-v0-tool-receipt-journal-writer-l1270": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1270\n\n_loop_v0_tool_receipt for iter-2026-06-10-002_\n\n**Did:** tool=journal_writer status=passed\n\n**Observed:** parent_request_id=a4bfa5bc-8ef4-4eb8-8dd1-9b95a011d2b5\n\n## Referenced by\n\n- `stage-iter-2026-06-10-002-journal-writer-1` (stage) \u2014 **derived_from**\n",
+    "apparatus-worker_activity-l2598": "# unknown_apparatus \u2014 worker_activity L2598\n\n_emit apparatus log entry_\n\n**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic\n\n**Observed:** {\"timestamp\": \"2026-06-10T06:12:55.900865Z\", \"run_id\": \"iter-2026-06-10-002\", \"task_id\": \"nara.run_iteration\", \"tokens_generated\": 257, \"tokens_target\": 1024, \"tok_per_s\": 47.84735972185723}\n",
+    "event-iter-2026-06-10-002-loop-v0-iteration-complete-none-l1271": "# a_bgt_rsi: Nara/Orchestrator \u2014 week1.run L1271\n\n_loop_v0_iteration_complete for iter-2026-06-10-002_\n\n**Did:** duration_ms=74047 tool_calls_made=['hypothesize', 'retrieve_literature', 'novelty_classify', 'critic_loop_v0', 'journal_writer']\n\n**Observed:** parent_request_id=n/a\n\n## Referenced by\n\n- `iter-2026-06-10-002` (apparatus_event) \u2014 **produced**\n",
+    "iter-2026-06-10-002": "# a_bgt_rsi: Nara \u2014 loop_memory L57\n\n_In a symmetric Cournot duopoly with linear demand and constant marginal cost, LLM agents' convergence to the Nash quantity q* = (a - c)/(3b) is modulated by few-shot prompting examples that explicitly define the marginal cost parameter (obs\u2026_\n\n**Did:** This iteration investigated the impact of few-shot prompting on the ability of LLM agents to converge to the Nash equilibrium in a symmetric Cournot duopoly. The core hypothesis proposed that explicitly defining the marginal cost parameter within few-shot examples serves as a modulator for the agents' convergence to the theoretical quantity $q^* = (a - c)/(3b)$.\n\nThe analysis classified the hypoth\u2026\n\n**Observed:** tools=5 calls=7 journal=journal/iterations/073.md\n\n## Links\n\n- **produced** \u2192 `event-iter-2026-06-10-002-loop-v0-iteration-complete-none-l1271` (apparatus_event)\n- **produced** \u2192 `stage-iter-2026-06-10-002-hypothesize-1` (stage)\n- **produced** \u2192 `stage-iter-2026-06-10-002-retrieve-literature-1` (stage)\n- **produced** \u2192 `stage-iter-2026-06-10-002-novelty-classify-1` (stage)\n- **produced** \u2192 `stage-iter-2026-06-10-002-critic-loop-v0-1` (stage)\n- **produced** \u2192 `stage-iter-2026-06-10-002-journal-writer-1` (stage)\n\n## Referenced by\n\n- `agent-nara` (agent) \u2014 **ran**\n",
+    "runlog-2026-06-10-phase5-stretch-t3-real-runs-l1272": "# a_bgt_rsi: Nara \u2014 week1.run L1272\n\n_queued T3 real runs closed with pre-registered verdicts threaded into iteration records_\n\n**Did:** exp001 BOTH arms real (500+500 rounds, 0 parse fails) -> Verdict=NO (delta +0.008 < 0.10) -> iter-2026-06-10-001 (novel/survives); exp009 both arms real (100 trials, 0 invalid, 479s) -> Verdict=NO (mean_dev 0.50 both arms, q=45 zero-varianc\u2026\n\n**Observed:** status=passed day= duration_ms=1300000 fallback=None\n",
+    "runlog-2026-06-10-s2-session-start-l1273": "# a_bgt_rsi: Nara \u2014 week1.run L1273\n\n_resume-state briefing + session plan written_\n\n**Did:** autonomous session-2 start; concurrent ui-handoff session detected on main checkout (race rule honored: no ui/ writes); pivot to MCP submit+poll + D-045 residuals 1+2 via two-stage dynamic workflow\n\n**Observed:** status=passed day= duration_ms=0 fallback=None\n",
+    "runlog-2026-06-10-s2-recon-workflow-l1274": "# a_bgt_rsi: Nara \u2014 week1.run L1274\n\n_2 structured design reports_\n\n**Did:** recon workflow launched: 2 read-only limbs (mcp-submit-poll, d045-skeptic)\n\n**Observed:** status=started day= duration_ms=0 fallback=None\n",
     "dec-fw-2026-05-18-agent-system-scaffolded": "# 2026-05-18 \u2014 Agent system scaffolded\n\n_framework decision_\n\n**Decision:** Created a portable agent framework (skills + file memory) authored\nto the Agent Skills standard, runnable in both Pi and Claude Code via symlinks.\nAdopted a curated, research-tuned subset of gstack rather than the full\nproduct-oriented framework.\n**Why:** Target harness is Pi; current harness is Claude Code; the project\n(`autoresearch`) is an ML/research pipeline with no product-UI dimension, so\ngstack's CEO/design/QA-browser roles do not apply.\n**Supersedes:** none\n",
     "dec-fw-2026-05-18-added-execution-discipline-skills": "# 2026-05-18 \u2014 Added execution-discipline skills\n\n_framework decision_\n\n**Decision:** Added 4 skills \u2014 `gate-check`, `validate`, `run-log`,\n`resume-state` \u2014 and adapted `experiment` (autonomous loop section) and\n`plan-research` (design-vs-execute pointer).\n**Why:** Explored the primary consumer `/home/decross1/projects/a_bgt_rsi` \u2014 a\ncontract-governed, plan-driven research program (authoritative `plan.yaml`,\nstate-file resume, blocking human gates, JSONL run log, validations never\ncoerced). The original gstack-derived skills were a design/ship loop and did\nnot cover plan-execution discipline, which is this project's core need. The\ngstack safety roles (`/careful`/`/freeze`/`/guard`) dropped on 2026-05-18 are,\nreframed, exactly this gap. Skills stay general-purpose.\n**Supersedes:** partially revises the 2026-05-18 scaffold decision's skill set.\n",
     "dec-fw-2026-05-18-scope-boundary-dev-time-vs-project-runtime": "# 2026-05-18 \u2014 Scope boundary: dev-time vs project-runtime\n\n_framework decision_\n\n**Decision:** Established that this framework is a dev-time harness only; its\nskills must not be loaded into any project's runtime agent. Added `BOUNDARY.md`\nand a `## Scope boundary` section to `AGENTS.md` / `README.md`.\n**Why:** Explored `a_bgt_rsi`'s architecture \u2014 its runtime orchestrator (Gemma 4\n+ OpenClaw + NemoClaw) also runs on Pi. With the dev skills installed globally\nin `~/.pi/agent/skills/`, the apparatus runtime could inherit them. The two\n\"orchestrators\" (dev-time and apparatus-runtime) must stay separate.\n**Supersedes:** none\n",
@@ -24057,7 +24574,8 @@ window.BRAIN_GRAPH = {
     "dec-ap-d-044-d-041-skeptic-ladder-step-1": "# D-044 \u2014 D-041 skeptic ladder step 1 VALIDATED: vllm-qwen is the standing independent skeptic; attack() seam shipped (default off)\n\n_apparatus decision_\n\n**Date locked.** 2026-06-09 (evening session). Executes the D-041 ladder; human-directed\n(\"ship Qwen or whatever is the right skeptic this session \u2014 priority order Qwen \u2192\nGemma-persona \u2192 Claude/Agent-SDK\").\n\n**Decision.** The independent-skeptic mechanism ships as\n`orchestrator/novelty_skeptic.attack(hypothesis_text, iteration_id=None, backend=None)`:\nits OWN retrieval (`query_top_k`, default curated collections \u2014 closes the\niteration-068 shared-neighbor blind spot), REFUTE-framed prompt, fail-closed parsing\n(every failure path \u2192 `inconclusive`, never `survives_attack`). The critic hook\n(`workers/critic_loop_v0._maybe_run_skeptic`) fires only on a final `survives` with a\nclean gate, behind env `NARA_SKEPTIC` (default **off** until \u03b2); `refuted`/`inconclusive`\ndemote the verdict to `undecidable` with full observability\n(`skeptic_verdict`, `verdict_overridden_from`).\n\n**Backend.** Default resolves from `NARA_SKEPTIC_BACKEND`, default **`vllm-qwen`**\n(`qwen3.6-27b-nvfp4-mtp` on `:8001`, max_tokens 3072 per the token-starvation\ndiagnosis). The D-041 stand-alone back-test PASSED 3/3 on the labelled battery subset:\nfalsifiable_01 (finite-PD cooperate-to-end) **refuted** citing\n`osborne_rubinstein-chunk-850` (backward induction); falsifiable_02 (TFT dominant)\n**refuted** citing `chunk-831` (strict dominance); novel_on_01 (true on-domain novel)\n**survives_attack** with a correct no-prior-art rationale. Run-log entry\n`skeptic_ladder_step1_live_test`.\n\n**Alternatives.** (a) `ollama-coder` (the D-035 default) \u2014 DEMOTED: requires the\nunset-by-default `OLLAMA_MODEL` env pin (fails closed as a silent-looking\n`inconclusive`), and pages a SECOND qwen copy into the 121 GB unified pool alongside\nthe resident vllm-qwen container (observed thrash: 15-min hang). Still selectable\nexplicitly. (b) Gemma-4 adversarial persona (ladder step 2) \u2014 built and tested\n(`GEMMA_ADVERSARY_PERSONA`, backend `vllm-gemma`), NOT validated live; remains the\noperational fallback if vllm-qwen is down. (c) Claude via Agent SDK (step 3) \u2014\ndesign-only in `docs/skeptic_ladder.md` (~$0.04\u20130.055/attack, \u22653,600 attacks under the\n$200 Max plan); wiring it is the D-014/ToS human decision, not taken.\n\n**Reversibility.** Env-gated and additive; unset `NARA_SKEPTIC` to remove from the\npipe entirely. The D-041 \u03b2 arming condition \"validated independent skeptic\" is now MET\nat ladder step 1; the memory-guard prerequisite stands unchanged.\n\n---\n",
     "dec-ap-d-045-literature-pipe-refinement-landed-embedding-anch": "# D-045 \u2014 Literature-pipe refinement landed: embedding anchors FALSIFIED as off-domain separators; R0 LLM-topicality gate + two-axis novelty + critic hardening; bar honestly NOT met, residuals characterized\n\n_apparatus decision_\n\n**Date locked.** 2026-06-09 (evening session; workflow `wf_3fc91fc6-0de` + serial\nintegration). References P-009 (\"calibrate a discriminative gate against a varied set,\nnot a single instance\") and the iteration-068 external review.\n\n**The negative result (the load-bearing finding).** Both corpus-derived semantic-anchor\nvariants were falsified as off-domain separators on a 22-case labelled set + ~45\nhistorical hypotheses, by the procedural rule declared BEFORE calibration: global\nfoundational-centroid cosine separation gap **\u22120.079**, per-collection max-cosine\n**\u22120.075** (required: \u2265 +0.05). Mechanism: a genuinely novel on-domain hypothesis is far\nfrom the existing corpus BY DEFINITION of novelty \u2014 the same place a\nvocabulary-camouflaged off-domain hypothesis sits. Distance-to-known-content structurally\nconflates the two. `ANCHOR_LOW`/`ANCHOR_BORDERLINE`/`SPREAD_MAX` ship as None (rules\nR3/R4/R5 inert); `run_state/domain_anchor.json` + `calibrate_anchor.py` remain as the\nmeasurement apparatus.\n\n**What shipped instead (single rule-7 revision cycle).** R0: an explicit LLM topicality\njudgment (`orchestrator/topicality.py`, condemns ONLY on literal \"off\", fail-open to\nNone), wired at both nara relevance sites and the battery; the two-axis novelty rubric\n(`novelty_axes` = phenomenon \u00d7 substrate \u00d7 predicted_direction, deterministic legacy-class\nmapping, `docs/novelty_two_axis_rubric.md` pre-registered); critic hardening (`undecidable`\nfails closed everywhere: schema_mismatch/timeout fallbacks, coverage-adequacy bar,\nlow-confidence override, the nara placeholder, the skeptic demotion \u2014 raw verdicts kept in\n`verdict_overridden_from`); corpus de-drift (default retrieval = foundational +\npapers_recent; `ml_intern_fetched` opt-in via the escalation path, D-038 preserved);\ntargeted ingest of 8 LLM-agent GT papers closing the 068 corpus gap.\n\n**Battery outcome (bar NOT met \u2014 reported, not coerced; revision cap reached).**\nLocked bar \u22650.80 acc \u2227 recall 1.0 \u2227 0 ungated: **FAILED** at 0.636 / 0.875 / 1.\nVersus the morning baseline (0.50 / 0.0 / recurring bug): R0 caught 7/8 off-domain\n(all camouflaged + drift probes); every gated case tempered end-to-end\n(`unclear`/`undecidable`); the survives\u2192skeptic\u2192survives path passed on a true novel\n(canary_on_03). **Live-pipe proof:** the original FASE bug class now resolves honestly\n(iter-2026-06-09-007: R0, unclear/undecidable, low_confidence=true) and the 068 p-beauty\nre-run moved to **rediscovery/restated** with axes {known, unstudied_llm, matches} \u2014\nexactly the review's predicted correction.\n\n**Residuals (named, for the next session \u2014 no further tuning this session):**\n1. Domain-BOUNDARY claims (LLM-behavior with GT framing, fase_off_01) pass topicality \u2014\n   needs a finer domain definition or a skeptic-side off-domain attack, not threshold\n   tuning. The one remaining ungated novel/survives.\n2. Restatement recognition on plain-language phrasings still weak (4 rediscoveries \u2192\n   survives/undecidable); the named escalation is routing restatement through the Qwen\n   skeptic (D-044 infrastructure is in place).\n3. The critic still retreats to `undecidable` on 2/3 corpus-silent novels despite the\n   STEP-3 instruction (prompt adherence is stochastic; promotion-path starvation risk).\n4. `predicted_direction=deviates` over-assignment inflates `novel` via the\n   known+deviates\u2192novel mapping (falsifiable_01/02, pbeauty battery phrasing).\n5. R0 over-gates ~3 on-domain cases incl. nonsense rows (epistemically harmless but\n   costs battery accuracy).\n\n**Reversibility.** All additive: R0 fail-open, anchor rules inert, overrides carry\nprovenance, schema changes additive. The battery + calibration artifacts under\n`experiments/lit_falsification_battery/runs/` are the regression baseline.\n",
     "dec-ap-d-046-human-write-back-contract-blessed-ui": "# D-046 \u2014 Human write-back contract blessed: UI POSTs exec blessed CLIs; defer-to-dev-session queue + startup triage step\n\n_apparatus decision_\n\n**Date locked.** 2026-06-10 (screenshot-review session; ratified by the human at\nplanning time).\n\n**Decision.** The UI's deferred \"B4 write-back\" ships against a blessed CLI contract\n(`docs/human_writeback_contract.md`): `ui/backend` POST endpoints exec the CLIs as\n**argv arrays, no shell** \u2014 `gate_cli` for gate verdicts (enum frozen\nvalid|invalid|needs_revision), NEW `finding_session --set-status` one-shot for quick\nfinding dispositions (validated|rejected|in_review; validated/rejected route\n`gate_cli.append_feedback` against the finding's source iteration exactly as\n`end_session` does), NEW `todo_cli ack` for bubble acks (`memory/coordinator_acks.jsonl`,\nthe join key `ui/backend/human_todo.py` already reads), and NEW `todo_cli defer` \u2014\na **defer-to-dev-session** disposition appending\n`{ref_id, kind, note, status:\"open\", attested_by, deferred_at}` to\n`memory/dev_session_queue.jsonl` (append-only; `close` appends a closing row; readers\nfold by ref_id, last status wins). Writes from the UI stamp `human:ui`. CLI validation\nis the gate: out-of-enum exits nonzero, writes nothing, stderr surfaced verbatim.\nCLAUDE.md \"How to start a primary session\" gains one step: run\n`todo_cli list-deferred` and triage open deferrals into the session plan.\n`stale_active_run` / `state_gate` direct resolution stays a primary-session human\naction \u2014 defer-only from the UI.\n\n**Alternatives rejected.** (a) UI writes `memory/*` files directly \u2014 breaks the\nsingle-writer discipline every ledger relies on; (b) a separate primary-owned API\nservice \u2014 a second server to run/version for no added safety over exec-ing the same\nCLIs; (c) reusing `run_state/attestations.jsonl` \u2014 that is retired track-era machinery\n(soft-gate SLA log), and overloading it would resurrect retired semantics.\n\n**Reversibility.** Endpoints are additive; the queue file is append-only; removing the\nblessing reverts the UI to copy-paste rendering with no data migration.\n",
-    "dec-ap-d-048-test-pollution-purge-one-logged-surgical": "# D-048 \u2014 Test-pollution purge (one logged surgical cleanup) + the autouse no-live-artifacts guard\n\n_apparatus decision_\n\n**Date locked.** 2026-06-10 (ratified by the human at planning time as an explicit\nexception to append-only discipline).\n\n**The finding.** Def-time-bound default paths let the test suite write LIVE apparatus\nfiles for days: 23 synthetic \"RuntimeError: boom\" coordinator cycles (rendered as failed\ndispatches on the dashboard), **3,930 of 4,819** `logs/calls.jsonl` rows with\n`model:\"fake-model\"` (82% of the canonical call log), and 88 same-day worker_activity\nrows. A second vector: `orchestrator/topicality.py` makes a REAL model call when\nMOCK_LLM is unset \u2014 and MOCK_LLM is set in the human's interactive shell but NOT in\nnon-interactive shells, so test runs silently hit the live Gemma server and stamped\nrows with a stale fixture run_id.\n\n**Decision.** (a) One surgical purge with `.pre_purge_2026-06-10` backups kept beside\neach file: coordinator_cycles 140\u2192117 (\u221223 boom rows), calls.jsonl 4,819\u2192879 (\u22123,930\nfake-model \u2212 10 test-context topicality rows), worker_activity 1,251\u21921,163 (\u221288; lands\nexactly on the session-start baseline, confirming the dropped rows were all same-day\ntest artifacts). Malformed lines are never dropped. (b) The leak is closed structurally:\nall writer defaults now resolve at CALL time (worker_activity, coordinator_cycle_log,\ncoordinator bubbles, nara's calls-log sentinel) and `tests/conftest.py` gains an\nAUTOUSE `_no_live_artifacts` fixture redirecting every such default to tmp_path \u2014\nthe invariant is \"a full pytest run adds ZERO rows to run_state/, logs/, memory/\".\n(c) Operating rule: pytest runs are invoked with explicit `MOCK_LLM=1` (the inverse\ndiscipline of `env -u MOCK_LLM` for real runs \u2014 do not rely on the shell default).\nStray finished-run redirects deleted (`run_state/battery_run*.log`,\n`coordinator_cycle_evening.log`; battery artifacts live in\n`experiments/lit_falsification_battery/runs/`); live server stdout (`tool_plane.out`,\n`ui_backend.out`) stays in place (open fds) and is now gitignored along with the\nregistry dir and purge backups.\n\n**Alternatives rejected.** Keeping the rows and rendering around them (UI \u00d7N grouping)\n\u2014 leaves failure triage and call-log forensics poisoned forever and the \"canonical call\nlog\" 82% synthetic. Append-only discipline is for research observations; these rows\nwere never observations.\n\n**Reversibility.** Full: the `.pre_purge_2026-06-10` backups are byte-complete copies.\n",
+    "dec-ap-d-048-test-pollution-purge-one-logged-surgical": "# D-048 \u2014 Test-pollution purge (one logged surgical cleanup) + the autouse no-live-artifacts guard\n\n_apparatus decision_\n\n**Date locked.** 2026-06-10 (ratified by the human at planning time as an explicit\nexception to append-only discipline).\n\n**The finding.** Def-time-bound default paths let the test suite write LIVE apparatus\nfiles for days: 23 synthetic \"RuntimeError: boom\" coordinator cycles (rendered as failed\ndispatches on the dashboard), **3,930 of 4,819** `logs/calls.jsonl` rows with\n`model:\"fake-model\"` (82% of the canonical call log), and 88 same-day worker_activity\nrows. A second vector: `orchestrator/topicality.py` makes a REAL model call when\nMOCK_LLM is unset \u2014 and MOCK_LLM is set in the human's interactive shell but NOT in\nnon-interactive shells, so test runs silently hit the live Gemma server and stamped\nrows with a stale fixture run_id.\n\n**Decision.** (a) One surgical purge with `.pre_purge_2026-06-10` backups kept beside\neach file: coordinator_cycles 140\u2192117 (\u221223 boom rows), calls.jsonl 4,819\u2192879 (\u22123,930\nfake-model \u2212 10 test-context topicality rows), worker_activity 1,251\u21921,163 (\u221288; lands\nexactly on the session-start baseline, confirming the dropped rows were all same-day\ntest artifacts), and \u2014 found by the same-day adversarial review AFTER the new\n`subagent_start/finish` events shipped \u2014 week1.run.jsonl 1,402\u21921,192 (\u2212210 fixture\nsub-agent rows: `subagent:\"t\"`, `run_id:null`, written live by `tests/test_subagent.py`\nthrough the new `runtime.append_run_log` before the guard covered it). Malformed lines\nare never dropped. (b) The leak is closed structurally: all writer defaults now resolve\nat CALL time (worker_activity, coordinator_cycle_log, coordinator bubbles, nara's\ncalls-log sentinel) and `tests/conftest.py` gains an AUTOUSE `_no_live_artifacts`\nfixture redirecting every such default to tmp_path \u2014 including `runtime.RUN_LOG_PATH`\nand the D-046 ledgers \u2014 the invariant is \"a full pytest run adds ZERO rows to\nrun_state/, logs/, memory/\".\n(c) Operating rule: pytest runs are invoked with explicit `MOCK_LLM=1` (the inverse\ndiscipline of `env -u MOCK_LLM` for real runs \u2014 do not rely on the shell default).\nStray finished-run redirects deleted (`run_state/battery_run*.log`,\n`coordinator_cycle_evening.log`; battery artifacts live in\n`experiments/lit_falsification_battery/runs/`); live server stdout (`tool_plane.out`,\n`ui_backend.out`) stays in place (open fds) and is now gitignored along with the\nregistry dir and purge backups.\n\n**Alternatives rejected.** Keeping the rows and rendering around them (UI \u00d7N grouping)\n\u2014 leaves failure triage and call-log forensics poisoned forever and the \"canonical call\nlog\" 82% synthetic. Append-only discipline is for research observations; these rows\nwere never observations.\n\n**Reversibility.** Full: the `.pre_purge_2026-06-10` backups are byte-complete copies.\n",
+    "dec-ap-d-047-multi-run-active-run-registry-per-run-files": "# D-047 \u2014 Multi-run active-run registry (per-run files + foreground mirror)\n\n_apparatus decision_\n\n**Date locked.** 2026-06-10 (ratified at planning; built by Dynamic Workflow\n`wf_27141574-2c6` limb R in an isolated worktree; serially integrated).\n\n**Decision.** `orchestrator/active_run.py` becomes a multi-run registry: every live run\nwrites its own `run_state/active_runs/<safe(run_id)>.json` (schema-validated, atomic\nwrite tmp + os.replace, deleted on completion) carrying `heartbeat_at`, refreshed on\nevery update \u2014 consumers treat a stale heartbeat as a possibly-dead run. Ownership is\nkeyed by a module-level ContextVar holding the run_id, so `write_active_run` /\n`update_active_run` / `clear_active_run` keep their exact signatures and the ~10 call\nsites are untouched. `run_state/active_run.json` stays as the foreground mirror (most\nrecent writer; the UI keeps polling just that file) with **only-owner-clears**: an\nupdate never rewrites a mirror owned by a different run_id, and a context-keyed clear\ndeletes the mirror only when it owns it; legacy no-context clears remove the mirror\nplus its per-run twin. Resolves loop-iteration / coordinator / battery runs clobbering\neach other's live state (the screenshot-review \"BUSY (unregistered)\" / single-slot\nfailure mode). Registry path follows the mirror's parent when a test relocates only\nACTIVE_RUN_PATH (\"the registry lives beside the mirror\" invariant).\n\n**Integration note (honest record).** The limb's worktree rewrite regressed the `kind`\nsurface to 4 kinds \u2014 dropping `coordinator` from both `_KINDS` and the schema enum\n(present at HEAD since the Slice-Alpha coordinator landed). Caught by the existing\njoin-contract test at integration (`test_update_active_run_each_coordinator_step_is_\nschema_valid`); restored before merge. Full suite 1068 green after integration.\n\n**Alternatives.** (1) Thread run handles through every call site \u2014 rejected: ~12-file\nchurn for no safety gain. (2) Replace the mirror outright with the registry \u2014 rejected:\nbreaks the live UI contract mid-flight.\n\n**Reversibility.** Delete RUNS_DIR + the contextvar; mirror behavior reverts to the\nsingle-slot helper.\n",
     "stage-iter-2026-05-26-001-query-chroma-1": "# Retrieve \u2014 iter-2026-05-26-001 (step 1)\n\n_worker: query_chroma_\n\n**Step 1 of 2** \u2014 tool `query_chroma` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will query the vector store to retrieve existing literature and theoretical frameworks regarding the dominance of Tit-for-Tat in repeated games.\n\n**Triggered by call:** `fd255e46\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l1` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-dispatch-query-chroma-l173` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-receipt-query-chroma-l174` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-001` (iteration) \u2014 **produced**\n",
     "stage-iter-2026-05-26-001-journal-writer-stub-1": "# Journal \u2014 iter-2026-05-26-001 (step 2)\n\n_worker: journal_writer_stub_\n\n**Step 2 of 2** \u2014 tool `journal_writer_stub` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nthought\n<|channel>thought\n<channel|>\n\n**Triggered by call:** `7133efb2\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l2` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-dispatch-journal-writer-stub-l175` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-001-loop-v0-tool-receipt-journal-writer-stub-l176` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-001` (iteration) \u2014 **produced**\n",
     "stage-iter-2026-05-26-002-query-chroma-1": "# Retrieve \u2014 iter-2026-05-26-002 (step 1)\n\n_worker: query_chroma_\n\n**Step 1 of 2** \u2014 tool `query_chroma` (Retrieve)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will query the Chroma vector store to retrieve foundational literature and recent developments regarding the Folk Theorem and its implications for cooperation.\n\n**Triggered by call:** `b1621173\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l4` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-dispatch-query-chroma-l179` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-05-26-002-loop-v0-tool-receipt-query-chroma-l180` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-05-26-002` (iteration) \u2014 **produced**\n",
@@ -24312,6 +24830,16 @@ window.BRAIN_GRAPH = {
     "stage-iter-2026-06-09-008-novelty-classify-1": "# Novelty \u2014 iter-2026-06-09-008 (step 4)\n\n_worker: novelty_classify_\n\n**Step 4 of 6** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Triggered by call:** `2e87e58c\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l874` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-dispatch-novelty-classify-l1177` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-receipt-novelty-classify-l1178` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-09-008` (iteration) \u2014 **produced**\n",
     "stage-iter-2026-06-09-008-critic-loop-v0-1": "# Critique \u2014 iter-2026-06-09-008 (step 5)\n\n_worker: critic_loop_v0_\n\n**Step 5 of 6** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now subject the hypothesis to a rigorous critique to see if the retrieved literature provides any evidence that could falsify the proposed mechanism.\n\n**Triggered by call:** `a5367515\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l877` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-dispatch-critic-loop-v0-l1180` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-receipt-critic-loop-v0-l1181` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-09-008` (iteration) \u2014 **produced**\n",
     "stage-iter-2026-06-09-008-journal-writer-1": "# Journal \u2014 iter-2026-06-09-008 (step 6)\n\n_worker: journal_writer_\n\n**Step 6 of 6** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Triggered by call:** `cc1119f3\u2026`\n\n## Links\n\n- **derived_from** \u2192 `apparatus-calls-l878` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-dispatch-journal-writer-l1182` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-09-008-loop-v0-tool-receipt-journal-writer-l1183` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-09-008` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-10-001-hypothesize-1": "# Hypothesize \u2014 iter-2026-06-10-001 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating a specific research hypothesis based on your topic to establish a formal direction for the investigation.\n\n**Triggered by call:** `9c1128ee\u2026`\n\n## Links\n\n- **derived_from** \u2192 `event-iter-2026-06-10-001-loop-v0-tool-dispatch-hypothesize-l1197` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-10-001-loop-v0-tool-receipt-hypothesize-l1199` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-10-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-10-001-retrieve-literature-1": "# Retrieve \u2014 iter-2026-06-10-001 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `eb2ac03e\u2026`\n\n## Links\n\n- **derived_from** \u2192 `event-iter-2026-06-10-001-loop-v0-tool-dispatch-retrieve-literature-l1211` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-10-001-loop-v0-tool-receipt-retrieve-literature-l1213` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-10-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-10-001-novelty-classify-1": "# Novelty \u2014 iter-2026-06-10-001 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved 10 relevant documents, including foundational game theory texts and recent arXiv papers on LLM-based strategic interactions, to provide context for the hypothesis. Now, I will classify the novelty of the hypothesis by comparing it to these retrieved works.\n\n**Triggered by call:** `81bf2a70\u2026`\n\n## Links\n\n- **derived_from** \u2192 `event-iter-2026-06-10-001-loop-v0-tool-dispatch-novelty-classify-l1215` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-10-001-loop-v0-tool-receipt-novelty-classify-l1217` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-10-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-10-001-critic-loop-v0-1": "# Critique \u2014 iter-2026-06-10-001 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `23b3bfaa\u2026`\n\n## Links\n\n- **derived_from** \u2192 `event-iter-2026-06-10-001-loop-v0-tool-dispatch-critic-loop-v0-l1219` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-10-001-loop-v0-tool-receipt-critic-loop-v0-l1223` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-10-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-10-001-journal-writer-1": "# Journal \u2014 iter-2026-06-10-001 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now synthesize all the findings\u2014the hypothesis, the literature retrieval, the novelty classification, and the critique\u2014into a final markdown journal entry.\n\n**Triggered by call:** `93d7353b\u2026`\n\n## Links\n\n- **derived_from** \u2192 `event-iter-2026-06-10-001-loop-v0-tool-dispatch-journal-writer-l1226` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-10-001-loop-v0-tool-receipt-journal-writer-l1228` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-10-001` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-10-002-hypothesize-1": "# Hypothesize \u2014 iter-2026-06-10-002 (step 1)\n\n_worker: hypothesize_\n\n**Step 1 of 5** \u2014 tool `hypothesize` (Hypothesize)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will begin by generating a specific research hypothesis based on your topic to establish a formal direction for the investigation.\n\n**Triggered by call:** `c502cb94\u2026`\n\n## Links\n\n- **derived_from** \u2192 `event-iter-2026-06-10-002-loop-v0-tool-dispatch-hypothesize-l1235` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-10-002-loop-v0-tool-receipt-hypothesize-l1237` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-10-002` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-10-002-retrieve-literature-1": "# Retrieve \u2014 iter-2026-06-10-002 (step 2)\n\n_worker: retrieve_literature_\n\n**Step 2 of 5** \u2014 tool `retrieve_literature` (Retrieve)\n\n**Status:** passed\n\n**Triggered by call:** `93fb34df\u2026`\n\n## Links\n\n- **derived_from** \u2192 `event-iter-2026-06-10-002-loop-v0-tool-dispatch-retrieve-literature-l1249` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-10-002-loop-v0-tool-receipt-retrieve-literature-l1251` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-10-002` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-10-002-novelty-classify-1": "# Novelty \u2014 iter-2026-06-10-002 (step 3)\n\n_worker: novelty_classify_\n\n**Step 3 of 5** \u2014 tool `novelty_classify` (Novelty)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI have retrieved the relevant literature, which includes foundational texts on repeated games and evolutionary game theory, as well as recent arXiv papers on algorithmic pricing and convergence in Bertrand competition. Now, I will classify the novelty of the hypothesis by comparing it to these retrieved works.\n\n**Triggered by call:** `cdf33d70\u2026`\n\n## Links\n\n- **derived_from** \u2192 `event-iter-2026-06-10-002-loop-v0-tool-dispatch-novelty-classify-l1257` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-10-002-loop-v0-tool-receipt-novelty-classify-l1259` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-10-002` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-10-002-critic-loop-v0-1": "# Critique \u2014 iter-2026-06-10-002 (step 4)\n\n_worker: critic_loop_v0_\n\n**Step 4 of 5** \u2014 tool `critic_loop_v0` (Critique)\n\n**Status:** passed\n\n**Triggered by call:** `3c083c3e\u2026`\n\n## Links\n\n- **derived_from** \u2192 `event-iter-2026-06-10-002-loop-v0-tool-dispatch-critic-loop-v0-l1261` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-10-002-loop-v0-tool-receipt-critic-loop-v0-l1265` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-10-002` (iteration) \u2014 **produced**\n",
+    "stage-iter-2026-06-10-002-journal-writer-1": "# Journal \u2014 iter-2026-06-10-002 (step 5)\n\n_worker: journal_writer_\n\n**Step 5 of 5** \u2014 tool `journal_writer` (Journal)\n\n**Status:** passed\n\n**Reasoning (Nara's prose before this step):**\n\nI will now compile all the findings\u2014the hypothesis, the novelty assessment, and the critic's verdict\u2014into a structured markdown journal entry.\n\n**Triggered by call:** `a4bfa5bc\u2026`\n\n## Links\n\n- **derived_from** \u2192 `event-iter-2026-06-10-002-loop-v0-tool-dispatch-journal-writer-l1268` (apparatus_event)\n- **derived_from** \u2192 `event-iter-2026-06-10-002-loop-v0-tool-receipt-journal-writer-l1270` (apparatus_event)\n\n## Referenced by\n\n- `iter-2026-06-10-002` (iteration) \u2014 **produced**\n",
     "harvest-h001-l1": "# H001 \u2014 run-log:confirmed\n\n_week1.run.jsonl L2 task=preflight_credentials_staged_\n\n**Source skill:** `run-log`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L2 task=preflight_credentials_staged\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** A failed step is logged with full rigor: status=failed, observable_actual names all 5 missing credentials. Matches run-log's 'log the failure too'.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n- **observed_in** \u2192 `runlog-day-1-preflight-credentials-staged-l2` (run_log_entry)\n",
     "harvest-h001-l2": "# H001 \u2014 run-log:confirmed\n\n_week1.run.jsonl L2->L3 task=preflight_credentials_staged_\n\n**Source skill:** `run-log`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L2->L3 task=preflight_credentials_staged\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** The task fails (L2) then passes on re-run (L3) as a new appended entry; the failed entry is never edited. Matches run-log's 'append only \u2014 a correction is a new entry'.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n- **observed_in** \u2192 `runlog-day-1-preflight-credentials-staged-l2` (run_log_entry)\n- **observed_in** \u2192 `runlog-day-1-preflight-credentials-staged-l3` (run_log_entry)\n",
     "harvest-h001-l3": "# H001 \u2014 run-log:confirmed\n\n_week1.run.jsonl L5 task=state_transition_\n\n**Source skill:** `run-log`\n\n**Class:** confirmed\n\n**Ref:** week1.run.jsonl L5 task=state_transition\n\n**Source project:** a_bgt_rsi\n\n**Evidence:** A state transition (gate cleared, task moved to completed_tasks) is logged as its own standalone entry, not buried in another task's line. Matches run-log's 'state transitions get their own entries'.\n\n## Links\n\n- **about** \u2192 `skill-run-log` (skill)\n- **observed_in** \u2192 `runlog-day-1-state-transition-l5` (run_log_entry)\n",
@@ -24364,6 +24892,7 @@ window.BRAIN_GRAPH = {
     "proposal-p-008": "# P-008 \u2014 Adopt run-log `agent` attribution in a_bgt_rsi (reconcile inviolate rule 6) so unattended multi-agent runs are reconstructible\n\n_agent: claude-code-main_\n\n**Verdict:** `open`\n\n**Target:** skill \u2192 `run-log`\n\n**Change:** Consumer-side adoption of the post-S24a run-log schema (framework FR-003): (1) amend a_bgt_rsi inviolate rule 6 to ADD a required `agent` field and accept optional `skill_used` \u2014 the 6-field schema becomes a minimum, not a ceiling; (2) emit two first-class run.jsonl entries per Dynamic-Workflow build agent (start + finish), each carrying agent='workflow:wf_xxx/<role>'; (3) record the bump in DECISIONS.md (both repos) linking framework commit 2690b5b. Framework side already shipped: run-log SKILL.md requires `agent`, rules.md FR-003 codifies it, the projector reads it at ingest. HUMAN-GATED: rule 6 is inviolate -> requires human attestation (see handoffs/2026-06-09-a_bgt_rsi-skill-invocation-handoff.md, P0 item 2).\n\n**Reasoning:** 2026-06-09 skill-alignment review (28/31 held): consumer run-log has `agent` populated 0/1004 and the 12 Dynamic-Workflow rows are anonymous (all agent:None, week1.run.jsonl L886-981), so an unattended D-040 Nara workflow's limbs are not reconstructible \u2014 you see that the workflow ran, not which agent did what or where a step failed. D-037 rule 5 already asks for per-agent start+finish entries; this closes the gap before D-040 autonomy. Corrects the review's own briefing error: there is NO pre-existing proposal (the cited prop-82537922 does not exist) \u2014 this is the first. Routed to human-review: it edits an inviolate consumer rule.\n\n**References:** `run-log`, `rules.md:FR-003`, `a_bgt_rsi/CLAUDE.md:151`, `2690b5b`, `handoffs/2026-06-09-a_bgt_rsi-skill-invocation-handoff.md`\n\n## Links\n\n- **targets** \u2192 `skill-run-log` (skill)\n",
     "proposal-p-009": "# P-009 \u2014 A discriminative gate/threshold calibrated on a single observed failure instance is brittle \u2014 calibrate + regression-test against a varied/adversarial labelled set\n\n_agent: primary-session/integrator_\n\n**Verdict:** `open`\n\n**Target:** brain \u2192 `gate-calibration-discipline`\n\n**Change:** Add a brain methodology note: when adding a gate/threshold to catch an observed failure mode, do NOT calibrate it on that single instance. A gate tuned to one example over-fits the example's surface features and is defeated by a variant. Calibrate against a labelled set spanning the failure mode (including adversarial/camouflaged variants) and keep that set as a standing regression battery re-run whenever the gate changes.\n\n**Reasoning:** 2026-06-09 a_bgt_rsi validation session, empirically demonstrated. The retrieval_relevance low-confidence gate (the 2026-06-09 critic-honesty fix) was calibrated on ONE bug instance (iter-2026-06-09-001, FASE off-domain, mean lexical overlap 0.043) with threshold 0.05. The lit-falsification battery (13 labelled cases, real Gemma) showed it is DEFEATED by an off-domain hypothesis phrased with on-domain vocabulary (fase_off_01 overlap 0.127) and by corpus drift (fase_off_02 retrieved ML-arXiv papers, overlap 0.193) -> gate recall 0/2 on off-domain, the FASE-class survives bug recurs. The gate keys on surface lexical overlap, not semantic topicality, because it was fit to a single instance. The battery is now the standing regression set; the apparatus fix (semantic topicality signal + critic restatement-detection + corpus de-drift) is tracked in a_bgt_rsi human/sessions/2026-06-09-validation.md. Generalizable beyond this gate: same risk for any single-instance-tuned validation threshold.\n\n**References:** `demo1_lit_falsification_real_run`, `retrieval_relevance`, `iter-2026-06-09-001`, `a_bgt_rsi/experiments/lit_falsification_battery`, `a_bgt_rsi/human/sessions/2026-06-09-validation.md`\n",
     "proposal-p-010": "# P-010 \u2014 Sequence code-review BEFORE the first expensive real-model measurement\n\n_agent: claude-code-main_\n\n**Verdict:** `open`\n\n**Target:** skill \u2192 `code-review`\n\n**Change:** Add to the code-review skill's 'When to use': when a change feeds an expensive measurement (a real-model battery, a long experiment run), run the review BEFORE launching the measurement \u2014 a reviewer-caught blocker invalidates the measurement, not just the code. Parallelizing review with the measurement only saves time when the review is clean.\n\n**Reasoning:** 2026-06-09 evening (a_bgt_rsi): the review ran in parallel with a ~20-min real battery; it caught a blocker (R0 topicality silently dead via a dict-shaped test stub) that made the in-flight measurement meaningless \u2014 killed and re-run. The 1041-test-green suite missed it; only adversarial review caught it. Sequencing review first would have cost ~10 min of wall and saved a full GPU run.\n\n**References:** `session-2026-06-09-evening`, `D-045`\n\n## Links\n\n- **targets** \u2192 `skill-code-review` (skill)\n",
+    "proposal-p-011": "# P-011 \u2014 Env-gated stubs must be asserted per-shell, not assumed from the interactive default\n\n_agent: claude-code-main_\n\n**Verdict:** `open`\n\n**Target:** rule \u2192 `mock-llm-discipline`\n\n**Change:** Where a project gates real-model behavior on an env var set in the human's interactive shell (a_bgt_rsi: MOCK_LLM=1), every NON-interactive invocation (pytest, agent shells, cron) must set it EXPLICITLY (e.g. `MOCK_LLM=1 pytest ...`), and session startup should verify with `env | grep` rather than trusting a memory note. Consider adding the assertion to the resume-state/gate-check preflight.\n\n**Reasoning:** 2026-06-10 (a_bgt_rsi): MOCK_LLM=1 lives in the interactive shell only; Claude Code's non-interactive bash had it UNSET, so the test suite silently made REAL Gemma calls via orchestrator/topicality.py during pytest runs and stamped them with a stale fixture run_id (rows landed in the canonical logs/calls.jsonl). The standing memory note ('MOCK_LLM=1 is set in the user's shell by default') was true for the interactive shell and false for every shell that matters to automation. Found while building the D-048 no-live-artifacts guard; the zero-delta check exposed +5 rows.\n",
     "rule-fr-001": "# FR-001 \u2014 Treat 100% metrics in small-N tests as suspicious-clean\n\n_framework active rule_\n\n- **Imperative:** Default to disbelieving small-N clean reads; raise N or\nsoften the prompt before trusting.\n- **Source decision:** `2026-05-24` (2026-05-24)\n- **Supersedes:** none\n\n## Referenced by\n\n- `dec-fw-2026-05-24-treat-100-metrics-in-small-n` (correction) \u2014 **enacts**\n- `proposal-p-002` (proposal) \u2014 **auto_rejected_by**\n",
     "rule-fr-002": "# FR-002 \u2014 Reconcile state-file lag against run-log during gate-armed periods\n\n_framework active rule_\n\n- **Imperative:** Trust the run log over the state file when they disagree\nacross a gate-armed period.\n- **Source decision:** `2026-05-24` (2026-05-24)\n- **Supersedes:** none \u2014 extends [[resume-state]] step 5.\n\n## Referenced by\n\n- `dec-fw-2026-05-24-reconcile-state-file-lag-against-run-log` (correction) \u2014 **enacts**\n",
     "rule-fr-003": "# FR-003 \u2014 run-log schema: agent (required) and skill_used (optional)\n\n_framework active rule_\n\n- **Imperative:** Extend the canonical run-log entry shape with two new fields:\n`agent` (required) \u2014 the entity that ran the step (e.g. `nara`,\n`claude-code-main`, `human:<id>`); and `skill_used` (optional) \u2014 the framework\nskill this step is part of (e.g. `validate`, `fallback`), present only when\nthe entry is a skill invocation. Anonymous-by-task-id logs prevent the brain\nfrom attributing skill use to a specific actor, which breaks the\n`harvest \u2192 propose \u2192 rule` self-improvement loop the framework exists to run.\nExisting entries (137 framework + 281 consumer) are unrewritten \u2014 append-only\nhonored \u2014 and projected via per-file canonicalization at read time\n(`framework.run.jsonl` \u2192 claude-code-main, `week1.run.jsonl` \u2192 nara, etc.).\n- **Source decision:** `2026-05-27` (2026-05-27)\n- **Supersedes:** none \u2014 extends the [[run-log]] entry shape that was last\n\n## Apparatus rules\n\n_No `**Correction:**`-flagged decisions in apparatus decision log._\n\n## Referenced by\n\n- `dec-fw-2026-05-27-run-log-schema-agent-required-and` (correction) \u2014 **enacts**\n",
@@ -24374,7 +24903,7 @@ window.BRAIN_GRAPH = {
     "skill-context-save": "# context-save \u2014 Layer C / meta\n\n_dev-time_\n\n**Layer:** C\n\n**Pack:** meta\n\n**Runtime safety:** dev-time\n\n**Description:** Save the current working session to durable memory before ending or switching tasks. Use when wrapping up, hitting a context limit, or pausing work \u2014 writes a handoff snapshot so the next session resumes without re-deriving everything.\n",
     "skill-decision-log": "# decision-log \u2014 Layer C / meta\n\n_dev-time_\n\n**Layer:** C\n\n**Pack:** meta\n\n**Runtime safety:** dev-time\n\n**Description:** Record a durable decision so its reasoning survives. Use when a non-obvious, hard-to-reverse, or contested choice is made \u2014 captures the decision, the alternatives considered, the rationale, the reversibility, and any supersedes-link as one append-only dated entry.\n\n## Referenced by\n\n- `harvest-h002-l25` (harvest_finding) \u2014 **about**\n- `harvest-h005-l35` (harvest_finding) \u2014 **about**\n- `harvest-h007-l41` (harvest_finding) \u2014 **about**\n",
     "skill-experiment": "# experiment \u2014 Layer B / research\n\n_dev-time_\n\n**Layer:** B\n\n**Pack:** research\n\n**Runtime safety:** dev-time\n\n**Description:** Log a research experiment run so it is traceable and comparable. Use when starting or finishing a training run, evaluation, or ablation \u2014 captures config, seed, data version, code commit, metrics, and artifact location into the experiment ledger.\n\n## Referenced by\n\n- `harvest-h002-l21` (harvest_finding) \u2014 **about**\n",
-    "skill-fallback": "# fallback \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Select a fallback path when the primary approach fails or exceeds its time budget. Use when a task has a known alternative \u2014 applies a time cap, makes the switch explicit, logs the selection, and never lets a degraded path masquerade as the primary.\n\n## Referenced by\n\n- `harvest-h002-l13` (harvest_finding) \u2014 **about**\n- `harvest-h002-l14` (harvest_finding) \u2014 **about**\n- `harvest-h005-l32` (harvest_finding) \u2014 **about**\n",
+    "skill-fallback": "# fallback \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Select a fallback path when the primary approach fails or exceeds its time budget. Use when a task has a known alternative \u2014 applies a time cap, makes the switch explicit, logs the selection, and never lets a degraded path masquerade as the primary.\n\n## Referenced by\n\n- `harvest-h002-l13` (harvest_finding) \u2014 **about**\n- `harvest-h002-l14` (harvest_finding) \u2014 **about**\n- `harvest-h005-l32` (harvest_finding) \u2014 **about**\n- `spawn-sp-004` (spawn) \u2014 **uses**\n",
     "skill-gate-check": "# gate-check \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Check for human gates, human-only tasks, and blocking conditions before a consequential action. Use before executing any plan step, irreversible operation, publication, or anything that may need human approval \u2014 it halts and prints rather than proceeding past a gate.\n\n## Referenced by\n\n- `harvest-h001-l5` (harvest_finding) \u2014 **about**\n- `harvest-h001-l6` (harvest_finding) \u2014 **about**\n- `harvest-h002-l8` (harvest_finding) \u2014 **about**\n- `harvest-h002-l9` (harvest_finding) \u2014 **about**\n- `harvest-h005-l34` (harvest_finding) \u2014 **about**\n- `harvest-h006-l36` (harvest_finding) \u2014 **about**\n- `harvest-h007-l40` (harvest_finding) \u2014 **about**\n",
     "skill-harvest": "# harvest \u2014 Layer C / meta\n\n_dev-time_\n\n**Layer:** C\n\n**Pack:** meta\n\n**Runtime safety:** dev-time\n\n**Description:** Harvest feedback for the framework's own skills from a consumer project's execution trace. Use once per consumer work session \u2014 reads the consumer's run log, git history, and decision log since a stored watermark, classifies each finding against the skill it bears on, and appends to the feedback ledger. Read-only on the consumer.\n",
     "skill-health": "# health \u2014 Layer B / research\n\n_dev-time_\n\n**Layer:** B\n\n**Pack:** research\n\n**Runtime safety:** dev-time\n\n**Description:** Assess overall code and project health. Use for a periodic checkup or when a codebase feels like it is drifting \u2014 surveys tests, structure, dependencies, dead code, and reproducibility hygiene, then reports a prioritized snapshot.\n",
@@ -24386,17 +24915,19 @@ window.BRAIN_GRAPH = {
     "skill-repro-check": "# repro-check \u2014 Layer B / research\n\n_dev-time_\n\n**Layer:** B\n\n**Pack:** research\n\n**Runtime safety:** dev-time\n\n**Description:** Verify a result is reproducible before it is trusted or shipped. Use before adopting an experiment outcome, citing a number, or merging a results-changing diff \u2014 checks seeds, data versions, environment pinning, and run-to-run variance.\n\n## Referenced by\n\n- `harvest-h002-l22` (harvest_finding) \u2014 **about**\n- `harvest-h003-l29` (harvest_finding) \u2014 **about**\n",
     "skill-resume-state": "# resume-state \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Resume a plan-driven project from its state file. Use at the start of a session on a project that executes a written plan task-by-task \u2014 reads the plan and state file, finds the first incomplete task, honors pending gates, and briefs before continuing.\n\n## Referenced by\n\n- `harvest-h002-l7` (harvest_finding) \u2014 **about**\n- `harvest-h006-l37` (harvest_finding) \u2014 **about**\n",
     "skill-review-proposal": "# review-proposal \u2014 Layer B / brain\n\n_dev-time_\n\n**Layer:** B\n\n**Pack:** brain\n\n**Runtime safety:** dev-time\n\n**Description:** Evaluate a [[propose]]'d proposal against active rules and route it to accept, reject, or human-review. Use when there are `open` entries in `memory/brain/proposals.jsonl`. Auto-rejects rule violations; auto-accepts trivial brain-content edits; everything else goes to human review.\n",
-    "skill-run-log": "# run-log \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Append a structured JSONL entry recording an executed step. Use after running any plan task, experiment, validation, or significant action that should be auditable \u2014 captures timestamp, identity, status, observed vs expected, and duration to an append-only log.\n\n## Referenced by\n\n- `harvest-h001-l1` (harvest_finding) \u2014 **about**\n- `harvest-h001-l2` (harvest_finding) \u2014 **about**\n- `harvest-h001-l3` (harvest_finding) \u2014 **about**\n- `harvest-h001-l4` (harvest_finding) \u2014 **about**\n- `harvest-h003-l28` (harvest_finding) \u2014 **about**\n- `harvest-h005-l30` (harvest_finding) \u2014 **about**\n- `harvest-h005-l31` (harvest_finding) \u2014 **about**\n- `harvest-h007-l38` (harvest_finding) \u2014 **about**\n- `proposal-p-008` (proposal) \u2014 **targets**\n- `spawn-sp-001` (spawn) \u2014 **uses**\n- `spawn-sp-002` (spawn) \u2014 **uses**\n",
+    "skill-run-log": "# run-log \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Append a structured JSONL entry recording an executed step. Use after running any plan task, experiment, validation, or significant action that should be auditable \u2014 captures timestamp, identity, status, observed vs expected, and duration to an append-only log.\n\n## Referenced by\n\n- `harvest-h001-l1` (harvest_finding) \u2014 **about**\n- `harvest-h001-l2` (harvest_finding) \u2014 **about**\n- `harvest-h001-l3` (harvest_finding) \u2014 **about**\n- `harvest-h001-l4` (harvest_finding) \u2014 **about**\n- `harvest-h003-l28` (harvest_finding) \u2014 **about**\n- `harvest-h005-l30` (harvest_finding) \u2014 **about**\n- `harvest-h005-l31` (harvest_finding) \u2014 **about**\n- `harvest-h007-l38` (harvest_finding) \u2014 **about**\n- `proposal-p-008` (proposal) \u2014 **targets**\n- `spawn-sp-001` (spawn) \u2014 **uses**\n- `spawn-sp-002` (spawn) \u2014 **uses**\n- `spawn-sp-003` (spawn) \u2014 **uses**\n- `spawn-sp-004` (spawn) \u2014 **uses**\n",
     "skill-ship": "# ship \u2014 Layer B / research\n\n_dev-time_\n\n**Layer:** B\n\n**Pack:** research\n\n**Runtime safety:** dev-time\n\n**Description:** Take a finished change from working code to a merged or PR-ready state. Use after review passes \u2014 runs tests, sanity-checks the diff, writes the commit/PR message, and records the decision.\n\n## Referenced by\n\n- `harvest-h002-l18` (harvest_finding) \u2014 **about**\n- `harvest-h002-l19` (harvest_finding) \u2014 **about**\n- `harvest-h002-l20` (harvest_finding) \u2014 **about**\n",
     "skill-slip-ladder": "# slip-ladder \u2014 Layer B / core\n\n_dev-time_\n\n**Layer:** B\n\n**Pack:** core\n\n**Runtime safety:** dev-time\n\n**Description:** Declare a bounded sequence of deadline extensions when a task is on the right approach but not finishing inside its time budget. Use when [[fallback]] does not fit because there is no alternative approach to switch to \u2014 only \"more time, same approach, with a stated cap\". Each slip is logged; the cap is real; resolution criterion is declared upfront.\n\n## Referenced by\n\n- `proposal-p-003` (proposal) \u2014 **targets**\n",
     "skill-spawn-contract": "# spawn-contract \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Spawn an autonomous child agent under an explicit, bounded contract. Use when a parent agent (dev-time or runtime) hands a task to a child that will execute without a human in the loop \u2014 captures task statement, done-condition, skill subset, authority cap, budget, self-gating rules, reporting format, and escalation path into one durable record before the child is launched.\n\n## Referenced by\n\n- `proposal-p-004` (proposal) \u2014 **targets**\n",
-    "skill-validate": "# validate \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Run a validation as a set of independent pass/fail checks. Use when a task or experiment defines explicit success criteria \u2014 checks each signal separately, reports pass or fail honestly, and never coerces a near-miss into a pass.\n\n## Referenced by\n\n- `harvest-h002-l10` (harvest_finding) \u2014 **about**\n- `harvest-h002-l11` (harvest_finding) \u2014 **about**\n- `harvest-h002-l12` (harvest_finding) \u2014 **about**\n- `harvest-h003-l26` (harvest_finding) \u2014 **about**\n- `harvest-h003-l27` (harvest_finding) \u2014 **about**\n- `harvest-h007-l39` (harvest_finding) \u2014 **about**\n- `spawn-sp-001` (spawn) \u2014 **uses**\n- `spawn-sp-002` (spawn) \u2014 **uses**\n",
-    "agent-nara": "# Agent \u2014 nara\n\n_5714 narratives across 15 raw label(s)_\n\n**Canonical agent id:** `nara`\n\n**Raw labels seen in narratives:** nara, nara.run_iteration, nara:loop_v0_fallback, nara:loop_v0_iteration_complete, nara:loop_v0_iteration_failed, nara:loop_v0_iteration_start, nara:loop_v0_ml_intern, nara:loop_v0_redteam_retry, nara:loop_v0_reprompt, nara:loop_v0_tool_dispatch, nara:loop_v0_tool_receipt, orchestrator:orchestrator_dispatch, orchestrator:orchestrator_receipt, orchestrator:orchestrator_reject, orchestrator:worker_invocation\n\n**Total narratives:** 5714\n\n**First seen:** 2026-05-17\n\n## Links\n\n- **ran** \u2192 `iter-2026-05-26-001` (iteration)\n- **ran** \u2192 `iter-2026-05-26-002` (iteration)\n- **ran** \u2192 `iter-2026-05-26-003` (iteration)\n- **ran** \u2192 `iter-2026-05-26-004` (iteration)\n- **ran** \u2192 `iter-2026-05-26-005` (iteration)\n- **ran** \u2192 `iter-2026-05-26-006` (iteration)\n- **ran** \u2192 `iter-2026-05-26-007` (iteration)\n- **ran** \u2192 `iter-2026-05-26-008` (iteration)\n- **ran** \u2192 `iter-2026-05-26-009` (iteration)\n- **ran** \u2192 `iter-2026-05-26-010` (iteration)\n- **ran** \u2192 `iter-2026-05-26-011` (iteration)\n- **ran** \u2192 `iter-2026-05-27-001` (iteration)\n- **ran** \u2192 `iter-2026-05-27-002` (iteration)\n- **ran** \u2192 `iter-2026-05-27-003` (iteration)\n- **ran** \u2192 `iter-2026-05-27-004` (iteration)\n- **ran** \u2192 `iter-2026-05-27-005` (iteration)\n- **ran** \u2192 `iter-2026-05-27-006` (iteration)\n- **ran** \u2192 `iter-2026-05-27-007` (iteration)\n- **ran** \u2192 `iter-2026-05-27-008` (iteration)\n- **ran** \u2192 `iter-2026-05-27-009` (iteration)\n- **ran** \u2192 `iter-2026-05-27-010` (iteration)\n- **ran** \u2192 `iter-2026-05-27-011` (iteration)\n- **ran** \u2192 `iter-2026-05-27-012` (iteration)\n- **ran** \u2192 `iter-2026-05-27-013` (iteration)\n- **ran** \u2192 `iter-2026-05-27-014` (iteration)\n- **ran** \u2192 `iter-2026-05-27-015` (iteration)\n- **ran** \u2192 `iter-2026-05-27-016` (iteration)\n- **ran** \u2192 `iter-2026-05-27-017` (iteration)\n- **ran** \u2192 `iter-2026-05-27-018` (iteration)\n- **ran** \u2192 `iter-2026-05-27-019` (iteration)\n- **ran** \u2192 `iter-2026-05-27-020` (iteration)\n- **ran** \u2192 `iter-2026-05-27-021` (iteration)\n- **ran** \u2192 `iter-2026-05-27-022` (iteration)\n- **ran** \u2192 `iter-2026-05-27-023` (iteration)\n- **ran** \u2192 `iter-2026-05-27-024` (iteration)\n- **ran** \u2192 `iter-2026-05-27-025` (iteration)\n- **ran** \u2192 `iter-2026-05-27-026` (iteration)\n- **ran** \u2192 `iter-2026-05-27-027` (iteration)\n- **ran** \u2192 `iter-2026-05-27-028` (iteration)\n- **ran** \u2192 `iter-2026-06-05-001` (iteration)\n- **ran** \u2192 `iter-2026-06-05-002` (iteration)\n- **ran** \u2192 `iter-2026-06-05-003` (iteration)\n- **ran** \u2192 `iter-2026-06-05-004` (iteration)\n- **ran** \u2192 `iter-2026-06-05-005` (iteration)\n- **ran** \u2192 `iter-2026-06-05-006` (iteration)\n- **ran** \u2192 `iter-2026-06-06-001` (iteration)\n- **ran** \u2192 `iter-2026-06-08-001` (iteration)\n- **ran** \u2192 `iter-2026-06-09-001` (iteration)\n- **ran** \u2192 `iter-2026-06-09-002` (iteration)\n- **ran** \u2192 `iter-2026-06-09-003` (iteration)\n- **ran** \u2192 `iter-2026-06-09-004` (iteration)\n- **ran** \u2192 `iter-2026-06-09-005` (iteration)\n- **ran** \u2192 `iter-2026-06-09-006` (iteration)\n- **ran** \u2192 `iter-2026-06-09-007` (iteration)\n- **ran** \u2192 `iter-2026-06-09-008` (iteration)\n",
+    "skill-validate": "# validate \u2014 Layer A / core\n\n_runtime-safe_\n\n**Layer:** A\n\n**Pack:** core\n\n**Runtime safety:** runtime-safe\n\n**Description:** Run a validation as a set of independent pass/fail checks. Use when a task or experiment defines explicit success criteria \u2014 checks each signal separately, reports pass or fail honestly, and never coerces a near-miss into a pass.\n\n## Referenced by\n\n- `harvest-h002-l10` (harvest_finding) \u2014 **about**\n- `harvest-h002-l11` (harvest_finding) \u2014 **about**\n- `harvest-h002-l12` (harvest_finding) \u2014 **about**\n- `harvest-h003-l26` (harvest_finding) \u2014 **about**\n- `harvest-h003-l27` (harvest_finding) \u2014 **about**\n- `harvest-h007-l39` (harvest_finding) \u2014 **about**\n- `spawn-sp-001` (spawn) \u2014 **uses**\n- `spawn-sp-002` (spawn) \u2014 **uses**\n- `spawn-sp-003` (spawn) \u2014 **uses**\n- `spawn-sp-004` (spawn) \u2014 **uses**\n",
+    "agent-nara": "# Agent \u2014 nara\n\n_6105 narratives across 16 raw label(s)_\n\n**Canonical agent id:** `nara`\n\n**Raw labels seen in narratives:** nara, nara.run_iteration, nara:loop_v0_active_step, nara:loop_v0_fallback, nara:loop_v0_iteration_complete, nara:loop_v0_iteration_failed, nara:loop_v0_iteration_start, nara:loop_v0_ml_intern, nara:loop_v0_redteam_retry, nara:loop_v0_reprompt, nara:loop_v0_tool_dispatch, nara:loop_v0_tool_receipt, orchestrator:orchestrator_dispatch, orchestrator:orchestrator_receipt, orchestrator:orchestrator_reject, orchestrator:worker_invocation\n\n**Total narratives:** 6105\n\n**First seen:** 2026-05-17\n\n## Links\n\n- **ran** \u2192 `iter-2026-05-26-001` (iteration)\n- **ran** \u2192 `iter-2026-05-26-002` (iteration)\n- **ran** \u2192 `iter-2026-05-26-003` (iteration)\n- **ran** \u2192 `iter-2026-05-26-004` (iteration)\n- **ran** \u2192 `iter-2026-05-26-005` (iteration)\n- **ran** \u2192 `iter-2026-05-26-006` (iteration)\n- **ran** \u2192 `iter-2026-05-26-007` (iteration)\n- **ran** \u2192 `iter-2026-05-26-008` (iteration)\n- **ran** \u2192 `iter-2026-05-26-009` (iteration)\n- **ran** \u2192 `iter-2026-05-26-010` (iteration)\n- **ran** \u2192 `iter-2026-05-26-011` (iteration)\n- **ran** \u2192 `iter-2026-05-27-001` (iteration)\n- **ran** \u2192 `iter-2026-05-27-002` (iteration)\n- **ran** \u2192 `iter-2026-05-27-003` (iteration)\n- **ran** \u2192 `iter-2026-05-27-004` (iteration)\n- **ran** \u2192 `iter-2026-05-27-005` (iteration)\n- **ran** \u2192 `iter-2026-05-27-006` (iteration)\n- **ran** \u2192 `iter-2026-05-27-007` (iteration)\n- **ran** \u2192 `iter-2026-05-27-008` (iteration)\n- **ran** \u2192 `iter-2026-05-27-009` (iteration)\n- **ran** \u2192 `iter-2026-05-27-010` (iteration)\n- **ran** \u2192 `iter-2026-05-27-011` (iteration)\n- **ran** \u2192 `iter-2026-05-27-012` (iteration)\n- **ran** \u2192 `iter-2026-05-27-013` (iteration)\n- **ran** \u2192 `iter-2026-05-27-014` (iteration)\n- **ran** \u2192 `iter-2026-05-27-015` (iteration)\n- **ran** \u2192 `iter-2026-05-27-016` (iteration)\n- **ran** \u2192 `iter-2026-05-27-017` (iteration)\n- **ran** \u2192 `iter-2026-05-27-018` (iteration)\n- **ran** \u2192 `iter-2026-05-27-019` (iteration)\n- **ran** \u2192 `iter-2026-05-27-020` (iteration)\n- **ran** \u2192 `iter-2026-05-27-021` (iteration)\n- **ran** \u2192 `iter-2026-05-27-022` (iteration)\n- **ran** \u2192 `iter-2026-05-27-023` (iteration)\n- **ran** \u2192 `iter-2026-05-27-024` (iteration)\n- **ran** \u2192 `iter-2026-05-27-025` (iteration)\n- **ran** \u2192 `iter-2026-05-27-026` (iteration)\n- **ran** \u2192 `iter-2026-05-27-027` (iteration)\n- **ran** \u2192 `iter-2026-05-27-028` (iteration)\n- **ran** \u2192 `iter-2026-06-05-001` (iteration)\n- **ran** \u2192 `iter-2026-06-05-002` (iteration)\n- **ran** \u2192 `iter-2026-06-05-003` (iteration)\n- **ran** \u2192 `iter-2026-06-05-004` (iteration)\n- **ran** \u2192 `iter-2026-06-05-005` (iteration)\n- **ran** \u2192 `iter-2026-06-05-006` (iteration)\n- **ran** \u2192 `iter-2026-06-06-001` (iteration)\n- **ran** \u2192 `iter-2026-06-08-001` (iteration)\n- **ran** \u2192 `iter-2026-06-09-001` (iteration)\n- **ran** \u2192 `iter-2026-06-09-002` (iteration)\n- **ran** \u2192 `iter-2026-06-09-003` (iteration)\n- **ran** \u2192 `iter-2026-06-09-004` (iteration)\n- **ran** \u2192 `iter-2026-06-09-005` (iteration)\n- **ran** \u2192 `iter-2026-06-09-006` (iteration)\n- **ran** \u2192 `iter-2026-06-09-007` (iteration)\n- **ran** \u2192 `iter-2026-06-09-008` (iteration)\n- **ran** \u2192 `iter-2026-06-10-001` (iteration)\n- **ran** \u2192 `iter-2026-06-10-002` (iteration)\n",
     "agent-day9-critic": "# Agent \u2014 day9_critic\n\n_60 narratives across 21 raw label(s)_\n\n**Canonical agent id:** `day9_critic`\n\n**Raw labels seen in narratives:** day9_critic, day9_critic_001_spurious_causation_pd_length, day9_critic_002_prompt_leakage_cooperation, day9_critic_003_misspecified_payoff, day9_critic_004_sample_size_insufficient, day9_critic_005_post_hoc_rationale, day9_critic_006_overgeneralization, day9_critic_007_selection_bias, day9_critic_008_confounded_treatment, day9_critic_009_measurement_artifact, day9_critic_010_circular_reasoning, day9_critic_011_goodhart, day9_critic_012_regression_to_mean, day9_critic_013_missing_baseline, day9_critic_014_temperature_artifact, day9_critic_015_ungrounded_extrapolation, day9_critic_016_ambiguous_construct, day9_critic_017_publication_threshold, day9_critic_018_anthropomorphic_attribution, day9_critic_019_mis_specified_construct_validity, day9_critic_020_sound_cooperation_lockin\n\n**Total narratives:** 60\n\n**First seen:** 2026-05-25\n",
-    "agent-claude-code-main": "# Agent \u2014 claude-code-main\n\n_30 narratives across 1 raw label(s)_\n\n**Canonical agent id:** `claude-code-main`\n\n**Raw labels seen in narratives:** claude-code-main\n\n**Total narratives:** 30\n\n**First seen:** 2026-05-20\n\n## Links\n\n- **authored** \u2192 `s13-3-author-narrate-skill` (reflection)\n- **authored** \u2192 `hypothesis-day4-tool-call-rate` (reflection)\n- **authored** \u2192 `experiment-day4-tool-call-rate` (reflection)\n- **authored** \u2192 `anomaly-tool-call-100pct` (reflection)\n- **authored** \u2192 `s22-5-narrate-sp-002-lifecycle` (reflection)\n- **authored** \u2192 `correction-exp008-armc-gb10-unified-mem-oom-2026-06-09` (reflection)\n- **authored** \u2192 `reflection-exp008-error-as-zero-insufficient-2026-06-09` (reflection)\n- **authored** \u2192 `morning-loop-governance-2026-06-09` (reflection)\n- **authored** \u2192 `critic-emit-mlintern-nemoclaw-2026-06-09` (reflection)\n- **authored** \u2192 `session-2026-06-09-evening` (reflection)\n",
+    "agent-claude-code-main": "# Agent \u2014 claude-code-main\n\n_41 narratives across 1 raw label(s)_\n\n**Canonical agent id:** `claude-code-main`\n\n**Raw labels seen in narratives:** claude-code-main\n\n**Total narratives:** 41\n\n**First seen:** 2026-05-20\n\n## Links\n\n- **authored** \u2192 `s13-3-author-narrate-skill` (reflection)\n- **authored** \u2192 `hypothesis-day4-tool-call-rate` (reflection)\n- **authored** \u2192 `experiment-day4-tool-call-rate` (reflection)\n- **authored** \u2192 `anomaly-tool-call-100pct` (reflection)\n- **authored** \u2192 `s22-5-narrate-sp-002-lifecycle` (reflection)\n- **authored** \u2192 `correction-exp008-armc-gb10-unified-mem-oom-2026-06-09` (reflection)\n- **authored** \u2192 `reflection-exp008-error-as-zero-insufficient-2026-06-09` (reflection)\n- **authored** \u2192 `morning-loop-governance-2026-06-09` (reflection)\n- **authored** \u2192 `critic-emit-mlintern-nemoclaw-2026-06-09` (reflection)\n- **authored** \u2192 `session-2026-06-09-evening` (reflection)\n- **authored** \u2192 `2026-06-10-workflow-build-phase` (reflection)\n",
     "agent-human-decross1": "# Agent \u2014 human:decross1\n\n_5 narratives across 1 raw label(s)_\n\n**Canonical agent id:** `human:decross1`\n\n**Raw labels seen in narratives:** human:decross1\n\n**Total narratives:** 5\n\n**First seen:** 2026-05-24\n",
     "spawn-sp-001": "# SP-001 \u2014 count_brain_edges\n\n_status: completed_\n\n**Status:** `completed`\n\n**Parent task:** `s21_5_worked_mock_spawn`\n\n**Child task:** `count_brain_edges`\n\n**Task statement:** Count typed edges in memory/brain/edges.jsonl; report the integer count and the breakdown by edge type.\n\n**Done condition:** Result.child_summary parses as JSON with keys {count:int>=0, by_type:object}; sum(by_type.values()) == count; every key in by_type is in {derived_from, produced, linked_to, falsified_by, supersedes, references}.\n\n**Skill subset:** `validate`, `run-log`\n\n**Authority cap:** Read-only on memory/brain/edges.jsonl. No writes outside its own run-log entry. No network. No shell command other than read.\n\n**Budget:** wall_time=60s iterations=None cost_usd=None\n\n**Done condition check:** `pass`\n\n**Child summary:** {\"count\":5,\"by_type\":{\"derived_from\":1,\"produced\":1,\"falsified_by\":1,\"references\":1,\"linked_to\":1},\"sampled_examples\":[\"experiment-day4-tool-call-rate -derived_from-> hypothesis-day4-tool-call-rate\",\"anomaly-tool-call-100pct <-references- dec-fw-2026-05-24-treat-100-metrics-in-small-n\"]}\n\n## Links\n\n- **uses** \u2192 `skill-validate` (skill)\n- **uses** \u2192 `skill-run-log` (skill)\n",
-    "spawn-sp-002": "# SP-002 \u2014 sp_002_skill_frontmatter_audit\n\n_status: completed_\n\n**Status:** `completed`\n\n**Parent task:** `s22_3_real_spawn_launch`\n\n**Child task:** `sp_002_skill_frontmatter_audit`\n\n**Task statement:** For every directory under /home/decross1/projects/agent_system/.agents/skills/, read SKILL.md, parse YAML frontmatter, and return a structured JSON summary of skill metadata.\n\n**Done condition:** Returned text contains a JSON object with keys: total (int), skills (list of objects each with name:str + layer:str + runtime_safe:bool + description_present:bool), non_conformant (list, may be empty). total equals the actual count of skill directories. Every skill object has layer in {A,B,C} and runtime_safe a real bool. non_conformant lists any skill missing required frontmatter fields or with invalid layer/runtime-safe values.\n\n**Skill subset:** `validate`, `run-log`\n\n**Authority cap:** Read-only on /home/decross1/projects/agent_system/.agents/skills/. No writes anywhere (parent will append SP-002 completed entry to spawn.jsonl). No network. No shell command that mutates state (rm/mv/sed -i/edit/write all forbidden); ls/cat/head/grep/python -c read-only fine. Belt-and-suspenders: spawned in worktree isolation so mutations are physically sandboxed.\n\n**Budget:** wall_time=300s iterations=None cost_usd=None\n\n**Done condition check:** `pass`\n\n**Child summary:** {\"total\":18,\"skills\":[{\"name\":\"auto-experiment\",\"layer\":\"B\",\"runtime_safe\":false,\"description_present\":true},{\"name\":\"code-review\",\"layer\":\"B\",\"runtime_safe\":false,\"description_present\":true},{\"name\":\"context-restore\",\"layer\":\"C\",\"runtime_safe\":false,\"description_present\":true},{\"name\":\"context-save\",\"layer\":\"C\",\"runtime_safe\":false,\"description_present\":true},{\"name\":\"decision-log\",\"layer\":\"C\",\"r\n\n## Links\n\n- **uses** \u2192 `skill-validate` (skill)\n- **uses** \u2192 `skill-run-log` (skill)\n"
+    "spawn-sp-002": "# SP-002 \u2014 sp_002_skill_frontmatter_audit\n\n_status: completed_\n\n**Status:** `completed`\n\n**Parent task:** `s22_3_real_spawn_launch`\n\n**Child task:** `sp_002_skill_frontmatter_audit`\n\n**Task statement:** For every directory under /home/decross1/projects/agent_system/.agents/skills/, read SKILL.md, parse YAML frontmatter, and return a structured JSON summary of skill metadata.\n\n**Done condition:** Returned text contains a JSON object with keys: total (int), skills (list of objects each with name:str + layer:str + runtime_safe:bool + description_present:bool), non_conformant (list, may be empty). total equals the actual count of skill directories. Every skill object has layer in {A,B,C} and runtime_safe a real bool. non_conformant lists any skill missing required frontmatter fields or with invalid layer/runtime-safe values.\n\n**Skill subset:** `validate`, `run-log`\n\n**Authority cap:** Read-only on /home/decross1/projects/agent_system/.agents/skills/. No writes anywhere (parent will append SP-002 completed entry to spawn.jsonl). No network. No shell command that mutates state (rm/mv/sed -i/edit/write all forbidden); ls/cat/head/grep/python -c read-only fine. Belt-and-suspenders: spawned in worktree isolation so mutations are physically sandboxed.\n\n**Budget:** wall_time=300s iterations=None cost_usd=None\n\n**Done condition check:** `pass`\n\n**Child summary:** {\"total\":18,\"skills\":[{\"name\":\"auto-experiment\",\"layer\":\"B\",\"runtime_safe\":false,\"description_present\":true},{\"name\":\"code-review\",\"layer\":\"B\",\"runtime_safe\":false,\"description_present\":true},{\"name\":\"context-restore\",\"layer\":\"C\",\"runtime_safe\":false,\"description_present\":true},{\"name\":\"context-save\",\"layer\":\"C\",\"runtime_safe\":false,\"description_present\":true},{\"name\":\"decision-log\",\"layer\":\"C\",\"r\n\n## Links\n\n- **uses** \u2192 `skill-validate` (skill)\n- **uses** \u2192 `skill-run-log` (skill)\n",
+    "spawn-sp-003": "# SP-003 \u2014 wf_1f3f3f4c_design_rubberband\n\n_status: completed_\n\n**Status:** `completed`\n\n**Parent task:** `ui_overhaul_phase1_design`\n\n**Child task:** `wf_1f3f3f4c_design_rubberband`\n\n**Task statement:** Dynamic workflow design-rubberband: 3 parallel agents each author one self-contained static HTML mockup (m1 stack / m2 rail / m3 immersive) of the new brain governance dashboard from identical inline data + frozen shared tokens; judge agent screenshots, scores (glance/edges/hierarchy/verbosity/cohesion), picks winner + grafts, writes mockups/SPEC.md build contract; gallery agent captures before-screenshots of both live dashboards.\n\n**Done condition:** m1-m3.html exist under .claude/worktrees/brain-overhaul/memory/brain/view/mockups/, SPEC.md written, >=6 mockup screenshots + >=14 before-gallery shots in /home/decross1/projects/ui_overhaul_gallery/2026-06-10/, judge returns structured verdict.\n\n**Skill subset:** `validate`, `run-log`\n\n**Authority cap:** Mockup agents: write exactly one new file each under the brain-overhaul worktree mockups dir; read-only elsewhere. Judge: write SPEC.md + screenshots only. Gallery: screenshots only; read-only on live services; no restarts.\n\n**Budget:** wall_time=2400s iterations=None cost_usd=None\n\n**Done condition check:** `pass`\n\n**Child summary:** m1=24 m2=19 m3=5; winner m1 + 6 grafts; SPEC.md (104 lines) at brain-overhaul worktree mockups/; 6 mockup screenshots + 14 before-gallery shots; m3 rendered blank due to JS comment-glob bug (diagnosed, grafts salvaged from source)\n\n## Links\n\n- **uses** \u2192 `skill-validate` (skill)\n- **uses** \u2192 `skill-run-log` (skill)\n",
+    "spawn-sp-004": "# SP-004 \u2014 wf_a16994cf_build_overhaul\n\n_status: spawned_\n\n**Status:** `spawned`\n\n**Parent task:** `ui_overhaul_p2_build`\n\n**Child task:** `wf_a16994cf_build_overhaul`\n\n**Task statement:** Dynamic workflow build-overhaul: 8 parallel agents. a_bgt_rsi main checkout w/ disjoint contracts: R1a test fixes (T1.1-T1.5 + 2 baseline finds), R1b inbox hero + tokens + T1.6/T3.x, R2 D-043 spine DRAFTS + test flips (no spine edits), R3 docs/gitignore/runbook. agent_system brain-overhaul worktree: B1 dashboard.html+ui.js+tokens.css, B2 graph.html+map.js+project_map.py+project_pages.py surgical edits, B3 project_summary.py v2 + verify_brain_view.py, B4 doc sync + check_design_tokens.py + screenshot_brain.mjs.\n\n**Done condition:** Each agent returns structured report status done; suites green per contract; spine untouched (drafts in ui_overhaul_gallery/spine_drafts); no commits by agents.\n\n**Skill subset:** `validate`, `run-log`, `fallback`\n\n**Authority cap:** Per-agent disjoint file contracts; append-only ledgers untouchable; no server restarts; no git commits; spine files read-only (drafts only).\n\n**Budget:** wall_time=6600s iterations=None cost_usd=None\n\n## Links\n\n- **uses** \u2192 `skill-validate` (skill)\n- **uses** \u2192 `skill-run-log` (skill)\n- **uses** \u2192 `skill-fallback` (skill)\n"
   },
   "proposals": [
     {
@@ -24536,6 +25067,22 @@ window.BRAIN_GRAPH = {
         "D-045"
       ],
       "_source_line": 18
+    },
+    {
+      "proposal_id": "P-011",
+      "timestamp": "2026-06-10T05:30:49.435177+00:00",
+      "agent_id": "claude-code-main",
+      "status": "open",
+      "target": "mock-llm-discipline",
+      "target_type": "rule",
+      "title": "Env-gated stubs must be asserted per-shell, not assumed from the interactive default",
+      "change": "Where a project gates real-model behavior on an env var set in the human's interactive shell (a_bgt_rsi: MOCK_LLM=1), every NON-interactive invocation (pytest, agent shells, cron) must set it EXPLICITLY (e.g. `MOCK_LLM=1 pytest ...`), and session startup should verify with `env | grep` rather than trusting a memory note. Consider adding the assertion to the resume-state/gate-check preflight.",
+      "reasoning": "2026-06-10 (a_bgt_rsi): MOCK_LLM=1 lives in the interactive shell only; Claude Code's non-interactive bash had it UNSET, so the test suite silently made REAL Gemma calls via orchestrator/topicality.py during pytest runs and stamped them with a stale fixture run_id (rows landed in the canonical logs/calls.jsonl). The standing memory note ('MOCK_LLM=1 is set in the user's shell by default') was true for the interactive shell and false for every shell that matters to automation. Found while building the D-048 no-live-artifacts guard; the zero-delta check exposed +5 rows.",
+      "evidence": [
+        "a_bgt_rsi run_state/week1.run.jsonl task_id=2026-06-10-workstream-D-hygiene-purge",
+        "a_bgt_rsi DECISIONS.md D-048"
+      ],
+      "_source_line": 19
     }
   ]
 };

@@ -14,17 +14,18 @@ edges:
   - {type: authored, dst: "morning-loop-governance-2026-06-09", dst_type: "reflection"}
   - {type: authored, dst: "critic-emit-mlintern-nemoclaw-2026-06-09", dst_type: "reflection"}
   - {type: authored, dst: "session-2026-06-09-evening", dst_type: "reflection"}
+  - {type: authored, dst: "2026-06-10-workflow-build-phase", dst_type: "reflection"}
 ---
 
 # Agent — claude-code-main
 
-_30 narratives across 1 raw label(s)_
+_41 narratives across 1 raw label(s)_
 
 **Canonical agent id:** `claude-code-main`
 
 **Raw labels seen in narratives:** claude-code-main
 
-**Total narratives:** 30
+**Total narratives:** 41
 
 **First seen:** 2026-05-20
 
@@ -40,3 +41,4 @@ _30 narratives across 1 raw label(s)_
 - **authored** → `morning-loop-governance-2026-06-09` (reflection)
 - **authored** → `critic-emit-mlintern-nemoclaw-2026-06-09` (reflection)
 - **authored** → `session-2026-06-09-evening` (reflection)
+- **authored** → `2026-06-10-workflow-build-phase` (reflection)
