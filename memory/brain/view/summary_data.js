@@ -1,6 +1,6 @@
 window.BRAIN_SUMMARY = {
   "schema_version": 2,
-  "generated_at": "2026-06-10T10:10:41Z",
+  "generated_at": "2026-06-13T23:45:09Z",
   "repo": "/home/decross1/projects/agent_system",
   "consumer": "/home/decross1/projects/a_bgt_rsi",
   "window": {
@@ -8,14 +8,14 @@ window.BRAIN_SUMMARY = {
     "min_days": 1,
     "max_days": 7,
     "oldest_event": "2026-05-17",
-    "newest_event": "2026-06-10"
+    "newest_event": "2026-06-13"
   },
   "status_strip": {
     "system": "attention",
     "needs_you": {
-      "total": 25,
+      "total": 29,
       "high": 0,
-      "med": 23,
+      "med": 27,
       "low": 2
     },
     "drift": {
@@ -24,16 +24,16 @@ window.BRAIN_SUMMARY = {
     },
     "loop": {
       "state": "half-dormant",
-      "dormant_days": 16
+      "dormant_days": 19
     },
     "firewall": {
       "status": "intact",
       "violations": 0
     },
     "freshness": {
-      "newest_event": "2026-06-10",
-      "recall_floor_age_days": 1,
-      "recall_floor": "correction-exp008-armc-gb10-unified-mem-oom-2026-06-09"
+      "newest_event": "2026-06-13",
+      "recall_floor_age_days": 0,
+      "recall_floor": "dec-fw-2026-06-13-housekeeping-reconcile-the-2026-06-10-ui"
     }
   },
   "inbox": [
@@ -42,7 +42,7 @@ window.BRAIN_SUMMARY = {
       "kind": "gate_verdict",
       "severity": "med",
       "reversible": false,
-      "age_days": 5,
+      "age_days": 8,
       "since": "2026-06-05T00:26:45.392136Z",
       "title": "iter-2026-06-05-002 awaiting gate verdict — On a fixed ring network of LLM agents playing a repeate…",
       "detail": "iteration iter-2026-06-05-002 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
@@ -59,7 +59,7 @@ window.BRAIN_SUMMARY = {
       "kind": "gate_verdict",
       "severity": "med",
       "reversible": false,
-      "age_days": 5,
+      "age_days": 8,
       "since": "2026-06-05T20:31:13.373837Z",
       "title": "iter-2026-06-05-004 awaiting gate verdict — Experiment exp004_combinatorial_auction reports vcg_tru…",
       "detail": "iteration iter-2026-06-05-004 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
@@ -76,7 +76,7 @@ window.BRAIN_SUMMARY = {
       "kind": "gate_verdict",
       "severity": "med",
       "reversible": false,
-      "age_days": 5,
+      "age_days": 8,
       "since": "2026-06-05T21:53:53.471804Z",
       "title": "iter-2026-06-05-005 awaiting gate verdict — Differential privacy composition bounds via the moments…",
       "detail": "iteration iter-2026-06-05-005 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
@@ -93,7 +93,7 @@ window.BRAIN_SUMMARY = {
       "kind": "gate_verdict",
       "severity": "med",
       "reversible": false,
-      "age_days": 5,
+      "age_days": 8,
       "since": "2026-06-05T23:07:02.392444Z",
       "title": "iter-2026-06-05-006 awaiting gate verdict — Experiment exp006_mechanism_design reports designer_mea…",
       "detail": "iteration iter-2026-06-05-006 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
@@ -110,7 +110,7 @@ window.BRAIN_SUMMARY = {
       "kind": "gate_verdict",
       "severity": "med",
       "reversible": false,
-      "age_days": 4,
+      "age_days": 7,
       "since": "2026-06-06T00:30:35.290033Z",
       "title": "iter-2026-06-06-001 awaiting gate verdict — Whether LLM agents in a Cournot duopoly converge to the…",
       "detail": "iteration iter-2026-06-06-001 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
@@ -127,7 +127,7 @@ window.BRAIN_SUMMARY = {
       "kind": "gate_verdict",
       "severity": "med",
       "reversible": false,
-      "age_days": 2,
+      "age_days": 5,
       "since": "2026-06-08T13:29:10.255240Z",
       "title": "iter-2026-06-08-001 awaiting gate verdict — smoke: verify active-run hero",
       "detail": "iteration iter-2026-06-08-001 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
@@ -144,7 +144,7 @@ window.BRAIN_SUMMARY = {
       "kind": "proposal_review",
       "severity": "med",
       "reversible": true,
-      "age_days": 1,
+      "age_days": 4,
       "since": "2026-06-09T04:41:13Z",
       "title": "P-008 — Adopt run-log `agent` attribution in a_bgt_rsi (reconcile inviolate rule 6) so unattended m…",
       "detail": "latest verdict 'open'; route via the review-proposal skill (target skill:run-log)",
@@ -161,7 +161,7 @@ window.BRAIN_SUMMARY = {
       "kind": "gate_verdict",
       "severity": "med",
       "reversible": false,
-      "age_days": 1,
+      "age_days": 4,
       "since": "2026-06-09T06:00:11.297855Z",
       "title": "iter-2026-06-09-001 awaiting gate verdict — FASE: Fast Adaptive Semantic Entropy for Code Quality",
       "detail": "iteration iter-2026-06-09-001 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
@@ -178,7 +178,7 @@ window.BRAIN_SUMMARY = {
       "kind": "gate_verdict",
       "severity": "med",
       "reversible": false,
-      "age_days": 1,
+      "age_days": 4,
       "since": "2026-06-09T07:26:38.715684Z",
       "title": "iter-2026-06-09-002 awaiting gate verdict — FASE: Fast Adaptive Semantic Entropy for Code Quality",
       "detail": "iteration iter-2026-06-09-002 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
@@ -195,7 +195,7 @@ window.BRAIN_SUMMARY = {
       "kind": "gate_verdict",
       "severity": "med",
       "reversible": false,
-      "age_days": 1,
+      "age_days": 4,
       "since": "2026-06-09T17:33:23.466379Z",
       "title": "iter-2026-06-09-003 awaiting gate verdict — Do LLM agents in repeated stag hunt converge to the pay…",
       "detail": "iteration iter-2026-06-09-003 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
@@ -212,7 +212,7 @@ window.BRAIN_SUMMARY = {
       "kind": "proposal_review",
       "severity": "med",
       "reversible": true,
-      "age_days": 1,
+      "age_days": 4,
       "since": "2026-06-09T17:46:18Z",
       "title": "P-009 — A discriminative gate/threshold calibrated on a single observed failure instance is brittle…",
       "detail": "latest verdict 'open'; route via the review-proposal skill (target brain:gate-calibration-discipline)",
@@ -229,7 +229,7 @@ window.BRAIN_SUMMARY = {
       "kind": "gate_verdict",
       "severity": "med",
       "reversible": false,
-      "age_days": 1,
+      "age_days": 4,
       "since": "2026-06-09T18:08:00.102834Z",
       "title": "iter-2026-06-09-004 awaiting gate verdict — Increased opponent-history transparency shifts LLM agen…",
       "detail": "iteration iter-2026-06-09-004 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
@@ -246,7 +246,7 @@ window.BRAIN_SUMMARY = {
       "kind": "gate_verdict",
       "severity": "med",
       "reversible": false,
-      "age_days": 1,
+      "age_days": 4,
       "since": "2026-06-09T18:23:13.360732Z",
       "title": "iter-2026-06-09-005 awaiting gate verdict — When Gemma 4 26B-A4B agents each independently pick an …",
       "detail": "iteration iter-2026-06-09-005 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
@@ -263,7 +263,7 @@ window.BRAIN_SUMMARY = {
       "kind": "gate_verdict",
       "severity": "med",
       "reversible": false,
-      "age_days": 1,
+      "age_days": 4,
       "since": "2026-06-09T21:26:21.421579Z",
       "title": "iter-2026-06-09-006 awaiting gate verdict — When Gemma 4 26B-A4B agents each independently pick an …",
       "detail": "iteration iter-2026-06-09-006 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
@@ -280,7 +280,7 @@ window.BRAIN_SUMMARY = {
       "kind": "gate_verdict",
       "severity": "med",
       "reversible": false,
-      "age_days": 1,
+      "age_days": 4,
       "since": "2026-06-09T21:27:43.419133Z",
       "title": "iter-2026-06-09-007 awaiting gate verdict — Static analysis tools that rank refactoring opportuniti…",
       "detail": "iteration iter-2026-06-09-007 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
@@ -297,7 +297,7 @@ window.BRAIN_SUMMARY = {
       "kind": "proposal_review",
       "severity": "med",
       "reversible": true,
-      "age_days": 1,
+      "age_days": 4,
       "since": "2026-06-09T21:45:54.189029+00:00",
       "title": "P-010 — Sequence code-review BEFORE the first expensive real-model measurement (open)",
       "detail": "latest verdict 'open'; route via the review-proposal skill (target skill:code-review)",
@@ -314,7 +314,7 @@ window.BRAIN_SUMMARY = {
       "kind": "gate_verdict",
       "severity": "med",
       "reversible": false,
-      "age_days": 1,
+      "age_days": 4,
       "since": "2026-06-09T22:34:14.329453Z",
       "title": "iter-2026-06-09-008 awaiting gate verdict — The impact of payoff-dominance vs risk-dominance shifts…",
       "detail": "iteration iter-2026-06-09-008 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
@@ -331,7 +331,7 @@ window.BRAIN_SUMMARY = {
       "kind": "proposal_review",
       "severity": "med",
       "reversible": true,
-      "age_days": 0,
+      "age_days": 3,
       "since": "2026-06-10T05:30:49.435177+00:00",
       "title": "P-011 — Env-gated stubs must be asserted per-shell, not assumed from the interactive default (open)",
       "detail": "latest verdict 'open'; route via the review-proposal skill (target rule:mock-llm-discipline)",
@@ -348,7 +348,7 @@ window.BRAIN_SUMMARY = {
       "kind": "gate_verdict",
       "severity": "med",
       "reversible": false,
-      "age_days": 0,
+      "age_days": 3,
       "since": "2026-06-10T06:02:13.710171Z",
       "title": "iter-2026-06-10-001 awaiting gate verdict — In repeated Prisoner's Dilemma play against fixed and m…",
       "detail": "iteration iter-2026-06-10-001 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
@@ -361,28 +361,11 @@ window.BRAIN_SUMMARY = {
       }
     },
     {
-      "id": "iter-2026-06-10-002",
-      "kind": "gate_verdict",
-      "severity": "med",
-      "reversible": false,
-      "age_days": 0,
-      "since": "2026-06-10T06:12:55.901851Z",
-      "title": "iter-2026-06-10-002 awaiting gate verdict — In a symmetric Cournot duopoly with linear demand and c…",
-      "detail": "iteration iter-2026-06-10-002 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
-      "action_cmd": ".venv-chroma/bin/python -m orchestrator.gate_cli --iteration-id iter-2026-06-10-002 --verdict <valid|invalid|needs_revision> --note '<why>'",
-      "source": "a_bgt_rsi/memory/loop_memory.jsonl",
-      "surface": "apparatus",
-      "link": {
-        "skill": "gate-check",
-        "url": null
-      }
-    },
-    {
       "id": "P-012",
       "kind": "proposal_review",
       "severity": "med",
       "reversible": true,
-      "age_days": 0,
+      "age_days": 3,
       "since": "2026-06-10T10:30:00Z",
       "title": "P-012 — Prune stale day7/day8 worktrees in a_bgt_rsi (open)",
       "detail": "latest verdict 'open'; route via the review-proposal skill (target rule:a_bgt_rsi worktree hygiene)",
@@ -399,7 +382,7 @@ window.BRAIN_SUMMARY = {
       "kind": "proposal_review",
       "severity": "med",
       "reversible": true,
-      "age_days": 0,
+      "age_days": 3,
       "since": "2026-06-10T10:30:00Z",
       "title": "P-013 — Decide tracking policy for regenerated brain view artifacts (open)",
       "detail": "latest verdict 'open'; route via the review-proposal skill (target rule:memory/brain/view tracking)",
@@ -416,7 +399,7 @@ window.BRAIN_SUMMARY = {
       "kind": "proposal_review",
       "severity": "med",
       "reversible": true,
-      "age_days": 0,
+      "age_days": 3,
       "since": "2026-06-10T10:30:00Z",
       "title": "P-014 — Extract shared livePaths.ts walk-up helper in a_bgt_rsi frontend tests (open)",
       "detail": "latest verdict 'open'; route via the review-proposal skill (target skill:a_bgt_rsi ui/frontend/tests)",
@@ -429,11 +412,96 @@ window.BRAIN_SUMMARY = {
       }
     },
     {
+      "id": "P-015",
+      "kind": "proposal_review",
+      "severity": "med",
+      "reversible": true,
+      "age_days": 3,
+      "since": "2026-06-10T16:50:00Z",
+      "title": "P-015 — Refresh heartbeat_at per step in active_runs registry files (EMIT side) (open)",
+      "detail": "latest verdict 'open'; route via the review-proposal skill (target rule:a_bgt_rsi run registry (D-047))",
+      "action_cmd": "review memory/brain/proposals.jsonl P-015  # run the review-proposal skill",
+      "source": "memory/brain/proposals.jsonl",
+      "surface": "framework",
+      "link": {
+        "skill": null,
+        "url": "memory/brain/proposals.jsonl"
+      }
+    },
+    {
+      "id": "P-016",
+      "kind": "proposal_review",
+      "severity": "med",
+      "reversible": true,
+      "age_days": 3,
+      "since": "2026-06-10T16:50:00Z",
+      "title": "P-016 — Dashboard-started iterations should record seed.source=human_ui (open)",
+      "detail": "latest verdict 'open'; route via the review-proposal skill (target rule:a_bgt_rsi POST /api/loop_v0/start)",
+      "action_cmd": "review memory/brain/proposals.jsonl P-016  # run the review-proposal skill",
+      "source": "memory/brain/proposals.jsonl",
+      "surface": "framework",
+      "link": {
+        "skill": null,
+        "url": "memory/brain/proposals.jsonl"
+      }
+    },
+    {
+      "id": "P-017",
+      "kind": "proposal_review",
+      "severity": "med",
+      "reversible": true,
+      "age_days": 3,
+      "since": "2026-06-10T17:08:00Z",
+      "title": "P-017 — Stale-tab detector: surface frontend-older-than-backend skew (open)",
+      "detail": "latest verdict 'open'; route via the review-proposal skill (target skill:a_bgt_rsi ui/frontend)",
+      "action_cmd": "review memory/brain/proposals.jsonl P-017  # run the review-proposal skill",
+      "source": "memory/brain/proposals.jsonl",
+      "surface": "framework",
+      "link": {
+        "skill": "a_bgt_rsi ui/frontend",
+        "url": "memory/brain/proposals.jsonl"
+      }
+    },
+    {
+      "id": "P-018",
+      "kind": "proposal_review",
+      "severity": "med",
+      "reversible": true,
+      "age_days": 3,
+      "since": "2026-06-10T17:37:26Z",
+      "title": "P-018 — spawn-contract/workflow: verify the limb's fork base against state_basis before building (o…",
+      "detail": "latest verdict 'open'; route via the review-proposal skill (target skill:spawn-contract)",
+      "action_cmd": "review memory/brain/proposals.jsonl P-018  # run the review-proposal skill",
+      "source": "memory/brain/proposals.jsonl",
+      "surface": "framework",
+      "link": {
+        "skill": "spawn-contract",
+        "url": "memory/brain/proposals.jsonl"
+      }
+    },
+    {
+      "id": "iter-2026-06-13-001",
+      "kind": "gate_verdict",
+      "severity": "med",
+      "reversible": false,
+      "age_days": 0,
+      "since": "2026-06-13T02:35:51.439668Z",
+      "title": "iter-2026-06-13-001 awaiting gate verdict — Do quantal response equilibria better predict human pla…",
+      "detail": "iteration iter-2026-06-13-001 finished and awaits a human gate verdict (Step-8; no loop_feedback row yet)",
+      "action_cmd": ".venv-chroma/bin/python -m orchestrator.gate_cli --iteration-id iter-2026-06-13-001 --verdict <valid|invalid|needs_revision> --note '<why>'",
+      "source": "a_bgt_rsi/memory/loop_memory.jsonl",
+      "surface": "apparatus",
+      "link": {
+        "skill": "gate-check",
+        "url": null
+      }
+    },
+    {
       "id": "drift-experiment",
       "kind": "drift",
       "severity": "low",
       "reversible": true,
-      "age_days": 20,
+      "age_days": 23,
       "since": "2026-05-21",
       "title": "experiment drift — friction×1",
       "detail": "🔴 not used as designed",
@@ -450,7 +518,7 @@ window.BRAIN_SUMMARY = {
       "kind": "drift",
       "severity": "low",
       "reversible": true,
-      "age_days": 16,
+      "age_days": 19,
       "since": "2026-05-25",
       "title": "run-log drift — diverged×1 · friction×3",
       "detail": "🟡 confirmed; 3 friction (S10 + H005 enum-extension); 1 diverged (H005 L131 rectify — needs structural-rectification carve-out, backlog)",
@@ -469,13 +537,12 @@ window.BRAIN_SUMMARY = {
       "kind": "runtime",
       "hue": "--agent-nara",
       "first_seen": "2026-05-17",
-      "last_seen": "2026-06-10",
+      "last_seen": "2026-06-13",
       "runs_by_day": {
-        "2026-06-05": 100,
-        "2026-06-06": 19,
         "2026-06-08": 26,
         "2026-06-09": 115,
-        "2026-06-10": 78
+        "2026-06-10": 163,
+        "2026-06-13": 50
       },
       "evidence": "mixed"
     },
@@ -484,11 +551,36 @@ window.BRAIN_SUMMARY = {
       "kind": "runtime",
       "hue": "--agent-coordinator",
       "first_seen": "2026-06-09",
-      "last_seen": "2026-06-09",
+      "last_seen": "2026-06-10",
       "runs_by_day": {
-        "2026-06-09": 33
+        "2026-06-09": 33,
+        "2026-06-10": 60
       },
       "evidence": "explicit"
+    },
+    {
+      "id": "nemoclaw_agent",
+      "kind": "runtime",
+      "hue": "--agent-nemoclaw-agent",
+      "first_seen": "2026-06-13",
+      "last_seen": "2026-06-13",
+      "runs_by_day": {
+        "2026-06-13": 40
+      },
+      "evidence": "explicit"
+    },
+    {
+      "id": "claude-code-main",
+      "kind": "dev",
+      "hue": "--agent-claude",
+      "first_seen": "2026-05-21",
+      "last_seen": "2026-06-13",
+      "runs_by_day": {
+        "2026-06-09": 4,
+        "2026-06-10": 22,
+        "2026-06-13": 4
+      },
+      "evidence": "mixed"
     },
     {
       "id": "workflow",
@@ -498,21 +590,9 @@ window.BRAIN_SUMMARY = {
       "last_seen": "2026-06-10",
       "runs_by_day": {
         "2026-06-09": 22,
-        "2026-06-10": 3
+        "2026-06-10": 8
       },
       "evidence": "explicit"
-    },
-    {
-      "id": "claude-code-main",
-      "kind": "dev",
-      "hue": "--agent-claude",
-      "first_seen": "2026-05-21",
-      "last_seen": "2026-06-10",
-      "runs_by_day": {
-        "2026-06-09": 4,
-        "2026-06-10": 13
-      },
-      "evidence": "mixed"
     },
     {
       "id": "primary-session/integrator",
@@ -526,14 +606,23 @@ window.BRAIN_SUMMARY = {
       "evidence": "explicit"
     },
     {
+      "id": "human:human:ui",
+      "kind": "human",
+      "hue": "--agent-human-human-ui",
+      "first_seen": "2026-06-10",
+      "last_seen": "2026-06-10",
+      "runs_by_day": {
+        "2026-06-10": 2
+      },
+      "evidence": "explicit"
+    },
+    {
       "id": "human:decross1",
       "kind": "human",
       "hue": "--agent-human",
       "first_seen": "2026-05-24",
       "last_seen": "2026-06-05",
-      "runs_by_day": {
-        "2026-06-05": 2
-      },
+      "runs_by_day": {},
       "evidence": "explicit"
     }
   ],
@@ -572,8 +661,8 @@ window.BRAIN_SUMMARY = {
         "firewall_violation": false
       },
       "usage": {
-        "explicit": 2,
-        "inferred": 33,
+        "explicit": 3,
+        "inferred": 39,
         "last_used": "2026-06-10"
       }
     },
@@ -611,7 +700,7 @@ window.BRAIN_SUMMARY = {
       },
       "usage": {
         "explicit": 3,
-        "inferred": 40,
+        "inferred": 46,
         "last_used": "2026-06-10"
       }
     },
@@ -654,7 +743,7 @@ window.BRAIN_SUMMARY = {
       },
       "usage": {
         "explicit": 1,
-        "inferred": 29,
+        "inferred": 35,
         "last_used": "2026-06-10"
       }
     },
@@ -698,7 +787,7 @@ window.BRAIN_SUMMARY = {
       },
       "usage": {
         "explicit": 5,
-        "inferred": 39,
+        "inferred": 47,
         "last_used": "2026-06-10"
       }
     },
@@ -765,9 +854,9 @@ window.BRAIN_SUMMARY = {
         "firewall_violation": false
       },
       "usage": {
-        "explicit": 9,
-        "inferred": 80,
-        "last_used": "2026-06-10"
+        "explicit": 11,
+        "inferred": 92,
+        "last_used": "2026-06-13"
       }
     },
     {
@@ -828,7 +917,7 @@ window.BRAIN_SUMMARY = {
       },
       "usage": {
         "explicit": 0,
-        "inferred": 27,
+        "inferred": 33,
         "last_used": "2026-06-10"
       }
     },
@@ -858,9 +947,9 @@ window.BRAIN_SUMMARY = {
         "firewall_violation": false
       },
       "usage": {
-        "explicit": 1,
+        "explicit": 4,
         "inferred": 1,
-        "last_used": "2026-06-10"
+        "last_used": "2026-06-13"
       }
     },
     {
@@ -1370,10 +1459,10 @@ window.BRAIN_SUMMARY = {
       {
         "agent": "claude-code-main",
         "skill": "code-review",
-        "explicit": 1,
+        "explicit": 4,
         "inferred": 0,
         "methods": {
-          "skill_used": 1,
+          "skill_used": 4,
           "status": 0,
           "task": 0,
           "harvest": 0,
@@ -1381,19 +1470,23 @@ window.BRAIN_SUMMARY = {
         },
         "by_day": {
           "2026-06-10": {
+            "e": 3,
+            "i": 0
+          },
+          "2026-06-13": {
             "e": 1,
             "i": 0
           }
         },
-        "last": "2026-06-10"
+        "last": "2026-06-13"
       },
       {
         "agent": "claude-code-main",
         "skill": "fallback",
-        "explicit": 0,
+        "explicit": 1,
         "inferred": 1,
         "methods": {
-          "skill_used": 0,
+          "skill_used": 1,
           "status": 0,
           "task": 0,
           "harvest": 0,
@@ -1401,7 +1494,7 @@ window.BRAIN_SUMMARY = {
         },
         "by_day": {
           "2026-06-10": {
-            "e": 0,
+            "e": 1,
             "i": 1
           }
         },
@@ -1545,11 +1638,11 @@ window.BRAIN_SUMMARY = {
       {
         "agent": "claude-code-main",
         "skill": "validate",
-        "explicit": 3,
-        "inferred": 28,
+        "explicit": 5,
+        "inferred": 29,
         "methods": {
-          "skill_used": 3,
-          "status": 1,
+          "skill_used": 5,
+          "status": 2,
           "task": 23,
           "harvest": 0,
           "contract": 4
@@ -1560,28 +1653,32 @@ window.BRAIN_SUMMARY = {
             "i": 0
           },
           "2026-06-10": {
-            "e": 1,
+            "e": 3,
             "i": 2
+          },
+          "2026-06-13": {
+            "e": 0,
+            "i": 1
           }
         },
-        "last": "2026-06-10"
+        "last": "2026-06-13"
       },
       {
         "agent": "nara",
         "skill": "brain-recall",
         "explicit": 0,
-        "inferred": 2,
+        "inferred": 6,
         "methods": {
           "skill_used": 0,
           "status": 0,
           "task": 0,
           "harvest": 0,
-          "contract": 2
+          "contract": 6
         },
         "by_day": {
           "2026-06-10": {
             "e": 0,
-            "i": 2
+            "i": 6
           }
         },
         "last": "2026-06-10"
@@ -1635,18 +1732,18 @@ window.BRAIN_SUMMARY = {
         "agent": "nara",
         "skill": "fallback",
         "explicit": 0,
-        "inferred": 7,
+        "inferred": 11,
         "methods": {
           "skill_used": 0,
           "status": 2,
           "task": 0,
           "harvest": 3,
-          "contract": 2
+          "contract": 6
         },
         "by_day": {
           "2026-06-10": {
             "e": 0,
-            "i": 2
+            "i": 6
           }
         },
         "last": "2026-06-10"
@@ -1655,18 +1752,18 @@ window.BRAIN_SUMMARY = {
         "agent": "nara",
         "skill": "gate-check",
         "explicit": 0,
-        "inferred": 13,
+        "inferred": 17,
         "methods": {
           "skill_used": 0,
           "status": 4,
           "task": 0,
           "harvest": 7,
-          "contract": 2
+          "contract": 6
         },
         "by_day": {
           "2026-06-10": {
             "e": 0,
-            "i": 2
+            "i": 6
           }
         },
         "last": "2026-06-10"
@@ -1720,18 +1817,18 @@ window.BRAIN_SUMMARY = {
         "agent": "nara",
         "skill": "resume-state",
         "explicit": 0,
-        "inferred": 4,
+        "inferred": 8,
         "methods": {
           "skill_used": 0,
           "status": 0,
           "task": 0,
           "harvest": 2,
-          "contract": 2
+          "contract": 6
         },
         "by_day": {
           "2026-06-10": {
             "e": 0,
-            "i": 2
+            "i": 6
           }
         },
         "last": "2026-06-10"
@@ -1740,18 +1837,18 @@ window.BRAIN_SUMMARY = {
         "agent": "nara",
         "skill": "run-log",
         "explicit": 0,
-        "inferred": 10,
+        "inferred": 16,
         "methods": {
           "skill_used": 0,
           "status": 0,
           "task": 0,
           "harvest": 8,
-          "contract": 2
+          "contract": 8
         },
         "by_day": {
           "2026-06-10": {
             "e": 0,
-            "i": 2
+            "i": 8
           }
         },
         "last": "2026-06-10"
@@ -1790,13 +1887,13 @@ window.BRAIN_SUMMARY = {
         "agent": "nara",
         "skill": "validate",
         "explicit": 0,
-        "inferred": 27,
+        "inferred": 34,
         "methods": {
           "skill_used": 0,
-          "status": 19,
+          "status": 20,
           "task": 0,
           "harvest": 6,
-          "contract": 2
+          "contract": 8
         },
         "by_day": {
           "2026-06-08": {
@@ -1805,10 +1902,30 @@ window.BRAIN_SUMMARY = {
           },
           "2026-06-10": {
             "e": 0,
-            "i": 4
+            "i": 11
           }
         },
         "last": "2026-06-10"
+      },
+      {
+        "agent": "nemoclaw_agent",
+        "skill": "validate",
+        "explicit": 0,
+        "inferred": 1,
+        "methods": {
+          "skill_used": 0,
+          "status": 1,
+          "task": 0,
+          "harvest": 0,
+          "contract": 0
+        },
+        "by_day": {
+          "2026-06-13": {
+            "e": 0,
+            "i": 1
+          }
+        },
+        "last": "2026-06-13"
       },
       {
         "agent": "primary-session/integrator",
@@ -1854,13 +1971,13 @@ window.BRAIN_SUMMARY = {
         "agent": "workflow",
         "skill": "brain-recall",
         "explicit": 0,
-        "inferred": 25,
+        "inferred": 27,
         "methods": {
           "skill_used": 0,
           "status": 0,
           "task": 0,
           "harvest": 0,
-          "contract": 25
+          "contract": 27
         },
         "by_day": {
           "2026-06-09": {
@@ -1869,7 +1986,7 @@ window.BRAIN_SUMMARY = {
           },
           "2026-06-10": {
             "e": 0,
-            "i": 2
+            "i": 4
           }
         },
         "last": "2026-06-10"
@@ -1878,13 +1995,13 @@ window.BRAIN_SUMMARY = {
         "agent": "workflow",
         "skill": "fallback",
         "explicit": 0,
-        "inferred": 25,
+        "inferred": 27,
         "methods": {
           "skill_used": 0,
           "status": 0,
           "task": 0,
           "harvest": 0,
-          "contract": 25
+          "contract": 27
         },
         "by_day": {
           "2026-06-09": {
@@ -1893,7 +2010,7 @@ window.BRAIN_SUMMARY = {
           },
           "2026-06-10": {
             "e": 0,
-            "i": 2
+            "i": 4
           }
         },
         "last": "2026-06-10"
@@ -1902,13 +2019,13 @@ window.BRAIN_SUMMARY = {
         "agent": "workflow",
         "skill": "gate-check",
         "explicit": 3,
-        "inferred": 25,
+        "inferred": 27,
         "methods": {
           "skill_used": 3,
           "status": 0,
           "task": 0,
           "harvest": 0,
-          "contract": 25
+          "contract": 27
         },
         "by_day": {
           "2026-06-09": {
@@ -1917,7 +2034,7 @@ window.BRAIN_SUMMARY = {
           },
           "2026-06-10": {
             "e": 0,
-            "i": 2
+            "i": 4
           }
         },
         "last": "2026-06-10"
@@ -1946,13 +2063,13 @@ window.BRAIN_SUMMARY = {
         "agent": "workflow",
         "skill": "resume-state",
         "explicit": 0,
-        "inferred": 25,
+        "inferred": 27,
         "methods": {
           "skill_used": 0,
           "status": 0,
           "task": 0,
           "harvest": 0,
-          "contract": 25
+          "contract": 27
         },
         "by_day": {
           "2026-06-09": {
@@ -1961,7 +2078,7 @@ window.BRAIN_SUMMARY = {
           },
           "2026-06-10": {
             "e": 0,
-            "i": 2
+            "i": 4
           }
         },
         "last": "2026-06-10"
@@ -1970,13 +2087,13 @@ window.BRAIN_SUMMARY = {
         "agent": "workflow",
         "skill": "run-log",
         "explicit": 3,
-        "inferred": 25,
+        "inferred": 27,
         "methods": {
           "skill_used": 3,
           "status": 0,
           "task": 0,
           "harvest": 0,
-          "contract": 25
+          "contract": 27
         },
         "by_day": {
           "2026-06-09": {
@@ -1985,7 +2102,7 @@ window.BRAIN_SUMMARY = {
           },
           "2026-06-10": {
             "e": 0,
-            "i": 2
+            "i": 4
           }
         },
         "last": "2026-06-10"
@@ -1994,13 +2111,13 @@ window.BRAIN_SUMMARY = {
         "agent": "workflow",
         "skill": "validate",
         "explicit": 5,
-        "inferred": 25,
+        "inferred": 28,
         "methods": {
           "skill_used": 5,
-          "status": 0,
+          "status": 1,
           "task": 0,
           "harvest": 0,
-          "contract": 25
+          "contract": 27
         },
         "by_day": {
           "2026-06-09": {
@@ -2009,7 +2126,7 @@ window.BRAIN_SUMMARY = {
           },
           "2026-06-10": {
             "e": 0,
-            "i": 2
+            "i": 5
           }
         },
         "last": "2026-06-10"
@@ -2018,6 +2135,40 @@ window.BRAIN_SUMMARY = {
     "method_note": "one attribution per run-log row, strict ladder: explicit skill_used > status-semantics > task_id pattern; plus harvest findings (→ nara) and spawn-contract skill subsets — those two and the lower rungs are INFERRED. e=explicit, i=inferred; by_day buckets cover the trailing window only."
   },
   "contracts": [
+    {
+      "spawn_id": "s2-review-adversary-discipline",
+      "surface": "apparatus",
+      "date": "2026-06-10",
+      "status": "completed",
+      "agent": "nara",
+      "task": "Framework code-review (adversarial) over the s2 diff + new modules",
+      "done_check": "freeform",
+      "done_check_raw": "blocking/non-blocking/nits report delivered",
+      "skill_subset": [
+        "validate",
+        "run-log"
+      ],
+      "authority_cap": "read-only + MOCK_LLM=1 pytest",
+      "budget": "single review pass",
+      "age_days": 3
+    },
+    {
+      "spawn_id": "s2-review-adversary-correctness",
+      "surface": "apparatus",
+      "date": "2026-06-10",
+      "status": "completed",
+      "agent": "nara",
+      "task": "Framework code-review (adversarial) over the s2 diff + new modules",
+      "done_check": "freeform",
+      "done_check_raw": "blocking/non-blocking/nits report delivered",
+      "skill_subset": [
+        "validate",
+        "run-log"
+      ],
+      "authority_cap": "read-only + MOCK_LLM=1 pytest",
+      "budget": "single review pass",
+      "age_days": 3
+    },
     {
       "spawn_id": "s2-recon-skeptic",
       "surface": "apparatus",
@@ -2037,7 +2188,7 @@ window.BRAIN_SUMMARY = {
       ],
       "authority_cap": "read-only on repo; no writes, no commits",
       "budget": "single recon pass",
-      "age_days": 0
+      "age_days": 3
     },
     {
       "spawn_id": "s2-recon-mcp",
@@ -2058,7 +2209,91 @@ window.BRAIN_SUMMARY = {
       ],
       "authority_cap": "read-only on repo; no writes, no commits",
       "budget": "single recon pass",
-      "age_days": 0
+      "age_days": 3
+    },
+    {
+      "spawn_id": "s2-b4-battery-fields",
+      "surface": "apparatus",
+      "date": "2026-06-10",
+      "status": "completed",
+      "agent": "nara",
+      "task": "Build limb per /tmp/s2_build design docs",
+      "done_check": "freeform",
+      "done_check_raw": "tests green with wiring in limb worktree (reports carry verbatim pytest tails); final worktree state new-files-only at 8ece354",
+      "skill_subset": [
+        "resume-state",
+        "gate-check",
+        "validate",
+        "run-log",
+        "fallback",
+        "brain-recall"
+      ],
+      "authority_cap": "create listed NEW files in repo; existing-file changes ONLY as draft .patch under /tmp/s2_build/; no commits; no ui/; no live-ledger writes; no real LLM calls",
+      "budget": "single build pass",
+      "age_days": 3
+    },
+    {
+      "spawn_id": "s2-b3-restate-skeptic",
+      "surface": "apparatus",
+      "date": "2026-06-10",
+      "status": "completed",
+      "agent": "nara",
+      "task": "Build limb per /tmp/s2_build design docs",
+      "done_check": "freeform",
+      "done_check_raw": "tests green with wiring in limb worktree (reports carry verbatim pytest tails); final worktree state new-files-only at 8ece354",
+      "skill_subset": [
+        "resume-state",
+        "gate-check",
+        "validate",
+        "run-log",
+        "fallback",
+        "brain-recall"
+      ],
+      "authority_cap": "create listed NEW files in repo; existing-file changes ONLY as draft .patch under /tmp/s2_build/; no commits; no ui/; no live-ledger writes; no real LLM calls",
+      "budget": "single build pass",
+      "age_days": 3
+    },
+    {
+      "spawn_id": "s2-b2-topicality-skeptic",
+      "surface": "apparatus",
+      "date": "2026-06-10",
+      "status": "completed",
+      "agent": "nara",
+      "task": "Build limb per /tmp/s2_build design docs",
+      "done_check": "freeform",
+      "done_check_raw": "tests green with wiring in limb worktree (reports carry verbatim pytest tails); final worktree state new-files-only at 8ece354",
+      "skill_subset": [
+        "resume-state",
+        "gate-check",
+        "validate",
+        "run-log",
+        "fallback",
+        "brain-recall"
+      ],
+      "authority_cap": "create listed NEW files in repo; existing-file changes ONLY as draft .patch under /tmp/s2_build/; no commits; no ui/; no live-ledger writes; no real LLM calls",
+      "budget": "single build pass",
+      "age_days": 3
+    },
+    {
+      "spawn_id": "s2-b1-mcp-submitted-run",
+      "surface": "apparatus",
+      "date": "2026-06-10",
+      "status": "completed",
+      "agent": "nara",
+      "task": "Build limb per /tmp/s2_build design docs",
+      "done_check": "freeform",
+      "done_check_raw": "tests green with wiring in limb worktree (reports carry verbatim pytest tails); final worktree state new-files-only at 8ece354",
+      "skill_subset": [
+        "resume-state",
+        "gate-check",
+        "validate",
+        "run-log",
+        "fallback",
+        "brain-recall"
+      ],
+      "authority_cap": "create listed NEW files in repo; existing-file changes ONLY as draft .patch under /tmp/s2_build/; no commits; no ui/; no live-ledger writes; no real LLM calls",
+      "budget": "single build pass",
+      "age_days": 3
     },
     {
       "spawn_id": "SP-wf-2026-06-10-build-U",
@@ -2079,7 +2314,7 @@ window.BRAIN_SUMMARY = {
       ],
       "authority_cap": "create ONLY docs/ui_session_handoff_2026-06-10.md; read-only everywhere else; NO writes to ui/ or ui_plan.md (ui-session worktree is live), no run_state, no commits",
       "budget": "single limb, <=20 min",
-      "age_days": 0
+      "age_days": 3
     },
     {
       "spawn_id": "SP-wf-2026-06-10-build-R",
@@ -2100,7 +2335,49 @@ window.BRAIN_SUMMARY = {
       ],
       "authority_cap": "worktree-isolated; edit ONLY orchestrator/active_run.py + schema/active_run.schema.json + create tests/test_active_run_registry.py IN THE WORKTREE; no spine (nara.py/tool_registry.py/iteration_record…",
       "budget": "single limb, <=20 min",
-      "age_days": 0
+      "age_days": 3
+    },
+    {
+      "spawn_id": "SP-wf-2026-06-10-S3-strategy",
+      "surface": "apparatus",
+      "date": "2026-06-10",
+      "status": "completed",
+      "agent": "workflow",
+      "task": "exp007 paper-strategy module: edge_analysis.py (|p_model-p_market| filter + ret…",
+      "done_check": "freeform",
+      "done_check_raw": "MOCK_LLM=1 pytest 8 passed; CLI smoked; integrator ran analyze+memo live",
+      "skill_subset": [
+        "resume-state",
+        "gate-check",
+        "validate",
+        "run-log",
+        "fallback",
+        "brain-recall"
+      ],
+      "authority_cap": "create ONLY experiments/exp007_polymarket/{edge_analysis.py,strategy_memo.py}, schema/strategy_memo.schema.json, tests/test_exp007_strategy.py; NO trading surface (no POST/auth/order code); no edits …",
+      "budget": "<=15 min",
+      "age_days": 3
+    },
+    {
+      "spawn_id": "SP-wf-2026-06-10-S3-runway",
+      "surface": "apparatus",
+      "date": "2026-06-10",
+      "status": "completed",
+      "agent": "workflow",
+      "task": "Always-on runway, shipped DARK: cron/run-coordinator.sh (env -u MOCK_LLM, mem-g…",
+      "done_check": "freeform",
+      "done_check_raw": "bash -n clean x2; soak refusals exit 1/2 before any write; runbook self-contained",
+      "skill_subset": [
+        "resume-state",
+        "gate-check",
+        "validate",
+        "run-log",
+        "fallback",
+        "brain-recall"
+      ],
+      "authority_cap": "create ONLY cron/run-coordinator.sh, tools/coordinator_soak.sh, docs/daily_workstreams.md; do NOT touch crontab, run_state/, coordinator code; no commits",
+      "budget": "<=15 min",
+      "age_days": 3
     },
     {
       "spawn_id": "SP-004",
@@ -2122,7 +2399,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 0
+      "age_days": 3
     },
     {
       "spawn_id": "SP-003",
@@ -2143,7 +2420,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 0
+      "age_days": 3
     },
     {
       "spawn_id": "SP-wf_e367ee98-045-S",
@@ -2168,7 +2445,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf_e367ee98-045-D",
@@ -2193,7 +2470,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf_e367ee98-045-C",
@@ -2218,7 +2495,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf_e367ee98-045-B",
@@ -2243,7 +2520,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf_e367ee98-045-A",
@@ -2268,7 +2545,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf_641dcae3-bdd-S",
@@ -2293,7 +2570,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf_641dcae3-bdd-D",
@@ -2318,7 +2595,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf_641dcae3-bdd-C",
@@ -2343,7 +2620,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf_641dcae3-bdd-B",
@@ -2368,7 +2645,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf_641dcae3-bdd-A",
@@ -2393,7 +2670,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf_30c6fa6a-51b-E",
@@ -2418,7 +2695,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf_30c6fa6a-51b-D",
@@ -2443,7 +2720,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf_30c6fa6a-51b-C",
@@ -2468,7 +2745,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf_30c6fa6a-51b-B",
@@ -2493,7 +2770,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf_30c6fa6a-51b-A",
@@ -2518,7 +2795,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf-2026-06-09-evening-H",
@@ -2539,7 +2816,7 @@ window.BRAIN_SUMMARY = {
       ],
       "authority_cap": "create/edit ONLY files_allowed in main checkout; no spine (nara.py/tool_registry.py/schema/*), no ui/, no run_state state files, no commits; DRAFT patches as report text",
       "budget": "one workflow agent run, ~60-75 min wall",
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf-2026-06-09-evening-G",
@@ -2560,7 +2837,7 @@ window.BRAIN_SUMMARY = {
       ],
       "authority_cap": "create/edit ONLY files_allowed in main checkout; no spine (nara.py/tool_registry.py/schema/*), no ui/, no run_state state files, no commits; DRAFT patches as report text",
       "budget": "one workflow agent run, ~60-75 min wall",
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf-2026-06-09-evening-F",
@@ -2581,7 +2858,7 @@ window.BRAIN_SUMMARY = {
       ],
       "authority_cap": "create/edit ONLY files_allowed in main checkout; no spine (nara.py/tool_registry.py/schema/*), no ui/, no run_state state files, no commits; DRAFT patches as report text",
       "budget": "one workflow agent run, ~60-75 min wall",
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf-2026-06-09-evening-E",
@@ -2602,7 +2879,7 @@ window.BRAIN_SUMMARY = {
       ],
       "authority_cap": "create/edit ONLY files_allowed in main checkout; no spine (nara.py/tool_registry.py/schema/*), no ui/, no run_state state files, no commits; DRAFT patches as report text",
       "budget": "one workflow agent run, ~60-75 min wall",
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf-2026-06-09-evening-D",
@@ -2623,7 +2900,7 @@ window.BRAIN_SUMMARY = {
       ],
       "authority_cap": "create/edit ONLY files_allowed in main checkout; no spine (nara.py/tool_registry.py/schema/*), no ui/, no run_state state files, no commits; DRAFT patches as report text",
       "budget": "one workflow agent run, ~60-75 min wall",
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf-2026-06-09-evening-C",
@@ -2644,7 +2921,7 @@ window.BRAIN_SUMMARY = {
       ],
       "authority_cap": "create/edit ONLY files_allowed in main checkout; no spine (nara.py/tool_registry.py/schema/*), no ui/, no run_state state files, no commits; DRAFT patches as report text",
       "budget": "one workflow agent run, ~60-75 min wall",
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf-2026-06-09-evening-B",
@@ -2665,7 +2942,7 @@ window.BRAIN_SUMMARY = {
       ],
       "authority_cap": "create/edit ONLY files_allowed in main checkout; no spine (nara.py/tool_registry.py/schema/*), no ui/, no run_state state files, no commits; DRAFT patches as report text",
       "budget": "one workflow agent run, ~60-75 min wall",
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-wf-2026-06-09-evening-A",
@@ -2686,7 +2963,7 @@ window.BRAIN_SUMMARY = {
       ],
       "authority_cap": "create/edit ONLY files_allowed in main checkout; no spine (nara.py/tool_registry.py/schema/*), no ui/, no run_state state files, no commits; DRAFT patches as report text",
       "budget": "one workflow agent run, ~60-75 min wall",
-      "age_days": 1
+      "age_days": 4
     },
     {
       "spawn_id": "SP-002",
@@ -2707,7 +2984,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 16
+      "age_days": 19
     },
     {
       "spawn_id": "SP-001",
@@ -2728,7 +3005,7 @@ window.BRAIN_SUMMARY = {
         "iterations": null,
         "cost_usd": null
       },
-      "age_days": 16
+      "age_days": 19
     }
   ],
   "loop": {
@@ -2736,10 +3013,10 @@ window.BRAIN_SUMMARY = {
       "harvest": {
         "all": 42,
         "newest": "2026-05-25",
-        "dormant_days": 16
+        "dormant_days": 19
       },
       "proposals": {
-        "open": 7,
+        "open": 11,
         "newest": "2026-06-10"
       },
       "review": {
@@ -2823,6 +3100,78 @@ window.BRAIN_SUMMARY = {
         "lifecycle": [
           {
             "ts": "2026-06-10T10:30:00Z",
+            "verdict": "open",
+            "actor": "claude-code-main"
+          }
+        ]
+      },
+      {
+        "proposal_id": "P-015",
+        "title": "Refresh heartbeat_at per step in active_runs registry files (EMIT side)",
+        "target": "a_bgt_rsi run registry (D-047)",
+        "target_type": "rule",
+        "origin_harvest": [],
+        "final_verdict": "open",
+        "rule_cited": null,
+        "filed_date": "2026-06-10",
+        "decided_at": null,
+        "lifecycle": [
+          {
+            "ts": "2026-06-10T16:50:00Z",
+            "verdict": "open",
+            "actor": "claude-code-main"
+          }
+        ]
+      },
+      {
+        "proposal_id": "P-016",
+        "title": "Dashboard-started iterations should record seed.source=human_ui",
+        "target": "a_bgt_rsi POST /api/loop_v0/start",
+        "target_type": "rule",
+        "origin_harvest": [],
+        "final_verdict": "open",
+        "rule_cited": null,
+        "filed_date": "2026-06-10",
+        "decided_at": null,
+        "lifecycle": [
+          {
+            "ts": "2026-06-10T16:50:00Z",
+            "verdict": "open",
+            "actor": "claude-code-main"
+          }
+        ]
+      },
+      {
+        "proposal_id": "P-017",
+        "title": "Stale-tab detector: surface frontend-older-than-backend skew",
+        "target": "a_bgt_rsi ui/frontend",
+        "target_type": "skill",
+        "origin_harvest": [],
+        "final_verdict": "open",
+        "rule_cited": null,
+        "filed_date": "2026-06-10",
+        "decided_at": null,
+        "lifecycle": [
+          {
+            "ts": "2026-06-10T17:08:00Z",
+            "verdict": "open",
+            "actor": "claude-code-main"
+          }
+        ]
+      },
+      {
+        "proposal_id": "P-018",
+        "title": "spawn-contract/workflow: verify the limb's fork base against state_basis before building",
+        "target": "spawn-contract",
+        "target_type": "skill",
+        "origin_harvest": [],
+        "final_verdict": "open",
+        "rule_cited": null,
+        "filed_date": "2026-06-10",
+        "decided_at": null,
+        "lifecycle": [
+          {
+            "ts": "2026-06-10T17:37:26Z",
             "verdict": "open",
             "actor": "claude-code-main"
           }
@@ -3054,6 +3403,171 @@ window.BRAIN_SUMMARY = {
   },
   "timeline": [
     {
+      "date": "2026-06-13",
+      "ts": "2026-06-13T04:33:52Z",
+      "kind": "run_flag",
+      "id": "runflag-week1.run-L1525",
+      "title": "failed: 2026-06-13-d050-revision-rerun",
+      "agent": "claude-code-main",
+      "verdict": "failed",
+      "is_flag": true,
+      "skill": "validate"
+    },
+    {
+      "date": "2026-06-13",
+      "ts": "2026-06-13T02:34:06.494472Z",
+      "kind": "run_flag",
+      "id": "runflag-week1.run-L1450",
+      "title": "failed: (untitled step)",
+      "agent": "nemoclaw_agent",
+      "verdict": "failed",
+      "is_flag": true,
+      "skill": "validate"
+    },
+    {
+      "date": "2026-06-13",
+      "ts": "2026-06-13T00:00:00Z",
+      "kind": "correction_written",
+      "id": "dec-fw-2026-06-13-housekeeping-reconcile-the-2026-06-10-ui",
+      "title": "2026-06-13 — Housekeeping: reconcile the 2026-06-10 UI move (state write-forward)",
+      "agent": "claude-code-main",
+      "verdict": null,
+      "is_flag": true,
+      "skill": null
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T18:38:51Z",
+      "kind": "reflection_written",
+      "id": "2026-06-10-s2-d050-decision-run",
+      "title": "2026-06-10-s2-d050-decision-run",
+      "agent": "claude-code-main",
+      "verdict": null,
+      "is_flag": false,
+      "skill": null
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T18:37:39Z",
+      "kind": "run_flag",
+      "id": "runflag-week1.run-L1432",
+      "title": "failed: 2026-06-10-s2-d050-decision-run",
+      "agent": "claude-code-main",
+      "verdict": "failed",
+      "is_flag": true,
+      "skill": "validate"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T17:37:26Z",
+      "kind": "proposal_filed",
+      "id": "P-018",
+      "title": "spawn-contract/workflow: verify the limb's fork base against state_basis before building",
+      "agent": "claude-code-main",
+      "verdict": null,
+      "is_flag": false,
+      "skill": "spawn-contract"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T17:36:51Z",
+      "kind": "reflection_written",
+      "id": "2026-06-10-s2-build-workflow",
+      "title": "2026-06-10-s2-build-workflow",
+      "agent": "claude-code-main",
+      "verdict": null,
+      "is_flag": false,
+      "skill": null
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T17:26:05.148328Z",
+      "kind": "reflection_written",
+      "id": "2026-06-10-s3-workflow-build-phase",
+      "title": "2026-06-10-S3-workflow-build-phase",
+      "agent": "claude-code-main",
+      "verdict": null,
+      "is_flag": false,
+      "skill": null
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T17:08:00Z",
+      "kind": "proposal_filed",
+      "id": "P-017",
+      "title": "Stale-tab detector: surface frontend-older-than-backend skew",
+      "agent": "claude-code-main",
+      "verdict": null,
+      "is_flag": false,
+      "skill": "a_bgt_rsi ui/frontend"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T17:07:30.993420Z",
+      "kind": "gate_verdict",
+      "id": "gate-iter-2026-06-10-002",
+      "title": "iter-2026-06-10-002 gated invalid — Okay let's kill this hypothesis",
+      "agent": "human:human:ui",
+      "verdict": "invalid",
+      "is_flag": false,
+      "skill": "gate-check"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T17:03:53.273980Z",
+      "kind": "gate_verdict",
+      "id": "gate-iter-2026-06-10-003",
+      "title": "iter-2026-06-10-003 gated valid — live-session acceptance test: verifying the human:ui write-back s…",
+      "agent": "human:human:ui",
+      "verdict": "valid",
+      "is_flag": false,
+      "skill": "gate-check"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T16:50:00Z",
+      "kind": "proposal_filed",
+      "id": "P-016",
+      "title": "Dashboard-started iterations should record seed.source=human_ui",
+      "agent": "claude-code-main",
+      "verdict": null,
+      "is_flag": false,
+      "skill": null
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T16:50:00Z",
+      "kind": "proposal_filed",
+      "id": "P-015",
+      "title": "Refresh heartbeat_at per step in active_runs registry files (EMIT side)",
+      "agent": "claude-code-main",
+      "verdict": null,
+      "is_flag": false,
+      "skill": null
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T16:36:43.033103Z",
+      "kind": "run_flag",
+      "id": "runflag-week1.run-L1294",
+      "title": "failed: (untitled step)",
+      "agent": "nara",
+      "verdict": "failed",
+      "is_flag": true,
+      "skill": "validate"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T16:29:39Z",
+      "kind": "run_flag",
+      "id": "runflag-week1.run-L1275",
+      "title": "failed: 2026-06-10-s2-recon-workflow",
+      "agent": "workflow",
+      "verdict": "failed",
+      "is_flag": true,
+      "skill": "validate"
+    },
+    {
       "date": "2026-06-10",
       "ts": "2026-06-10T10:32:00Z",
       "kind": "reflection_written",
@@ -3145,6 +3659,28 @@ window.BRAIN_SUMMARY = {
       "date": "2026-06-10",
       "ts": "2026-06-10T00:00:00Z",
       "kind": "spawn_launched",
+      "id": "s2-review-adversary-discipline",
+      "title": "s2-review-adversary-discipline — Framework code-review (adversarial) over the s2 diff + new modules",
+      "agent": "nara",
+      "verdict": "freeform",
+      "is_flag": false,
+      "skill": "spawn-contract"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T00:00:00Z",
+      "kind": "spawn_launched",
+      "id": "s2-review-adversary-correctness",
+      "title": "s2-review-adversary-correctness — Framework code-review (adversarial) over the s2 diff + new modules",
+      "agent": "nara",
+      "verdict": "freeform",
+      "is_flag": false,
+      "skill": "spawn-contract"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T00:00:00Z",
+      "kind": "spawn_launched",
       "id": "s2-recon-skeptic",
       "title": "s2-recon-skeptic — Recon-only: map D-044/D-045 skeptic seam (attack(), vllm-qwen), orchestrator/to…",
       "agent": "nara",
@@ -3162,6 +3698,94 @@ window.BRAIN_SUMMARY = {
       "verdict": "pending",
       "is_flag": false,
       "skill": "spawn-contract"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T00:00:00Z",
+      "kind": "spawn_launched",
+      "id": "s2-b4-battery-fields",
+      "title": "s2-b4-battery-fields — Build limb per /tmp/s2_build design docs",
+      "agent": "nara",
+      "verdict": "freeform",
+      "is_flag": false,
+      "skill": "spawn-contract"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T00:00:00Z",
+      "kind": "spawn_launched",
+      "id": "s2-b3-restate-skeptic",
+      "title": "s2-b3-restate-skeptic — Build limb per /tmp/s2_build design docs",
+      "agent": "nara",
+      "verdict": "freeform",
+      "is_flag": false,
+      "skill": "spawn-contract"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T00:00:00Z",
+      "kind": "spawn_launched",
+      "id": "s2-b2-topicality-skeptic",
+      "title": "s2-b2-topicality-skeptic — Build limb per /tmp/s2_build design docs",
+      "agent": "nara",
+      "verdict": "freeform",
+      "is_flag": false,
+      "skill": "spawn-contract"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T00:00:00Z",
+      "kind": "spawn_launched",
+      "id": "s2-b1-mcp-submitted-run",
+      "title": "s2-b1-mcp-submitted-run — Build limb per /tmp/s2_build design docs",
+      "agent": "nara",
+      "verdict": "freeform",
+      "is_flag": false,
+      "skill": "spawn-contract"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T00:00:00Z",
+      "kind": "decision_logged",
+      "id": "dec-fw-2026-06-10-two-surface-observability-design-system-ui",
+      "title": "2026-06-10 — Two-surface observability design system (UI overhaul)",
+      "agent": "claude-code-main",
+      "verdict": null,
+      "is_flag": false,
+      "skill": null
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T00:00:00Z",
+      "kind": "decision_logged",
+      "id": "dec-ap-d-051-mcp-submit-poll-seam-at-the",
+      "title": "D-051 — MCP submit+poll seam at the β tool plane (ticket store composed with the D-047 registry)",
+      "agent": "human:decross1",
+      "verdict": null,
+      "is_flag": false,
+      "skill": null
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T00:00:00Z",
+      "kind": "decision_logged",
+      "id": "dec-ap-d-050-d-045-residuals-1-2-independent-topicality",
+      "title": "D-050 — D-045 residuals 1+2: independent topicality attack (R0b) + restatement skeptic at the criti…",
+      "agent": "human:decross1",
+      "verdict": null,
+      "is_flag": false,
+      "skill": null
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T00:00:00Z",
+      "kind": "decision_logged",
+      "id": "dec-ap-d-049-interim-bounded-autonomy-the-coordinator",
+      "title": "D-049 — β-interim bounded autonomy: the coordinator may run unattended cycles ONLY under the pause/…",
+      "agent": "human:decross1",
+      "verdict": null,
+      "is_flag": false,
+      "skill": null
     },
     {
       "date": "2026-06-10",
@@ -3213,6 +3837,28 @@ window.BRAIN_SUMMARY = {
       "kind": "spawn_launched",
       "id": "SP-wf-2026-06-10-build-R",
       "title": "SP-wf-2026-06-10-build-R — Multi-run registry in orchestrator/active_run.py (per-run files under ru…",
+      "agent": "workflow",
+      "verdict": "freeform",
+      "is_flag": false,
+      "skill": "spawn-contract"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T00:00:00Z",
+      "kind": "spawn_launched",
+      "id": "SP-wf-2026-06-10-S3-strategy",
+      "title": "SP-wf-2026-06-10-S3-strategy — exp007 paper-strategy module: edge_analysis.py (|p_model-p_market| f…",
+      "agent": "workflow",
+      "verdict": "freeform",
+      "is_flag": false,
+      "skill": "spawn-contract"
+    },
+    {
+      "date": "2026-06-10",
+      "ts": "2026-06-10T00:00:00Z",
+      "kind": "spawn_launched",
+      "id": "SP-wf-2026-06-10-S3-runway",
+      "title": "SP-wf-2026-06-10-S3-runway — Always-on runway, shipped DARK: cron/run-coordinator.sh (env -u MOCK_L…",
       "agent": "workflow",
       "verdict": "freeform",
       "is_flag": false,
@@ -3712,53 +4358,111 @@ window.BRAIN_SUMMARY = {
       "verdict": null,
       "is_flag": false,
       "skill": null
-    },
-    {
-      "date": "2026-06-05",
-      "ts": "2026-06-05T19:19:02.552285Z",
-      "kind": "gate_verdict",
-      "id": "gate-iter-2026-06-05-003",
-      "title": "iter-2026-06-05-003 gated valid — exp004 finding solid: 96.5% truthful bundle bidding over 150 tria…",
-      "agent": "human:decross1",
-      "verdict": "valid",
-      "is_flag": false,
-      "skill": "gate-check"
-    },
-    {
-      "date": "2026-06-05",
-      "ts": "2026-06-05T00:25:28.630411Z",
-      "kind": "gate_verdict",
-      "id": "gate-iter-2026-06-05-001",
-      "title": "iter-2026-06-05-001 gated valid — smoke: real first-price shading iteration; chain healthy, all v1 …",
-      "agent": "human:decross1",
-      "verdict": "valid",
-      "is_flag": false,
-      "skill": "gate-check"
-    },
-    {
-      "date": "2026-06-05",
-      "ts": "2026-06-05T00:00:00Z",
-      "kind": "decision_logged",
-      "id": "dec-ap-d-038-ml-intern-uses-semantic-scholar-for",
-      "title": "D-038 — ML-Intern uses Semantic Scholar for topic-based foundational backfill, scoped distinctly fr…",
-      "agent": "human:decross1",
-      "verdict": null,
-      "is_flag": false,
-      "skill": null
-    },
-    {
-      "date": "2026-06-05",
-      "ts": "2026-06-05T00:00:00Z",
-      "kind": "decision_logged",
-      "id": "dec-ap-d-037-authorize-dynamic-workflows-amend-d-030-s",
-      "title": "D-037 — Authorize Dynamic Workflows; amend D-030's single-session constraint",
-      "agent": "human:decross1",
-      "verdict": null,
-      "is_flag": false,
-      "skill": null
     }
   ],
   "incidents": [
+    {
+      "id": "runflag-week1.run-L1525",
+      "kind": "run_flag",
+      "date": "2026-06-13",
+      "severity": "med",
+      "title": "failed: 2026-06-13-d050-revision-rerun",
+      "what_happened": "status=failed",
+      "chain": {
+        "outcome": "2026-06-13-d050-revision-rerun",
+        "expected": null,
+        "actual": "failed",
+        "correction_or_rule": null
+      },
+      "source": "week1.run.jsonl L1525",
+      "skill": "validate",
+      "rule": null
+    },
+    {
+      "id": "runflag-week1.run-L1450",
+      "kind": "run_flag",
+      "date": "2026-06-13",
+      "severity": "med",
+      "title": "failed:",
+      "what_happened": "status=failed",
+      "chain": {
+        "outcome": "",
+        "expected": null,
+        "actual": "failed",
+        "correction_or_rule": null
+      },
+      "source": "week1.run.jsonl L1450",
+      "skill": "validate",
+      "rule": null
+    },
+    {
+      "id": "dec-fw-2026-06-13-housekeeping-reconcile-the-2026-06-10-ui",
+      "kind": "correction",
+      "date": "2026-06-13",
+      "severity": "high",
+      "title": "Housekeeping: reconcile the 2026-06-10 UI move (state write-forward)",
+      "what_happened": "correction logged",
+      "chain": {
+        "outcome": "a wrong default was identified and corrected",
+        "expected": null,
+        "actual": "**Decision.** Close out the 2026-06-10 two-surface UI overhaul as drift cleanup: (1) write the run log forward into `framework.state.json` — append the six `ui_overhaul_*` tasks (run log L138–143, all `passed`) to `completed_tasks` and refresh `value_metrics`; `current_session` stays 24 (the overha…",
+        "correction_or_rule": "logged correction"
+      },
+      "source": "memory/DECISIONS.md",
+      "skill": null,
+      "rule": null
+    },
+    {
+      "id": "runflag-week1.run-L1432",
+      "kind": "run_flag",
+      "date": "2026-06-10",
+      "severity": "med",
+      "title": "failed: 2026-06-10-s2-d050-decision-run",
+      "what_happened": "status=failed",
+      "chain": {
+        "outcome": "2026-06-10-s2-d050-decision-run",
+        "expected": null,
+        "actual": "failed",
+        "correction_or_rule": null
+      },
+      "source": "week1.run.jsonl L1432",
+      "skill": "validate",
+      "rule": null
+    },
+    {
+      "id": "runflag-week1.run-L1294",
+      "kind": "run_flag",
+      "date": "2026-06-10",
+      "severity": "med",
+      "title": "failed:",
+      "what_happened": "status=failed",
+      "chain": {
+        "outcome": "",
+        "expected": null,
+        "actual": "failed",
+        "correction_or_rule": null
+      },
+      "source": "week1.run.jsonl L1294",
+      "skill": "validate",
+      "rule": null
+    },
+    {
+      "id": "runflag-week1.run-L1275",
+      "kind": "run_flag",
+      "date": "2026-06-10",
+      "severity": "med",
+      "title": "failed: 2026-06-10-s2-recon-workflow",
+      "what_happened": "status=failed",
+      "chain": {
+        "outcome": "2026-06-10-s2-recon-workflow",
+        "expected": null,
+        "actual": "failed",
+        "correction_or_rule": null
+      },
+      "source": "week1.run.jsonl L1275",
+      "skill": "validate",
+      "rule": null
+    },
     {
       "id": "runflag-week1.run-L1247",
       "kind": "run_flag",
@@ -3957,10 +4661,10 @@ window.BRAIN_SUMMARY = {
     }
   ],
   "attribution": {
-    "agent_rows": 273,
-    "total_rows": 1416,
-    "skill_used_rows": 24,
-    "note": "raw run-log rows carry agent on 273/1416 and skill_used on 24/1416; the attribution ladder infers the rest and labels every inference (P-008 open: make agent required in the consumer run-log)."
+    "agent_rows": 526,
+    "total_rows": 1669,
+    "skill_used_rows": 30,
+    "note": "raw run-log rows carry agent on 526/1669 and skill_used on 30/1669; the attribution ladder infers the rest and labels every inference (P-008 open: make agent required in the consumer run-log)."
   },
   "days": [
     {
@@ -4011,7 +4715,12 @@ window.BRAIN_SUMMARY = {
     {
       "date": "2026-06-10",
       "file": "2026-06-10.md",
-      "bytes": 1757660
+      "bytes": 1903105
+    },
+    {
+      "date": "2026-06-13",
+      "file": "2026-06-13.md",
+      "bytes": 98259
     }
   ]
 };

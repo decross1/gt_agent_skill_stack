@@ -1,0 +1,14 @@
+---
+slug: "apparatus-worker_activity-l2765"
+type: "apparatus_event"
+date: "2026-06-13"
+source: "worker_activity.jsonl:2765"
+---
+
+# unknown_apparatus — worker_activity L2765
+
+_emit apparatus log entry_
+
+**Did:** fields: timestamp, run_id, task_id, tokens_generated, tokens_target, tok_per_s, eta_s, synthetic
+
+**Observed:** {"timestamp": "2026-06-13T02:33:44.390429Z", "run_id": "iter-2026-06-13-001", "task_id": "subagent.redteam_critic", "tokens_generated": 320, "tokens_target": 1024, "tok_per_s": 60.95327288339008}

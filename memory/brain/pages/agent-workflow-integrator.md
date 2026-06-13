@@ -7,12 +7,12 @@ source: "derived from agent_id across narratives + proposals"
 
 # Agent — workflow:integrator
 
-_1 narratives across 1 raw label(s)_
+_4 narratives across 3 raw label(s)_
 
 **Canonical agent id:** `workflow:integrator`
 
-**Raw labels seen in narratives:** workflow:wf_71b0e5f0-5ae/integrator
+**Raw labels seen in narratives:** workflow:s2-build/integrator, workflow:wf_71b0e5f0-5ae/integrator, workflow:wf_d4e96978-59a/integrator
 
-**Total narratives:** 1
+**Total narratives:** 4
 
 **First seen:** 2026-06-10

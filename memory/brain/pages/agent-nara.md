@@ -61,17 +61,19 @@ edges:
   - {type: ran, dst: "iter-2026-06-09-008", dst_type: "iteration"}
   - {type: ran, dst: "iter-2026-06-10-001", dst_type: "iteration"}
   - {type: ran, dst: "iter-2026-06-10-002", dst_type: "iteration"}
+  - {type: ran, dst: "iter-2026-06-10-003", dst_type: "iteration"}
+  - {type: ran, dst: "iter-2026-06-13-001", dst_type: "iteration"}
 ---
 
 # Agent — nara
 
-_6105 narratives across 16 raw label(s)_
+_6170 narratives across 16 raw label(s)_
 
 **Canonical agent id:** `nara`
 
 **Raw labels seen in narratives:** nara, nara.run_iteration, nara:loop_v0_active_step, nara:loop_v0_fallback, nara:loop_v0_iteration_complete, nara:loop_v0_iteration_failed, nara:loop_v0_iteration_start, nara:loop_v0_ml_intern, nara:loop_v0_redteam_retry, nara:loop_v0_reprompt, nara:loop_v0_tool_dispatch, nara:loop_v0_tool_receipt, orchestrator:orchestrator_dispatch, orchestrator:orchestrator_receipt, orchestrator:orchestrator_reject, orchestrator:worker_invocation
 
-**Total narratives:** 6105
+**Total narratives:** 6170
 
 **First seen:** 2026-05-17
 
@@ -134,3 +136,5 @@ _6105 narratives across 16 raw label(s)_
 - **ran** → `iter-2026-06-09-008` (iteration)
 - **ran** → `iter-2026-06-10-001` (iteration)
 - **ran** → `iter-2026-06-10-002` (iteration)
+- **ran** → `iter-2026-06-10-003` (iteration)
+- **ran** → `iter-2026-06-13-001` (iteration)

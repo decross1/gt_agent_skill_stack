@@ -19,3 +19,4 @@ _runtime-safe_
 ## Referenced by
 
 - `proposal-p-004` (proposal) — **targets**
+- `proposal-p-018` (proposal) — **targets**

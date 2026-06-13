@@ -16,17 +16,20 @@ edges:
   - {type: authored, dst: "session-2026-06-09-evening", dst_type: "reflection"}
   - {type: authored, dst: "2026-06-10-workflow-build-phase", dst_type: "reflection"}
   - {type: authored, dst: "reflection-ui-overhaul-2026-06-10", dst_type: "reflection"}
+  - {type: authored, dst: "2026-06-10-s3-workflow-build-phase", dst_type: "reflection"}
+  - {type: authored, dst: "2026-06-10-s2-build-workflow", dst_type: "reflection"}
+  - {type: authored, dst: "2026-06-10-s2-d050-decision-run", dst_type: "reflection"}
 ---
 
 # Agent — claude-code-main
 
-_45 narratives across 1 raw label(s)_
+_64 narratives across 1 raw label(s)_
 
 **Canonical agent id:** `claude-code-main`
 
 **Raw labels seen in narratives:** claude-code-main
 
-**Total narratives:** 45
+**Total narratives:** 64
 
 **First seen:** 2026-05-20
 
@@ -44,3 +47,6 @@ _45 narratives across 1 raw label(s)_
 - **authored** → `session-2026-06-09-evening` (reflection)
 - **authored** → `2026-06-10-workflow-build-phase` (reflection)
 - **authored** → `reflection-ui-overhaul-2026-06-10` (reflection)
+- **authored** → `2026-06-10-s3-workflow-build-phase` (reflection)
+- **authored** → `2026-06-10-s2-build-workflow` (reflection)
+- **authored** → `2026-06-10-s2-d050-decision-run` (reflection)
