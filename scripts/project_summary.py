@@ -3,7 +3,7 @@
 the schema-v2 `summary.json` + `summary_data.js` consumed by dashboard.html.
 
 This is the NARRATIVE BRIEFING projector, distinct from `project_pages.py`
-(which emits the GRAPH's index.json + graph_data.js). It reads the same
+(which emits the GRAPH's per-entity pages + index.json). It reads the same
 canonical sources through the same side-effect-free loaders imported from
 `project_pages` and emits ONE object — `window.BRAIN_SUMMARY` — whose shape is
 the single source of truth between this generator and the page:

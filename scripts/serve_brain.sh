@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# serve_brain.sh — start/stop/status the brain graph HTTP server.
+# serve_brain.sh — start/stop/status the brain view HTTP server.
 #
 # Wraps `python3 -m http.server` with a pidfile + log + safe defaults so the
 # server survives terminal disconnects (good for headless boxes) and can be
@@ -22,7 +22,7 @@ usage() {
   cat <<EOF
 Usage: $(basename "$0") [start|stop|restart|status|tail|url] [--port N] [--bind ADDR]
 
-Serves $VIEW_DIR over plain HTTP for graph.html and the per-day views.
+Serves $VIEW_DIR over plain HTTP: dashboard.html (primary — status strip + needs-you inbox), graph.html (agent↔skill cluster map), and the per-day views.
 
 Commands:
   start     start in background, write pidfile
@@ -63,7 +63,7 @@ is_running() {
   [[ -n "$pid" ]] && kill -0 "$pid" 2>/dev/null
 }
 
-url() { echo "http://$BIND:$PORT/graph.html"; }
+url() { echo "http://$BIND:$PORT/dashboard.html"; }
 
 cmd_start() {
   if is_running; then
@@ -71,7 +71,7 @@ cmd_start() {
     return 0
   fi
   [[ -d "$VIEW_DIR" ]] || { echo "error: view dir not found: $VIEW_DIR" >&2; exit 1; }
-  [[ -f "$VIEW_DIR/graph.html" ]] || { echo "warn: $VIEW_DIR/graph.html missing — run scripts/project_pages.py first" >&2; }
+  [[ -f "$VIEW_DIR/dashboard.html" ]] || { echo "warn: $VIEW_DIR/dashboard.html missing — the view pages are tracked static assets; check your checkout" >&2; }
   mkdir -p "$(dirname "$PIDFILE")" "$(dirname "$LOGFILE")"
   rm -f "$PIDFILE"
   {

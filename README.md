@@ -110,7 +110,10 @@ in `memory/brain/view/` — `dashboard.html` + `graph.html`: status strip +
 needs-you inbox + agent↔skill cluster map (schema v2). Apparatus runtimes
 (e.g. `a_bgt_rsi`) emit JSONL; `scripts/ingest_apparatus.py` projects it into
 narratives + lineage edges; `scripts/project_pages.py` renders pages + the
-graph index; `scripts/render_brain.py` emits the per-day join. The brain
+graph `index.json`; `scripts/project_summary.py` emits the dashboard data
+(`summary.json` + `summary_data.js`) and `scripts/project_map.py` emits the
+cluster-map data (`map_data.js`); `scripts/render_brain.py` emits the per-day
+join. The brain
 firewall is strict — apparatus never reads from the brain (see `BOUNDARY.md`).
 
 Two operational scripts wrap the above with pidfile + log + lifecycle:

@@ -296,7 +296,8 @@ def entity_from_narrative(n: dict) -> dict:
 # so the trace is walkable when Mechanics view is enabled.
 #
 # Reads apparatus JSONL files directly (read-only — brain firewall preserved).
-# Synthetic edges live in graph_data.js only; never written to edges.jsonl.
+# Synthetic edges are derived in-memory here and rendered into the projected
+# pages; never written to edges.jsonl (which stays canonical).
 # ---------------------------------------------------------------------------
 
 # Friendly names for LOOP_V0 tool-calls (workers). Lookup is non-exhaustive;
@@ -508,7 +509,8 @@ def synthesize_stages() -> tuple[list[dict], list[dict]]:
 # first-class graph nodes. Edges synthesized here close P-006: the
 # harvest_finding → proposal → decision → rule chain is now traversable.
 #
-# Synthetic edges live in graph_data.js only — edges.jsonl stays canonical.
+# Synthetic edges are derived in-memory here and rendered into the projected
+# pages — edges.jsonl stays canonical.
 # ---------------------------------------------------------------------------
 
 RULE_HEADER_RE = re.compile(r"^###\s+(?P<id>FR-\d+|AR-\d+)\s+—\s+(?P<title>[^\n]+)$", re.MULTILINE)
@@ -1205,8 +1207,8 @@ def main() -> int:
     # Synthesize per-tool stage entities from apparatus JSONL. Stages collapse
     # the dispatch+receipt+call triple per worker into one node so the default
     # Research view renders a clean per-iteration pipeline. Synthetic edges
-    # live only in graph_data.js — edges.jsonl stays canonical (only narrate/
-    # ingest-emitted edges).
+    # are derived in-memory and rendered into the projected pages — edges.jsonl
+    # stays canonical (only narrate/ingest-emitted edges).
     stage_entities, stage_edges = synthesize_stages()
     for e in stage_entities:
         entities[e["slug"]] = e

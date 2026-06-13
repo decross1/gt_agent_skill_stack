@@ -7,6 +7,8 @@ rapid writes from a single iteration, then runs the dev-side pipeline:
 
     scripts/ingest_apparatus.py
     scripts/project_pages.py
+    scripts/project_map.py
+    scripts/project_summary.py
     scripts/render_brain.py --day <today UTC>
 
 Pure stdlib polling — no inotify, no watchfiles dep, portable.
@@ -112,7 +114,7 @@ def run_step(cmd: list[str], label: str) -> tuple[bool, str]:
 
 
 def run_pipeline(verbose: bool = False) -> bool:
-    """Run ingest → project_pages → project_summary → render_brain. Return True if all steps succeed."""
+    """Run ingest → project_pages → project_map → project_summary → render_brain. Return True if all steps succeed."""
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     steps = [
         ([sys.executable, str(INGEST)], "ingest"),

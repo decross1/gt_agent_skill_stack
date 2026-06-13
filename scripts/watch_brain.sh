@@ -6,7 +6,7 @@
 # on headless boxes (e.g. the DGX Spark) and can be managed cleanly.
 #
 # The watcher polls a_bgt_rsi/{run_state,memory,logs} for *.jsonl changes and
-# runs ingest_apparatus.py → project_pages.py → render_brain.py on debounce.
+# runs ingest_apparatus.py → project_pages.py → project_map.py → project_summary.py → render_brain.py on debounce.
 # Apparatus is read-only from the watcher's perspective — brain firewall intact.
 
 set -euo pipefail
@@ -24,7 +24,7 @@ usage() {
 Usage: $(basename "$0") [start|stop|restart|status|tail|once] [--interval N] [--debounce N] [--verbose]
 
 Watches a_bgt_rsi/{run_state,memory,logs}/*.jsonl and runs the brain
-ingest→project→render pipeline on debounce.
+ingest → project_pages → project_map → project_summary → render pipeline on debounce.
 
 Commands:
   start     start in background, write pidfile
