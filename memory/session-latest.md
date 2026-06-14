@@ -6,59 +6,52 @@ Durable decisions go to `DECISIONS.md`, not here.
 
 ---
 
-**Date:** 2026-05-23
-**Task:** `plan.md` Session 12 — Phase 3 hardening: `gate-check`.
+**Date:** 2026-06-14
+**Task:** `plan.md` Session 24 — overdue harvest + hardening assessment +
+brain-UI proposal scoping.
 
-**State:** Session 12 complete. All tasks done, all 3 validation checks passed
-(clean checker on first run). **Phase 3's scheduled window (S7–S12) is done.**
-- Harvest step: no-op — `a_bgt_rsi` HEAD still `224d284`.
-- Hardened `gate-check` — added a "How a gate clears" section that
-  distinguishes **attestation-cleared** (human's word is the clearance) from
-  **verification-cleared** (a defined check confirms the human's underlying
-  action); same non-negotiable rule both ways — the agent never decides the
-  condition is met. Resolves the H001 `gate-check` friction.
-- Recorded in `plan.md` backlog + Phase-3 sessions-done log and
-  `conformance.md` Hardening log.
+**State:** Committed as `dc8de9e`. `current_session` 24 (v1.0 pending).
 
-Sessions 1–11 committed and pushed (HEAD `7b2c2fb`). **Session 12 changes are
-uncommitted.**
+**What happened this session**
+- **Harvest H008** over `a_bgt_rsi` (D-030..D-052, run-log L155–1541): 22
+  findings appended to `memory/feedback.jsonl` (+22 `harvest_finding→skill`
+  edges, first of their kind). 12 confirmed · 1 diverged · 6 friction · 3 gap.
+  Watermark advanced to **D-052 / line 1541 / `f182f4b`**.
+- **Backlog re-sorted** into `plan.md` (new S24 block, gaps→friction→policy)
+  with a per-skill **hardening dashboard**.
+- **Hardening:** ✅ hardened (5): `gate-check`, `validate`, `decision-log`,
+  `code-review`, `investigate`. ◻ provisional (2, single-harvest): `plan-research`,
+  `slip-ladder`. ❌ open (6): `run-log`, `spawn-contract`, `experiment`,
+  `fallback`, `repro-check`, `orchestrate`. Recorded in `framework.state.json`.
+- **Brain-UI proposal scoping** (per human direction, two-tier):
+  - `project_summary.py`: `proposal_scope()` — only **framework** proposals
+    reach the needs-you inbox + loop band; research (`a_bgt_rsi`) proposals
+    (P-012/014/015/016/017) filtered out. `_item()` emits
+    `actionable=(surface=='framework')`.
+  - `dashboard.html`: apparatus/research inbox items (16 gate verdicts) are
+    **view-only** ("resolve in the apparatus UI"); only framework items get a
+    sign-off action.
+  - `propose/SKILL.md`: durable `scope` field added. `verify_brain_view` 27/27.
+  - P-009 / P-011 (discipline proposals) kept **framework** per human choice.
 
 **In flight:** Nothing.
 
-**Phase 3 status (S7–S12, the scheduled window).** All P1 gaps and the
-top-priority P2 friction are addressed: S7 `orchestrate` gap · S8
-`decision-log` gap · S9 `validate` · S10 `run-log` · S11 `ship` (+ `health`
-touch) · S12 `gate-check`. **3 friction items remain** — `fallback`
-(selection-is-itself-gated), `experiment` (separate-ledger), `repro-check`
-(silent-mock).
+**Resume point (next session)**
+- **Address the 6 open skills** (esp. the **D-032 BOUNDARY firewall divergence**
+  — consumer installed all 24 skills with no runtime-safe filter — and the
+  `run-log` enum frictions). These are P1/P2/P3 in the S24 backlog block.
+- **v1.0 is still blocked**: Charter requires *every* Layer-A skill hardened +
+  open_gaps=0 + Pi-verified + the uplift test. `spawn-contract` (Layer A) is
+  open; uplift (S19–S20) remains deferred pending a second consumer.
+- A re-harvest will confirm `plan-research`/`slip-ladder` (need one more clean
+  pass to harden) and re-test the 6 open skills.
 
-**Status:** **Paused after S12 for ~1 week of applied use** of the current
-setup. The 6 hardened skills (S7–S12) are *addressed* but not yet *hardened* —
-the Charter requires a clean re-harvest to mark them so. The pause is exactly
-the right test: as `a_bgt_rsi` advances over the week, the next session's
-harvest gathers the evidence.
+**Known dirty tree (intentional):** `memory/brain/pages/**` (≈410 lines),
+`view/{index.json,map_data.js,summary*.{js,json},2026-06-14.md}`, and
+`narratives.jsonl` (287 lines of daemon ingest) are **deterministic projection
+churn** from the live `brain-watch` daemon (pids in `run_state/`), left
+uncommitted by request. This is exactly **P-013**'s open question (regen-artifact
+tracking policy). Regenerate with the watch pipeline; do not hand-edit.
 
-**Next session:** start with `resume-state` (will land here) → `harvest` (will
-pick up whatever `a_bgt_rsi` has done in the interim, likely a substantial
-H005+). Then either:
-- **(A)** Continue Phase 3 elasticly — Sessions 13–15 clean up the remaining
-  3 friction items (`fallback`, `experiment`, `repro-check`); then Phase 4.
-- **(B)** Open Phase 4 — Pi check + install/discovery abstraction + a second
-  consumer for the uplift test.
-
-If the re-harvest produces no new friction against an already-addressed skill,
-that skill is eligible to move to `skills_hardened`.
-
-**Open questions / blockers:** None blocking.
-
-**Key context:**
-- The 6 hardened skills are *addressed*, not yet *hardened* per the Charter —
-  that requires a clean re-harvest. Waiting on `a_bgt_rsi` to advance.
-- Checker pattern: `grep -c` for single-line tokens; `tr '\n' ' ' | tr -s ' '`
-  before `grep -c` for phrases that may wrap across lines.
-
-**Pointers:** `plan.md` (backlog; Phase-3 done log S7–S12);
-`memory/conformance.md` (Hardening log S7–S12);
-`memory/feedback.jsonl` (29 findings, H001–H004);
-`run_state/framework.run.jsonl` (51 entries).
-HEAD `7b2c2fb` — Session 12 not yet committed.
+**Brain snapshot (start of this session):** active rules 3 · 18.7 days since
+last proposal closed · median time-to-resume 5.0m.
