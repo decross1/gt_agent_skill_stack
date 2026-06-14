@@ -312,6 +312,78 @@ evidence.
 
 ## Backlog (re-sorted every session from `feedback.jsonl`)
 
+### Re-sort — Session 24 (2026-06-14), from harvest H008
+
+Harvest **H008** (`a_bgt_rsi` D-030..D-052, run-log L155–1541) appended 22
+findings: 12 confirmed, 1 diverged, 6 friction, 3 gap. Re-sorted below; older
+re-sorts kept as history beneath.
+
+**Hardening dashboard** (rule: 2 *consecutive* clean harvests with active
+confirmation and no open gap):
+
+| Skill | Status | Evidence |
+|---|---|---|
+| `gate-check` | ✅ **hardened** | confirmed H002→H008 (5 clean rounds, last D/F was H001) |
+| `validate` | ✅ **hardened** | confirmed H003,H007,H008 (3 clean rounds) |
+| `decision-log` | ✅ **hardened** | confirmed H005,H007,H008 since the founding H002 gap |
+| `code-review` | ✅ **hardened** | confirmed H002 + H008, never any D/F |
+| `investigate` | ✅ **hardened** | confirmed H002 + H008, never any D/F |
+| `plan-research` | ◻ provisional | first confirmation H008 — needs one more clean harvest |
+| `slip-ladder` | ◻ provisional | first confirmation H008 — needs one more clean harvest |
+| `resume-state` | ◻ quiet | last touch H006/friction; silent since — needs active re-confirmation |
+| `ship` | ◻ quiet | last touch H002/friction; silent since — needs active re-confirmation |
+| `run-log` | ❌ open | 3 new friction in H008 (status synonyms / `deferred` / session-marker pollution) |
+| `spawn-contract` | ❌ open | H008 diverged (D-032) + gap (no contract artifact at spawn) |
+| `experiment` | ❌ open | H008 friction (no-ledger, recurs) + gap (incident/recovery) |
+| `fallback` | ❌ open | H008 friction (blocked-primary→fallback dual-logged) |
+| `repro-check` | ❌ open | H008 gap (single REAL run flips a gate; repro-check never invoked) |
+| `orchestrate` | ❌ open | H008 friction — but D-042 dispositions it referenced-only by design |
+
+**P1 — gaps (new from H008, in priority order)**
+- `repro-check` is never invoked at the point it governs: results-changing gate
+  on/off decisions ride on a *single* REAL battery run. Require a repro-check (or
+  a logged variance waiver) before one run flips a pre-registered gate.
+  *(H008 repro-check/gap)*
+- `spawn-contract` is enforced in limb prose ("spawn-contract honored") but emits
+  no machine-checkable contract record at spawn. Emit the contract artifact at
+  spawn time. *(H008 spawn-contract/gap; relates to filed P-004, P-018)*
+- No incident/recovery discipline: an OOM hang logged ad-hoc `recovered`, a
+  preflight resource gate added reactively. Give `experiment` (or a new section)
+  a preflight resource gate + post-incident record. *(H008 experiment/gap)*
+
+**P2 — friction (new from H008)**
+- `run-log` status synonym drift: `success`/`completed`→`passed`,
+  `error`/`timeout`→`failed`. Document enum aliases or normalize on ingest.
+  *(H008 run-log/friction)*
+- `run-log` has no enum home for `deferred`/carryover work (postponed past its
+  window, distinct from skipped/aborted). Add a first-class status.
+  *(H008 run-log/friction)*
+- `run-log`: session-lifecycle markers (`open`/`closed`/`applied`/
+  `ready_to_remove`, empty observable fields) pollute the executed-step stream.
+  Separate stream or a `kind` field. *(H008 run-log/friction)*
+- `fallback`: a single blocked-primary→fallback transition logs as two divergent
+  outcomes (`partial` + `passed`). Define a single-entry representation
+  (status + carryover field). *(H008 fallback/friction; extends the H002
+  gated-fallback-selection item)*
+- `experiment` mandates a separate `experiments.md`; the consumer uses the run
+  log + DECISIONS.md. Allow the run log to be the ledger. *(H008 + H002,
+  recurring — still open)*
+- `orchestrate` referenced-only: D-042 routes decomposition to the harness-native
+  Workflow primitive. **Disposition:** mark `orchestrate` (and `plan-research`,
+  per D-042) *hardened-as-referenced* so harvest stops re-opening settled
+  friction; optionally teach `orchestrate` to defer to a native workflow
+  primitive when present. *(H008 orchestrate/friction)*
+
+**P3 — structural / policy (from H008 diverged)**
+- **BOUNDARY firewall vs research-orchestrator consumers.** D-032: `a_bgt_rsi`
+  deliberately installed *all 24 skills* (incl. dev-only) with no runtime-safe
+  filter, contradicting the firewall, on the grounds it is a research
+  orchestrator not a customer runtime. Needs a policy decision: a per-project
+  exception, a third class between dev-only and runtime-safe, or an enforced
+  re-pin. *(H008 spawn-contract/diverged)*
+
+### Re-sort — Session 3 (history)
+
 Re-sorted **Session 3** from harvests H001–H002 — 25 findings, see
 `memory/conformance.md`. Priority: gaps, then friction, then structural. Each
 item cites the harvest finding(s) behind it.

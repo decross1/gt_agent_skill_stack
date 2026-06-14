@@ -142,13 +142,15 @@ def check_cross(s: dict, consumer: Path | None) -> None:
     check("cross: pending gates == loop_memory pending − loop_feedback ids",
           got == len(pend), f"inbox={got} rederived={len(pend)}")
 
-    latest: dict[str, str] = {}
-    for r in sorted(jsonl(ps.PROPOSALS), key=lambda x: x.get("timestamp", "")):
-        if r.get("proposal_id"):
-            latest[r["proposal_id"]] = r.get("verdict") or "open"
-    want = sum(1 for v in latest.values() if v in ("open", "human-review"))
+    # Mirror the generator: only framework-scoped open/human-review proposals
+    # become inbox items; research-scoped ones (consumer apparatus) are filtered.
+    cname = consumer.name if consumer is not None else None
+    collapsed = ps.collapse_proposals(jsonl(ps.PROPOSALS))
+    want = sum(1 for p in collapsed.values()
+               if ps.final_verdict(p) in ("open", "human-review")
+               and ps.proposal_scope(p["first"], cname) == "framework")
     got = sum(1 for i in s["inbox"] if i["kind"] == "proposal_review")
-    check("cross: proposal_review == open+human-review latest verdicts",
+    check("cross: proposal_review == framework open+human-review latest verdicts",
           got == want, f"inbox={got} rederived={want}")
 
     skill_mds = sorted((ps.REPO / ".agents" / "skills").glob("*/SKILL.md"))

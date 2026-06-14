@@ -329,7 +329,9 @@ function renderInbox() {
     '<span class="kind" style="color:var(--bad)">' + esc(top.kind) + '</span>' +
     '<span style="flex:1"></span><span class="age">' + U.fmtAge(top.age_days) + "</span></div>" +
     '<div class="ttl">' + esc(top.title) + "</div>" +
-    (top.action_cmd ? U.copyBlock(top.action_cmd) : "");
+    (top.actionable === false
+      ? '<div class="ui-note" style="opacity:.65">view-only — resolve in the apparatus UI</div>'
+      : (top.action_cmd ? U.copyBlock(top.action_cmd) : ""));
   c.addEventListener("click", e => {
     if (e.target.closest("[data-copy]")) return;
     openInboxKind(top.kind);
@@ -348,7 +350,9 @@ function openInboxKind(kind) {
       '<span class="ui-num">' + U.fmtAge(it.age_days) + "</span></div>" +
       '<div class="ui-title">' + esc(it.title) + "</div>" +
       (it.detail ? '<div class="ui-note">' + esc(it.detail) + "</div>" : "") +
-      (it.action_cmd ? U.copyBlock(it.action_cmd) : "") +
+      (it.actionable === false
+        ? '<div class="ui-note" style="opacity:.65">view-only — resolve in the apparatus UI</div>'
+        : (it.action_cmd ? U.copyBlock(it.action_cmd) : "")) +
       '<div class="ui-row" style="min-height:20px"><span class="ui-num">' + esc(it.surface || "") +
       " · " + esc(it.source || "") + "</span><span style='flex:1'></span>" +
       (it.link && it.link.skill ? '<span class="ui-chip" data-skill="' + esc(it.link.skill) + '">' + esc(it.link.skill) + "</span>" : "") +

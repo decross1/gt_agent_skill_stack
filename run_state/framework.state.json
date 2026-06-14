@@ -173,14 +173,16 @@
   },
   "harvest_watermark": {
     "a_bgt_rsi": {
-      "run_jsonl_lines": 154,
-      "last_commit": "09b8e8d",
-      "last_decision": "D-029"
+      "run_jsonl_lines": 1541,
+      "last_commit": "f182f4b",
+      "last_decision": "D-052"
     }
   },
   "value_metrics": {
-    "skills_hardened": [],
-    "open_gaps": 0,
+    "skills_hardened": ["gate-check", "validate", "decision-log", "code-review", "investigate"],
+    "skills_hardened_provisional": ["plan-research", "slip-ladder"],
+    "skills_open": ["run-log", "spawn-contract", "experiment", "fallback", "repro-check", "orchestrate"],
+    "open_gaps": 3,
     "last_harvest": "H008",
     "phases_complete": [1, 2],
     "phase_3_5_progress": "B0 ✅, B1 ✅, B2 ✅, B3 ✅ — COMPLETE",

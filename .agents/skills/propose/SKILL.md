@@ -42,6 +42,7 @@ Append one JSON object per line to `memory/brain/proposals.jsonl`:
   "title": "<short imperative — what would change>",
   "target_type": "page | rule | skill | edge | other",
   "target": "<slug of the brain page, rule id (FR-NNN/AR-NNN), or skill name>",
+  "scope": "framework | research",
   "change": "<concrete description of the proposed change>",
   "reasoning": "<why this is worth changing; what triggered the proposal>",
   "references": ["<task_id, brain page slug, or decision id this depends on>"],
@@ -64,8 +65,16 @@ by [[review-proposal]], not edits of this one.
 3. **State the change concretely.** "Improve the X skill" is not a change.
    "Add a 'when to extend the enum' subsection to run-log's Status values"
    is.
-4. **Append** to `memory/brain/proposals.jsonl`.
-5. **Stop.** Do not also implement the change. The proposal-review loop
+4. **Set the `scope`.** `framework` = this agent_system itself (a skill, a
+   brain page/rule/edge, framework tooling, or a framework discipline).
+   `research` = the consumer apparatus (its code, tests, UI, runtime). The
+   brain UI surfaces and lets a human resolve only `framework`-scoped
+   proposals; `research`-scoped ones belong to the consumer's own process and
+   are filtered out of the needs-you inbox. If omitted, the summary infers
+   `research` when the `target` names the consumer apparatus, else `framework`
+   — but set it explicitly so the classification isn't left to a heuristic.
+5. **Append** to `memory/brain/proposals.jsonl`.
+6. **Stop.** Do not also implement the change. The proposal-review loop
    exists exactly so that propose and decide are different steps.
 
 ## Rules

@@ -225,6 +225,27 @@ def final_verdict(p: dict) -> str:
     return p["latest"].get("verdict") or "open"
 
 
+def proposal_scope(first: dict, consumer_name: str | None) -> str:
+    """Classify a proposal as 'framework' (this agent_system — skills, brain
+    tooling, framework rules/disciplines) or 'research' (the consumer
+    apparatus — its code, tests, UI, runtime).
+
+    An explicit `scope` field on the proposal wins. Otherwise infer from the
+    change site: a proposal whose `target` names the consumer apparatus is
+    research-scoped; everything else is framework-scoped.
+
+    The brain UI surfaces and resolves only framework-scoped proposals;
+    research-scoped ones belong to the consumer's own process and are filtered
+    out of the needs-you inbox and the framework's proposal loop stats."""
+    explicit = (first.get("scope") or "").strip().lower()
+    if explicit in ("framework", "research"):
+        return explicit
+    target = (first.get("target") or "").strip().lower()
+    if consumer_name and consumer_name.lower() in target:
+        return "research"
+    return "framework"
+
+
 # ---------------------------------------------------------------------------
 # conformance.md per-skill table (parse-failure tolerant)
 # ---------------------------------------------------------------------------
@@ -718,6 +739,9 @@ def build_inbox(
             "since": since or None,
             "title": _trim(title, 100), "detail": _trim(detail, 240),
             "action_cmd": action_cmd, "source": source, "surface": surface,
+            # Only framework items are signed off from the brain UI; apparatus
+            # (research) items are shown view-only and resolved in their own UI.
+            "actionable": surface == "framework",
             "link": {"skill": skill, "url": url},
         })
 
@@ -738,6 +762,10 @@ def build_inbox(
         if v not in ("open", "human-review"):
             continue
         first = p["first"]
+        # research-scoped proposals belong to the consumer apparatus, not this
+        # framework — they are neither shown nor resolvable from the brain UI.
+        if proposal_scope(first, cname) == "research":
+            continue
         target = (first.get("target") or "").strip()
         is_skill = (first.get("target_type") or "").strip() == "skill"
         _item("proposal_review", pid, "med", True,
@@ -839,7 +867,11 @@ def build_inbox(
 
 def build_loop(proposals: dict[str, dict], rules: list[dict],
                feedback_rows: list[dict], skills: list[dict],
-               today: str) -> dict:
+               today: str, consumer_name: str | None = None) -> dict:
+    # The framework's proposal loop tracks only framework-scoped proposals;
+    # research-scoped ones belong to the consumer apparatus (see proposal_scope).
+    proposals = {pid: p for pid, p in proposals.items()
+                 if proposal_scope(p["first"], consumer_name) == "framework"}
     newest_harvest = max((f.get("date", "") for f in feedback_rows), default="")
     newest_proposal = max((p["first"].get("timestamp", "")[:10]
                            for p in proposals.values()), default="")
@@ -1155,7 +1187,8 @@ def build_summary(now: datetime | None = None) -> dict:
         skills_meta, feedback_rows, parse_conformance(), proposals, rules_raw,
         attributions, win_start, win_end)
     inbox = build_inbox(consumer, gates, proposals, skills, contracts, now, today)
-    loop = build_loop(proposals, rules_raw, feedback_rows, skills, today)
+    loop = build_loop(proposals, rules_raw, feedback_rows, skills, today,
+                      consumer.name if consumer is not None else None)
     timeline, incidents = build_timeline_and_incidents(
         proposals, fw_dec, ap_dec, narr, feedback_rows, contracts, run_attr,
         rules_raw, consumer, win_start, win_end)
