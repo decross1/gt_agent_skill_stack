@@ -41,6 +41,27 @@ For each open proposal, choose exactly one:
 3. **`human-review`** — everything else. The agent stages the change in
    the proposal entry and explicitly stops; the human picks it up.
 
+## The human-review path via the brain UI
+
+The human-review verdict can be recorded from the brain web UI
+(`scripts/brain_server.py`, bound to `127.0.0.1`) instead of by hand. The
+UI's Accept / Reject buttons exec the blessed CLI
+(`scripts/review_proposal_cli.py`) via argv — no shell — appending an
+outcome entry stamped `agent_id: "human:ui"`. This is the **human-review
+authority path** of this skill, not a bypass of auto-reject:
+
+- Agents still auto-reject rule violations on the fast-path. The UI never
+  overrides that — it surfaces an *advisory* rule-check alongside the
+  proposal's means and pros/cons for accept and reject, so the human
+  decides informed.
+- The verdict is one of the same three (mapped from the UI's
+  `accept | reject | needs_revision`). It is append-only and frozen-enum;
+  an out-of-enum input exits nonzero and writes nothing.
+- The UI records the **governed decision only**. Enacting the underlying
+  skill / rule edit remains a separate dev-session / handoff step — an
+  accepted skill or rule proposal is "enactment pending" until that edit
+  lands (see step 4 for the rule-change path through [[decision-log]]).
+
 ## Entry shape (outcome)
 
 Append one *new* JSON object per outcome to
@@ -105,4 +126,6 @@ walks via `supersedes_proposal_id`.
 Filed by [[propose]]. Active rules from `memory/brain/rules.md` (regen by
 `scripts/regen_rules.py`). Accepted rule changes flow through
 [[decision-log]] to become new canonical corrections. The graph view
-surfaces proposals so a human can see what is waiting.
+surfaces proposals so a human can see what is waiting; the brain UI lets a
+human record the human-review verdict in place via the blessed CLI
+(`human:ui`, append-only) — the governed decision only, enactment pending.

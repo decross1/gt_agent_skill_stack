@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>brain · proposal review</title>
+<style>
+/* ---- palette: dark default (mirrors view/tokens.css), light override below ---- */
+:root {
+  --bg:#09090b; --surface:#18181b; --surface-2:rgba(24,24,27,.4);
+  --border:#27272a; --border-2:#3f3f46;
+  --text:#e4e4e7; --text-dim:#a1a1aa; --text-faint:#71717a; --text-ghost:#52525b;
+  --accent:#10b981; --ok:#34d399; --warn:#fbbf24; --bad:#f87171; --idle:#38bdf8;
+  --ok-bg:#022c22; --warn-bg:#451a03; --bad-bg:#450a0a;
+  --font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --pro:#34d399; --con:#f87171;
+}
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg:#fafafa; --surface:#ffffff; --surface-2:rgba(244,244,245,.7);
+    --border:#e4e4e7; --border-2:#d4d4d8;
+    --text:#18181b; --text-dim:#52525b; --text-faint:#71717a; --text-ghost:#a1a1aa;
+    --accent:#059669; --ok:#059669; --warn:#b45309; --bad:#dc2626; --idle:#0284c7;
+    --ok-bg:#ecfdf5; --warn-bg:#fffbeb; --bad-bg:#fef2f2;
+    --pro:#059669; --con:#dc2626;
+  }
+}
+* { box-sizing:border-box; }
+html { color-scheme:dark light; }
+body { margin:0; background:var(--bg); color:var(--text);
+  font:13px/1.5 system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+.mono { font-family:var(--font-mono); }
+button { font:inherit; color:inherit; }
+
+/* header */
+header { display:flex; align-items:center; gap:16px; height:56px; padding:0 18px;
+  border-bottom:1px solid var(--border); position:sticky; top:0; background:var(--bg); z-index:5; }
+.brand { font-weight:600; letter-spacing:.02em; white-space:nowrap; }
+.brand .sep { color:var(--text-ghost); font-weight:400; margin:0 4px; }
+.brand .sub { color:var(--text-faint); font-weight:500; }
+nav.views { display:flex; gap:2px; background:var(--surface-2); border:1px solid var(--border);
+  border-radius:6px; padding:2px; }
+nav.views a { padding:3px 11px; border-radius:4px; color:var(--text-faint); font-size:12px;
+  text-decoration:none; }
+nav.views a:hover { color:var(--text); }
+nav.views a.on { background:var(--border); color:var(--text); }
+.hspace { flex:1; }
+.gerr { font-family:var(--font-mono); font-size:12px; color:var(--bad); }
+
+/* layout: list + detail */
+main { display:grid; grid-template-columns:320px 1fr; min-height:calc(100vh - 56px); }
+@media (max-width:760px) { main { grid-template-columns:1fr; } }
+
+/* list */
+#list { border-right:1px solid var(--border); overflow-y:auto; }
+.sec { display:block; font-size:11px; text-transform:uppercase; letter-spacing:.08em;
+  color:var(--text-faint); padding:12px 14px 6px; }
+.pitem { display:flex; flex-direction:column; gap:4px; padding:10px 14px; cursor:pointer;
+  border-top:1px solid var(--border); }
+.pitem:hover { background:var(--surface-2); }
+.pitem.on { background:var(--surface-2); box-shadow:inset 2px 0 0 var(--accent); }
+.pitem .pid { font-family:var(--font-mono); font-size:11px; color:var(--text-faint); }
+.pitem .ptitle { color:var(--text); font-size:12.5px; }
+.pitem .pmeta { display:flex; align-items:center; gap:7px; }
+.chip { display:inline-block; font-family:var(--font-mono); font-size:10px; padding:1px 7px;
+  border-radius:999px; border:1px solid var(--border-2); color:var(--text-dim);
+  background:var(--surface-2); white-space:nowrap; }
+.chip.verdict { color:var(--warn); border-color:var(--warn); }
+.chip.verdict.accept { color:var(--ok); border-color:var(--ok); }
+.chip.verdict.reject { color:var(--bad); border-color:var(--bad); }
+.muted { color:var(--text-ghost); }
+
+/* detail */
+#detail { overflow-y:auto; padding:18px 22px 60px; }
+.placeholder { display:grid; place-items:center; height:60vh; color:var(--text-ghost);
+  font-family:var(--font-mono); font-size:12px; }
+.dhead { display:flex; align-items:flex-start; gap:12px; flex-wrap:wrap; }
+.dhead h1 { font-size:18px; margin:0; font-weight:600; flex:1; min-width:200px; }
+.block { margin-top:20px; }
+.label { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-faint);
+  margin-bottom:7px; }
+.verbatim { font-family:var(--font-mono); font-size:12px; white-space:pre-wrap; word-break:break-word;
+  background:var(--surface-2); border:1px solid var(--border); border-radius:6px; padding:12px 14px;
+  color:var(--text-dim); }
+.means { font-size:14px; line-height:1.55; color:var(--text); }
+
+/* accept / reject columns */
+.cols { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+@media (max-width:620px) { .cols { grid-template-columns:1fr; } }
+.col { border:1px solid var(--border); border-radius:8px; padding:12px 14px; background:var(--surface-2); }
+.col h3 { margin:0 0 9px; font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
+.col.accept h3 { color:var(--ok); }
+.col.reject h3 { color:var(--bad); }
+.col ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:6px; }
+.col li { display:flex; gap:8px; align-items:flex-start; font-size:12.5px; line-height:1.45; }
+.col li .sign { font-family:var(--font-mono); flex:none; width:12px; text-align:center; }
+.col li.pro .sign { color:var(--pro); }
+.col li.con .sign { color:var(--con); }
+.col .none { color:var(--text-ghost); font-style:italic; font-size:12px; }
+
+/* rule check */
+.rulecheck { display:flex; align-items:center; gap:9px; margin-top:14px; padding:9px 13px;
+  border-radius:6px; font-size:12.5px; border:1px solid; }
+.rulecheck.ok { color:var(--ok); border-color:var(--ok); background:var(--ok-bg); }
+.rulecheck.warn { color:var(--warn); border-color:var(--warn); background:var(--warn-bg); }
+.rulecheck .dot { width:8px; height:8px; border-radius:50%; flex:none; background:currentColor; }
+.rulecheck b { font-family:var(--font-mono); }
+
+/* discuss */
+.thread { display:flex; flex-direction:column; gap:10px; max-height:340px; overflow-y:auto;
+  border:1px solid var(--border); border-radius:8px; padding:12px; background:var(--surface-2); }
+.thread.empty { color:var(--text-ghost); font-style:italic; align-items:center; }
+.msg { max-width:82%; padding:8px 11px; border-radius:8px; font-size:12.5px; line-height:1.5;
+  white-space:pre-wrap; word-break:break-word; }
+.msg .who { display:block; font-family:var(--font-mono); font-size:10px; text-transform:uppercase;
+  letter-spacing:.05em; color:var(--text-faint); margin-bottom:3px; }
+.msg.user { align-self:flex-end; background:var(--surface); border:1px solid var(--border-2); }
+.msg.assistant { align-self:flex-start; background:var(--bg); border:1px solid var(--border); }
+.composer { display:flex; gap:8px; margin-top:10px; align-items:flex-end; }
+textarea { flex:1; resize:vertical; min-height:54px; background:var(--surface); color:var(--text);
+  border:1px solid var(--border-2); border-radius:6px; padding:9px 11px; font:inherit; }
+textarea:focus { outline:none; border-color:var(--accent); }
+.btn { border:1px solid var(--border-2); background:var(--surface); color:var(--text);
+  border-radius:6px; padding:8px 16px; cursor:pointer; white-space:nowrap; }
+.btn:hover:not(:disabled) { border-color:var(--text-faint); }
+.btn:disabled { opacity:.5; cursor:default; }
+.btn.primary { border-color:var(--accent); color:var(--accent); }
+.btn.accept { border-color:var(--ok); color:var(--ok); }
+.btn.reject { border-color:var(--bad); color:var(--bad); }
+
+/* actions row */
+.actions { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:22px;
+  padding-top:18px; border-top:1px solid var(--border); }
+.actions .hspace { flex:1; }
+.handoff-path { font-family:var(--font-mono); font-size:12px; color:var(--ok); word-break:break-all; }
+
+/* spinner */
+.spin { width:14px; height:14px; border:2px solid var(--border-2); border-top-color:var(--accent);
+  border-radius:50%; display:inline-block; animation:spin .7s linear infinite; vertical-align:middle; }
+@keyframes spin { to { transform:rotate(360deg); } }
+.thinking { display:flex; align-items:center; gap:8px; color:var(--text-faint); font-size:12px;
+  align-self:flex-start; }
+
+/* inline error / toast */
+.err { color:var(--bad); font-size:12px; margin-top:8px; }
+.toast { position:fixed; bottom:18px; left:50%; transform:translateX(-50%); z-index:20;
+  background:var(--surface); border:1px solid var(--border-2); border-radius:7px;
+  padding:10px 16px; font-size:12.5px; box-shadow:0 6px 24px rgba(0,0,0,.35); max-width:80vw; }
+.toast.bad { border-color:var(--bad); color:var(--bad); }
+.toast.ok { border-color:var(--ok); color:var(--ok); }
+
+/* modal (verdict note) */
+.scrim { position:fixed; inset:0; background:rgba(0,0,0,.45); display:grid; place-items:center; z-index:30; }
+.modal { background:var(--surface); border:1px solid var(--border-2); border-radius:10px;
+  padding:18px 20px; width:min(440px,90vw); }
+.modal h2 { margin:0 0 4px; font-size:15px; }
+.modal p { margin:0 0 12px; color:var(--text-dim); font-size:12.5px; }
+.modal .modal-actions { display:flex; justify-content:flex-end; gap:9px; margin-top:14px; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">brain<span class="sep">·</span><span class="sub">proposal review</span></div>
+  <nav class="views">
+    <a href="dashboard.html">Dashboard</a><a href="graph.html">Map</a><a class="on">Review</a>
+  </nav>
+  <div class="hspace"></div>
+  <span class="gerr" id="gerr"></span>
+</header>
+
+<main>
+  <aside id="list">
+    <span class="sec">open proposals</span>
+    <div id="listbody"><div class="pitem muted">loading…</div></div>
+  </aside>
+  <section id="detail">
+    <div class="placeholder" id="placeholder">select a proposal to review</div>
+    <div id="detailbody" hidden></div>
+  </section>
+</main>
+
+<script>
+"use strict";
+(function () {
+const $ = id => document.getElementById(id);
+const esc = s => String(s == null ? "" : s)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+  .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+
+let proposals = [];   // list rows
+let current = null;   // selected proposal_id
+let busy = false;     // a Gemma/verdict call in flight
+
+/* ---------------- fetch helpers (same-origin only) ---------------- */
+async function api(path, opts) {
+  let res;
+  try {
+    res = await fetch(path, opts);
+  } catch (e) {
+    throw new Error("network: " + e.message);
+  }
+  let data = null;
+  try { data = await res.json(); } catch (_) { data = null; }
+  if (!res.ok) {
+    const msg = (data && (data.error || data.message)) || ("HTTP " + res.status);
+    throw new Error(msg);
+  }
+  return data || {};
+}
+
+function toast(msg, kind) {
+  const t = document.createElement("div");
+  t.className = "toast" + (kind ? " " + kind : "");
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(() => t.remove(), 4200);
+}
+function headerErr(msg) { $("gerr").textContent = msg || ""; }
+
+/* ---------------- list ---------------- */
+function verdictLabel(v) {
+  if (!v || v === "open") return "open";
+  if (v === "human-review") return "human-review";
+  return v;
+}
+function renderList() {
+  const host = $("listbody");
+  if (!proposals.length) {
+    host.innerHTML = '<div class="pitem muted">no open framework proposals</div>';
+    return;
+  }
+  host.innerHTML = proposals.map(p => {
+    const v = verdictLabel(p.verdict);
+    const vcls = v.indexOf("accept") === 0 ? "accept" : v.indexOf("reject") === 0 ? "reject" : "";
+    return '<div class="pitem' + (p.proposal_id === current ? " on" : "") +
+      '" data-pid="' + esc(p.proposal_id) + '">' +
+      '<span class="pid">' + esc(p.proposal_id) + '</span>' +
+      '<span class="ptitle">' + esc(p.title || "(untitled)") + '</span>' +
+      '<span class="pmeta">' +
+        '<span class="chip">' + esc(p.target_type || "?") + ':' + esc(p.target || "?") + '</span>' +
+        '<span class="chip verdict ' + vcls + '">' + esc(v) + '</span>' +
+      '</span></div>';
+  }).join("");
+  Array.from(host.querySelectorAll(".pitem[data-pid]")).forEach(el =>
+    el.addEventListener("click", () => selectProposal(el.getAttribute("data-pid"))));
+}
+
+async function loadList() {
+  try {
+    const d = await api("/api/proposals");
+    proposals = d.proposals || [];
+    renderList();
+  } catch (e) {
+    $("listbody").innerHTML = '<div class="pitem" style="color:var(--bad)">load failed: ' +
+      esc(e.message) + '</div>';
+    headerErr("list error: " + e.message);
+  }
+}
+
+/* ---------------- detail ---------------- */
+function bullets(arr, sign, cls) {
+  if (!arr || !arr.length) return '<li class="none">—</li>';
+  return arr.map(x =>
+    '<li class="' + cls + '"><span class="sign">' + sign + '</span><span>' + esc(x) + '</span></li>'
+  ).join("");
+}
+
+function renderRuleCheck(rc) {
+  rc = rc || {};
+  if (rc.conflict) {
+    return '<div class="rulecheck warn"><span class="dot"></span>may conflict with <b>' +
+      esc(rc.rule || "a rule") + '</b>: ' + esc(rc.why || "see card") + '</div>';
+  }
+  return '<div class="rulecheck ok"><span class="dot"></span>no active-rule conflict' +
+    (rc.why && rc.why !== "parse-fallback" ? ' — ' + esc(rc.why) : '') + '</div>';
+}
+
+function renderThread(disc) {
+  if (!disc || !disc.length) {
+    return '<div class="thread empty" id="thread">no discussion yet — ask a question or raise a worry below</div>';
+  }
+  return '<div class="thread" id="thread">' + disc.map(m =>
+    '<div class="msg ' + (m.role === "user" ? "user" : "assistant") + '">' +
+    '<span class="who">' + esc(m.role) + '</span>' + esc(m.content) + '</div>'
+  ).join("") + '</div>';
+}
+
+function renderDetail(d) {
+  const p = d.proposal || {};
+  const c = d.card || {};
+  const disc = d.discussion || [];
+  const decided = isDecided(currentRow());
+  const html =
+    '<div class="dhead">' +
+      '<h1>' + esc(p.title || "(untitled)") + '</h1>' +
+      '<span class="chip">' + esc(p.target_type || "?") + ':' + esc(p.target || "?") + '</span>' +
+      '<span class="chip mono">' + esc(p.proposal_id || current) + '</span>' +
+    '</div>' +
+
+    '<div class="block"><div class="label">description (verbatim)</div>' +
+      '<div class="verbatim">' + esc(p.change || "(no change text)") + '</div></div>' +
+
+    '<div class="block"><div class="label">what it means</div>' +
+      '<div class="means">' + esc(c.means || "—") + '</div></div>' +
+
+    '<div class="block"><div class="label">trade-offs</div>' +
+      '<div class="cols">' +
+        '<div class="col accept"><h3>accept</h3><ul>' +
+          bullets(c.pros_accept, "+", "pro") + bullets(c.cons_accept, "−", "con") +
+        '</ul></div>' +
+        '<div class="col reject"><h3>reject</h3><ul>' +
+          bullets(c.pros_reject, "+", "pro") + bullets(c.cons_reject, "−", "con") +
+        '</ul></div>' +
+      '</div>' +
+      renderRuleCheck(c.rule_check) +
+    '</div>' +
+
+    '<div class="block"><div class="label">discuss</div>' +
+      renderThread(disc) +
+      '<div class="composer">' +
+        '<textarea id="msg" placeholder="None of these look clean… / What if we…"></textarea>' +
+        '<button class="btn primary" id="send">Send</button>' +
+      '</div>' +
+      '<div class="err" id="discuss-err"></div>' +
+    '</div>' +
+
+    '<div class="actions">' +
+      '<button class="btn accept" id="accept"' + (decided ? " disabled" : "") + '>Accept</button>' +
+      '<button class="btn reject" id="reject"' + (decided ? " disabled" : "") + '>Reject</button>' +
+      '<span class="hspace"></span>' +
+      '<button class="btn" id="handoff">Generate handoff</button>' +
+      '<span class="handoff-path" id="handoff-path"></span>' +
+    '</div>';
+
+  const body = $("detailbody");
+  body.innerHTML = html;
+  body.hidden = false;
+  $("placeholder").hidden = true;
+
+  $("send").addEventListener("click", sendMessage);
+  $("msg").addEventListener("keydown", e => {
+    if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); sendMessage(); }
+  });
+  $("accept").addEventListener("click", () => promptVerdict("accept"));
+  $("reject").addEventListener("click", () => promptVerdict("reject"));
+  $("handoff").addEventListener("click", generateHandoff);
+  scrollThread();
+}
+
+function currentRow() { return proposals.find(p => p.proposal_id === current) || null; }
+function isDecided(row) {
+  if (!row) return false;
+  const v = row.verdict;
+  return v && v !== "open" && v !== "human-review";
+}
+
+function scrollThread() {
+  const t = $("thread");
+  if (t) t.scrollTop = t.scrollHeight;
+}
+
+async function selectProposal(pid) {
+  current = pid;
+  renderList();
+  const body = $("detailbody");
+  body.hidden = true;
+  $("placeholder").hidden = false;
+  $("placeholder").innerHTML = '<span class="spin"></span>&nbsp; loading ' + esc(pid) +
+    ' (first open may generate a card — several seconds)…';
+  headerErr("");
+  try {
+    const d = await api("/api/proposal/" + encodeURIComponent(pid));
+    if (current !== pid) return; // selection changed while loading
+    renderDetail(d);
+  } catch (e) {
+    $("placeholder").innerHTML = '<span style="color:var(--bad)">failed to load ' +
+      esc(pid) + ': ' + esc(e.message) + '</span>';
+    headerErr("detail error: " + e.message);
+  }
+}
+
+/* ---------------- discuss ---------------- */
+async function sendMessage() {
+  if (busy) return;
+  const ta = $("msg");
+  const msg = ta.value.trim();
+  const errEl = $("discuss-err");
+  errEl.textContent = "";
+  if (!msg) { errEl.textContent = "type a message first"; return; }
+
+  // optimistic: echo the user turn + a thinking row
+  const t = $("thread");
+  if (t && t.classList.contains("empty")) { t.classList.remove("empty"); t.innerHTML = ""; }
+  if (t) {
+    t.insertAdjacentHTML("beforeend",
+      '<div class="msg user" id="optimistic-user"><span class="who">user</span>' + esc(msg) + '</div>' +
+      '<div class="thinking" id="thinking"><span class="spin"></span>Gemma is thinking…</div>');
+    scrollThread();
+  }
+
+  setBusy(true, "#send");
+  ta.value = "";
+  try {
+    const d = await api("/api/proposal/" + encodeURIComponent(current) + "/discuss",
+      { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: msg }) });
+    // re-render the canonical thread returned by the server
+    const fresh = renderThread(d.discussion || []);
+    const wrap = document.createElement("div");
+    wrap.innerHTML = fresh;
+    const newThread = wrap.firstElementChild;
+    const old = $("thread");
+    if (old) old.replaceWith(newThread);
+    scrollThread();
+  } catch (e) {
+    // nothing was persisted server-side — drop both optimistic rows so the
+    // thread reflects only persisted turns (the message is restored below).
+    const th = $("thinking");
+    if (th) th.remove();
+    const ou = $("optimistic-user");
+    if (ou) ou.remove();
+    errEl.textContent = "discuss failed: " + e.message;
+    ta.value = msg; // restore so the human doesn't lose it
+    toast("discuss failed: " + e.message, "bad");
+  } finally {
+    setBusy(false, "#send");
+  }
+}
+
+/* ---------------- verdict ---------------- */
+function promptVerdict(verdict) {
+  if (busy) return;
+  if (isDecided(currentRow())) { toast("already decided", "bad"); return; }
+  openModal(verdict);
+}
+
+function openModal(verdict) {
+  const scrim = document.createElement("div");
+  scrim.className = "scrim";
+  scrim.innerHTML =
+    '<div class="modal">' +
+      '<h2>' + (verdict === "accept" ? "Accept" : "Reject") + ' ' + esc(current) + '</h2>' +
+      '<p>A note is required — it is recorded with the verdict (human:ui).</p>' +
+      '<textarea id="note" placeholder="Why ' + verdict + '?"></textarea>' +
+      '<div class="err" id="note-err"></div>' +
+      '<div class="modal-actions">' +
+        '<button class="btn" id="cancel">Cancel</button>' +
+        '<button class="btn ' + verdict + '" id="confirm">' +
+          (verdict === "accept" ? "Accept" : "Reject") + '</button>' +
+      '</div>' +
+    '</div>';
+  document.body.appendChild(scrim);
+  const note = scrim.querySelector("#note");
+  note.focus();
+  const close = () => scrim.remove();
+  scrim.addEventListener("click", e => { if (e.target === scrim) close(); });
+  scrim.querySelector("#cancel").addEventListener("click", close);
+  scrim.querySelector("#confirm").addEventListener("click", () =>
+    submitVerdict(verdict, note.value.trim(), scrim));
+  scrim.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+}
+
+async function submitVerdict(verdict, note, scrim) {
+  const errEl = scrim.querySelector("#note-err");
+  errEl.textContent = "";
+  if (!note) { errEl.textContent = "a note is required"; return; }
+  const confirm = scrim.querySelector("#confirm");
+  confirm.disabled = true;
+  confirm.innerHTML = '<span class="spin"></span>';
+  setBusy(true);
+  try {
+    const d = await api("/api/proposal/" + encodeURIComponent(current) + "/verdict",
+      { method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ verdict: verdict, note: note }) });
+    if (!d.ok) throw new Error(d.error || ("CLI exit " + (d.exit_code != null ? d.exit_code : "?")));
+    scrim.remove();
+    const decided = current;
+    toast(verdict + "ed " + decided + (d.recorded ? " · recorded" : ""), "ok");
+    // refresh the canonical list (decided proposals usually drop out of /api/proposals)
+    await loadList();
+    const stillListed = proposals.find(p => p.proposal_id === decided);
+    if (stillListed) {
+      selectProposal(decided); // still present (e.g. needs_revision) — re-show, now decided
+    } else {
+      current = null;
+      $("detailbody").hidden = true;
+      $("placeholder").hidden = false;
+      $("placeholder").textContent = decided + " " + verdict + "ed — select another proposal";
+    }
+  } catch (e) {
+    errEl.textContent = "verdict failed: " + e.message;
+    confirm.disabled = false;
+    confirm.textContent = verdict === "accept" ? "Accept" : "Reject";
+    toast("verdict failed: " + e.message, "bad");
+  } finally {
+    setBusy(false);
+  }
+}
+
+/* ---------------- handoff ---------------- */
+async function generateHandoff() {
+  if (busy) return;
+  const btn = $("handoff"), out = $("handoff-path");
+  out.textContent = "";
+  btn.disabled = true;
+  const orig = btn.textContent;
+  btn.innerHTML = '<span class="spin"></span>&nbsp;generating…';
+  setBusy(true);
+  try {
+    const d = await api("/api/proposal/" + encodeURIComponent(current) + "/handoff",
+      { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
+    out.textContent = "→ " + (d.path || "(no path returned)");
+    toast("handoff written: " + (d.path || "?"), "ok");
+  } catch (e) {
+    out.innerHTML = '<span style="color:var(--bad)">handoff failed: ' + esc(e.message) + '</span>';
+    toast("handoff failed: " + e.message, "bad");
+  } finally {
+    btn.disabled = false;
+    btn.textContent = orig;
+    setBusy(false);
+  }
+}
+
+/* ---------------- busy lock ---------------- */
+function setBusy(state, sendSel) {
+  busy = state;
+  const send = sendSel ? document.querySelector(sendSel) : $("send");
+  if (send) {
+    send.disabled = state;
+    // only repaint the Send button as a spinner when the in-flight op is the
+    // discuss send itself; a verdict/handoff busy lock disables it without a
+    // misleading second spinner (each shows its own spinner on its own button).
+    if (sendSel === "#send") send.innerHTML = state ? '<span class="spin"></span>' : "Send";
+  }
+}
+
+/* ---------------- init ---------------- */
+loadList().then(() => {
+  // honor a dashboard deep-link (proposal_review.html?id=P-NNN); guard the id
+  // so a bogus param can never reach the API.
+  const want = new URLSearchParams(location.search).get("id");
+  if (want && /^P-\d+$/.test(want)) selectProposal(want);
+});
+})();
+</script>
+</body>
+</html>

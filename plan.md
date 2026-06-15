@@ -308,6 +308,37 @@ add other verticals (product, data-pipeline, …).
 harvest; retrospective; check the Charter's decision rule against accumulated
 evidence.
 
+### Phase 6 — Dynamic governance surface
+
+**Session 25 — Dynamic proposal-review brain.** Make the proposal-review loop
+interactive and frictionless. The static brain view + terminal verdict CLI
+(S15/S16) become a localhost, LLM-assisted *amend-then-decide* surface.
+- First: stand up `scripts/brain_server.py` (stdlib `ThreadingHTTPServer`,
+  127.0.0.1:5180) serving the file-first brain view AND the JSON API
+  (`/api/proposals`, `/api/proposal/<P-NNN>`, `…/discuss`, `…/verdict`,
+  `…/handoff`); only FRAMEWORK-scoped proposals are surfaced
+  (`proposal_scope()` in `scripts/project_summary.py`).
+- Then: wire discuss/amend to the local LLM (Gemma 4 @ 127.0.0.1:8000), persist
+  every card + discussion turn append-only to
+  `memory/brain/proposal_cards.jsonl`, and route Accept/Reject/Request-revision
+  through the blessed `scripts/review_proposal_cli.py` via argv (D-046 pattern,
+  `human:ui` stamp). Add one-click dev-agent handoff export. Governance recorded
+  in DECISIONS.md (2026-06-15) and BOUNDARY.md (firewall: dev-time, 127.0.0.1).
+- **Pass-signal (smallest falsifiable experiment):** on one real open proposal,
+  a discuss→amend loop yields a *measurably cleaner* proposal than the raw draft
+  — operationalized as the amended card resolving ≥ 1 `rule_check.conflict` /
+  ambiguity the raw draft left open (or a human-judged "now decidable" where the
+  raw draft was not) — AND the verdict is **one click**: a single Accept appends
+  exactly one `human:ui`-stamped outcome to `proposals.jsonl` via the blessed CLI
+  with no terminal step, and Export-handoff returns a written path. Determinism
+  check: re-running projection/regen reproduces the brain view byte-for-byte
+  without any LLM call.
+- **Kill switch:** if the discuss→amend loop does not make a proposal more
+  decidable than the static view did (no conflict resolved, no human-judged
+  uplift) over 2 reviews, retire `brain_server.py` and revert to the static view
+  + terminal `review_proposal_cli.py`; `proposal_cards.jsonl` is discardable
+  draft cache (governed verdicts live in `proposals.jsonl`).
+
 ---
 
 ## Backlog (re-sorted every session from `feedback.jsonl`)

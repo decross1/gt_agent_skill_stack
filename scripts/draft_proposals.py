@@ -1,0 +1,428 @@
+#!/usr/bin/env python3
+"""draft_proposals.py — the "bubbling" pipeline: turn drift signals into DRAFT
+proposals so they surface for human review.
+
+WHY THIS EXISTS
+---------------
+The brain's proposal loop only moves when a proposal exists. Today proposals
+are filed by hand (the [[propose]] skill). But the framework already *records*
+drift in two append-only ledgers — harvest findings (memory/feedback.jsonl) and
+run-log discipline flags (run_state/framework.run.jsonl, and read-only the
+consumer's run log). This script reads those signals and emits a DRAFT proposal
+per *new* signal, so a human reviewing the brain sees candidates bubble up
+instead of having to author every proposal cold.
+
+WHAT IT EMITS
+-------------
+For each new signal it appends one JSON object to memory/brain/proposals.jsonl
+carrying the FILED-proposal shape (same as [[propose]]) with one difference:
+
+    "status": "draft"        (NOT "open")
+
+`draft` is deliberately distinct from `open`. An `open` proposal is *in review*;
+a `draft` is a candidate the brain bubbled up that a human must promote to
+`open` (or discard) before it enters the review-proposal loop. Fields:
+
+    proposal_id   next sequential P-NNN
+    agent_id      "draft:auto"          (so drafts are attributable, never
+                                         mistaken for a human/agent filing)
+    target        the framework skill the signal bears on
+    target_type   "skill"
+    scope         "framework"           (research/a_bgt_rsi signals are excluded)
+    title, change, reasoning            derived from the signal (NO LLM call —
+                                        the server lazily generates means/
+                                        pros-cons cards from these fields)
+    references    [<source ref>, <skill>]   the finding / run-log row it came from
+    status        "draft"
+
+VISIBILITY (coordination note — READ BEFORE WIRING DRAFTS INTO THE UI)
+----------------------------------------------------------------------
+brain_server.open_framework_proposals() filters proposals by their *verdict*,
+keeping those whose project_summary.final_verdict(p) is in {open, human-review}.
+final_verdict reads the `verdict` field of the latest lifecycle row and DEFAULTS
+TO "open" when none is set. A draft is a single filing row with status="draft"
+and NO `verdict` field — so final_verdict(draft) == "open".
+
+CONSEQUENCE: with the server AS-IS, a draft WOULD leak into /api/proposals,
+because the list keys off `verdict`, not `status`. This script cannot fix that
+(it owns only this file). The intended end state for this slice is that drafts
+do NOT appear in the open list until a follow-up explicitly opts them in. To get
+there the follow-up must teach open_framework_proposals (or final_verdict) to
+treat status=="draft" as a distinct, NON-open lifecycle state — e.g. skip rows
+whose first entry has status "draft" unless a `?include_drafts=1` query / a
+separate /api/drafts route asks for them. Until that lands, run --apply only when
+a leaked draft in the open list is acceptable, or keep drafts in --dry-run.
+
+drafts() below returns the in-file draft rows so the follow-up can surface them
+(its own route) without re-deriving the signals.
+
+SOURCES
+-------
+1. Harvest findings in memory/feedback.jsonl with class in
+   {diverged, friction, gap} whose `skill` is a real framework skill — UNLESS
+   that skill is already covered by an existing (non-draft) proposal in
+   proposals.jsonl (match by skill/target). Source ref: feedback.jsonl:<H>:<ref>.
+2. Run-log rows with `skill_used` set AND a failure-ish status
+   (failed / aborted / escalated) in run_state/framework.run.jsonl and
+   (read-only, brain firewall) the consumer's run log if reachable. The
+   skill_used must be a real framework skill. Source ref: <file>:L<line>.
+
+IDEMPOTENCY
+-----------
+A second run produces no duplicates. Dedupe key is (target, source_ref): if a
+draft for that pair already exists in proposals.jsonl it is skipped. The
+existing-proposal coverage check (source 1) dedupes against hand-filed/agent
+proposals by skill alone.
+
+DESIGN INVARIANTS HONORED
+-------------------------
+- Files are canonical; this only APPENDS to proposals.jsonl, never rewrites.
+- No LLM call. Card means/pros-cons are generated lazily by brain_server.py.
+- Dedup-driven, so the bubble pipeline can run repeatedly (e.g. after harvest).
+- Read-only on the consumer (brain firewall, BOUNDARY.md).
+
+CLI
+---
+    python3 scripts/draft_proposals.py            # --dry-run (default): print
+    python3 scripts/draft_proposals.py --apply    # actually append drafts
+
+Stdlib-only. py_compile clean.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import os
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+PROPOSALS = ROOT / "memory" / "brain" / "proposals.jsonl"
+FEEDBACK = ROOT / "memory" / "feedback.jsonl"
+SKILLS_DIR = ROOT / ".agents" / "skills"
+FW_RUN = ROOT / "run_state" / "framework.run.jsonl"
+
+# Match the filed-proposal serialization in proposals.jsonl exactly (compact
+# separators, unicode preserved) so drafts are byte-compatible with the file.
+_SEP = (",", ":")
+
+DRAFT_AGENT = "draft:auto"
+DRAFT_STATUS = "draft"
+
+# Harvest finding classes that count as drift worth bubbling.
+DRIFT_CLASSES = {"diverged", "friction", "gap"}
+# Run-log statuses that count as a failure-ish discipline flag.
+FAILURE_STATUSES = {"failed", "aborted", "escalated"}
+
+
+# ---------------------------------------------------------------------------
+# Loaders (absent-file / malformed-line tolerant)
+# ---------------------------------------------------------------------------
+
+def _now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def jsonl(path: Path) -> list[dict]:
+    if not path.exists():
+        return []
+    out: list[dict] = []
+    for line in path.read_text().splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        try:
+            obj = json.loads(line)
+        except json.JSONDecodeError:
+            continue
+        if isinstance(obj, dict):
+            out.append(obj)
+    return out
+
+
+def jsonl_numbered(path: Path) -> list[tuple[int, dict]]:
+    """Run-log rows with 1-based line numbers (for stable source refs)."""
+    out: list[tuple[int, dict]] = []
+    if not path.exists():
+        return out
+    with path.open() as f:
+        for ln, raw in enumerate(f, 1):
+            raw = raw.strip()
+            if not raw:
+                continue
+            try:
+                obj = json.loads(raw)
+            except json.JSONDecodeError:
+                continue
+            if isinstance(obj, dict):
+                out.append((ln, obj))
+    return out
+
+
+def framework_skills() -> set[str]:
+    """Names of the framework's skills (directories under .agents/skills with a
+    SKILL.md). A signal only bubbles if its target is one of these."""
+    if not SKILLS_DIR.exists():
+        return set()
+    return {p.name for p in SKILLS_DIR.iterdir()
+            if (p / "SKILL.md").exists()}
+
+
+def resolve_consumer() -> Path | None:
+    """Read-only handle to the consumer apparatus, mirroring
+    project_summary.resolve_consumer: $BRAIN_CONSUMER_ROOT, else a walk-up for a
+    sibling a_bgt_rsi that actually holds memory/loop_memory.jsonl. None when
+    not reachable (the consumer run log is then simply skipped)."""
+    env = os.environ.get("BRAIN_CONSUMER_ROOT")
+    if env:
+        p = Path(env).expanduser()
+        return p.resolve() if p.exists() else None
+    cur = ROOT
+    for _ in range(8):
+        cand = cur / "a_bgt_rsi"
+        if (cand / "memory" / "loop_memory.jsonl").exists():
+            return cand.resolve()
+        if cur.parent == cur:
+            break
+        cur = cur.parent
+    return None
+
+
+# ---------------------------------------------------------------------------
+# Existing-proposal state (collapse to first entry per pid; dedup indexes)
+# ---------------------------------------------------------------------------
+
+def existing_state() -> tuple[set[str], set[tuple[str, str]], int]:
+    """Returns:
+      covered_skills   skills that any NON-DRAFT proposal already targets
+                       (target_type=skill) — source-1 findings on these are
+                       considered already covered and are skipped.
+      draft_keys       {(target, source_ref)} of drafts already in the file —
+                       the idempotency key.
+      max_num          highest P-NNN integer seen (0 when none) — next id base.
+    """
+    covered_skills: set[str] = set()
+    draft_keys: set[tuple[str, str]] = set()
+    max_num = 0
+    for r in jsonl(PROPOSALS):
+        pid = r.get("proposal_id") or ""
+        if pid.startswith("P-"):
+            try:
+                max_num = max(max_num, int(pid[2:]))
+            except ValueError:
+                pass
+        # Only "filing" rows (those carrying a title) describe a target; the
+        # later verdict/outcome rows omit it.
+        if "title" not in r:
+            continue
+        status = (r.get("status") or "").strip()
+        target = (r.get("target") or "").strip()
+        if status == DRAFT_STATUS:
+            for ref in (r.get("references") or []):
+                if isinstance(ref, str):
+                    draft_keys.add((target, ref))
+        elif (r.get("target_type") or "").strip() == "skill" and target:
+            # An open/closed/human-review proposal already speaks to this skill.
+            covered_skills.add(target)
+    return covered_skills, draft_keys, max_num
+
+
+# ---------------------------------------------------------------------------
+# Signal -> draft proposal payload (no id yet; assigned at emit time)
+# ---------------------------------------------------------------------------
+
+def _trim(s: str, n: int) -> str:
+    s = " ".join((s or "").split())
+    return s if len(s) <= n else s[: n - 1] + "…"
+
+
+def harvest_signals(skills: set[str],
+                    covered_skills: set[str]) -> list[dict]:
+    """Source 1 — one candidate per (skill, harvest_id, ref) drift finding on a
+    framework skill not already covered by an existing proposal."""
+    out: list[dict] = []
+    seen: set[tuple[str, str]] = set()
+    for f in jsonl(FEEDBACK):
+        cls = (f.get("class") or "").strip()
+        skill = (f.get("skill") or "").strip()
+        if cls not in DRIFT_CLASSES or skill not in skills:
+            continue
+        if skill in covered_skills:
+            continue
+        hid = (f.get("harvest_id") or "?").strip()
+        ref = (f.get("ref") or "").strip()
+        source_ref = f"feedback.jsonl:{hid}:{ref}" if ref else f"feedback.jsonl:{hid}"
+        key = (skill, source_ref)
+        if key in seen:
+            continue
+        seen.add(key)
+        evidence = (f.get("evidence") or "").strip()
+        plan = (f.get("plan_candidate") or "").strip()
+        title = f"[{cls}] {skill}: {_trim(plan or evidence, 90)}"
+        change = (plan or f"Address the {cls} signal on [[{skill}]]: {evidence}")
+        reasoning = (
+            f"Harvest {hid} flagged a '{cls}' signal on the [[{skill}]] skill "
+            f"({f.get('source', 'consumer')} trace, ref {ref or 'n/a'}). "
+            f"Evidence: {evidence} Bubbled as a DRAFT for human triage — "
+            "promote to 'open' to enter review, or discard."
+        )
+        out.append({
+            "target": skill,
+            "title": _trim(title, 140),
+            "change": change,
+            "reasoning": reasoning,
+            "source_ref": source_ref,
+        })
+    return out
+
+
+def runlog_signals(skills: set[str],
+                   consumer: Path | None) -> list[dict]:
+    """Source 2 — one candidate per run-log row with skill_used on a framework
+    skill AND a failure-ish status, across the framework run log and (read-only)
+    the consumer's run log if reachable."""
+    out: list[dict] = []
+    seen: set[tuple[str, str]] = set()
+    logs: list[tuple[str, Path]] = [("framework.run.jsonl", FW_RUN)]
+    if consumer is not None:
+        logs.append(("a_bgt_rsi/week1.run.jsonl",
+                     consumer / "run_state" / "week1.run.jsonl"))
+    for label, path in logs:
+        for ln, o in jsonl_numbered(path):
+            skill = (o.get("skill_used") or "").strip()
+            status = (o.get("status") or "").strip()
+            if skill not in skills or status not in FAILURE_STATUSES:
+                continue
+            source_ref = f"{label}:L{ln}"
+            key = (skill, source_ref)
+            if key in seen:
+                continue
+            seen.add(key)
+            task = (o.get("task_id") or "(untitled step)").strip()
+            expected = (o.get("observable_expected") or "").strip()
+            actual = (o.get("observable_actual") or "").strip()
+            notes = (o.get("notes") or "").strip()
+            detail = actual or notes or expected
+            title = f"[run:{status}] {skill}: {_trim(task, 80)}"
+            change = (
+                f"Investigate the {status} run of [[{skill}]] at {source_ref} "
+                f"(task '{task}') and decide whether the skill's guidance needs "
+                "tightening so this failure mode is caught or avoided."
+            )
+            reasoning = (
+                f"Run-log row {source_ref} recorded skill_used={skill} with "
+                f"status='{status}' (a failure-ish discipline flag). "
+                f"Task: {task}. {('Observed: ' + detail) if detail else ''} "
+                "Bubbled as a DRAFT for human triage — promote to 'open' to "
+                "enter review, or discard."
+            ).strip()
+            out.append({
+                "target": skill,
+                "title": _trim(title, 140),
+                "change": change,
+                "reasoning": reasoning,
+                "source_ref": source_ref,
+            })
+    return out
+
+
+# ---------------------------------------------------------------------------
+# Build draft entries (assign sequential ids, dedup against existing drafts)
+# ---------------------------------------------------------------------------
+
+def build_drafts() -> tuple[list[dict], list[dict]]:
+    """Returns (new_drafts, skipped) — skipped carries {target, source_ref,
+    reason} so the summary can explain idempotency no-ops."""
+    skills = framework_skills()
+    covered_skills, draft_keys, max_num = existing_state()
+    consumer = resolve_consumer()
+
+    candidates = (harvest_signals(skills, covered_skills)
+                  + runlog_signals(skills, consumer))
+
+    new_drafts: list[dict] = []
+    skipped: list[dict] = []
+    minted_keys: set[tuple[str, str]] = set()
+    ts = _now()
+    n = max_num
+    for c in candidates:
+        key = (c["target"], c["source_ref"])
+        if key in draft_keys or key in minted_keys:
+            skipped.append({"target": c["target"], "source_ref": c["source_ref"],
+                            "reason": "already drafted"})
+            continue
+        minted_keys.add(key)
+        n += 1
+        new_drafts.append({
+            "timestamp": ts,
+            "proposal_id": f"P-{n:03d}",
+            "agent_id": DRAFT_AGENT,
+            "title": c["title"],
+            "target_type": "skill",
+            "target": c["target"],
+            "scope": "framework",
+            "change": c["change"],
+            "reasoning": c["reasoning"],
+            "references": [c["source_ref"], c["target"]],
+            "status": DRAFT_STATUS,
+        })
+    return new_drafts, skipped
+
+
+def drafts() -> list[dict]:
+    """All draft-status proposals currently in proposals.jsonl. Exposed so a
+    follow-up can opt the UI into surfacing drafts without re-deriving them."""
+    return [r for r in jsonl(PROPOSALS)
+            if (r.get("status") or "").strip() == DRAFT_STATUS and "title" in r]
+
+
+# ---------------------------------------------------------------------------
+# Emit + CLI
+# ---------------------------------------------------------------------------
+
+def append_drafts(rows: list[dict]) -> None:
+    with PROPOSALS.open("a") as f:
+        for r in rows:
+            f.write(json.dumps(r, separators=_SEP, ensure_ascii=False) + "\n")
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser(
+        description="Bubble drift signals (harvest findings + run-log flags) "
+                    "into DRAFT proposals in memory/brain/proposals.jsonl.")
+    mode = ap.add_mutually_exclusive_group()
+    mode.add_argument("--dry-run", action="store_true", default=True,
+                      help="print what would be added; write nothing (default).")
+    mode.add_argument("--apply", action="store_true",
+                      help="actually append the draft proposals.")
+    args = ap.parse_args()
+    apply = bool(args.apply)
+
+    new_drafts, skipped = build_drafts()
+
+    print("draft_proposals — bubble drift signals into DRAFT proposals")
+    print(f"  proposals file: {PROPOSALS}")
+    print(f"  candidates: {len(new_drafts) + len(skipped)}  "
+          f"new: {len(new_drafts)}  already-drafted (skipped): {len(skipped)}")
+    for d in new_drafts:
+        print(f"  + {d['proposal_id']}  skill:{d['target']}  "
+              f"<- {d['references'][0]}")
+        print(f"      {d['title']}")
+    if not new_drafts:
+        print("  (no new signals to bubble)")
+
+    if apply:
+        if new_drafts:
+            append_drafts(new_drafts)
+            print(f"  APPLIED — appended {len(new_drafts)} draft(s) "
+                  f"with status='{DRAFT_STATUS}'.")
+        else:
+            print("  APPLIED — nothing to append.")
+    else:
+        print("  DRY RUN — nothing written. Re-run with --apply to append.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,31 +1,45 @@
 #!/usr/bin/env bash
-# serve_brain.sh — start/stop/status the brain view HTTP server.
+# serve_brain.sh — start/stop/status the brain backend HTTP server.
 #
-# Wraps `python3 -m http.server` with a pidfile + log + safe defaults so the
-# server survives terminal disconnects (good for headless boxes) and can be
-# stopped cleanly. No daemon framework, no systemd unit — just a process and
-# a pidfile.
+# Launches the DYNAMIC brain backend (scripts/brain_server.py): it serves the
+# static view dir (dashboard.html, graph.html, proposal_review.html, per-day
+# views) AND a small JSON API that makes proposal review conversational. It
+# replaces the old plain `python3 -m http.server`, which only served static
+# files; the dynamic server is a superset (static + /api/*).
+#
+# Wraps the server with a pidfile + log + safe defaults so it survives terminal
+# disconnects (good for headless boxes) and can be stopped cleanly. No daemon
+# framework, no systemd unit — just a process and a pidfile.
 #
 # Defaults to bind 127.0.0.1 (loopback only). Override via BRAIN_BIND env or
 # --bind flag for LAN exposure. Public network exposure is the user's call.
+#
+# The proposal-review loop's discussion/card features call a local Gemma server
+# (http://127.0.0.1:8000); `start` runs a non-fatal preflight and warns if it is
+# unreachable. The static view + the blessed verdict CLI work without Gemma.
 
 set -euo pipefail
 
 REPO="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+SERVER="$REPO/scripts/brain_server.py"
 VIEW_DIR="$REPO/memory/brain/view"
 PIDFILE="${BRAIN_PIDFILE:-$REPO/run_state/brain-http.pid}"
 LOGFILE="${BRAIN_LOGFILE:-$REPO/run_state/brain-http.log}"
-PORT="${BRAIN_PORT:-5174}"
+PORT="${BRAIN_PORT:-5180}"
 BIND="${BRAIN_BIND:-127.0.0.1}"
+GEMMA_URL="${GEMMA_URL:-http://127.0.0.1:8000}"
 
 usage() {
   cat <<EOF
 Usage: $(basename "$0") [start|stop|restart|status|tail|url] [--port N] [--bind ADDR]
 
-Serves $VIEW_DIR over plain HTTP: dashboard.html (primary — status strip + needs-you inbox), graph.html (agent↔skill cluster map), and the per-day views.
+Launches the dynamic brain backend ($SERVER): serves $VIEW_DIR over HTTP —
+dashboard.html (status strip + needs-you inbox), graph.html (agent↔skill cluster
+map), proposal_review.html (conversational proposal review), and the per-day
+views — plus a JSON API under /api/* for the proposal-review loop.
 
 Commands:
-  start     start in background, write pidfile
+  start     start in background, write pidfile (preflights Gemma, warn-only)
   stop      stop running server (uses pidfile)
   restart   stop then start
   status    print state (running pid + url, or stopped)
@@ -37,9 +51,10 @@ Configurable via env or flags:
   BRAIN_BIND=$BIND       --bind ADDR   (use 0.0.0.0 to expose on LAN)
   BRAIN_PIDFILE=$PIDFILE
   BRAIN_LOGFILE=$LOGFILE
+  GEMMA_URL=$GEMMA_URL   (preflighted at <url>/v1/models; warn-only)
 
 Examples:
-  $(basename "$0") start                       # 127.0.0.1:5174
+  $(basename "$0") start                       # 127.0.0.1:5180
   BRAIN_BIND=0.0.0.0 $(basename "$0") start    # LAN-accessible
   $(basename "$0") status
   $(basename "$0") stop
@@ -63,26 +78,39 @@ is_running() {
   [[ -n "$pid" ]] && kill -0 "$pid" 2>/dev/null
 }
 
-url() { echo "http://$BIND:$PORT/dashboard.html"; }
+url() { echo "http://$BIND:$PORT/proposal_review.html"; }
+
+# Non-fatal preflight: the discussion/card API needs Gemma, but the static view
+# and the blessed verdict CLI do not. Warn, never block.
+preflight_gemma() {
+  if curl -s -m 3 "$GEMMA_URL/v1/models" >/dev/null 2>&1; then
+    echo "  gemma: reachable at $GEMMA_URL"
+  else
+    echo "  warn: gemma not reachable at $GEMMA_URL/v1/models — discussion & card" >&2
+    echo "        generation will be unavailable; static view + verdict CLI still work." >&2
+  fi
+}
 
 cmd_start() {
   if is_running; then
     echo "already running (pid $(cat "$PIDFILE")) — $(url)"
     return 0
   fi
+  [[ -f "$SERVER" ]] || { echo "error: backend not found: $SERVER" >&2; exit 1; }
   [[ -d "$VIEW_DIR" ]] || { echo "error: view dir not found: $VIEW_DIR" >&2; exit 1; }
-  [[ -f "$VIEW_DIR/dashboard.html" ]] || { echo "warn: $VIEW_DIR/dashboard.html missing — the view pages are tracked static assets; check your checkout" >&2; }
+  [[ -f "$VIEW_DIR/proposal_review.html" ]] || { echo "warn: $VIEW_DIR/proposal_review.html missing — the view pages are tracked static assets; check your checkout" >&2; }
+  preflight_gemma
   mkdir -p "$(dirname "$PIDFILE")" "$(dirname "$LOGFILE")"
   rm -f "$PIDFILE"
   {
-    echo "[$(date -Iseconds)] starting http.server on $BIND:$PORT serving $VIEW_DIR"
+    echo "[$(date -Iseconds)] starting brain_server.py on $BIND:$PORT serving $VIEW_DIR + /api/*"
   } >> "$LOGFILE"
   # nohup keeps it alive past terminal close; setsid would also work
-  nohup python3 -m http.server "$PORT" --bind "$BIND" --directory "$VIEW_DIR" \
+  nohup python3 "$SERVER" --port "$PORT" --host "$BIND" \
     >> "$LOGFILE" 2>&1 &
   local pid=$!
   echo "$pid" > "$PIDFILE"
-  # Give python a moment to bind; then verify it's alive
+  # Give the server a moment to bind; then verify it's alive
   sleep 0.4
   if is_running; then
     echo "started (pid $pid) — $(url)"

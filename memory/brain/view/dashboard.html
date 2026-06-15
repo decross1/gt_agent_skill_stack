@@ -66,6 +66,9 @@ section{margin-top:12px}
 .dcard .top{display:flex;align-items:center;gap:10px}
 .dcard .ttl{font-size:13px;color:var(--text)}
 .empty{display:flex;align-items:center;justify-content:center;color:var(--text-ghost);grid-column:1/-1;min-height:188px}
+.rvw{font-family:var(--font-mono);font-size:11px;color:var(--accent);border:1px solid var(--accent);
+  border-radius:5px;padding:3px 9px;line-height:1;align-self:flex-start;white-space:nowrap;flex:none}
+.rvw:hover{background:var(--accent);color:var(--bg)}
 
 /* embedded cluster map */
 #mapband{position:relative}
@@ -291,6 +294,36 @@ const RANK = { high: 0, med: 1, low: 2 };
 const sorted = () => (D.inbox || []).slice()
   .sort((a, b) => RANK[a.severity] - RANK[b.severity] || a.age_days - b.age_days);
 
+// dynamic review: proposal_review items (framework/actionable) get a "Review →"
+// link opening the same-origin review UI. Built as a plain relative anchor so it
+// works under both http:// and file://; if proposal_review.html is genuinely
+// absent (probed best-effort under http), the link self-removes — degrade
+// gracefully. P-NNN proposal id lives in it.id.
+const isReviewItem = it =>
+  reviewUiPresent !== false &&
+  it && it.kind === "proposal_review" && it.actionable !== false && /^P-\d+$/.test(it.id || "");
+let reviewUiPresent = null; // null=unknown, true/false once probed
+function probeReviewUi() {
+  if (reviewUiPresent !== null) return;
+  if (location.protocol !== "http:" && location.protocol !== "https:") {
+    reviewUiPresent = true; // can't probe file://; assume present, let nav handle it
+    return;
+  }
+  reviewUiPresent = true; // optimistic until the probe answers
+  fetch("proposal_review.html", { method: "HEAD" })
+    .then(r => { if (!r.ok) hideReviewLinks(); })
+    .catch(() => hideReviewLinks());
+}
+function hideReviewLinks() {
+  reviewUiPresent = false;
+  document.querySelectorAll("[data-review-link]").forEach(a => a.remove());
+}
+function reviewLink(it, cls) {
+  const id = encodeURIComponent(it.id);
+  return '<a class="' + cls + '" data-review-link href="proposal_review.html?id=' + id +
+    '" title="open the dynamic review for ' + esc(it.id) + '">Review &rarr;</a>';
+}
+
 function renderInbox() {
   const items = sorted();
   if (!items.length) {
@@ -331,9 +364,10 @@ function renderInbox() {
     '<div class="ttl">' + esc(top.title) + "</div>" +
     (top.actionable === false
       ? '<div class="ui-note" style="opacity:.65">view-only — resolve in the apparatus UI</div>'
-      : (top.action_cmd ? U.copyBlock(top.action_cmd) : ""));
+      : (isReviewItem(top) ? reviewLink(top, "rvw") : "") +
+        (top.action_cmd ? U.copyBlock(top.action_cmd) : ""));
   c.addEventListener("click", e => {
-    if (e.target.closest("[data-copy]")) return;
+    if (e.target.closest("[data-copy]") || e.target.closest("[data-review-link]")) return;
     openInboxKind(top.kind);
   });
   card.appendChild(c);
@@ -352,7 +386,8 @@ function openInboxKind(kind) {
       (it.detail ? '<div class="ui-note">' + esc(it.detail) + "</div>" : "") +
       (it.actionable === false
         ? '<div class="ui-note" style="opacity:.65">view-only — resolve in the apparatus UI</div>'
-        : (it.action_cmd ? U.copyBlock(it.action_cmd) : "")) +
+        : (isReviewItem(it) ? '<div class="ui-row" style="min-height:24px">' + reviewLink(it, "rvw") + "</div>" : "") +
+          (it.action_cmd ? U.copyBlock(it.action_cmd) : "")) +
       '<div class="ui-row" style="min-height:20px"><span class="ui-num">' + esc(it.surface || "") +
       " · " + esc(it.source || "") + "</span><span style='flex:1'></span>" +
       (it.link && it.link.skill ? '<span class="ui-chip" data-skill="' + esc(it.link.skill) + '">' + esc(it.link.skill) + "</span>" : "") +
@@ -724,6 +759,7 @@ $("foot").innerHTML = "schema v" + D.schema_version + " · generated " + esc(U.f
 renderStepper();
 renderStatus();
 renderInbox();
+probeReviewUi();
 mountMap();
 renderLoop();
 renderContracts();

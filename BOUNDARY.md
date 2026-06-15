@@ -137,6 +137,22 @@ out. The Pi target (`pi`) ships with `filter=runtime-safe` by default
 If a violation is reported, run `./install.sh --uninstall && ./install.sh
 --target pi` (or whichever target) to re-seal.
 
+### The dynamic brain backend
+
+`scripts/brain_server.py` (the LLM-assisted proposal-review backend — a stdlib
+`ThreadingHTTPServer` that serves the brain view and a JSON API, drafts review
+cards / discussion via a local LLM, and POSTs verdicts through the blessed
+`scripts/review_proposal_cli.py`) is **dev-time only**. It **binds to
+`127.0.0.1`** (loopback, never a routable interface) and must **never be
+inherited into, imported by, or reachable from an apparatus runtime**. It is a
+governance + drafting surface for the framework's own self-improvement, not a
+runtime service. The LLM it talks to is a drafting assistant whose output is
+persisted to files (`memory/brain/proposal_cards.jsonl`); projection/regen never
+calls it (see DECISIONS.md 2026-06-15). Because the backend ships no skill and is
+not a `runtime-safe` artifact, the frontmatter-driven `install.sh` filter never
+symlinks it into any runtime target — the firewall verification above is
+unchanged and still holds.
+
 ## Keeping the line
 
 **On this framework's side:**

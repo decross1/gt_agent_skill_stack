@@ -21,6 +21,7 @@ only when every check passes.
 from __future__ import annotations
 
 import argparse
+import importlib.util
 import json
 import os
 import re
@@ -52,6 +53,28 @@ D042_BY_DESIGN = {"orchestrate", "experiment", "repro-check", "plan-research"}
 MAP_EXCLUDED_TYPES = {"apparatus_event", "orchestrator_event", "llm_call",
                       "iteration", "stage", "run_log_entry"}
 MAP_MAX_NODES, MAP_MAX_BYTES = 400, 300_000
+
+# --- dynamic proposal-review feature (D-046 human-write-back) ---------------
+# Every "card" entry the brain UI persists to proposal_cards.jsonl must carry
+# these keys (the GET /api/proposal/<P-NNN> contract's `card` object).
+CARD_KEYS = {"means", "pros_accept", "cons_accept", "pros_reject", "cons_reject",
+             "rule_check"}
+PROPOSAL_CARDS = ps.REPO / "memory" / "brain" / "proposal_cards.jsonl"
+# The blessed verdict CLI's frozen accept-arg enum (review_proposal_cli.VERDICTS
+# keys). Projection NEVER enacts a verdict; the UI execs this CLI via argv.
+VERDICT_ENUM = {"accept", "reject", "needs_revision"}
+REVIEW_CLI = _SCRIPTS / "review_proposal_cli.py"
+# Determinism guard — the projection path (project_summary + the loaders it
+# imports from project_pages) must not be able to reach the LLM, so a regen is
+# pure file→file. These source files are grepped for any LLM reach.
+PROJECTION_SOURCES = [_SCRIPTS / "project_summary.py", _SCRIPTS / "project_pages.py"]
+# Anything that would let projection call Gemma: the HTTP client modules, the
+# OpenAI-compatible endpoint path, or the Gemma host:port.
+LLM_REACH_RE = re.compile(
+    r"\bimport\s+urllib\b|\bfrom\s+urllib\b|\burllib\.|\bimport\s+requests\b"
+    r"|\brequests\.|/v1/chat/completions|127\.0\.0\.1:8000|localhost:8000"
+    r"|\bgemma\b",
+    re.IGNORECASE)
 
 RESULTS: list[tuple[str, bool, str]] = []
 
@@ -201,6 +224,72 @@ def check_map(view_dir: Path) -> None:
     check("map: <300KB", p.stat().st_size < MAP_MAX_BYTES, f"bytes={p.stat().st_size}")
 
 
+def check_proposal_cards() -> None:
+    """proposal_cards.jsonl (when present): every line parses as a JSON object,
+    and every `kind == 'card'` entry carries the six card keys. Discussion rows
+    and other entry kinds are not card-shaped and are intentionally ignored.
+    Absent file → skip (the feature may not have run yet)."""
+    if not PROPOSAL_CARDS.exists():
+        check("proposal_cards: proposal_cards.jsonl", True, "absent — skipped")
+        return
+    lines = [l for l in PROPOSAL_CARDS.read_text().splitlines() if l.strip()]
+    bad_parse: list[int] = []
+    rows: list[dict] = []
+    for n, line in enumerate(lines, 1):
+        try:
+            obj = json.loads(line)
+        except json.JSONDecodeError:
+            bad_parse.append(n)
+            continue
+        if isinstance(obj, dict):
+            rows.append(obj)
+        else:
+            bad_parse.append(n)
+    check("proposal_cards: every line parses as a JSON object", not bad_parse,
+          f"bad_lines={bad_parse[:6]}")
+    cards = [r for r in rows if r.get("kind") == "card"]
+    missing = [(r.get("proposal_id") or "?", sorted(CARD_KEYS - set(r)))
+               for r in cards if not CARD_KEYS <= set(r)]
+    check("proposal_cards: each card has means/pros_accept/cons_accept/"
+          "pros_reject/cons_reject/rule_check", not missing,
+          f"cards={len(cards)} missing={missing[:4]}")
+
+
+def check_determinism_guard() -> None:
+    """Projection must be pure file→file: project_summary.py and the projection
+    path it imports (project_pages.py) must not import urllib/requests or name
+    the Gemma endpoint, so a regen can never reach the LLM."""
+    for src in PROJECTION_SOURCES:
+        name = src.name
+        if not src.exists():
+            check(f"determinism: {name} present for LLM-reach grep", False,
+                  "source file missing")
+            continue
+        hits = sorted({m.group(0).strip()
+                       for m in LLM_REACH_RE.finditer(src.read_text())})
+        check(f"determinism: {name} has no urllib/requests/Gemma reach",
+              not hits, f"hits={hits[:6]}")
+
+
+def check_verdict_enum() -> None:
+    """review_proposal_cli.py exposes the frozen verdict enum exactly
+    {accept, reject, needs_revision}. Absent CLI → skip."""
+    if not REVIEW_CLI.exists():
+        check("verdict-enum: review_proposal_cli.py", True, "absent — skipped")
+        return
+    spec = importlib.util.spec_from_file_location("_review_proposal_cli", REVIEW_CLI)
+    try:
+        mod = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(mod)  # __main__-guarded: import has no side effects
+        keys = set(getattr(mod, "VERDICTS", {}).keys())
+    except Exception as e:  # noqa: BLE001 — record, don't mask
+        check("verdict-enum: review_proposal_cli.py importable", False, repr(e))
+        return
+    check("verdict-enum: VERDICTS keys == {accept,reject,needs_revision}",
+          keys == VERDICT_ENUM,
+          f"got={sorted(keys)} want={sorted(VERDICT_ENUM)}")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Verify brain view artifacts (exit !=0 on failure).")
     ap.add_argument("--view-dir", type=Path, default=ps.VIEW_DIR,
@@ -235,6 +324,11 @@ def main() -> int:
               and js_text.rstrip().endswith(";") and js_obj is not None)
         check("parity: summary_data.js deep-equals summary.json", js_obj == s)
     check_map(args.view_dir)
+
+    # Dynamic proposal-review feature (tolerant when its files are absent).
+    check_proposal_cards()
+    check_determinism_guard()
+    check_verdict_enum()
 
     failed = [r for r in RESULTS if not r[1]]
     for name, ok, detail in RESULTS:

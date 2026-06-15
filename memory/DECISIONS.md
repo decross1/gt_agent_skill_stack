@@ -339,3 +339,65 @@ Recording it keeps the audit trail honest and the next resume clean.
 behavior changed; the four verifiers (verify_brain_view, doc-counts,
 design-tokens, pi-discovery) gate the result.
 **Supersedes:** none — extends the 2026-06-10 design-system entry above.
+
+## 2026-06-15 — Dynamic proposal-review brain: localhost LLM-assisted review UI
+
+**Correction:** The brain's proposal-review loop becomes *dynamic*. Until now
+review was a static file read + a manual verdict; the new backend
+(`scripts/brain_server.py`, stdlib `ThreadingHTTPServer` on 127.0.0.1:5180)
+serves the file-first brain view AND a JSON API that lets a human *discuss and
+amend* a proposal with a local LLM (Gemma 4 at `127.0.0.1:8000`, OpenAI-compatible
+chat) before deciding — then accept / reject / request-revision, or export a
+dev-agent handoff, all from one localhost surface. This mirrors the a_bgt_rsi
+**D-046** human-write-back pattern exactly: the UI's verdict buttons POST to an
+endpoint that **execs the blessed CLI via argv** (`scripts/review_proposal_cli.py`,
+no shell), the verdict enum is frozen (`accept|reject|needs_revision`), the write
+is append-only with a `human:ui` actor stamp, and out-of-enum / bad input exits
+nonzero and **writes nothing** (fail-closed). A human accept on a skill/rule
+proposal IS the human-review *authority* path of `review-proposal`; agents keep
+the auto-reject fast-path. The verdict CLI records the verdict only — it does not
+enact the change; enacting a skill/rule edit remains a separate dev-session /
+handoff step.
+
+**Two invariants are load-bearing and ratified here:**
+- *Firewall.* This backend is **dev-time only**, bound to `127.0.0.1`, and must
+  never be inherited into an apparatus runtime (BOUNDARY.md). It is a drafting +
+  governance surface for the framework's own self-improvement, not a runtime
+  service. The brain firewall verification (`install.sh --verify-firewall`) is
+  unchanged and still holds.
+- *Determinism.* Files remain canonical. Gemma is a **drafting assistant only** —
+  every LLM output (review cards, discussion turns) is persisted append-only to
+  `memory/brain/proposal_cards.jsonl`. Projection / regeneration of the brain
+  pages and view data **never calls the LLM**; it reads the persisted files. The
+  brain stays deterministically reconstructible from its ledgers.
+
+**Alternatives considered:**
+(a) Keep review static — read the proposal page, decide via the terminal CLI —
+    (rejected: the manual flow has no place to *amend* a half-formed draft into a
+    decidable proposal; the discuss→amend loop is the whole point, and the file
+    record loses the reasoning that produced the verdict).
+(b) Let the LLM write verdicts / enact edits directly (rejected: violates the
+    D-046 blessed-CLI contract and the human-review authority path — the human
+    decides, the LLM only drafts; an LLM with write authority is a firewall and
+    provenance hole).
+(c) Have projection re-summarize proposals with the LLM at render time (rejected:
+    breaks determinism — the brain would no longer be reconstructible from files
+    alone, and renders would be nondeterministic and network-dependent).
+(d) Expose the backend beyond loopback for remote review (rejected: dev-time-only
+    tooling on 127.0.0.1 keeps it firmly outside any runtime/network surface).
+
+**Rationale:** The proposal loop is the framework's self-improvement engine; its
+friction was the lack of an interactive *amend-then-decide* surface. A localhost,
+LLM-assisted UI that drafts-into-files and writes verdicts only through the blessed
+CLI gives frictionless review without surrendering the two things that make the
+brain trustworthy — the human-write-back firewall and file-canonical determinism.
+
+**Reversibility.** High — the backend is an additive stdlib server over existing
+canonical files; stop it and review falls back to the static view + terminal
+`review_proposal_cli.py`. `proposal_cards.jsonl` is append-only LLM-draft cache
+and can be discarded without losing any governed verdict (those live in
+`proposals.jsonl`). No skill contract or file schema is rewritten.
+
+**Supersedes:** none — extends the brain-UI scope work (the 2026-06-10
+two-surface design-system entry and the a_bgt_rsi D-046 write-back contract it
+references).

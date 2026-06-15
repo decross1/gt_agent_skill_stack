@@ -1,0 +1,410 @@
+#!/usr/bin/env python3
+"""Dynamic brain backend — serves the static view dir AND a small JSON API that
+makes proposal review conversational and frictionless.
+
+Smallest-slice scope (S25): one focused proposal-review loop —
+  GET  /api/proposals                 list open framework proposals
+  GET  /api/proposal/<id>             proposal + generated card + discussion
+  POST /api/proposal/<id>/discuss     {message}  -> Gemma turn (amend dialogue)
+  POST /api/proposal/<id>/verdict     {verdict,note} -> exec blessed CLI
+  POST /api/proposal/<id>/handoff     -> write handoffs/<id>.md for a dev agent
+
+Design invariants (keep the brain honest while making it dynamic):
+- Files stay canonical. Gemma is a drafting assistant; every output is written
+  through to append-only ledgers (proposal_cards.jsonl) — projection/regen reads
+  the stored fields, never calls the model.
+- Verdicts go through the blessed CLI (review_proposal_cli.py) via argv, no shell.
+- Dev-time only, bound to 127.0.0.1. The brain firewall (BOUNDARY.md) keeps this
+  out of any apparatus runtime.
+
+Run: python3 scripts/brain_server.py [--port 5180]
+"""
+import argparse
+import json
+import re
+import subprocess
+import sys
+import threading
+import urllib.error
+import urllib.request
+from datetime import datetime, timezone
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+VIEW = ROOT / "memory" / "brain" / "view"
+PROPOSALS = ROOT / "memory" / "brain" / "proposals.jsonl"
+CARDS = ROOT / "memory" / "brain" / "proposal_cards.jsonl"
+FEEDBACK = ROOT / "memory" / "feedback.jsonl"
+RULES = ROOT / "memory" / "brain" / "rules.md"
+SKILLS = ROOT / ".agents" / "skills"
+HANDOFFS = ROOT / "handoffs"
+CLI = ROOT / "scripts" / "review_proposal_cli.py"
+
+GEMMA_URL = "http://127.0.0.1:8000/v1/chat/completions"
+MODEL = "gemma-4-26b-a4b"
+PID_RE = re.compile(r"^P-\d+$")
+
+# Serializes the read-then-append in generate_card so a card is written through
+# to proposal_cards.jsonl exactly once even under ThreadingHTTPServer concurrency.
+_CARD_LOCK = threading.Lock()
+
+
+class GemmaError(RuntimeError):
+    """Raised when the Gemma drafting assistant is unreachable, times out, or
+    returns an unusable response. Carries a client-safe message only — the raw
+    exception detail (URLs, stack) is logged server-side, never surfaced."""
+
+# project_summary supplies the framework/research scope classifier
+sys.path.insert(0, str(ROOT / "scripts"))
+import project_summary as ps  # noqa: E402
+
+
+def _now() -> str:
+    return datetime.now(timezone.utc).isoformat()
+
+
+def jsonl(path: Path) -> list[dict]:
+    if not path.exists():
+        return []
+    return [json.loads(l) for l in path.read_text().splitlines() if l.strip()]
+
+
+def gemma(messages: list[dict], max_tokens: int = 700, temperature: float = 0.3) -> str:
+    """Call the Gemma drafting assistant (OpenAI-compatible chat) and return the
+    reply text. Any transport, timeout, HTTP, or malformed-response failure is
+    re-raised as GemmaError with a client-safe message so callers can map it to a
+    clean JSON 5xx instead of crashing the request thread or leaking internals."""
+    body = json.dumps({"model": MODEL, "messages": messages,
+                       "max_tokens": max_tokens, "temperature": temperature}).encode()
+    req = urllib.request.Request(GEMMA_URL, data=body,
+                                 headers={"Content-Type": "application/json"})
+    try:
+        with urllib.request.urlopen(req, timeout=180) as r:
+            d = json.loads(r.read())
+        return d["choices"][0]["message"]["content"]
+    except urllib.error.HTTPError as e:
+        # Server-side detail to stderr; client sees only the generic message.
+        print(f"gemma: upstream HTTP {e.code}", file=sys.stderr)
+        raise GemmaError("drafting assistant returned an error") from e
+    except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
+        print(f"gemma: unreachable ({type(e).__name__})", file=sys.stderr)
+        raise GemmaError("drafting assistant unavailable") from e
+    except (KeyError, IndexError, ValueError, json.JSONDecodeError) as e:
+        print(f"gemma: bad response ({type(e).__name__})", file=sys.stderr)
+        raise GemmaError("drafting assistant returned an unusable response") from e
+
+
+def strip_fence(s: str) -> str:
+    s = s.strip()
+    if s.startswith("```"):
+        s = s.split("\n", 1)[1] if "\n" in s else s
+        if s.rstrip().endswith("```"):
+            s = s.rstrip()[:-3]
+    return s.strip()
+
+
+# ---------------------------------------------------------------------------
+# proposal data
+# ---------------------------------------------------------------------------
+
+def open_framework_proposals() -> list[dict]:
+    collapsed = ps.collapse_proposals(jsonl(PROPOSALS))
+    out = []
+    for pid, p in collapsed.items():
+        if ps.final_verdict(p) not in ("open", "human-review"):
+            continue
+        if ps.proposal_scope(p["first"], "a_bgt_rsi") != "framework":
+            continue
+        f = p["first"]
+        out.append({"proposal_id": pid, "title": f.get("title", ""),
+                    "target": f.get("target", ""), "target_type": f.get("target_type", ""),
+                    "verdict": ps.final_verdict(p)})
+    out.sort(key=lambda x: x["proposal_id"])
+    return out
+
+
+def proposal_first(pid: str) -> dict | None:
+    collapsed = ps.collapse_proposals(jsonl(PROPOSALS))
+    return collapsed.get(pid, {}).get("first")
+
+
+def stored_card(pid: str) -> dict | None:
+    card = None
+    for r in jsonl(CARDS):
+        if r.get("proposal_id") == pid and r.get("kind") == "card":
+            card = r
+    return card
+
+
+def discussion(pid: str) -> list[dict]:
+    return [{"role": r["role"], "content": r["content"], "ts": r.get("ts")}
+            for r in jsonl(CARDS)
+            if r.get("proposal_id") == pid and r.get("kind") == "discuss"]
+
+
+def context_for(first: dict) -> str:
+    """Plain-text context bundle: target skill, drift evidence, active rules."""
+    parts = []
+    target, ttype = first.get("target", ""), first.get("target_type", "")
+    skill_md = SKILLS / target / "SKILL.md"
+    if ttype == "skill" and skill_md.exists():
+        parts.append(f"=== TARGET SKILL ({target}) ===\n" + skill_md.read_text()[:3000])
+    findings = [f for f in jsonl(FEEDBACK) if f.get("skill") == target]
+    if findings:
+        ev = "\n".join(f"- [{f['class']}] {f['evidence'][:200]}" for f in findings[-8:])
+        parts.append(f"=== DRIFT EVIDENCE (harvest findings on {target}) ===\n" + ev)
+    if RULES.exists():
+        parts.append("=== ACTIVE RULES ===\n" + RULES.read_text()[:1500])
+    return "\n\n".join(parts) or "(no extra context)"
+
+
+def generate_card(first: dict) -> dict:
+    """Draft a review card for a proposal via Gemma and append it to
+    proposal_cards.jsonl exactly once. A re-GET reads the stored card (see
+    stored_card) and never calls the model again. The _CARD_LOCK guard makes the
+    read-then-append atomic so concurrent first-GETs do not double-write; a raised
+    GemmaError propagates to the handler and NO partial card is persisted."""
+    pid = first.get("proposal_id")
+    with _CARD_LOCK:
+        # Double-checked: another thread may have generated it while we waited.
+        existing = stored_card(pid)
+        if existing:
+            return existing
+        return _draft_and_store_card(first)
+
+
+def _draft_and_store_card(first: dict) -> dict:
+    sys_p = (
+        "You help a human review proposals to improve the agent_system framework "
+        "(a portable skills+memory framework). For the given proposal, return STRICT "
+        "JSON only (no prose, no code fence) with keys: "
+        '"means" (1-3 plain sentences: what this proposal actually means), '
+        '"pros_accept" (array of short strings), "cons_accept" (array), '
+        '"pros_reject" (array), "cons_reject" (array), '
+        'and "rule_check" (object: {"conflict": bool, "rule": "FR-NNN or null", '
+        '"why": "short"} — does it directly conflict with an ACTIVE RULE listed in context?). '
+        "Be concrete and specific to THIS proposal; 2-4 bullets per array."
+    )
+    user_p = (
+        f"PROPOSAL {first.get('proposal_id')}\n"
+        f"title: {first.get('title')}\n"
+        f"target: {first.get('target_type')}:{first.get('target')}\n"
+        f"change: {first.get('change')}\n"
+        f"reasoning: {first.get('reasoning')}\n\n"
+        f"{context_for(first)}"
+    )
+    raw = gemma([{"role": "system", "content": sys_p},
+                 {"role": "user", "content": user_p}], max_tokens=800, temperature=0.2)
+    try:
+        data = json.loads(strip_fence(raw))
+    except json.JSONDecodeError:
+        data = {"means": strip_fence(raw)[:600], "pros_accept": [], "cons_accept": [],
+                "pros_reject": [], "cons_reject": [],
+                "rule_check": {"conflict": False, "rule": None, "why": "parse-fallback"}}
+    card = {"kind": "card", "proposal_id": first.get("proposal_id"),
+            "generated_at": _now(), "model": MODEL,
+            "means": data.get("means", ""),
+            "pros_accept": data.get("pros_accept", []), "cons_accept": data.get("cons_accept", []),
+            "pros_reject": data.get("pros_reject", []), "cons_reject": data.get("cons_reject", []),
+            "rule_check": data.get("rule_check", {})}
+    with CARDS.open("a") as f:
+        f.write(json.dumps(card) + "\n")
+    return card
+
+
+def append_discuss(pid: str, role: str, content: str) -> None:
+    with CARDS.open("a") as f:
+        f.write(json.dumps({"kind": "discuss", "proposal_id": pid, "ts": _now(),
+                            "role": role, "content": content}) + "\n")
+
+
+def discuss_turn(first: dict, message: str) -> str:
+    pid = first.get("proposal_id")
+    sys_p = (
+        "You help a human refine a proposal to improve the agent_system framework. "
+        "The human may say none of the options look clean, or raise a worry. Engage "
+        "concretely: address the worry, and when useful propose a sharper amended "
+        "version of the change (quote it). Keep replies tight. Do not claim the change "
+        "is implemented — you only help decide and shape it."
+    )
+    msgs = [{"role": "system", "content": sys_p},
+            {"role": "user", "content":
+                f"PROPOSAL {pid}: {first.get('title')}\n"
+                f"change: {first.get('change')}\n\n{context_for(first)}"}]
+    for t in discussion(pid):
+        msgs.append({"role": t["role"], "content": t["content"]})
+    msgs.append({"role": "user", "content": message})
+    reply = gemma(msgs, max_tokens=700, temperature=0.4)
+    append_discuss(pid, "user", message)
+    append_discuss(pid, "assistant", reply)
+    return reply
+
+
+def write_handoff(first: dict) -> str:
+    pid = first.get("proposal_id")
+    card = stored_card(pid) or generate_card(first)
+    disc = discussion(pid)
+    disc_txt = "\n".join(f"**{t['role']}:** {t['content']}" for t in disc) or "_(no discussion)_"
+    synth = ""
+    try:
+        synth = gemma([
+            {"role": "system", "content":
+                "Synthesize a concrete implementation brief for a dev agent from this "
+                "proposal and its discussion: the agreed change, the files likely to "
+                "touch, and 2-4 acceptance criteria. Markdown, no preamble."},
+            {"role": "user", "content":
+                f"PROPOSAL {pid}: {first.get('title')}\nchange: {first.get('change')}\n"
+                f"reasoning: {first.get('reasoning')}\n\nDISCUSSION:\n{disc_txt}"}
+        ], max_tokens=700, temperature=0.2)
+    except Exception as e:  # noqa: BLE001
+        synth = f"_(synthesis unavailable: {e})_"
+    HANDOFFS.mkdir(exist_ok=True)
+    md = (
+        f"# Implementation handoff — {pid}\n\n"
+        f"_Generated {_now()} by the brain proposal-review loop. Pass to a dev agent._\n\n"
+        f"- **Target:** `{first.get('target_type')}:{first.get('target')}`\n"
+        f"- **Title:** {first.get('title')}\n\n"
+        f"## Original proposal (verbatim)\n\n{first.get('change')}\n\n"
+        f"### Why\n\n{first.get('reasoning')}\n\n"
+        f"## What it means\n\n{card.get('means','')}\n\n"
+        f"## Discussion\n\n{disc_txt}\n\n"
+        f"## Agreed change & implementation brief\n\n{synth}\n"
+    )
+    path = HANDOFFS / f"{pid}.md"
+    path.write_text(md)
+    return str(path.relative_to(ROOT))
+
+
+def record_verdict(pid: str, verdict: str, note: str) -> dict:
+    if verdict not in ("accept", "reject", "needs_revision"):
+        return {"ok": False, "error": "bad verdict"}
+    proc = subprocess.run(
+        [sys.executable, str(CLI), "--proposal-id", pid, "--verdict", verdict,
+         "--note", note, "--agent", "human:ui"],
+        capture_output=True, text=True, timeout=30)
+    try:
+        out = json.loads(proc.stdout.strip() or "{}")
+    except json.JSONDecodeError:
+        out = {"ok": False, "error": proc.stderr.strip() or "cli error"}
+    out["exit_code"] = proc.returncode
+    return out
+
+
+# ---------------------------------------------------------------------------
+# HTTP
+# ---------------------------------------------------------------------------
+
+class Handler(SimpleHTTPRequestHandler):
+    def __init__(self, *a, **k):
+        super().__init__(*a, directory=str(VIEW), **k)
+
+    def log_message(self, *a):  # quieter
+        pass
+
+    def _send(self, code: int, obj: dict):
+        """Write a JSON response. A client that hangs up mid-write raises a
+        broken-pipe/connection error; swallow it so it cannot crash the request
+        thread (the response is already lost — there is nothing useful to do)."""
+        payload = json.dumps(obj).encode()
+        try:
+            self.send_response(code)
+            self.send_header("Content-Type", "application/json")
+            self.send_header("Content-Length", str(len(payload)))
+            self.end_headers()
+            self.wfile.write(payload)
+        except (BrokenPipeError, ConnectionError):
+            pass
+
+    def _pid_from(self, parts: list[str]) -> str | None:
+        if len(parts) >= 3 and PID_RE.match(parts[2]):
+            return parts[2]
+        return None
+
+    def _body(self) -> dict:
+        n = int(self.headers.get("Content-Length", 0) or 0)
+        if not n:
+            return {}
+        try:
+            return json.loads(self.rfile.read(n) or b"{}")
+        except json.JSONDecodeError:
+            return {}
+
+    def do_GET(self):
+        # Non-API paths fall through to SimpleHTTPRequestHandler, which serves
+        # ONLY out of `directory=VIEW`: translate_path() normalizes the URL and
+        # strips any "..", so the static handler cannot traverse outside VIEW.
+        if not self.path.startswith("/api/"):
+            return super().do_GET()
+        parts = self.path.strip("/").split("/")  # ['api', ...]
+        try:
+            if self.path == "/api/proposals":
+                return self._send(200, {"proposals": open_framework_proposals()})
+            pid = self._pid_from(parts)  # validated against ^P-\d+$ before any fs/argv use
+            if pid:
+                first = proposal_first(pid)
+                if not first:
+                    return self._send(404, {"error": "unknown proposal"})
+                # Deterministic: read the stored card; only draft (one LLM call) if
+                # none exists yet. generate_card persists it exactly once.
+                card = stored_card(pid) or generate_card(first)
+                return self._send(200, {"proposal": first, "card": card,
+                                        "discussion": discussion(pid)})
+            return self._send(404, {"error": "no route"})
+        except GemmaError as e:
+            return self._send(503, {"error": str(e)})
+        except Exception:  # noqa: BLE001 — never leak a stack/internal to the client
+            print(f"do_GET: unhandled error on {self.path}", file=sys.stderr)
+            return self._send(500, {"error": "internal error"})
+
+    def do_POST(self):
+        parts = self.path.strip("/").split("/")  # ['api','proposal','P-NNN','action']
+        pid = self._pid_from(parts)  # validated against ^P-\d+$ before any fs/argv use
+        action = parts[3] if len(parts) >= 4 else ""
+        if not pid:
+            return self._send(404, {"error": "bad proposal id"})
+        first = proposal_first(pid)
+        if not first:
+            return self._send(404, {"error": "unknown proposal"})
+        body = self._body()
+        try:
+            if action == "discuss":
+                msg = (body.get("message") or "").strip()
+                if not msg:
+                    return self._send(400, {"error": "empty message"})
+                return self._send(200, {"reply": discuss_turn(first, msg),
+                                        "discussion": discussion(pid)})
+            if action == "verdict":
+                v, note = body.get("verdict", ""), (body.get("note") or "").strip()
+                if not note:
+                    return self._send(400, {"error": "note required"})
+                out = record_verdict(pid, v, note)
+                # A verdict on an already-decided proposal (CLI exit 4) or a bad
+                # verdict is a clean client error, not a 500. 409 = conflict with
+                # the proposal's recorded state; 400 = malformed verdict.
+                if not out.get("ok"):
+                    code = 409 if out.get("exit_code") == 4 else 400
+                    return self._send(code, out)
+                return self._send(200, out)
+            if action == "handoff":
+                return self._send(200, {"path": write_handoff(first)})
+            return self._send(404, {"error": "no action"})
+        except GemmaError as e:
+            return self._send(503, {"error": str(e)})
+        except Exception:  # noqa: BLE001 — never leak a stack/internal to the client
+            print(f"do_POST: unhandled error on {self.path}", file=sys.stderr)
+            return self._send(500, {"error": "internal error"})
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--port", type=int, default=5180)
+    ap.add_argument("--host", default="127.0.0.1")
+    a = ap.parse_args()
+    srv = ThreadingHTTPServer((a.host, a.port), Handler)
+    print(f"brain_server: http://{a.host}:{a.port}  (view={VIEW}, model={MODEL})")
+    srv.serve_forever()
+
+
+if __name__ == "__main__":
+    main()

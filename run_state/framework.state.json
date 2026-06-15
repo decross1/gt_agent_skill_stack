@@ -2,8 +2,8 @@
   "plan": "plan.md",
   "plan_version": 1,
   "started_at": "2026-05-21T06:08:51Z",
-  "current_session": 24,
-  "completed_sessions": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23],
+  "current_session": 25,
+  "completed_sessions": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 21, 22, 23, 25],
   "deferred_sessions": [19, 20],
   "completed_tasks": [
     "s1.1_resolve_boundary_leak",
@@ -149,7 +149,13 @@
     "ui_overhaul_handoff_received",
     "ui_overhaul_p3_integrate_brain",
     "ui_overhaul_p4_verify_ship",
-    "ui_overhaul_live_session_acceptance"
+    "ui_overhaul_live_session_acceptance",
+    "s24_harvest_a_bgt_rsi_to_f182f4b",
+    "s24_backlog_resort_and_hardening",
+    "s24_brain_ui_scope_proposals_framework_only",
+    "s24_brain_ui_apparatus_items_view_only",
+    "s25_build_dynamic_brain_workflow",
+    "s25_verify_dynamic_brain"
   ],
   "gates": {
     "pending": [],
@@ -186,6 +192,7 @@
     "last_harvest": "H008",
     "phases_complete": [1, 2],
     "phase_3_5_progress": "B0 ✅, B1 ✅, B2 ✅, B3 ✅ — COMPLETE",
+    "s25_dynamic_brain": "✅ 2026-06-15 — DYNAMIC proposal-review brain shipped (DECISIONS 2026-06-15 correction + plan.md S25). brain_server.py (stdlib backend :5180, Gemma 4 @ :8000) + review_proposal_cli.py (blessed verdict CLI, human:ui) + proposal_review.html (conversational card: verbatim desc + LLM means/pros-cons + discuss/amend + accept/reject/handoff) + draft_proposals.py (drift→draft bubbling, not yet --apply'd) + tests/brain (18 pass) + verify_brain_view 32/32. Built via workflow wf_92c4c5ce-e29 (23 agents); seam-verified wf_9b10a9f2-5a4 (0 blocking). Invariants: files canonical, projection never calls LLM, dev-time localhost firewall. Follow-up: wire draft-vs-open inbox distinction before draft_proposals --apply.",
     "phase_4_progress": "S17 Pi-readiness audit ✅, S18 install/discovery abstraction ✅; S19-S20 uplift test DEFERRED 2026-05-24 by human choice (gate cleared as deferred)",
     "phase_5_progress": "S21 spawn-contract ✅; S22 real autonomous spawn ✅ (→ P-004 open); S23 vertical packs ✅ (pack-aware install on backlog); S23.5 brain UX cleanup ✅ (apparatus filtered default, dark-mode contrast, time scrubber, freshness stamp — 3 new open proposals: P-005 agent-view, P-006 feedback-loop, P-007 live-ish); UI overhaul ✅ 2026-06-10 (shipped + accepted: two-surface observability — brain dashboard + agent↔skill cluster map [schema v2, project_summary.py/project_map.py, verify_brain_view 27/27]; live-session human gate resolved via UI — iter-2026-06-10-002 gated_by human:ui, queue decrement; brain v2 merged 5436b2e + regen 75d5f8f); S24 v1.0 pending",
     "horizon_progress": "N2 ✅ proposal_health.py; P-006 ✅ loop entities; S24a ✅ run-log schema (agent + skill_used → FR-003) + agent/skill projection; Phase 1 ✅ ingest loosened — run_log_entry projected (154 from week1.run.jsonl L1-L171), observed_in coverage 38/42 findings; N1 ✅ stage 1-liner; N3 ✅ P-004 closed (state_basis on spawn-contract), 2 spawn entities projected with uses→skill edges; N4 ✅ scripts/brain_snapshot.py + resume-state briefing step 8; remaining horizon: none queued. 2026-06-10 UI overhaul shipped + accepted out-of-band (see phase_5_progress); open-proposals backlog now 18 open (incl. stale-worktrees, regen-artifact-tracking-policy, livePaths-dedupe, heartbeat-refresh, human_ui-seed, stale-tab-skew); next is a harvest pass to test the feedback loop on the overhaul work",

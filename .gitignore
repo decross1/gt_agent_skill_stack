@@ -11,3 +11,14 @@
 # Python bytecode caches — never canonical.
 __pycache__/
 *.pyc
+
+# Dev-only test runner (brain server tests). Machine-local.
+/.venv/
+/.pytest_cache/
+
+# Dynamic brain proposal-review: LLM-generated artifacts, regenerated lazily by
+# scripts/brain_server.py. Runtime-current, not git-canonical (P-013 territory).
+# The proposal card store + auto-generated dev-agent handoffs (P-NNN.md); the
+# dated handoffs/<date>-*.md stay tracked.
+/memory/brain/proposal_cards.jsonl
+/handoffs/P-*.md

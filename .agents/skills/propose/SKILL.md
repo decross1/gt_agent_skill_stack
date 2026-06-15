@@ -50,8 +50,44 @@ Append one JSON object per line to `memory/brain/proposals.jsonl`:
 }
 ```
 
+`status` is `open` for a proposal you *file* by hand. A proposal that
+`scripts/draft_proposals.py` auto-bubbles from observed drift signal (harvest
+findings and run-log failure flags) lands with `status: "draft"` and
+`agent_id: "draft:auto"` instead — a candidate the brain bubbled up that a
+human is meant to promote to `open` (or discard) before it enters review.
+Either way the entry shape is the one above.
+
+Note: the `draft`-vs-`open` *distinction* is real and written by
+`draft_proposals.py`, but the inbox does not yet honor it — the review UI
+filters on the `verdict` field (defaulting absent to `open`), not on `status`,
+so a `draft` with no verdict currently still surfaces in the needs-you inbox.
+Wiring the inbox to hold drafts out of review is follow-up work (see the
+VISIBILITY note in `scripts/draft_proposals.py`); until then treat the hold-out
+as intended, not yet enforced.
+
 Outcome entries (accept / reject / human-review) are *new* entries appended
 by [[review-proposal]], not edits of this one.
+
+### Review cards are LLM-drafted, not yours
+
+When a proposal reaches the dynamic review UI, the brain drafts a *decision
+card* for the human reviewer and persists it append-only to
+`memory/brain/proposal_cards.jsonl`. These fields are **generated at review
+time** — they are **not** authored by the proposer and are **not** part of the
+`proposals.jsonl` entry above:
+
+| Card field | What it holds |
+|---|---|
+| `means` | A plain restatement of what accepting the proposal would concretely do. |
+| `pros_accept` / `cons_accept` | The case for and against accepting. |
+| `pros_reject` / `cons_reject` | The case for and against rejecting. |
+| `rule_check` | `{conflict, rule, why}` — whether the change collides with an active rule. |
+
+The drafting LLM is a *review-time assistant*; projection and regen never call
+it, and the card is advisory — the verdict still goes through
+[[review-proposal]]. So none of this changes your job. The proposer's whole
+output is still a sharp `target` + a concrete `change` + the `reasoning`; the
+pros, cons, and rule-check are weighed *for* you at review, not *by* you now.
 
 ## Procedure
 
