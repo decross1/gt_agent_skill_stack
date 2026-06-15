@@ -99,19 +99,35 @@ def test_unknown_proposal_exits_3(cli_env):
     assert len(_outcome_lines(ledger)) == 1  # nothing appended
 
 
-def test_missing_note_exits_5(cli_env):
+def test_missing_note_on_reject_exits_5(cli_env):
+    # A reject owes a reason (review-proposal: "a rejection without a reason is
+    # an opinion"); whitespace-only note is treated as missing.
     run, ledger = cli_env
-    proc = run("--proposal-id", "P-901", "--verdict", "accept",
+    proc = run("--proposal-id", "P-901", "--verdict", "reject",
                "--note", "   ", seed=[OPEN_ROW])
     assert proc.returncode == 5
     assert len(_outcome_lines(ledger)) == 1  # nothing appended
 
 
-def test_missing_note_default_empty_exits_5(cli_env):
+def test_missing_note_on_reject_default_empty_exits_5(cli_env):
     run, ledger = cli_env
-    proc = run("--proposal-id", "P-901", "--verdict", "accept", seed=[OPEN_ROW])
+    proc = run("--proposal-id", "P-901", "--verdict", "reject", seed=[OPEN_ROW])
     assert proc.returncode == 5
     assert len(_outcome_lines(ledger)) == 1
+
+
+def test_accept_without_note_succeeds(cli_env):
+    # Accept is the human-authority path — a reason is optional. Empty note is OK
+    # and records an accepted outcome with an empty verdict_reasoning.
+    run, ledger = cli_env
+    proc = run("--proposal-id", "P-901", "--verdict", "accept", seed=[OPEN_ROW])
+    assert proc.returncode == 0
+    payload = json.loads(proc.stdout.strip())
+    assert payload == {"ok": True, "recorded": "accepted", "proposal_id": "P-901"}
+    rows = _outcome_lines(ledger)
+    assert len(rows) == 2
+    assert rows[-1]["verdict"] == "accepted"
+    assert rows[-1]["verdict_reasoning"] == ""
 
 
 # ---------------------------------------------------------------------------

@@ -131,7 +131,7 @@ main { display:grid; grid-template-columns:320px 1fr; min-height:calc(100vh - 56
 .msg.user { align-self:flex-end; background:var(--surface-2); border:1px solid var(--border-2); }
 .msg.assistant { align-self:flex-start; background:var(--bg); border:1px solid var(--border); }
 .composer { display:flex; gap:8px; margin-top:10px; align-items:flex-end; }
-textarea { flex:1; resize:vertical; min-height:54px; background:var(--surface); color:var(--text);
+textarea { flex:1; resize:both; min-height:54px; max-width:100%; background:var(--surface); color:var(--text);
   border:1px solid var(--border-2); border-radius:6px; padding:9px 11px; font:inherit; }
 textarea:focus { outline:none; border-color:var(--accent); }
 .btn { border:1px solid var(--border-2); background:var(--surface); color:var(--text);
@@ -603,14 +603,31 @@ function openModal(verdict, basis) {
       ? "Records the edited amended draft as the governed change, then writes the handoff from it."
       : "Records the original proposal as the governed change, then writes the handoff from it.";
   }
+  // The note is the decision RATIONALE (recorded as verdict_reasoning) — NOT the
+  // proposal text, which is already captured. Optional for accept (the human is
+  // the authority); required for reject (a rejection owes a reason). Pre-filled
+  // with a sensible default so accept is one click, never a copy-paste.
+  const defaultNote = isAccept
+    ? (basis === "amended"
+        ? "Accepted the amended draft from the review discussion."
+        : "Accepted as filed.")
+    : "";
+  const noteHelp = isAccept
+    ? "Optional — a one-line reason for the record (verdict_reasoning, human:ui). "
+      + "This is NOT the proposal" + (basis === "amended" ? " — the amended draft" : "")
+      + " is already captured; edit or clear this as you like."
+    : "Required — why are you rejecting this? Recorded with the verdict (human:ui).";
+  const notePlaceholder = isAccept
+    ? "Reason for accepting (optional)"
+    : "Why reject? (required)";
   const scrim = document.createElement("div");
   scrim.className = "scrim";
   scrim.innerHTML =
     '<div class="modal">' +
       '<h2>' + esc(title) + ' ' + esc(current) + '</h2>' +
-      '<p>A note is required — it is recorded with the verdict (human:ui).</p>' +
+      '<p>' + esc(noteHelp) + '</p>' +
       (basisLine ? '<p class="basis-line">' + esc(basisLine) + '</p>' : '') +
-      '<textarea id="note" placeholder="Why ' + esc(verdict) + '?"></textarea>' +
+      '<textarea id="note" placeholder="' + esc(notePlaceholder) + '">' + esc(defaultNote) + '</textarea>' +
       '<div class="err" id="note-err"></div>' +
       '<div class="modal-actions">' +
         '<button class="btn" id="cancel">Cancel</button>' +
@@ -631,7 +648,7 @@ function openModal(verdict, basis) {
 async function submitVerdict(verdict, basis, note, scrim) {
   const errEl = scrim.querySelector("#note-err");
   errEl.textContent = "";
-  if (!note) { errEl.textContent = "a note is required"; return; }
+  if (!note && verdict !== "accept") { errEl.textContent = "a reason is required to reject"; return; }
   const confirm = scrim.querySelector("#confirm");
   confirm.disabled = true;
   confirm.innerHTML = '<span class="spin"></span>';

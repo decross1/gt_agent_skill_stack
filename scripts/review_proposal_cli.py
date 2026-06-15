@@ -50,7 +50,7 @@ def main() -> None:
     ap = argparse.ArgumentParser(description="Record a human verdict on a brain proposal.")
     ap.add_argument("--proposal-id", required=True)
     ap.add_argument("--verdict", required=True, choices=sorted(VERDICTS))
-    ap.add_argument("--note", default="", help="reasoning — required (a verdict without a reason is an opinion)")
+    ap.add_argument("--note", default="", help="decision reasoning — required to reject/needs_revision (a rejection without a reason is an opinion); optional for accept (the human is the authority)")
     ap.add_argument("--agent", default="human:ui")
     ap.add_argument("--basis", default="original", choices=("original", "amended"),
                     help="which draft the verdict governs: the original proposal or the synthesized amended draft")
@@ -59,8 +59,8 @@ def main() -> None:
     if not PID_RE.match(a.proposal_id):
         print(json.dumps({"ok": False, "error": "bad proposal_id (want P-NNN)"}))
         sys.exit(2)
-    if not a.note.strip():
-        print(json.dumps({"ok": False, "error": "note required"}))
+    if a.verdict != "accept" and not a.note.strip():
+        print(json.dumps({"ok": False, "error": "note (reason) required to reject/needs_revision"}))
         sys.exit(5)
 
     try:

@@ -466,8 +466,9 @@ class Handler(SimpleHTTPRequestHandler):
             if action == "verdict":
                 v, note = body.get("verdict", ""), (body.get("note") or "").strip()
                 basis = body.get("basis") or "original"
-                if not note:
-                    return self._send(400, {"error": "note required"})
+                # Reason optional for accept (human authority); required to reject.
+                if v != "accept" and not note:
+                    return self._send(400, {"error": "a reason is required to reject"})
                 if basis not in ("original", "amended"):
                     return self._send(400, {"error": "bad basis"})
                 # If accepting the amended draft, persist the (possibly human-EDITED)
