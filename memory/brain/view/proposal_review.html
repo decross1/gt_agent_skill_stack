@@ -76,18 +76,32 @@ main { display:grid; grid-template-columns:320px 1fr; min-height:calc(100vh - 56
   font-family:var(--font-mono); font-size:12px; }
 .dhead { display:flex; align-items:flex-start; gap:12px; flex-wrap:wrap; }
 .dhead h1 { font-size:18px; margin:0; font-weight:600; flex:1; min-width:200px; }
-.block { margin-top:20px; }
+
+/* three labelled zones */
+.zone { margin-top:20px; border:1px solid var(--border); border-radius:10px; overflow:hidden;
+  background:var(--surface-2); }
+.zone:first-of-type { margin-top:18px; }
+.zone > .zhead { display:flex; align-items:baseline; gap:10px; padding:11px 16px;
+  border-bottom:1px solid var(--border); background:var(--surface); }
+.zone > .zhead .znum { font-family:var(--font-mono); font-size:11px; color:var(--accent);
+  font-weight:600; }
+.zone > .zhead .ztitle { font-size:12px; text-transform:uppercase; letter-spacing:.06em;
+  color:var(--text); font-weight:600; }
+.zone > .zhead .zsub { color:var(--text-faint); font-size:11px; font-style:italic; }
+.zbody { padding:16px; }
+.block { margin-top:18px; }
+.block:first-child { margin-top:0; }
 .label { font-size:11px; text-transform:uppercase; letter-spacing:.08em; color:var(--text-faint);
   margin-bottom:7px; }
 .verbatim { font-family:var(--font-mono); font-size:12px; white-space:pre-wrap; word-break:break-word;
-  background:var(--surface-2); border:1px solid var(--border); border-radius:6px; padding:12px 14px;
+  background:var(--surface); border:1px solid var(--border); border-radius:6px; padding:12px 14px;
   color:var(--text-dim); }
 .means { font-size:14px; line-height:1.55; color:var(--text); }
 
 /* accept / reject columns */
 .cols { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
 @media (max-width:620px) { .cols { grid-template-columns:1fr; } }
-.col { border:1px solid var(--border); border-radius:8px; padding:12px 14px; background:var(--surface-2); }
+.col { border:1px solid var(--border); border-radius:8px; padding:12px 14px; background:var(--surface); }
 .col h3 { margin:0 0 9px; font-size:12px; text-transform:uppercase; letter-spacing:.06em; }
 .col.accept h3 { color:var(--ok); }
 .col.reject h3 { color:var(--bad); }
@@ -108,13 +122,13 @@ main { display:grid; grid-template-columns:320px 1fr; min-height:calc(100vh - 56
 
 /* discuss */
 .thread { display:flex; flex-direction:column; gap:10px; max-height:340px; overflow-y:auto;
-  border:1px solid var(--border); border-radius:8px; padding:12px; background:var(--surface-2); }
+  border:1px solid var(--border); border-radius:8px; padding:12px; background:var(--surface); }
 .thread.empty { color:var(--text-ghost); font-style:italic; align-items:center; }
 .msg { max-width:82%; padding:8px 11px; border-radius:8px; font-size:12.5px; line-height:1.5;
   white-space:pre-wrap; word-break:break-word; }
 .msg .who { display:block; font-family:var(--font-mono); font-size:10px; text-transform:uppercase;
   letter-spacing:.05em; color:var(--text-faint); margin-bottom:3px; }
-.msg.user { align-self:flex-end; background:var(--surface); border:1px solid var(--border-2); }
+.msg.user { align-self:flex-end; background:var(--surface-2); border:1px solid var(--border-2); }
 .msg.assistant { align-self:flex-start; background:var(--bg); border:1px solid var(--border); }
 .composer { display:flex; gap:8px; margin-top:10px; align-items:flex-end; }
 textarea { flex:1; resize:vertical; min-height:54px; background:var(--surface); color:var(--text);
@@ -128,11 +142,32 @@ textarea:focus { outline:none; border-color:var(--accent); }
 .btn.accept { border-color:var(--ok); color:var(--ok); }
 .btn.reject { border-color:var(--bad); color:var(--bad); }
 
-/* actions row */
-.actions { display:flex; gap:10px; flex-wrap:wrap; align-items:center; margin-top:22px;
-  padding-top:18px; border-top:1px solid var(--border); }
-.actions .hspace { flex:1; }
+/* synthesize / amended-draft */
+.synth-row { display:flex; gap:10px; align-items:center; margin-top:12px; flex-wrap:wrap; }
+.synth-hint { color:var(--text-faint); font-size:11.5px; font-style:italic; }
+.amended { margin-top:14px; }
+.amended .label .badge { font-family:var(--font-mono); font-size:10px; color:var(--accent);
+  border:1px solid var(--accent); border-radius:999px; padding:1px 7px; margin-left:8px;
+  text-transform:none; letter-spacing:0; }
+#amended-draft { min-height:120px; }
+
+/* decide zone */
+.decide-note { color:var(--text-dim); font-size:12.5px; line-height:1.55; margin:0 0 14px; }
+.decide-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+@media (max-width:620px) { .decide-grid { grid-template-columns:1fr; } }
+.decide-card { border:1px solid var(--border); border-radius:8px; padding:14px; background:var(--surface);
+  display:flex; flex-direction:column; gap:8px; }
+.decide-card h4 { margin:0; font-size:12.5px; }
+.decide-card .what { color:var(--text-faint); font-size:11.5px; line-height:1.45; flex:1; }
+.decide-card.disabled { opacity:.55; }
+.decide-reject { display:flex; gap:10px; align-items:center; margin-top:14px; padding-top:14px;
+  border-top:1px solid var(--border); }
 .handoff-path { font-family:var(--font-mono); font-size:12px; color:var(--ok); word-break:break-all; }
+.decided-banner { display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:11px 14px;
+  border:1px solid var(--ok); background:var(--ok-bg); color:var(--ok); border-radius:8px;
+  font-size:12.5px; margin-bottom:14px; }
+.decided-banner.reject { border-color:var(--bad); background:var(--bad-bg); color:var(--bad); }
+.decided-banner a { color:inherit; text-decoration:underline; }
 
 /* spinner */
 .spin { width:14px; height:14px; border:2px solid var(--border-2); border-top-color:var(--accent);
@@ -155,6 +190,7 @@ textarea:focus { outline:none; border-color:var(--accent); }
   padding:18px 20px; width:min(440px,90vw); }
 .modal h2 { margin:0 0 4px; font-size:15px; }
 .modal p { margin:0 0 12px; color:var(--text-dim); font-size:12.5px; }
+.modal .basis-line { color:var(--text-faint); font-size:11.5px; margin:0 0 12px; }
 .modal .modal-actions { display:flex; justify-content:flex-end; gap:9px; margin-top:14px; }
 </style>
 </head>
@@ -188,9 +224,10 @@ const esc = s => String(s == null ? "" : s)
   .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
   .replace(/"/g,"&quot;").replace(/'/g,"&#39;");
 
-let proposals = [];   // list rows
-let current = null;   // selected proposal_id
-let busy = false;     // a Gemma/verdict call in flight
+let proposals = [];        // list rows
+let current = null;        // selected proposal_id
+let busy = false;          // a Gemma/verdict call in flight
+let amendedDraft = null;   // latest synthesized/edited amended change for `current` (string|null)
 
 /* ---------------- fetch helpers (same-origin only) ---------------- */
 async function api(path, opts) {
@@ -290,6 +327,7 @@ function renderDetail(d) {
   const p = d.proposal || {};
   const c = d.card || {};
   const disc = d.discussion || [];
+  amendedDraft = (d.amended_draft != null) ? String(d.amended_draft) : null;
   const decided = isDecided(currentRow());
   const html =
     '<div class="dhead">' +
@@ -298,40 +336,66 @@ function renderDetail(d) {
       '<span class="chip mono">' + esc(p.proposal_id || current) + '</span>' +
     '</div>' +
 
-    '<div class="block"><div class="label">description (verbatim)</div>' +
-      '<div class="verbatim">' + esc(p.change || "(no change text)") + '</div></div>' +
-
-    '<div class="block"><div class="label">what it means</div>' +
-      '<div class="means">' + esc(c.means || "—") + '</div></div>' +
-
-    '<div class="block"><div class="label">trade-offs</div>' +
-      '<div class="cols">' +
-        '<div class="col accept"><h3>accept</h3><ul>' +
-          bullets(c.pros_accept, "+", "pro") + bullets(c.cons_accept, "−", "con") +
-        '</ul></div>' +
-        '<div class="col reject"><h3>reject</h3><ul>' +
-          bullets(c.pros_reject, "+", "pro") + bullets(c.cons_reject, "−", "con") +
-        '</ul></div>' +
+    /* ----- ZONE 1: Proposal ----- */
+    '<section class="zone">' +
+      '<div class="zhead"><span class="znum">1</span>' +
+        '<span class="ztitle">Proposal</span>' +
+        '<span class="zsub">what is being proposed</span></div>' +
+      '<div class="zbody">' +
+        '<div class="block"><div class="label">description (verbatim)</div>' +
+          '<div class="verbatim">' + esc(p.change || "(no change text)") + '</div></div>' +
+        '<div class="block"><div class="label">what it means</div>' +
+          '<div class="means">' + esc(c.means || "—") + '</div></div>' +
+        '<div class="block"><div class="label">trade-offs</div>' +
+          '<div class="cols">' +
+            '<div class="col accept"><h3>accept</h3><ul>' +
+              bullets(c.pros_accept, "+", "pro") + bullets(c.cons_accept, "−", "con") +
+            '</ul></div>' +
+            '<div class="col reject"><h3>reject</h3><ul>' +
+              bullets(c.pros_reject, "+", "pro") + bullets(c.cons_reject, "−", "con") +
+            '</ul></div>' +
+          '</div>' +
+          renderRuleCheck(c.rule_check) +
+        '</div>' +
       '</div>' +
-      renderRuleCheck(c.rule_check) +
-    '</div>' +
+    '</section>' +
 
-    '<div class="block"><div class="label">discuss</div>' +
-      renderThread(disc) +
-      '<div class="composer">' +
-        '<textarea id="msg" placeholder="None of these look clean… / What if we…"></textarea>' +
-        '<button class="btn primary" id="send">Send</button>' +
+    /* ----- ZONE 2: Refine with Gemma (optional) ----- */
+    '<section class="zone">' +
+      '<div class="zhead"><span class="znum">2</span>' +
+        '<span class="ztitle">Refine with Gemma</span>' +
+        '<span class="zsub">optional</span></div>' +
+      '<div class="zbody">' +
+        '<div class="block"><div class="label">conversation</div>' +
+          renderThread(disc) +
+          '<div class="composer">' +
+            '<textarea id="msg" placeholder="Ask a question or raise a worry — e.g. None of these look clean… / What if we…"></textarea>' +
+            '<button class="btn primary" id="send">Ask Gemma</button>' +
+          '</div>' +
+          '<div class="err" id="discuss-err"></div>' +
+        '</div>' +
+        '<div class="block">' +
+          '<div class="synth-row">' +
+            '<button class="btn" id="synthesize">Draft updated proposal from this conversation</button>' +
+            '<span class="synth-hint">turns the discussion into a crisp amended proposal you can edit</span>' +
+          '</div>' +
+          '<div class="amended" id="amended-wrap"' + (amendedDraft != null ? "" : " hidden") + '>' +
+            '<div class="label">amended proposal (final form)<span class="badge">editable</span></div>' +
+            '<textarea id="amended-draft" placeholder="(no amended draft yet — draft one above)">' +
+              esc(amendedDraft != null ? amendedDraft : "") + '</textarea>' +
+          '</div>' +
+          '<div class="err" id="synth-err"></div>' +
+        '</div>' +
       '</div>' +
-      '<div class="err" id="discuss-err"></div>' +
-    '</div>' +
+    '</section>' +
 
-    '<div class="actions">' +
-      '<button class="btn accept" id="accept"' + (decided ? " disabled" : "") + '>Accept</button>' +
-      '<button class="btn reject" id="reject"' + (decided ? " disabled" : "") + '>Reject</button>' +
-      '<span class="hspace"></span>' +
-      '<button class="btn" id="handoff">Generate handoff</button>' +
-      '<span class="handoff-path" id="handoff-path"></span>' +
-    '</div>';
+    /* ----- ZONE 3: Decide ----- */
+    '<section class="zone">' +
+      '<div class="zhead"><span class="znum">3</span>' +
+        '<span class="ztitle">Decide</span>' +
+        '<span class="zsub">' + (decided ? "decided" : "records the verdict and writes the handoff") + '</span></div>' +
+      '<div class="zbody" id="decide-body"></div>' +
+    '</section>';
 
   const body = $("detailbody");
   body.innerHTML = html;
@@ -342,10 +406,69 @@ function renderDetail(d) {
   $("msg").addEventListener("keydown", e => {
     if (e.key === "Enter" && (e.metaKey || e.ctrlKey)) { e.preventDefault(); sendMessage(); }
   });
-  $("accept").addEventListener("click", () => promptVerdict("accept"));
-  $("reject").addEventListener("click", () => promptVerdict("reject"));
-  $("handoff").addEventListener("click", generateHandoff);
+  $("synthesize").addEventListener("click", synthesize);
+  $("amended-draft").addEventListener("input", () => {
+    amendedDraft = $("amended-draft").value;
+    syncAcceptAmended();
+  });
+  renderDecide();
   scrollThread();
+}
+
+/* Decide zone — re-rendered after a decision so the buttons reflect state. */
+function renderDecide() {
+  const host = $("decide-body");
+  if (!host) return;
+  const row = currentRow();
+  const decided = isDecided(row);
+  if (decided) {
+    const v = row && row.verdict ? String(row.verdict) : "decided";
+    const reject = v.indexOf("reject") === 0;
+    host.innerHTML =
+      '<div class="decided-banner' + (reject ? " reject" : "") + '" id="decided-banner">' +
+        '<b>' + esc(v) + '</b><span>recorded (human:ui).</span>' +
+        '<span class="handoff-path" id="handoff-path"></span>' +
+      '</div>' +
+      '<p class="decide-note">This proposal has a recorded verdict. Re-deciding is blocked; ' +
+      'the handoff (if any) was written when it was accepted.</p>';
+    return;
+  }
+  host.innerHTML =
+    '<p class="decide-note">Accepting records the decision <b>and</b> writes the implementation ' +
+    'handoff for the dev session — there is no separate step.</p>' +
+    '<div class="decide-grid">' +
+      '<div class="decide-card" id="card-original">' +
+        '<h4>Accept original proposal</h4>' +
+        '<div class="what">Records the <b>original</b> description above as the governed change, and writes the handoff from it.</div>' +
+        '<button class="btn accept" id="accept-original">Accept original</button>' +
+      '</div>' +
+      '<div class="decide-card" id="card-amended">' +
+        '<h4>Accept amended draft</h4>' +
+        '<div class="what">Records the <b>edited amended draft</b> (Zone 2) as the governed change, and writes the handoff from it. ' +
+        'Draft one first to enable this.</div>' +
+        '<button class="btn accept" id="accept-amended">Accept amended</button>' +
+      '</div>' +
+    '</div>' +
+    '<div class="decide-reject">' +
+      '<button class="btn reject" id="reject">Reject</button>' +
+      '<span class="synth-hint">rejecting records a verdict only — no handoff is written</span>' +
+      '<span class="hspace"></span>' +
+      '<span class="handoff-path" id="handoff-path"></span>' +
+    '</div>';
+  $("accept-original").addEventListener("click", () => promptVerdict("accept", "original"));
+  $("accept-amended").addEventListener("click", () => promptVerdict("accept", "amended"));
+  $("reject").addEventListener("click", () => promptVerdict("reject", "original"));
+  syncAcceptAmended();
+}
+
+/* "Accept amended" is enabled only once a non-empty amended draft exists. */
+function syncAcceptAmended() {
+  const btn = $("accept-amended");
+  const card = $("card-amended");
+  if (!btn) return;
+  const has = amendedDraft != null && amendedDraft.trim() !== "";
+  btn.disabled = !has;
+  if (card) card.classList.toggle("disabled", !has);
 }
 
 function currentRow() { return proposals.find(p => p.proposal_id === current) || null; }
@@ -362,6 +485,7 @@ function scrollThread() {
 
 async function selectProposal(pid) {
   current = pid;
+  amendedDraft = null;
   renderList();
   const body = $("detailbody");
   body.hidden = true;
@@ -380,7 +504,7 @@ async function selectProposal(pid) {
   }
 }
 
-/* ---------------- discuss ---------------- */
+/* ---------------- discuss (ask Gemma) ---------------- */
 async function sendMessage() {
   if (busy) return;
   const ta = $("msg");
@@ -428,26 +552,69 @@ async function sendMessage() {
   }
 }
 
-/* ---------------- verdict ---------------- */
-function promptVerdict(verdict) {
+/* ---------------- synthesize amended draft ---------------- */
+async function synthesize() {
   if (busy) return;
-  if (isDecided(currentRow())) { toast("already decided", "bad"); return; }
-  openModal(verdict);
+  const btn = $("synthesize"), errEl = $("synth-err");
+  errEl.textContent = "";
+  const orig = btn.textContent;
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spin"></span>&nbsp;drafting…';
+  setBusy(true, "#synthesize");
+  try {
+    const d = await api("/api/proposal/" + encodeURIComponent(current) + "/synthesize",
+      { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
+    amendedDraft = (d.amended_change != null) ? String(d.amended_change) : "";
+    $("amended-wrap").hidden = false;
+    $("amended-draft").value = amendedDraft;
+    syncAcceptAmended();
+    toast("amended draft ready — edit it, then Accept amended", "ok");
+  } catch (e) {
+    errEl.textContent = "draft failed: " + e.message;
+    toast("draft failed: " + e.message, "bad");
+  } finally {
+    btn.disabled = false;
+    btn.textContent = orig;
+    setBusy(false, "#synthesize");
+  }
 }
 
-function openModal(verdict) {
+/* ---------------- verdict ---------------- */
+function promptVerdict(verdict, basis) {
+  if (busy) return;
+  if (isDecided(currentRow())) { toast("already decided", "bad"); return; }
+  if (verdict === "accept" && basis === "amended") {
+    if (amendedDraft == null || amendedDraft.trim() === "") {
+      toast("draft an amended proposal first", "bad");
+      return;
+    }
+  }
+  openModal(verdict, basis);
+}
+
+function openModal(verdict, basis) {
+  const isAccept = verdict === "accept";
+  const title = isAccept
+    ? (basis === "amended" ? "Accept amended draft" : "Accept original proposal")
+    : "Reject";
+  let basisLine = "";
+  if (isAccept) {
+    basisLine = basis === "amended"
+      ? "Records the edited amended draft as the governed change, then writes the handoff from it."
+      : "Records the original proposal as the governed change, then writes the handoff from it.";
+  }
   const scrim = document.createElement("div");
   scrim.className = "scrim";
   scrim.innerHTML =
     '<div class="modal">' +
-      '<h2>' + (verdict === "accept" ? "Accept" : "Reject") + ' ' + esc(current) + '</h2>' +
+      '<h2>' + esc(title) + ' ' + esc(current) + '</h2>' +
       '<p>A note is required — it is recorded with the verdict (human:ui).</p>' +
-      '<textarea id="note" placeholder="Why ' + verdict + '?"></textarea>' +
+      (basisLine ? '<p class="basis-line">' + esc(basisLine) + '</p>' : '') +
+      '<textarea id="note" placeholder="Why ' + esc(verdict) + '?"></textarea>' +
       '<div class="err" id="note-err"></div>' +
       '<div class="modal-actions">' +
         '<button class="btn" id="cancel">Cancel</button>' +
-        '<button class="btn ' + verdict + '" id="confirm">' +
-          (verdict === "accept" ? "Accept" : "Reject") + '</button>' +
+        '<button class="btn ' + esc(verdict) + '" id="confirm">' + esc(isAccept ? "Accept" : "Reject") + '</button>' +
       '</div>' +
     '</div>';
   document.body.appendChild(scrim);
@@ -457,11 +624,11 @@ function openModal(verdict) {
   scrim.addEventListener("click", e => { if (e.target === scrim) close(); });
   scrim.querySelector("#cancel").addEventListener("click", close);
   scrim.querySelector("#confirm").addEventListener("click", () =>
-    submitVerdict(verdict, note.value.trim(), scrim));
+    submitVerdict(verdict, basis, note.value.trim(), scrim));
   scrim.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
 }
 
-async function submitVerdict(verdict, note, scrim) {
+async function submitVerdict(verdict, basis, note, scrim) {
   const errEl = scrim.querySelector("#note-err");
   errEl.textContent = "";
   if (!note) { errEl.textContent = "a note is required"; return; }
@@ -469,70 +636,58 @@ async function submitVerdict(verdict, note, scrim) {
   confirm.disabled = true;
   confirm.innerHTML = '<span class="spin"></span>';
   setBusy(true);
+  // basis only meaningful on accept; reject always records the original verdict.
+  const useBasis = (verdict === "accept") ? basis : "original";
+  const payload = { verdict: verdict, note: note, basis: useBasis };
+  if (verdict === "accept" && useBasis === "amended") {
+    payload.amended_change = (amendedDraft != null) ? amendedDraft : "";
+  }
   try {
     const d = await api("/api/proposal/" + encodeURIComponent(current) + "/verdict",
       { method: "POST", headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ verdict: verdict, note: note }) });
+        body: JSON.stringify(payload) });
     if (!d.ok) throw new Error(d.error || ("CLI exit " + (d.exit_code != null ? d.exit_code : "?")));
     scrim.remove();
     const decided = current;
-    toast(verdict + "ed " + decided + (d.recorded ? " · recorded" : ""), "ok");
+    const hp = d.handoff_path || "";
+    toast(verdict + "ed " + decided + (d.recorded ? " · recorded" : "") +
+      (hp ? " · handoff written" : ""), "ok");
     // refresh the canonical list (decided proposals usually drop out of /api/proposals)
     await loadList();
     const stillListed = proposals.find(p => p.proposal_id === decided);
     if (stillListed) {
-      selectProposal(decided); // still present (e.g. needs_revision) — re-show, now decided
+      // still present (e.g. needs_revision) — re-show, now decided
+      selectProposal(decided);
     } else {
       current = null;
       $("detailbody").hidden = true;
       $("placeholder").hidden = false;
-      $("placeholder").textContent = decided + " " + verdict + "ed — select another proposal";
+      $("placeholder").innerHTML = esc(decided) + " " + esc(verdict) + "ed — select another proposal" +
+        (hp ? '<br><span class="handoff-path">→ ' + esc(hp) + '</span>' : "");
     }
+    if (hp) toast("handoff: " + hp, "ok");
   } catch (e) {
     errEl.textContent = "verdict failed: " + e.message;
     confirm.disabled = false;
-    confirm.textContent = verdict === "accept" ? "Accept" : "Reject";
+    confirm.textContent = (verdict === "accept") ? "Accept" : "Reject";
     toast("verdict failed: " + e.message, "bad");
   } finally {
     setBusy(false);
   }
 }
 
-/* ---------------- handoff ---------------- */
-async function generateHandoff() {
-  if (busy) return;
-  const btn = $("handoff"), out = $("handoff-path");
-  out.textContent = "";
-  btn.disabled = true;
-  const orig = btn.textContent;
-  btn.innerHTML = '<span class="spin"></span>&nbsp;generating…';
-  setBusy(true);
-  try {
-    const d = await api("/api/proposal/" + encodeURIComponent(current) + "/handoff",
-      { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" });
-    out.textContent = "→ " + (d.path || "(no path returned)");
-    toast("handoff written: " + (d.path || "?"), "ok");
-  } catch (e) {
-    out.innerHTML = '<span style="color:var(--bad)">handoff failed: ' + esc(e.message) + '</span>';
-    toast("handoff failed: " + e.message, "bad");
-  } finally {
-    btn.disabled = false;
-    btn.textContent = orig;
-    setBusy(false);
-  }
-}
-
 /* ---------------- busy lock ---------------- */
-function setBusy(state, sendSel) {
+function setBusy(state, sel) {
   busy = state;
-  const send = sendSel ? document.querySelector(sendSel) : $("send");
+  // disable the discuss/synthesize buttons during any in-flight op; only repaint
+  // the button that owns the current op as a spinner (each shows its own).
+  const send = $("send");
   if (send) {
     send.disabled = state;
-    // only repaint the Send button as a spinner when the in-flight op is the
-    // discuss send itself; a verdict/handoff busy lock disables it without a
-    // misleading second spinner (each shows its own spinner on its own button).
-    if (sendSel === "#send") send.innerHTML = state ? '<span class="spin"></span>' : "Send";
+    if (sel === "#send") send.innerHTML = state ? '<span class="spin"></span>' : "Ask Gemma";
   }
+  const synth = $("synthesize");
+  if (synth && sel !== "#synthesize") synth.disabled = state;
 }
 
 /* ---------------- init ---------------- */

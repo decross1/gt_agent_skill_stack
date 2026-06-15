@@ -4,10 +4,13 @@ makes proposal review conversational and frictionless.
 
 Smallest-slice scope (S25): one focused proposal-review loop —
   GET  /api/proposals                 list open framework proposals
-  GET  /api/proposal/<id>             proposal + generated card + discussion
+  GET  /api/proposal/<id>             proposal + card + discussion + amended_draft
   POST /api/proposal/<id>/discuss     {message}  -> Gemma turn (amend dialogue)
-  POST /api/proposal/<id>/verdict     {verdict,note} -> exec blessed CLI
-  POST /api/proposal/<id>/handoff     -> write handoffs/<id>.md for a dev agent
+  POST /api/proposal/<id>/synthesize  -> Gemma turns the discussion into a crisp
+                                         amended proposal 'change'; persists it
+  POST /api/proposal/<id>/verdict     {verdict,note,basis,amended_change?} -> exec
+                                         blessed CLI; on accept auto-writes handoff
+  POST /api/proposal/<id>/handoff     -> write handoffs/<id>.md (manual regen)
 
 Design invariants (keep the brain honest while making it dynamic):
 - Files stay canonical. Gemma is a drafting assistant; every output is written
@@ -241,11 +244,89 @@ def discuss_turn(first: dict, message: str) -> str:
     return reply
 
 
-def write_handoff(first: dict) -> str:
+def latest_amended_draft(pid: str) -> dict | None:
+    """Return the LATEST amended_draft entry for a proposal, or None. The ledger
+    is append-only; a re-synthesis or human-edited accept appends a fresh row, so
+    the last matching line wins (mirrors stored_card's last-write-wins read)."""
+    draft = None
+    for r in jsonl(CARDS):
+        if r.get("proposal_id") == pid and r.get("kind") == "amended_draft":
+            draft = r
+    return draft
+
+
+def append_amended_draft(pid: str, change: str) -> dict:
+    """Append-only write of an amended_draft entry; returns the stored row."""
+    row = {"kind": "amended_draft", "proposal_id": pid, "generated_at": _now(),
+           "model": MODEL, "change": change}
+    with CARDS.open("a") as f:
+        f.write(json.dumps(row) + "\n")
+    return row
+
+
+def _strip_proposal_scaffold(text: str) -> str:
+    """Conservative cleanup of a synthesized amended draft. Gemma 4 sometimes
+    echoes the input scaffold (`PROPOSAL <id>: ... / target: ... / change: ...`)
+    despite the prompt forbidding it. Only when the reply actually begins with that
+    echoed header do we keep the text after the echoed `change:` label; we also drop
+    a lone leading `change:` / `amended change:` label. Clean replies pass through
+    untouched, so this never mangles a well-formed draft."""
+    t = strip_fence(text).strip()
+    if re.match(r"(?is)^\s*PROPOSAL\b", t):
+        m = re.search(r"(?im)^\s*change:\s*", t)
+        if m:
+            t = t[m.end():].strip()
+    t = re.sub(r"(?is)^\s*(amended\s+)?change:\s*", "", t)
+    return t.strip()
+
+
+def synthesize_amended(first: dict) -> str:
+    """Ask Gemma to fold the ORIGINAL proposal change + the discussion thread into
+    a CRISP, self-contained amended proposal 'change' — plain prose, the final
+    proposal text only (no chat framing, no "here's how to rewrite"). Persists an
+    amended_draft entry (append-only) and returns the change text. A GemmaError
+    propagates so the handler maps it to a clean 5xx and NOTHING is persisted."""
+    pid = first.get("proposal_id")
+    disc = discussion(pid)
+    disc_txt = "\n".join(f"{t['role']}: {t['content']}" for t in disc) or "(no discussion)"
+    sys_p = (
+        "You refine a proposal to improve the agent_system framework. Fold the "
+        "ORIGINAL proposal change together with the discussion below into a single "
+        "CRISP, self-contained amended proposal. Return ONLY the final proposal "
+        "text — the new 'change' as it would be recorded. Plain prose, no chat "
+        "framing, no preamble, no 'here is how to rewrite it', no quotes around the "
+        "whole thing. Just the amended proposal itself. Do NOT begin your answer "
+        "with 'PROPOSAL', a title line, 'target:', or 'change:' — write the "
+        "proposal body directly."
+    )
+    user_p = (
+        f"PROPOSAL {pid}: {first.get('title')}\n"
+        f"target: {first.get('target_type')}:{first.get('target')}\n"
+        f"ORIGINAL change: {first.get('change')}\n"
+        f"reasoning: {first.get('reasoning')}\n\n"
+        f"DISCUSSION:\n{disc_txt}"
+    )
+    raw = gemma([{"role": "system", "content": sys_p},
+                 {"role": "user", "content": user_p}], max_tokens=800, temperature=0.3)
+    change = _strip_proposal_scaffold(raw)
+    append_amended_draft(pid, change)
+    return change
+
+
+def write_handoff(first: dict, basis: str = "original") -> str:
     pid = first.get("proposal_id")
     card = stored_card(pid) or generate_card(first)
     disc = discussion(pid)
     disc_txt = "\n".join(f"**{t['role']}:** {t['content']}" for t in disc) or "_(no discussion)_"
+    # Choose the governed proposal body: the amended draft (final, possibly
+    # human-edited) when accepting on that basis, else the original verbatim.
+    amended = latest_amended_draft(pid) if basis == "amended" else None
+    if amended:
+        body_label = "Amended proposal (final form)"
+        body_text = amended.get("change", "")
+    else:
+        body_label = "Original proposal (verbatim)"
+        body_text = first.get("change", "")
     synth = ""
     try:
         synth = gemma([
@@ -254,7 +335,7 @@ def write_handoff(first: dict) -> str:
                 "proposal and its discussion: the agreed change, the files likely to "
                 "touch, and 2-4 acceptance criteria. Markdown, no preamble."},
             {"role": "user", "content":
-                f"PROPOSAL {pid}: {first.get('title')}\nchange: {first.get('change')}\n"
+                f"PROPOSAL {pid}: {first.get('title')}\nchange: {body_text}\n"
                 f"reasoning: {first.get('reasoning')}\n\nDISCUSSION:\n{disc_txt}"}
         ], max_tokens=700, temperature=0.2)
     except Exception as e:  # noqa: BLE001
@@ -262,10 +343,11 @@ def write_handoff(first: dict) -> str:
     HANDOFFS.mkdir(exist_ok=True)
     md = (
         f"# Implementation handoff — {pid}\n\n"
-        f"_Generated {_now()} by the brain proposal-review loop. Pass to a dev agent._\n\n"
+        f"_Generated {_now()} by the brain proposal-review loop (basis: {basis}). "
+        f"Pass to a dev agent._\n\n"
         f"- **Target:** `{first.get('target_type')}:{first.get('target')}`\n"
         f"- **Title:** {first.get('title')}\n\n"
-        f"## Original proposal (verbatim)\n\n{first.get('change')}\n\n"
+        f"## {body_label}\n\n{body_text}\n\n"
         f"### Why\n\n{first.get('reasoning')}\n\n"
         f"## What it means\n\n{card.get('means','')}\n\n"
         f"## Discussion\n\n{disc_txt}\n\n"
@@ -276,12 +358,14 @@ def write_handoff(first: dict) -> str:
     return str(path.relative_to(ROOT))
 
 
-def record_verdict(pid: str, verdict: str, note: str) -> dict:
+def record_verdict(pid: str, verdict: str, note: str, basis: str = "original") -> dict:
     if verdict not in ("accept", "reject", "needs_revision"):
         return {"ok": False, "error": "bad verdict"}
+    if basis not in ("original", "amended"):
+        return {"ok": False, "error": "bad basis"}
     proc = subprocess.run(
         [sys.executable, str(CLI), "--proposal-id", pid, "--verdict", verdict,
-         "--note", note, "--agent", "human:ui"],
+         "--note", note, "--basis", basis, "--agent", "human:ui"],
         capture_output=True, text=True, timeout=30)
     try:
         out = json.loads(proc.stdout.strip() or "{}")
@@ -348,8 +432,10 @@ class Handler(SimpleHTTPRequestHandler):
                 # Deterministic: read the stored card; only draft (one LLM call) if
                 # none exists yet. generate_card persists it exactly once.
                 card = stored_card(pid) or generate_card(first)
+                amended = latest_amended_draft(pid)
                 return self._send(200, {"proposal": first, "card": card,
-                                        "discussion": discussion(pid)})
+                                        "discussion": discussion(pid),
+                                        "amended_draft": amended.get("change") if amended else None})
             return self._send(404, {"error": "no route"})
         except GemmaError as e:
             return self._send(503, {"error": str(e)})
@@ -374,20 +460,42 @@ class Handler(SimpleHTTPRequestHandler):
                     return self._send(400, {"error": "empty message"})
                 return self._send(200, {"reply": discuss_turn(first, msg),
                                         "discussion": discussion(pid)})
+            if action == "synthesize":
+                # Fold the discussion into a crisp amended proposal; persist it.
+                return self._send(200, {"amended_change": synthesize_amended(first)})
             if action == "verdict":
                 v, note = body.get("verdict", ""), (body.get("note") or "").strip()
+                basis = body.get("basis") or "original"
                 if not note:
                     return self._send(400, {"error": "note required"})
-                out = record_verdict(pid, v, note)
+                if basis not in ("original", "amended"):
+                    return self._send(400, {"error": "bad basis"})
+                # If accepting the amended draft, persist the (possibly human-EDITED)
+                # text as a fresh amended_draft BEFORE recording, so the governed
+                # and handoff form is the final edited text.
+                if basis == "amended":
+                    amended_change = (body.get("amended_change") or "").strip()
+                    if not amended_change:
+                        return self._send(400, {"error": "amended_change required for amended basis"})
+                    append_amended_draft(pid, amended_change)
+                out = record_verdict(pid, v, note, basis)
                 # A verdict on an already-decided proposal (CLI exit 4) or a bad
                 # verdict is a clean client error, not a 500. 409 = conflict with
                 # the proposal's recorded state; 400 = malformed verdict.
                 if not out.get("ok"):
                     code = 409 if out.get("exit_code") == 4 else 400
                     return self._send(code, out)
+                out["basis"] = basis
+                # On ACCEPT, auto-write the implementation handoff so the human's
+                # decision and the dev brief are a single step.
+                if v == "accept":
+                    out["handoff_path"] = write_handoff(first, basis)
                 return self._send(200, out)
             if action == "handoff":
-                return self._send(200, {"path": write_handoff(first)})
+                basis = body.get("basis") or "original"
+                if basis not in ("original", "amended"):
+                    return self._send(400, {"error": "bad basis"})
+                return self._send(200, {"path": write_handoff(first, basis)})
             return self._send(404, {"error": "no action"})
         except GemmaError as e:
             return self._send(503, {"error": str(e)})

@@ -18,6 +18,7 @@ We monkeypatch all of them at a tmp fixture dir so the real brain is untouched.
 write_handoff returns `path.relative_to(ROOT)`, so ROOT is repointed at tmp too.
 """
 import json
+import shutil
 import sys
 from pathlib import Path
 
@@ -27,6 +28,8 @@ REPO = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(REPO / "scripts"))
 
 import brain_server as bs  # noqa: E402
+
+REAL_CLI = REPO / "scripts" / "review_proposal_cli.py"
 
 
 # A framework proposal (target is a skill) and a research one (target names the
@@ -101,6 +104,15 @@ def brain(tmp_path, monkeypatch):
     feedback.write_text("")
     rules.write_text("# Active rules\n\n- FR-001 never coerce a near-miss.\n")
 
+    # A copy of the blessed verdict CLI inside the tmp ROOT so that when
+    # record_verdict() execs it, the CLI derives its OWN PROPOSALS path from its
+    # location (ROOT.parent.parent) and lands on the temp ledger — never the real
+    # one. Mirrors the subprocess-with-copied-CLI pattern in the CLI test suite.
+    fake_scripts = root / "scripts"
+    fake_scripts.mkdir()
+    fake_cli = fake_scripts / "review_proposal_cli.py"
+    shutil.copy(REAL_CLI, fake_cli)
+
     stub = GemmaStub()
     # Repoint ROOT so write_handoff's relative_to(ROOT) resolves inside tmp.
     monkeypatch.setattr(bs, "ROOT", root)
@@ -110,6 +122,7 @@ def brain(tmp_path, monkeypatch):
     monkeypatch.setattr(bs, "RULES", rules)
     monkeypatch.setattr(bs, "SKILLS", skills)
     monkeypatch.setattr(bs, "HANDOFFS", handoffs)
+    monkeypatch.setattr(bs, "CLI", fake_cli)
     monkeypatch.setattr(bs, "gemma", stub)
 
     class Brain:
@@ -126,6 +139,10 @@ def brain(tmp_path, monkeypatch):
         def card_lines(self):
             return [json.loads(l) for l in cards.read_text().splitlines()
                     if l.strip()]
+
+        def amended_lines(self):
+            return [r for r in self.card_lines()
+                    if r.get("kind") == "amended_draft"]
 
     return Brain()
 
@@ -285,3 +302,246 @@ def test_write_handoff_reuses_existing_card(brain):
     # exactly one more gemma call (the synthesis), not two (card + synth)
     assert brain.gemma.calls == calls_after_card + 1
     assert len(brain.card_lines()) == 1  # no second card row
+
+
+# ---------------------------------------------------------------------------
+# synthesize_amended / latest_amended_draft — the amended_draft card kind (§1,§2)
+# ---------------------------------------------------------------------------
+
+def test_synthesize_amended_appends_one_amended_draft_and_returns_text(brain):
+    """synthesize_amended turns original change + discussion into a crisp amended
+    proposal text via Gemma, persists exactly ONE amended_draft row, and returns
+    that text. The persisted entry carries the contract's kind/proposal_id/model."""
+    brain.gemma._reply = "Make validate raise on any near-miss with a logged reason."
+    brain.seed(FW_PROP)
+    first = bs.proposal_first("P-100")
+    bs.discuss_turn(first, "near-misses should never pass silently")
+    calls_before = brain.gemma.calls
+
+    text = bs.synthesize_amended(first)
+    assert text == "Make validate raise on any near-miss with a logged reason."
+    assert brain.gemma.calls == calls_before + 1  # exactly one synthesis call
+
+    amended = brain.amended_lines()
+    assert len(amended) == 1
+    row = amended[0]
+    assert row["kind"] == "amended_draft"
+    assert row["proposal_id"] == "P-100"
+    assert row["change"] == "Make validate raise on any near-miss with a logged reason."
+    assert row["model"] == bs.MODEL
+    assert row["generated_at"]
+
+
+def test_latest_amended_draft_returns_newest_change(brain):
+    """Append-only: re-synthesizing appends a SECOND amended_draft and the latest
+    one wins; latest_amended_draft returns the newest entry (or None if absent)."""
+    brain.seed(FW_PROP)
+    first = bs.proposal_first("P-100")
+    assert bs.latest_amended_draft("P-100") is None  # none yet
+
+    brain.gemma._reply = "first amended form"
+    bs.synthesize_amended(first)
+    brain.gemma._reply = "second, sharper amended form"
+    bs.synthesize_amended(first)
+
+    assert len(brain.amended_lines()) == 2  # append-only, no edit-in-place
+    latest = bs.latest_amended_draft("P-100")
+    assert latest["change"] == "second, sharper amended form"
+
+
+# ---------------------------------------------------------------------------
+# write_handoff(basis=...) — amended body when basis='amended' (§2)
+# ---------------------------------------------------------------------------
+
+def _handoff_body(text: str) -> str:
+    """Extract the labelled proposal-body section of a handoff (between the body
+    heading and the following '### Why' section) so a test can assert what the
+    GOVERNED body is, independent of discussion/synthesis echoes elsewhere."""
+    marker = "## "
+    for header in ("## Amended proposal (final form)",
+                   "## Original proposal (verbatim)"):
+        if header in text:
+            after = text.split(header, 1)[1]
+            return after.split("### Why", 1)[0]
+    return ""
+
+
+def test_write_handoff_amended_uses_amended_draft_body(brain):
+    """With basis='amended' and an amended_draft present, the handoff body is the
+    amended text (labelled final form), NOT the original verbatim change."""
+    brain.seed(FW_PROP)
+    first = bs.proposal_first("P-100")
+    bs.generate_card(first)  # card from the default JSON stub, before we swap _reply
+    brain.gemma._reply = "Validate now fails closed on every near-miss."
+    bs.synthesize_amended(first)
+
+    rel = bs.write_handoff(first, basis="amended")
+    text = (brain.handoffs / "P-100.md").read_text()
+    assert rel == "handoffs/P-100.md"
+    assert "Amended proposal (final form)" in text  # labelled final form
+    body = _handoff_body(text)
+    assert "Validate now fails closed on every near-miss." in body  # amended body
+    assert "make near-misses always fail" not in body              # not original
+
+
+def test_write_handoff_amended_falls_back_to_original_without_draft(brain):
+    """basis='amended' but NO amended_draft exists -> handoff uses the original
+    verbatim change (graceful fallback, never an empty body)."""
+    brain.seed(FW_PROP)
+    first = bs.proposal_first("P-100")
+    bs.write_handoff(first, basis="amended")
+    text = (brain.handoffs / "P-100.md").read_text()
+    assert "make near-misses always fail" in _handoff_body(text)  # original body
+
+
+def test_write_handoff_default_basis_is_original(brain):
+    """Default basis is 'original': the GOVERNED body is the original verbatim
+    change even when an amended_draft happens to exist."""
+    brain.seed(FW_PROP)
+    first = bs.proposal_first("P-100")
+    bs.generate_card(first)  # card from the default JSON stub, before we swap _reply
+    brain.gemma._reply = "the amended text that should NOT be the body"
+    bs.synthesize_amended(first)
+
+    bs.write_handoff(first)  # no basis arg -> original
+    text = (brain.handoffs / "P-100.md").read_text()
+    body = _handoff_body(text)
+    assert "make near-misses always fail" in body  # original is the governed body
+    assert "the amended text that should NOT be the body" not in body
+
+
+# ---------------------------------------------------------------------------
+# GET payload — /api/proposal/<id> also returns amended_draft (§2)
+# ---------------------------------------------------------------------------
+
+def test_proposal_payload_includes_amended_draft(brain):
+    """The proposal detail must surface the latest amended_draft change (or null)
+    so the UI can enable the 'accept amended' path. We assert the helper the GET
+    route reads — latest_amended_draft — and the card it pairs it with."""
+    brain.seed(FW_PROP)
+    first = bs.proposal_first("P-100")
+    # before synthesis: no amended draft
+    assert bs.latest_amended_draft("P-100") is None
+    # after synthesis: the change string is available for the payload
+    brain.gemma._reply = "the crisp amended change"
+    bs.synthesize_amended(first)
+    latest = bs.latest_amended_draft("P-100")
+    assert latest is not None and latest["change"] == "the crisp amended change"
+
+
+# ---------------------------------------------------------------------------
+# record_verdict basis threading -> blessed CLI (§2,§3)
+# ---------------------------------------------------------------------------
+
+def test_record_verdict_default_basis_original(brain):
+    """record_verdict with no basis execs the CLI with basis 'original'; the
+    blessed CLI appends an outcome carrying basis='original'. (Real ledger is the
+    tmp copy via the monkeypatched bs.CLI / bs.PROPOSALS.)"""
+    brain.seed(FW_PROP)
+    out = bs.record_verdict("P-100", "accept", "ship original")
+    assert out.get("ok") is True
+    rows = [json.loads(l) for l in brain.proposals.read_text().splitlines()
+            if l.strip()]
+    outcome = rows[-1]
+    assert outcome["verdict"] == "accepted"
+    assert outcome["basis"] == "original"
+    assert outcome["agent_id"] == "human:ui"
+
+
+def test_record_verdict_basis_amended_threads_to_cli(brain):
+    """record_verdict(..., basis='amended') threads --basis amended to the CLI,
+    and the appended outcome records basis='amended'."""
+    brain.seed(FW_PROP)
+    out = bs.record_verdict("P-100", "accept", "ship amended", basis="amended")
+    assert out.get("ok") is True
+    rows = [json.loads(l) for l in brain.proposals.read_text().splitlines()
+            if l.strip()]
+    outcome = rows[-1]
+    assert outcome["verdict"] == "accepted"
+    assert outcome["basis"] == "amended"
+
+
+# ---------------------------------------------------------------------------
+# verdict ROUTE (in-process, no listening server) — accept auto-writes handoff
+# and basis='amended' persists the EDITED text before recording (§2,§4)
+# ---------------------------------------------------------------------------
+
+def _post(pid: str, action: str, body: dict):
+    """Drive Handler.do_POST in-process with a fake request — no socket, no
+    listening server (honors the 'no long-running servers' constraint). Returns
+    (status_code, response_obj) by capturing _send."""
+    import io
+
+    h = bs.Handler.__new__(bs.Handler)  # bypass __init__ (which wants a socket)
+    raw = json.dumps(body).encode()
+    h.path = f"/api/proposal/{pid}/{action}"
+    h.headers = {"Content-Length": str(len(raw))}
+    h.rfile = io.BytesIO(raw)
+    captured = {}
+
+    def _send(code, obj):
+        captured["code"] = code
+        captured["obj"] = obj
+    h._send = _send
+    h.do_POST()
+    return captured["code"], captured["obj"]
+
+
+def test_verdict_route_accept_original_returns_handoff_path(brain):
+    """Accepting on the ORIGINAL basis records the verdict AND auto-writes the
+    handoff — one step. The route returns ok/recorded/basis/handoff_path."""
+    brain.seed(FW_PROP)
+    code, obj = _post("P-100", "verdict",
+                      {"verdict": "accept", "note": "ship it", "basis": "original"})
+    assert code == 200
+    assert obj["ok"] is True and obj["recorded"] == "accepted"
+    assert obj["basis"] == "original"
+    assert obj["handoff_path"] == "handoffs/P-100.md"
+    assert (brain.handoffs / "P-100.md").exists()
+
+
+def test_verdict_route_accept_amended_persists_edited_text_then_handoff(brain):
+    """basis='amended' persists the (human-EDITED) amended_change as a FRESH
+    amended_draft BEFORE recording, so the governed/handoff form is that final
+    edited text. Accept returns a handoff_path and basis='amended'."""
+    brain.seed(FW_PROP)
+    bs.generate_card(bs.proposal_first("P-100"))  # card from the default JSON stub
+    code, obj = _post("P-100", "verdict",
+                      {"verdict": "accept", "note": "ship amended",
+                       "basis": "amended",
+                       "amended_change": "Final edited amended change text."})
+    assert code == 200
+    assert obj["ok"] is True and obj["basis"] == "amended"
+    assert obj["handoff_path"] == "handoffs/P-100.md"
+
+    # a fresh amended_draft carrying the EDITED text was persisted
+    latest = bs.latest_amended_draft("P-100")
+    assert latest["change"] == "Final edited amended change text."
+    # and the handoff body is that edited text
+    body = _handoff_body((brain.handoffs / "P-100.md").read_text())
+    assert "Final edited amended change text." in body
+
+
+def test_verdict_route_amended_requires_amended_change(brain):
+    """basis='amended' with no amended_change is a clean 400 — nothing recorded,
+    no amended_draft persisted."""
+    brain.seed(FW_PROP)
+    code, obj = _post("P-100", "verdict",
+                      {"verdict": "accept", "note": "x", "basis": "amended"})
+    assert code == 400
+    assert bs.latest_amended_draft("P-100") is None
+    # no verdict outcome appended (only the seeded open row remains)
+    rows = [json.loads(l) for l in brain.proposals.read_text().splitlines()
+            if l.strip()]
+    assert len(rows) == 1
+
+
+def test_synthesize_route_returns_amended_change(brain):
+    """POST .../synthesize returns {amended_change} and persists one draft."""
+    brain.seed(FW_PROP)
+    bs.discuss_turn(bs.proposal_first("P-100"), "tighten it")
+    brain.gemma._reply = "A crisp, self-contained amended proposal."
+    code, obj = _post("P-100", "synthesize", {})
+    assert code == 200
+    assert obj["amended_change"] == "A crisp, self-contained amended proposal."
+    assert len(brain.amended_lines()) == 1

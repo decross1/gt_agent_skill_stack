@@ -178,3 +178,52 @@ def test_needs_revision_stays_reopenable(cli_env):
     follow = run("--proposal-id", "P-901", "--verdict", "accept", "--note", "now ok")
     assert follow.returncode == 0
     assert _outcome_lines(ledger)[-1]["verdict"] == "accepted"
+
+
+# ---------------------------------------------------------------------------
+# --basis {original,amended} — recorded on the outcome (new contract §3)
+# ---------------------------------------------------------------------------
+
+def test_basis_defaults_to_original(cli_env):
+    """No --basis flag -> the appended outcome records basis 'original'."""
+    run, ledger = cli_env
+    proc = run("--proposal-id", "P-901", "--verdict", "accept",
+               "--note", "ship the original", seed=[OPEN_ROW])
+    assert proc.returncode == 0
+    assert _outcome_lines(ledger)[-1]["basis"] == "original"
+
+
+def test_basis_amended_is_recorded(cli_env):
+    """--basis amended -> the appended outcome carries basis 'amended', while the
+    rest of the well-formed outcome (verdict, actor, status) is unchanged."""
+    run, ledger = cli_env
+    proc = run("--proposal-id", "P-901", "--verdict", "accept",
+               "--note", "ship the amended draft", "--basis", "amended",
+               seed=[OPEN_ROW])
+    assert proc.returncode == 0
+    out = _outcome_lines(ledger)[-1]
+    assert out["basis"] == "amended"
+    assert out["verdict"] == "accepted"
+    assert out["agent_id"] == "human:ui"
+    assert out["status"] == "closed"
+
+
+def test_basis_original_explicit_is_recorded(cli_env):
+    """--basis original (explicit) records basis 'original'."""
+    run, ledger = cli_env
+    proc = run("--proposal-id", "P-901", "--verdict", "reject",
+               "--note", "no thanks", "--basis", "original", seed=[OPEN_ROW])
+    assert proc.returncode == 0
+    out = _outcome_lines(ledger)[-1]
+    assert out["basis"] == "original"
+    assert out["verdict"] == "rejected"
+
+
+def test_bad_basis_rejected_and_writes_nothing(cli_env):
+    """--basis is a frozen enum; an out-of-enum value is refused by argparse
+    (exit 2) and nothing is appended to the ledger."""
+    run, ledger = cli_env
+    proc = run("--proposal-id", "P-901", "--verdict", "accept",
+               "--note", "x", "--basis", "fabricated", seed=[OPEN_ROW])
+    assert proc.returncode != 0
+    assert len(_outcome_lines(ledger)) == 1  # only the seeded row remains

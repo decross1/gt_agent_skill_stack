@@ -57,10 +57,32 @@ authority path** of this skill, not a bypass of auto-reject:
 - The verdict is one of the same three (mapped from the UI's
   `accept | reject | needs_revision`). It is append-only and frozen-enum;
   an out-of-enum input exits nonzero and writes nothing.
-- The UI records the **governed decision only**. Enacting the underlying
-  skill / rule edit remains a separate dev-session / handoff step — an
-  accepted skill or rule proposal is "enactment pending" until that edit
-  lands (see step 4 for the rule-change path through [[decision-log]]).
+
+### Accept records the decision *and* writes the handoff
+
+A human accept via the UI is no longer just a verdict — it is **the
+decision plus the implementation brief in one step**. There is no separate
+"generate handoff" action. On accept the server records the outcome and
+auto-writes the dev handoff, returning its `handoff_path`. Enactment of the
+underlying skill / rule edit is still a later dev-session step, but the
+brief that dev session works from is produced *by the accept itself*.
+
+Accept comes in two **bases**, recorded on both the CLI outcome entry
+(`basis` field) and the handoff:
+
+- **`original`** (default) — accept the proposal exactly as filed. The
+  handoff's proposal body is the verbatim original `change`.
+- **`amended`** — accept a refined draft. The Zone-2 conversation with
+  Gemma can be *synthesized* into a crisp, self-contained amended proposal
+  (persisted as an `amended_draft` card kind — see [[propose]]), which the
+  human may edit before accepting. On `basis: amended` the final edited
+  text is persisted as a fresh `amended_draft` *before* the verdict is
+  recorded, and the handoff's proposal body is that text, labelled
+  "Amended proposal (final form)". The governed/enacted form is therefore
+  the draft the human actually approved, not the raw chat.
+
+For a rule change, the basis chooses *which* text becomes the new
+correction when it materializes through [[decision-log]] (step 4).
 
 ## Entry shape (outcome)
 
@@ -128,4 +150,6 @@ Filed by [[propose]]. Active rules from `memory/brain/rules.md` (regen by
 [[decision-log]] to become new canonical corrections. The graph view
 surfaces proposals so a human can see what is waiting; the brain UI lets a
 human record the human-review verdict in place via the blessed CLI
-(`human:ui`, append-only) — the governed decision only, enactment pending.
+(`human:ui`, append-only) and, on accept, writes the dev handoff in the
+same step (basis `original` or `amended`) — decision and brief together,
+enactment of the edit still pending.

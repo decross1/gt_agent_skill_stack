@@ -89,6 +89,25 @@ it, and the card is advisory — the verdict still goes through
 output is still a sharp `target` + a concrete `change` + the `reasoning`; the
 pros, cons, and rule-check are weighed *for* you at review, not *by* you now.
 
+A second review-time card kind, `amended_draft`, lands in the same
+`proposal_cards.jsonl` when a reviewer refines the proposal in the UI: the LLM
+synthesizes the original `change` plus the discussion thread into a crisp,
+self-contained amended proposal `change` (plain prose — the final proposal
+text, not chat). The human may edit it before accepting; the latest
+`amended_draft` per `proposal_id` wins, and the entry is **append-only** (a new
+line, never an edit of a prior one):
+
+```json
+{"kind": "amended_draft", "proposal_id": "P-NNN",
+ "generated_at": "<ISO 8601>", "model": "<llm id>",
+ "change": "<crisp amended proposal text>"}
+```
+
+Accepting on basis `amended` (see [[review-proposal]]) governs and hands off
+*this* text rather than the original `change`. It is still review-time and
+LLM-synthesized — it does not become, and never edits, your `proposals.jsonl`
+entry.
+
 ## Procedure
 
 1. **Locate the target.** If you cannot name a concrete `target` (a page

@@ -52,6 +52,8 @@ def main() -> None:
     ap.add_argument("--verdict", required=True, choices=sorted(VERDICTS))
     ap.add_argument("--note", default="", help="reasoning — required (a verdict without a reason is an opinion)")
     ap.add_argument("--agent", default="human:ui")
+    ap.add_argument("--basis", default="original", choices=("original", "amended"),
+                    help="which draft the verdict governs: the original proposal or the synthesized amended draft")
     a = ap.parse_args()
 
     if not PID_RE.match(a.proposal_id):
@@ -84,6 +86,7 @@ def main() -> None:
         "agent_id": a.agent,
         "verdict": verdict,
         "verdict_reasoning": a.note.strip(),
+        "basis": a.basis,
         "rule_cited": None,
         "decision_id": None,
         "status": "human-review" if verdict == "human-review" else "closed",
