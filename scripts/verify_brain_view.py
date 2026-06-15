@@ -303,13 +303,19 @@ def main() -> int:
 
     json_path = args.view_dir / "summary.json"
     js_path = args.view_dir / "summary_data.js"
-    try:
-        s = json.loads(json_path.read_text())
-    except (OSError, json.JSONDecodeError) as e:
-        check("artifact: summary.json readable", False, str(e))
+    if not json_path.exists():
+        # Generated projection (P-013): absent on a fresh checkout until rebuilt.
+        check("artifact: summary.json present", True,
+              "absent — generated; run scripts/regen_brain.sh to build")
         s = None
+    else:
+        try:
+            s = json.loads(json_path.read_text())
+            check("artifact: summary.json readable", True)
+        except (OSError, json.JSONDecodeError) as e:
+            check("artifact: summary.json readable", False, str(e))
+            s = None
     if s is not None:
-        check("artifact: summary.json readable", True)
         try:
             check_schema(s)
             env = os.environ.get("BRAIN_CONSUMER_ROOT") or s.get("consumer")

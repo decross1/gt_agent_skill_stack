@@ -22,3 +22,15 @@ __pycache__/
 # dated handoffs/<date>-*.md stay tracked.
 /memory/brain/proposal_cards.jsonl
 /handoffs/P-*.md
+
+# Generated brain VIEW PROJECTIONS — deterministic build artifacts rebuilt from the
+# canonical ledgers by scripts/regen_brain.sh (and watch_brain.py). NOT source; this
+# is the P-013 resolution (DECISIONS 2026-06-15). Canonical sources stay tracked:
+# the ledgers, the projector scripts, and the hand-written view assets (*.html,
+# map.js, ui.js, tokens.css, mockups/). The .gitkeep files keep the dirs.
+/memory/brain/pages/*.md
+/memory/brain/view/map_data.js
+/memory/brain/view/summary.json
+/memory/brain/view/summary_data.js
+/memory/brain/view/index.json
+/memory/brain/view/[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9].md

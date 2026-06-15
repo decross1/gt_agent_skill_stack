@@ -401,3 +401,39 @@ and can be discarded without losing any governed verdict (those live in
 **Supersedes:** none — extends the brain-UI scope work (the 2026-06-10
 two-surface design-system entry and the a_bgt_rsi D-046 write-back contract it
 references).
+
+## 2026-06-15 — Brain view projections are git-ignored build artifacts (P-013 resolved)
+
+**Correction:** The brain's view projections are **generated build artifacts, not
+source, and are not git-tracked.** Untracked: `memory/brain/pages/*.md`,
+`memory/brain/view/{map_data.js, summary.json, summary_data.js, index.json}`, and
+the per-day `memory/brain/view/<YYYY-MM-DD>.md` views. They are rebuilt
+deterministically from the canonical ledgers by `scripts/regen_brain.sh` (the same
+four steps `watch_brain.py` runs: project_pages → project_map → project_summary →
+render_brain).
+
+**Canonical (stays tracked):** the ledgers (`narratives.jsonl`, `edges.jsonl`,
+`proposals.jsonl`, `feedback.jsonl`, the run logs, `DECISIONS.md`), the projector
+scripts, and the hand-written view assets (`*.html`, `map.js`, `ui.js`,
+`tokens.css`, `mockups/`).
+
+**Why:** every ledger change re-projected ~920 pages + the summary/map data, so each
+commit dragged hundreds-to-thousands of churn lines and `verify_brain_view`
+cross-checks went stale-on-checkout whenever a commit excluded the regenerated
+artifacts. Treating projections as build output removes the churn entirely and makes
+the tree honestly reflect source.
+
+**Alternatives considered:**
+(a) Keep tracking them and commit the regen with every ledger change — rejected: the
+    2.9k-line churn per commit is noise and made `verify` a coin-flip depending on
+    whether regen was bundled.
+(b) Track only the aggregates (summary/map) but not pages — rejected: half-measure;
+    the aggregates churn too, and a split policy is harder to reason about.
+
+**Reversibility.** High — re-track with `git add -f` and drop the `.gitignore`
+lines. No ledger or schema change; the projections are fully reproducible from the
+tracked sources via `scripts/regen_brain.sh`.
+
+**Supersedes:** none — resolves proposal P-013. `verify_brain_view` now skips the
+projection checks when the artifacts are absent (fresh checkout) and validates them
+when present (after regen).
