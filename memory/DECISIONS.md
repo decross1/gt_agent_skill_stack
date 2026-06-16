@@ -437,3 +437,30 @@ tracked sources via `scripts/regen_brain.sh`.
 **Supersedes:** none — resolves proposal P-013. `verify_brain_view` now skips the
 projection checks when the artifacts are absent (fresh checkout) and validates them
 when present (after regen).
+
+## 2026-06-16 — Brain server defaults to 0.0.0.0 (LAN-reachable) instead of loopback
+
+**Decision:** `scripts/serve_brain.sh` now defaults `BIND` to `0.0.0.0` (was
+`127.0.0.1`). A fresh `serve_brain.sh start` is reachable from the user's other
+machines (e.g. `http://10.0.0.73:5180/proposal_review.html`) without the per-start
+`BRAIN_BIND=0.0.0.0` override that had been required. Loopback-only is still one
+flag away: `BRAIN_BIND=127.0.0.1` (env) or `--bind 127.0.0.1`.
+
+**Why:** the dynamic proposal-review brain is used from a second machine on the
+home LAN; defaulting to loopback meant every start needed an override and a missed
+override silently produced an unreachable server (the "site can't be reached"
+symptom seen 2026-06-15).
+
+**Accepted tradeoff (security posture).** Binding `0.0.0.0` exposes the write-back
+API to the LAN. That path is **not** an arbitrary-write surface: the UI only POSTs
+to blessed CLIs (`review_proposal_cli.py`) via argv (no shell), against a frozen
+verdict/basis enum, stamped `human:ui`, append-only — an out-of-enum value exits
+nonzero and writes nothing (the D-046 pattern). Exposure is scoped to a trusted
+home LAN; public/internet exposure remains explicitly the user's call and is not
+enabled by this default.
+
+**Reversibility.** High — one-line revert of the default, or set
+`BRAIN_BIND=127.0.0.1` at start. No schema/ledger change.
+
+**Supersedes:** none — operational config; complements the D-046 write-back
+contract referenced above.

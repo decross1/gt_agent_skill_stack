@@ -11,8 +11,12 @@
 # disconnects (good for headless boxes) and can be stopped cleanly. No daemon
 # framework, no systemd unit — just a process and a pidfile.
 #
-# Defaults to bind 127.0.0.1 (loopback only). Override via BRAIN_BIND env or
-# --bind flag for LAN exposure. Public network exposure is the user's call.
+# Defaults to bind 0.0.0.0 (LAN-reachable) so the dynamic brain is accessible from
+# the user's other machines on a trusted home LAN without a per-start override.
+# Re-restrict to loopback with BRAIN_BIND=127.0.0.1 (env) or --bind 127.0.0.1.
+# The write-back API only POSTs to blessed, frozen-enum, argv-only CLIs stamped
+# human:ui (D-046), so it cannot be coerced into arbitrary writes; broader/public
+# network exposure beyond the trusted LAN remains the user's call.
 #
 # The proposal-review loop's discussion/card features call a local Gemma server
 # (http://127.0.0.1:8000); `start` runs a non-fatal preflight and warns if it is
@@ -26,7 +30,7 @@ VIEW_DIR="$REPO/memory/brain/view"
 PIDFILE="${BRAIN_PIDFILE:-$REPO/run_state/brain-http.pid}"
 LOGFILE="${BRAIN_LOGFILE:-$REPO/run_state/brain-http.log}"
 PORT="${BRAIN_PORT:-5180}"
-BIND="${BRAIN_BIND:-127.0.0.1}"
+BIND="${BRAIN_BIND:-0.0.0.0}"
 GEMMA_URL="${GEMMA_URL:-http://127.0.0.1:8000}"
 
 usage() {
@@ -54,8 +58,8 @@ Configurable via env or flags:
   GEMMA_URL=$GEMMA_URL   (preflighted at <url>/v1/models; warn-only)
 
 Examples:
-  $(basename "$0") start                       # 127.0.0.1:5180
-  BRAIN_BIND=0.0.0.0 $(basename "$0") start    # LAN-accessible
+  $(basename "$0") start                       # 0.0.0.0:5180 (LAN-accessible)
+  BRAIN_BIND=127.0.0.1 $(basename "$0") start  # loopback only
   $(basename "$0") status
   $(basename "$0") stop
 EOF
