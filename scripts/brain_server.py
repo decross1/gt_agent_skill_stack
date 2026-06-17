@@ -28,6 +28,7 @@ import re
 import subprocess
 import sys
 import threading
+import time
 import urllib.error
 import urllib.request
 from datetime import datetime, timezone
@@ -54,6 +55,13 @@ _CARD_LOCK = threading.Lock()
 # Serializes verdict-triggered projection regens so two concurrent refreshes
 # cannot tear summary.json / map_data.js with interleaved writes.
 _REGEN_LOCK = threading.Lock()
+
+# In-process cache for the live dashboard summary (GET /api/summary). A short TTL
+# coalesces bursts (rapid reloads, many tabs polling every ~30s) into one build
+# while keeping staleness far under the poll interval.
+_SUMMARY_TTL_S = 3.0
+_SUMMARY_LOCK = threading.Lock()
+_summary_cache = {"mono": 0.0, "data": None}
 
 
 class GemmaError(RuntimeError):
@@ -415,6 +423,24 @@ def _schedule_refresh() -> None:
     threading.Thread(target=refresh_projection, daemon=True).start()
 
 
+def current_summary() -> dict:
+    """Compute the dashboard summary on demand so the dashboard reflects the
+    ledgers at request time instead of a baked file. This is the live counterpart
+    of the static summary_data.js: deterministic and identical in content (it calls
+    the same project_summary.build_summary the projector uses), and it NEVER calls
+    the LLM. A short TTL (_SUMMARY_TTL_S) coalesces concurrent/rapid requests into
+    one build; the lock makes a burst wait for a single build rather than starting
+    many."""
+    with _SUMMARY_LOCK:
+        now = time.monotonic()
+        c = _summary_cache
+        if c["data"] is not None and (now - c["mono"]) < _SUMMARY_TTL_S:
+            return c["data"]
+        data = ps.build_summary()
+        c["data"], c["mono"] = data, now
+        return data
+
+
 # ---------------------------------------------------------------------------
 # HTTP
 # ---------------------------------------------------------------------------
@@ -462,6 +488,9 @@ class Handler(SimpleHTTPRequestHandler):
             return super().do_GET()
         parts = self.path.strip("/").split("/")  # ['api', ...]
         try:
+            if self.path == "/api/summary":
+                # Live dashboard data — computed from the ledgers now, not baked.
+                return self._send(200, current_summary())
             if self.path == "/api/proposals":
                 return self._send(200, {"proposals": open_framework_proposals()})
             pid = self._pid_from(parts)  # validated against ^P-\d+$ before any fs/argv use

@@ -173,13 +173,9 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
 <script>
 (function () {
 "use strict";
-const D = window.BRAIN_SUMMARY, U = window.UI;
+const U = window.UI;
+let D = window.BRAIN_SUMMARY || null;  // static fallback; replaced by live /api/summary
 const $ = id => document.getElementById(id);
-if (!D) {
-  document.querySelector("main").innerHTML =
-    '<div class="empty mono">summary_data.js missing — run scripts/project_summary.py</div>';
-  return;
-}
 const esc = U.esc;
 
 /* ---------- window state (persisted; ←/→ steps) ---------- */
@@ -189,7 +185,7 @@ try {
   if (s >= D.window.min_days && s <= D.window.max_days) windowDays = s;
 } catch (_) {}
 
-const asof = D.generated_at.slice(0, 10);
+let asof = "";  // set by paint() from the active summary's generated_at
 const dayDiff = date => Math.round(
   (Date.parse(asof + "T00:00:00Z") - Date.parse(String(date).slice(0, 10) + "T00:00:00Z")) / 864e5);
 const inWin = date => { const dd = dayDiff(date); return dd >= 0 && dd < windowDays; };
@@ -236,8 +232,6 @@ document.addEventListener("keydown", e => {
   if (e.key === "ArrowLeft") setWindow(windowDays - 1);
   if (e.key === "ArrowRight") setWindow(windowDays + 1);
 });
-$("asof").textContent = asof;
-$("asof").title = "as of " + U.fmtTs(D.generated_at);
 $("apparatus").href = "http://" + (location.hostname || "localhost") + ":5173";
 
 /* ---------- status strip (6 segments; click scrolls to band) ---------- */
@@ -752,85 +746,66 @@ function renderDays() {
 }
 
 /* ---------- footer ---------- */
-$("foot").innerHTML = "schema v" + D.schema_version + " · generated " + esc(U.fmtTs(D.generated_at)) +
-  ' · sources <span title="' + esc(D.repo + " → " + D.consumer) + '">' +
-  esc(D.repo.split("/").pop() + " → " + D.consumer.split("/").pop()) + "</span>" +
-  ' · <span title="' + esc((D.attribution || {}).note || "") + '">agent ' +
-  (D.attribution || {}).agent_rows + "/" + (D.attribution || {}).total_rows + "</span>";
-
-/* ---------- live reconcile: keep the proposal_review inbox honest ----------
-   The inbox is a static projection (summary_data.js) and can lag a UI verdict
-   until a regen runs; the proposal-review QUEUE is served live by the brain API.
-   Reconcile so the dashboard's "needs you" proposal items SET-match the live
-   open-framework-proposal set — drop ones already decided, add ones filed since
-   the projection — and recompute needs_you to match (project_summary defines
-   needs_you.total = len(inbox); severities = a tally of the inbox). This fixes
-   membership (the reported phantom-count bug); the server-side regen handles the
-   rest (verdict-text of items that stay open, the loop strip). Best-effort and
-   http-only; on any failure the projection is left as-is. The loop strip
-   (D.loop.stages.proposals, framework-scoped in build_loop) is a separate
-   projection we leave to the server regen rather than reconcile here. */
-function liveReviewItem(p) {
-  // mirrors project_summary.build_inbox's proposal_review item shape
-  return {
-    id: p.proposal_id, kind: "proposal_review", severity: "med",
-    reversible: true, age_days: null, since: null,
-    title: p.proposal_id + " — " + (p.title || "") + " (" + (p.verdict || "open") + ")",
-    detail: "open framework proposal (live) — review and decide",
-    action_cmd: "review memory/brain/proposals.jsonl " + p.proposal_id +
-      "  # run the review-proposal skill",
-    source: "memory/brain/proposals.jsonl", surface: "framework",
-    actionable: true,
-    link: { skill: p.target_type === "skill" ? p.target : null,
-            url: "memory/brain/proposals.jsonl" }
-  };
+function paintFooter() {
+  $("foot").innerHTML = "schema v" + D.schema_version + " · generated " + esc(U.fmtTs(D.generated_at)) +
+    ' · sources <span title="' + esc(D.repo + " → " + D.consumer) + '">' +
+    esc(D.repo.split("/").pop() + " → " + D.consumer.split("/").pop()) + "</span>" +
+    ' · <span title="' + esc((D.attribution || {}).note || "") + '">agent ' +
+    (D.attribution || {}).agent_rows + "/" + (D.attribution || {}).total_rows + "</span>";
 }
-function reconcileProposals() {
-  if (location.protocol !== "http:" && location.protocol !== "https:") return;
-  fetch("api/proposals", { cache: "no-store" })
+
+/* ---------- paint: render every data-driven band from the active summary D ----
+   Runs on initial load and on each live poll. mountMap is deliberately NOT here —
+   it stays mounted across polls so a user's zoom/pan on the embedded map survives
+   (map data is static between regens), and is (re)mounted on boot and on window
+   changes instead. */
+function paint() {
+  asof = (D.generated_at || "").slice(0, 10);
+  $("asof").textContent = asof;
+  $("asof").title = "as of " + U.fmtTs(D.generated_at);
+  renderStepper();
+  renderStatus();
+  renderInbox();
+  renderLoop();
+  renderContracts();
+  renderTimeline();
+  renderRules();
+  renderDays();
+  paintFooter();
+}
+
+/* ---------- live data: prefer GET /api/summary, fall back to the baked file ----
+   The dashboard is no longer a static snapshot. It computes from the ledgers at
+   request time (deterministic; the server never calls the LLM for this), so it
+   cannot drift while served by the brain server. The baked summary_data.js is
+   kept only as an offline / server-down fallback. A ~30s poll keeps an open tab
+   current without a manual refresh; a failed poll keeps the current view. */
+function fetchLiveSummary() {
+  if (location.protocol !== "http:" && location.protocol !== "https:")
+    return Promise.resolve(null);
+  return fetch("api/summary", { cache: "no-store" })
     .then(r => (r.ok ? r.json() : null))
-    .then(d => {
-      if (!d || !Array.isArray(d.proposals)) return;
-      const live = d.proposals;
-      const liveIds = new Set(live.map(p => p.proposal_id));
-      const inbox = D.inbox || [];
-      const projReviewIds = new Set(
-        inbox.filter(it => it.kind === "proposal_review").map(it => it.id));
-      // keep non-proposal items + still-open proposal items
-      const kept = inbox.filter(it =>
-        it.kind !== "proposal_review" || liveIds.has(it.id));
-      // append live-open proposals the projection hasn't captured yet
-      live.forEach(p => {
-        if (!projReviewIds.has(p.proposal_id)) kept.push(liveReviewItem(p));
-      });
-      const same = kept.length === inbox.length &&
-        kept.every((it, i) => it === inbox[i]);
-      if (same) return; // projection already matches the live queue
-      D.inbox = kept;
-      const sev = { high: 0, med: 0, low: 0 };
-      kept.forEach(it => { if (sev[it.severity] !== undefined) sev[it.severity]++; });
-      const ss = D.status_strip, n = ss.needs_you;
-      n.total = kept.length; n.high = sev.high; n.med = sev.med; n.low = sev.low;
-      ss.system = ss.firewall.violations ? "critical"
-        : (kept.length || ss.drift.skills || ss.loop.state !== "active") ? "attention" : "ok";
-      renderStatus();
-      renderInbox();
-    })
-    .catch(() => {});
+    .then(s => (s && s.status_strip ? s : null))
+    .catch(() => null);
 }
 
-/* ---------- init ---------- */
-renderStepper();
-renderStatus();
-renderInbox();
-probeReviewUi();
-reconcileProposals();
-mountMap();
-renderLoop();
-renderContracts();
-renderTimeline();
-renderRules();
-renderDays();
+(async function boot() {
+  const live = await fetchLiveSummary();
+  if (live) D = live;
+  if (!D) {
+    document.querySelector("main").innerHTML =
+      '<div class="empty mono">no summary available — start the brain server ' +
+      "(scripts/serve_brain.sh) or run scripts/project_summary.py</div>";
+    return;
+  }
+  paint();
+  probeReviewUi();
+  mountMap();
+  setInterval(async () => {
+    const next = await fetchLiveSummary();
+    if (next) { D = next; paint(); }
+  }, 30000);
+})();
 })();
 </script>
 </body>

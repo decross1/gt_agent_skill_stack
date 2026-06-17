@@ -128,6 +128,10 @@ def brain(tmp_path, monkeypatch):
     # scheduler so route tests neither spawn threads nor exec projector
     # subprocesses. refresh_projection itself is exercised directly below.
     monkeypatch.setattr(bs, "_schedule_refresh", lambda: None)
+    # Start each test with an empty live-summary cache so a stubbed build_summary
+    # is actually invoked (the TTL cache would otherwise serve a prior test's data).
+    bs._summary_cache["data"] = None
+    bs._summary_cache["mono"] = 0.0
 
     class Brain:
         def __init__(self):
@@ -489,6 +493,73 @@ def _post(pid: str, action: str, body: dict):
     h._send = _send
     h.do_POST()
     return captured["code"], captured["obj"]
+
+
+def _get(path: str):
+    """Drive Handler.do_GET in-process for an /api/* path (no socket). Only safe
+    for API routes — non-API paths fall through to the static file handler which
+    needs a real socket. Returns (status_code, response_obj) via captured _send."""
+    h = bs.Handler.__new__(bs.Handler)
+    h.path = path
+    h.headers = {}
+    captured = {}
+
+    def _send(code, obj):
+        captured["code"] = code
+        captured["obj"] = obj
+    h._send = _send
+    h.do_GET()
+    return captured["code"], captured["obj"]
+
+
+# ---------------------------------------------------------------------------
+# GET /api/summary — live dashboard data (computed, not baked)
+# ---------------------------------------------------------------------------
+
+def test_summary_route_returns_live_built_summary(brain, monkeypatch):
+    """GET /api/summary returns the freshly built summary (computed in-process via
+    project_summary.build_summary) so the dashboard reads live data, not the baked
+    summary_data.js. build_summary is stubbed to keep the test hermetic."""
+    monkeypatch.setattr(bs.ps, "build_summary",
+                        lambda: {"status_strip": {"system": "ok"}, "marker": "live"})
+    code, obj = _get("/api/summary")
+    assert code == 200
+    assert obj["marker"] == "live"
+    assert obj["status_strip"]["system"] == "ok"
+
+
+def test_current_summary_caches_within_ttl(brain, monkeypatch):
+    """Two rapid calls share ONE build (TTL coalescing) and return the same cached
+    object by reference — so a 30s-poll fleet of tabs cannot stampede the builder."""
+    n = {"c": 0}
+
+    def fake_build():
+        n["c"] += 1
+        return {"status_strip": {}, "n": n["c"]}
+
+    monkeypatch.setattr(bs.ps, "build_summary", fake_build)
+    a = bs.current_summary()
+    b = bs.current_summary()
+    assert n["c"] == 1   # second served from cache, not rebuilt
+    assert a is b        # same object
+
+
+def test_current_summary_rebuilds_after_ttl(brain, monkeypatch):
+    """Once the TTL elapses, the next call rebuilds. We advance a fake monotonic
+    clock past _SUMMARY_TTL_S rather than sleeping."""
+    n = {"c": 0}
+
+    def fake_build():
+        n["c"] += 1
+        return {"status_strip": {}, "n": n["c"]}
+
+    clock = {"t": 1000.0}
+    monkeypatch.setattr(bs.ps, "build_summary", fake_build)
+    monkeypatch.setattr(bs.time, "monotonic", lambda: clock["t"])
+    bs.current_summary()                 # build #1 at t=1000
+    clock["t"] += bs._SUMMARY_TTL_S + 1  # past the TTL
+    bs.current_summary()                 # build #2
+    assert n["c"] == 2
 
 
 def test_verdict_route_accept_original_returns_handoff_path(brain):
