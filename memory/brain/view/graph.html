@@ -316,11 +316,15 @@ function fetchLive(path, valid) {
 }
 const fetchLiveSummary = () => fetchLive("api/summary", d => !!d.status_strip);
 const fetchLiveMap = () => fetchLive("api/map", d => Array.isArray(d.nodes));
+// Render signature = exactly what the map draws from, sans generated_at: the map
+// payload (nodes/edges/cards) plus the slices of D the renderer reads — skills
+// (governance halos), matrix (windowed edge weights), agents (run counts), window.
+// Covers every map-visible field (no missed remount) without churning on unrelated
+// summary changes (no needless zoom reset). Deterministic ⇒ byte-stable per ledger.
 function mapSig() {
   return JSON.stringify([
     M && [M.nodes, M.edges, M.cards],
-    D && (D.skills || []).map(s => [s.name, s.governance && s.governance.state, s.runtime_safe]),
-    D && D.window,
+    D && [D.skills, D.matrix, D.agents, D.window],
   ]);
 }
 let lastMapSig = "";

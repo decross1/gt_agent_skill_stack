@@ -594,6 +594,29 @@ def test_current_map_caches_within_ttl(brain, monkeypatch):
     assert a is b
 
 
+def test_map_route_build_failure_is_clean_500(brain, monkeypatch):
+    """A raising build_map must surface as a clean 500 (caught by do_GET), not an
+    unhandled crash — so the client falls back to the baked map_data.js."""
+    def boom():
+        raise RuntimeError("projector blew up")
+
+    monkeypatch.setattr(bs.pm, "build_map", boom)
+    code, obj = _get("/api/map")
+    assert code == 500
+    assert "error" in obj
+
+
+def test_summary_route_build_failure_is_clean_500(brain, monkeypatch):
+    """Same contract for /api/summary: a raising build_summary -> clean 500."""
+    def boom():
+        raise RuntimeError("projector blew up")
+
+    monkeypatch.setattr(bs.ps, "build_summary", boom)
+    code, obj = _get("/api/summary")
+    assert code == 500
+    assert "error" in obj
+
+
 def test_verdict_route_accept_original_returns_handoff_path(brain):
     """Accepting on the ORIGINAL basis records the verdict AND auto-writes the
     handoff — one step. The route returns ok/recorded/basis/handoff_path."""

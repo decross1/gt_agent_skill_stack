@@ -799,15 +799,16 @@ function fetchLive(path, valid) {
 }
 const fetchLiveSummary = () => fetchLive("api/summary", d => !!d.status_strip);
 const fetchLiveMap = () => fetchLive("api/map", d => Array.isArray(d.nodes));
-// Render signature sans generated_at: map nodes/edges/cards PLUS the governance
-// bits D contributes (halos: drift/firewall/heal/new) and the window. Steady-state
-// polls (no real change) don't remount the canvas, so zoom/pan survives; a genuine
-// data change does remount.
+// Render signature = exactly what the map draws from, sans generated_at: the map
+// payload (nodes/edges/cards) plus the slices of D the renderer reads — skills
+// (governance halos), matrix (windowed edge weights), agents (run counts), window.
+// Excludes non-map summary fields (timeline/inbox/…) so an unrelated change never
+// resets the user's zoom; covers every map-visible field so a real change always
+// remounts. Deterministic projectors make it byte-stable for identical ledgers.
 function mapSig() {
   return JSON.stringify([
     M && [M.nodes, M.edges, M.cards],
-    D && (D.skills || []).map(s => [s.name, s.governance && s.governance.state, s.runtime_safe]),
-    D && D.window,
+    D && [D.skills, D.matrix, D.agents, D.window],
   ]);
 }
 let lastMapSig = "";

@@ -34,6 +34,7 @@ if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
 import project_summary as ps  # noqa: E402
+import project_map as pm  # noqa: E402
 
 TOP_KEYS = {"schema_version", "generated_at", "repo", "consumer", "window",
             "status_strip", "inbox", "agents", "skills", "matrix", "contracts",
@@ -67,7 +68,8 @@ REVIEW_CLI = _SCRIPTS / "review_proposal_cli.py"
 # Determinism guard — the projection path (project_summary + the loaders it
 # imports from project_pages) must not be able to reach the LLM, so a regen is
 # pure file→file. These source files are grepped for any LLM reach.
-PROJECTION_SOURCES = [_SCRIPTS / "project_summary.py", _SCRIPTS / "project_pages.py"]
+PROJECTION_SOURCES = [_SCRIPTS / "project_summary.py", _SCRIPTS / "project_pages.py",
+                      _SCRIPTS / "project_map.py"]
 # Anything that would let projection call Gemma: the HTTP client modules, the
 # OpenAI-compatible endpoint path, or the Gemma host:port.
 LLM_REACH_RE = re.compile(
@@ -300,6 +302,11 @@ def main() -> int:
     b1, b2 = ps.build_summary(now), ps.build_summary(now)
     check("determinism: double build deep-equal (generated_at nulled)",
           dict(b1, generated_at=None) == dict(b2, generated_at=None))
+    # project_map is now a request-time projection too (GET /api/map) — same
+    # determinism contract. build_map() stamps its own generated_at, so null it.
+    m1, m2 = pm.build_map(), pm.build_map()
+    check("determinism: map double build deep-equal (generated_at nulled)",
+          dict(m1, generated_at=None) == dict(m2, generated_at=None))
 
     json_path = args.view_dir / "summary.json"
     js_path = args.view_dir / "summary_data.js"
