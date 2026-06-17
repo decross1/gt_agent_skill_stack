@@ -117,7 +117,7 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
 <header>
   <div class="brand">brain<span class="sep">·</span><span class="sub">governance</span></div>
   <nav class="views" title="view">
-    <a class="v on" href="dashboard.html">Dashboard</a><a class="v" href="graph.html">Map</a>
+    <a class="v on" href="dashboard.html">Dashboard</a><a class="v" href="graph.html">Map</a><a class="v" href="proposal_review.html">Review</a>
   </nav>
   <div class="hspace"></div>
   <div class="stepper" id="stepper"></div>
@@ -755,11 +755,69 @@ $("foot").innerHTML = "schema v" + D.schema_version + " · generated " + esc(U.f
   ' · <span title="' + esc((D.attribution || {}).note || "") + '">agent ' +
   (D.attribution || {}).agent_rows + "/" + (D.attribution || {}).total_rows + "</span>";
 
+/* ---------- live reconcile: keep the proposal_review inbox honest ----------
+   The inbox is a static projection (summary_data.js) and can lag a UI verdict
+   until a regen runs; the proposal-review QUEUE is served live by the brain API.
+   Reconcile so the dashboard's "needs you" proposal items exactly match the live
+   open-framework-proposal set — drop ones already decided, add ones filed since
+   the projection — and recompute needs_you to match (project_summary defines
+   needs_you.total = len(inbox); severities = a tally of the inbox). Best-effort
+   and http-only; on any failure the projection is left as-is. The loop strip
+   counts ALL proposals (research + framework) and is intentionally NOT touched —
+   the server-side regen keeps it honest. */
+function liveReviewItem(p) {
+  // mirrors project_summary.build_inbox's proposal_review item shape
+  return {
+    id: p.proposal_id, kind: "proposal_review", severity: "med",
+    reversible: true, age_days: null, since: null,
+    title: p.proposal_id + " — " + (p.title || "") + " (" + (p.verdict || "open") + ")",
+    detail: "open framework proposal (live) — review and decide",
+    action_cmd: null, source: "memory/brain/proposals.jsonl", surface: "framework",
+    actionable: true,
+    link: { skill: p.target_type === "skill" ? p.target : null,
+            url: "memory/brain/proposals.jsonl" }
+  };
+}
+function reconcileProposals() {
+  if (location.protocol !== "http:" && location.protocol !== "https:") return;
+  fetch("api/proposals", { cache: "no-store" })
+    .then(r => (r.ok ? r.json() : null))
+    .then(d => {
+      if (!d || !Array.isArray(d.proposals)) return;
+      const live = d.proposals;
+      const liveIds = new Set(live.map(p => p.proposal_id));
+      const inbox = D.inbox || [];
+      const projReviewIds = new Set(
+        inbox.filter(it => it.kind === "proposal_review").map(it => it.id));
+      // keep non-proposal items + still-open proposal items
+      const kept = inbox.filter(it =>
+        it.kind !== "proposal_review" || liveIds.has(it.id));
+      // append live-open proposals the projection hasn't captured yet
+      live.forEach(p => {
+        if (!projReviewIds.has(p.proposal_id)) kept.push(liveReviewItem(p));
+      });
+      const same = kept.length === inbox.length &&
+        kept.every((it, i) => it === inbox[i]);
+      if (same) return; // projection already matches the live queue
+      D.inbox = kept;
+      const sev = { high: 0, med: 0, low: 0 };
+      kept.forEach(it => { if (sev[it.severity] !== undefined) sev[it.severity]++; });
+      const ss = D.status_strip, n = ss.needs_you;
+      n.total = kept.length; n.high = sev.high; n.med = sev.med; n.low = sev.low;
+      ss.system = ss.firewall.violations ? "critical"
+        : (kept.length || ss.drift.skills || ss.loop.state !== "active") ? "attention" : "ok";
+      renderStatus();
+      renderInbox();
+    })
+    .catch(() => {});
+}
+
 /* ---------- init ---------- */
 renderStepper();
 renderStatus();
 renderInbox();
 probeReviewUi();
+reconcileProposals();
 mountMap();
 renderLoop();
 renderContracts();

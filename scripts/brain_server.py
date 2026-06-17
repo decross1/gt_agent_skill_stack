@@ -51,6 +51,9 @@ PID_RE = re.compile(r"^P-\d+$")
 # Serializes the read-then-append in generate_card so a card is written through
 # to proposal_cards.jsonl exactly once even under ThreadingHTTPServer concurrency.
 _CARD_LOCK = threading.Lock()
+# Serializes verdict-triggered projection regens so two concurrent refreshes
+# cannot tear summary.json / map_data.js with interleaved writes.
+_REGEN_LOCK = threading.Lock()
 
 
 class GemmaError(RuntimeError):
@@ -375,6 +378,40 @@ def record_verdict(pid: str, verdict: str, note: str, basis: str = "original") -
     return out
 
 
+def refresh_projection() -> None:
+    """Best-effort projection refresh after a framework ledger mutation (a verdict).
+    Re-runs the framework-local projectors — project_pages -> project_map ->
+    project_summary — so the dashboard inbox / needs-you count, the loop strip, and
+    the graph's proposal nodes reflect the just-recorded verdict. Without this, the
+    static projection (summary_data.js) lags the live /api/proposals until the next
+    regen, and the dashboard shows phantom 'open' proposals the review queue no
+    longer lists.
+
+    Deliberately does NOT run ingest_apparatus — no a_bgt_rsi read, so the brain
+    firewall stays intact — and NEVER raises: the verdict is already recorded
+    append-only, and a projection hiccup must not turn a recorded decision into an
+    error. Script paths are resolved via ROOT so tests pointing ROOT at a tmp dir
+    cannot touch the real projection. Serialized by _REGEN_LOCK."""
+    with _REGEN_LOCK:
+        for name in ("project_pages.py", "project_map.py", "project_summary.py"):
+            script = ROOT / "scripts" / name
+            try:
+                r = subprocess.run([sys.executable, str(script)], cwd=str(ROOT),
+                                   capture_output=True, text=True, timeout=120)
+                if r.returncode != 0:
+                    print(f"refresh_projection: {name} exit {r.returncode}", file=sys.stderr)
+            except Exception as e:  # noqa: BLE001 — best-effort; never fail the verdict
+                print(f"refresh_projection: {name} failed ({type(e).__name__})", file=sys.stderr)
+
+
+def _schedule_refresh() -> None:
+    """Fire refresh_projection on a daemon thread so the verdict response returns
+    immediately and the projection catches up within a second or two. Split out so
+    tests can stub the scheduling (no subprocess spawn) without touching the
+    refresh_projection contract itself."""
+    threading.Thread(target=refresh_projection, daemon=True).start()
+
+
 # ---------------------------------------------------------------------------
 # HTTP
 # ---------------------------------------------------------------------------
@@ -491,6 +528,9 @@ class Handler(SimpleHTTPRequestHandler):
                 # decision and the dev brief are a single step.
                 if v == "accept":
                     out["handoff_path"] = write_handoff(first, basis)
+                # Any successful verdict changes the open set — refresh the static
+                # projection so the dashboard inbox/loop match the live queue.
+                _schedule_refresh()
                 return self._send(200, out)
             if action == "handoff":
                 basis = body.get("basis") or "original"

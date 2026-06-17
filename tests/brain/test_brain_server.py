@@ -124,6 +124,10 @@ def brain(tmp_path, monkeypatch):
     monkeypatch.setattr(bs, "HANDOFFS", handoffs)
     monkeypatch.setattr(bs, "CLI", fake_cli)
     monkeypatch.setattr(bs, "gemma", stub)
+    # The verdict route schedules a background projection refresh; stub the
+    # scheduler so route tests neither spawn threads nor exec projector
+    # subprocesses. refresh_projection itself is exercised directly below.
+    monkeypatch.setattr(bs, "_schedule_refresh", lambda: None)
 
     class Brain:
         def __init__(self):
@@ -545,3 +549,60 @@ def test_synthesize_route_returns_amended_change(brain):
     assert code == 200
     assert obj["amended_change"] == "A crisp, self-contained amended proposal."
     assert len(brain.amended_lines()) == 1
+
+
+# ---------------------------------------------------------------------------
+# refresh_projection — verdict-triggered, framework-local, best-effort
+# ---------------------------------------------------------------------------
+
+def test_refresh_projection_runs_framework_projectors_in_order(brain, monkeypatch):
+    """A verdict refresh re-runs project_pages -> project_map -> project_summary
+    (in that order) and NOT ingest_apparatus — the brain firewall stays intact (no
+    a_bgt_rsi read). Scripts resolve under the monkeypatched tmp ROOT, so the real
+    projection is never touched."""
+    ran = []
+
+    def fake_run(cmd, **kw):
+        ran.append(Path(cmd[1]).name)
+        class R:
+            returncode = 0
+        return R()
+
+    monkeypatch.setattr(bs.subprocess, "run", fake_run)
+    bs.refresh_projection()
+    assert ran == ["project_pages.py", "project_map.py", "project_summary.py"]
+    assert "ingest_apparatus.py" not in ran  # firewall: no apparatus read
+
+
+def test_refresh_projection_swallows_subprocess_errors(brain, monkeypatch):
+    """refresh_projection is best-effort: a projector that raises must NOT
+    propagate (a recorded verdict cannot be undone by a projection hiccup)."""
+    def boom(cmd, **kw):
+        raise OSError("projector unavailable")
+
+    monkeypatch.setattr(bs.subprocess, "run", boom)
+    bs.refresh_projection()  # must return cleanly, not raise
+
+
+def test_verdict_route_schedules_a_refresh(brain, monkeypatch):
+    """A successful verdict via the route fires the refresh scheduler exactly once
+    (the fixture stubbed it to a no-op; here we count the calls)."""
+    fired = []
+    monkeypatch.setattr(bs, "_schedule_refresh", lambda: fired.append(1))
+    brain.seed(FW_PROP)
+    code, obj = _post("P-100", "verdict",
+                      {"verdict": "accept", "note": "ship it", "basis": "original"})
+    assert code == 200 and obj["ok"] is True
+    assert fired == [1]
+
+
+def test_verdict_route_failed_verdict_does_not_schedule_refresh(brain, monkeypatch):
+    """A rejected route call (bad basis -> 400 before recording) must NOT schedule a
+    refresh — nothing changed, so nothing to reproject."""
+    fired = []
+    monkeypatch.setattr(bs, "_schedule_refresh", lambda: fired.append(1))
+    brain.seed(FW_PROP)
+    code, _ = _post("P-100", "verdict",
+                    {"verdict": "accept", "note": "x", "basis": "amended"})  # missing amended_change
+    assert code == 400
+    assert fired == []
