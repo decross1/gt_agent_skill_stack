@@ -557,9 +557,9 @@ def test_synthesize_route_returns_amended_change(brain):
 
 def test_refresh_projection_runs_framework_projectors_in_order(brain, monkeypatch):
     """A verdict refresh re-runs project_pages -> project_map -> project_summary
-    (in that order) and NOT ingest_apparatus — the brain firewall stays intact (no
-    a_bgt_rsi read). Scripts resolve under the monkeypatched tmp ROOT, so the real
-    projection is never touched."""
+    (in that order) and NOT ingest_apparatus — re-ingesting apparatus
+    narratives/edges is needless on a framework verdict. Scripts resolve under the
+    monkeypatched tmp ROOT, so the real projection is never touched."""
     ran = []
 
     def fake_run(cmd, **kw):
@@ -571,7 +571,7 @@ def test_refresh_projection_runs_framework_projectors_in_order(brain, monkeypatc
     monkeypatch.setattr(bs.subprocess, "run", fake_run)
     bs.refresh_projection()
     assert ran == ["project_pages.py", "project_map.py", "project_summary.py"]
-    assert "ingest_apparatus.py" not in ran  # firewall: no apparatus read
+    assert "ingest_apparatus.py" not in ran  # no needless apparatus re-ingest
 
 
 def test_refresh_projection_swallows_subprocess_errors(brain, monkeypatch):

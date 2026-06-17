@@ -387,11 +387,14 @@ def refresh_projection() -> None:
     regen, and the dashboard shows phantom 'open' proposals the review queue no
     longer lists.
 
-    Deliberately does NOT run ingest_apparatus — no a_bgt_rsi read, so the brain
-    firewall stays intact — and NEVER raises: the verdict is already recorded
-    append-only, and a projection hiccup must not turn a recorded decision into an
-    error. Script paths are resolved via ROOT so tests pointing ROOT at a tmp dir
-    cannot touch the real projection. Serialized by _REGEN_LOCK."""
+    Deliberately does NOT run ingest_apparatus: re-ingesting the apparatus's
+    narratives/edges is needless work on a framework-proposal verdict (the
+    projectors still read consumer logs read-only — the firewall-sanctioned
+    direction; BOUNDARY.md forbids the reverse, apparatus reading the brain).
+    NEVER raises: the verdict is already recorded append-only, and a projection
+    hiccup must not turn a recorded decision into an error. Script paths resolve
+    via ROOT so tests pointing ROOT at a tmp dir cannot touch the real projection.
+    Serialized by _REGEN_LOCK."""
     with _REGEN_LOCK:
         for name in ("project_pages.py", "project_map.py", "project_summary.py"):
             script = ROOT / "scripts" / name

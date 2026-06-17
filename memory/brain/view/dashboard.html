@@ -292,7 +292,10 @@ function renderStatus() {
 /* ---------- needs-you inbox ---------- */
 const RANK = { high: 0, med: 1, low: 2 };
 const sorted = () => (D.inbox || []).slice()
-  .sort((a, b) => RANK[a.severity] - RANK[b.severity] || a.age_days - b.age_days);
+  // null-safe age tiebreak: live-reconciled items can carry age_days=null (no
+  // timestamp from the API); treat null as oldest so it never yields NaN.
+  .sort((a, b) => RANK[a.severity] - RANK[b.severity] ||
+    ((a.age_days ?? 1e9) - (b.age_days ?? 1e9)));
 
 // dynamic review: proposal_review items (framework/actionable) get a "Review →"
 // link opening the same-origin review UI. Built as a plain relative anchor so it
@@ -758,13 +761,15 @@ $("foot").innerHTML = "schema v" + D.schema_version + " · generated " + esc(U.f
 /* ---------- live reconcile: keep the proposal_review inbox honest ----------
    The inbox is a static projection (summary_data.js) and can lag a UI verdict
    until a regen runs; the proposal-review QUEUE is served live by the brain API.
-   Reconcile so the dashboard's "needs you" proposal items exactly match the live
+   Reconcile so the dashboard's "needs you" proposal items SET-match the live
    open-framework-proposal set — drop ones already decided, add ones filed since
    the projection — and recompute needs_you to match (project_summary defines
-   needs_you.total = len(inbox); severities = a tally of the inbox). Best-effort
-   and http-only; on any failure the projection is left as-is. The loop strip
-   counts ALL proposals (research + framework) and is intentionally NOT touched —
-   the server-side regen keeps it honest. */
+   needs_you.total = len(inbox); severities = a tally of the inbox). This fixes
+   membership (the reported phantom-count bug); the server-side regen handles the
+   rest (verdict-text of items that stay open, the loop strip). Best-effort and
+   http-only; on any failure the projection is left as-is. The loop strip
+   (D.loop.stages.proposals, framework-scoped in build_loop) is a separate
+   projection we leave to the server regen rather than reconcile here. */
 function liveReviewItem(p) {
   // mirrors project_summary.build_inbox's proposal_review item shape
   return {
@@ -772,7 +777,9 @@ function liveReviewItem(p) {
     reversible: true, age_days: null, since: null,
     title: p.proposal_id + " — " + (p.title || "") + " (" + (p.verdict || "open") + ")",
     detail: "open framework proposal (live) — review and decide",
-    action_cmd: null, source: "memory/brain/proposals.jsonl", surface: "framework",
+    action_cmd: "review memory/brain/proposals.jsonl " + p.proposal_id +
+      "  # run the review-proposal skill",
+    source: "memory/brain/proposals.jsonl", surface: "framework",
     actionable: true,
     link: { skill: p.target_type === "skill" ? p.target : null,
             url: "memory/brain/proposals.jsonl" }

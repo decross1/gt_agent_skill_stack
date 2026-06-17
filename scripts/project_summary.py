@@ -1319,9 +1319,19 @@ def emit(summary: dict, out_dir: Path) -> bool:
         return False
 
     payload = json.dumps(summary, indent=2, ensure_ascii=False)
-    json_path.write_text(payload + "\n")
-    js_path.write_text("window.BRAIN_SUMMARY = " + payload + ";\n")
+    # Atomic write (tmp + os.replace): brain_server schedules this regen on a
+    # daemon thread that can run WHILE the HTTP server is serving these files, so
+    # a plain truncate-then-write could be read torn. os.replace is atomic on the
+    # same filesystem.
+    _atomic_write(json_path, payload + "\n")
+    _atomic_write(js_path, "window.BRAIN_SUMMARY = " + payload + ";\n")
     return True
+
+
+def _atomic_write(path: Path, text: str) -> None:
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(text)
+    os.replace(tmp, path)
 
 
 def main() -> int:
