@@ -178,12 +178,18 @@ let D = window.BRAIN_SUMMARY || null;  // static fallback; replaced by live /api
 const $ = id => document.getElementById(id);
 const esc = U.esc;
 
-/* ---------- window state (persisted; ←/→ steps) ---------- */
-let windowDays = D.window.default_days || 7;
-try {
-  const s = parseInt(localStorage.getItem("brain.windowDays"), 10);
-  if (s >= D.window.min_days && s <= D.window.max_days) windowDays = s;
-} catch (_) {}
+/* ---------- window state (persisted; ←/→ steps) ----------
+   Initialized to a safe default here (this runs at parse time, before D is
+   guaranteed); refined from D.window inside boot() once a summary is loaded, so a
+   missing baked file can never crash the prelude before the fallback message. */
+let windowDays = 7;
+function initWindowState() {
+  windowDays = D.window.default_days || 7;
+  try {
+    const s = parseInt(localStorage.getItem("brain.windowDays"), 10);
+    if (s >= D.window.min_days && s <= D.window.max_days) windowDays = s;
+  } catch (_) {}
+}
 
 let asof = "";  // set by paint() from the active summary's generated_at
 const dayDiff = date => Math.round(
@@ -798,6 +804,7 @@ function fetchLiveSummary() {
       "(scripts/serve_brain.sh) or run scripts/project_summary.py</div>";
     return;
   }
+  initWindowState();
   paint();
   probeReviewUi();
   mountMap();
