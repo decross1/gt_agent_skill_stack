@@ -225,6 +225,24 @@ def final_verdict(p: dict) -> str:
     return p["latest"].get("verdict") or "open"
 
 
+def lifecycle_state(p: dict) -> str:
+    """draft | open | human-review | closed — the proposal's LANE (distinct from
+    its raw verdict). A 'draft' is a bubbled candidate (status=='draft' on its
+    latest row, no verdict yet) that is NOT in review; a promotion row (status
+    'open', or a verdict) moves it out of the draft lane. Keys off the LATEST row
+    so an append-only promotion flips draft→open without rewriting the draft.
+
+    This is the authority for 'is this proposal in the open review queue?' —
+    final_verdict alone can't tell a draft from an open proposal (both have no
+    verdict), which is why a draft would otherwise leak into the inbox."""
+    latest = p["latest"]
+    if latest.get("verdict"):
+        return "human-review" if latest["verdict"] == "human-review" else "closed"
+    if (latest.get("status") or "").strip() == "draft":
+        return "draft"
+    return "open"
+
+
 def proposal_scope(first: dict, consumer_name: str | None) -> str:
     """Classify a proposal as 'framework' (this agent_system — skills, brain
     tooling, framework rules/disciplines) or 'research' (the consumer
@@ -758,8 +776,8 @@ def build_inbox(
               skill="gate-check")
 
     for pid, p in sorted(proposals.items()):
-        v = final_verdict(p)
-        if v not in ("open", "human-review"):
+        state = lifecycle_state(p)
+        if state not in ("open", "human-review", "draft"):
             continue
         first = p["first"]
         # research-scoped proposals belong to the consumer apparatus, not this
@@ -768,10 +786,25 @@ def build_inbox(
             continue
         target = (first.get("target") or "").strip()
         is_skill = (first.get("target_type") or "").strip() == "skill"
+        if state == "draft":
+            # bubbled drift candidate — its own lane, distinct from review. NOT a
+            # copy-command and NOT a Review→ link (it isn't in review yet); a human
+            # (or the graduated auto-path) promotes it to 'open' first.
+            _item("candidate_review", pid, "low", True,
+                  first.get("timestamp") or None,
+                  f"{pid} — {first.get('title', '')} (candidate)",
+                  f"bubbled drift candidate ({first.get('agent_id', 'draft:auto')}); "
+                  f"promote to 'open' to enter review, or discard "
+                  f"(target {first.get('target_type', '?')}:{target})",
+                  None,
+                  "memory/brain/proposals.jsonl", "framework",
+                  skill=target if is_skill else None,
+                  url="memory/brain/proposals.jsonl")
+            continue
         _item("proposal_review", pid, "med", True,
               first.get("timestamp") or None,
-              f"{pid} — {first.get('title', '')} ({v})",
-              f"latest verdict '{v}'; route via the review-proposal skill "
+              f"{pid} — {first.get('title', '')} ({state})",
+              f"latest verdict '{state}'; route via the review-proposal skill "
               f"(target {first.get('target_type', '?')}:{target})",
               f"review memory/brain/proposals.jsonl {pid}  "
               "# run the review-proposal skill",
@@ -885,6 +918,11 @@ def build_loop(proposals: dict[str, dict], rules: list[dict],
         state = "active"
 
     verdicts = Counter(final_verdict(p) for p in proposals.values())
+    # lane tally (draft|open|human-review|closed) — keeps drafts OUT of 'open'.
+    lane = Counter(lifecycle_state(p) for p in proposals.values())
+    newest_draft = max((p["first"].get("timestamp", "")[:10]
+                        for p in proposals.values()
+                        if lifecycle_state(p) == "draft"), default="")
     skills_created = sum(1 for s in skills
                          if (s["governance"]["new"] or {}).get("via", "git") != "git")
     skills_healed = sum(1 for s in skills if s["governance"]["healed"])
@@ -902,6 +940,7 @@ def build_loop(proposals: dict[str, dict], rules: list[dict],
                                if isinstance(ref, str)
                                and ref.startswith("feedback.jsonl:")],
             "final_verdict": final_verdict(p),
+            "lane": lifecycle_state(p),
             "rule_cited": p["latest"].get("rule_cited"),
             "filed_date": _date_of(first.get("timestamp")),
             "decided_at": (_date_of(p["latest"].get("timestamp"))
@@ -918,7 +957,9 @@ def build_loop(proposals: dict[str, dict], rules: list[dict],
             "harvest": {"all": len(feedback_rows),
                         "newest": newest_harvest or None,
                         "dormant_days": dormant},
-            "proposals": {"open": verdicts.get("open", 0) + verdicts.get("human-review", 0),
+            "candidates": {"total": lane.get("draft", 0),
+                           "newest": newest_draft or None},
+            "proposals": {"open": lane.get("open", 0) + lane.get("human-review", 0),
                           "newest": newest_proposal or None},
             "review": {"accepted": verdicts.get("accepted", 0),
                        "auto_accept": verdicts.get("auto-accept", 0),
@@ -1243,6 +1284,7 @@ def build_summary(now: datetime | None = None) -> dict:
                           "med": sev.get("med", 0), "low": sev.get("low", 0)},
             "drift": {"skills": len(drift_skills),
                       "worst": worst["name"] if worst else None},
+            "candidates": {"total": loop["stages"]["candidates"]["total"]},
             "loop": {"state": loop["state"],
                      "dormant_days": loop["stages"]["harvest"]["dormant_days"]},
             "firewall": {"status": "intact" if not violations else "breached",

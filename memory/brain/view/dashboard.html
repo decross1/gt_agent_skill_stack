@@ -272,6 +272,9 @@ function renderStatus() {
   e = seg("mapband", "skills drifting from contract — worst: " + (s.drift.worst || "—"));
   e.innerHTML = '<span class="k">drift</span><span class="v warn">' + s.drift.skills + "</span>";
 
+  e = seg("loopband", "bubbled drift candidates awaiting promotion");
+  e.innerHTML = '<span class="k">candidates</span><span class="v warn">' + s.candidates.total + "</span>";
+
   const lp = s.loop;
   const ldot = lp.state === "active" ? '<span class="dot" style="background:var(--ok)"></span>'
     : lp.state === "dormant" ? '<span class="dot" style="background:var(--border-2)"></span>'
@@ -542,6 +545,9 @@ function renderLoop() {
   const hv = L.stages.harvest, pr = L.stages.proposals, rv = L.stages.review, en = L.stages.enacted;
   seg("harvest", [["", String(hv.all)], ["warn", "◐ " + hv.dormant_days + "d"]],
     hv.all + " findings · newest " + hv.newest + " · dormant " + hv.dormant_days + "d");
+  arr();
+  seg("candidates", [["warn", String(L.stages.candidates.total)], ["dim", "bubbled"]],
+    L.stages.candidates.total + " bubbled candidates · newest " + (L.stages.candidates.newest || "—"));
   arr();
   seg("proposals", [["", String(pr.open)], ["dim", "open"]], pr.open + " open · newest " + pr.newest);
   arr();

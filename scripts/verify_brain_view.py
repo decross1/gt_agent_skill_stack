@@ -39,8 +39,9 @@ import project_map as pm  # noqa: E402
 TOP_KEYS = {"schema_version", "generated_at", "repo", "consumer", "window",
             "status_strip", "inbox", "agents", "skills", "matrix", "contracts",
             "loop", "timeline", "incidents", "rules", "attribution", "days"}
-INBOX_KINDS = {"gate_verdict", "proposal_review", "bubble_unacked",
-               "finding_review", "stale_run", "drift", "contract_unverified"}
+INBOX_KINDS = {"gate_verdict", "proposal_review", "candidate_review",
+               "bubble_unacked", "finding_review", "stale_run", "drift",
+               "contract_unverified"}
 SEVERITIES = {"high", "med", "low"}
 GOV_STATES = {"ok", "drift", "healed", "new", "untested", "by_design",
               "firewall_violation"}
@@ -70,6 +71,15 @@ REVIEW_CLI = _SCRIPTS / "review_proposal_cli.py"
 # pure file→file. These source files are grepped for any LLM reach.
 PROJECTION_SOURCES = [_SCRIPTS / "project_summary.py", _SCRIPTS / "project_pages.py",
                       _SCRIPTS / "project_map.py"]
+# The deterministic drift path. These WRITE ledgers (not pure projectors, so they
+# are deliberately NOT in PROJECTION_SOURCES and not double-build-checked), but
+# they are sworn stdlib file→file and must never reach the LLM — grepped for the
+# same LLM reach: scan_drift (scanner) + blast_radius (classifier) + the drift-
+# writing code in ingest_apparatus (project_skill_signal_drift/derive_drift_rows)
+# + the bubbler draft_proposals (signal_candidates). (graduate_drafts.py is
+# excluded: its adversarial gate / write_handoff may use an LLM dev-time.)
+DETERMINISTIC_DETECTORS = [_SCRIPTS / "scan_drift.py", _SCRIPTS / "blast_radius.py",
+                           _SCRIPTS / "ingest_apparatus.py", _SCRIPTS / "draft_proposals.py"]
 # Anything that would let projection call Gemma: the HTTP client modules, the
 # OpenAI-compatible endpoint path, or the Gemma host:port.
 LLM_REACH_RE = re.compile(
@@ -130,7 +140,7 @@ def check_schema(s: dict) -> None:
     check("schema: status_strip", strip.get("system") in ("ok", "attention", "critical")
           and strip.get("loop", {}).get("state") in LOOP_STATES
           and all(k in strip for k in
-                  ("needs_you", "drift", "loop", "firewall", "freshness")))
+                  ("needs_you", "drift", "candidates", "loop", "firewall", "freshness")))
     bad = [i["id"] for i in s["inbox"]
            if i.get("kind") not in INBOX_KINDS or i.get("severity") not in SEVERITIES
            or not isinstance(i.get("link"), dict)]
@@ -169,14 +179,28 @@ def check_cross(s: dict, consumer: Path | None) -> None:
 
     # Mirror the generator: only framework-scoped open/human-review proposals
     # become inbox items; research-scoped ones (consumer apparatus) are filtered.
+    # Predicate is lifecycle_state, NOT final_verdict — a draft has no verdict
+    # but is its own lane, so lifecycle_state excludes it where final_verdict
+    # (defaulting to "open") would have leaked it into the review queue.
     cname = consumer.name if consumer is not None else None
     collapsed = ps.collapse_proposals(jsonl(ps.PROPOSALS))
-    want = sum(1 for p in collapsed.values()
-               if ps.final_verdict(p) in ("open", "human-review")
-               and ps.proposal_scope(p["first"], cname) == "framework")
+    fw = {pid: p for pid, p in collapsed.items()
+          if ps.proposal_scope(p["first"], cname) == "framework"}
+    want = sum(1 for p in fw.values()
+               if ps.lifecycle_state(p) in ("open", "human-review"))
     got = sum(1 for i in s["inbox"] if i["kind"] == "proposal_review")
-    check("cross: proposal_review == framework open+human-review latest verdicts",
+    check("cross: proposal_review == framework open+human-review lifecycle states",
           got == want, f"inbox={got} rederived={want}")
+
+    # The candidates lane: a bubbled draft proposal surfaces as a view-only
+    # candidate_review inbox item, never as proposal_review. Re-derive the draft
+    # count straight from proposals.jsonl (framework-scoped, lifecycle=="draft")
+    # — this is the other half of the leak-fix proof.
+    want_drafts = sum(1 for p in fw.values()
+                      if ps.lifecycle_state(p) == "draft")
+    got_drafts = sum(1 for i in s["inbox"] if i["kind"] == "candidate_review")
+    check("cross: candidate_review == framework draft lifecycle states",
+          got_drafts == want_drafts, f"inbox={got_drafts} rederived={want_drafts}")
 
     skill_mds = sorted((ps.REPO / ".agents" / "skills").glob("*/SKILL.md"))
     check("cross: len(skills) == 24", len(s["skills"]) == 24 == len(skill_mds),
@@ -271,6 +295,30 @@ def check_determinism_guard() -> None:
                        for m in LLM_REACH_RE.finditer(src.read_text())})
         check(f"determinism: {name} has no urllib/requests/Gemma reach",
               not hits, f"hits={hits[:6]}")
+
+    # The deterministic detectors are separately sworn LLM-free. They are NOT in
+    # PROJECTION_SOURCES (they append ledgers, so no double-build) — assert that
+    # placement too, so a detector can never be silently promoted into the pure
+    # projection set. Absent on a fresh checkout → skip the grep (not a failure).
+    for src in DETERMINISTIC_DETECTORS:
+        name = src.name
+        check(f"determinism: {name} not in PROJECTION_SOURCES",
+              src not in PROJECTION_SOURCES, "detector must not be a pure projector")
+        if not src.exists():
+            check(f"determinism: {name} has no urllib/requests/Gemma reach", True,
+                  "absent — skipped")
+            continue
+        hits = sorted({m.group(0).strip()
+                       for m in LLM_REACH_RE.finditer(src.read_text())})
+        check(f"determinism: {name} has no urllib/requests/Gemma reach",
+              not hits, f"hits={hits[:6]}")
+
+    # graduate_drafts.py is allowed to reach an LLM (the adversarial gate is a
+    # dev-time step) — it is explicitly NOT grepped. Its only invariant here is
+    # that it never joins the pure projection set.
+    check("determinism: graduate_drafts.py not in PROJECTION_SOURCES",
+          (_SCRIPTS / "graduate_drafts.py") not in PROJECTION_SOURCES,
+          "LLM-using dev-time step must not be a pure projector")
 
 
 def check_verdict_enum() -> None:

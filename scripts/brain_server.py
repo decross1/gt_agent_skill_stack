@@ -131,7 +131,9 @@ def open_framework_proposals() -> list[dict]:
     collapsed = ps.collapse_proposals(jsonl(PROPOSALS))
     out = []
     for pid, p in collapsed.items():
-        if ps.final_verdict(p) not in ("open", "human-review"):
+        # lifecycle_state (not final_verdict) is the gate: a draft has no verdict
+        # and would otherwise read as "open" and leak into the review queue.
+        if ps.lifecycle_state(p) not in ("open", "human-review"):
             continue
         if ps.proposal_scope(p["first"], "a_bgt_rsi") != "framework":
             continue

@@ -62,10 +62,15 @@ SOURCES
    {diverged, friction, gap} whose `skill` is a real framework skill — UNLESS
    that skill is already covered by an existing (non-draft) proposal in
    proposals.jsonl (match by skill/target). Source ref: feedback.jsonl:<H>:<ref>.
-2. Run-log rows with `skill_used` set AND a failure-ish status
-   (failed / aborted / escalated) in run_state/framework.run.jsonl and
-   (read-only, brain firewall) the consumer's run log if reachable. The
-   skill_used must be a real framework skill. Source ref: <file>:L<line>.
+2. Drift signals in memory/brain/drift_signals.jsonl — the machine-detected
+   ledger (deterministic scan + runtime self-reports) written by scan_drift.py /
+   ingest_apparatus.py. Each signal whose `skill` is a real framework skill and
+   is NOT already covered by an existing (non-draft) proposal bubbles to a draft.
+   Source ref: the signal's own `ref` field (e.g. framework.run.jsonl:L42).
+
+   (Run-log / schema detection used to live here as runlog_signals(); that is
+   now owned by scan_drift.py and flows in via source 2, so runlog_signals() is
+   no longer called from build_drafts() — see its docstring.)
 
 IDEMPOTENCY
 -----------
@@ -100,6 +105,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 PROPOSALS = ROOT / "memory" / "brain" / "proposals.jsonl"
 FEEDBACK = ROOT / "memory" / "feedback.jsonl"
+DRIFT_SIGNALS = ROOT / "memory" / "brain" / "drift_signals.jsonl"
 SKILLS_DIR = ROOT / ".agents" / "skills"
 FW_RUN = ROOT / "run_state" / "framework.run.jsonl"
 
@@ -277,11 +283,62 @@ def harvest_signals(skills: set[str],
     return out
 
 
+def signal_candidates(skills: set[str],
+                      covered_skills: set[str]) -> list[dict]:
+    """Source 2 — one candidate per drift signal in drift_signals.jsonl (the
+    machine-detected ledger: deterministic scan + runtime self-reports) on a
+    framework skill not already covered by an existing proposal. Mirrors the
+    shape harvest_signals returns; the signal's own `ref` is the source_ref so
+    the existing (target, source_ref) dedup keeps it idempotent."""
+    out: list[dict] = []
+    seen: set[tuple[str, str]] = set()
+    for s in jsonl(DRIFT_SIGNALS):
+        skill = (s.get("skill") or "").strip()
+        if skill not in skills or skill in covered_skills:
+            continue
+        source_ref = (s.get("ref") or "").strip()
+        if not source_ref:
+            continue
+        key = (skill, source_ref)
+        if key in seen:
+            continue
+        seen.add(key)
+        sid = (s.get("signal_id") or "?").strip()
+        detector = (s.get("detector") or "signal").strip()
+        source = (s.get("source") or "scan").strip()
+        observed = (s.get("status_observed") or "").strip()
+        evidence = (s.get("evidence") or "").strip()
+        title = f"[{detector}] {skill}: {_trim(evidence, 90)}"
+        change = (
+            f"Address the drift signal on [[{skill}]] "
+            f"({detector}, {observed or 'n/a'}): {evidence}"
+        )
+        reasoning = (
+            f"Drift signal {sid} ({detector}, source '{source}') flagged the "
+            f"[[{skill}]] skill"
+            + (f" with status_observed='{observed}'" if observed else "")
+            + f". Ref {source_ref}. Evidence: {evidence} "
+            "Bubbled as a DRAFT for human triage — promote to 'open' to enter "
+            "review, or discard."
+        )
+        out.append({
+            "target": skill,
+            "title": _trim(title, 140),
+            "change": change,
+            "reasoning": reasoning,
+            "source_ref": source_ref,
+        })
+    return out
+
+
 def runlog_signals(skills: set[str],
                    consumer: Path | None) -> list[dict]:
-    """Source 2 — one candidate per run-log row with skill_used on a framework
-    skill AND a failure-ish status, across the framework run log and (read-only)
-    the consumer's run log if reachable."""
+    """SUPERSEDED — no longer called from build_drafts(); scan_drift.py now owns
+    run-log/schema detection and feeds it in via signal_candidates() reading
+    drift_signals.jsonl. Left defined (not wired) to avoid double-bubbling the
+    same run-log rows. One candidate per run-log row with skill_used on a
+    framework skill AND a failure-ish status, across the framework run log and
+    (read-only) the consumer's run log if reachable."""
     out: list[dict] = []
     seen: set[tuple[str, str]] = set()
     logs: list[tuple[str, Path]] = [("framework.run.jsonl", FW_RUN)]
@@ -336,10 +393,13 @@ def build_drafts() -> tuple[list[dict], list[dict]]:
     reason} so the summary can explain idempotency no-ops."""
     skills = framework_skills()
     covered_skills, draft_keys, max_num = existing_state()
-    consumer = resolve_consumer()
 
+    # NOTE: runlog_signals() is intentionally NOT called here — scan_drift.py
+    # owns run-log/schema detection and its findings arrive via the
+    # drift_signals.jsonl ledger that signal_candidates() reads. Calling both
+    # would double-bubble the same run-log rows.
     candidates = (harvest_signals(skills, covered_skills)
-                  + runlog_signals(skills, consumer))
+                  + signal_candidates(skills, covered_skills))
 
     new_drafts: list[dict] = []
     skipped: list[dict] = []

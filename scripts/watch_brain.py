@@ -34,6 +34,8 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 CONSUMER = REPO.parent / "a_bgt_rsi"
 INGEST = REPO / "scripts" / "ingest_apparatus.py"
+SCAN_DRIFT = REPO / "scripts" / "scan_drift.py"
+DRAFT_PROPOSALS = REPO / "scripts" / "draft_proposals.py"
 PROJECT_PAGES = REPO / "scripts" / "project_pages.py"
 PROJECT_MAP = REPO / "scripts" / "project_map.py"
 PROJECT_SUMMARY = REPO / "scripts" / "project_summary.py"
@@ -118,6 +120,20 @@ def run_pipeline(verbose: bool = False) -> bool:
     today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     steps = [
         ([sys.executable, str(INGEST)], "ingest"),
+    ]
+    # Guarded auto-drift wiring. scan_drift + bubble APPEND to framework ledgers
+    # (memory/brain/drift_signals.jsonl / proposals.jsonl), so they are opt-in
+    # (BRAIN_AUTODRIFT=1) to avoid surprise writes; with the flag unset the
+    # pipeline behaves exactly as before. The re-snapshot after each pipeline run
+    # (daemon_loop, ~L180) absorbs these writes so they don't retrigger, and
+    # these ledgers live under memory/brain/ which is NOT in WATCH_DIRS — so
+    # there is no feedback loop regardless. Runs right after ingest (drift is
+    # detected from the freshly-ingested trace) and before the projection steps.
+    if os.environ.get("BRAIN_AUTODRIFT") == "1":
+        _log("BRAIN_AUTODRIFT=1 — scan_drift + bubble enabled (appends to drift_signals.jsonl / proposals.jsonl)")
+        steps.append(([sys.executable, str(SCAN_DRIFT), "--apply"], "scan_drift"))
+        steps.append(([sys.executable, str(DRAFT_PROPOSALS), "--apply"], "bubble"))
+    steps += [
         ([sys.executable, str(PROJECT_PAGES)], "project_pages"),
         ([sys.executable, str(PROJECT_MAP)], "project_map"),
         ([sys.executable, str(PROJECT_SUMMARY)], "project_summary"),

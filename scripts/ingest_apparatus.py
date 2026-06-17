@@ -40,13 +40,14 @@ CONSUMER_STATE = REPO.parent / "a_bgt_rsi" / "run_state"
 CONSUMER_MEMORY = REPO.parent / "a_bgt_rsi" / "memory"
 NARRATIVES = REPO / "memory" / "brain" / "narratives.jsonl"
 EDGES = REPO / "memory" / "brain" / "edges.jsonl"
+DRIFT = REPO / "memory" / "brain" / "drift_signals.jsonl"
 
 # Allowlist of state-like files. Each filename is searched for in any of the
 # candidate dirs below — the apparatus split its ledgers between run_state/
 # (execution traces) and memory/ (durable iteration records) over time.
 # Dedup by (basename, line) keeps re-ingest safe across the move.
 STATE_DIRS_CANDIDATE = (CONSUMER_STATE, CONSUMER_MEMORY)
-STATE_FILES = ("loop_memory.jsonl", "week1.run.jsonl")
+STATE_FILES = ("loop_memory.jsonl", "week1.run.jsonl", "skill_signals.jsonl")
 
 _SLUG_RE = re.compile(r"[^a-z0-9]+")
 
@@ -183,6 +184,73 @@ def project_run_log_entry(src: dict, lineno: int) -> dict:
     }
 
 
+# Runtime skill-signal shape: an agent's first-class self-report of skill
+# friction/gap/misuse, emitted by the apparatus into skill_signals.jsonl
+# (see handoffs/…-skill-signals.md). Carries `signal_class` + `skill`.
+# Mirrors project_run_log_entry: rides the same append-only narrative path,
+# and additionally projects a source="runtime" row into drift_signals.jsonl
+# (see project_skill_signal_drift) so the scanner/bubbler can read it.
+def project_skill_signal(src: dict, lineno: int) -> dict:
+    cls = src.get("signal_class", "")
+    skill = src.get("skill", "")
+    task_id = src.get("task_id") or f"signal_L{lineno}"
+    return {
+        "agent_id": src.get("agent") or "nara",
+        "task_id": task_id,
+        "intent": f"self-report {cls} on skill={skill}",
+        "did": _trim(src.get("evidence") or "", 300),
+        "observed": (
+            f"signal_class={cls} severity={src.get('severity', 'low')} "
+            f"invocation_ref={src.get('invocation_ref', 'n/a')}"
+        ),
+        "_slug": _slugify(f"signal-{skill}-{cls}-{task_id}-l{lineno}"),
+    }
+
+
+# Map a runtime signal_class onto the drift_signals status vocabulary the
+# scanner/bubbler share. `misuse` and `diverged` both land on "diverged";
+# the original word is preserved verbatim in the evidence string.
+_SIGNAL_CLASS_MAP = {
+    "friction": "friction",
+    "gap": "gap",
+    "misuse": "diverged",
+    "diverged": "diverged",
+}
+
+
+def project_skill_signal_drift(src: dict, lineno: int, task_id: str) -> dict:
+    """Build a source="runtime" drift_signals.jsonl row from a skill signal.
+
+    Mirrors the SHARED drift schema (scan + runtime share one ledger). The
+    `signal_id` is allocated by the caller (sequential across the file).
+    """
+    cls = src.get("signal_class", "")
+    status_observed = _SIGNAL_CLASS_MAP.get(cls, cls)
+    ref = f"skill_signals.jsonl:L{lineno} task={task_id}"
+    evidence = _trim(src.get("evidence") or "", 200)
+    expected = src.get("expected")
+    actual = src.get("actual")
+    if expected is not None or actual is not None:
+        evidence = _trim(
+            f"{evidence} (expected={_trim(str(expected) if expected is not None else '', 60)}"
+            f" actual={_trim(str(actual) if actual is not None else '', 60)})",
+            240,
+        )
+    # Preserve the original signal_class word when it was remapped (misuse).
+    if status_observed != cls:
+        evidence = _trim(f"[{cls}] {evidence}", 240)
+    return {
+        "source": "runtime",
+        "detector": "runtime_selfreport",
+        "skill": src.get("skill", ""),
+        "status_observed": status_observed,
+        "ref": ref,
+        "severity": src.get("severity", "low"),
+        "evidence": evidence,
+        "scope": "framework",
+    }
+
+
 def project(src: dict, lineno: int, strict: bool) -> dict | None:
     """Dispatch to the right projection. Returns None to skip (state-dir strict mode)."""
     if "iteration_id" in src and "seed" in src and "nara_summary" in src:
@@ -199,6 +267,10 @@ def project(src: dict, lineno: int, strict: bool) -> dict | None:
     if (src.get("task_id") and src.get("status")
             and ("observable_actual" in src or "observable_expected" in src)):
         return project_run_log_entry(src, lineno)
+    # Runtime skill-signal — recognized by shape (signal_class + skill). Allowed
+    # in strict mode: it is a first-class detector lane, not an unknown shape.
+    if isinstance(src.get("signal_class"), str) and src.get("skill"):
+        return project_skill_signal(src, lineno)
     if strict:
         return None
     return project_generic(src)
@@ -223,6 +295,61 @@ def load_existing_keys(path: Path) -> set[tuple[str, int]]:
             if "file" in src and "line" in src:
                 keys.add((src["file"], int(src["line"])))
     return keys
+
+
+_DRIFT_REF_RE = re.compile(r"^(?P<file>[^:]+):L(?P<line>\d+)")
+
+
+def load_existing_drift_keys(path: Path) -> set[tuple[str, int]]:
+    """Dedup keys for runtime drift rows, keyed on the ref's (source_file, line).
+
+    Mirrors load_existing_keys, but the drift ledger has no `_source`; the
+    source line is parsed out of the `ref` field
+    (`skill_signals.jsonl:L<n> task=<id>`). Only runtime rows are considered —
+    scan-detected rows use a different ref shape and dedup key and are owned by
+    the scanner.
+    """
+    keys: set[tuple[str, int]] = set()
+    if not path.exists():
+        return keys
+    with path.open() as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                obj = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if obj.get("source") != "runtime":
+                continue
+            m = _DRIFT_REF_RE.match(obj.get("ref", ""))
+            if m:
+                keys.add((m.group("file"), int(m.group("line"))))
+    return keys
+
+
+def next_drift_signal_id(path: Path) -> int:
+    """Highest existing DS-NNNN in the ledger + 1 (1 if none). Deterministic."""
+    hi = 0
+    if not path.exists():
+        return hi + 1
+    with path.open() as f:
+        for line in f:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                obj = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            sid = obj.get("signal_id", "")
+            if isinstance(sid, str) and sid.startswith("DS-"):
+                try:
+                    hi = max(hi, int(sid[3:]))
+                except ValueError:
+                    continue
+    return hi + 1
 
 
 def load_existing_edges(path: Path) -> set[tuple[str, str, str]]:
@@ -392,6 +519,46 @@ def derive_edges(
     return edges
 
 
+def _is_skill_signal(src: dict) -> bool:
+    return isinstance(src.get("signal_class"), str) and bool(src.get("skill"))
+
+
+def derive_drift_rows(
+    new_pairs: list[tuple[dict, dict]],
+    existing_drift_keys: set[tuple[str, int]],
+    start_signal_id: int,
+) -> list[dict]:
+    """Project runtime skill signals into source="runtime" drift_signals rows.
+
+    Rides alongside the narratives: for each newly-projected skill-signal pair
+    it emits one drift row (SHARED schema). Idempotent — deduped on
+    (source_file, source_line) against rows already on disk and within this run
+    (mutates `existing_drift_keys`). signal_ids are allocated sequentially from
+    `start_signal_id` so scan + runtime rows share one DS-NNNN sequence.
+    """
+    rows: list[dict] = []
+    next_id = start_signal_id
+    for narrative, src in new_pairs:
+        if not _is_skill_signal(src):
+            continue
+        source = narrative.get("_source", {}) or {}
+        lineno = int(source.get("line", 0))
+        task_id = narrative.get("task_id", "")
+        key = (source.get("file", ""), lineno)
+        if key in existing_drift_keys:
+            continue
+        existing_drift_keys.add(key)
+        row = project_skill_signal_drift(src, lineno, task_id)
+        row = {
+            "timestamp": narrative.get("timestamp", ""),
+            "signal_id": f"DS-{next_id:04d}",
+            **row,
+        }
+        next_id += 1
+        rows.append(row)
+    return rows
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Project apparatus logs into narratives + edges.")
     parser.add_argument(
@@ -418,6 +585,11 @@ def main() -> int:
         help=f"Edges ledger (default: {EDGES})",
     )
     parser.add_argument(
+        "--drift",
+        default=str(DRIFT),
+        help=f"Drift-signals ledger — runtime self-reports (default: {DRIFT})",
+    )
+    parser.add_argument(
         "--dry-run",
         action="store_true",
         help="Compute new entries but do not write.",
@@ -431,6 +603,7 @@ def main() -> int:
     )
     narratives = Path(args.narratives)
     edges_path = Path(args.edges)
+    drift_path = Path(args.drift)
     if not logs_dir.is_dir():
         print(f"error: logs directory not found: {logs_dir}", file=sys.stderr)
         return 2
@@ -438,6 +611,8 @@ def main() -> int:
     narratives.touch(exist_ok=True)
     edges_path.parent.mkdir(parents=True, exist_ok=True)
     edges_path.touch(exist_ok=True)
+    drift_path.parent.mkdir(parents=True, exist_ok=True)
+    drift_path.touch(exist_ok=True)
 
     # Collect log files: main logs dir + sibling worktree logs dirs.
     consumer_root = logs_dir.parent
@@ -463,6 +638,8 @@ def main() -> int:
 
     existing_narrative_keys = load_existing_keys(narratives)
     existing_edge_keys = load_existing_edges(edges_path)
+    existing_drift_keys = load_existing_drift_keys(drift_path)
+    next_signal_id = next_drift_signal_id(drift_path)
 
     all_new_pairs: list[tuple[dict, dict]] = []
     per_file: dict[str, int] = {}
@@ -478,17 +655,22 @@ def main() -> int:
         per_file[report_key] = len(all_new_pairs) - before
 
     new_edges = derive_edges(all_new_pairs, calls_index, existing_edge_keys)
+    new_drift = derive_drift_rows(all_new_pairs, existing_drift_keys, next_signal_id)
 
-    if not all_new_pairs and not new_edges:
+    if not all_new_pairs and not new_edges and not new_drift:
         print(
-            f"no new apparatus events or edges to ingest "
+            f"no new apparatus events, edges, or drift signals to ingest "
             f"(existing apparatus_event keys: {len(existing_narrative_keys)}, "
-            f"edges: {len(existing_edge_keys)})"
+            f"edges: {len(existing_edge_keys)}, "
+            f"runtime drift signals: {len(existing_drift_keys)})"
         )
         return 0
 
     if args.dry_run:
-        print(f"DRY RUN — would append {len(all_new_pairs)} narratives, {len(new_edges)} edges")
+        print(
+            f"DRY RUN — would append {len(all_new_pairs)} narratives, "
+            f"{len(new_edges)} edges, {len(new_drift)} drift signals"
+        )
         for name, n in per_file.items():
             if n:
                 print(f"  narratives {name}: +{n}")
@@ -498,6 +680,11 @@ def main() -> int:
                 edge_summary[e["type"]] += 1
             for t, n in sorted(edge_summary.items()):
                 print(f"  edges {t}: +{n}")
+        for row in new_drift:
+            print(
+                f"  drift {row['signal_id']} skill={row['skill']} "
+                f"status_observed={row['status_observed']} ref={row['ref']}"
+            )
         return 0
 
     with narratives.open("a") as f:
@@ -506,10 +693,14 @@ def main() -> int:
     with edges_path.open("a") as f:
         for e in new_edges:
             f.write(json.dumps(e, separators=(",", ":")) + "\n")
+    with drift_path.open("a") as f:
+        for row in new_drift:
+            f.write(json.dumps(row, separators=(",", ":"), ensure_ascii=False) + "\n")
 
     print(
         f"appended {len(all_new_pairs)} apparatus events to {narratives}, "
-        f"{len(new_edges)} edges to {edges_path}"
+        f"{len(new_edges)} edges to {edges_path}, "
+        f"{len(new_drift)} drift signals to {drift_path}"
     )
     for name, n in per_file.items():
         if n:
@@ -520,6 +711,11 @@ def main() -> int:
             edge_summary[e["type"]] += 1
         for t, n in sorted(edge_summary.items()):
             print(f"  edges {t}: +{n}")
+    for row in new_drift:
+        print(
+            f"  drift {row['signal_id']} skill={row['skill']} "
+            f"status_observed={row['status_observed']} ref={row['ref']}"
+        )
     return 0
 
 
