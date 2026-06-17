@@ -115,25 +115,32 @@ const U = window.UI || (function () {
     panel: { open, close, isOpen: () => false } };
 })();
 const esc = U.esc;
-const D = window.BRAIN_SUMMARY || null;
-const M = window.BRAIN_MAP || null;
+let D = window.BRAIN_SUMMARY || null;  // static fallback; replaced by live /api/summary
+let M = window.BRAIN_MAP || null;      // static fallback; replaced by live /api/map
 const $ = id => document.getElementById(id);
-$("mapnote").hidden = !!M;
-
-const WIN_MIN = (D && D.window && D.window.min_days) || 1;
-const WIN_MAX = (D && D.window && D.window.max_days) || 7;
-const asof = ((D && D.window && D.window.newest_event) ||
-  (M && M.generated_at) || "").slice(0, 10);
-$("asof").textContent = asof;
-$("asof").title = "as of " + asof;
 $("apparatus").href = "http://" + (location.hostname || "localhost") + ":5173";
 
-/* ---------- window stepper (shared brain.windowDays key; ←/→ steps) ---------- */
-let windowDays = (D && D.window && D.window.default_days) || 7;
-try {
-  const s = parseInt(localStorage.getItem("brain.windowDays"), 10);
-  if (s >= WIN_MIN && s <= WIN_MAX) windowDays = s;
-} catch (_) {}
+/* ---------- window stepper (shared brain.windowDays key; ←/→ steps) ----------
+   Bounds + as-of derive from the active summary; safe defaults here (parse-time,
+   before data loads), refined by applyData()/initWindowState() once data arrives —
+   so a missing baked file can never crash the prelude. */
+let WIN_MIN = 1, WIN_MAX = 7, asof = "", windowDays = 7;
+function applyData() {
+  WIN_MIN = (D && D.window && D.window.min_days) || 1;
+  WIN_MAX = (D && D.window && D.window.max_days) || 7;
+  asof = ((D && D.window && D.window.newest_event) ||
+    (M && M.generated_at) || "").slice(0, 10);
+  $("asof").textContent = asof;
+  $("asof").title = "as of " + asof;
+  $("mapnote").hidden = !!M;
+}
+function initWindowState() {
+  windowDays = (D && D.window && D.window.default_days) || 7;
+  try {
+    const s = parseInt(localStorage.getItem("brain.windowDays"), 10);
+    if (s >= WIN_MIN && s <= WIN_MAX) windowDays = s;
+  } catch (_) {}
+}
 function renderStepper() {
   const st = $("stepper");
   st.innerHTML = "";
@@ -292,9 +299,50 @@ document.addEventListener("click", e => {
   if (b && inst) inst.egoMode(b.getAttribute("data-lineage"));
 });
 
-/* ---------- init ---------- */
-renderStepper();
-mountMap();
+/* ---------- live data: prefer GET /api/{summary,map}; baked files are fallback ----
+   The Map page is no longer static: both projections compute from the ledgers at
+   request time (deterministic; no LLM), so it cannot drift while served by the
+   brain server. The baked summary_data.js / map_data.js remain as offline /
+   server-down fallbacks. A ~30s poll keeps it in sync; the map is remounted only
+   when its content (or governance overlays) actually changes, so the user's
+   zoom/pan and ego-mode survive no-op polls. */
+function fetchLive(path, valid) {
+  if (location.protocol !== "http:" && location.protocol !== "https:")
+    return Promise.resolve(null);
+  return fetch(path, { cache: "no-store" })
+    .then(r => (r.ok ? r.json() : null))
+    .then(d => (d && valid(d) ? d : null))
+    .catch(() => null);
+}
+const fetchLiveSummary = () => fetchLive("api/summary", d => !!d.status_strip);
+const fetchLiveMap = () => fetchLive("api/map", d => Array.isArray(d.nodes));
+function mapSig() {
+  return JSON.stringify([
+    M && [M.nodes, M.edges, M.cards],
+    D && (D.skills || []).map(s => [s.name, s.governance && s.governance.state, s.runtime_safe]),
+    D && D.window,
+  ]);
+}
+let lastMapSig = "";
+
+(async function boot() {
+  const [liveD, liveM] = await Promise.all([fetchLiveSummary(), fetchLiveMap()]);
+  if (liveD) D = liveD;
+  if (liveM) M = liveM;
+  applyData();
+  initWindowState();
+  renderStepper();
+  lastMapSig = mapSig();
+  mountMap();
+  setInterval(async () => {
+    const [nextD, nextM] = await Promise.all([fetchLiveSummary(), fetchLiveMap()]);
+    if (nextD) D = nextD;
+    if (nextM) M = nextM;
+    if (nextD || nextM) { applyData(); renderStepper(); }
+    const sig = mapSig();
+    if (sig !== lastMapSig) { lastMapSig = sig; mountMap(); }  // remount only on real change
+  }, 30000);
+})();
 })();
 </script>
 </body>

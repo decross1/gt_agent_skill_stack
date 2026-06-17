@@ -175,6 +175,7 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
 "use strict";
 const U = window.UI;
 let D = window.BRAIN_SUMMARY || null;  // static fallback; replaced by live /api/summary
+let M = window.BRAIN_MAP || null;      // static fallback; replaced by live /api/map
 const $ = id => document.getElementById(id);
 const esc = U.esc;
 
@@ -404,11 +405,11 @@ function openInboxKind(kind) {
 
 /* ---------- embedded cluster map (BrainMap is B2's frozen interface) ---------- */
 function mountMap() {
-  const ok = typeof window.BrainMap !== "undefined" && window.BRAIN_MAP;
+  const ok = typeof window.BrainMap !== "undefined" && M;
   $("mapnote").hidden = !!ok;
   if (!ok) return;
   BrainMap.mount($("map"), {
-    summary: D, map: window.BRAIN_MAP,
+    summary: D, map: M,
     windowDays: windowDays, embedded: true,
     onSelect: openNode
   });
@@ -421,7 +422,7 @@ function openNode(node) {
   const name = node.label || String(node.id || "").replace(/^(skill|agent):/, "");
   if (node.type === "agent") return openAgent(name);
   if (node.type === "skill") return openSkill(name);
-  const card = window.BRAIN_MAP && BRAIN_MAP.cards && BRAIN_MAP.cards[node.id];
+  const card = M && M.cards && M.cards[node.id];
   if (card) U.panel.open(card.title || name,
     '<div class="ui-note">' + esc(card.one_line || "") + "</div>" +
     U.kv("date", esc(card.date || "")) + U.kv("source", esc(card.source || "")));
@@ -780,24 +781,41 @@ function paint() {
   paintFooter();
 }
 
-/* ---------- live data: prefer GET /api/summary, fall back to the baked file ----
-   The dashboard is no longer a static snapshot. It computes from the ledgers at
-   request time (deterministic; the server never calls the LLM for this), so it
-   cannot drift while served by the brain server. The baked summary_data.js is
-   kept only as an offline / server-down fallback. A ~30s poll keeps an open tab
-   current without a manual refresh; a failed poll keeps the current view. */
-function fetchLiveSummary() {
+/* ---------- live data: prefer GET /api/{summary,map}, fall back to baked files ----
+   The dashboard is no longer a static snapshot. Both the governance data and the
+   cluster map compute from the ledgers at request time (deterministic; the server
+   never calls the LLM), so nothing drifts while served by the brain server. The
+   baked summary_data.js / map_data.js are kept only as offline / server-down
+   fallbacks. A ~30s poll keeps an open tab current; a failed poll keeps the view.
+   The map is only remounted when its content changes (signature compare excluding
+   generated_at), so a user's zoom/pan survives polls that bring no map change. */
+function fetchLive(path, valid) {
   if (location.protocol !== "http:" && location.protocol !== "https:")
     return Promise.resolve(null);
-  return fetch("api/summary", { cache: "no-store" })
+  return fetch(path, { cache: "no-store" })
     .then(r => (r.ok ? r.json() : null))
-    .then(s => (s && s.status_strip ? s : null))
+    .then(d => (d && valid(d) ? d : null))
     .catch(() => null);
 }
+const fetchLiveSummary = () => fetchLive("api/summary", d => !!d.status_strip);
+const fetchLiveMap = () => fetchLive("api/map", d => Array.isArray(d.nodes));
+// Render signature sans generated_at: map nodes/edges/cards PLUS the governance
+// bits D contributes (halos: drift/firewall/heal/new) and the window. Steady-state
+// polls (no real change) don't remount the canvas, so zoom/pan survives; a genuine
+// data change does remount.
+function mapSig() {
+  return JSON.stringify([
+    M && [M.nodes, M.edges, M.cards],
+    D && (D.skills || []).map(s => [s.name, s.governance && s.governance.state, s.runtime_safe]),
+    D && D.window,
+  ]);
+}
+let lastMapSig = "";
 
 (async function boot() {
-  const live = await fetchLiveSummary();
-  if (live) D = live;
+  const [liveD, liveM] = await Promise.all([fetchLiveSummary(), fetchLiveMap()]);
+  if (liveD) D = liveD;
+  if (liveM) M = liveM;
   if (!D) {
     document.querySelector("main").innerHTML =
       '<div class="empty mono">no summary available — start the brain server ' +
@@ -807,10 +825,14 @@ function fetchLiveSummary() {
   initWindowState();
   paint();
   probeReviewUi();
+  lastMapSig = mapSig();
   mountMap();
   setInterval(async () => {
-    const next = await fetchLiveSummary();
-    if (next) { D = next; paint(); }
+    const [nextD, nextM] = await Promise.all([fetchLiveSummary(), fetchLiveMap()]);
+    if (nextD) { D = nextD; paint(); }
+    if (nextM) M = nextM;
+    const sig = mapSig();
+    if (sig !== lastMapSig) { lastMapSig = sig; mountMap(); }  // remount only on real change
   }, 30000);
 })();
 })();

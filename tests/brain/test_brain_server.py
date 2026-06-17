@@ -128,10 +128,12 @@ def brain(tmp_path, monkeypatch):
     # scheduler so route tests neither spawn threads nor exec projector
     # subprocesses. refresh_projection itself is exercised directly below.
     monkeypatch.setattr(bs, "_schedule_refresh", lambda: None)
-    # Start each test with an empty live-summary cache so a stubbed build_summary
-    # is actually invoked (the TTL cache would otherwise serve a prior test's data).
+    # Start each test with empty live caches so a stubbed build_summary/build_map is
+    # actually invoked (the TTL cache would otherwise serve a prior test's data).
     bs._summary_cache["data"] = None
     bs._summary_cache["mono"] = 0.0
+    bs._map_cache["data"] = None
+    bs._map_cache["mono"] = 0.0
 
     class Brain:
         def __init__(self):
@@ -560,6 +562,36 @@ def test_current_summary_rebuilds_after_ttl(brain, monkeypatch):
     clock["t"] += bs._SUMMARY_TTL_S + 1  # past the TTL
     bs.current_summary()                 # build #2
     assert n["c"] == 2
+
+
+# ---------------------------------------------------------------------------
+# GET /api/map — live cluster-map data (computed, not baked)
+# ---------------------------------------------------------------------------
+
+def test_map_route_returns_live_built_map(brain, monkeypatch):
+    """GET /api/map returns the freshly built map (computed in-process via
+    project_map.build_map) so the cluster map reads live data, not map_data.js."""
+    monkeypatch.setattr(bs.pm, "build_map",
+                        lambda: {"generated_at": "x", "nodes": [{"id": "skill:validate"}],
+                                 "edges": [], "cards": {}})
+    code, obj = _get("/api/map")
+    assert code == 200
+    assert isinstance(obj["nodes"], list) and obj["nodes"][0]["id"] == "skill:validate"
+
+
+def test_current_map_caches_within_ttl(brain, monkeypatch):
+    """Two rapid calls share ONE build_map (TTL coalescing), same object by ref."""
+    n = {"c": 0}
+
+    def fake_build():
+        n["c"] += 1
+        return {"nodes": [], "edges": [], "cards": {}, "n": n["c"]}
+
+    monkeypatch.setattr(bs.pm, "build_map", fake_build)
+    a = bs.current_map()
+    b = bs.current_map()
+    assert n["c"] == 1
+    assert a is b
 
 
 def test_verdict_route_accept_original_returns_handoff_path(brain):

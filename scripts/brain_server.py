@@ -56,12 +56,14 @@ _CARD_LOCK = threading.Lock()
 # cannot tear summary.json / map_data.js with interleaved writes.
 _REGEN_LOCK = threading.Lock()
 
-# In-process cache for the live dashboard summary (GET /api/summary). A short TTL
-# coalesces bursts (rapid reloads, many tabs polling every ~30s) into one build
+# In-process caches for the live projections (GET /api/summary, /api/map). A short
+# TTL coalesces bursts (rapid reloads, many tabs polling every ~30s) into one build
 # while keeping staleness far under the poll interval.
 _SUMMARY_TTL_S = 3.0
 _SUMMARY_LOCK = threading.Lock()
 _summary_cache = {"mono": 0.0, "data": None}
+_MAP_LOCK = threading.Lock()
+_map_cache = {"mono": 0.0, "data": None}
 
 
 class GemmaError(RuntimeError):
@@ -69,9 +71,12 @@ class GemmaError(RuntimeError):
     returns an unusable response. Carries a client-safe message only — the raw
     exception detail (URLs, stack) is logged server-side, never surfaced."""
 
-# project_summary supplies the framework/research scope classifier
+# project_summary supplies the framework/research scope classifier + live summary;
+# project_map supplies the live cluster-map projection. Both read the ledgers
+# directly and are deterministic (no LLM) — safe to compute per request.
 sys.path.insert(0, str(ROOT / "scripts"))
 import project_summary as ps  # noqa: E402
+import project_map as pm  # noqa: E402
 
 
 def _now() -> str:
@@ -441,6 +446,21 @@ def current_summary() -> dict:
         return data
 
 
+def current_map() -> dict:
+    """Compute the cluster-map projection on demand — the live counterpart of the
+    baked map_data.js (window.BRAIN_MAP). Same deterministic projector the regen
+    uses (project_map.build_map); never calls the LLM. TTL-cached like
+    current_summary so a poll fleet collapses to one build."""
+    with _MAP_LOCK:
+        now = time.monotonic()
+        c = _map_cache
+        if c["data"] is not None and (now - c["mono"]) < _SUMMARY_TTL_S:
+            return c["data"]
+        data = pm.build_map()
+        c["data"], c["mono"] = data, now
+        return data
+
+
 # ---------------------------------------------------------------------------
 # HTTP
 # ---------------------------------------------------------------------------
@@ -491,6 +511,9 @@ class Handler(SimpleHTTPRequestHandler):
             if self.path == "/api/summary":
                 # Live dashboard data — computed from the ledgers now, not baked.
                 return self._send(200, current_summary())
+            if self.path == "/api/map":
+                # Live cluster-map data — computed from the ledgers now, not baked.
+                return self._send(200, current_map())
             if self.path == "/api/proposals":
                 return self._send(200, {"proposals": open_framework_proposals()})
             pid = self._pid_from(parts)  # validated against ^P-\d+$ before any fs/argv use
