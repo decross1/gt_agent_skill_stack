@@ -145,3 +145,86 @@ def test_build_drafts_skips_already_covered_skill(bubble_env):
     assert {d["target"] for d in new_drafts} == {"validate"}
     # And next id continues past the existing P-050.
     assert new_drafts[0]["proposal_id"] == "P-051"
+
+
+# ---------------------------------------------------------------------------
+# resolved-finding guard (source 1) — a finding whose remedy already shipped
+# (proposes a 'new skill' that now exists) is reported as resolved, not bubbled
+# ---------------------------------------------------------------------------
+
+def test_harvest_skips_finding_whose_remedy_shipped(bubble_env):
+    _tmp, drift, feedback, _proposals = bubble_env
+    _write_jsonl(drift, [])  # silence the drift source; isolate source 1
+    _write_jsonl(feedback, [
+        # proposes creating gate-check, which EXISTS -> resolved, not bubbled
+        {"harvest_id": "H002", "class": "gap", "skill": "run-log",
+         "ref": "x:L1", "evidence": "needs a verdict capture",
+         "plan_candidate": "new skill 'gate-check' to halt at gates"},
+        # proposes creating a skill that does NOT exist -> bubbles
+        {"harvest_id": "H003", "class": "gap", "skill": "fallback",
+         "ref": "y:L2", "evidence": "no parallel-track protocol",
+         "plan_candidate": "new skill `parallel-worktree` for tracks"},
+    ])
+    cands, resolved = dp.harvest_signals(FRAMEWORK_SKILLS, covered_skills=set())
+
+    assert {c["target"] for c in cands} == {"fallback"}
+    assert len(resolved) == 1
+    assert resolved[0]["target"] == "run-log"
+    assert "gate-check" in resolved[0]["reason"]
+
+
+def test_resolved_finding_named_only_when_actually_proposing_new_skill(bubble_env):
+    """The guard must NOT fire on a finding that merely MENTIONS an existing skill
+    without proposing to create it (no 'new skill' phrasing)."""
+    _tmp, drift, feedback, _proposals = bubble_env
+    _write_jsonl(drift, [])
+    _write_jsonl(feedback, [
+        {"harvest_id": "H004", "class": "friction", "skill": "fallback",
+         "ref": "z:L3", "evidence": "fallback should run gate-check before switching",
+         "plan_candidate": "note that a fallback may itself be a gated action"},
+    ])
+    cands, resolved = dp.harvest_signals(FRAMEWORK_SKILLS, covered_skills=set())
+    # Mentions gate-check but does not propose a NEW skill -> bubbles, not resolved.
+    assert {c["target"] for c in cands} == {"fallback"}
+    assert resolved == []
+
+
+def test_build_drafts_reports_resolved_in_skipped(bubble_env):
+    _tmp, drift, feedback, _proposals = bubble_env
+    _write_jsonl(drift, [])
+    _write_jsonl(feedback, [
+        {"harvest_id": "H002", "class": "gap", "skill": "run-log",
+         "ref": "x:L1", "evidence": "e",
+         "plan_candidate": "new skill 'gate-check'"},
+    ])
+    new_drafts, skipped = dp.build_drafts()
+    assert new_drafts == []
+    assert len(skipped) == 1
+    assert skipped[0]["reason"].startswith("resolved")
+    assert skipped[0]["target"] == "run-log"
+
+
+def test_harvest_skips_finding_superseded_by_later_confirmation(bubble_env):
+    """A friction finding on a skill that a LATER harvest confirmed clean is
+    superseded (not bubbled); a finding NEWER than the last confirmation bubbles."""
+    _tmp, drift, feedback, _proposals = bubble_env
+    _write_jsonl(drift, [])
+    _write_jsonl(feedback, [
+        # old friction on gate-check (H001) ...
+        {"harvest_id": "H001", "class": "friction", "skill": "gate-check",
+         "ref": "a:L1", "evidence": "early friction", "plan_candidate": "tighten"},
+        # ... later confirmed clean (H005) -> the H001 friction is superseded.
+        {"harvest_id": "H005", "class": "confirmed", "skill": "gate-check",
+         "ref": "b:L2", "evidence": "gate-check held"},
+        # validate confirmed at H003 ...
+        {"harvest_id": "H003", "class": "confirmed", "skill": "validate",
+         "ref": "c:L3", "evidence": "validate held"},
+        # ... but a NEWER friction at H008 must still bubble.
+        {"harvest_id": "H008", "class": "friction", "skill": "validate",
+         "ref": "d:L4", "evidence": "new validate friction", "plan_candidate": "x"},
+    ])
+    cands, resolved = dp.harvest_signals(FRAMEWORK_SKILLS, covered_skills=set())
+    assert {c["target"] for c in cands} == {"validate"}     # newer finding bubbles
+    assert len(resolved) == 1
+    assert resolved[0]["target"] == "gate-check"
+    assert "superseded" in resolved[0]["reason"]

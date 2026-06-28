@@ -5,7 +5,10 @@ These exercise build_signals() as a pure file->file pass (no LLM, no network):
   - a framework run-log row with a non-enum status -> runlog_schema signal on the
     [[run-log]] skill
   - a framework run-log row with skill_used on a real framework skill AND a
-    failure-ish status -> runlog_failure signal on that skill
+    failure-ish status -> NO signal: runlog_failure was RETIRED 2026-06-28
+    (Option 3). A run-log *outcome* is not drift evidence — a verdict-rendering
+    skill's honest FAIL is the skill working, not drifting. Drift now comes only
+    from FR-003 schema violations + the apparatus's deliberate self-reports.
   - idempotency: feeding the new signals back in yields 0 new on a re-run
   - firewall/safety: the REAL memory/brain/drift_signals.jsonl is never touched
 
@@ -77,7 +80,8 @@ SCHEMA_ROW = {
     "timestamp": "2026-06-01T00:00:00Z", "task_id": "t-schema",
     "status": "recovered",
 }
-# A framework-skill failure row (-> runlog_failure, skill="validate").
+# A framework-skill failure row. RETIRED Option 3: this must NOT produce a signal
+# — validate honestly returning 'failed' is the skill working, not drift.
 FAILURE_ROW = {
     "timestamp": "2026-06-01T00:01:00Z", "task_id": "t-fail",
     "skill_used": "validate", "status": "failed",
@@ -85,16 +89,18 @@ FAILURE_ROW = {
 
 
 # ---------------------------------------------------------------------------
-# build_signals — the two deterministic detectors fire on a tmp run log
+# build_signals — only the schema detector fires; run-log outcomes are ignored
 # ---------------------------------------------------------------------------
 
-def test_build_signals_emits_schema_and_failure_signals(drift):
+def test_build_signals_emits_schema_signal_only(drift):
+    """A schema-violating row bubbles; a verdict skill's honest FAIL does not."""
     drift.write_run(SCHEMA_ROW, FAILURE_ROW)
     new, skipped = sd.build_signals()
 
     assert skipped == []
+    # Only the schema detector fires; runlog_failure is retired.
     by_detector = {s["detector"]: s for s in new}
-    assert set(by_detector) == {"runlog_schema", "runlog_failure"}
+    assert set(by_detector) == {"runlog_schema"}
 
     schema = by_detector["runlog_schema"]
     assert schema["skill"] == "run-log"
@@ -103,50 +109,47 @@ def test_build_signals_emits_schema_and_failure_signals(drift):
     assert schema["source"] == "scan"
     assert schema["scope"] == "framework"
     assert schema["ref"].startswith("framework.run.jsonl:L")
-
-    failure = by_detector["runlog_failure"]
-    assert failure["skill"] == "validate"
-    assert failure["status_observed"] == "failed"
-    assert failure["severity"] == "low"         # 'failed' is not aborted/escalated
-    assert failure["source"] == "scan"
-    assert failure["scope"] == "framework"
-
-    # ids are sequential, zero-padded DS-NNNN, unique.
-    ids = sorted(s["signal_id"] for s in new)
-    assert ids == ["DS-0001", "DS-0002"]
+    assert schema["signal_id"] == "DS-0001"
 
 
-def test_build_signals_high_severity_on_aborted_failure(drift):
-    """A failure-ish status in {aborted, escalated} escalates to high severity."""
-    drift.write_run({"timestamp": "2026-06-01T00:02:00Z", "task_id": "t-abort",
-                     "skill_used": "validate", "status": "aborted"})
-    new, _ = sd.build_signals()
-    assert len(new) == 1
-    assert new[0]["detector"] == "runlog_failure"
-    assert new[0]["severity"] == "high"
+def test_build_signals_ignores_runlog_outcomes(drift):
+    """Option 3: a run-log OUTCOME is never drift — not 'failed', not even
+    'aborted'/'escalated'. The retired runlog_failure heuristic must stay dark."""
+    drift.write_run(
+        {"timestamp": "2026-06-01T00:01:00Z", "task_id": "t-fail",
+         "skill_used": "validate", "status": "failed"},
+        {"timestamp": "2026-06-01T00:02:00Z", "task_id": "t-abort",
+         "skill_used": "validate", "status": "aborted"},
+        {"timestamp": "2026-06-01T00:03:00Z", "task_id": "t-escal",
+         "skill_used": "run-log", "status": "escalated"},
+    )
+    new, skipped = sd.build_signals()
+    # All three rows carry valid FR-003 statuses, so runlog_schema is silent too.
+    assert new == []
+    assert skipped == []
 
 
 # ---------------------------------------------------------------------------
-# idempotency — appending the emitted signals, then re-running, yields 0 new
+# idempotency — appending the emitted signal, then re-running, yields 0 new
 # ---------------------------------------------------------------------------
 
 def test_build_signals_is_idempotent_after_append(drift):
     drift.write_run(SCHEMA_ROW, FAILURE_ROW)
     first, _ = sd.build_signals()
-    assert len(first) == 2
+    assert len(first) == 1                       # schema only
 
     # Simulate --apply: append exactly what was minted to the tmp ledger.
     sd.append_signals(first)
-    assert len(drift.signal_rows()) == 2
+    assert len(drift.signal_rows()) == 1
 
     # A second pass over the unchanged run log mints nothing new and explains the
     # no-op via the skipped list (keyed on (detector, ref)).
     second, skipped = sd.build_signals()
     assert second == []
-    assert len(skipped) == 2
+    assert len(skipped) == 1
     assert all(s["reason"] == "already detected" for s in skipped)
     # Nothing else got appended.
-    assert len(drift.signal_rows()) == 2
+    assert len(drift.signal_rows()) == 1
 
 
 # ---------------------------------------------------------------------------
@@ -163,5 +166,5 @@ def test_real_drift_signals_ledger_untouched(drift):
     after = (REAL_DRIFT_SIGNALS.read_text()
              if REAL_DRIFT_SIGNALS.exists() else None)
     assert after == before  # real ledger byte-identical (incl. still-absent)
-    # And the writes landed in the tmp ledger.
-    assert len(drift.signal_rows()) == 2
+    # And the write landed in the tmp ledger.
+    assert len(drift.signal_rows()) == 1

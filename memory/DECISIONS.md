@@ -552,3 +552,48 @@ and the run log remain append-only).
 
 **Supersedes:** none — extends the 2026-06-13 housekeeping correction (FR-004) and
 the 2026-05-24 run-log-canonical correction (FR-002).
+
+## 2026-06-28 — Self-healing drift semantics: a run-log outcome is never drift (Option 3)
+
+**Correction:** Machine drift detection treats drift as coming from TWO trustworthy
+sources only — the apparatus *deliberately self-reporting* misuse/friction/gap
+(source="runtime") and FR-003 *schema violations* in the framework's own run log.
+A run-log *outcome* is NEVER inferred as skill drift. A verdict-rendering skill
+honestly returning 'failed' (validate refusing to coerce a near-miss; gate-check
+halting; repro-check failing a check; code-review rejecting a diff) — or any skill
+recording aborted/escalated — is usually the skill WORKING, not malfunctioning, so
+inferring drift from a step's status produces only false positives.
+
+**Also:** the bubbler (`draft_proposals.py`) never files a draft whose remedy has
+already shipped — it skips a finding that proposes a *new skill that now exists*
+(e.g. decision-log, slip-ladder) and a finding that a *later harvest confirmed
+clean* on the same skill (the conformance / 2-clean-harvests evidence supersedes the
+older friction/gap). Both guards are permanent-safe: a finding with no later
+confirmation, or one newer than the last confirmation, still bubbles.
+
+**Why:** priming the loop on 2026-06-28 showed the original `runlog_failure` detector
+would have emitted its first-ever signals AGAINST validate for doing its job (honest
+FAIL verdicts on `lit_battery_post_t1_final` / `d050-decision-run` read as drift). A
+self-healing loop that misreads healthy discipline as drift is worse than no loop.
+Option 3 makes every signal the loop emits trustworthy from day one — the condition
+for turning `BRAIN_AUTODRIFT` on by default.
+
+**Result:** `scan_drift.runlog_failure` is RETIRED (defined-but-uncalled seam);
+`drift_signals.jsonl` is honestly empty (no schema violations, no self-reports yet);
+8 open-backlog findings bubbled as DRAFT candidates (ship, resume-state, orchestrate,
+experiment, repro-check, fallback); 10 skipped (8 superseded, 2 already-shipped), all
+reported, not silent. `BRAIN_AUTODRIFT` now defaults on (set `=0` to disable).
+
+**Alternatives considered:**
+(a) Option 1 — exclude failed/partial_pass only for the four verdict skills
+    (rejected: leaves the outcome heuristic noisy for ship/fallback/etc.).
+(b) Option 2 — flag only aborted/escalated/halted (non-completion) for all skills
+    (rejected: a non-completion is usually the skill correctly halting/aborting —
+    still a low-signal proxy that would re-introduce false positives).
+(c) Option 3 — trust deliberate self-reports + schema violations only (chosen).
+
+**Reversibility:** high — re-enable `runlog_failure` in `scan_drift.build_signals()`;
+drop the two bubbler guards; set the `BRAIN_AUTODRIFT` default back to off. No ledger
+or schema change; the 8 drafts are status=draft and discardable via review.
+
+**Supersedes:** none — implements the 2026-06-28 north-star pivot (Phase 7 / S26).

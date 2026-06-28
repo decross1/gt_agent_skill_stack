@@ -98,6 +98,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -243,12 +244,71 @@ def _trim(s: str, n: int) -> str:
     return s if len(s) <= n else s[: n - 1] + "…"
 
 
+# A skill name quoted in backticks/quotes or written as a [[wikilink]].
+_NAMED_SKILL_RE = re.compile(
+    r"[`'\"]([a-z][a-z0-9-]{2,})[`'\"]|\[\[([a-z][a-z0-9-]{2,})\]\]")
+
+
+def _harvest_num(hid) -> int | None:
+    """Numeric part of a harvest id, e.g. 'H008' -> 8. None when unparseable."""
+    m = re.match(r"H0*(\d+)", str(hid or "").strip())
+    return int(m.group(1)) if m else None
+
+
+def last_confirmed_harvest(skills: set[str]) -> dict[str, int]:
+    """{skill: highest harvest number that carried a 'confirmed' finding on it}.
+
+    Used to suppress superseded findings: a 'confirmed' finding at a LATER harvest
+    is the framework's own evidence (the conformance / 2-clean-harvests rule) that
+    the skill is sound again, so an EARLIER friction/gap finding on it is resolved
+    and should not bubble. Permanent-safe: a finding with no later confirmation —
+    including a NEW finding after the last confirmation — still bubbles."""
+    out: dict[str, int] = {}
+    for f in jsonl(FEEDBACK):
+        if (f.get("class") or "").strip() != "confirmed":
+            continue
+        skill = (f.get("skill") or "").strip()
+        if skill not in skills:
+            continue
+        hn = _harvest_num(f.get("harvest_id"))
+        if hn is not None:
+            out[skill] = max(out.get(skill, 0), hn)
+    return out
+
+
+def proposes_existing_skill(text: str, skills: set[str]) -> str | None:
+    """If `text` proposes creating a NEW skill that already exists, return that
+    skill's name; else None — the resolved-finding guard.
+
+    A finding whose remedy already shipped is stale and must not be re-bubbled
+    (e.g. an H002 "new skill 'decision-log'" gap once decision-log exists, or the
+    slip-ladder gap once slip-ladder exists). Conservative by design: it fires
+    only when the text *explicitly proposes a new skill* ("new skill" / "new skill
+    or …-section") AND names — in quotes, backticks, or a [[wikilink]] — a string
+    that is an actual existing skill. Matching real skill names (not arbitrary
+    words) keeps it from suppressing live findings on skills that simply exist."""
+    if "new skill" not in text.lower():
+        return None
+    for a, b in _NAMED_SKILL_RE.findall(text):
+        name = a or b
+        if name in skills:
+            return name
+    return None
+
+
 def harvest_signals(skills: set[str],
-                    covered_skills: set[str]) -> list[dict]:
+                    covered_skills: set[str]) -> tuple[list[dict], list[dict]]:
     """Source 1 — one candidate per (skill, harvest_id, ref) drift finding on a
-    framework skill not already covered by an existing proposal."""
+    framework skill not already covered by an existing proposal.
+
+    Returns (candidates, resolved). `resolved` carries findings skipped because
+    their remedy already shipped (they propose a 'new skill' that now exists);
+    each is {target, source_ref, reason} so the bubbler reports them rather than
+    dropping them silently."""
     out: list[dict] = []
+    resolved: list[dict] = []
     seen: set[tuple[str, str]] = set()
+    confirmed_after = last_confirmed_harvest(skills)
     for f in jsonl(FEEDBACK):
         cls = (f.get("class") or "").strip()
         skill = (f.get("skill") or "").strip()
@@ -265,6 +325,26 @@ def harvest_signals(skills: set[str],
         seen.add(key)
         evidence = (f.get("evidence") or "").strip()
         plan = (f.get("plan_candidate") or "").strip()
+        # Resolved-finding guard #1: skip a finding whose proposed remedy (a new
+        # skill) already exists. Precise — checks actual skill existence — and
+        # does NOT suppress future real findings on existing skills.
+        shipped = proposes_existing_skill(f"{plan} {evidence}", skills)
+        if shipped:
+            resolved.append({"target": skill, "source_ref": source_ref,
+                             "reason": f"resolved (skill '{shipped}' exists)"})
+            continue
+        # Resolved-finding guard #2: skip a finding superseded by a LATER
+        # 'confirmed' harvest on the same skill (the skill was re-confirmed sound
+        # after this finding). Permanent-safe: a finding with no later
+        # confirmation, or one newer than the last confirmation, still bubbles.
+        fin_num = _harvest_num(hid)
+        last_conf = confirmed_after.get(skill)
+        if fin_num is not None and last_conf is not None and last_conf > fin_num:
+            resolved.append({
+                "target": skill, "source_ref": source_ref,
+                "reason": (f"superseded (skill confirmed clean at H{last_conf:03d} "
+                           f"> finding H{fin_num:03d})")})
+            continue
         title = f"[{cls}] {skill}: {_trim(plan or evidence, 90)}"
         change = (plan or f"Address the {cls} signal on [[{skill}]]: {evidence}")
         reasoning = (
@@ -280,7 +360,7 @@ def harvest_signals(skills: set[str],
             "reasoning": reasoning,
             "source_ref": source_ref,
         })
-    return out
+    return out, resolved
 
 
 def signal_candidates(skills: set[str],
@@ -398,11 +478,11 @@ def build_drafts() -> tuple[list[dict], list[dict]]:
     # owns run-log/schema detection and its findings arrive via the
     # drift_signals.jsonl ledger that signal_candidates() reads. Calling both
     # would double-bubble the same run-log rows.
-    candidates = (harvest_signals(skills, covered_skills)
-                  + signal_candidates(skills, covered_skills))
+    harvest_cands, resolved = harvest_signals(skills, covered_skills)
+    candidates = harvest_cands + signal_candidates(skills, covered_skills)
 
     new_drafts: list[dict] = []
-    skipped: list[dict] = []
+    skipped: list[dict] = list(resolved)  # resolved-finding skips, reported not silent
     minted_keys: set[tuple[str, str]] = set()
     ts = _now()
     n = max_num
@@ -464,13 +544,22 @@ def main() -> int:
     print("draft_proposals — bubble drift signals into DRAFT proposals")
     print(f"  proposals file: {PROPOSALS}")
     print(f"  candidates: {len(new_drafts) + len(skipped)}  "
-          f"new: {len(new_drafts)}  already-drafted (skipped): {len(skipped)}")
+          f"new: {len(new_drafts)}  skipped: {len(skipped)}")
     for d in new_drafts:
         print(f"  + {d['proposal_id']}  skill:{d['target']}  "
               f"<- {d['references'][0]}")
         print(f"      {d['title']}")
     if not new_drafts:
         print("  (no new signals to bubble)")
+    # Surface guard skips (resolved-finding + superseded) rather than hiding them
+    # — a silent drop would read as "nothing to bubble" when it isn't.
+    guard_skips = [s for s in skipped
+                   if str(s.get("reason", "")).startswith(("resolved", "superseded"))]
+    if guard_skips:
+        print(f"  not bubbled — remedy already shipped or superseded by a later "
+              f"confirmation: {len(guard_skips)}")
+        for s in guard_skips:
+            print(f"    · skill:{s['target']}  {s['reason']}  <- {s['source_ref']}")
 
     if apply:
         if new_drafts:

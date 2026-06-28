@@ -121,16 +121,20 @@ def run_pipeline(verbose: bool = False) -> bool:
     steps = [
         ([sys.executable, str(INGEST)], "ingest"),
     ]
-    # Guarded auto-drift wiring. scan_drift + bubble APPEND to framework ledgers
-    # (memory/brain/drift_signals.jsonl / proposals.jsonl), so they are opt-in
-    # (BRAIN_AUTODRIFT=1) to avoid surprise writes; with the flag unset the
-    # pipeline behaves exactly as before. The re-snapshot after each pipeline run
-    # (daemon_loop, ~L180) absorbs these writes so they don't retrigger, and
-    # these ledgers live under memory/brain/ which is NOT in WATCH_DIRS — so
-    # there is no feedback loop regardless. Runs right after ingest (drift is
-    # detected from the freshly-ingested trace) and before the projection steps.
-    if os.environ.get("BRAIN_AUTODRIFT") == "1":
-        _log("BRAIN_AUTODRIFT=1 — scan_drift + bubble enabled (appends to drift_signals.jsonl / proposals.jsonl)")
+    # Auto-drift wiring — the self-healing loop's live lane. scan_drift + bubble
+    # APPEND to framework ledgers (memory/brain/drift_signals.jsonl /
+    # proposals.jsonl). As of 2026-06-28 (north star: audit & heal own discipline)
+    # this is ON BY DEFAULT: under Option 3, detection is low-noise and
+    # trustworthy — drift = FR-003 schema violations + the apparatus's deliberate
+    # self-reports only (a run-log OUTCOME is never inferred as drift), and the
+    # bubbler skips findings whose remedy already shipped or that a later harvest
+    # confirmed clean. Set BRAIN_AUTODRIFT=0 to disable. The re-snapshot after each
+    # pipeline run (daemon_loop, ~L180) absorbs these writes so they don't
+    # retrigger, and these ledgers live under memory/brain/ which is NOT in
+    # WATCH_DIRS — so there is no feedback loop regardless. Runs right after ingest
+    # (drift is detected from the freshly-ingested trace) and before projection.
+    if os.environ.get("BRAIN_AUTODRIFT", "1") != "0":
+        _log("BRAIN_AUTODRIFT on — scan_drift + bubble enabled (set BRAIN_AUTODRIFT=0 to disable)")
         steps.append(([sys.executable, str(SCAN_DRIFT), "--apply"], "scan_drift"))
         steps.append(([sys.executable, str(DRAFT_PROPOSALS), "--apply"], "bubble"))
     steps += [

@@ -21,7 +21,7 @@ For each NEW signal it appends one JSON object to memory/brain/drift_signals.jso
 (SHARED schema — see ingest_apparatus.py for the source="runtime" rows):
 
     {"timestamp", "signal_id":"DS-0001", "source":"scan",
-     "detector":"runlog_failure"|"runlog_schema",
+     "detector":"runlog_schema",
      "skill", "status_observed", "ref":"<label>:L<n>",
      "severity":"low"|"high", "evidence", "scope":"framework"}
 
@@ -30,13 +30,18 @@ highest DS integer already in the ledger.
 
 DETECTORS (deterministic, no judgment)
 --------------------------------------
-- runlog_failure: scans BOTH the framework run log (FW_RUN) AND, read-only and
-  only if reachable (brain firewall, BOUNDARY.md), the consumer's run log at
-  resolve_consumer()/run_state/week1.run.jsonl. A row whose `skill_used` is a
-  real framework skill AND whose `status` is failure-ish
-  (FAILURE_STATUSES = {failed, aborted, escalated}) yields a signal:
-  skill=skill_used, severity=high when status in {aborted, escalated} else low,
-  ref="<label>:L<n>", evidence names the task + status.
+- runlog_failure: RETIRED 2026-06-28 (north-star Option 3, DECISIONS 2026-06-28).
+  A run-log *outcome* is not drift evidence. A verdict-rendering skill recording
+  'failed' (validate refusing to coerce a near-miss; gate-check halting at a gate;
+  repro-check failing a check; code-review rejecting a diff) — or any skill
+  recording aborted/escalated — is usually the skill WORKING, not malfunctioning.
+  Inferring skill drift from a step's outcome produced only false positives
+  (validate's honest FAIL verdicts on `lit_battery_post_t1_final` / `d050-decision-run`
+  read as drift). Drift now comes from TWO trustworthy sources only: the apparatus
+  *deliberately self-reporting* misuse/friction/gap (source="runtime", projected by
+  ingest_apparatus.py) and FR-003 *schema violations* (runlog_schema, below). The
+  function is left defined-but-uncalled as the seam — mirrors draft_proposals'
+  retired runlog_signals().
 
 - runlog_schema: scans ONLY the framework run log (FW_RUN). This is the
   low-noise scoping choice: the consumer apparatus may legitimately use an
@@ -122,7 +127,11 @@ HIGH_FAILURE_STATUSES = {"aborted", "escalated"}
 # ---------------------------------------------------------------------------
 
 def runlog_failure(skills: set[str], consumer: Path | None) -> list[dict]:
-    """One candidate per run-log row with skill_used on a framework skill AND a
+    """RETIRED 2026-06-28 (Option 3) — NOT called by build_signals(). A run-log
+    outcome is not drift evidence: a verdict-rendering skill's honest FAIL is the
+    skill working, not drifting, and inferring drift from a step's status produced
+    only false positives. Left defined-but-uncalled as the seam. Original behavior:
+    one candidate per run-log row with skill_used on a framework skill AND a
     failure-ish status, across the framework run log and (read-only) the
     consumer's run log if reachable."""
     out: list[dict] = []
@@ -222,11 +231,13 @@ def build_signals() -> tuple[list[dict], list[dict]]:
     """Returns (new_signals, skipped) — skipped carries {detector, ref, reason}
     so the summary can explain idempotency no-ops."""
     skills = framework_skills()
-    consumer = resolve_consumer()
     keys, max_num = existing_signals()
 
-    candidates = (runlog_failure(skills, consumer)
-                  + runlog_schema(skills)
+    # runlog_failure RETIRED (Option 3, 2026-06-28): a run-log outcome is not
+    # drift evidence. Drift = FR-003 schema violations (runlog_schema) + the
+    # apparatus's deliberate self-reports (projected into drift_signals.jsonl by
+    # ingest_apparatus.py with source="runtime"; runtime_selfreport stays a stub).
+    candidates = (runlog_schema(skills)
                   + runtime_selfreport(skills))
 
     new_signals: list[dict] = []
