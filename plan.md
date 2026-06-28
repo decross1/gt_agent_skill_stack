@@ -395,6 +395,19 @@ first real signal:
   scripts, and the honest-loop dashboard reports an empty-but-truthful candidates
   lane rather than a noisy one.
 
+**Audit (2026-06-28).** Lit via Option 3, primed, then independently audited — the
+audit found, and this fixed, two things: (1) a supersession over-suppression bug
+that dropped two still-open findings (fallback H002, repro-check H003) on a false
+"confirmed clean" basis — a harvest now counts as *clean* for a skill only if it
+confirms it AND carries no open finding on it; and (2) an over-claim — the **drift**
+lane is trustworthy from day one (Option 3, emits 0), but the harvest-**backlog**
+candidates are a human-triage list, not a guaranteed-all-open set. The bubbler's
+resolved-finding guards are *proposes-an-existing-skill* + *clean-harvest
+supersession*; rule-coverage and session-hardening are deliberately not automated
+(too fragile — they risk dropping real findings), so a few already-addressed
+findings (ship, resume-state) bubble for a human to discard. See DECISIONS 2026-06-28
+(FR-008 drift-semantics, FR-009 audit corrections).
+
 ---
 
 ## Backlog (re-sorted every session from `feedback.jsonl`)

@@ -228,3 +228,42 @@ def test_harvest_skips_finding_superseded_by_later_confirmation(bubble_env):
     assert len(resolved) == 1
     assert resolved[0]["target"] == "gate-check"
     assert "superseded" in resolved[0]["reason"]
+
+
+def test_supersession_requires_a_clean_harvest_not_just_a_confirmation(bubble_env):
+    """Regression (audit MAJOR-1): a harvest that BOTH confirms and re-opens a
+    skill is NOT clean — the skill's still-open findings must keep bubbling. The
+    guard must not treat 'a confirmation exists at H_n' as 'clean at H_n'."""
+    _tmp, drift, feedback, _proposals = bubble_env
+    _write_jsonl(drift, [])
+    _write_jsonl(feedback, [
+        # fallback: open at H002, and at H008 BOTH confirmed AND re-opened.
+        {"harvest_id": "H002", "class": "friction", "skill": "fallback",
+         "ref": "a:L1", "evidence": "old fallback friction", "plan_candidate": "x"},
+        {"harvest_id": "H008", "class": "confirmed", "skill": "fallback",
+         "ref": "b:L2", "evidence": "fallback held in one case"},
+        {"harvest_id": "H008", "class": "gap", "skill": "fallback",
+         "ref": "c:L3", "evidence": "fallback still lacks batch carryover",
+         "plan_candidate": "y"},
+    ])
+    cands, resolved = dp.harvest_signals(FRAMEWORK_SKILLS, covered_skills=set())
+    # H008 re-opened fallback, so it is NOT a clean watermark -> nothing superseded.
+    assert {c["target"] for c in cands} == {"fallback"}
+    assert len(cands) == 2
+    assert resolved == []
+
+
+def test_resolved_guard_takes_first_named_token_after_new_skill(bubble_env):
+    """A finding proposing a genuinely-new skill that merely quotes an existing
+    skill name elsewhere must still bubble — the guard takes the FIRST named token
+    after 'new skill' (the one being proposed), not any existing-skill mention."""
+    _tmp, drift, feedback, _proposals = bubble_env
+    _write_jsonl(drift, [])
+    _write_jsonl(feedback, [
+        {"harvest_id": "H008", "class": "gap", "skill": "fallback",
+         "ref": "p:L1", "evidence": "needs a parallel-track protocol",
+         "plan_candidate": "new skill `parallel-worktree` (cf. `validate` discipline)"},
+    ])
+    cands, resolved = dp.harvest_signals(FRAMEWORK_SKILLS, covered_skills=set())
+    assert {c["target"] for c in cands} == {"fallback"}   # parallel-worktree is new
+    assert resolved == []

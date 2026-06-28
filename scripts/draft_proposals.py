@@ -255,24 +255,37 @@ def _harvest_num(hid) -> int | None:
     return int(m.group(1)) if m else None
 
 
-def last_confirmed_harvest(skills: set[str]) -> dict[str, int]:
-    """{skill: highest harvest number that carried a 'confirmed' finding on it}.
+def last_clean_harvest(skills: set[str]) -> dict[str, int]:
+    """{skill: highest harvest number at which the skill was CLEAN}, where a
+    harvest is clean for a skill iff it carried a 'confirmed' finding on it AND no
+    open (friction/gap/diverged) finding on it.
 
-    Used to suppress superseded findings: a 'confirmed' finding at a LATER harvest
-    is the framework's own evidence (the conformance / 2-clean-harvests rule) that
-    the skill is sound again, so an EARLIER friction/gap finding on it is resolved
-    and should not bubble. Permanent-safe: a finding with no later confirmation —
-    including a NEW finding after the last confirmation — still bubbles."""
-    out: dict[str, int] = {}
+    Used to suppress superseded findings: a CLEAN harvest LATER than a finding is
+    the framework's own conformance evidence that the skill is sound again, so the
+    earlier friction/gap is resolved and should not bubble. The clean test is the
+    whole point — a harvest that BOTH confirms and re-flags a skill (e.g. fallback /
+    repro-check at H008) is NOT clean, so its still-open findings keep bubbling.
+    Permanent-safe: a skill whose latest harvest re-opens it has no (or only an
+    earlier) clean watermark, and a finding newer than the watermark still bubbles."""
+    confirmed: dict[str, set[int]] = {}
+    opened: dict[str, set[int]] = {}
     for f in jsonl(FEEDBACK):
-        if (f.get("class") or "").strip() != "confirmed":
-            continue
         skill = (f.get("skill") or "").strip()
         if skill not in skills:
             continue
         hn = _harvest_num(f.get("harvest_id"))
-        if hn is not None:
-            out[skill] = max(out.get(skill, 0), hn)
+        if hn is None:
+            continue
+        cls = (f.get("class") or "").strip()
+        if cls == "confirmed":
+            confirmed.setdefault(skill, set()).add(hn)
+        elif cls in DRIFT_CLASSES:
+            opened.setdefault(skill, set()).add(hn)
+    out: dict[str, int] = {}
+    for skill, conf_hns in confirmed.items():
+        clean = [h for h in conf_hns if h not in opened.get(skill, set())]
+        if clean:
+            out[skill] = max(clean)
     return out
 
 
@@ -282,18 +295,21 @@ def proposes_existing_skill(text: str, skills: set[str]) -> str | None:
 
     A finding whose remedy already shipped is stale and must not be re-bubbled
     (e.g. an H002 "new skill 'decision-log'" gap once decision-log exists, or the
-    slip-ladder gap once slip-ladder exists). Conservative by design: it fires
-    only when the text *explicitly proposes a new skill* ("new skill" / "new skill
-    or …-section") AND names — in quotes, backticks, or a [[wikilink]] — a string
-    that is an actual existing skill. Matching real skill names (not arbitrary
-    words) keeps it from suppressing live findings on skills that simply exist."""
-    if "new skill" not in text.lower():
+    slip-ladder gap once slip-ladder exists). Precise by design: it fires only when
+    the text *explicitly proposes a new skill* ("new skill" …) and the FIRST named
+    token after that phrase — in quotes, backticks, or a [[wikilink]] — is an
+    actual existing skill. Taking only the first named token (the one being
+    proposed) avoids over-firing when a genuinely-new skill's finding merely quotes
+    an existing skill's name elsewhere."""
+    low = text.lower()
+    idx = low.find("new skill")
+    if idx < 0:
         return None
-    for a, b in _NAMED_SKILL_RE.findall(text):
-        name = a or b
-        if name in skills:
-            return name
-    return None
+    m = _NAMED_SKILL_RE.search(text, idx)
+    if not m:
+        return None
+    name = m.group(1) or m.group(2)
+    return name if name in skills else None
 
 
 def harvest_signals(skills: set[str],
@@ -308,7 +324,7 @@ def harvest_signals(skills: set[str],
     out: list[dict] = []
     resolved: list[dict] = []
     seen: set[tuple[str, str]] = set()
-    confirmed_after = last_confirmed_harvest(skills)
+    clean_after = last_clean_harvest(skills)
     for f in jsonl(FEEDBACK):
         cls = (f.get("class") or "").strip()
         skill = (f.get("skill") or "").strip()
@@ -333,17 +349,18 @@ def harvest_signals(skills: set[str],
             resolved.append({"target": skill, "source_ref": source_ref,
                              "reason": f"resolved (skill '{shipped}' exists)"})
             continue
-        # Resolved-finding guard #2: skip a finding superseded by a LATER
-        # 'confirmed' harvest on the same skill (the skill was re-confirmed sound
-        # after this finding). Permanent-safe: a finding with no later
-        # confirmation, or one newer than the last confirmation, still bubbles.
+        # Resolved-finding guard #2: skip a finding superseded by a CLEAN harvest
+        # (one that confirmed the skill AND carried no open finding on it) LATER
+        # than this finding. Permanent-safe: a skill re-opened at its latest
+        # harvest has no qualifying clean watermark, so its still-open findings —
+        # e.g. fallback / repro-check at H008 — keep bubbling.
         fin_num = _harvest_num(hid)
-        last_conf = confirmed_after.get(skill)
-        if fin_num is not None and last_conf is not None and last_conf > fin_num:
+        clean_h = clean_after.get(skill)
+        if fin_num is not None and clean_h is not None and clean_h > fin_num:
             resolved.append({
                 "target": skill, "source_ref": source_ref,
-                "reason": (f"superseded (skill confirmed clean at H{last_conf:03d} "
-                           f"> finding H{fin_num:03d})")})
+                "reason": (f"superseded (skill clean at H{clean_h:03d} — confirmed, "
+                           f"no open finding — > finding H{fin_num:03d})")})
             continue
         title = f"[{cls}] {skill}: {_trim(plan or evidence, 90)}"
         change = (plan or f"Address the {cls} signal on [[{skill}]]: {evidence}")

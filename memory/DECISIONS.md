@@ -597,3 +597,56 @@ drop the two bubbler guards; set the `BRAIN_AUTODRIFT` default back to off. No l
 or schema change; the 8 drafts are status=draft and discardable via review.
 
 **Supersedes:** none — implements the 2026-06-28 north-star pivot (Phase 7 / S26).
+
+## 2026-06-28 — Self-healing light-up: adversarial-audit corrections
+
+**Correction:** Scope a trustworthiness claim to the lane actually verified, and
+compute "clean" honestly. An independent auditor (run against commits c878afe +
+d8d93ef) found the light-up sound on safety (determinism, firewall, append-only,
+nothing auto-enacts) but over-reaching on two points, both fixed here:
+
+1. **Supersession over-suppression (a real bug).** The bubbler's
+   `last_confirmed_harvest` equated "a 'confirmed' finding exists at harvest H_n"
+   with "the skill is clean at H_n" — but a harvest can BOTH confirm and re-open a
+   skill (fallback, repro-check at H008). The guard therefore suppressed two
+   still-OPEN findings (fallback H002, repro-check H003 — both listed open in
+   `conformance.md` / `value_metrics.skills_open`) with the *false* reason
+   "confirmed clean at H008". Replaced with `last_clean_harvest`: a harvest is
+   clean for a skill only if it confirms it AND carries no open finding on it. The
+   two findings now bubble correctly (P-027, P-029) and the printed reasons are
+   accurate.
+
+2. **Overstated trustworthiness.** The d8d93ef framing "every signal trustworthy
+   from day one / 8 open-backlog candidates" conflated two lanes. The DRIFT lane
+   (scan_drift, Option 3) IS trustworthy from day one — it emits 0 with no false
+   positives. The harvest-BACKLOG candidates are a human-triage list filtered by
+   two PRECISE guards (proposes-an-existing-skill; superseded-by-a-clean-harvest) —
+   NOT a guaranteed-all-open set: rule-coverage and session-hardening are
+   deliberately NOT guards (too fragile to automate safely), so a few candidates
+   (ship — addressed S11; resume-state — enacted as FR-002) bubble for a human to
+   discard. The claim, not the behavior, was wrong. Relatedly, the dashboard's
+   `enacted` lane counts the rules.md digest (minted from DECISIONS by
+   `regen_rules.py`, outside the draft→review pipeline); the loop's OWN enacted
+   count is 0 until a draft is promoted and enacted.
+
+**Also fixed:** `proposes_existing_skill` now matches only the FIRST named token
+after "new skill" (the one being proposed), so a genuinely-new-skill finding that
+merely quotes an existing skill elsewhere still bubbles. And the state file lagged
+its own run log again (`s26_light_up_self_healing` logged but not in
+`completed_tasks` — the very FR-002/FR-007 lag); written forward here.
+
+**Why:** the north star is HONEST self-healing. A guard that drops an open finding
+on a false basis, or a record that claims more than the code delivers, is exactly
+the discipline drift this loop exists to catch — so the audit's findings are
+first-class corrections, not nitpicks.
+
+**Alternatives considered:** implement rule-coverage + session-hardening guards to
+make the "all open" claim literally true (rejected: those mappings are fragile and
+risk dropping real findings — the worse failure; a slightly over-inclusive,
+human-triaged draft lane is safer than a falsely-pure one).
+
+**Reversibility:** high — guard logic + records only; the 11 drafts are status=draft
+and discardable via review; nothing auto-enacted.
+
+**Supersedes:** none — corrects the 2026-06-28 drift-semantics entry's over-claim
+and extends FR-002 / FR-007 (state write-forward).
