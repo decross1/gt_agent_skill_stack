@@ -339,6 +339,62 @@ interactive and frictionless. The static brain view + terminal verdict CLI
   + terminal `review_proposal_cli.py`; `proposal_cards.jsonl` is discardable
   draft cache (governed verdicts live in `proposals.jsonl`).
 
+### Phase 7 — Self-auditing & self-healing discipline
+
+**Direction (2026-06-28).** The framework's working north star is reframed: from
+proving *uplift* on a second, less-disciplined consumer (Sessions 19–20, still
+**deferred** — not abandoned) to **a framework that audits and heals its own
+discipline.** Success is now measured by whether the harvest → drift → draft →
+review → enacted loop actually closes on the framework's *own* skills. The
+Charter's fidelity/uplift claims remain on record; this is a reprioritization,
+logged in `DECISIONS.md` (2026-06-28).
+
+**Session 26 — Light up the self-healing loop.** The loop was *built* out-of-band
+(committed Jun 16–18, reconciled into this plan 2026-06-28): deterministic drift
+detection (`scan_drift.py` → `drift_signals.jsonl`), runtime self-reporting
+(apparatus `skill_signals.jsonl` ingested read-only into `drift_signals`, source
+= `runtime`; coordinated with `a_bgt_rsi` D-056), bubbling of drift + harvest
+findings into **draft** proposals (`draft_proposals.py`), graduated routing by
+blast radius (`blast_radius.py` low|high; `graduate_drafts.py` with the
+`adversarial_gate` stubbed closed), a first-class **draft** lifecycle lane, and an
+honest-loop dashboard (harvest → candidates → proposals → review → enacted). 76
+tests pass; `BRAIN_AUTODRIFT` gates the live wiring (default off).
+
+The loop is **built and tested but UNPRIMED** — `drift_signals.jsonl` empty, no
+draft proposals, apparatus not yet emitting `skill_signals.jsonl`. Priming
+(2026-06-28) exposed two misfires that must be fixed *before* the loop emits its
+first real signal:
+1. **`scan_drift` verdict false-positive.** `runlog_failure` flags any framework
+   skill whose run-log `status` is failure-ish. But a *verdict-rendering* skill
+   (`validate`, `repro-check`, `gate-check`, `code-review`) honestly returning
+   `failed` is the skill **working**, not drifting — its job is "never coerce a
+   near-miss into a pass." Both candidate signals (validate `failed` on
+   `lit_battery_post_t1_final` L1135 and `d050-decision-run` L1432) are exactly
+   this: a legitimate FAIL verdict on a thing that genuinely failed. The detector
+   must distinguish "the skill could not complete" (aborted/escalated/halted =
+   drift, all skills) from "the skill rendered a negative verdict"
+   (failed/partial_pass = not drift for verdict skills).
+2. **`draft_proposals` resolved-finding gap.** Bubbling the H001–H008 backlog
+   would file drafts for fixes already shipped (a "new skill `decision-log`"
+   draft when `decision-log` exists; `slip-ladder`; the resume-state gate-hold
+   finding already enacted as FR-002). The bubbler must skip a finding whose
+   remedy already exists (skill present / active rule covering it).
+
+- **Pass-signal (smallest falsifiable experiment):** after the two fixes, a live
+  `scan_drift --apply` over the run logs produces **only** signals that name a
+  genuine skill malfunction (a skill that could not complete, or a non-verdict
+  skill that failed) — zero verdict false-positives; each such signal bubbles to
+  exactly one **draft** candidate that appears in the dashboard's *candidates*
+  lane and the *needs-you* inbox as `candidate_review`, and **nothing
+  auto-enacts** (no SKILL.md / rule / DECISIONS edit). The auto path stops at a
+  recorded verdict + handoff for low-blast-radius drafts only, and the
+  `adversarial_gate` stays closed until deliberately, separately opened.
+- **Kill-switch:** if priming produces signal that is mostly false-positive or
+  stale even after the two fixes, leave `BRAIN_AUTODRIFT` off and keep the loop in
+  dry-run/observation mode — detection and bubbling remain manual, human-reviewed
+  scripts, and the honest-loop dashboard reports an empty-but-truthful candidates
+  lane rather than a noisy one.
+
 ---
 
 ## Backlog (re-sorted every session from `feedback.jsonl`)

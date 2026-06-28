@@ -464,3 +464,91 @@ enabled by this default.
 
 **Supersedes:** none — operational config; complements the D-046 write-back
 contract referenced above.
+
+## 2026-06-28 — North star: a framework that audits and heals its own discipline
+
+**Decision:** The framework's working north star is reframed from the Charter's
+*uplift* test (prove the runtime-safe core makes a **less-disciplined** consumer
+produce an audit trail it otherwise would not — Sessions 19–20) to **"a framework
+that audits and heals its own discipline."** The measure of progress becomes
+whether the self-improvement / self-healing loop (harvest → drift → draft → review
+→ enacted) observably closes on the framework's *own* skills, with no agent ever
+silently editing a skill or rule.
+
+**Alternatives considered:**
+(a) Keep uplift as the headline claim and run S19–S20 first — rejected for now: no
+    second consumer is chosen or wanted; uplift has been deferred since 2026-05-24,
+    and the self-healing direction is where the work and the value have actually
+    accrued (dynamic review brain, live surfaces, drift→draft loop).
+(b) Delete the uplift claim outright — rejected: it is a real falsifiable claim and
+    the Charter is append-only history; deferring is honest, deleting is not.
+(c) Treat self-healing as a side-quest under Phase 5/6 — rejected: it is now the
+    primary direction and earns its own phase and falsifiable session (Phase 7 /
+    S26 in `plan.md`).
+
+**Rationale:** The framework already records how its skills are used (feedback,
+drift, decisions, rules); the highest-leverage next step is to make that record
+*act* — surface drift, bubble candidates, route by blast radius, let a human heal
+the skill — rather than stand up a second consumer to measure uplift. Fidelity is
+partly evidenced; uplift stays on the books, deferred.
+
+**Reversibility:** easy — this is a prioritization, not a deletion. S19–S20 remain
+in `plan.md`; returning to the uplift test is a re-sort away.
+
+**Supersedes:** none — reprioritizes (does not revoke) the Charter's two-claim
+structure and extends the 2026-05-24 "Defer S19-S20" decision.
+
+## 2026-06-28 — Reconcile the audit trail: record the self-healing / live-UI burst
+
+**Correction:** When the recorded state (state file, run log, plan, and the derived
+`rules.md`) lags shipped git reality across an out-of-band work burst, reconcile by
+writing all of them forward from the commits — the same write-forward the
+2026-06-13 housekeeping correction prescribes (FR-004), applied now to a larger,
+longer-lived divergence. Do not leave the lag for the next resume to re-discover.
+
+**What was reconciled.** At session start (2026-06-28) the state file (last written
+Jun 15, `current_session` 25) lagged reality by ~13 days and a whole subsystem:
+- the run log held 3 completed tasks the state file never absorbed
+  (`s25_proposal_review_ux_v2`, `s25_v3_accept_note_ux`, `p013_untrack_brain_projections`);
+- git held 10 commits (Jun 16–18) in neither the run log nor the state file nor
+  `plan.md`: the **self-healing loop** (`scan_drift` / `blast_radius` /
+  `graduate_drafts` / `draft_proposals`, drift→draft bubbling, honest-loop
+  dashboard, +9 test files), the **live dashboard / cluster-map** (`GET /api/summary`,
+  `/api/map`, 30s poll), and the **skill-signals handoff** reconciled with
+  `a_bgt_rsi`'s **D-056** review — only the 2026-06-16 bind change had a decision
+  entry;
+- `rules.md` showed 3 active rules while DECISIONS.md held 6 (`regen_rules.py` was
+  never re-run after the June corrections); `conformance.md` was stale (37 vs 64
+  findings);
+- two canonical brain ledgers (`narratives.jsonl` +1335, `edges.jsonl` +475) carried
+  uncommitted auto-ingested apparatus events (Jun 19–25) from the watch daemon.
+
+**Actions.** Regenerated `rules.md`; added **Phase 7 / Session 26** to `plan.md`
+recording the self-healing loop with a falsifiable pass-signal + kill-switch and the
+two priming misfires found (the `scan_drift` verdict false-positive; the
+`draft_proposals` resolved-finding gap); backfilled run-log entries for the burst;
+wrote `framework.state.json` forward (completed tasks + Session 26, `current_session`
+26, refreshed `value_metrics`); committed the pending ledger appends. `conformance.md`
+is NOT mechanically regenerable (it is harvest-updated) and is left flagged for the
+next harvest pass — also due (watermark at a_bgt_rsi L1541 / D-052, but D-056 is
+already in play).
+
+**Alternatives considered:**
+(a) Housekeeping-only, `current_session` stays 25 (the 2026-06-13 framing) — rejected:
+    the self-healing loop is now the north-star direction (this date's other entry),
+    so it earns a numbered Session, not a footnote.
+(b) Backfill per-commit run-log entries at their original Jun-17/18 timestamps —
+    rejected: the run log records *observed* steps; these entries are stamped at the
+    reconciliation (2026-06-28) and name the originating commit + date in-body.
+
+**Rationale:** A self-healing loop cannot be lit up honestly while the framework's
+own recorded state is itself drifted — the reconciliation is the prerequisite for
+S26. Recording it keeps the audit trail truthful and the next resume clean.
+
+**Reversibility:** high — all edits are record / derived-artifact / state changes; no
+skill contract or file schema changed. `rules.md` is regenerable; the state/run-log
+write-forward is the prescribed reconciliation, not a rewrite of history (DECISIONS
+and the run log remain append-only).
+
+**Supersedes:** none — extends the 2026-06-13 housekeeping correction (FR-004) and
+the 2026-05-24 run-log-canonical correction (FR-002).
