@@ -61,10 +61,24 @@ def _legacy_prelock_pair(*, target=bl.LEGACY_PRELOCK_CRITIQUE_TARGET,
 
 def _write_jsonl(path: Path, rows: list[dict]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_bytes(b"".join(
+    path.write_bytes(_jsonl_bytes(rows))
+
+
+def _jsonl_bytes(rows: list[dict]) -> bytes:
+    return b"".join(
         json.dumps(row, separators=(",", ":"), ensure_ascii=False).encode() + b"\n"
         for row in rows
-    ))
+    )
+
+
+def _bind_synthetic_legacy_hashes(monkeypatch, pair: list[dict]) -> tuple[str, str]:
+    """Bind test-only synthetic rows without copying the historic body."""
+    lines = _jsonl_bytes(pair).splitlines(keepends=True)
+    filing_sha = hashlib.sha256(lines[0]).hexdigest()
+    lifecycle_sha = hashlib.sha256(lines[1]).hexdigest()
+    monkeypatch.setattr(bl, "LEGACY_PRELOCK_FILING_SHA256", filing_sha)
+    monkeypatch.setattr(bl, "LEGACY_PRELOCK_LIFECYCLE_SHA256", lifecycle_sha)
+    return filing_sha, lifecycle_sha
 
 
 def _apply_worker(proposals_s: str, feedback_s: str, drift_s: str, result) -> None:
@@ -91,11 +105,14 @@ def _fake_cli(tmp_path: Path) -> tuple[Path, Path]:
     return scripts / "review_proposal_cli.py", ledger
 
 
-def _fake_status_cli(tmp_path: Path) -> tuple[Path, Path]:
+def _fake_status_cli(tmp_path: Path, *, filing_sha: str, lifecycle_sha: str) -> tuple[Path, Path]:
     scripts = tmp_path / "scripts"
     scripts.mkdir()
     shutil.copy(REPO / "scripts" / "proposal_ledger_status.py", scripts / "proposal_ledger_status.py")
-    shutil.copy(REPO / "scripts" / "brain_ledger.py", scripts / "brain_ledger.py")
+    source = (REPO / "scripts" / "brain_ledger.py").read_text()
+    source = source.replace(bl.LEGACY_PRELOCK_FILING_SHA256, filing_sha)
+    source = source.replace(bl.LEGACY_PRELOCK_LIFECYCLE_SHA256, lifecycle_sha)
+    (scripts / "brain_ledger.py").write_text(source)
     ledger = tmp_path / "memory" / "brain" / "proposals.jsonl"
     return scripts / "proposal_ledger_status.py", ledger
 
@@ -250,9 +267,12 @@ def test_new_auto_accept_requires_canonical_body_and_basis(tmp_path):
     assert ledger.read_bytes() == before
 
 
-def test_known_legacy_pair_is_strict_by_default_and_quarantined_only_on_opt_in(tmp_path):
+def test_known_legacy_pair_is_strict_by_default_and_quarantined_only_on_opt_in(
+        tmp_path, monkeypatch):
     ledger = tmp_path / "proposals.jsonl"
-    _write_jsonl(ledger, [OPEN_ROW, *_legacy_prelock_pair()])
+    pair = _legacy_prelock_pair()
+    _bind_synthetic_legacy_hashes(monkeypatch, pair)
+    _write_jsonl(ledger, [OPEN_ROW, *pair])
     with pytest.raises(bl.ProposalLedgerError, match="invalid proposal_id"):
         bl.read_proposals(ledger)
     result = bl.inspect_proposals(ledger, quarantine_known_legacy=True)
@@ -269,10 +289,13 @@ def test_known_legacy_pair_is_strict_by_default_and_quarantined_only_on_opt_in(t
     assert result.quarantine[1]["sha256"] == hashlib.sha256(exact_lines[2]).hexdigest()
 
 
-def test_known_legacy_quarantine_never_exposes_raw_body_and_preserves_prefix_on_append(tmp_path):
+def test_known_legacy_quarantine_never_exposes_raw_body_and_preserves_prefix_on_append(
+        tmp_path, monkeypatch):
     ledger = tmp_path / "proposals.jsonl"
     secret = "RAW-LEGACY-BODY-MUST-NOT-LEAK"
-    _write_jsonl(ledger, [OPEN_ROW, *_legacy_prelock_pair(proposal=secret)])
+    pair = _legacy_prelock_pair(proposal=secret)
+    _bind_synthetic_legacy_hashes(monkeypatch, pair)
+    _write_jsonl(ledger, [OPEN_ROW, *pair])
     before = ledger.read_bytes()
     result = bl.inspect_proposals(ledger, quarantine_known_legacy=True)
     assert secret not in json.dumps(result.quarantine)
@@ -285,11 +308,20 @@ def test_known_legacy_quarantine_never_exposes_raw_body_and_preserves_prefix_on_
     assert bl.read_proposals(ledger, quarantine_known_legacy=True)[-1]["proposal_id"] == "P-902"
 
 
-@pytest.mark.parametrize("mutation", ["target", "proposed_by"])
-def test_legacy_lookalike_remains_corrupt_even_when_quarantine_is_enabled(tmp_path, mutation):
+@pytest.mark.parametrize(("row_index", "field", "value"), [
+    (0, "target", "not-the-documented-value"),
+    (0, "proposed_by", "not-the-documented-value"),
+    (0, "proposal", "mutated legacy body"),
+    (0, "timestamp", "2026-08-17T03:52:27Z"),
+    (1, "verdict_reasoning", "mutated lifecycle rationale"),
+])
+def test_legacy_lookalike_remains_corrupt_even_when_quarantine_is_enabled(
+        tmp_path, monkeypatch, row_index, field, value):
     ledger = tmp_path / "proposals.jsonl"
+    expected = _legacy_prelock_pair()
+    _bind_synthetic_legacy_hashes(monkeypatch, expected)
     lookalike = _legacy_prelock_pair()
-    lookalike[0][mutation] = "not-the-documented-value"
+    lookalike[row_index][field] = value
     _write_jsonl(ledger, [OPEN_ROW, *lookalike])
     with pytest.raises(bl.ProposalLedgerError, match="invalid proposal_id"):
         bl.inspect_proposals(ledger, quarantine_known_legacy=True)
@@ -318,7 +350,9 @@ def test_known_legacy_pair_cannot_enter_summary_attention_timeline_or_health(
         tmp_path, monkeypatch):
     """Every primary governance projection consumes the validated row set."""
     ledger = tmp_path / "proposals.jsonl"
-    _write_jsonl(ledger, [OPEN_ROW, *_legacy_prelock_pair()])
+    pair = _legacy_prelock_pair()
+    _bind_synthetic_legacy_hashes(monkeypatch, pair)
+    _write_jsonl(ledger, [OPEN_ROW, *pair])
     monkeypatch.setattr(ps, "PROPOSALS", ledger)
 
     summary = ps.build_summary()
@@ -333,9 +367,15 @@ def test_known_legacy_pair_cannot_enter_summary_attention_timeline_or_health(
 
 
 def test_read_only_status_cli_reports_only_bounded_quarantine_metadata(tmp_path):
-    cli, ledger = _fake_status_cli(tmp_path)
     secret = "RAW-STATUS-BODY-MUST-NOT-LEAK"
-    _write_jsonl(ledger, [OPEN_ROW, *_legacy_prelock_pair(proposal=secret)])
+    pair = _legacy_prelock_pair(proposal=secret)
+    lines = _jsonl_bytes(pair).splitlines(keepends=True)
+    cli, ledger = _fake_status_cli(
+        tmp_path,
+        filing_sha=hashlib.sha256(lines[0]).hexdigest(),
+        lifecycle_sha=hashlib.sha256(lines[1]).hexdigest(),
+    )
+    _write_jsonl(ledger, [OPEN_ROW, *pair])
     proc = subprocess.run([sys.executable, str(cli)], capture_output=True, text=True, timeout=10)
     assert proc.returncode == 0
     assert len(proc.stdout.encode("utf-8")) <= 8 * 1024

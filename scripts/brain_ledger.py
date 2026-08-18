@@ -39,6 +39,11 @@ LEGACY_PRELOCK_CRITIQUE_ID = "prop-2026-08-17-prelock-critique"
 LEGACY_PRELOCK_CRITIQUE_TARGET = "skill:plan-research (or a new prereg-critique skill)"
 LEGACY_PRELOCK_FILING_SCHEMA = "legacy-prelock-critique-filing-v1"
 LEGACY_PRELOCK_LIFECYCLE_SCHEMA = "legacy-prelock-critique-lifecycle-v1"
+# Exact SHA-256 of each observed newline-terminated historic row.  The body is
+# deliberately not copied into source.  Shape checks explain the record; these
+# byte commitments are what prevent a lookalike from entering quarantine.
+LEGACY_PRELOCK_FILING_SHA256 = "3127c1706d76c69703ab2874148aabeee28b5cf87ad7868cba7d20fa2be0936f"
+LEGACY_PRELOCK_LIFECYCLE_SHA256 = "5cecb5f8d89b3e16e279b62446e89a1d1f61667091fa0cc326b9d4eaa58f0049"
 
 
 class ProposalLedgerError(ValueError):
@@ -71,13 +76,20 @@ def _is_nonempty_string(value: Any) -> bool:
     return isinstance(value, str) and bool(value.strip())
 
 
-def _recognized_legacy_prelock_pair(filing: dict[str, Any], lifecycle: dict[str, Any]) -> bool:
+def _recognized_legacy_prelock_pair(
+    filing: dict[str, Any],
+    filing_raw: bytes,
+    lifecycle: dict[str, Any],
+    lifecycle_raw: bytes,
+) -> bool:
     """Recognize exactly the historic mixed-schema pair, and nothing broader."""
     filing_keys = {"timestamp", "id", "status", "proposed_by", "target", "proposal", "evidence_refs"}
     lifecycle_keys = {"timestamp", "proposal_id", "supersedes_proposal_id", "agent_id", "verdict",
                       "verdict_reasoning", "rule_cited", "decision_id", "status"}
     return (
-        set(filing) == filing_keys
+        hashlib.sha256(filing_raw).hexdigest() == LEGACY_PRELOCK_FILING_SHA256
+        and hashlib.sha256(lifecycle_raw).hexdigest() == LEGACY_PRELOCK_LIFECYCLE_SHA256
+        and set(filing) == filing_keys
         and filing.get("id") == LEGACY_PRELOCK_CRITIQUE_ID
         and filing.get("status") == "open"
         and filing.get("proposed_by") == "claude-code-main"
@@ -243,7 +255,9 @@ def inspect_proposals_bytes(raw: bytes, *, quarantine_known_legacy: bool = False
     while index < len(parsed):
         line_number, raw_line, row = parsed[index]
         if (quarantine_known_legacy and index + 1 < len(parsed)
-                and _recognized_legacy_prelock_pair(row, parsed[index + 1][2])):
+                and _recognized_legacy_prelock_pair(
+                    row, raw_line, parsed[index + 1][2], parsed[index + 1][1]
+                )):
             next_line, next_raw_line, _next_row = parsed[index + 1]
             quarantine.extend((
                 _quarantine_metadata(line_number, LEGACY_PRELOCK_FILING_SCHEMA,
