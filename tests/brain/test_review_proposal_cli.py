@@ -56,11 +56,12 @@ def cli_env(tmp_path):
 
     real_before = REAL_LEDGER.read_bytes() if REAL_LEDGER.exists() else None
 
-    def run(*args, seed=None):
+    def run(*args, seed=None, actor="derrick"):
         if seed is not None:
             ledger.write_text("".join(json.dumps(r) + "\n" for r in seed))
+        actor_args = ["--actor", actor] if actor is not None else []
         proc = subprocess.run(
-            [sys.executable, str(fake_scripts / "review_proposal_cli.py"), *args],
+            [sys.executable, str(fake_scripts / "review_proposal_cli.py"), *args, *actor_args],
             capture_output=True, text=True, timeout=30,
         )
         return proc
@@ -123,7 +124,9 @@ def test_accept_without_note_succeeds(cli_env):
     proc = run("--proposal-id", "P-901", "--verdict", "accept", seed=[OPEN_ROW])
     assert proc.returncode == 0
     payload = json.loads(proc.stdout.strip())
-    assert payload == {"ok": True, "recorded": "accepted", "proposal_id": "P-901"}
+    assert payload["ok"] is True
+    assert payload["recorded"] == "accepted"
+    assert payload["proposal_id"] == "P-901"
     rows = _outcome_lines(ledger)
     assert len(rows) == 2
     assert rows[-1]["verdict"] == "accepted"
@@ -142,25 +145,58 @@ def test_valid_verdict_appends_one_wellformed_outcome(cli_env, arg, recorded):
                "--note", "considered reasoning", seed=[OPEN_ROW])
     assert proc.returncode == 0
     payload = json.loads(proc.stdout.strip())
-    assert payload == {"ok": True, "recorded": recorded, "proposal_id": "P-901"}
+    assert payload["ok"] is True
+    assert payload["recorded"] == recorded
+    assert payload["proposal_id"] == "P-901"
 
     rows = _outcome_lines(ledger)
     assert len(rows) == 2  # exactly one appended
     out = rows[-1]
     assert out["proposal_id"] == "P-901"
     assert out["verdict"] == recorded
-    assert out["agent_id"] == "human:ui"
+    assert out["agent_id"] == "derrick"
+    assert out["actor"] == {
+        "id": "derrick", "type": "human", "authentication": "ui-asserted",
+        "cryptographically_authenticated": False,
+    }
     assert out["status"] == "closed"
     assert out["supersedes_proposal_id"] == "P-901"
     assert out["verdict_reasoning"] == "considered reasoning"
     assert "timestamp" in out and out["timestamp"]
 
 
-def test_default_agent_is_human_ui(cli_env):
+def test_explicit_actor_persists_exact_derrick_attribution(cli_env):
     run, ledger = cli_env
     run("--proposal-id", "P-901", "--verdict", "accept",
         "--note", "ok", seed=[OPEN_ROW])
-    assert _outcome_lines(ledger)[-1]["agent_id"] == "human:ui"
+    out = _outcome_lines(ledger)[-1]
+    assert out["agent_id"] == "derrick"
+    assert out["actor"] == {
+        "id": "derrick", "type": "human", "authentication": "ui-asserted",
+        "cryptographically_authenticated": False,
+    }
+
+
+def test_explicit_actor_persists_exact_oracle_attribution(cli_env):
+    run, ledger = cli_env
+    proc = run("--proposal-id", "P-901", "--verdict", "accept",
+               "--note", "recorded by Oracle", seed=[OPEN_ROW], actor="oracle")
+    assert proc.returncode == 0
+    out = _outcome_lines(ledger)[-1]
+    assert out["agent_id"] == "oracle"
+    assert out["actor"] == {
+        "id": "oracle", "type": "agent", "authentication": "ui-asserted",
+        "cryptographically_authenticated": False,
+    }
+
+
+@pytest.mark.parametrize("actor", [None, "mallory", "human:ui"])
+def test_missing_or_unknown_actor_exits_2_and_writes_nothing(cli_env, actor):
+    run, ledger = cli_env
+    proc = run("--proposal-id", "P-901", "--verdict", "accept", "--note", "x",
+               seed=[OPEN_ROW], actor=actor)
+    assert proc.returncode == 2
+    assert len(_outcome_lines(ledger)) == 1
 
 
 # ---------------------------------------------------------------------------
@@ -220,7 +256,7 @@ def test_basis_amended_is_recorded(cli_env):
     out = _outcome_lines(ledger)[-1]
     assert out["basis"] == "amended"
     assert out["verdict"] == "accepted"
-    assert out["agent_id"] == "human:ui"
+    assert out["agent_id"] == "derrick"
     assert out["status"] == "closed"
 
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Blessed CLI for recording a human verdict on a brain proposal.
+"""Blessed CLI for recording a governed verdict on a brain proposal.
 
 The brain UI's Accept / Reject buttons exec THIS via argv (no shell) — the
 D-046 human-write-back pattern (UI POSTs exec blessed CLIs; out-of-enum exits
@@ -8,8 +8,9 @@ nonzero and writes nothing). It is also runnable from a terminal.
 It records the governed *verdict* (append-only) — it does NOT enact the change.
 Enacting a skill/rule edit is a separate dev-session / handoff step. A human
 accepting a skill/rule proposal IS the human-review authority path of the
-review-proposal skill; agents still use the auto-reject fast-path. The verdict
-is stamped with the actor (default `human:ui`) and is fully auditable.
+review-proposal skill; agents still use the auto-reject fast-path. The caller
+must explicitly choose one closed actor identity. That identity is asserted by
+the UI/CLI caller; it is not cryptographically authenticated.
 
 Exit codes: 0 ok · 2 bad proposal_id · 3 unknown proposal · 4 already decided
 · 5 missing note · 6 io error · 7 corrupt ledger.
@@ -31,6 +32,23 @@ PROPOSALS = ROOT / "memory" / "brain" / "proposals.jsonl"
 VERDICTS = {"accept": "accepted", "reject": "rejected", "needs_revision": "human-review"}
 PID_RE = re.compile(r"^P-\d+$")
 
+# Closed, deliberately small attribution vocabulary.  This is an assertion
+# supplied by a local UI/terminal user, not an authentication mechanism.
+ACTORS = {
+    "derrick": {
+        "id": "derrick",
+        "type": "human",
+        "authentication": "ui-asserted",
+        "cryptographically_authenticated": False,
+    },
+    "oracle": {
+        "id": "oracle",
+        "type": "agent",
+        "authentication": "ui-asserted",
+        "cryptographically_authenticated": False,
+    },
+}
+
 
 def load_rows() -> list[dict]:
     """Parse proposals.jsonl into a list of records. A corrupt line is a
@@ -47,11 +65,12 @@ def history(rows: list[dict], pid: str) -> list[dict]:
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Record a human verdict on a brain proposal.")
+    ap = argparse.ArgumentParser(description="Record a governed verdict on a brain proposal.")
     ap.add_argument("--proposal-id", required=True)
     ap.add_argument("--verdict", required=True, choices=sorted(VERDICTS))
-    ap.add_argument("--note", default="", help="decision reasoning — required to reject/needs_revision (a rejection without a reason is an opinion); optional for accept (the human is the authority)")
-    ap.add_argument("--agent", default="human:ui")
+    ap.add_argument("--note", default="", help="decision reasoning — required to reject/needs_revision (a rejection without a reason is an opinion); optional for accept")
+    ap.add_argument("--actor", required=True, choices=sorted(ACTORS),
+                    help="closed asserted identity: derrick or oracle (not cryptographically authenticated)")
     ap.add_argument("--basis", default="original", choices=("original", "amended"),
                     help="which draft the verdict governs: the original proposal or the synthesized amended draft")
     a = ap.parse_args()
@@ -83,7 +102,10 @@ def main() -> None:
         "timestamp": datetime.now(timezone.utc).isoformat(),
         "proposal_id": a.proposal_id,
         "supersedes_proposal_id": a.proposal_id,
-        "agent_id": a.agent,
+        # `agent_id` remains a scalar compatibility mirror for readers of
+        # legacy proposal rows.  New readers should use the structured actor.
+        "agent_id": a.actor,
+        "actor": dict(ACTORS[a.actor]),
         "verdict": verdict,
         "verdict_reasoning": a.note.strip(),
         "basis": a.basis,
@@ -97,7 +119,8 @@ def main() -> None:
     except OSError as e:
         print(json.dumps({"ok": False, "error": f"io: {e}"}))
         sys.exit(6)
-    print(json.dumps({"ok": True, "recorded": verdict, "proposal_id": a.proposal_id}))
+    print(json.dumps({"ok": True, "recorded": verdict, "proposal_id": a.proposal_id,
+                      "actor": ACTORS[a.actor]}))
 
 
 if __name__ == "__main__":

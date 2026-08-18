@@ -8,9 +8,9 @@ Smallest-slice scope (S25): one focused proposal-review loop —
   POST /api/proposal/<id>/discuss     {message}  -> Gemma turn (amend dialogue)
   POST /api/proposal/<id>/synthesize  -> Gemma turns the discussion into a crisp
                                          amended proposal 'change'; persists it
-  POST /api/proposal/<id>/verdict     {verdict,note,basis,amended_change?} -> exec
+  POST /api/proposal/<id>/verdict     {verdict,note,basis,actor_id,amended_change?} -> exec
                                          blessed CLI; on accept auto-writes handoff
-  POST /api/proposal/<id>/handoff     -> write handoffs/<id>.md (manual regen)
+  POST /api/proposal/<id>/handoff     {basis,actor_id} -> write handoffs/<id>.md
 
 Design invariants (keep the brain honest while making it dynamic):
 - Files stay canonical. Gemma is a drafting assistant; every output is written
@@ -48,6 +48,30 @@ CLI = ROOT / "scripts" / "review_proposal_cli.py"
 GEMMA_URL = "http://127.0.0.1:8000/v1/chat/completions"
 MODEL = "gemma-4-26b-a4b"
 PID_RE = re.compile(r"^P-\d+$")
+
+# The review UI is an assertion surface, not an authentication boundary.  Keep
+# its actor vocabulary closed so a caller cannot forge arbitrary attribution.
+ACTORS = {
+    "derrick": {
+        "id": "derrick",
+        "type": "human",
+        "authentication": "ui-asserted",
+        "cryptographically_authenticated": False,
+    },
+    "oracle": {
+        "id": "oracle",
+        "type": "agent",
+        "authentication": "ui-asserted",
+        "cryptographically_authenticated": False,
+    },
+}
+
+
+def actor_record(actor_id: str) -> dict:
+    """Return a fresh structured closed actor record or reject the input."""
+    if not isinstance(actor_id, str) or actor_id not in ACTORS:
+        raise ValueError("actor_id must be one of: derrick, oracle")
+    return dict(ACTORS[actor_id])
 
 # Serializes the read-then-append in generate_card so a card is written through
 # to proposal_cards.jsonl exactly once even under ThreadingHTTPServer concurrency.
@@ -331,8 +355,9 @@ def synthesize_amended(first: dict) -> str:
     return change
 
 
-def write_handoff(first: dict, basis: str = "original") -> str:
+def write_handoff(first: dict, basis: str = "original", actor_id: str | None = None) -> str:
     pid = first.get("proposal_id")
+    actor = actor_record(actor_id) if actor_id is not None else None
     card = stored_card(pid) or generate_card(first)
     disc = discussion(pid)
     disc_txt = "\n".join(f"**{t['role']}:** {t['content']}" for t in disc) or "_(no discussion)_"
@@ -359,12 +384,18 @@ def write_handoff(first: dict, basis: str = "original") -> str:
     except Exception as e:  # noqa: BLE001
         synth = f"_(synthesis unavailable: {e})_"
     HANDOFFS.mkdir(exist_ok=True)
+    actor_line = (
+        f"- **Actor:** `{actor['id']}` ({actor['type']}; {actor['authentication']}, "
+        "not cryptographically authenticated)\n\n"
+        if actor else ""
+    )
     md = (
         f"# Implementation handoff — {pid}\n\n"
         f"_Generated {_now()} by the brain proposal-review loop (basis: {basis}). "
         f"Pass to a dev agent._\n\n"
         f"- **Target:** `{first.get('target_type')}:{first.get('target')}`\n"
         f"- **Title:** {first.get('title')}\n\n"
+    ) + actor_line + (
         f"## {body_label}\n\n{body_text}\n\n"
         f"### Why\n\n{first.get('reasoning')}\n\n"
         f"## What it means\n\n{card.get('means','')}\n\n"
@@ -376,14 +407,19 @@ def write_handoff(first: dict, basis: str = "original") -> str:
     return str(path.relative_to(ROOT))
 
 
-def record_verdict(pid: str, verdict: str, note: str, basis: str = "original") -> dict:
+def record_verdict(pid: str, verdict: str, note: str, basis: str = "original",
+                   actor_id: str | None = None) -> dict:
     if verdict not in ("accept", "reject", "needs_revision"):
         return {"ok": False, "error": "bad verdict"}
     if basis not in ("original", "amended"):
         return {"ok": False, "error": "bad basis"}
+    try:
+        actor_record(actor_id)
+    except ValueError as e:
+        return {"ok": False, "error": str(e)}
     proc = subprocess.run(
         [sys.executable, str(CLI), "--proposal-id", pid, "--verdict", verdict,
-         "--note", note, "--basis", basis, "--agent", "human:ui"],
+         "--note", note, "--basis", basis, "--actor", actor_id],
         capture_output=True, text=True, timeout=30)
     try:
         out = json.loads(proc.stdout.strip() or "{}")
@@ -560,11 +596,16 @@ class Handler(SimpleHTTPRequestHandler):
             if action == "verdict":
                 v, note = body.get("verdict", ""), (body.get("note") or "").strip()
                 basis = body.get("basis") or "original"
+                actor_id = body.get("actor_id")
                 # Reason optional for accept (human authority); required to reject.
                 if v != "accept" and not note:
                     return self._send(400, {"error": "a reason is required to reject"})
                 if basis not in ("original", "amended"):
                     return self._send(400, {"error": "bad basis"})
+                try:
+                    actor_record(actor_id)
+                except ValueError as e:
+                    return self._send(400, {"error": str(e)})
                 # If accepting the amended draft, persist the (possibly human-EDITED)
                 # text as a fresh amended_draft BEFORE recording, so the governed
                 # and handoff form is the final edited text.
@@ -573,7 +614,7 @@ class Handler(SimpleHTTPRequestHandler):
                     if not amended_change:
                         return self._send(400, {"error": "amended_change required for amended basis"})
                     append_amended_draft(pid, amended_change)
-                out = record_verdict(pid, v, note, basis)
+                out = record_verdict(pid, v, note, basis, actor_id)
                 # A verdict on an already-decided proposal (CLI exit 4) or a bad
                 # verdict is a clean client error, not a 500. 409 = conflict with
                 # the proposal's recorded state; 400 = malformed verdict.
@@ -584,16 +625,21 @@ class Handler(SimpleHTTPRequestHandler):
                 # On ACCEPT, auto-write the implementation handoff so the human's
                 # decision and the dev brief are a single step.
                 if v == "accept":
-                    out["handoff_path"] = write_handoff(first, basis)
+                    out["handoff_path"] = write_handoff(first, basis, actor_id)
                 # Any successful verdict changes the open set — refresh the static
                 # projection so the dashboard inbox/loop match the live queue.
                 _schedule_refresh()
                 return self._send(200, out)
             if action == "handoff":
                 basis = body.get("basis") or "original"
+                actor_id = body.get("actor_id")
                 if basis not in ("original", "amended"):
                     return self._send(400, {"error": "bad basis"})
-                return self._send(200, {"path": write_handoff(first, basis)})
+                try:
+                    actor_record(actor_id)
+                except ValueError as e:
+                    return self._send(400, {"error": str(e)})
+                return self._send(200, {"path": write_handoff(first, basis, actor_id)})
             return self._send(404, {"error": "no action"})
         except GemmaError as e:
             return self._send(503, {"error": str(e)})

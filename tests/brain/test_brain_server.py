@@ -443,32 +443,46 @@ def test_proposal_payload_includes_amended_draft(brain):
 # record_verdict basis threading -> blessed CLI (§2,§3)
 # ---------------------------------------------------------------------------
 
-def test_record_verdict_default_basis_original(brain):
-    """record_verdict with no basis execs the CLI with basis 'original'; the
+def test_record_verdict_threads_closed_actor_to_cli(brain):
+    """record_verdict threads its closed actor into the CLI with basis 'original'; the
     blessed CLI appends an outcome carrying basis='original'. (Real ledger is the
     tmp copy via the monkeypatched bs.CLI / bs.PROPOSALS.)"""
     brain.seed(FW_PROP)
-    out = bs.record_verdict("P-100", "accept", "ship original")
+    out = bs.record_verdict("P-100", "accept", "ship original", actor_id="derrick")
     assert out.get("ok") is True
     rows = [json.loads(l) for l in brain.proposals.read_text().splitlines()
             if l.strip()]
     outcome = rows[-1]
     assert outcome["verdict"] == "accepted"
     assert outcome["basis"] == "original"
-    assert outcome["agent_id"] == "human:ui"
+    assert outcome["agent_id"] == "derrick"
+    assert outcome["actor"] == {
+        "id": "derrick", "type": "human", "authentication": "ui-asserted",
+        "cryptographically_authenticated": False,
+    }
 
 
 def test_record_verdict_basis_amended_threads_to_cli(brain):
     """record_verdict(..., basis='amended') threads --basis amended to the CLI,
     and the appended outcome records basis='amended'."""
     brain.seed(FW_PROP)
-    out = bs.record_verdict("P-100", "accept", "ship amended", basis="amended")
+    out = bs.record_verdict("P-100", "accept", "ship amended", basis="amended",
+                            actor_id="oracle")
     assert out.get("ok") is True
     rows = [json.loads(l) for l in brain.proposals.read_text().splitlines()
             if l.strip()]
     outcome = rows[-1]
     assert outcome["verdict"] == "accepted"
     assert outcome["basis"] == "amended"
+    assert outcome["actor"]["id"] == "oracle"
+
+
+@pytest.mark.parametrize("actor_id", [None, "mallory", "human:ui"])
+def test_record_verdict_rejects_missing_or_arbitrary_actor_without_write(brain, actor_id):
+    brain.seed(FW_PROP)
+    out = bs.record_verdict("P-100", "accept", "x", actor_id=actor_id)
+    assert out == {"ok": False, "error": "actor_id must be one of: derrick, oracle"}
+    assert len(brain.proposals.read_text().splitlines()) == 1
 
 
 # ---------------------------------------------------------------------------
@@ -622,10 +636,12 @@ def test_verdict_route_accept_original_returns_handoff_path(brain):
     handoff — one step. The route returns ok/recorded/basis/handoff_path."""
     brain.seed(FW_PROP)
     code, obj = _post("P-100", "verdict",
-                      {"verdict": "accept", "note": "ship it", "basis": "original"})
+                      {"verdict": "accept", "note": "ship it", "basis": "original",
+                       "actor_id": "derrick"})
     assert code == 200
     assert obj["ok"] is True and obj["recorded"] == "accepted"
     assert obj["basis"] == "original"
+    assert obj["actor"]["id"] == "derrick"
     assert obj["handoff_path"] == "handoffs/P-100.md"
     assert (brain.handoffs / "P-100.md").exists()
 
@@ -639,16 +655,20 @@ def test_verdict_route_accept_amended_persists_edited_text_then_handoff(brain):
     code, obj = _post("P-100", "verdict",
                       {"verdict": "accept", "note": "ship amended",
                        "basis": "amended",
+                       "actor_id": "oracle",
                        "amended_change": "Final edited amended change text."})
     assert code == 200
     assert obj["ok"] is True and obj["basis"] == "amended"
+    assert obj["actor"]["id"] == "oracle"
     assert obj["handoff_path"] == "handoffs/P-100.md"
 
     # a fresh amended_draft carrying the EDITED text was persisted
     latest = bs.latest_amended_draft("P-100")
     assert latest["change"] == "Final edited amended change text."
     # and the handoff body is that edited text
-    body = _handoff_body((brain.handoffs / "P-100.md").read_text())
+    handoff = (brain.handoffs / "P-100.md").read_text()
+    assert "**Actor:** `oracle` (agent; ui-asserted, not cryptographically authenticated)" in handoff
+    body = _handoff_body(handoff)
     assert "Final edited amended change text." in body
 
 
@@ -657,13 +677,34 @@ def test_verdict_route_amended_requires_amended_change(brain):
     no amended_draft persisted."""
     brain.seed(FW_PROP)
     code, obj = _post("P-100", "verdict",
-                      {"verdict": "accept", "note": "x", "basis": "amended"})
+                      {"verdict": "accept", "note": "x", "basis": "amended",
+                       "actor_id": "derrick"})
     assert code == 400
     assert bs.latest_amended_draft("P-100") is None
     # no verdict outcome appended (only the seeded open row remains)
     rows = [json.loads(l) for l in brain.proposals.read_text().splitlines()
             if l.strip()]
     assert len(rows) == 1
+
+
+@pytest.mark.parametrize("actor_id", [None, "mallory", "human:ui"])
+def test_verdict_route_rejects_missing_or_unknown_actor_before_writes(brain, actor_id):
+    brain.seed(FW_PROP)
+    code, obj = _post("P-100", "verdict",
+                      {"verdict": "accept", "note": "x", "basis": "original",
+                       "actor_id": actor_id})
+    assert code == 400
+    assert obj["error"] == "actor_id must be one of: derrick, oracle"
+    assert len(brain.proposals.read_text().splitlines()) == 1
+
+
+@pytest.mark.parametrize("actor_id", [None, "mallory"])
+def test_handoff_route_rejects_missing_or_unknown_actor(brain, actor_id):
+    brain.seed(FW_PROP)
+    code, obj = _post("P-100", "handoff", {"basis": "original", "actor_id": actor_id})
+    assert code == 400
+    assert obj["error"] == "actor_id must be one of: derrick, oracle"
+    assert not brain.handoffs.exists()
 
 
 def test_synthesize_route_returns_amended_change(brain):
@@ -717,7 +758,8 @@ def test_verdict_route_schedules_a_refresh(brain, monkeypatch):
     monkeypatch.setattr(bs, "_schedule_refresh", lambda: fired.append(1))
     brain.seed(FW_PROP)
     code, obj = _post("P-100", "verdict",
-                      {"verdict": "accept", "note": "ship it", "basis": "original"})
+                      {"verdict": "accept", "note": "ship it", "basis": "original",
+                       "actor_id": "derrick"})
     assert code == 200 and obj["ok"] is True
     assert fired == [1]
 
@@ -729,6 +771,7 @@ def test_verdict_route_failed_verdict_does_not_schedule_refresh(brain, monkeypat
     monkeypatch.setattr(bs, "_schedule_refresh", lambda: fired.append(1))
     brain.seed(FW_PROP)
     code, _ = _post("P-100", "verdict",
-                    {"verdict": "accept", "note": "x", "basis": "amended"})  # missing amended_change
+                    {"verdict": "accept", "note": "x", "basis": "amended",
+                     "actor_id": "derrick"})  # missing amended_change
     assert code == 400
     assert fired == []
