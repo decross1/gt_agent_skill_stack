@@ -655,7 +655,7 @@ def test_verdict_route_accept_original_returns_handoff_path(brain):
 
 
 def test_verdict_route_accept_amended_records_edited_text_then_handoff(brain):
-    """The human-edited text travels through the CLI into the canonical decision;
+    """The reviewer-edited text travels through the CLI into the canonical decision;
     the handoff does not depend on an ignored amended-draft card."""
     brain.seed(FW_PROP)
     bs.generate_card(bs.proposal_first("P-100"))  # card from the default JSON stub

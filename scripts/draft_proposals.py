@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """draft_proposals.py — the "bubbling" pipeline: turn drift signals into DRAFT
-proposals so they surface for human review.
+proposals so they surface for attributable Derrick/Oracle steward review.
 
 WHY THIS EXISTS
 ---------------
@@ -9,7 +9,7 @@ are filed by hand (the [[propose]] skill). But the framework already *records*
 drift in two append-only ledgers — harvest findings (memory/feedback.jsonl) and
 run-log discipline flags (run_state/framework.run.jsonl, and read-only the
 consumer's run log). This script reads those signals and emits a DRAFT proposal
-per *new* signal, so a human reviewing the brain sees candidates bubble up
+per *new* signal, so a steward reviewing the brain sees candidates bubble up
 instead of having to author every proposal cold.
 
 WHAT IT EMITS

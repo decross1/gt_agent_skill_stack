@@ -313,7 +313,7 @@ def discuss_turn(first: dict, message: str) -> str:
 
 def latest_amended_draft(pid: str) -> dict | None:
     """Return the LATEST amended_draft entry for a proposal, or None. The ledger
-    is append-only; a re-synthesis or human-edited accept appends a fresh row, so
+    is append-only; a re-synthesis or reviewer-edited accept appends a fresh row, so
     the last matching line wins (mirrors stored_card's last-write-wins read)."""
     draft = None
     for r in jsonl(CARDS):

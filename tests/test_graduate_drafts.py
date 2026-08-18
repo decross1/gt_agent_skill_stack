@@ -30,7 +30,7 @@ def test_monkeypatched_passing_gate_still_keeps_draft_for_human_without_writes(
 
     assert actions == [{
         "proposal_id": "P-999", "blast_radius": "low",
-        "title": "A local display improvement", "decision": "kept for human",
+        "title": "A local display improvement", "decision": "kept for steward review",
         "why": ("adversarial gate passed, but automatic graduation is closed: "
                 "no supported attributable automated verdict writer"),
     }]
