@@ -37,7 +37,7 @@ from datetime import datetime, timezone
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
-from brain_ledger import accepted_decision, read_proposals
+from brain_ledger import accepted_decision, inspect_proposals
 
 ROOT = Path(__file__).resolve().parent.parent
 VIEW = ROOT / "memory" / "brain" / "view"
@@ -176,8 +176,13 @@ def strip_fence(s: str) -> str:
 # proposal data
 # ---------------------------------------------------------------------------
 
+def governed_proposal_rows() -> list[dict]:
+    """Read only validated governed rows, quarantining the one known legacy pair."""
+    return inspect_proposals(PROPOSALS, quarantine_known_legacy=True).rows
+
+
 def open_framework_proposals() -> list[dict]:
-    collapsed = ps.collapse_proposals(jsonl(PROPOSALS))
+    collapsed = ps.collapse_proposals(governed_proposal_rows())
     out = []
     for pid, p in collapsed.items():
         # lifecycle_state (not final_verdict) is the gate: a draft has no verdict
@@ -195,7 +200,7 @@ def open_framework_proposals() -> list[dict]:
 
 
 def proposal_first(pid: str) -> dict | None:
-    collapsed = ps.collapse_proposals(jsonl(PROPOSALS))
+    collapsed = ps.collapse_proposals(governed_proposal_rows())
     return collapsed.get(pid, {}).get("first")
 
 
@@ -386,7 +391,11 @@ def canonical_accepted_decision(pid: str) -> dict | None:
     An old/tampered accepted decision has no safe reconstruction path.  It is an
     error, not permission to substitute an ignored card or a current filing.
     """
-    return accepted_decision(read_proposals(PROPOSALS), pid)
+    # The only supported mixed-schema legacy pair is quarantined as
+    # non-authoritative evidence. Governed decision recovery still sees only
+    # validated P-NNN rows; unknown corruption remains a hard failure.
+    return accepted_decision(
+        inspect_proposals(PROPOSALS, quarantine_known_legacy=True).rows, pid)
 
 
 def canonical_decision_actor(decision: dict, requested_actor_id: str | None) -> dict:

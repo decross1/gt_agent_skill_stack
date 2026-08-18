@@ -14,6 +14,7 @@ import json
 import os
 import re
 import time
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
@@ -30,6 +31,15 @@ KNOWN_VERDICTS = TERMINAL_VERDICTS | {"human-review"}
 DECISION_SCHEMA_VERSION = "proposal-verdict-v2"
 ACCEPTED_BODY_SCHEMA_VERSION = "proposal-change-v1"
 
+# This is a deliberately one-off compatibility bridge for two append-only rows
+# written before the governed P-NNN proposal schema existed. Do not broaden this
+# into a permissive alternate proposal format: unknown mixed-schema rows remain
+# corrupt and block writers.
+LEGACY_PRELOCK_CRITIQUE_ID = "prop-2026-08-17-prelock-critique"
+LEGACY_PRELOCK_CRITIQUE_TARGET = "skill:plan-research (or a new prereg-critique skill)"
+LEGACY_PRELOCK_FILING_SCHEMA = "legacy-prelock-critique-filing-v1"
+LEGACY_PRELOCK_LIFECYCLE_SCHEMA = "legacy-prelock-critique-lifecycle-v1"
+
 
 class ProposalLedgerError(ValueError):
     """The ledger cannot safely be used as a source of truth."""
@@ -37,6 +47,57 @@ class ProposalLedgerError(ValueError):
 
 class ProposalLedgerTimeout(ProposalLedgerError):
     """Another cooperating writer retained the advisory lock past the budget."""
+
+
+@dataclass(frozen=True)
+class ProposalLedgerRead:
+    """Validated governed rows plus non-authoritative legacy quarantine facts."""
+
+    rows: list[dict[str, Any]]
+    quarantine: list[dict[str, Any]]
+
+
+def _quarantine_metadata(line_number: int, schema: str, reason: str, raw_row: bytes) -> dict[str, Any]:
+    """Evidence-only compatibility metadata. Never expose a legacy row's body."""
+    return {
+        "line_number": line_number,
+        "schema": schema,
+        "reason": reason,
+        "sha256": hashlib.sha256(raw_row).hexdigest(),
+    }
+
+
+def _is_nonempty_string(value: Any) -> bool:
+    return isinstance(value, str) and bool(value.strip())
+
+
+def _recognized_legacy_prelock_pair(filing: dict[str, Any], lifecycle: dict[str, Any]) -> bool:
+    """Recognize exactly the historic mixed-schema pair, and nothing broader."""
+    filing_keys = {"timestamp", "id", "status", "proposed_by", "target", "proposal", "evidence_refs"}
+    lifecycle_keys = {"timestamp", "proposal_id", "supersedes_proposal_id", "agent_id", "verdict",
+                      "verdict_reasoning", "rule_cited", "decision_id", "status"}
+    return (
+        set(filing) == filing_keys
+        and filing.get("id") == LEGACY_PRELOCK_CRITIQUE_ID
+        and filing.get("status") == "open"
+        and filing.get("proposed_by") == "claude-code-main"
+        and filing.get("target") == LEGACY_PRELOCK_CRITIQUE_TARGET
+        and all(_is_nonempty_string(filing.get(key))
+                for key in ("timestamp", "proposed_by", "target", "proposal"))
+        and isinstance(filing.get("evidence_refs"), list)
+        and filing["evidence_refs"]
+        and all(_is_nonempty_string(item) for item in filing["evidence_refs"])
+        and set(lifecycle) == lifecycle_keys
+        and lifecycle.get("proposal_id") == LEGACY_PRELOCK_CRITIQUE_ID
+        and lifecycle.get("supersedes_proposal_id") == LEGACY_PRELOCK_CRITIQUE_ID
+        and lifecycle.get("agent_id") == "claude-code-main"
+        and lifecycle.get("verdict") == "human-review"
+        and lifecycle.get("status") == "closed"
+        and lifecycle.get("rule_cited") is None
+        and lifecycle.get("decision_id") is None
+        and all(_is_nonempty_string(lifecycle.get(key))
+                for key in ("timestamp", "verdict_reasoning"))
+    )
 
 
 def accepted_body_digest(body: str) -> str:
@@ -140,22 +201,23 @@ def validate_proposal_rows(rows: list[dict[str, Any]]) -> None:
                 raise ProposalLedgerError(f"{pid}: lifecycle verdict follows terminal verdict")
 
 
-def parse_proposals_bytes(raw: bytes) -> list[dict[str, Any]]:
-    """Strictly parse and validate a complete proposals.jsonl byte stream.
+def inspect_proposals_bytes(raw: bytes, *, quarantine_known_legacy: bool = False) -> ProposalLedgerRead:
+    """Parse proposal JSONL with an optional, exact two-row legacy quarantine.
 
     Lifecycle entries legitimately repeat a proposal_id.  What must be unique
     is the *filing* (a row carrying ``title``); a second filing for the same id
     is an ambiguous duplicate proposal.  A proposal may have at most one final
     terminal verdict. Non-verdict enactment/verification evidence may follow it,
-    but no later verdict may reopen or reinterpret the decision.
+    but no later verdict may reopen or reinterpret the decision. The default is
+    strict: the recognized legacy pair still raises unless explicitly quarantined.
     """
     if len(raw) > MAX_LEDGER_BYTES:
         raise ProposalLedgerError("ledger exceeds byte budget")
     if not raw:
-        return []
+        return ProposalLedgerRead(rows=[], quarantine=[])
     if not raw.endswith(b"\n"):
         raise ProposalLedgerError("ledger is missing final newline")
-    rows: list[dict[str, Any]] = []
+    parsed: list[tuple[int, bytes, dict[str, Any]]] = []
     try:
         lines = raw.splitlines(keepends=True)
         for line_number, line in enumerate(lines, 1):
@@ -166,21 +228,56 @@ def parse_proposals_bytes(raw: bytes) -> list[dict[str, Any]]:
                 raise ProposalLedgerError(f"line {line_number}: blank row")
             if len(body) > MAX_ROW_BYTES:
                 raise ProposalLedgerError(f"line {line_number}: exceeds row byte budget")
-            rows.append(_check_row(json.loads(body.decode("utf-8")), line_number))
+            row = json.loads(body.decode("utf-8"))
+            if not isinstance(row, dict):
+                raise ProposalLedgerError(f"line {line_number}: expected JSON object")
+            # Retain the complete newline-terminated ledger row so quarantine
+            # evidence binds the exact source bytes, not a normalized JSON form.
+            parsed.append((line_number, line, row))
     except (UnicodeDecodeError, json.JSONDecodeError) as exc:
         raise ProposalLedgerError(f"malformed JSONL: {exc}") from exc
 
+    rows: list[dict[str, Any]] = []
+    quarantine: list[dict[str, Any]] = []
+    index = 0
+    while index < len(parsed):
+        line_number, raw_line, row = parsed[index]
+        if (quarantine_known_legacy and index + 1 < len(parsed)
+                and _recognized_legacy_prelock_pair(row, parsed[index + 1][2])):
+            next_line, next_raw_line, _next_row = parsed[index + 1]
+            quarantine.extend((
+                _quarantine_metadata(line_number, LEGACY_PRELOCK_FILING_SCHEMA,
+                                     "recognized legacy mixed-schema filing", raw_line),
+                _quarantine_metadata(next_line, LEGACY_PRELOCK_LIFECYCLE_SCHEMA,
+                                     "recognized legacy mixed-schema lifecycle", next_raw_line),
+            ))
+            index += 2
+            continue
+        # Strict governed validation happens after removing only the exact pair;
+        # any lookalike or arbitrary invalid row fails here.
+        rows.append(_check_row(row, line_number))
+        index += 1
     validate_proposal_rows(rows)
-    return rows
+    return ProposalLedgerRead(rows=rows, quarantine=quarantine)
 
 
-def read_proposals(path: Path) -> list[dict[str, Any]]:
-    """Strict read used by writers.  Missing ledger is an empty ledger."""
+def parse_proposals_bytes(raw: bytes) -> list[dict[str, Any]]:
+    """Strict default parser; known legacy rows are errors unless opted in."""
+    return inspect_proposals_bytes(raw).rows
+
+
+def inspect_proposals(path: Path, *, quarantine_known_legacy: bool = False) -> ProposalLedgerRead:
+    """Read proposal rows plus bounded, body-free quarantine metadata."""
     try:
         raw = path.read_bytes() if path.exists() else b""
     except OSError as exc:
         raise ProposalLedgerError(f"cannot read ledger: {exc}") from exc
-    return parse_proposals_bytes(raw)
+    return inspect_proposals_bytes(raw, quarantine_known_legacy=quarantine_known_legacy)
+
+
+def read_proposals(path: Path, *, quarantine_known_legacy: bool = False) -> list[dict[str, Any]]:
+    """Read governed rows; strict by default, legacy quarantine only by opt-in."""
+    return inspect_proposals(path, quarantine_known_legacy=quarantine_known_legacy).rows
 
 
 def lifecycle_state(rows: list[dict[str, Any]], proposal_id: str) -> str | None:
@@ -209,11 +306,17 @@ def proposal_is_open(rows: list[dict[str, Any]], proposal_id: str) -> bool:
 class ProposalLedgerLock:
     """Bounded cross-process advisory lock plus validated proposal snapshot."""
 
-    def __init__(self, path: Path, *, wait_seconds: float = LOCK_WAIT_SECONDS):
+    def __init__(self, path: Path, *, wait_seconds: float = LOCK_WAIT_SECONDS,
+                 quarantine_known_legacy: bool = True):
         self.path = path
         self.wait_seconds = wait_seconds
+        # Writer paths opt into the narrowly documented bridge so an existing
+        # legacy pair cannot permanently block governed review. Strict read APIs
+        # remain the default for diagnostics and integrity checks.
+        self.quarantine_known_legacy = quarantine_known_legacy
         self._lock_file = None
         self.rows: list[dict[str, Any]] = []
+        self.quarantine: list[dict[str, Any]] = []
 
     def __enter__(self) -> "ProposalLedgerLock":
         # A sidecar avoids creating/changing the canonical ledger merely to wait
@@ -239,7 +342,10 @@ class ProposalLedgerLock:
                 self._lock_file = None
                 raise ProposalLedgerError(f"cannot acquire advisory lock: {exc}") from exc
         try:
-            self.rows = read_proposals(self.path)
+            result = inspect_proposals(self.path,
+                                       quarantine_known_legacy=self.quarantine_known_legacy)
+            self.rows = result.rows
+            self.quarantine = result.quarantine
         except Exception:
             self.__exit__(None, None, None)
             raise

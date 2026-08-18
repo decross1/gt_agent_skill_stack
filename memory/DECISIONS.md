@@ -696,3 +696,38 @@ never rewritten. No live service was restarted and no `a_bgt_rsi` file was edite
 **Supersedes:** corrects the implementation semantics implied by the 2026-06-28
 self-healing light-up entries; it preserves their honest-loop goal and closes the
 remaining accepted/enacted conflation.
+
+## 2026-08-18 — Quarantine the one known mixed proposal schema without rewriting history
+
+**Decision:** Keep `P-NNN` as the only governed proposal identity and strict
+schema/lifecycle default. The exact adjacent historic
+`prop-2026-08-17-prelock-critique` filing/lifecycle pair is recognized through a
+narrow compatibility bridge and excluded from governed decisions as
+non-authoritative legacy evidence. Quarantine reports contain only line number,
+schema/reason, and SHA-256 of the exact newline-terminated source row. Governed
+writers may append after that pair while preserving every existing source byte;
+unknown lookalikes, malformed JSON, truncation, and lifecycle contradictions
+still stop the write. `scripts/proposal_ledger_status.py` exposes the result
+read-only; strict mode remains available and rejects the mixed ledger.
+
+**Alternatives:** (a) rewrite the two rows into `P-NNN` form — rejected because it
+would alter append-only history and manufacture a governed identity; (b) accept
+arbitrary non-`P-NNN` rows as another schema — rejected because it would turn
+compatibility into silent authority expansion; (c) leave the strict writer
+permanently unavailable — rejected because a known non-authoritative historic
+pair should not block new correctly governed decisions.
+
+**Rationale:** A read-only probe of the live ledger found 43 governed rows and
+exactly two mixed-schema rows at lines 44–45. The prior strict writer correctly
+failed, but deployment would have disabled proposal review. The compatibility
+path restores availability without trusting or deleting those rows, and its
+metadata does not reproduce their body. At this checkpoint, 153 tests and the
+47-check generated-view verifier pass; the source ledger was never written.
+
+**Reversibility:** easy for code, hard for future dependence — remove the explicit
+bridge after a separately designed append-only migration/supersession record.
+Never rewrite the original pair. The status tool and quarantine hashes make the
+dependency visible in the meantime.
+
+**Supersedes:** none — narrows and operationalizes the mixed-schema warning in
+the preceding 2026-08-18 truthful-cockpit decision.
