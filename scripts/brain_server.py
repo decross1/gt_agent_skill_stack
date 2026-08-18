@@ -37,6 +37,8 @@ from datetime import datetime, timezone
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
+from brain_ledger import accepted_decision, read_proposals
+
 ROOT = Path(__file__).resolve().parent.parent
 VIEW = ROOT / "memory" / "brain" / "view"
 PROPOSALS = ROOT / "memory" / "brain" / "proposals.jsonl"
@@ -244,7 +246,7 @@ def generate_card(first: dict) -> dict:
 
 def _draft_and_store_card(first: dict) -> dict:
     sys_p = (
-        "You help a human review proposals to improve the agent_system framework "
+        "You help a Derrick-or-Oracle steward review proposals to improve the agent_system framework "
         "(a portable skills+memory framework). For the given proposal, return STRICT "
         "JSON only (no prose, no code fence) with keys: "
         '"means" (1-3 plain sentences: what this proposal actually means), '
@@ -290,8 +292,8 @@ def append_discuss(pid: str, role: str, content: str) -> None:
 def discuss_turn(first: dict, message: str) -> str:
     pid = first.get("proposal_id")
     sys_p = (
-        "You help a human refine a proposal to improve the agent_system framework. "
-        "The human may say none of the options look clean, or raise a worry. Engage "
+        "You help a Derrick-or-Oracle steward refine a proposal to improve the agent_system framework. "
+        "The steward may say none of the options look clean, or raise a worry. Engage "
         "concretely: address the worry, and when useful propose a sharper amended "
         "version of the change (quote it). Keep replies tight. Do not claim the change "
         "is implemented — you only help decide and shape it."
@@ -378,28 +380,67 @@ def synthesize_amended(first: dict) -> str:
     return change
 
 
+def canonical_accepted_decision(pid: str) -> dict | None:
+    """Read one verified self-contained acceptance from the canonical ledger.
+
+    An old/tampered accepted decision has no safe reconstruction path.  It is an
+    error, not permission to substitute an ignored card or a current filing.
+    """
+    return accepted_decision(read_proposals(PROPOSALS), pid)
+
+
+def canonical_decision_actor(decision: dict, requested_actor_id: str | None) -> dict:
+    """Verify decision attribution before emitting a recovery handoff."""
+    stored = decision.get("actor")
+    if not isinstance(stored, dict):
+        raise ValueError("accepted decision has invalid actor")
+    try:
+        canonical = actor_record(stored.get("id"))
+    except ValueError as exc:
+        raise ValueError("accepted decision has invalid actor") from exc
+    if stored != canonical:
+        raise ValueError("accepted decision actor does not match closed identity")
+    if requested_actor_id is not None and actor_record(requested_actor_id) != canonical:
+        raise ValueError("handoff actor cannot override accepted decision actor")
+    return canonical
+
+
 def write_handoff(first: dict, basis: str = "original", actor_id: str | None = None) -> str:
     pid = first.get("proposal_id")
-    actor = actor_record(actor_id) if actor_id is not None else None
-    card = stored_card(pid) or generate_card(first)
+    decision = canonical_accepted_decision(pid)
+    if decision is not None:
+        # This is the recovery path: use the exact accepted body and independently
+        # re-validated digest, never a mutable/ignored card draft or current UI text.
+        basis = decision.get("basis", "original")
+        body_label = "Accepted amended proposal (canonical)" if basis == "amended" else \
+            "Accepted original proposal (canonical)"
+        body_text = decision["accepted_body"]
+        body_digest = decision["accepted_body_sha256"]
+        actor = canonical_decision_actor(decision, actor_id)
+    else:
+        actor = actor_record(actor_id) if actor_id is not None else None
+        body_digest = None
+        # Compatibility for manually requested pre-acceptance drafts. Once an
+        # acceptance exists, the canonical branch above is mandatory.
+        amended = latest_amended_draft(pid) if basis == "amended" else None
+        if amended:
+            body_label = "Amended proposal (final form)"
+            body_text = amended.get("change", "")
+        else:
+            body_label = "Original proposal (verbatim)"
+            body_text = first.get("change", "")
+    # Handoff recovery must not depend on ignored, model-authored card material.
+    card = stored_card(pid) or {}
     disc = discussion(pid)
     disc_txt = "\n".join(f"**{t['role']}:** {t['content']}" for t in disc) or "_(no discussion)_"
-    # Choose the governed proposal body: the amended draft (final, possibly
-    # human-edited) when accepting on that basis, else the original verbatim.
-    amended = latest_amended_draft(pid) if basis == "amended" else None
-    if amended:
-        body_label = "Amended proposal (final form)"
-        body_text = amended.get("change", "")
-    else:
-        body_label = "Original proposal (verbatim)"
-        body_text = first.get("change", "")
     synth = ""
     try:
         synth = gemma([
             {"role": "system", "content":
-                "Synthesize a concrete implementation brief for a dev agent from this "
-                "proposal and its discussion: the agreed change, the files likely to "
-                "touch, and 2-4 acceptance criteria. Markdown, no preamble."},
+                "Synthesize non-authoritative implementation context for a dev agent "
+                "from this accepted proposal body and its discussion: likely files and "
+                "2-4 candidate acceptance criteria. Preserve the accepted scope, label "
+                "uncertainty, and do not imply consensus. Markdown, no preamble."},
             {"role": "user", "content":
                 f"PROPOSAL {pid}: {first.get('title')}\nchange: {body_text}\n"
                 f"reasoning: {first.get('reasoning')}\n\nDISCUSSION:\n{disc_txt}"}
@@ -412,18 +453,28 @@ def write_handoff(first: dict, basis: str = "original", actor_id: str | None = N
         "not cryptographically authenticated)\n\n"
         if actor else ""
     )
+    digest_line = f"- **Accepted-body SHA-256:** `{body_digest}`\n\n" if body_digest else ""
+    authority_note = (
+        "> **Authority boundary:** Only the canonical accepted proposal body and its "
+        "ledger decision record the accepted transition. Filing rationale, card "
+        "interpretation, discussion, and model synthesis below are non-authoritative "
+        "context and may be regenerated.\n\n"
+        if body_digest else
+        "> **Draft boundary:** No canonical acceptance was found. Everything in this "
+        "pre-acceptance handoff is non-authoritative review context.\n\n"
+    )
     md = (
         f"# Implementation handoff — {pid}\n\n"
         f"_Generated {_now()} by the brain proposal-review loop (basis: {basis}). "
         f"Pass to a dev agent._\n\n"
         f"- **Target:** `{first.get('target_type')}:{first.get('target')}`\n"
         f"- **Title:** {first.get('title')}\n\n"
-    ) + actor_line + (
+    ) + actor_line + digest_line + authority_note + (
         f"## {body_label}\n\n{body_text}\n\n"
-        f"### Why\n\n{first.get('reasoning')}\n\n"
-        f"## What it means\n\n{card.get('means','')}\n\n"
-        f"## Discussion\n\n{disc_txt}\n\n"
-        f"## Agreed change & implementation brief\n\n{synth}\n"
+        f"### Filing rationale (context)\n\n{first.get('reasoning')}\n\n"
+        f"## Card interpretation (non-authoritative)\n\n{card.get('means','')}\n\n"
+        f"## Discussion (non-authoritative context)\n\n{disc_txt}\n\n"
+        f"## Synthesized implementation context (non-authoritative)\n\n{synth}\n"
     )
     path = HANDOFFS / f"{pid}.md"
     path.write_text(md)
@@ -431,7 +482,7 @@ def write_handoff(first: dict, basis: str = "original", actor_id: str | None = N
 
 
 def record_verdict(pid: str, verdict: str, note: str, basis: str = "original",
-                   actor_id: str | None = None) -> dict:
+                   actor_id: str | None = None, accepted_body: str | None = None) -> dict:
     if verdict not in ("accept", "reject", "needs_revision"):
         return {"ok": False, "error": "bad verdict"}
     if basis not in ("original", "amended"):
@@ -440,9 +491,12 @@ def record_verdict(pid: str, verdict: str, note: str, basis: str = "original",
         actor_record(actor_id)
     except ValueError as e:
         return {"ok": False, "error": str(e)}
+    command = [sys.executable, str(CLI), "--proposal-id", pid, "--verdict", verdict,
+               "--note", note, "--basis", basis, "--actor", actor_id]
+    if accepted_body is not None:
+        command.extend(["--accepted-body", accepted_body])
     proc = subprocess.run(
-        [sys.executable, str(CLI), "--proposal-id", pid, "--verdict", verdict,
-         "--note", note, "--basis", basis, "--actor", actor_id],
+        command,
         capture_output=True, text=True, timeout=30)
     try:
         out = json.loads(proc.stdout.strip() or "{}")
@@ -1059,7 +1113,7 @@ class Handler(SimpleHTTPRequestHandler):
                 v, note = body.get("verdict", ""), (body.get("note") or "").strip()
                 basis = body.get("basis") or "original"
                 actor_id = body.get("actor_id")
-                # Reason optional for accept (human authority); required to reject.
+                # Reason optional for accept (closed steward assertion); required to reject.
                 if v != "accept" and not note:
                     return self._send(400, {"error": "a reason is required to reject"})
                 if basis not in ("original", "amended"):
@@ -1068,15 +1122,16 @@ class Handler(SimpleHTTPRequestHandler):
                     actor_record(actor_id)
                 except ValueError as e:
                     return self._send(400, {"error": str(e)})
-                # If accepting the amended draft, persist the (possibly human-EDITED)
-                # text as a fresh amended_draft BEFORE recording, so the governed
-                # and handoff form is the final edited text.
-                if basis == "amended":
-                    amended_change = (body.get("amended_change") or "").strip()
-                    if not amended_change:
+                accepted_body = None
+                # The final reviewer-edited text is passed directly to the governed
+                # CLI. Ignored card drafts may aid discussion but never supply the
+                # accepted/recoverable body.
+                if v == "accept" and basis == "amended":
+                    amended_change = body.get("amended_change")
+                    if not isinstance(amended_change, str) or not amended_change.strip():
                         return self._send(400, {"error": "amended_change required for amended basis"})
-                    append_amended_draft(pid, amended_change)
-                out = record_verdict(pid, v, note, basis, actor_id)
+                    accepted_body = amended_change
+                out = record_verdict(pid, v, note, basis, actor_id, accepted_body)
                 # A verdict on an already-decided proposal (CLI exit 4) or a bad
                 # verdict is a clean client error, not a 500. 409 = conflict with
                 # the proposal's recorded state; 400 = malformed verdict.
@@ -1084,10 +1139,18 @@ class Handler(SimpleHTTPRequestHandler):
                     code = 409 if out.get("exit_code") == 4 else 400
                     return self._send(code, out)
                 out["basis"] = basis
-                # On ACCEPT, auto-write the implementation handoff so the human's
-                # decision and the dev brief are a single step.
+                # On ACCEPT, auto-write the implementation handoff so the steward's
+                # decision and the dev brief are a single step. If the file write
+                # fails, the accepted proposal body remains durable and POST
+                # /handoff can reconstruct that verified body for a new handoff.
                 if v == "accept":
-                    out["handoff_path"] = write_handoff(first, basis, actor_id)
+                    try:
+                        out["handoff_path"] = write_handoff(first, basis, actor_id)
+                    except Exception:  # noqa: BLE001 — accepted row is already durable
+                        out["handoff_status"] = "pending"
+                        out["handoff_recovery"] = "retry POST /api/proposal/<id>/handoff"
+                        _schedule_refresh()
+                        return self._send(202, out)
                 # Any successful verdict changes the open set — refresh the static
                 # projection so the dashboard inbox/loop match the live queue.
                 _schedule_refresh()
@@ -1101,7 +1164,11 @@ class Handler(SimpleHTTPRequestHandler):
                     actor_record(actor_id)
                 except ValueError as e:
                     return self._send(400, {"error": str(e)})
-                return self._send(200, {"path": write_handoff(first, basis, actor_id)})
+                try:
+                    path = write_handoff(first, basis, actor_id)
+                except ValueError as e:
+                    return self._send(409, {"error": str(e)})
+                return self._send(200, {"path": path})
             return self._send(404, {"error": "no action"})
         except GemmaError as e:
             return self._send(503, {"error": str(e)})

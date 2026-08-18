@@ -207,3 +207,17 @@ def test_contradictory_terminal_history_is_fail_closed_without_append(tmp_path):
         with bl.ProposalLedgerLock(ledger):
             pass
     assert ledger.read_bytes() == before
+
+
+def test_new_auto_accept_requires_canonical_body_and_basis(tmp_path):
+    ledger = tmp_path / "proposals.jsonl"
+    _write_jsonl(ledger, [OPEN_ROW])
+    before = ledger.read_bytes()
+    incomplete = {
+        "timestamp": "2026-08-18T00:01:00Z", "proposal_id": "P-901",
+        "verdict": "auto-accept", "status": "closed", "basis": "original",
+    }
+    with pytest.raises(bl.ProposalLedgerError, match="incomplete body record"):
+        with bl.ProposalLedgerLock(ledger) as locked:
+            locked.append([incomplete])
+    assert ledger.read_bytes() == before

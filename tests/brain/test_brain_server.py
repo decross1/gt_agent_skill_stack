@@ -301,7 +301,8 @@ def test_write_handoff_writes_markdown_file(brain):
     assert "Tighten the validate skill" in text          # title
     assert "make near-misses always fail" in text        # original change
     assert "Let us narrow scope." in text                # discussion echoed
-    assert "## Agreed change & implementation brief" in text
+    assert "## Synthesized implementation context (non-authoritative)" in text
+    assert "Everything in this pre-acceptance handoff is non-authoritative" in text
 
 
 def test_write_handoff_reuses_existing_card(brain):
@@ -373,10 +374,12 @@ def _handoff_body(text: str) -> str:
     GOVERNED body is, independent of discussion/synthesis echoes elsewhere."""
     marker = "## "
     for header in ("## Amended proposal (final form)",
-                   "## Original proposal (verbatim)"):
+                   "## Original proposal (verbatim)",
+                   "## Accepted amended proposal (canonical)",
+                   "## Accepted original proposal (canonical)"):
         if header in text:
             after = text.split(header, 1)[1]
-            return after.split("### Why", 1)[0]
+            return after.split("### Filing rationale (context)", 1)[0]
     return ""
 
 
@@ -466,12 +469,12 @@ def test_record_verdict_threads_closed_actor_to_cli(brain):
     }
 
 
-def test_record_verdict_basis_amended_threads_to_cli(brain):
+def test_record_verdict_basis_amended_threads_exact_body_to_cli(brain):
     """record_verdict(..., basis='amended') threads --basis amended to the CLI,
     and the appended outcome records basis='amended'."""
     brain.seed(FW_PROP)
     out = bs.record_verdict("P-100", "accept", "ship amended", basis="amended",
-                            actor_id="oracle")
+                            actor_id="oracle", accepted_body="final amended body")
     assert out.get("ok") is True
     rows = [json.loads(l) for l in brain.proposals.read_text().splitlines()
             if l.strip()]
@@ -479,6 +482,7 @@ def test_record_verdict_basis_amended_threads_to_cli(brain):
     assert outcome["verdict"] == "accepted"
     assert outcome["basis"] == "amended"
     assert outcome["actor"]["id"] == "oracle"
+    assert outcome["accepted_body"] == "final amended body"
 
 
 @pytest.mark.parametrize("actor_id", [None, "mallory", "human:ui"])
@@ -650,10 +654,9 @@ def test_verdict_route_accept_original_returns_handoff_path(brain):
     assert (brain.handoffs / "P-100.md").exists()
 
 
-def test_verdict_route_accept_amended_persists_edited_text_then_handoff(brain):
-    """basis='amended' persists the (human-EDITED) amended_change as a FRESH
-    amended_draft BEFORE recording, so the governed/handoff form is that final
-    edited text. Accept returns a handoff_path and basis='amended'."""
+def test_verdict_route_accept_amended_records_edited_text_then_handoff(brain):
+    """The human-edited text travels through the CLI into the canonical decision;
+    the handoff does not depend on an ignored amended-draft card."""
     brain.seed(FW_PROP)
     bs.generate_card(bs.proposal_first("P-100"))  # card from the default JSON stub
     code, obj = _post("P-100", "verdict",
@@ -666,9 +669,8 @@ def test_verdict_route_accept_amended_persists_edited_text_then_handoff(brain):
     assert obj["actor"]["id"] == "oracle"
     assert obj["handoff_path"] == "handoffs/P-100.md"
 
-    # a fresh amended_draft carrying the EDITED text was persisted
-    latest = bs.latest_amended_draft("P-100")
-    assert latest["change"] == "Final edited amended change text."
+    outcome = [json.loads(line) for line in brain.proposals.read_text().splitlines()][-1]
+    assert outcome["accepted_body"] == "Final edited amended change text."
     # and the handoff body is that edited text
     handoff = (brain.handoffs / "P-100.md").read_text()
     assert "**Actor:** `oracle` (agent; ui-asserted, not cryptographically authenticated)" in handoff
@@ -689,6 +691,120 @@ def test_verdict_route_amended_requires_amended_change(brain):
     rows = [json.loads(l) for l in brain.proposals.read_text().splitlines()
             if l.strip()]
     assert len(rows) == 1
+
+
+def test_handoff_replays_verified_accepted_body_without_cards(brain):
+    """A clean/replayed proposal ledger can regenerate its handoff from the
+    decision row alone; ignored cards do not supply the accepted body."""
+    brain.seed(FW_PROP)
+    out = bs.record_verdict("P-100", "accept", "ship", actor_id="derrick")
+    assert out["ok"] is True
+    brain.cards.write_text("")  # simulate a clean clone with no ignored card store
+    first = bs.proposal_first("P-100")
+    rel = bs.write_handoff(first, actor_id="derrick")
+    handoff = (brain.handoffs / "P-100.md").read_text()
+    outcome = [json.loads(line) for line in brain.proposals.read_text().splitlines()][-1]
+    assert rel == "handoffs/P-100.md"
+    assert outcome["accepted_body"] in handoff
+    assert outcome["accepted_body_sha256"] in handoff
+    assert "Only the canonical accepted proposal body" in handoff
+    assert "model synthesis below are non-authoritative" in handoff
+
+
+@pytest.mark.parametrize("basis", [None, "not-a-basis"])
+def test_missing_or_tampered_basis_refuses_accepted_handoff_recovery(brain, basis):
+    brain.seed(FW_PROP)
+    out = bs.record_verdict("P-100", "accept", "ship", actor_id="derrick")
+    assert out["ok"] is True
+    rows = [json.loads(line) for line in brain.proposals.read_text().splitlines()]
+    if basis is None:
+        rows[-1].pop("basis")
+    else:
+        rows[-1]["basis"] = basis
+    brain.proposals.write_text("".join(json.dumps(row) + "\n" for row in rows))
+    with pytest.raises(ValueError, match="missing or invalid basis"):
+        bs.write_handoff(bs.proposal_first("P-100"))
+    assert not brain.handoffs.exists()
+
+
+def test_tampered_accepted_body_refuses_handoff_reconstruction(brain):
+    brain.seed(FW_PROP)
+    out = bs.record_verdict("P-100", "accept", "ship", actor_id="derrick")
+    assert out["ok"] is True
+    rows = [json.loads(line) for line in brain.proposals.read_text().splitlines()]
+    rows[-1]["accepted_body"] = "tampered"
+    brain.proposals.write_text("".join(json.dumps(row) + "\n" for row in rows))
+    with pytest.raises(ValueError, match="digest mismatch"):
+        bs.write_handoff(bs.proposal_first("P-100"))
+    assert not brain.handoffs.exists()
+
+
+def test_tampered_accepted_actor_or_request_override_refuses_recovery(brain):
+    brain.seed(FW_PROP)
+    out = bs.record_verdict("P-100", "accept", "ship", actor_id="derrick")
+    assert out["ok"] is True
+    rows = [json.loads(line) for line in brain.proposals.read_text().splitlines()]
+    rows[-1]["actor"]["authentication"] = "forged"
+    brain.proposals.write_text("".join(json.dumps(row) + "\n" for row in rows))
+    with pytest.raises(ValueError, match="does not match closed identity"):
+        bs.write_handoff(bs.proposal_first("P-100"))
+    assert not brain.handoffs.exists()
+
+    # The canonical stored actor, not a caller-selected identity, governs a
+    # recovered handoff.
+    rows[-1]["actor"] = {
+        "id": "derrick", "type": "human", "authentication": "ui-asserted",
+        "cryptographically_authenticated": False,
+    }
+    brain.proposals.write_text("".join(json.dumps(row) + "\n" for row in rows))
+    with pytest.raises(ValueError, match="cannot override"):
+        bs.write_handoff(bs.proposal_first("P-100"), actor_id="oracle")
+    assert not brain.handoffs.exists()
+
+
+def test_legacy_auto_accept_never_falls_back_to_mutable_filing_text(brain):
+    brain.seed(FW_PROP, {
+        "timestamp": "2026-08-18T00:01:00Z", "proposal_id": "P-100",
+        "agent_id": "legacy", "verdict": "auto-accept", "status": "closed",
+    })
+    with pytest.raises(ValueError, match="incomplete body record"):
+        bs.write_handoff(bs.proposal_first("P-100"))
+    assert not brain.handoffs.exists()
+
+
+def test_handoff_route_refuses_actor_override_as_integrity_conflict(brain):
+    brain.seed(FW_PROP)
+    out = bs.record_verdict("P-100", "accept", "ship", actor_id="derrick")
+    assert out["ok"] is True
+    code, obj = _post("P-100", "handoff", {"basis": "original", "actor_id": "oracle"})
+    assert code == 409
+    assert obj["error"] == "handoff actor cannot override accepted decision actor"
+
+
+def test_cli_failure_never_creates_handoff(brain, monkeypatch):
+    brain.seed(FW_PROP)
+    monkeypatch.setattr(bs, "record_verdict",
+                        lambda *_args, **_kwargs: {"ok": False, "exit_code": 7,
+                                                     "error": "ledger refused"})
+    code, _obj = _post("P-100", "verdict",
+                       {"verdict": "accept", "note": "x", "basis": "original",
+                        "actor_id": "derrick"})
+    assert code == 400
+    assert not brain.handoffs.exists()
+
+
+def test_handoff_write_failure_is_honest_and_recoverable(brain, monkeypatch):
+    brain.seed(FW_PROP)
+    original = bs.write_handoff
+    monkeypatch.setattr(bs, "write_handoff", lambda *_args, **_kwargs: (_ for _ in ()).throw(OSError("disk")))
+    code, obj = _post("P-100", "verdict",
+                      {"verdict": "accept", "note": "x", "basis": "original",
+                       "actor_id": "derrick"})
+    assert code == 202
+    assert obj["handoff_status"] == "pending"
+    assert not brain.handoffs.exists()
+    monkeypatch.setattr(bs, "write_handoff", original)
+    assert bs.write_handoff(bs.proposal_first("P-100")) == "handoffs/P-100.md"
 
 
 @pytest.mark.parametrize("actor_id", [None, "mallory", "human:ui"])

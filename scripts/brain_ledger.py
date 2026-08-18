@@ -9,6 +9,7 @@ and appends.
 from __future__ import annotations
 
 import fcntl
+import hashlib
 import json
 import os
 import re
@@ -19,11 +20,15 @@ from typing import Any
 PID_RE = re.compile(r"^P-\d+$")
 MAX_LEDGER_BYTES = 8 * 1024 * 1024
 MAX_ROW_BYTES = 256 * 1024
+MAX_ACCEPTED_BODY_BYTES = 64 * 1024
 LOCK_WAIT_SECONDS = 0.75
 LOCK_POLL_SECONDS = 0.01
 
 TERMINAL_VERDICTS = {"accepted", "rejected", "auto-accept", "auto-reject"}
+ACCEPTING_VERDICTS = {"accepted", "auto-accept"}
 KNOWN_VERDICTS = TERMINAL_VERDICTS | {"human-review"}
+DECISION_SCHEMA_VERSION = "proposal-verdict-v2"
+ACCEPTED_BODY_SCHEMA_VERSION = "proposal-change-v1"
 
 
 class ProposalLedgerError(ValueError):
@@ -32,6 +37,62 @@ class ProposalLedgerError(ValueError):
 
 class ProposalLedgerTimeout(ProposalLedgerError):
     """Another cooperating writer retained the advisory lock past the budget."""
+
+
+def accepted_body_digest(body: str) -> str:
+    """Return the unambiguous SHA-256 over the exact UTF-8 proposal body."""
+    if not isinstance(body, str):
+        raise ProposalLedgerError("accepted body must be text")
+    try:
+        raw = body.encode("utf-8")
+    except UnicodeEncodeError as exc:
+        raise ProposalLedgerError("accepted body is not UTF-8 encodable") from exc
+    if not raw or len(raw) > MAX_ACCEPTED_BODY_BYTES:
+        raise ProposalLedgerError("accepted body is empty or exceeds byte budget")
+    return hashlib.sha256(raw).hexdigest()
+
+
+def validate_accepted_decision(row: dict[str, Any], *, require_body: bool) -> None:
+    """Validate the self-contained body required for an accepting decision.
+
+    Historical accepted/auto-accept rows predate this schema and remain readable;
+    callers recovering a handoff from them must fail closed rather than invent a
+    body.
+    """
+    body_fields = {"decision_schema_version", "accepted_body_schema",
+                   "accepted_body", "accepted_body_sha256"}
+    present = body_fields.intersection(row)
+    if row.get("verdict") not in ACCEPTING_VERDICTS:
+        if present:
+            raise ProposalLedgerError("non-accepting verdict carries accepted body")
+        return
+    if not present and not require_body:
+        return
+    if present != body_fields:
+        raise ProposalLedgerError("accepted decision has incomplete body record")
+    if row.get("decision_schema_version") != DECISION_SCHEMA_VERSION:
+        raise ProposalLedgerError("accepted decision has unknown schema version")
+    if row.get("accepted_body_schema") != ACCEPTED_BODY_SCHEMA_VERSION:
+        raise ProposalLedgerError("accepted decision has unknown body schema")
+    if row.get("basis") not in {"original", "amended"}:
+        raise ProposalLedgerError("accepted decision has missing or invalid basis")
+    digest = row.get("accepted_body_sha256")
+    if not isinstance(digest, str) or not re.fullmatch(r"[0-9a-f]{64}", digest):
+        raise ProposalLedgerError("accepted decision has invalid body digest")
+    if accepted_body_digest(row.get("accepted_body")) != digest:
+        raise ProposalLedgerError("accepted decision body digest mismatch")
+
+
+def accepted_decision(rows: list[dict[str, Any]], proposal_id: str) -> dict[str, Any] | None:
+    """Return one verified accepting terminal, or fail closed if legacy/tampered."""
+    found = None
+    for row in rows:
+        if row.get("proposal_id") == proposal_id and row.get("verdict") in ACCEPTING_VERDICTS:
+            found = row
+    if found is None:
+        return None
+    validate_accepted_decision(found, require_body=True)
+    return found
 
 
 def _check_row(row: Any, line_number: int) -> dict[str, Any]:
@@ -50,6 +111,7 @@ def validate_proposal_rows(rows: list[dict[str, Any]]) -> None:
     """Validate proposal identity and lifecycle invariants without writing."""
     for line_number, row in enumerate(rows, 1):
         _check_row(row, line_number)
+        validate_accepted_decision(row, require_body=False)
     filings: set[str] = set()
     by_id: dict[str, list[dict[str, Any]]] = {}
     for row in rows:
@@ -194,6 +256,11 @@ class ProposalLedgerLock:
         """
         if self._lock_file is None:
             raise ProposalLedgerError("append without advisory lock")
+        # Every newly appended accepting terminal is self-contained. This does
+        # not rewrite or invalidate legacy acceptance rows already on disk.
+        for row in rows:
+            if row.get("verdict") in ACCEPTING_VERDICTS:
+                validate_accepted_decision(row, require_body=True)
         encoded: list[bytes] = []
         for row in rows:
             try:
