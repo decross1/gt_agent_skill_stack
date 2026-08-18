@@ -222,7 +222,13 @@ def collapse_proposals(rows: list[dict]) -> dict[str, dict]:
 
 
 def final_verdict(p: dict) -> str:
-    return p["latest"].get("verdict") or "open"
+    # Enactment/verification evidence is appended after the verdict.  Preserve
+    # the governing verdict instead of letting a later evidence row reopen a
+    # closed proposal merely because it carries no verdict field itself.
+    for row in reversed(p["lifecycle"]):
+        if row.get("verdict"):
+            return row["verdict"]
+    return "open"
 
 
 def lifecycle_state(p: dict) -> str:
@@ -235,12 +241,156 @@ def lifecycle_state(p: dict) -> str:
     This is the authority for 'is this proposal in the open review queue?' —
     final_verdict alone can't tell a draft from an open proposal (both have no
     verdict), which is why a draft would otherwise leak into the inbox."""
+    verdict = final_verdict(p)
+    if verdict != "open":
+        return "human-review" if verdict == "human-review" else "closed"
     latest = p["latest"]
-    if latest.get("verdict"):
-        return "human-review" if latest["verdict"] == "human-review" else "closed"
     if (latest.get("status") or "").strip() == "draft":
         return "draft"
     return "open"
+
+
+# An acceptance is a decision, not proof that an edit occurred.  The optional
+# append-only evidence rows below deliberately require an exact commit/path
+# link, and verification must bind to that same commit.  Free-form prose and
+# commit-subject matches are discovery hints only; neither advances this state.
+_FULL_GIT_SHA = re.compile(r"^[0-9a-f]{40}$")
+_OUTPUT_SHA256 = re.compile(r"^[0-9a-f]{64}$")
+
+
+def _proposal_verdict_row(p: dict) -> dict | None:
+    """Latest lifecycle row that actually records the current verdict."""
+    for row in reversed(p["lifecycle"]):
+        if row.get("verdict"):
+            return row
+    return None
+
+
+def _proposal_verdict_index(p: dict) -> int | None:
+    """Index of the governing verdict in append order, if it exists."""
+    for index in range(len(p["lifecycle"]) - 1, -1, -1):
+        if p["lifecycle"][index].get("verdict"):
+            return index
+    return None
+
+
+def _target_skill_contract(p: dict) -> str | None:
+    """Exact contract path a skill proposal must prove it changed."""
+    first = p["first"]
+    if (first.get("target_type") or "").strip() != "skill":
+        return None
+    target = (first.get("target") or "").strip()
+    if not re.fullmatch(r"[a-z0-9-]+", target):
+        return None
+    return f".agents/skills/{target}/SKILL.md"
+
+
+def _valid_relative_paths(paths: object) -> list[str] | None:
+    if not isinstance(paths, list) or not paths:
+        return None
+    cleaned = []
+    for path in paths:
+        if not isinstance(path, str) or not path or path.startswith("/"):
+            return None
+        pure = Path(path)
+        if ".." in pure.parts:
+            return None
+        cleaned.append(path)
+    return cleaned
+
+
+def _commit_changed_paths(repo_root: Path, commit: str) -> set[str] | None:
+    """Changed repository-relative paths for one exact commit, else None.
+
+    This validates only a durable, locally inspectable Git fact.  It does not
+    infer semantic enactment from a commit subject or a natural-language claim.
+    """
+    try:
+        res = subprocess.run(
+            ["git", "-C", str(repo_root), "diff-tree", "--no-commit-id",
+             "--name-only", "-r", "--root", commit],
+            capture_output=True, text=True, timeout=20,
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    if res.returncode != 0:
+        return None
+    return {line for line in res.stdout.splitlines() if line}
+
+
+def proposal_healing_state(p: dict, repo_root: Path = REPO) -> dict:
+    """Return accepted/enacted/verified states for one collapsed proposal.
+
+    An evidence row may be appended after the verdict with either or both of:
+    ``enactment={commit:<40-hex>, paths:[<repo-relative changed paths>]}`` and
+    ``verification={commit:<same 40-hex>, command:<nonempty>, result:"pass",
+    output_sha256:<64-hex>}``.  Missing or malformed evidence fails closed.
+    """
+    verdict_index = _proposal_verdict_index(p)
+    verdict_row = (p["lifecycle"][verdict_index]
+                   if verdict_index is not None else None)
+    accepted = bool(verdict_row and verdict_row.get("verdict")
+                    in ("accepted", "auto-accept"))
+    accepted_at = (_date_of(verdict_row.get("timestamp"))
+                   if accepted and verdict_row else None)
+    result = {
+        "accepted": {"state": "accepted" if accepted else "unknown",
+                     "at": accepted_at},
+        "enacted": {"state": "pending" if accepted else "unknown"},
+        "verified": {"state": "unknown"},
+    }
+    if not accepted:
+        return result
+
+    enactment = None
+    enactment_at = None
+    is_skill_target = (p["first"].get("target_type") or "").strip() == "skill"
+    required_contract = _target_skill_contract(p)
+    # Evidence may be appended only after the governing acceptance.  Do not
+    # allow a pre-accept claim to be retroactively promoted by a later verdict.
+    for row in reversed(p["lifecycle"][verdict_index + 1:]):
+        candidate = row.get("enactment")
+        if not isinstance(candidate, dict):
+            continue
+        commit = candidate.get("commit")
+        paths = _valid_relative_paths(candidate.get("paths"))
+        if not isinstance(commit, str) or not _FULL_GIT_SHA.fullmatch(commit) or not paths:
+            continue
+        changed = _commit_changed_paths(repo_root, commit)
+        if (changed is None or not set(paths).issubset(changed)
+                or (is_skill_target
+                    and (required_contract is None
+                         or required_contract not in paths
+                         or required_contract not in changed))):
+            continue
+        enactment = {"commit": commit, "paths": paths}
+        enactment_at = _date_of(row.get("timestamp")) or None
+        break
+    if enactment is None:
+        return result
+
+    result["enacted"] = {"state": "enacted", "at": enactment_at,
+                          "evidence": enactment}
+    result["verified"] = {"state": "pending"}
+    for row in reversed(p["lifecycle"][verdict_index + 1:]):
+        candidate = row.get("verification")
+        if not isinstance(candidate, dict):
+            continue
+        if (candidate.get("commit") != enactment["commit"]
+                or not isinstance(candidate.get("command"), str)
+                or not candidate["command"].strip()
+                or candidate.get("result") != "pass"
+                or not isinstance(candidate.get("output_sha256"), str)
+                or not _OUTPUT_SHA256.fullmatch(candidate["output_sha256"])):
+            continue
+        result["verified"] = {
+            "state": "verified", "at": _date_of(row.get("timestamp")) or None,
+            "evidence": {"commit": candidate["commit"],
+                         "command": candidate["command"].strip(),
+                         "output_sha256": candidate["output_sha256"]},
+        }
+        break
+    return result
 
 
 def proposal_scope(first: dict, consumer_name: str | None) -> str:
@@ -593,32 +743,35 @@ def build_skills(
         elif cls == "confirmed":
             confirmed[sk] += 1
 
-    # healed: accepted proposal targeting an existing skill, or a rule whose
-    # body extends [[skill]] (FR-002 → resume-state). "New skill" proposals
-    # (title says so) are births, not healings.
+    # A proposal decision is distinct from its eventual patch and verification.
+    # Retain every accepted skill proposal as pending lifecycle information, but
+    # mark a skill healed only after its exact patch and verification evidence.
+    # "New skill" proposals are births, not healings.
     new_skill_re = re.compile(r"\bnew\b.{0,40}\bskill\b", re.IGNORECASE)
-    extends_re = re.compile(r"extends\s+(?:the\s+)?\[\[([a-z0-9-]+)\]\]")
-    healed_by: dict[str, dict] = {}
+    healing_by: dict[str, dict] = {}
     born_via: dict[str, str] = {}
-    for pid, p in proposals.items():
+    for pid, p in sorted(proposals.items()):
         if final_verdict(p) not in ("accepted", "auto-accept"):
             continue
         first = p["first"]
         if (first.get("target_type") or "").strip() != "skill":
             continue
         target = (first.get("target") or "").strip()
-        accepted_at = _date_of(p["latest"].get("timestamp"))
         if new_skill_re.search(first.get("title") or ""):
             born_via[target] = pid
             continue
-        healed_by[target] = {"proposal_id": pid, "accepted_at": accepted_at,
-                             "rule_id": None}
-    for r in rules:
-        m = extends_re.search(r.get("body", ""))
-        if m and m.group(1) not in healed_by:
-            healed_by[m.group(1)] = {"proposal_id": None,
-                                     "accepted_at": r.get("date") or None,
-                                     "rule_id": r["rule_id"]}
+        lifecycle = proposal_healing_state(p)
+        record = {"proposal_id": pid, "accepted_at": lifecycle["accepted"]["at"],
+                  "rule_id": None, **lifecycle}
+        # Prefer the most advanced evidence state, then the newest decision.
+        rank = {"verified": 2, "enacted": 1, "pending": 0, "unknown": -1}
+        previous = healing_by.get(target)
+        if (previous is None
+                or (rank[record["verified"]["state"]], rank[record["enacted"]["state"]],
+                    record["accepted_at"] or "", pid)
+                > (rank[previous["verified"]["state"]], rank[previous["enacted"]["state"]],
+                   previous["accepted_at"] or "", previous["proposal_id"])):
+            healing_by[target] = record
 
     usage: dict[str, dict] = defaultdict(lambda: {"explicit": 0, "inferred": 0,
                                                   "last_used": "",
@@ -663,11 +816,19 @@ def build_skills(
                      "latest": drift_latest.get(name) or None,
                      "open_note": open_note}
 
+        healing = healing_by.get(name)
         healed = None
-        if name in healed_by:
-            h = healed_by[name]
-            healed = {**h, "in_window": bool(h["accepted_at"])
-                      and win_start <= h["accepted_at"] <= win_end}
+        if healing and healing["verified"]["state"] == "verified":
+            verified_at = healing["verified"].get("at")
+            healed = {
+                "proposal_id": healing["proposal_id"],
+                "accepted_at": healing["accepted_at"],
+                "enacted_at": healing["enacted"].get("at"),
+                "verified_at": verified_at,
+                "commit": healing["enacted"]["evidence"]["commit"],
+                "rule_id": None,
+                "in_window": bool(verified_at) and win_start <= verified_at <= win_end,
+            }
 
         born = skill_born_date(name)
         new = None
@@ -707,6 +868,7 @@ def build_skills(
                 "state": state,
                 "conformance": conf_row,
                 "drift": drift,
+                "healing": healing,
                 "healed": healed,
                 "new": new,
                 "referenced_only_by_design": name in BY_DESIGN,
@@ -925,11 +1087,23 @@ def build_loop(proposals: dict[str, dict], rules: list[dict],
                         if lifecycle_state(p) == "draft"), default="")
     skills_created = sum(1 for s in skills
                          if (s["governance"]["new"] or {}).get("via", "git") != "git")
+    skills_enacted = sum(
+        1 for s in skills
+        if (s["governance"].get("healing") or {}).get("enacted", {}).get("state")
+        in ("enacted", "verified")
+    )
     skills_healed = sum(1 for s in skills if s["governance"]["healed"])
+    skills_pending = sum(
+        1 for s in skills
+        if (s["governance"].get("healing") or {}).get("enacted", {}).get("state")
+        == "pending"
+    )
 
     chains = []
     for pid, p in proposals.items():
         first = p["first"]
+        healing = proposal_healing_state(p)
+        verdict_row = _proposal_verdict_row(p)
         chains.append({
             "proposal_id": pid,
             "title": _trim(first.get("title", ""), 100),
@@ -941,10 +1115,10 @@ def build_loop(proposals: dict[str, dict], rules: list[dict],
                                and ref.startswith("feedback.jsonl:")],
             "final_verdict": final_verdict(p),
             "lane": lifecycle_state(p),
-            "rule_cited": p["latest"].get("rule_cited"),
+            "rule_cited": (verdict_row or {}).get("rule_cited"),
             "filed_date": _date_of(first.get("timestamp")),
-            "decided_at": (_date_of(p["latest"].get("timestamp"))
-                           if p["latest"].get("verdict") else None),
+            "decided_at": healing["accepted"]["at"],
+            "healing": healing,
             "lifecycle": [{"ts": r.get("timestamp", ""),
                            "verdict": r.get("verdict") or "open",
                            "actor": r.get("agent_id") or "unknown"}
@@ -965,9 +1139,13 @@ def build_loop(proposals: dict[str, dict], rules: list[dict],
                        "auto_accept": verdicts.get("auto-accept", 0),
                        "auto_reject": verdicts.get("auto-reject", 0),
                        "human_review": verdicts.get("human-review", 0)},
+            # Keep the pre-existing observed-rule count for compatibility; the
+            # skill counts below require proposal-bound evidence.
             "enacted": {"rules": len(rules),
                         "skills_created": skills_created,
+                        "skills_enacted": skills_enacted,
                         "skills_healed": skills_healed},
+            "verified": {"skills": skills_healed, "pending": skills_pending},
         },
         "state": state,
         "chains": chains,
