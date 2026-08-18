@@ -25,6 +25,7 @@ import pytest
 
 REPO = Path(__file__).resolve().parents[2]
 REAL_CLI = REPO / "scripts" / "review_proposal_cli.py"
+REAL_LEDGER_HELPER = REPO / "scripts" / "brain_ledger.py"
 REAL_LEDGER = REPO / "memory" / "brain" / "proposals.jsonl"
 
 OPEN_ROW = {
@@ -51,6 +52,7 @@ def cli_env(tmp_path):
     fake_scripts = tmp_path / "scripts"
     fake_scripts.mkdir()
     shutil.copy(REAL_CLI, fake_scripts / "review_proposal_cli.py")
+    shutil.copy(REAL_LEDGER_HELPER, fake_scripts / "brain_ledger.py")
     ledger = tmp_path / "memory" / "brain" / "proposals.jsonl"
     ledger.parent.mkdir(parents=True)
 

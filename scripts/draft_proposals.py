@@ -103,6 +103,8 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+from brain_ledger import ProposalLedgerError, ProposalLedgerLock
+
 ROOT = Path(__file__).resolve().parent.parent
 PROPOSALS = ROOT / "memory" / "brain" / "proposals.jsonl"
 FEEDBACK = ROOT / "memory" / "feedback.jsonl"
@@ -200,7 +202,7 @@ def resolve_consumer() -> Path | None:
 # Existing-proposal state (collapse to first entry per pid; dedup indexes)
 # ---------------------------------------------------------------------------
 
-def existing_state() -> tuple[set[str], set[tuple[str, str]], int]:
+def existing_state(rows: list[dict] | None = None) -> tuple[set[str], set[tuple[str, str]], int]:
     """Returns:
       covered_skills   skills that any NON-DRAFT proposal already targets
                        (target_type=skill) — source-1 findings on these are
@@ -212,7 +214,7 @@ def existing_state() -> tuple[set[str], set[tuple[str, str]], int]:
     covered_skills: set[str] = set()
     draft_keys: set[tuple[str, str]] = set()
     max_num = 0
-    for r in jsonl(PROPOSALS):
+    for r in (jsonl(PROPOSALS) if rows is None else rows):
         pid = r.get("proposal_id") or ""
         if pid.startswith("P-"):
             try:
@@ -485,11 +487,11 @@ def runlog_signals(skills: set[str],
 # Build draft entries (assign sequential ids, dedup against existing drafts)
 # ---------------------------------------------------------------------------
 
-def build_drafts() -> tuple[list[dict], list[dict]]:
+def build_drafts(rows: list[dict] | None = None) -> tuple[list[dict], list[dict]]:
     """Returns (new_drafts, skipped) — skipped carries {target, source_ref,
     reason} so the summary can explain idempotency no-ops."""
     skills = framework_skills()
-    covered_skills, draft_keys, max_num = existing_state()
+    covered_skills, draft_keys, max_num = existing_state(rows)
 
     # NOTE: runlog_signals() is intentionally NOT called here — scan_drift.py
     # owns run-log/schema detection and its findings arrive via the
@@ -539,9 +541,27 @@ def drafts() -> list[dict]:
 # ---------------------------------------------------------------------------
 
 def append_drafts(rows: list[dict]) -> None:
-    with PROPOSALS.open("a") as f:
-        for r in rows:
-            f.write(json.dumps(r, separators=_SEP, ensure_ascii=False) + "\n")
+    """Append already-minted drafts through the shared lock.
+
+    This compatibility surface is intentionally narrow.  The CLI uses
+    ``apply_drafts`` below so id allocation and dedupe happen *inside* the same
+    lock, rather than minting rows from a stale snapshot and then appending them.
+    """
+    with ProposalLedgerLock(PROPOSALS) as ledger:
+        ledger.append(rows)
+
+
+def apply_drafts() -> tuple[list[dict], list[dict]]:
+    """Atomically derive, deduplicate, allocate IDs, and append draft rows.
+
+    The source signal ledgers are read-only inputs.  The proposal snapshot used
+    for suppression and numbering is read only while the proposal-ledger lock is
+    held, eliminating races between simultaneous ``--apply`` invocations.
+    """
+    with ProposalLedgerLock(PROPOSALS) as ledger:
+        new_drafts, skipped = build_drafts(ledger.rows)
+        ledger.append(new_drafts)
+        return new_drafts, skipped
 
 
 def main() -> int:
@@ -556,7 +576,16 @@ def main() -> int:
     args = ap.parse_args()
     apply = bool(args.apply)
 
-    new_drafts, skipped = build_drafts()
+    try:
+        if apply:
+            new_drafts, skipped = apply_drafts()
+        else:
+            # Dry run intentionally does not create a lock file or write any
+            # bytes.  It is an informational, non-authoritative preview.
+            new_drafts, skipped = build_drafts()
+    except ProposalLedgerError as e:
+        print(f"  REFUSED — proposal ledger is not safe to write: {e}", file=sys.stderr)
+        return 2
 
     print("draft_proposals — bubble drift signals into DRAFT proposals")
     print(f"  proposals file: {PROPOSALS}")
@@ -580,7 +609,6 @@ def main() -> int:
 
     if apply:
         if new_drafts:
-            append_drafts(new_drafts)
             print(f"  APPLIED — appended {len(new_drafts)} draft(s) "
                   f"with status='{DRAFT_STATUS}'.")
         else:

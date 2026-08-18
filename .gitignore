@@ -21,6 +21,7 @@ __pycache__/
 # The proposal card store + auto-generated dev-agent handoffs (P-NNN.md); the
 # dated handoffs/<date>-*.md stay tracked.
 /memory/brain/proposal_cards.jsonl
+/memory/brain/proposals.jsonl.lock
 /handoffs/P-*.md
 
 # Generated brain VIEW PROJECTIONS — deterministic build artifacts rebuilt from the

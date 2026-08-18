@@ -25,6 +25,14 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+from brain_ledger import (
+    ProposalLedgerError,
+    ProposalLedgerLock,
+    ProposalLedgerTimeout,
+    lifecycle_state,
+    proposal_is_open,
+)
+
 ROOT = Path(__file__).resolve().parent.parent
 PROPOSALS = ROOT / "memory" / "brain" / "proposals.jsonl"
 
@@ -50,20 +58,6 @@ ACTORS = {
 }
 
 
-def load_rows() -> list[dict]:
-    """Parse proposals.jsonl into a list of records. A corrupt line is a
-    fail-closed condition (ValueError) — the caller must refuse to record a
-    verdict against a ledger it cannot fully read, rather than silently skip it."""
-    if not PROPOSALS.exists():
-        return []
-    return [json.loads(l) for l in PROPOSALS.read_text().splitlines() if l.strip()]
-
-
-def history(rows: list[dict], pid: str) -> list[dict]:
-    return sorted((r for r in rows if r.get("proposal_id") == pid),
-                  key=lambda x: x.get("timestamp", ""))
-
-
 def main() -> None:
     ap = argparse.ArgumentParser(description="Record a governed verdict on a brain proposal.")
     ap.add_argument("--proposal-id", required=True)
@@ -82,21 +76,6 @@ def main() -> None:
         print(json.dumps({"ok": False, "error": "note (reason) required to reject/needs_revision"}))
         sys.exit(5)
 
-    try:
-        rows = load_rows()
-    except (ValueError, OSError) as e:
-        # Fail closed: do not record a verdict against an unreadable ledger.
-        print(json.dumps({"ok": False, "error": f"corrupt ledger: {e}"}))
-        sys.exit(7)
-    hist = history(rows, a.proposal_id)
-    if not hist:
-        print(json.dumps({"ok": False, "error": "unknown proposal"}))
-        sys.exit(3)
-    current = hist[-1].get("verdict") or "open"
-    if current not in ("open", "human-review"):
-        print(json.dumps({"ok": False, "error": f"already {current}"}))
-        sys.exit(4)
-
     verdict = VERDICTS[a.verdict]
     out = {
         "timestamp": datetime.now(timezone.utc).isoformat(),
@@ -114,11 +93,25 @@ def main() -> None:
         "status": "human-review" if verdict == "human-review" else "closed",
     }
     try:
-        with PROPOSALS.open("a") as f:
-            f.write(json.dumps(out) + "\n")
-    except OSError as e:
+        # The complete read → lifecycle decision → durable append is one
+        # cross-process critical section.  A concurrent reviewer therefore sees
+        # the first terminal verdict and refuses to add a contradictory second.
+        with ProposalLedgerLock(PROPOSALS) as ledger:
+            if lifecycle_state(ledger.rows, a.proposal_id) is None:
+                print(json.dumps({"ok": False, "error": "unknown proposal"}))
+                sys.exit(3)
+            if not proposal_is_open(ledger.rows, a.proposal_id):
+                current = lifecycle_state(ledger.rows, a.proposal_id)
+                print(json.dumps({"ok": False, "error": f"already {current}"}))
+                sys.exit(4)
+            ledger.append([out])
+    except ProposalLedgerTimeout as e:
         print(json.dumps({"ok": False, "error": f"io: {e}"}))
         sys.exit(6)
+    except ProposalLedgerError as e:
+        # Fail closed: do not record a verdict against an unreadable ledger.
+        print(json.dumps({"ok": False, "error": f"corrupt ledger: {e}"}))
+        sys.exit(7)
     print(json.dumps({"ok": True, "recorded": verdict, "proposal_id": a.proposal_id,
                       "actor": ACTORS[a.actor]}))
 

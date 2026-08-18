@@ -27,6 +27,7 @@ from pathlib import Path
 import pytest
 
 REPO = Path(__file__).resolve().parents[2]
+REAL_LEDGER_HELPER = REPO / "scripts" / "brain_ledger.py"
 sys.path.insert(0, str(REPO / "scripts"))
 
 import brain_server as bs  # noqa: E402
@@ -114,6 +115,7 @@ def brain(tmp_path, monkeypatch):
     fake_scripts.mkdir()
     fake_cli = fake_scripts / "review_proposal_cli.py"
     shutil.copy(REAL_CLI, fake_cli)
+    shutil.copy(REAL_LEDGER_HELPER, fake_scripts / "brain_ledger.py")
 
     stub = GemmaStub()
     # Repoint ROOT so write_handoff's relative_to(ROOT) resolves inside tmp.
