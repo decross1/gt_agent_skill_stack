@@ -58,8 +58,15 @@ section{margin-top:12px}
 .op .v.warn{color:var(--warn)} .op .v.bad{color:var(--bad)} .op .v.ok{color:var(--ok)}
 .opnote{grid-column:1/-1;padding:7px 12px;border-top:1px solid var(--border);font:11px/1.35 var(--font-mono);color:var(--text-ghost)}
 
-/* needs-you inbox */
-#inbox{display:grid;grid-template-columns:1fr minmax(380px,40%);min-height:188px}
+/* shared attention: framework routing, external acknowledgement history, backlog */
+#inbox{min-height:188px}
+.attention-group{padding:12px 0}.attention-group+.attention-group{border-top:1px solid var(--border)}
+.attention-head{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;padding:0 14px 7px}.attention-head .k{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-faint)}
+.attention-head .desc{font-size:11px;color:var(--text-ghost);min-width:0}.attention-head .cnt{margin-left:auto}
+.attention-empty{padding:4px 14px;color:var(--text-ghost);font:11px var(--font-mono)}
+.attention-candidate{margin:0 14px;border:1px solid rgba(251,191,36,.28);background:rgba(69,53,10,.1);border-radius:5px;padding:8px 10px}
+.attention-candidate+.attention-candidate{margin-top:6px}.candidate-meta{font:11px/1.45 var(--font-mono);color:var(--text-faint);margin-top:5px;overflow-wrap:anywhere}
+.candidate-meta strong{color:var(--warn);font-weight:500}
 .irows{display:flex;flex-direction:column;justify-content:center;padding:6px 0;min-width:0}
 .irow{display:flex;align-items:center;gap:10px;padding:0 16px;height:44px;min-width:0;cursor:pointer}
 .irow:hover{background:var(--surface-2)}
@@ -399,52 +406,83 @@ function reviewLink(it, cls) {
 }
 
 function renderInbox() {
-  const items = sorted();
-  if (!items.length) {
-    $("inbox").innerHTML = '<div class="empty">nothing needs you — loop unblocked</div>';
-    return;
-  }
-  const top = items[0];
-  const rows = $("irows"), card = $("icard");
-  rows.innerHTML = ""; card.innerHTML = "";
-
-  const groups = new Map();
-  items.slice(1).forEach(it => {
-    if (!groups.has(it.kind)) groups.set(it.kind, []);
-    groups.get(it.kind).push(it);
+  const fallback = sorted();
+  const attention = D.attention || {
+    framework_actions: fallback.filter(it => it.surface === "framework" && it.kind !== "candidate_review"),
+    external_acknowledgements: fallback.filter(it => it.surface !== "framework"),
+    external_groups: [],
+    backlog_history: fallback.filter(it => it.kind === "candidate_review"),
+    totals: { all: fallback.length },
+    authority_note: "External items are view-only here.",
+  };
+  const groups = [
+    ["framework_actions", "framework actions", "Derrick/Oracle may route these through framework-governed paths."],
+    ["external_acknowledgements", "external a_bgt_rsi acknowledgements/history", "View-only here; authority and acknowledgement remain with a_bgt_rsi."],
+    ["backlog_history", "backlog / history", "Candidates remain held for attributable Derrick/Oracle review; automatic graduation is closed."],
+  ];
+  const host = $("inbox");
+  host.innerHTML = "";
+  groups.forEach(([key, label, description]) => {
+    const list = attention[key] || [];
+    const section = document.createElement("div");
+    section.className = "attention-group";
+    section.innerHTML = '<div class="attention-head"><span class="k">' + esc(label) + '</span>' +
+      '<span class="desc">' + esc(description) + '</span><span class="cnt">×' + list.length + "</span></div>";
+    if (!list.length) {
+      section.innerHTML += '<div class="attention-empty">none currently</div>';
+    } else if (key === "backlog_history") {
+      list.forEach(it => {
+        const candidate = it.candidate || {};
+        const card = document.createElement("div");
+        card.className = "attention-candidate";
+        card.title = it.detail || "";
+        card.innerHTML = '<div class="top"><span class="dot" style="background:' + U.sevColor(it.severity) + '"></span>' +
+          '<span class="kind">candidate</span><span style="flex:1"></span><span class="age">' + U.fmtAge(it.age_days) + "</span></div>" +
+          '<div class="ttl">' + esc(it.title) + "</div>" +
+          '<div class="candidate-meta">evidence: ' + esc(candidate.evidence_reference || "unknown") +
+          " · blast radius: <strong>" + esc(candidate.blast_radius || "unknown") + "</strong>" +
+          " · hold: " + esc(candidate.hold_reason || "automatic graduation is closed") +
+          " · next route: " + esc(candidate.authorized_next_route || "attributable steward review only") + "</div>";
+        card.addEventListener("click", () => openInboxKind(it.kind));
+        section.appendChild(card);
+      });
+    } else if (key === "external_acknowledgements") {
+      const grouped = (attention.external_groups && attention.external_groups.length)
+        ? attention.external_groups
+        : (() => {
+          const byKind = new Map();
+          list.forEach(it => { if (!byKind.has(it.kind)) byKind.set(it.kind, []); byKind.get(it.kind).push(it); });
+          return Array.from(byKind.keys()).sort().map(kind => {
+            const representative = byKind.get(kind)[0];
+            return {kind: kind, count: byKind.get(kind).length, representative: representative};
+          });
+        })();
+      grouped.forEach(group => {
+        const representative = group.representative || {};
+        const row = document.createElement("div");
+        row.className = "irow";
+        row.title = "open all " + group.count + " external " + group.kind + " item(s); view-only here";
+        row.innerHTML = '<span class="dot" style="background:var(--text-ghost)"></span>' +
+          '<span class="kind">' + esc(group.kind) + '</span><span class="cnt">×' + Number(group.count || 0) + '</span>' +
+          '<span class="ititle">' + esc(representative.title || representative.id || "external acknowledgement") + '</span>' +
+          '<span class="age">' + U.fmtAge(representative.age_days) + "</span>";
+        row.addEventListener("click", () => openInboxKind(group.kind));
+        section.appendChild(row);
+      });
+    } else {
+      list.forEach(it => {
+        const row = document.createElement("div");
+        row.className = "irow";
+        row.title = it.detail || "";
+        row.innerHTML = '<span class="dot" style="background:' + U.sevColor(it.severity) + '"></span>' +
+          '<span class="kind">' + esc(it.kind) + '</span><span class="ititle">' + esc(it.title) + '</span>' +
+          '<span class="age">' + U.fmtAge(it.age_days) + "</span>";
+        row.addEventListener("click", () => openInboxKind(it.kind));
+        section.appendChild(row);
+      });
+    }
+    host.appendChild(section);
   });
-  for (const [kind, list] of groups) {
-    const it = list[0];
-    const r = document.createElement("div");
-    r.className = "irow";
-    r.title = it.action_cmd || it.detail || "";
-    r.innerHTML =
-      '<span class="dot" style="background:' + U.sevColor(it.severity) + '"></span>' +
-      '<span class="kind">' + esc(kind) + '</span>' +
-      '<span class="cnt">×' + list.length + '</span>' +
-      '<span class="ititle">' + esc(it.title) + '</span>' +
-      '<span class="age">' + U.fmtAge(it.age_days) + "</span>";
-    r.addEventListener("click", () => openInboxKind(kind));
-    rows.appendChild(r);
-  }
-
-  const c = document.createElement("div");
-  c.className = "dcard";
-  c.title = top.detail || "";
-  c.innerHTML =
-    '<div class="top"><span class="dot" style="background:' + U.sevColor(top.severity) + '"></span>' +
-    '<span class="kind" style="color:var(--bad)">' + esc(top.kind) + '</span>' +
-    '<span style="flex:1"></span><span class="age">' + U.fmtAge(top.age_days) + "</span></div>" +
-    '<div class="ttl">' + esc(top.title) + "</div>" +
-    (top.actionable === false
-      ? '<div class="ui-note" style="opacity:.65">view-only — resolve in the apparatus UI</div>'
-      : (isReviewItem(top) ? reviewLink(top, "rvw") : "") +
-        (top.action_cmd ? U.copyBlock(top.action_cmd) : ""));
-  c.addEventListener("click", e => {
-    if (e.target.closest("[data-copy]") || e.target.closest("[data-review-link]")) return;
-    openInboxKind(top.kind);
-  });
-  card.appendChild(c);
 }
 
 function openInboxKind(kind) {

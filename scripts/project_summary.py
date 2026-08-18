@@ -67,6 +67,7 @@ from project_pages import (  # noqa: E402
     load_decisions,
     slugify,
 )
+from blast_radius import blast_radius  # noqa: E402  (same conservative classifier as draft triage)
 
 SCHEMA_VERSION = 2
 VIEW_DIR = REPO / "memory" / "brain" / "view"
@@ -1086,16 +1087,31 @@ def build_inbox(
             # bubbled drift candidate — its own lane, distinct from review. NOT a
             # copy-command and NOT a Review→ link (it isn't in review yet); a human
             # (or the graduated auto-path) promotes it to 'open' first.
+            refs = [ref for ref in (first.get("references") or []) if isinstance(ref, str)]
+            candidate = {
+                "blast_radius": blast_radius(first),
+                "evidence_reference": refs[0] if refs else None,
+                "references": refs,
+                "hold_reason": (
+                    "automatic graduation is closed; no attributable automated "
+                    "verdict writer is authorized"
+                ),
+                "authorized_next_route": (
+                    "attributable steward review only — Derrick or Oracle may triage, "
+                    "then route a deliberate promotion/review through the governed "
+                    "proposal path"
+                ),
+            }
             _item("candidate_review", pid, "low", True,
                   first.get("timestamp") or None,
                   f"{pid} — {first.get('title', '')} (candidate)",
-                  f"bubbled drift candidate ({first.get('agent_id', 'draft:auto')}); "
-                  f"promote to 'open' to enter review, or discard "
-                  f"(target {first.get('target_type', '?')}:{target})",
+                  f"bubbled candidate ({first.get('agent_id', 'draft:auto')}); "
+                  f"blast radius {candidate['blast_radius']}; automatic graduation is closed",
                   None,
                   "memory/brain/proposals.jsonl", "framework",
                   skill=target if is_skill else None,
                   url="memory/brain/proposals.jsonl")
+            items[-1]["candidate"] = candidate
             continue
         _item("proposal_review", pid, "med", True,
               first.get("timestamp") or None,
@@ -1188,6 +1204,70 @@ def build_inbox(
     rank = {"high": 0, "med": 1, "low": 2}
     items.sort(key=lambda i: (rank[i["severity"]], i["since"] or "", i["id"]))
     return items
+
+
+def build_attention(items: list[dict]) -> dict:
+    """Partition the old flat inbox without changing its total or authority.
+
+    The framework view can route only framework actions.  Apparatus items remain
+    an acknowledgement/history view because their governing write path belongs
+    to a_bgt_rsi.  Draft candidates are retained as transparent backlog, not
+    silently upgraded into a review or automatic-enactment lane.
+    """
+    framework_actions = []
+    external_acknowledgements = []
+    backlog_history = []
+    for item in items:
+        if item.get("kind") == "candidate_review":
+            backlog_history.append(item)
+        elif item.get("surface") == "framework":
+            framework_actions.append(item)
+        else:
+            # Copy before clearing an action string that may be useful in the
+            # legacy inbox projection.  This category is explicitly view-only.
+            external = dict(item)
+            external["actionable"] = False
+            external["action_cmd"] = None
+            external["authorized_route"] = (
+                "external a_bgt_rsi acknowledgement/history — resolve only through "
+                "the apparatus's governed human path"
+            )
+            external_acknowledgements.append(external)
+    # The full external list remains in the projection for audit/detail views.
+    # The dashboard receives a compact deterministic index so 100+ old apparatus
+    # acknowledgements do not masquerade as a current framework action wall.
+    grouped: dict[str, list[dict]] = defaultdict(list)
+    for item in external_acknowledgements:
+        grouped[item.get("kind") or "unknown"].append(item)
+    external_groups = []
+    for kind in sorted(grouped):
+        representative = grouped[kind][0]
+        external_groups.append({
+            "kind": kind,
+            "count": len(grouped[kind]),
+            "representative": {
+                "id": representative.get("id"),
+                "title": representative.get("title"),
+                "age_days": representative.get("age_days"),
+                "since": representative.get("since"),
+                "source": representative.get("source"),
+            },
+        })
+    return {
+        "framework_actions": framework_actions,
+        "external_acknowledgements": external_acknowledgements,
+        "external_groups": external_groups,
+        "backlog_history": backlog_history,
+        "totals": {
+            "all": len(items), "framework_actions": len(framework_actions),
+            "external_acknowledgements": len(external_acknowledgements),
+            "backlog_history": len(backlog_history),
+        },
+        "authority_note": (
+            "External a_bgt_rsi gates and acknowledgements remain view-only here; "
+            "this dashboard has no authority to resolve them."
+        ),
+    }
 
 
 # ---------------------------------------------------------------------------
@@ -1561,6 +1641,7 @@ def build_summary(now: datetime | None = None) -> dict:
         skills_meta, feedback_rows, parse_conformance(), proposals, rules_raw,
         attributions, win_start, win_end)
     inbox = build_inbox(consumer, gates, proposals, skills, contracts, now, today)
+    attention = build_attention(inbox)
     loop = build_loop(proposals, rules_raw, feedback_rows, skills, today,
                       consumer.name if consumer is not None else None)
     timeline, incidents = build_timeline_and_incidents(
@@ -1629,6 +1710,7 @@ def build_summary(now: datetime | None = None) -> dict:
                           "recall_floor": newest_corr[1] if newest_corr else None},
         },
         "inbox": inbox,
+        "attention": attention,
         "agents": agents,
         "skills": skills,
         "matrix": matrix,
