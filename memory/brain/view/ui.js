@@ -94,7 +94,7 @@
 
   // panel + shared-widget styles travel with ui.js so graph.html gets them too
   const css = [
-    "#ui-panel{position:fixed;top:0;right:0;bottom:0;width:380px;z-index:40;display:flex;flex-direction:column;",
+    "#ui-panel{position:fixed;top:0;right:0;bottom:0;width:380px;max-width:100vw;box-sizing:border-box;z-index:40;display:flex;flex-direction:column;",
     "  background:var(--bg);border-left:1px solid var(--border-2);box-shadow:-18px 0 44px rgba(0,0,0,.55);",
     "  transform:translateX(103%);transition:transform .16s ease;font-size:12px}",
     "#ui-panel.open{transform:translateX(0)}",

@@ -84,3 +84,6 @@ def test_attention_dashboard_static_contract_keeps_three_lanes_and_mobile_safe_l
     assert "external_groups" in html
     assert "openInboxKind(group.kind)" in html
     assert "open all " in html and "view-only here" in html
+    assert "header .stepper,header .asof,header .xnav{display:none}" in html
+    assert "#status{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));height:auto}" in html
+    assert ".rmono{display:none}" in html
