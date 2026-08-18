@@ -202,7 +202,7 @@ def check_cross(s: dict, consumer: Path | None) -> None:
     # but is its own lane, so lifecycle_state excludes it where final_verdict
     # (defaulting to "open") would have leaked it into the review queue.
     cname = consumer.name if consumer is not None else None
-    collapsed = ps.collapse_proposals(jsonl(ps.PROPOSALS))
+    collapsed = ps.collapse_proposals(ps.load_proposals(ps.PROPOSALS))
     fw = {pid: p for pid, p in collapsed.items()
           if ps.proposal_scope(p["first"], cname) == "framework"}
     want = sum(1 for p in fw.values()

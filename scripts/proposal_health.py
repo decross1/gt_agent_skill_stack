@@ -20,7 +20,6 @@ Usage: python scripts/proposal_health.py [--repo-root PATH]
 from __future__ import annotations
 
 import argparse
-import json
 import statistics
 import subprocess
 import sys
@@ -32,6 +31,7 @@ if str(_SCRIPTS) not in sys.path:
     sys.path.insert(0, str(_SCRIPTS))
 
 import project_summary as ps  # noqa: E402  (shared deterministic lifecycle)
+from brain_ledger import ProposalLedgerError, read_proposals  # noqa: E402
 
 CLOSED_VERDICTS = {"accepted", "auto-accept", "auto-reject"}
 OPEN_VERDICTS = {"human-review", None, ""}
@@ -43,16 +43,9 @@ def parse_ts(s: str) -> datetime:
 
 def load_proposals(path: Path) -> dict[str, list[dict]]:
     groups: dict[str, list[dict]] = {}
-    with path.open() as fp:
-        for line in fp:
-            line = line.strip()
-            if not line:
-                continue
-            row = json.loads(line)
-            pid = row.get("proposal_id")
-            if not pid:
-                continue
-            groups.setdefault(pid, []).append(row)
+    for row in read_proposals(path, quarantine_known_legacy=True):
+        pid = row["proposal_id"]
+        groups.setdefault(pid, []).append(row)
     for pid, rows in groups.items():
         rows.sort(key=lambda r: r.get("timestamp", ""))
     return groups
@@ -92,7 +85,11 @@ def main() -> int:
         print(f"error: {proposals_path} not found")
         return 2
 
-    groups = load_proposals(proposals_path)
+    try:
+        groups = load_proposals(proposals_path)
+    except ProposalLedgerError as exc:
+        print(f"error: proposal ledger is not safe to read: {exc}")
+        return 2
     now = datetime.now(timezone.utc)
 
     rows = []

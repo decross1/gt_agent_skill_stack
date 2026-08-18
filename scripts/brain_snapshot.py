@@ -28,6 +28,8 @@ import statistics
 from datetime import datetime, timezone
 from pathlib import Path
 
+from brain_ledger import read_proposals
+
 REPO = Path(__file__).resolve().parent.parent
 RULES_MD = REPO / "memory" / "brain" / "rules.md"
 PROPOSALS = REPO / "memory" / "brain" / "proposals.jsonl"
@@ -56,21 +58,13 @@ def days_since_last_human_review() -> float | None:
     if not PROPOSALS.exists():
         return None
     closed_human_review: list[datetime] = []
-    with PROPOSALS.open() as f:
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
-            try:
-                r = json.loads(line)
-            except json.JSONDecodeError:
-                continue
-            # A "human-review" proposal that later got a non-human-review
-            # verdict counts as closed at the later verdict's timestamp.
-            if r.get("status") == "closed" and r.get("verdict") in {"accepted", "auto-accept", "auto-reject"}:
-                ts = parse_ts(r.get("timestamp", ""))
-                if ts:
-                    closed_human_review.append(ts)
+    for r in read_proposals(PROPOSALS, quarantine_known_legacy=True):
+        # A "human-review" proposal that later got a non-human-review verdict
+        # counts as closed at the later verdict's timestamp.
+        if r.get("status") == "closed" and r.get("verdict") in {"accepted", "auto-accept", "auto-reject"}:
+            ts = parse_ts(r.get("timestamp", ""))
+            if ts:
+                closed_human_review.append(ts)
     if not closed_human_review:
         return None
     latest = max(closed_human_review)

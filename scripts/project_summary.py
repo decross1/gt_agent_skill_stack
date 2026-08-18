@@ -62,6 +62,7 @@ from project_pages import (  # noqa: E402
     SPAWN_LEDGER,
     FW_DECISIONS,
     load_jsonl,
+    load_proposals,
     load_skills,
     load_rules,
     load_decisions,
@@ -1592,7 +1593,7 @@ def build_summary(now: datetime | None = None) -> dict:
     skills_meta = load_skills()
     skill_names = {s["name"] for s in skills_meta}
     rules_raw = load_rules()
-    proposals = collapse_proposals(load_jsonl(PROPOSALS))
+    proposals = collapse_proposals(load_proposals(PROPOSALS))
     feedback_rows = [f for f in load_jsonl(FEEDBACK) if f.get("harvest_id")]
     fw_dec = load_decisions(FW_DECISIONS, "framework")
     ap_dec = (load_decisions(consumer / "DECISIONS.md", "apparatus")

@@ -103,7 +103,7 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from brain_ledger import ProposalLedgerError, ProposalLedgerLock
+from brain_ledger import ProposalLedgerError, ProposalLedgerLock, read_proposals
 
 ROOT = Path(__file__).resolve().parent.parent
 PROPOSALS = ROOT / "memory" / "brain" / "proposals.jsonl"
@@ -214,7 +214,8 @@ def existing_state(rows: list[dict] | None = None) -> tuple[set[str], set[tuple[
     covered_skills: set[str] = set()
     draft_keys: set[tuple[str, str]] = set()
     max_num = 0
-    for r in (jsonl(PROPOSALS) if rows is None else rows):
+    for r in (read_proposals(PROPOSALS, quarantine_known_legacy=True)
+              if rows is None else rows):
         pid = r.get("proposal_id") or ""
         if pid.startswith("P-"):
             try:
@@ -532,7 +533,7 @@ def build_drafts(rows: list[dict] | None = None) -> tuple[list[dict], list[dict]
 def drafts() -> list[dict]:
     """All draft-status proposals currently in proposals.jsonl. Exposed so a
     follow-up can opt the UI into surfacing drafts without re-deriving them."""
-    return [r for r in jsonl(PROPOSALS)
+    return [r for r in read_proposals(PROPOSALS, quarantine_known_legacy=True)
             if (r.get("status") or "").strip() == DRAFT_STATUS and "title" in r]
 
 

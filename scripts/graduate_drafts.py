@@ -57,7 +57,7 @@ def graduate(apply: bool) -> list[dict]:
 
     ``apply`` is retained only for CLI compatibility. It has no write path.
     """
-    proposals = ps.collapse_proposals(ps.load_jsonl(PROPOSALS))
+    proposals = ps.collapse_proposals(ps.load_proposals(PROPOSALS))
     actions: list[dict] = []
     for pid, p in sorted(proposals.items()):
         if ps.lifecycle_state(p) != "draft":

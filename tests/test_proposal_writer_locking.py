@@ -21,6 +21,8 @@ sys.path.insert(0, str(REPO / "scripts"))
 
 import brain_ledger as bl  # noqa: E402
 import draft_proposals as dp  # noqa: E402
+import project_summary as ps  # noqa: E402
+import proposal_health as ph  # noqa: E402
 
 
 OPEN_ROW = {
@@ -310,6 +312,24 @@ def test_current_live_ledger_copy_has_only_the_documented_quarantine_pair(tmp_pa
     # fixture stale; exactly two source rows are removed into quarantine.
     assert len(result.rows) == len(before.splitlines()) - 2
     assert copied.read_bytes() == before
+
+
+def test_known_legacy_pair_cannot_enter_summary_attention_timeline_or_health(
+        tmp_path, monkeypatch):
+    """Every primary governance projection consumes the validated row set."""
+    ledger = tmp_path / "proposals.jsonl"
+    _write_jsonl(ledger, [OPEN_ROW, *_legacy_prelock_pair()])
+    monkeypatch.setattr(ps, "PROPOSALS", ledger)
+
+    summary = ps.build_summary()
+
+    legacy_id = bl.LEGACY_PRELOCK_CRITIQUE_ID
+    assert {chain["proposal_id"] for chain in summary["loop"]["chains"]} == {"P-901"}
+    assert all(legacy_id not in json.dumps(item)
+               for lane in ("framework_actions", "external_acknowledgements", "backlog_history")
+               for item in summary["attention"][lane])
+    assert all(legacy_id not in json.dumps(item) for item in summary["timeline"])
+    assert set(ph.load_proposals(ledger)) == {"P-901"}
 
 
 def test_read_only_status_cli_reports_only_bounded_quarantine_metadata(tmp_path):
