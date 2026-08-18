@@ -24,7 +24,9 @@ Run: python3 scripts/brain_server.py [--port 5180]
 """
 import argparse
 import json
+import os
 import re
+import selectors
 import subprocess
 import sys
 import threading
@@ -44,6 +46,11 @@ RULES = ROOT / "memory" / "brain" / "rules.md"
 SKILLS = ROOT / ".agents" / "skills"
 HANDOFFS = ROOT / "handoffs"
 CLI = ROOT / "scripts" / "review_proposal_cli.py"
+FRAMEWORK_STATE = ROOT / "run_state" / "framework.state.json"
+FRAMEWORK_RUN = ROOT / "run_state" / "framework.run.jsonl"
+WATCH_PID = ROOT / "run_state" / "brain-watch.pid"
+WATCH_LOG = ROOT / "run_state" / "brain-watch.log"
+SUMMARY_JSON = VIEW / "summary.json"
 
 GEMMA_URL = "http://127.0.0.1:8000/v1/chat/completions"
 MODEL = "gemma-4-26b-a4b"
@@ -88,6 +95,22 @@ _SUMMARY_LOCK = threading.Lock()
 _summary_cache = {"mono": 0.0, "data": None}
 _MAP_LOCK = threading.Lock()
 _map_cache = {"mono": 0.0, "data": None}
+
+# The operations view is deliberately an observation surface, not a controller.
+# Its work has an explicit resource ceiling so a stale/broken local installation
+# cannot turn a dashboard poll into an unbounded filesystem or subprocess walk.
+OPS_FILE_BYTES = 1_048_576
+OPS_LOG_TAIL_BYTES = 65_536
+OPS_CURSOR_BYTES = 16 * 1_024 * 1_024
+OPS_SUBPROCESS_TIMEOUT_S = 2
+OPS_TOTAL_BUDGET_S = 3
+OPS_CACHE_TTL_S = 1.0
+OPS_MAX_LIFECYCLE_PROPOSALS = 12
+_LOG_TS = re.compile(r"^\[([^\]]+)\]")
+_FULL_SHA = re.compile(r"^[0-9a-f]{40}$")
+_SHA256 = re.compile(r"^[0-9a-f]{64}$")
+_OPS_LOCK = threading.Lock()
+_ops_cache = {"mono": 0.0, "data": None}
 
 
 class GemmaError(RuntimeError):
@@ -500,6 +523,441 @@ def current_map() -> dict:
 
 
 # ---------------------------------------------------------------------------
+# read-only operations truth (never controls services or rewrites state)
+# ---------------------------------------------------------------------------
+
+def _fact(value, status: str, provenance: str, uncertainty: str = "") -> dict:
+    """A small, uniform evidence envelope for the operations endpoint."""
+    return {"value": value, "status": status, "provenance": provenance,
+            "uncertainty": uncertainty}
+
+
+def _read_limited(path: Path, limit: int, *, tail: bool = False) -> tuple[str | None, bool, str | None]:
+    """Read at most *limit* bytes without following a missing/stale assumption."""
+    try:
+        size = path.stat().st_size
+        with path.open("rb") as fp:
+            if tail and size > limit:
+                fp.seek(size - limit)
+            raw = fp.read(limit + 1)
+    except (OSError, ValueError) as exc:
+        return None, False, type(exc).__name__
+    truncated = size > limit or len(raw) > limit
+    if len(raw) > limit:
+        raw = raw[-limit:] if tail else raw[:limit]
+    return raw.decode("utf-8", errors="replace"), truncated, None
+
+
+def _load_json_limited(path: Path, limit: int) -> tuple[dict | None, str | None]:
+    text, truncated, error = _read_limited(path, limit)
+    if error:
+        return None, error
+    if truncated:
+        return None, "byte_limit"
+    try:
+        value = json.loads(text or "")
+    except json.JSONDecodeError:
+        return None, "malformed_json"
+    return (value, None) if isinstance(value, dict) else (None, "not_object")
+
+
+def _run_bounded(argv: list[str], *, deadline: float | None = None,
+                 env: dict[str, str] | None = None) -> tuple[str | None, str | None]:
+    """Run a fixed observation command with byte and shared-wall-clock bounds."""
+    stop_at = min(deadline, time.monotonic() + OPS_SUBPROCESS_TIMEOUT_S) if deadline else (
+        time.monotonic() + OPS_SUBPROCESS_TIMEOUT_S)
+    if stop_at <= time.monotonic():
+        return None, "budget_exhausted"
+    try:
+        proc = subprocess.Popen(argv, cwd=str(ROOT), stdin=subprocess.DEVNULL,
+                                stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, env=env)
+    except OSError as exc:
+        return None, type(exc).__name__
+    chunks: list[bytes] = []
+    size = 0
+    selector = selectors.DefaultSelector()
+    try:
+        assert proc.stdout is not None
+        selector.register(proc.stdout, selectors.EVENT_READ)
+        while selector.get_map():
+            remaining = stop_at - time.monotonic()
+            if remaining <= 0:
+                proc.kill()
+                proc.wait()
+                return None, "TimeoutExpired"
+            for key, _ in selector.select(remaining):
+                block = os.read(key.fileobj.fileno(), min(8192, OPS_FILE_BYTES - size + 1))
+                if not block:
+                    selector.unregister(key.fileobj)
+                    continue
+                size += len(block)
+                if size > OPS_FILE_BYTES:
+                    proc.kill()
+                    proc.wait()
+                    return None, "byte_limit"
+                chunks.append(block)
+        remaining = stop_at - time.monotonic()
+        if remaining <= 0:
+            proc.kill()
+            proc.wait()
+            return None, "budget_exhausted"
+        if proc.wait(timeout=remaining) != 0:
+            return None, f"exit_{proc.returncode}"
+    except (OSError, subprocess.TimeoutExpired) as exc:
+        proc.kill()
+        proc.wait()
+        return None, type(exc).__name__
+    finally:
+        selector.close()
+    return b"".join(chunks).decode("utf-8", errors="replace"), None
+
+
+def _parse_timestamp(value: object) -> datetime | None:
+    if not isinstance(value, str):
+        return None
+    try:
+        parsed = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError:
+        return None
+    # Local/naive timestamps cannot be compared honestly with the UTC observer.
+    if parsed.tzinfo is None or parsed.utcoffset() is None:
+        return None
+    return parsed
+
+
+def _watcher_observation(warnings: list[str]) -> dict:
+    raw, truncated, error = _read_limited(WATCH_PID, 128)
+    if error:
+        return {"state": _fact("unknown", "unknown", "run_state/brain-watch.pid",
+                                f"pidfile unavailable: {error}")}
+    pid_text = (raw or "").strip()
+    if truncated or not pid_text.isdecimal() or int(pid_text) <= 0:
+        warnings.append("watcher pidfile malformed or exceeds its bounded format")
+        return {"state": _fact("unknown", "unknown", "run_state/brain-watch.pid",
+                                "pidfile is not one positive decimal PID")}
+    pid = int(pid_text)
+    try:
+        os.kill(pid, 0)
+    except ProcessLookupError:
+        return {"state": _fact("stale", "stale", "pidfile + kill(0)",
+                                "PID no longer exists; no watcher inferred")}
+    except PermissionError:
+        return {"state": _fact("unknown", "unknown", "pidfile + kill(0)",
+                                "process exists but cannot be inspected")}
+    except OSError as exc:
+        return {"state": _fact("unknown", "unknown", "pidfile + kill(0)", type(exc).__name__)}
+    cmdline, cmd_truncated, cmd_error = _read_limited(Path(f"/proc/{pid}/cmdline"), 8192)
+    if cmd_error or cmd_truncated:
+        return {"state": _fact("unknown", "unknown", "pidfile + /proc cmdline",
+                                "live PID could not be boundedly matched to watch_brain.py")}
+    # A live PID alone is not proof: PID reuse is common enough to require the
+    # expected script token before presenting it as a watcher.
+    expected = str(ROOT / "scripts" / "watch_brain.py")
+    argv = (cmdline or "").split("\x00")
+    if expected not in argv:
+        warnings.append("watcher pid is alive but its command does not match watch_brain.py")
+        return {"state": _fact("stale", "stale", "pidfile + /proc cmdline",
+                                "PID is live but may have been recycled")}
+    return {"state": _fact("alive", "observed", "pidfile + /proc cmdline",
+                            "process liveness does not prove a successful pipeline"),
+            "pid": _fact(pid, "observed", "run_state/brain-watch.pid", "local PID only")}
+
+
+def _pipeline_observation(warnings: list[str]) -> dict:
+    text, truncated, error = _read_limited(WATCH_LOG, OPS_LOG_TAIL_BYTES, tail=True)
+    if error:
+        unknown = _fact(None, "unknown", "run_state/brain-watch.log", f"log unavailable: {error}")
+        return {"last_success": unknown, "last_failure": unknown}
+    success = failure = None
+    malformed = 0
+    for line in (text or "").splitlines():
+        if "pipeline ok" not in line and "pipeline FAIL" not in line:
+            continue
+        match = _LOG_TS.match(line)
+        timestamp = _parse_timestamp(match.group(1)) if match else None
+        if timestamp is None:
+            malformed += 1
+            continue
+        item = timestamp.astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
+        if "pipeline ok" in line:
+            success = item
+        if "pipeline FAIL" in line:
+            failure = item
+    if malformed:
+        warnings.append(f"{malformed} malformed pipeline log line(s) ignored")
+    suffix = "log tail is truncated; older events are unknown" if truncated else ""
+    return {
+        "last_success": _fact(success, "observed" if success else "unknown",
+                              "bounded watcher log tail", suffix or "no parseable success in tail"),
+        "last_failure": _fact(failure, "observed" if failure else "unknown",
+                              "bounded watcher log tail", suffix or "no parseable failure in tail"),
+        "tail": _fact({"bytes_limit": OPS_LOG_TAIL_BYTES, "truncated": truncated},
+                      "observed", "run_state/brain-watch.log", "tail only"),
+    }
+
+
+def _projection_observation(warnings: list[str]) -> dict:
+    payload, error = _load_json_limited(SUMMARY_JSON, OPS_FILE_BYTES)
+    if error:
+        warnings.append(f"projection summary unavailable: {error}")
+        unknown = _fact(None, "unknown", "memory/brain/view/summary.json", error)
+        return {"generated_at": unknown, "age_seconds": unknown}
+    timestamp = _parse_timestamp(payload.get("generated_at"))
+    if timestamp is None:
+        warnings.append("projection summary has no parseable generated_at")
+        unknown = _fact(None, "unknown", "summary.json generated_at", "missing or malformed timestamp")
+        return {"generated_at": unknown, "age_seconds": unknown}
+    now = datetime.now(timezone.utc)
+    generated = timestamp.astimezone(timezone.utc).isoformat().replace("+00:00", "Z")
+    return {
+        "generated_at": _fact(generated, "observed", "summary.json", "static projection; not live API"),
+        "age_seconds": _fact(max(0, int((now - timestamp).total_seconds())), "observed",
+                             "UTC now minus summary.json generated_at", "clock skew is clamped at zero"),
+    }
+
+
+def _count_lines_bounded(path: Path, limit: int, *, deadline: float) -> tuple[int | None, str | None]:
+    """Count lines without retaining the consumer log; fail closed on cap/time."""
+    try:
+        if path.stat().st_size > limit:
+            return None, "byte_limit"
+        total = 0
+        lines = 0
+        last = b""
+        with path.open("rb") as fp:
+            while True:
+                if time.monotonic() >= deadline:
+                    return None, "budget_exhausted"
+                block = fp.read(65_536)
+                if not block:
+                    break
+                total += len(block)
+                if total > limit:
+                    return None, "byte_limit"
+                lines += block.count(b"\n")
+                last = block[-1:]
+    except OSError as exc:
+        return None, type(exc).__name__
+    return lines + int(total > 0 and last != b"\n"), None
+
+
+def _cursor_observation(warnings: list[str], *, deadline: float) -> dict:
+    state, state_error = _load_json_limited(FRAMEWORK_STATE, OPS_FILE_BYTES)
+    watermark = (state or {}).get("harvest_watermark", {}).get("a_bgt_rsi")
+    recorded = watermark.get("run_jsonl_lines") if isinstance(watermark, dict) else None
+    if not isinstance(recorded, int):
+        warnings.append(f"framework harvest cursor unavailable: {state_error or 'missing watermark'}")
+        framework = _fact(None, "unknown", "run_state/framework.state.json", state_error or "missing watermark")
+        return {"framework_harvest": framework,
+                "consumer": _fact(None, "unknown", "consumer cursor", "no comparable cursor")}
+    # Keep the payload deliberately narrow: cursor numbers only, never adjacent
+    # state metadata such as commit IDs or decision labels.
+    framework = _fact({"run_jsonl_lines": recorded}, "observed", "run_state/framework.state.json",
+                      "declared harvest watermark, not proof of current consumer state")
+    consumer = ps.resolve_consumer()
+    current_path = consumer / "run_state" / "week1.run.jsonl" if consumer else None
+    current_lines, current_error = (_count_lines_bounded(current_path, OPS_CURSOR_BYTES, deadline=deadline)
+                                    if current_path else (None, "consumer_unresolved"))
+    if current_lines is None:
+        return {"framework_harvest": framework,
+                "consumer": _fact(None, "unknown", "consumer run_state/week1.run.jsonl",
+                                  current_error or "watermark has no numeric run_jsonl_lines")}
+    return {"framework_harvest": framework,
+            "consumer": _fact({"lines": current_lines, "watermark_lines": recorded,
+                                "delta_lines": current_lines - recorded},
+                               "observed", "bounded consumer line count + framework watermark",
+                               "delta measures only this file; it is not unprocessed-work proof")}
+
+
+def _proposal_rows_bounded(warnings: list[str]) -> tuple[list[dict], str, int]:
+    text, truncated, error = _read_limited(PROPOSALS, OPS_FILE_BYTES)
+    if error:
+        warnings.append(f"proposal ledger unavailable: {error}")
+        return [], "unknown", 1
+    rows: list[dict] = []
+    bad = 0
+    for line in (text or "").splitlines():
+        if not line.strip():
+            continue
+        try:
+            row = json.loads(line)
+        except json.JSONDecodeError:
+            bad += 1
+            continue
+        # Keep mixed or unsupported rows visible as warnings rather than handing
+        # them to the projector, which historically skips rows without an ID.
+        if (not isinstance(row, dict) or not isinstance(row.get("proposal_id"), str)
+                or not _parse_timestamp(row.get("timestamp"))
+                or not any(key in row for key in ("status", "verdict", "change", "enactment", "verification"))):
+            bad += 1
+            continue
+        rows.append(row)
+    if bad:
+        warnings.append(f"proposal ledger has {bad} malformed or unsupported mixed-schema row(s)")
+    if truncated:
+        warnings.append("proposal ledger exceeds read budget; lifecycle counts are partial")
+    # A malformed row is not harmless: it makes aggregate counts incomplete.
+    return rows, "partial" if truncated or bad else "observed", bad + (1 if truncated else 0)
+
+
+def _exact_enactment_state(proposal: dict, *, deadline: float) -> tuple[str, str]:
+    """Bounded local proof of lifecycle state; never trusts an acceptance or prose."""
+    rows = proposal["lifecycle"]
+    verdict_index = next((i for i in range(len(rows) - 1, -1, -1)
+                          if rows[i].get("verdict")), None)
+    if verdict_index is None or rows[verdict_index].get("verdict") not in ("accepted", "auto-accept"):
+        return "unknown", ""
+    enacted_commit = None
+    for row in reversed(rows[verdict_index + 1:]):
+        evidence = row.get("enactment")
+        if not isinstance(evidence, dict):
+            continue
+        commit, paths = evidence.get("commit"), evidence.get("paths")
+        if (not isinstance(commit, str) or not _FULL_SHA.fullmatch(commit)
+                or not isinstance(paths, list) or not paths
+                or any(not isinstance(p, str) or not p or p.startswith("/") or ".." in Path(p).parts
+                       for p in paths)):
+            continue
+        changed, error = _run_bounded(["git", "-C", str(ROOT), "diff-tree", "--no-commit-id",
+                                       "--name-only", "-r", "--root", commit], deadline=deadline,
+                                      env={**os.environ, "GIT_OPTIONAL_LOCKS": "0"})
+        if error:
+            return "unknown", error
+        changed_paths = set((changed or "").splitlines())
+        # Exact parity with project_summary.proposal_healing_state: an accepted
+        # skill proposal must prove the targeted SKILL.md changed, not merely a
+        # README or another listed file.
+        required_contract = ps._target_skill_contract(proposal)
+        if (not set(paths).issubset(changed_paths)
+                or ((proposal["first"].get("target_type") or "").strip() == "skill"
+                    and (required_contract is None or required_contract not in paths
+                         or required_contract not in changed_paths))):
+            continue
+        enacted_commit = commit
+        break
+    if enacted_commit is None:
+        return "pending", ""
+    for row in reversed(rows[verdict_index + 1:]):
+        evidence = row.get("verification")
+        if (isinstance(evidence, dict) and evidence.get("commit") == enacted_commit
+                and isinstance(evidence.get("command"), str) and evidence["command"].strip()
+                and evidence.get("result") == "pass"
+                and isinstance(evidence.get("output_sha256"), str)
+                and _SHA256.fullmatch(evidence["output_sha256"])):
+            return "verified", ""
+    return "enacted", ""
+
+
+def _lifecycle_observation(warnings: list[str], *, deadline: float) -> dict:
+    rows, row_status, row_unknown = _proposal_rows_bounded(warnings)
+    proposals = ps.collapse_proposals(rows)
+    accepted = [p for p in proposals.values()
+                if ps.final_verdict(p) in ("accepted", "auto-accept")]
+    enacted = verified = 0
+    unknown = row_unknown
+    for proposal in accepted[:OPS_MAX_LIFECYCLE_PROPOSALS]:
+        state, error = _exact_enactment_state(proposal, deadline=deadline)
+        if error:
+            unknown += 1
+            warnings.append(f"lifecycle evidence unavailable: {error}")
+        elif state == "enacted":
+            enacted += 1
+        elif state == "verified":
+            enacted += 1
+            verified += 1
+    if len(accepted) > OPS_MAX_LIFECYCLE_PROPOSALS:
+        unknown += len(accepted) - OPS_MAX_LIFECYCLE_PROPOSALS
+        warnings.append("lifecycle evidence count capped by proposal budget")
+    status = "partial" if row_status == "partial" or unknown else "observed"
+    return {"counts": _fact({"accepted": len(accepted), "enacted": enacted,
+                               "verified": verified, "unverified_or_pending": len(accepted) - enacted,
+                               "evidence_unknown": unknown}, status,
+                              "proposal ledger + exact local commit/path checks",
+                              "acceptance is a decision only; enactment/verification require exact evidence")}
+
+
+def _repo_observation(*, deadline: float) -> dict:
+    git_env = {**os.environ, "GIT_OPTIONAL_LOCKS": "0"}
+    head, head_error = _run_bounded(["git", "-C", str(ROOT), "rev-parse", "--short=12", "HEAD"],
+                                    deadline=deadline, env=git_env)
+    branch, branch_error = _run_bounded(["git", "-C", str(ROOT), "branch", "--show-current"],
+                                        deadline=deadline, env=git_env)
+    porcelain, dirty_error = _run_bounded(
+        ["git", "-C", str(ROOT), "status", "--porcelain=v1", "--untracked-files=no"],
+        deadline=deadline, env=git_env)
+    if dirty_error:
+        dirty = _fact(None, "unknown", "git status --porcelain", dirty_error)
+    else:
+        dirty = _fact(len((porcelain or "").splitlines()), "observed", "git status --porcelain",
+                      "tracked paths only; untracked files, paths, and contents are intentionally omitted")
+    return {"head": _fact((head or "").strip() or None, "observed" if not head_error else "unknown",
+                           "git rev-parse", head_error or ""),
+            "branch": _fact((branch or "").strip() or None, "observed" if not branch_error else "unknown",
+                             "git branch --show-current", branch_error or ""),
+            "tracked_dirty_count": dirty}
+
+
+def _operations_unavailable(reason: str) -> dict:
+    unknown = _fact(None, "unknown", "operations single-flight", reason)
+    return {"schema_version": 1, "generated_at": _now(), "read_only": True,
+            "poll": _fact("unavailable", "unknown", "operations single-flight", reason),
+            "server": {"alive": _fact(True, "observed", "this successful /api/operations response",
+                                       "only this process/request is observed")},
+            "watcher": {"state": unknown},
+            "pipeline": {"last_success": unknown, "last_failure": unknown},
+            "projection": {"generated_at": unknown, "age_seconds": unknown},
+            "cursors": {"framework_harvest": unknown, "consumer": unknown},
+            "proposals": {"counts": unknown}, "repo": None, "warnings": [reason]}
+
+
+def _cached_operations(reason: str) -> dict:
+    # JSON round-trip creates an independent object; callers cannot mutate the
+    # shared cache while another request serves it.
+    cached = json.loads(json.dumps(_ops_cache["data"]))
+    cached["poll"] = _fact("cached", "stale", "operations short cache", reason)
+    cached["warnings"] = list(cached.get("warnings", [])) + [reason]
+    return cached
+
+
+def _build_operations_snapshot(deadline: float) -> dict:
+    """Collect one bounded observation pass.  Caller holds _OPS_LOCK."""
+    warnings: list[str] = []
+    return {"schema_version": 1, "generated_at": _now(), "read_only": True,
+            "poll": _fact("fresh", "observed", "operations single-flight",
+                          f"shared wall-clock budget {OPS_TOTAL_BUDGET_S}s"),
+            "server": {"alive": _fact(True, "observed", "this successful /api/operations response",
+                                       "only this process/request is observed")},
+            "watcher": _watcher_observation(warnings),
+            "pipeline": _pipeline_observation(warnings),
+            "projection": _projection_observation(warnings),
+            "cursors": _cursor_observation(warnings, deadline=deadline),
+            "proposals": _lifecycle_observation(warnings, deadline=deadline),
+            "repo": _repo_observation(deadline=deadline), "warnings": warnings}
+
+
+def operations_snapshot() -> dict:
+    """Return a cached/single-flight bounded observation pass; never writes state."""
+    now = time.monotonic()
+    if (_ops_cache["data"] is not None
+            and now - _ops_cache["mono"] < OPS_CACHE_TTL_S):
+        return _cached_operations("served from short cache; no new subprocesses started")
+    if not _OPS_LOCK.acquire(blocking=False):
+        if _ops_cache["data"] is not None:
+            return _cached_operations("another operations poll is in progress")
+        return _operations_unavailable("another operations poll is in progress; no cache exists")
+    try:
+        now = time.monotonic()
+        if (_ops_cache["data"] is not None
+                and now - _ops_cache["mono"] < OPS_CACHE_TTL_S):
+            return _cached_operations("served from short cache after single-flight wait")
+        data = _build_operations_snapshot(now + OPS_TOTAL_BUDGET_S)
+        _ops_cache["data"], _ops_cache["mono"] = data, time.monotonic()
+        return data
+    finally:
+        _OPS_LOCK.release()
+
+
+# ---------------------------------------------------------------------------
 # HTTP
 # ---------------------------------------------------------------------------
 
@@ -552,6 +1010,10 @@ class Handler(SimpleHTTPRequestHandler):
             if self.path == "/api/map":
                 # Live cluster-map data — computed from the ledgers now, not baked.
                 return self._send(200, current_map())
+            if self.path == "/api/operations":
+                # Read-only, bounded local observations.  Unlike /api/summary,
+                # this intentionally does not rebuild projections or touch ledgers.
+                return self._send(200, operations_snapshot())
             if self.path == "/api/proposals":
                 return self._send(200, {"proposals": open_framework_proposals()})
             pid = self._pid_from(parts)  # validated against ^P-\d+$ before any fs/argv use

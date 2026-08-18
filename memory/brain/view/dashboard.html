@@ -48,6 +48,16 @@ section{margin-top:12px}
 .ticksv{display:flex;gap:2px;align-items:flex-end;height:12px}
 .ticksv i{width:3px;border-radius:1px;display:block}
 
+/* operations truth: each value is compact, but its status/provenance remains
+   inspectable. This is observational only — it contains no control affordance. */
+#operations{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.op{min-width:0;padding:9px 12px;border-left:1px solid var(--border)}
+.op:first-child{border-left:none}.op:nth-child(n+5){border-top:1px solid var(--border)}
+.op .k{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-faint)}
+.op .v{font-family:var(--font-mono);font-size:12px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px}
+.op .v.warn{color:var(--warn)} .op .v.bad{color:var(--bad)} .op .v.ok{color:var(--ok)}
+.opnote{grid-column:1/-1;padding:7px 12px;border-top:1px solid var(--border);font:11px/1.35 var(--font-mono);color:var(--text-ghost)}
+
 /* needs-you inbox */
 #inbox{display:grid;grid-template-columns:1fr minmax(380px,40%);min-height:188px}
 .irows{display:flex;flex-direction:column;justify-content:center;padding:6px 0;min-width:0}
@@ -110,6 +120,14 @@ section{margin-top:12px}
   background:var(--surface-2);border-radius:6px;padding:4px 10px;white-space:nowrap;cursor:pointer}
 .chipday:hover{border-color:var(--border-2);color:var(--text)}
 footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var(--text-ghost);display:flex;gap:8px;flex-wrap:wrap}
+@media (max-width:780px){
+  #operations{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .op:nth-child(odd){border-left:none}.op:nth-child(n+3){border-top:1px solid var(--border)}
+}
+@media (max-width:540px){
+  header{gap:8px;padding:0 10px}.brand .sub{display:none}main{padding-left:10px;padding-right:10px}
+  #operations{grid-template-columns:1fr}.op{border-left:none!important;border-top:1px solid var(--border)}.op:first-child{border-top:none}
+}
 </style>
 </head>
 <body>
@@ -127,6 +145,11 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
 
 <main>
   <section class="band" id="status"></section>
+
+  <section id="operationsband">
+    <span class="sec" title="bounded local observations; no service controls">operations truth</span>
+    <div class="band" id="operations"><div class="opnote">operations data unavailable offline — start the brain server to inspect bounded local observations</div></div>
+  </section>
 
   <section class="band" id="inbox">
     <div class="irows" id="irows"></div>
@@ -176,6 +199,7 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
 const U = window.UI;
 let D = window.BRAIN_SUMMARY || null;  // static fallback; replaced by live /api/summary
 let M = window.BRAIN_MAP || null;      // static fallback; replaced by live /api/map
+let O = null;                          // operations has no baked fallback: unknown offline
 const $ = id => document.getElementById(id);
 const esc = U.esc;
 
@@ -291,6 +315,49 @@ function renderStatus() {
   const fcls = fr.recall_floor_age_days <= 1 ? "ok" : fr.recall_floor_age_days <= 3 ? "warn" : "bad";
   e = seg("daysband", "recall floor: " + fr.recall_floor + " · newest event " + fr.newest_event);
   e.innerHTML = '<span class="k">fresh</span><span class="v ' + fcls + '">' + fr.recall_floor_age_days + "d</span>";
+}
+
+/* ---------- bounded operations truth (read-only; no implied control) ---------- */
+function renderOperations() {
+  const host = $("operations");
+  if (!O || !O.read_only) return;
+  const f = (obj, fallback = "unknown") => obj && obj.value !== undefined && obj.value !== null ? obj.value : fallback;
+  const stat = obj => (obj && obj.status) || "unknown";
+  const cls = obj => stat(obj) === "observed" ? "ok" : stat(obj) === "stale" || stat(obj) === "partial" ? "warn" : "bad";
+  const short = value => {
+    if (value === null || value === undefined || value === "") return "unknown";
+    if (typeof value === "object") return JSON.stringify(value);
+    return String(value);
+  };
+  const cell = (key, value, detail) => '<div class="op" title="' + esc(detail || "") + '">' +
+    '<div class="k">' + esc(key) + ' · ' + esc(stat(value)) + '</div><div class="v ' + cls(value) + '">' +
+    esc(short(f(value))) + '</div></div>';
+  const lifecycle = O.proposals && O.proposals.counts;
+  const c = f(lifecycle, {});
+  const cursor = O.cursors && O.cursors.consumer;
+  const cursorValue = f(cursor, null);
+  const cursorText = cursorValue && typeof cursorValue === "object"
+    ? "Δ " + cursorValue.delta_lines + " lines" : "unknown";
+  const repoParts = O.repo ? [O.repo.branch, O.repo.head, O.repo.tracked_dirty_count] : [];
+  const repoStatus = !O.repo || repoParts.some(x => stat(x) === "unknown") ? "unknown" : "observed";
+  host.innerHTML =
+    cell("brain server", O.server && O.server.alive, O.server && O.server.alive && O.server.alive.uncertainty) +
+    cell("watcher", O.watcher && O.watcher.state, O.watcher && O.watcher.state && O.watcher.state.uncertainty) +
+    cell("last pipeline ok", O.pipeline && O.pipeline.last_success, "bounded log tail only") +
+    cell("last pipeline fail", O.pipeline && O.pipeline.last_failure, "absence in tail is unknown, not proof of none") +
+    cell("projection age", O.projection && O.projection.age_seconds,
+         "seconds since static summary.json; live dashboard data is separate") +
+    cell("consumer cursor", {value: cursorText, status: stat(cursor), provenance: "cursor"},
+         cursor && cursor.uncertainty) +
+    cell("proposal lifecycle", {value: "A" + (c.accepted ?? "?") + " · E" + (c.enacted ?? "?") + " · V" + (c.verified ?? "?"),
+                                  status: stat(lifecycle), provenance: "proposal evidence"},
+         lifecycle && lifecycle.uncertainty) +
+    cell("repo", {value: (f(O.repo && O.repo.branch) || "detached") + " · " + f(O.repo && O.repo.head) +
+                          " · tracked dirty " + f(O.repo && O.repo.tracked_dirty_count), status: repoStatus, provenance: "git"},
+         "untracked files, paths, and contents are intentionally excluded") +
+    '<div class="opnote">' + esc((O.warnings || []).length
+      ? "warnings: " + O.warnings.join(" · ")
+      : "all displayed fields include a local provenance/status envelope; acceptance alone never counts as enactment") + '</div>';
 }
 
 /* ---------- needs-you inbox ---------- */
@@ -805,6 +872,7 @@ function fetchLive(path, valid) {
 }
 const fetchLiveSummary = () => fetchLive("api/summary", d => !!d.status_strip);
 const fetchLiveMap = () => fetchLive("api/map", d => Array.isArray(d.nodes));
+const fetchLiveOperations = () => fetchLive("api/operations", d => d.read_only === true && !!d.server);
 // Render signature = exactly what the map draws from, sans generated_at: the map
 // payload (nodes/edges/cards) plus the slices of D the renderer reads — skills
 // (governance halos), matrix (windowed edge weights), agents (run counts), window.
@@ -820,9 +888,10 @@ function mapSig() {
 let lastMapSig = "";
 
 (async function boot() {
-  const [liveD, liveM] = await Promise.all([fetchLiveSummary(), fetchLiveMap()]);
+  const [liveD, liveM, liveO] = await Promise.all([fetchLiveSummary(), fetchLiveMap(), fetchLiveOperations()]);
   if (liveD) D = liveD;
   if (liveM) M = liveM;
+  if (liveO) O = liveO;
   if (!D) {
     document.querySelector("main").innerHTML =
       '<div class="empty mono">no summary available — start the brain server ' +
@@ -831,13 +900,15 @@ let lastMapSig = "";
   }
   initWindowState();
   paint();
+  renderOperations();
   probeReviewUi();
   lastMapSig = mapSig();
   mountMap();
   setInterval(async () => {
-    const [nextD, nextM] = await Promise.all([fetchLiveSummary(), fetchLiveMap()]);
+    const [nextD, nextM, nextO] = await Promise.all([fetchLiveSummary(), fetchLiveMap(), fetchLiveOperations()]);
     if (nextD) { D = nextD; paint(); }
     if (nextM) M = nextM;
+    if (nextO) { O = nextO; renderOperations(); }
     const sig = mapSig();
     if (sig !== lastMapSig) { lastMapSig = sig; mountMap(); }  // remount only on real change
   }, 30000);
