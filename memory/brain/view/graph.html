@@ -270,11 +270,18 @@ function openAgent(node) {
   const a = ((D || {}).agents || []).find(x => x.id === id) || null;
   let runs = 0;
   if (a) for (const d in (a.runs_by_day || {})) if (inWin(d)) runs += a.runs_by_day[d];
+  const auth = a && a.authentication != null ? a.authentication : "unverified / unavailable";
+  const crypto = a && a.cryptographically_authenticated === false ? "no (assertion only)"
+    : a && a.cryptographically_authenticated === true ? "unsupported claim" : "unknown";
   let html = '<div class="ui-row"><span class="ui-dot" style="background:' + hueOf(id) + '"></span>' +
     (a ? '<span class="ui-chip">' + esc(a.kind) + '</span><span class="ui-chip" title="attribution evidence quality">' +
       esc(a.evidence) + "</span>" : "") + "</div>" +
     U.kv("runs / " + windowDays + "d", String(runs)) +
-    (a ? U.kv("first seen", esc(a.first_seen || "—")) + U.kv("last seen", esc(a.last_seen || "—")) : cardBlock(node.id)) +
+    (a ? U.kv("first seen", esc(a.first_seen || "—")) + U.kv("last seen", esc(a.last_seen || "—")) +
+      U.kv("actor source", esc(a.actor_source || "unknown")) +
+      U.kv("actor type", esc(a.actor_type || "unknown")) +
+      U.kv("authentication", esc(auth)) +
+      U.kv("cryptographic auth", esc(crypto)) : cardBlock(node.id)) +
     '<div class="ui-sec">skills ' + usageLegend + "</div>" + usageRows("agent", id) +
     lineageBtn(node.id);
   U.panel.open(id, html);

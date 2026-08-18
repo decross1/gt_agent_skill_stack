@@ -36,6 +36,7 @@ resolve to a void).
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -115,8 +116,23 @@ AGENT_HUES = {
     "workflow": "--agent-workflow",
     "primary-session/integrator": "--agent-integrator",
     "human:decross1": "--agent-human",
+    # These are the two closed identities that can be asserted by the
+    # proposal-review surface.  They deliberately have distinct presentation
+    # identities: neither is a spelling of the legacy ``human:*`` namespace.
+    "derrick": "--agent-derrick",
+    "oracle": "--agent-oracle",
 }
 RUNTIME_AGENTS = {"nara", "coordinator"}  # the consumer's own deployed actors
+
+# The proposal-review writer records one of these structured, asserted actors.
+# This projector does not authenticate the assertion and must never manufacture
+# an authentication claim when a legacy scalar is all that is available.
+_CLOSED_ACTORS = {
+    "derrick": {"type": "human", "kind": "human"},
+    "oracle": {"type": "agent", "kind": "steward"},
+}
+_CLOSED_ACTOR_AUTHENTICATION = "ui-asserted"
+_ACTOR_PRESENTATION_MAX = 64
 
 
 # ---------------------------------------------------------------------------
@@ -169,11 +185,120 @@ def agent_hue(agent_id: str) -> str:
 
 
 def agent_kind(agent_id: str) -> str:
+    closed = _CLOSED_ACTORS.get(agent_id)
+    if closed is not None:
+        return closed["kind"]
     if agent_id.startswith("human:"):
         return "human"
     if agent_id in RUNTIME_AGENTS or "nemoclaw" in agent_id:
         return "runtime"
     return "dev"
+
+
+def _actor_projection(
+    actor_id: str,
+    actor_type: str,
+    kind: str,
+    hue: str,
+    authentication: str | None,
+    cryptographically_authenticated: bool | None,
+    source: str,
+) -> dict:
+    """Return the one stable, non-authoritative actor presentation shape."""
+    return {
+        "id": actor_id, "type": actor_type, "kind": kind, "hue": hue,
+        "authentication": authentication,
+        "cryptographically_authenticated": cryptographically_authenticated,
+        "source": source,
+    }
+
+
+def _bounded_unrecognized_actor_id(raw: object) -> str:
+    """Bound an untrusted actor claim without collapsing long IDs together.
+
+    The clipped slug is presentation-only; the small digest makes two long,
+    otherwise-identical prefixes deterministic but distinct.  No raw claim or
+    asserted authentication value enters the generated view.
+    """
+    text = raw if isinstance(raw, str) else ""
+    stem = slugify(text)[:38] or "unnamed"
+    digest = hashlib.sha256(text.encode("utf-8", errors="replace")).hexdigest()[:12]
+    return f"unrecognized:{stem}-{digest}"
+
+
+def _malformed_actor() -> dict:
+    return _actor_projection(
+        "unknown:malformed-actor", "unknown", "unknown",
+        agent_hue("unknown:malformed-actor"), None, None,
+        "malformed_structured_actor",
+    )
+
+
+def project_actor(row: object) -> dict:
+    """Project actor attribution without upgrading an assertion into proof.
+
+    New verdict rows contain an exact structured writer assertion: ``id``, the
+    matching identity ``type``, ``authentication='ui-asserted'``, and
+    ``cryptographically_authenticated=false``. Only those two complete closed
+    records are recognized. An arbitrary or malformed structured actor is
+    visibly labelled as such; it never falls through to a potentially
+    conflicting legacy ``agent_id``. Older scalar rows retain their historic
+    behavior, with authentication explicitly unavailable.
+    """
+    if not isinstance(row, dict):
+        return _malformed_actor()
+    structured = row.get("actor")
+    if structured is not None:
+        if not isinstance(structured, dict):
+            return _malformed_actor()
+        actor_id = structured.get("id")
+        actor_type = structured.get("type")
+        authentication = structured.get("authentication")
+        crypto = structured.get("cryptographically_authenticated")
+        known = _CLOSED_ACTORS.get(actor_id) if isinstance(actor_id, str) else None
+        if (known is not None and actor_type == known["type"]
+                and authentication == _CLOSED_ACTOR_AUTHENTICATION
+                and crypto is False):
+            return _actor_projection(
+                actor_id, actor_type, known["kind"], agent_hue(actor_id),
+                _CLOSED_ACTOR_AUTHENTICATION, False, "structured_ui_assertion",
+            )
+        # A claimed closed identity with any wrong/missing writer field is
+        # malformed, never an alternate third party or authentication proof.
+        if known is not None:
+            return _malformed_actor()
+        if (isinstance(actor_id, str) and actor_id.strip()
+                and isinstance(actor_type, str) and actor_type.strip()):
+            # Preserve only a small deterministic label for an unrecognized
+            # assertion.  Its supplied authentication/crypto claims are not
+            # surfaced as evidence or proof.
+            unrecognized_id = _bounded_unrecognized_actor_id(actor_id)
+            return _actor_projection(
+                unrecognized_id, "unknown", "unknown", agent_hue(unrecognized_id),
+                None, None, "unrecognized_structured_actor",
+            )
+        return _malformed_actor()
+
+    # Legacy values are evidence only of the scalar identity.  This preserves
+    # historic human:* presence while making the lack of authentication plain.
+    raw_agent_id = row.get("agent_id")
+    agent_id = raw_agent_id.strip() if isinstance(raw_agent_id, str) else ""
+    if not agent_id:
+        return _actor_projection("unknown", "unknown", "unknown",
+                                 agent_hue("unknown"), None, None, "missing_actor")
+    closed = _CLOSED_ACTORS.get(agent_id)
+    if closed is not None:
+        # A scalar identifier does not carry the writer's complete assertion;
+        # it must never make a legacy row look like a verified closed identity.
+        legacy_id = f"legacy-unverified:{agent_id}"
+        return _actor_projection(
+            legacy_id, "unknown", "unknown", agent_hue(legacy_id),
+            None, None, "legacy_closed_identity_unverified",
+        )
+    return _actor_projection(
+        agent_id, "human" if agent_id.startswith("human:") else "agent",
+        agent_kind(agent_id), agent_hue(agent_id), None, None, "legacy_agent_id",
+    )
 
 
 def canon_runlog_agent(raw: str | None, default: str) -> tuple[str, bool]:
@@ -605,7 +730,7 @@ def build_agents_and_matrix(
     run_attr: list[dict],
     feedback_rows: list[dict],
     contracts: list[dict],
-    human_actions: list[tuple[str, str]],   # (ts, human_agent_id)
+    actor_actions: list[tuple[str, dict]],  # (ts, projected actor)
     skill_names: set[str],
     win_start: str,
     win_end: str,
@@ -642,11 +767,16 @@ def build_agents_and_matrix(
     # --- agents -----------------------------------------------------------
     seen: dict[str, dict] = {}
 
-    def _touch(agent: str, ts: str, explicit: bool):
+    def _touch(agent: str, ts: str, explicit: bool, actor: dict | None = None):
         rec = seen.setdefault(agent, {
             "first": ts or "9999", "last": ts or "",
             "explicit": 0, "default": 0, "by_day": Counter(),
+            "actor": actor or project_actor({"agent_id": agent}),
         })
+        # A structured assertion is more specific than a legacy scalar and is
+        # safe to retain as presentation provenance (not authentication proof).
+        if actor is not None and actor.get("source") == "structured_ui_assertion":
+            rec["actor"] = actor
         if ts:
             rec["first"] = min(rec["first"], ts)
             rec["last"] = max(rec["last"], ts)
@@ -657,8 +787,8 @@ def build_agents_and_matrix(
 
     for a in run_attr:
         _touch(a["agent"], a["ts"], a["explicit_agent"])
-    for ts, who in human_actions:
-        _touch(who, ts, True)
+    for ts, actor in actor_actions:
+        _touch(actor["id"], ts, True, actor)
 
     agents: list[dict] = []
     for aid, rec in seen.items():
@@ -670,8 +800,12 @@ def build_agents_and_matrix(
             evidence = "inferred"
         agents.append({
             "id": aid,
-            "kind": agent_kind(aid),
-            "hue": agent_hue(aid),
+            "kind": rec["actor"]["kind"],
+            "hue": rec["actor"]["hue"],
+            "actor_type": rec["actor"]["type"],
+            "authentication": rec["actor"]["authentication"],
+            "cryptographically_authenticated": rec["actor"]["cryptographically_authenticated"],
+            "actor_source": rec["actor"]["source"],
             "first_seen": _date_of(rec["first"]) if rec["first"] != "9999" else None,
             "last_seen": _date_of(rec["last"]) or None,
             "runs_by_day": {d: rec["by_day"][d] for d in sorted(rec["by_day"])},
@@ -1104,6 +1238,26 @@ def build_loop(proposals: dict[str, dict], rules: list[dict],
         first = p["first"]
         healing = proposal_healing_state(p)
         verdict_row = _proposal_verdict_row(p)
+        verdict_actor = (project_actor(verdict_row) if verdict_row is not None
+                         else project_actor({}))
+        verdict_index = _proposal_verdict_index(p)
+        lifecycle = []
+        for index, row in enumerate(p["lifecycle"]):
+            # Evidence appended after a verdict does not acquire the verdict
+            # actor.  Carry that actor separately so readers can still see who
+            # governed the acceptance while remaining honest about who (if
+            # anyone) asserted the later enactment/verification evidence.
+            actor = project_actor(row)
+            lifecycle.append({
+                "ts": row.get("timestamp", ""),
+                "verdict": row.get("verdict") or "open",
+                "actor": actor["id"],
+                "actor_detail": actor,
+                "governing_verdict_actor": (
+                    verdict_actor if verdict_index is not None
+                    and index >= verdict_index else None
+                ),
+            })
         chains.append({
             "proposal_id": pid,
             "title": _trim(first.get("title", ""), 100),
@@ -1119,10 +1273,9 @@ def build_loop(proposals: dict[str, dict], rules: list[dict],
             "filed_date": _date_of(first.get("timestamp")),
             "decided_at": healing["accepted"]["at"],
             "healing": healing,
-            "lifecycle": [{"ts": r.get("timestamp", ""),
-                           "verdict": r.get("verdict") or "open",
-                           "actor": r.get("agent_id") or "unknown"}
-                          for r in p["lifecycle"]],
+            "governing_verdict_actor": (verdict_actor
+                                         if verdict_index is not None else None),
+            "lifecycle": lifecycle,
         })
     chains.sort(key=lambda c: c["filed_date"], reverse=True)
 
@@ -1207,7 +1360,7 @@ def build_timeline_and_incidents(
             verdict = r.get("verdict")
             _row(_date_of(ts), ts,
                  "proposal_reviewed" if verdict else "proposal_filed",
-                 pid, title, r.get("agent_id") or "unknown",
+                 pid, title, project_actor(r)["id"],
                  verdict=verdict, skill=skill)
         latest = p["latest"]
         if final_verdict(p) in ("auto-reject", "rejected"):
@@ -1388,19 +1541,21 @@ def build_summary(now: datetime | None = None) -> dict:
     win_start = (date_cls.fromisoformat(win_end)
                  - timedelta(days=WINDOW_MAX_DAYS - 1)).isoformat()
 
-    # human actions feed the human agent's presence
-    human_actions: list[tuple[str, str]] = []
+    # Verdict actions feed presence for every observed decision actor.  New
+    # structured assertions get first-class Derrick/Oracle identity; old
+    # human:* rows retain their historic scalar behavior.
+    actor_actions: list[tuple[str, dict]] = []
     for p in proposals.values():
         for r in p["lifecycle"]:
-            aid = (r.get("agent_id") or "").strip()
-            if aid.startswith("human:"):
-                human_actions.append((r.get("timestamp", ""), aid))
+            if r.get("verdict"):
+                actor_actions.append((r.get("timestamp", ""), project_actor(r)))
     for r in loop_feedback:
-        human_actions.append((r.get("gated_at", ""),
-                              f"human:{r.get('gated_by', 'unknown')}"))
+        actor_actions.append((r.get("gated_at", ""), project_actor({
+            "agent_id": f"human:{r.get('gated_by', 'unknown')}"
+        })))
 
     agents, matrix, attributions = build_agents_and_matrix(
-        run_attr, feedback_rows, contracts, human_actions, skill_names,
+        run_attr, feedback_rows, contracts, actor_actions, skill_names,
         win_start, win_end)
     skills, violations = build_skills(
         skills_meta, feedback_rows, parse_conformance(), proposals, rules_raw,

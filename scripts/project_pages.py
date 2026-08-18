@@ -75,6 +75,13 @@ def load_jsonl(path: Path) -> list[dict]:
             except json.JSONDecodeError as e:
                 print(f"warn: {path.name}:{lineno} malformed JSON: {e}", file=sys.stderr)
                 continue
+            # Every caller projects mapping-shaped ledger records.  Quarantine
+            # JSON-valid scalars/lists before adding provenance fields; otherwise
+            # a mixed row crashes the projector at ``obj[\"_source_line\"]``.
+            if not isinstance(obj, dict):
+                print(f"warn: {path.name}:{lineno} non-object JSON row "
+                      f"({type(obj).__name__}) skipped", file=sys.stderr)
+                continue
             obj["_source_line"] = lineno
             out.append(obj)
     return out
