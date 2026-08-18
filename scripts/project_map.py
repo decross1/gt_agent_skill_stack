@@ -58,6 +58,7 @@ from project_pages import (  # noqa: E402
     canonicalize_agent,
     load_decisions,
     load_jsonl,
+    load_proposals,
     load_rules,
     load_skills,
     narrative_slug,
@@ -325,7 +326,7 @@ def build_map() -> dict:
         add_edge(f"agent-{slugify(agent)}", nid, "launched", e=1, agent=agent)
 
     # ---- proposals ---------------------------------------------------------
-    proposals = collapse_by_id(load_jsonl(PROPOSALS), "proposal_id")
+    proposals = collapse_by_id(load_proposals(PROPOSALS), "proposal_id")
     proposal_id_map: dict[str, str] = {}
     for pid, hist in proposals.items():
         first, latest = hist[0], hist[-1]

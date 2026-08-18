@@ -37,8 +37,10 @@ import project_summary as ps  # noqa: E402
 import project_map as pm  # noqa: E402
 
 TOP_KEYS = {"schema_version", "generated_at", "repo", "consumer", "window",
-            "status_strip", "inbox", "agents", "skills", "matrix", "contracts",
+            "status_strip", "inbox", "attention", "agents", "skills", "matrix", "contracts",
             "loop", "timeline", "incidents", "rules", "attribution", "days"}
+ATTENTION_KEYS = {"framework_actions", "external_acknowledgements",
+                  "external_groups", "backlog_history", "totals", "authority_note"}
 INBOX_KINDS = {"gate_verdict", "proposal_review", "candidate_review",
                "bubble_unacked", "finding_review", "stale_run", "drift",
                "contract_unverified"}
@@ -145,6 +147,23 @@ def check_schema(s: dict) -> None:
            if i.get("kind") not in INBOX_KINDS or i.get("severity") not in SEVERITIES
            or not isinstance(i.get("link"), dict)]
     check("schema: inbox kind/severity/link enums", not bad, f"bad={bad[:4]}")
+    attention = s.get("attention") or {}
+    lists = {name: attention.get(name)
+             for name in ("framework_actions", "external_acknowledgements",
+                          "external_groups", "backlog_history")}
+    check("schema: attention keys and list types",
+          set(attention) == ATTENTION_KEYS
+          and all(isinstance(value, list) for value in lists.values())
+          and isinstance(attention.get("totals"), dict)
+          and isinstance(attention.get("authority_note"), str),
+          f"keys={sorted(attention)}")
+    external = lists["external_acknowledgements"] or []
+    bad_external = [i.get("id") for i in external
+                    if i.get("actionable") is not False
+                    or i.get("action_cmd") is not None
+                    or "a_bgt_rsi" not in (i.get("authorized_route") or "")]
+    check("schema: external attention is view-only", not bad_external,
+          f"bad={bad_external[:4]}")
     bad = [a["id"] for a in s["agents"]
            if a.get("kind") not in AGENT_KINDS or a.get("evidence") not in EVIDENCE
            or any(not in_window(d, win_start, win_end) for d in a.get("runs_by_day", {}))]
@@ -183,7 +202,7 @@ def check_cross(s: dict, consumer: Path | None) -> None:
     # but is its own lane, so lifecycle_state excludes it where final_verdict
     # (defaulting to "open") would have leaked it into the review queue.
     cname = consumer.name if consumer is not None else None
-    collapsed = ps.collapse_proposals(jsonl(ps.PROPOSALS))
+    collapsed = ps.collapse_proposals(ps.load_proposals(ps.PROPOSALS))
     fw = {pid: p for pid, p in collapsed.items()
           if ps.proposal_scope(p["first"], cname) == "framework"}
     want = sum(1 for p in fw.values()
@@ -217,6 +236,39 @@ def check_cross(s: dict, consumer: Path | None) -> None:
     check("cross: needs_you.total == len(inbox)",
           s["status_strip"]["needs_you"]["total"] == len(s["inbox"]),
           f"strip={s['status_strip']['needs_you']['total']} inbox={len(s['inbox'])}")
+
+    attention = s["attention"]
+    framework = attention["framework_actions"]
+    external = attention["external_acknowledgements"]
+    backlog = attention["backlog_history"]
+    totals = attention["totals"]
+    expected_totals = {
+        "all": len(s["inbox"]),
+        "framework_actions": len(framework),
+        "external_acknowledgements": len(external),
+        "backlog_history": len(backlog),
+    }
+    check("cross: attention is a complete authority partition",
+          totals == expected_totals
+          and len(framework) + len(external) + len(backlog) == len(s["inbox"]),
+          f"totals={totals} expected={expected_totals}")
+    by_kind: dict[str, list[dict]] = {}
+    for item in external:
+        by_kind.setdefault(item.get("kind") or "unknown", []).append(item)
+    groups = attention["external_groups"]
+    group_kinds = [group.get("kind") for group in groups]
+    groups_ok = group_kinds == sorted(by_kind) and len(group_kinds) == len(set(group_kinds))
+    if groups_ok:
+        for group in groups:
+            kind = group["kind"]
+            representative = group.get("representative") or {}
+            groups_ok = (group.get("count") == len(by_kind[kind])
+                         and representative.get("id") in {i.get("id") for i in by_kind[kind]})
+            if not groups_ok:
+                break
+    check("cross: compact external groups preserve full detail counts",
+          groups_ok and sum(int(g.get("count") or 0) for g in groups) == len(external),
+          f"groups={[(g.get('kind'), g.get('count')) for g in groups]}")
 
     used = 0
     for path in ([consumer / "run_state" / "week1.run.jsonl"] if consumer else []) + \

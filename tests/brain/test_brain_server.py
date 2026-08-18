@@ -18,13 +18,16 @@ We monkeypatch all of them at a tmp fixture dir so the real brain is untouched.
 write_handoff returns `path.relative_to(ROOT)`, so ROOT is repointed at tmp too.
 """
 import json
+import os
 import shutil
 import sys
+import time
 from pathlib import Path
 
 import pytest
 
 REPO = Path(__file__).resolve().parents[2]
+REAL_LEDGER_HELPER = REPO / "scripts" / "brain_ledger.py"
 sys.path.insert(0, str(REPO / "scripts"))
 
 import brain_server as bs  # noqa: E402
@@ -112,6 +115,7 @@ def brain(tmp_path, monkeypatch):
     fake_scripts.mkdir()
     fake_cli = fake_scripts / "review_proposal_cli.py"
     shutil.copy(REAL_CLI, fake_cli)
+    shutil.copy(REAL_LEDGER_HELPER, fake_scripts / "brain_ledger.py")
 
     stub = GemmaStub()
     # Repoint ROOT so write_handoff's relative_to(ROOT) resolves inside tmp.
@@ -297,7 +301,8 @@ def test_write_handoff_writes_markdown_file(brain):
     assert "Tighten the validate skill" in text          # title
     assert "make near-misses always fail" in text        # original change
     assert "Let us narrow scope." in text                # discussion echoed
-    assert "## Agreed change & implementation brief" in text
+    assert "## Synthesized implementation context (non-authoritative)" in text
+    assert "Everything in this pre-acceptance handoff is non-authoritative" in text
 
 
 def test_write_handoff_reuses_existing_card(brain):
@@ -369,10 +374,12 @@ def _handoff_body(text: str) -> str:
     GOVERNED body is, independent of discussion/synthesis echoes elsewhere."""
     marker = "## "
     for header in ("## Amended proposal (final form)",
-                   "## Original proposal (verbatim)"):
+                   "## Original proposal (verbatim)",
+                   "## Accepted amended proposal (canonical)",
+                   "## Accepted original proposal (canonical)"):
         if header in text:
             after = text.split(header, 1)[1]
-            return after.split("### Why", 1)[0]
+            return after.split("### Filing rationale (context)", 1)[0]
     return ""
 
 
@@ -443,32 +450,47 @@ def test_proposal_payload_includes_amended_draft(brain):
 # record_verdict basis threading -> blessed CLI (§2,§3)
 # ---------------------------------------------------------------------------
 
-def test_record_verdict_default_basis_original(brain):
-    """record_verdict with no basis execs the CLI with basis 'original'; the
+def test_record_verdict_threads_closed_actor_to_cli(brain):
+    """record_verdict threads its closed actor into the CLI with basis 'original'; the
     blessed CLI appends an outcome carrying basis='original'. (Real ledger is the
     tmp copy via the monkeypatched bs.CLI / bs.PROPOSALS.)"""
     brain.seed(FW_PROP)
-    out = bs.record_verdict("P-100", "accept", "ship original")
+    out = bs.record_verdict("P-100", "accept", "ship original", actor_id="derrick")
     assert out.get("ok") is True
     rows = [json.loads(l) for l in brain.proposals.read_text().splitlines()
             if l.strip()]
     outcome = rows[-1]
     assert outcome["verdict"] == "accepted"
     assert outcome["basis"] == "original"
-    assert outcome["agent_id"] == "human:ui"
+    assert outcome["agent_id"] == "derrick"
+    assert outcome["actor"] == {
+        "id": "derrick", "type": "human", "authentication": "ui-asserted",
+        "cryptographically_authenticated": False,
+    }
 
 
-def test_record_verdict_basis_amended_threads_to_cli(brain):
+def test_record_verdict_basis_amended_threads_exact_body_to_cli(brain):
     """record_verdict(..., basis='amended') threads --basis amended to the CLI,
     and the appended outcome records basis='amended'."""
     brain.seed(FW_PROP)
-    out = bs.record_verdict("P-100", "accept", "ship amended", basis="amended")
+    out = bs.record_verdict("P-100", "accept", "ship amended", basis="amended",
+                            actor_id="oracle", accepted_body="final amended body")
     assert out.get("ok") is True
     rows = [json.loads(l) for l in brain.proposals.read_text().splitlines()
             if l.strip()]
     outcome = rows[-1]
     assert outcome["verdict"] == "accepted"
     assert outcome["basis"] == "amended"
+    assert outcome["actor"]["id"] == "oracle"
+    assert outcome["accepted_body"] == "final amended body"
+
+
+@pytest.mark.parametrize("actor_id", [None, "mallory", "human:ui"])
+def test_record_verdict_rejects_missing_or_arbitrary_actor_without_write(brain, actor_id):
+    brain.seed(FW_PROP)
+    out = bs.record_verdict("P-100", "accept", "x", actor_id=actor_id)
+    assert out == {"ok": False, "error": "actor_id must be one of: derrick, oracle"}
+    assert len(brain.proposals.read_text().splitlines()) == 1
 
 
 # ---------------------------------------------------------------------------
@@ -622,33 +644,37 @@ def test_verdict_route_accept_original_returns_handoff_path(brain):
     handoff — one step. The route returns ok/recorded/basis/handoff_path."""
     brain.seed(FW_PROP)
     code, obj = _post("P-100", "verdict",
-                      {"verdict": "accept", "note": "ship it", "basis": "original"})
+                      {"verdict": "accept", "note": "ship it", "basis": "original",
+                       "actor_id": "derrick"})
     assert code == 200
     assert obj["ok"] is True and obj["recorded"] == "accepted"
     assert obj["basis"] == "original"
+    assert obj["actor"]["id"] == "derrick"
     assert obj["handoff_path"] == "handoffs/P-100.md"
     assert (brain.handoffs / "P-100.md").exists()
 
 
-def test_verdict_route_accept_amended_persists_edited_text_then_handoff(brain):
-    """basis='amended' persists the (human-EDITED) amended_change as a FRESH
-    amended_draft BEFORE recording, so the governed/handoff form is that final
-    edited text. Accept returns a handoff_path and basis='amended'."""
+def test_verdict_route_accept_amended_records_edited_text_then_handoff(brain):
+    """The reviewer-edited text travels through the CLI into the canonical decision;
+    the handoff does not depend on an ignored amended-draft card."""
     brain.seed(FW_PROP)
     bs.generate_card(bs.proposal_first("P-100"))  # card from the default JSON stub
     code, obj = _post("P-100", "verdict",
                       {"verdict": "accept", "note": "ship amended",
                        "basis": "amended",
+                       "actor_id": "oracle",
                        "amended_change": "Final edited amended change text."})
     assert code == 200
     assert obj["ok"] is True and obj["basis"] == "amended"
+    assert obj["actor"]["id"] == "oracle"
     assert obj["handoff_path"] == "handoffs/P-100.md"
 
-    # a fresh amended_draft carrying the EDITED text was persisted
-    latest = bs.latest_amended_draft("P-100")
-    assert latest["change"] == "Final edited amended change text."
+    outcome = [json.loads(line) for line in brain.proposals.read_text().splitlines()][-1]
+    assert outcome["accepted_body"] == "Final edited amended change text."
     # and the handoff body is that edited text
-    body = _handoff_body((brain.handoffs / "P-100.md").read_text())
+    handoff = (brain.handoffs / "P-100.md").read_text()
+    assert "**Actor:** `oracle` (agent; ui-asserted, not cryptographically authenticated)" in handoff
+    body = _handoff_body(handoff)
     assert "Final edited amended change text." in body
 
 
@@ -657,13 +683,148 @@ def test_verdict_route_amended_requires_amended_change(brain):
     no amended_draft persisted."""
     brain.seed(FW_PROP)
     code, obj = _post("P-100", "verdict",
-                      {"verdict": "accept", "note": "x", "basis": "amended"})
+                      {"verdict": "accept", "note": "x", "basis": "amended",
+                       "actor_id": "derrick"})
     assert code == 400
     assert bs.latest_amended_draft("P-100") is None
     # no verdict outcome appended (only the seeded open row remains)
     rows = [json.loads(l) for l in brain.proposals.read_text().splitlines()
             if l.strip()]
     assert len(rows) == 1
+
+
+def test_handoff_replays_verified_accepted_body_without_cards(brain):
+    """A clean/replayed proposal ledger can regenerate its handoff from the
+    decision row alone; ignored cards do not supply the accepted body."""
+    brain.seed(FW_PROP)
+    out = bs.record_verdict("P-100", "accept", "ship", actor_id="derrick")
+    assert out["ok"] is True
+    brain.cards.write_text("")  # simulate a clean clone with no ignored card store
+    first = bs.proposal_first("P-100")
+    rel = bs.write_handoff(first, actor_id="derrick")
+    handoff = (brain.handoffs / "P-100.md").read_text()
+    outcome = [json.loads(line) for line in brain.proposals.read_text().splitlines()][-1]
+    assert rel == "handoffs/P-100.md"
+    assert outcome["accepted_body"] in handoff
+    assert outcome["accepted_body_sha256"] in handoff
+    assert "Only the canonical accepted proposal body" in handoff
+    assert "model synthesis below are non-authoritative" in handoff
+
+
+@pytest.mark.parametrize("basis", [None, "not-a-basis"])
+def test_missing_or_tampered_basis_refuses_accepted_handoff_recovery(brain, basis):
+    brain.seed(FW_PROP)
+    out = bs.record_verdict("P-100", "accept", "ship", actor_id="derrick")
+    assert out["ok"] is True
+    rows = [json.loads(line) for line in brain.proposals.read_text().splitlines()]
+    if basis is None:
+        rows[-1].pop("basis")
+    else:
+        rows[-1]["basis"] = basis
+    brain.proposals.write_text("".join(json.dumps(row) + "\n" for row in rows))
+    with pytest.raises(ValueError, match="missing or invalid basis"):
+        bs.write_handoff(bs.proposal_first("P-100"))
+    assert not brain.handoffs.exists()
+
+
+def test_tampered_accepted_body_refuses_handoff_reconstruction(brain):
+    brain.seed(FW_PROP)
+    out = bs.record_verdict("P-100", "accept", "ship", actor_id="derrick")
+    assert out["ok"] is True
+    rows = [json.loads(line) for line in brain.proposals.read_text().splitlines()]
+    rows[-1]["accepted_body"] = "tampered"
+    brain.proposals.write_text("".join(json.dumps(row) + "\n" for row in rows))
+    with pytest.raises(ValueError, match="digest mismatch"):
+        bs.write_handoff(bs.proposal_first("P-100"))
+    assert not brain.handoffs.exists()
+
+
+def test_tampered_accepted_actor_or_request_override_refuses_recovery(brain):
+    brain.seed(FW_PROP)
+    out = bs.record_verdict("P-100", "accept", "ship", actor_id="derrick")
+    assert out["ok"] is True
+    rows = [json.loads(line) for line in brain.proposals.read_text().splitlines()]
+    rows[-1]["actor"]["authentication"] = "forged"
+    brain.proposals.write_text("".join(json.dumps(row) + "\n" for row in rows))
+    with pytest.raises(ValueError, match="does not match closed identity"):
+        bs.write_handoff(bs.proposal_first("P-100"))
+    assert not brain.handoffs.exists()
+
+    # The canonical stored actor, not a caller-selected identity, governs a
+    # recovered handoff.
+    rows[-1]["actor"] = {
+        "id": "derrick", "type": "human", "authentication": "ui-asserted",
+        "cryptographically_authenticated": False,
+    }
+    brain.proposals.write_text("".join(json.dumps(row) + "\n" for row in rows))
+    with pytest.raises(ValueError, match="cannot override"):
+        bs.write_handoff(bs.proposal_first("P-100"), actor_id="oracle")
+    assert not brain.handoffs.exists()
+
+
+def test_legacy_auto_accept_never_falls_back_to_mutable_filing_text(brain):
+    brain.seed(FW_PROP, {
+        "timestamp": "2026-08-18T00:01:00Z", "proposal_id": "P-100",
+        "agent_id": "legacy", "verdict": "auto-accept", "status": "closed",
+    })
+    with pytest.raises(ValueError, match="incomplete body record"):
+        bs.write_handoff(bs.proposal_first("P-100"))
+    assert not brain.handoffs.exists()
+
+
+def test_handoff_route_refuses_actor_override_as_integrity_conflict(brain):
+    brain.seed(FW_PROP)
+    out = bs.record_verdict("P-100", "accept", "ship", actor_id="derrick")
+    assert out["ok"] is True
+    code, obj = _post("P-100", "handoff", {"basis": "original", "actor_id": "oracle"})
+    assert code == 409
+    assert obj["error"] == "handoff actor cannot override accepted decision actor"
+
+
+def test_cli_failure_never_creates_handoff(brain, monkeypatch):
+    brain.seed(FW_PROP)
+    monkeypatch.setattr(bs, "record_verdict",
+                        lambda *_args, **_kwargs: {"ok": False, "exit_code": 7,
+                                                     "error": "ledger refused"})
+    code, _obj = _post("P-100", "verdict",
+                       {"verdict": "accept", "note": "x", "basis": "original",
+                        "actor_id": "derrick"})
+    assert code == 400
+    assert not brain.handoffs.exists()
+
+
+def test_handoff_write_failure_is_honest_and_recoverable(brain, monkeypatch):
+    brain.seed(FW_PROP)
+    original = bs.write_handoff
+    monkeypatch.setattr(bs, "write_handoff", lambda *_args, **_kwargs: (_ for _ in ()).throw(OSError("disk")))
+    code, obj = _post("P-100", "verdict",
+                      {"verdict": "accept", "note": "x", "basis": "original",
+                       "actor_id": "derrick"})
+    assert code == 202
+    assert obj["handoff_status"] == "pending"
+    assert not brain.handoffs.exists()
+    monkeypatch.setattr(bs, "write_handoff", original)
+    assert bs.write_handoff(bs.proposal_first("P-100")) == "handoffs/P-100.md"
+
+
+@pytest.mark.parametrize("actor_id", [None, "mallory", "human:ui"])
+def test_verdict_route_rejects_missing_or_unknown_actor_before_writes(brain, actor_id):
+    brain.seed(FW_PROP)
+    code, obj = _post("P-100", "verdict",
+                      {"verdict": "accept", "note": "x", "basis": "original",
+                       "actor_id": actor_id})
+    assert code == 400
+    assert obj["error"] == "actor_id must be one of: derrick, oracle"
+    assert len(brain.proposals.read_text().splitlines()) == 1
+
+
+@pytest.mark.parametrize("actor_id", [None, "mallory"])
+def test_handoff_route_rejects_missing_or_unknown_actor(brain, actor_id):
+    brain.seed(FW_PROP)
+    code, obj = _post("P-100", "handoff", {"basis": "original", "actor_id": actor_id})
+    assert code == 400
+    assert obj["error"] == "actor_id must be one of: derrick, oracle"
+    assert not brain.handoffs.exists()
 
 
 def test_synthesize_route_returns_amended_change(brain):
@@ -717,7 +878,8 @@ def test_verdict_route_schedules_a_refresh(brain, monkeypatch):
     monkeypatch.setattr(bs, "_schedule_refresh", lambda: fired.append(1))
     brain.seed(FW_PROP)
     code, obj = _post("P-100", "verdict",
-                      {"verdict": "accept", "note": "ship it", "basis": "original"})
+                      {"verdict": "accept", "note": "ship it", "basis": "original",
+                       "actor_id": "derrick"})
     assert code == 200 and obj["ok"] is True
     assert fired == [1]
 
@@ -729,6 +891,219 @@ def test_verdict_route_failed_verdict_does_not_schedule_refresh(brain, monkeypat
     monkeypatch.setattr(bs, "_schedule_refresh", lambda: fired.append(1))
     brain.seed(FW_PROP)
     code, _ = _post("P-100", "verdict",
-                    {"verdict": "accept", "note": "x", "basis": "amended"})  # missing amended_change
+                    {"verdict": "accept", "note": "x", "basis": "amended",
+                     "actor_id": "derrick"})  # missing amended_change
     assert code == 400
     assert fired == []
+
+
+# ---------------------------------------------------------------------------
+# GET /api/operations — bounded, read-only, fail-closed truth cockpit
+# ---------------------------------------------------------------------------
+
+@pytest.fixture
+def operations(brain, tmp_path, monkeypatch):
+    """Isolated files for the operations endpoint; nothing points at the repo."""
+    run = tmp_path / "run_state"
+    run.mkdir(exist_ok=True)
+    view = tmp_path / "memory" / "brain" / "view"
+    view.mkdir(parents=True, exist_ok=True)
+    consumer = tmp_path / "consumer"
+    (consumer / "run_state").mkdir(parents=True)
+    monkeypatch.setattr(bs, "FRAMEWORK_STATE", run / "framework.state.json")
+    monkeypatch.setattr(bs, "WATCH_PID", run / "brain-watch.pid")
+    monkeypatch.setattr(bs, "WATCH_LOG", run / "brain-watch.log")
+    monkeypatch.setattr(bs, "SUMMARY_JSON", view / "summary.json")
+    monkeypatch.setattr(bs.ps, "resolve_consumer", lambda: consumer)
+    (run / "framework.state.json").write_text(json.dumps({"harvest_watermark": {
+        "a_bgt_rsi": {"run_jsonl_lines": 2, "last_commit": "abc", "last_decision": "D-1"}}}))
+    (consumer / "run_state" / "week1.run.jsonl").write_text("{}\n{}\n{}\n")
+    (view / "summary.json").write_text('{"generated_at":"2026-06-01T00:00:00Z"}')
+    (run / "brain-watch.log").write_text(
+        "[2026-06-01T00:00:01Z] pipeline ok in 1.0s\n"
+        "[2026-06-01T00:01:01Z] pipeline FAIL in 2.0s\n")
+    (run / "brain-watch.pid").write_text("99999999\n")
+    bs._ops_cache["data"] = None
+    bs._ops_cache["mono"] = 0.0
+    return brain
+
+
+def test_operations_reports_only_exact_lifecycle_evidence_and_mixed_rows(operations, monkeypatch):
+    commit = "a" * 40
+    accepted = dict(FW_PROP, verdict="accepted", status="closed")
+    evidence = {"timestamp": "2026-06-02T00:00:00Z", "proposal_id": "P-100",
+                "enactment": {"commit": commit, "paths": [".agents/skills/validate/SKILL.md"]},
+                "verification": {"commit": commit, "command": "pytest -q", "result": "pass",
+                                 "output_sha256": "b" * 64}}
+    # A foreign row must be counted as a warning, not silently dropped.
+    operations.proposals.write_text("\n".join(json.dumps(x) for x in (accepted, evidence,
+                                    {"legacy": "unsupported"})) + "\n")
+
+    def git_ok(argv, **_kwargs):
+        if "diff-tree" in argv:
+            return ".agents/skills/validate/SKILL.md\n", None
+        if "rev-parse" in argv:
+            return "deadbeef\n", None
+        if "branch" in argv:
+            return "ops\n", None
+        return " M one-file\n", None
+    monkeypatch.setattr(bs, "_run_bounded", git_ok)
+
+    before = {p: p.read_bytes() for p in [operations.proposals, bs.FRAMEWORK_STATE,
+                                           bs.WATCH_LOG, bs.SUMMARY_JSON]}
+    code, body = _get("/api/operations")
+    after = {p: p.read_bytes() for p in before}
+
+    assert code == 200 and body["read_only"] is True
+    assert body["server"]["alive"]["status"] == "observed"
+    assert body["watcher"]["state"]["value"] == "stale"
+    assert body["pipeline"]["last_success"]["value"] == "2026-06-01T00:00:01Z"
+    assert body["cursors"]["consumer"]["value"]["delta_lines"] == 1
+    counts = body["proposals"]["counts"]["value"]
+    assert counts == {"accepted": 1, "enacted": 1, "verified": 1,
+                      "unverified_or_pending": 0, "evidence_unknown": 1}
+    assert body["proposals"]["counts"]["status"] == "partial"
+    assert any("mixed-schema" in w for w in body["warnings"])
+    assert before == after  # endpoint has no write side effect
+
+
+def test_operations_rejects_recycled_live_pid_and_malformed_data(operations, monkeypatch):
+    bs.WATCH_PID.write_text(f"{os.getpid()}\n")
+    bs.WATCH_LOG.write_text("[not-a-time] pipeline ok in 1s\n")
+    bs.SUMMARY_JSON.write_text("not json")
+    operations.proposals.write_text("{bad json}\n")
+    original_read = bs._read_limited
+
+    def no_script(path, limit, **kwargs):
+        if str(path).endswith(f"/{os.getpid()}/cmdline"):
+            return "python\x00other_program.py", False, None
+        return original_read(path, limit, **kwargs)
+    monkeypatch.setattr(bs, "_read_limited", no_script)
+
+    body = bs.operations_snapshot()
+    assert body["watcher"]["state"]["value"] == "stale"
+    assert body["pipeline"]["last_success"]["status"] == "unknown"
+    assert body["projection"]["generated_at"]["status"] == "unknown"
+    assert body["proposals"]["counts"]["value"]["accepted"] == 0
+    assert any("malformed" in warning for warning in body["warnings"])
+
+
+def test_operations_subprocess_failure_fails_closed(operations, monkeypatch):
+    operations.seed(dict(FW_PROP, verdict="accepted", status="closed"),
+                    {"timestamp": "2026-06-02T00:00:00Z", "proposal_id": "P-100",
+                     "enactment": {"commit": "a" * 40, "paths": ["x"]}})
+    monkeypatch.setattr(bs, "_run_bounded", lambda argv, **_kwargs: (None, "TimeoutExpired"))
+    body = bs.operations_snapshot()
+    assert body["repo"]["head"]["status"] == "unknown"
+    assert body["proposals"]["counts"]["status"] == "partial"
+    assert body["proposals"]["counts"]["value"]["enacted"] == 0
+    assert body["proposals"]["counts"]["value"]["evidence_unknown"] == 1
+
+
+def test_operations_skill_enactment_requires_exact_skill_contract_not_readme(operations, monkeypatch):
+    commit = "a" * 40
+    operations.seed(
+        dict(FW_PROP, verdict="accepted", status="closed"),
+        {"timestamp": "2026-06-02T00:00:00Z", "proposal_id": "P-100",
+         "enactment": {"commit": commit, "paths": ["README.md"]}},
+    )
+
+    def git_readme(argv, **_kwargs):
+        if "diff-tree" in argv:
+            return "README.md\n", None
+        return "main\n", None
+    monkeypatch.setattr(bs, "_run_bounded", git_readme)
+    body = bs.operations_snapshot()
+    counts = body["proposals"]["counts"]["value"]
+    assert counts["accepted"] == 1
+    assert counts["enacted"] == counts["verified"] == 0
+    assert counts["unverified_or_pending"] == 1
+
+
+def test_operations_enforces_shared_budget_probe_cap_and_short_cache(operations, monkeypatch):
+    rows = []
+    for number in range(20):
+        pid = f"P-{100 + number}"
+        rows.append(dict(FW_PROP, proposal_id=pid, verdict="accepted", status="closed"))
+        rows.append({"timestamp": "2026-06-02T00:00:00Z", "proposal_id": pid,
+                     "enactment": {"commit": f"{number:040x}", "paths": ["README.md"]}})
+    operations.seed(*rows)
+    seen = []
+
+    def bounded(argv, **kwargs):
+        seen.append((argv, kwargs))
+        assert kwargs["deadline"] - time.monotonic() <= bs.OPS_TOTAL_BUDGET_S
+        return "README.md\n", None
+    monkeypatch.setattr(bs, "_run_bounded", bounded)
+
+    first = bs.operations_snapshot()
+    probes = [argv for argv, _ in seen if "diff-tree" in argv]
+    assert len(probes) == bs.OPS_MAX_LIFECYCLE_PROPOSALS == 12
+    assert first["proposals"]["counts"]["value"]["evidence_unknown"] == 8
+    calls_after_first = len(seen)
+    second = bs.operations_snapshot()
+    assert second["poll"]["value"] == "cached"
+    assert len(seen) == calls_after_first  # cache prevents concurrent-poll multiplication
+
+
+def test_operations_repo_is_tracked_only_and_disables_git_locks(operations, monkeypatch):
+    seen = []
+
+    def bounded(argv, **kwargs):
+        seen.append((argv, kwargs))
+        return "main\n", None
+    monkeypatch.setattr(bs, "_run_bounded", bounded)
+    body = bs.operations_snapshot()
+    status_call, status_kwargs = next((a, k) for a, k in seen if "status" in a)
+    assert "--untracked-files=no" in status_call
+    assert status_kwargs["env"]["GIT_OPTIONAL_LOCKS"] == "0"
+    assert "untracked files" in body["repo"]["tracked_dirty_count"]["uncertainty"]
+
+
+def test_operations_cursor_payload_is_numeric_only(operations, monkeypatch):
+    monkeypatch.setattr(bs, "_run_bounded", lambda argv, **_kwargs: ("main\n", None))
+    cursors = bs.operations_snapshot()["cursors"]
+    assert cursors["framework_harvest"]["value"] == {"run_jsonl_lines": 2}
+    assert cursors["consumer"]["value"] == {"lines": 3, "watermark_lines": 2, "delta_lines": 1}
+
+
+def test_cursor_streams_more_than_one_mebibyte_without_retaining_contents(tmp_path):
+    path = tmp_path / "week1.run.jsonl"
+    rows = 600_000
+    path.write_bytes(b"{}\n" * rows)  # 1.8 MiB: exceeds the ordinary 1 MiB read budget
+    count, error = bs._count_lines_bounded(path, bs.OPS_CURSOR_BYTES,
+                                            deadline=time.monotonic() + 3)
+    assert error is None
+    assert count == rows
+
+
+def test_cursor_counter_fails_closed_at_cap_or_expired_deadline(tmp_path):
+    path = tmp_path / "week1.run.jsonl"
+    path.write_bytes(b"{}\n" * 10)
+    assert bs._count_lines_bounded(path, 5, deadline=time.monotonic() + 3) == (None, "byte_limit")
+    assert bs._count_lines_bounded(path, bs.OPS_CURSOR_BYTES,
+                                   deadline=time.monotonic() - 1) == (None, "budget_exhausted")
+
+
+def test_operations_requires_exact_watcher_argv_and_timezone_aware_timestamps(operations, monkeypatch):
+    bs.WATCH_PID.write_text(f"{os.getpid()}\n")
+    bs.WATCH_LOG.write_text("[2026-06-01T00:00:01] pipeline ok in 1s\n")  # naive
+    bs.SUMMARY_JSON.write_text('{"generated_at":"2026-06-01T00:00:00"}')  # naive
+    operations.proposals.write_text(json.dumps({
+        "timestamp": "2026-06-01T00:00:00", "proposal_id": "P-100",
+        "status": "open", "change": "x"}) + "\n")
+    original_read = bs._read_limited
+
+    def deceptive_cmdline(path, limit, **kwargs):
+        if str(path).endswith(f"/{os.getpid()}/cmdline"):
+            return "/usr/bin/python\x00/tmp/not-watch_brain.py.bak", False, None
+        return original_read(path, limit, **kwargs)
+    monkeypatch.setattr(bs, "_read_limited", deceptive_cmdline)
+    monkeypatch.setattr(bs, "_run_bounded", lambda argv, **_kwargs: ("main\n", None))
+
+    body = bs.operations_snapshot()
+    assert body["watcher"]["state"]["value"] == "stale"
+    assert body["pipeline"]["last_success"]["status"] == "unknown"
+    assert body["projection"]["generated_at"]["status"] == "unknown"
+    assert body["proposals"]["counts"]["status"] == "partial"
+    assert body["proposals"]["counts"]["value"]["evidence_unknown"] == 1

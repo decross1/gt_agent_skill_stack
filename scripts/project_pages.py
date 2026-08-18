@@ -24,6 +24,8 @@ import sys
 from collections import Counter, defaultdict
 from pathlib import Path
 
+from brain_ledger import inspect_proposals
+
 REPO = Path(__file__).resolve().parent.parent
 CONSUMER = REPO.parent / "a_bgt_rsi"
 
@@ -75,9 +77,35 @@ def load_jsonl(path: Path) -> list[dict]:
             except json.JSONDecodeError as e:
                 print(f"warn: {path.name}:{lineno} malformed JSON: {e}", file=sys.stderr)
                 continue
+            # Every caller projects mapping-shaped ledger records.  Quarantine
+            # JSON-valid scalars/lists before adding provenance fields; otherwise
+            # a mixed row crashes the projector at ``obj[\"_source_line\"]``.
+            if not isinstance(obj, dict):
+                print(f"warn: {path.name}:{lineno} non-object JSON row "
+                      f"({type(obj).__name__}) skipped", file=sys.stderr)
+                continue
             obj["_source_line"] = lineno
             out.append(obj)
     return out
+
+
+def load_proposals(path: Path = PROPOSALS) -> list[dict]:
+    """Return only governed proposal rows through the canonical validator.
+
+    The proposal ledger has one explicitly recognized historic mixed-schema
+    pair.  It is evidence-only quarantine, not a second proposal namespace.
+    Every primary projector uses this loader so the pair cannot silently become
+    a proposal, actor, review item, or graph node.  Any other malformed or
+    unknown row fails the projection closed.
+    """
+    result = inspect_proposals(path, quarantine_known_legacy=True)
+    for item in result.quarantine:
+        print(
+            f"warn: {path.name}:{item['line_number']} quarantined "
+            f"{item['schema']} sha256={item['sha256']}",
+            file=sys.stderr,
+        )
+    return result.rows
 
 
 def narrative_slug(n: dict) -> str:
@@ -657,7 +685,7 @@ def synthesize_loop_entities(
         })
 
     # --- proposals --------------------------------------------------------
-    proposals = load_jsonl(PROPOSALS)
+    proposals = load_proposals(PROPOSALS)
     # latest entry per proposal_id is the current view
     proposal_latest: dict[str, dict] = {}
     proposal_first: dict[str, dict] = {}
@@ -1223,7 +1251,7 @@ def main() -> int:
     # narrative agent_ids; skills enumerate from .agents/skills. Edges link
     # findings/proposals to skills and findings to apparatus events.
     feedback_rows_for_link = feedback_for_force_keep  # reuse the load
-    proposals_for_link = load_jsonl(PROPOSALS)
+    proposals_for_link = load_proposals(PROPOSALS)
     # Build the set of projected apparatus_event slugs so observed_in edges
     # only target events that survived the apparatus_pages_cap.
     apparatus_slugs = {

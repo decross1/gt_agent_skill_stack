@@ -114,7 +114,7 @@ It has a specific, narrow relationship to apparatus runtime:
 **Why.** A runtime agent that reads from a developer-curated corpus *about
 itself* is a self-reference loop with no external grounding. It is exactly
 how an agent talks itself into a local optimum or amplifies a stale
-correction. The brain's value is dev-time visibility and human review —
+correction. The brain's value is dev-time visibility and attributable steward review —
 not runtime input.
 
 **Enforcement.** All brain skills (and every other dev-only skill) carry

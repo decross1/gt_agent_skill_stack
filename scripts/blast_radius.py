@@ -19,6 +19,8 @@ import json
 import sys
 from pathlib import Path
 
+from brain_ledger import ProposalLedgerError, read_proposals
+
 REPO = Path(__file__).resolve().parent.parent
 PROPOSALS = REPO / "memory" / "brain" / "proposals.jsonl"
 SKILLS_DIR = REPO / ".agents" / "skills"
@@ -71,19 +73,9 @@ def blast_radius(first: dict) -> str:
 def _first_row(pid: str) -> dict | None:
     """Earliest (filed) row for a proposal_id from proposals.jsonl, by
     timestamp — the row blast_radius() classifies."""
-    rows = []
-    if not PROPOSALS.exists():
-        return None
-    for line in PROPOSALS.read_text().splitlines():
-        line = line.strip()
-        if not line:
-            continue
-        try:
-            obj = json.loads(line)
-        except json.JSONDecodeError:
-            continue
-        if obj.get("proposal_id") == pid:
-            rows.append(obj)
+    rows = [row for row in read_proposals(
+        PROPOSALS, quarantine_known_legacy=True
+    ) if row.get("proposal_id") == pid]
     if not rows:
         return None
     return min(rows, key=lambda r: r.get("timestamp", ""))
@@ -96,7 +88,11 @@ def main() -> int:
     ap.add_argument("proposal_id", help="e.g. P-003")
     args = ap.parse_args()
 
-    first = _first_row(args.proposal_id)
+    try:
+        first = _first_row(args.proposal_id)
+    except ProposalLedgerError as exc:
+        print(json.dumps({"ok": False, "error": f"corrupt proposal ledger: {exc}"}))
+        return 2
     if first is None:
         print(json.dumps({"ok": False, "error": "unknown proposal_id"}))
         return 3

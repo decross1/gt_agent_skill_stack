@@ -650,3 +650,84 @@ and discardable via review; nothing auto-enacted.
 
 **Supersedes:** none — corrects the 2026-06-28 drift-semantics entry's over-claim
 and extends FR-002 / FR-007 (state write-forward).
+
+## 2026-08-18 — Make the self-healing cockpit truthful and Twin-attributable
+
+**Decision:** Treat the brain as an evidence-backed review and learning surface,
+not proof that the framework healed itself. Derrick and Oracle are closed,
+first-class review actors whose identity is explicitly `ui-asserted` and not
+cryptographically authenticated. Proposal `accepted`, exact patch `enacted`, and
+later outcome `verified` are separate lifecycle states. Every new accepting
+decision stores its exact accepted body, basis, closed actor, and body digest in
+the canonical proposal ledger; ignored cards and model synthesis are only
+non-authoritative context. Proposal writers share a bounded advisory file lock.
+Automatic draft graduation remains physically closed.
+
+The dashboard now separates framework actions, view-only `a_bgt_rsi`
+acknowledgements/history, and held backlog. Its operations band exposes bounded
+source freshness, watcher/process uncertainty, projection age, cursor lag,
+schema warnings, exact lifecycle counts, and tracked repository state without
+service controls. Dashboard, Map, and Review must remain usable at desktop and
+narrow widths, and the generated projection verifier treats the attention
+partition as a frozen schema contract.
+
+**Alternatives:** (a) keep `accepted == healed` and infer enactment from commit
+messages — rejected because mention is not a path-bound patch and acceptance is
+not behavioral evidence; (b) let arbitrary actor strings or `human:ui` stand for
+authorship — rejected because it erases contributor identity and inflates
+authentication; (c) let a passing adversarial model auto-graduate drafts —
+rejected because the model is advisory, not an attributable verdict authority;
+(d) turn the brain into a runtime controller — rejected because it would breach
+the framework/apparatus boundary.
+
+**Rationale:** The prior interface could self-confirm improvement while no exact
+proposal-to-patch-to-test-to-later-lift chain existed. At the reviewed checkpoint
+(`9783bba..fd6049e`), 147 tests pass, the generated view verifier passes 47/47,
+and browser checks for Dashboard/Map/Review pass at 1440px and 390px with no
+console errors or horizontal overflow. The deliberately stricter health check
+reports 12 accepted proposals, 0 exact enactments, and 0 verified outcomes, so
+its kill switch correctly remains triggered. That uncomfortable result is the
+truth the framework must learn from.
+
+**Reversibility:** medium — the UI/projection and read-only observations are easy
+to revert; new v2 accepted-decision rows are append-only and should be superseded,
+never rewritten. No live service was restarted and no `a_bgt_rsi` file was edited.
+
+**Supersedes:** corrects the implementation semantics implied by the 2026-06-28
+self-healing light-up entries; it preserves their honest-loop goal and closes the
+remaining accepted/enacted conflation.
+
+## 2026-08-18 — Quarantine the one known mixed proposal schema without rewriting history
+
+**Decision:** Keep `P-NNN` as the only governed proposal identity and strict
+schema/lifecycle default. The exact adjacent historic
+`prop-2026-08-17-prelock-critique` filing/lifecycle pair is recognized through a
+narrow compatibility bridge and excluded from governed decisions as
+non-authoritative legacy evidence. Quarantine reports contain only line number,
+schema/reason, and SHA-256 of the exact newline-terminated source row. Governed
+writers may append after that pair while preserving every existing source byte;
+unknown lookalikes, malformed JSON, truncation, and lifecycle contradictions
+still stop the write. `scripts/proposal_ledger_status.py` exposes the result
+read-only; strict mode remains available and rejects the mixed ledger.
+
+**Alternatives:** (a) rewrite the two rows into `P-NNN` form — rejected because it
+would alter append-only history and manufacture a governed identity; (b) accept
+arbitrary non-`P-NNN` rows as another schema — rejected because it would turn
+compatibility into silent authority expansion; (c) leave the strict writer
+permanently unavailable — rejected because a known non-authoritative historic
+pair should not block new correctly governed decisions.
+
+**Rationale:** A read-only probe of the live ledger found 43 governed rows and
+exactly two mixed-schema rows at lines 44–45. The prior strict writer correctly
+failed, but deployment would have disabled proposal review. The compatibility
+path restores availability without trusting or deleting those rows, and its
+metadata does not reproduce their body. At this checkpoint, 153 tests and the
+47-check generated-view verifier pass; the source ledger was never written.
+
+**Reversibility:** easy for code, hard for future dependence — remove the explicit
+bridge after a separately designed append-only migration/supersession record.
+Never rewrite the original pair. The status tool and quarantine hashes make the
+dependency visible in the meantime.
+
+**Supersedes:** none — narrows and operationalizes the mixed-schema warning in
+the preceding 2026-08-18 truthful-cockpit decision.

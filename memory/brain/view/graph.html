@@ -50,6 +50,11 @@ nav.views .v.on{background:#27272a;color:var(--text)}
 .lball.ref{opacity:.4}
 .lball.dim{opacity:.55;border-style:dotted}
 .lball.rt::after{content:"";position:absolute;inset:2.5px;border-radius:50%;border:1.5px solid var(--accent)}
+@media (max-width:540px){
+  header{gap:8px;padding:0 10px}.brand .sub{display:none}
+  header .stepper,header .asof,header .xnav{display:none}
+  #legend{gap:8px;padding:0 10px}
+}
 </style>
 </head>
 <body>
@@ -98,7 +103,7 @@ const U = window.UI || (function () {
   function open(title, html) {
     if (!el) {
       el = document.createElement("aside");
-      el.style.cssText = "position:fixed;top:0;right:0;bottom:0;width:380px;z-index:40;overflow:auto;" +
+      el.style.cssText = "position:fixed;top:0;right:0;bottom:0;width:380px;max-width:100vw;box-sizing:border-box;z-index:40;overflow:auto;" +
         "background:var(--bg);border-left:1px solid var(--border-2);padding:12px 14px;font-size:12px";
       document.body.appendChild(el);
       document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
@@ -173,7 +178,10 @@ function mountMap() {
   inst = BrainMap.mount($("map"), {
     summary: D, map: M, windowDays: windowDays, embedded: false, onSelect: openNode
   });
-  if (!demoShown) { demoShown = true; inst.demoCard(); }  // SPEC §7 affordance demo
+  if (!demoShown) {
+    demoShown = true;
+    if (window.innerWidth >= 760) inst.demoCard();  // avoid obscuring the mobile map
+  }
 }
 
 /* ---------- side panel: governance detail + view-lineage ---------- */
@@ -270,11 +278,18 @@ function openAgent(node) {
   const a = ((D || {}).agents || []).find(x => x.id === id) || null;
   let runs = 0;
   if (a) for (const d in (a.runs_by_day || {})) if (inWin(d)) runs += a.runs_by_day[d];
+  const auth = a && a.authentication != null ? a.authentication : "unverified / unavailable";
+  const crypto = a && a.cryptographically_authenticated === false ? "no (assertion only)"
+    : a && a.cryptographically_authenticated === true ? "unsupported claim" : "unknown";
   let html = '<div class="ui-row"><span class="ui-dot" style="background:' + hueOf(id) + '"></span>' +
     (a ? '<span class="ui-chip">' + esc(a.kind) + '</span><span class="ui-chip" title="attribution evidence quality">' +
       esc(a.evidence) + "</span>" : "") + "</div>" +
     U.kv("runs / " + windowDays + "d", String(runs)) +
-    (a ? U.kv("first seen", esc(a.first_seen || "—")) + U.kv("last seen", esc(a.last_seen || "—")) : cardBlock(node.id)) +
+    (a ? U.kv("first seen", esc(a.first_seen || "—")) + U.kv("last seen", esc(a.last_seen || "—")) +
+      U.kv("actor source", esc(a.actor_source || "unknown")) +
+      U.kv("actor type", esc(a.actor_type || "unknown")) +
+      U.kv("authentication", esc(auth)) +
+      U.kv("cryptographic auth", esc(crypto)) : cardBlock(node.id)) +
     '<div class="ui-sec">skills ' + usageLegend + "</div>" + usageRows("agent", id) +
     lineageBtn(node.id);
   U.panel.open(id, html);

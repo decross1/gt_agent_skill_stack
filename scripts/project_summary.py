@@ -36,6 +36,7 @@ resolve to a void).
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import re
@@ -61,11 +62,13 @@ from project_pages import (  # noqa: E402
     SPAWN_LEDGER,
     FW_DECISIONS,
     load_jsonl,
+    load_proposals,
     load_skills,
     load_rules,
     load_decisions,
     slugify,
 )
+from blast_radius import blast_radius  # noqa: E402  (same conservative classifier as draft triage)
 
 SCHEMA_VERSION = 2
 VIEW_DIR = REPO / "memory" / "brain" / "view"
@@ -115,8 +118,23 @@ AGENT_HUES = {
     "workflow": "--agent-workflow",
     "primary-session/integrator": "--agent-integrator",
     "human:decross1": "--agent-human",
+    # These are the two closed identities that can be asserted by the
+    # proposal-review surface.  They deliberately have distinct presentation
+    # identities: neither is a spelling of the legacy ``human:*`` namespace.
+    "derrick": "--agent-derrick",
+    "oracle": "--agent-oracle",
 }
 RUNTIME_AGENTS = {"nara", "coordinator"}  # the consumer's own deployed actors
+
+# The proposal-review writer records one of these structured, asserted actors.
+# This projector does not authenticate the assertion and must never manufacture
+# an authentication claim when a legacy scalar is all that is available.
+_CLOSED_ACTORS = {
+    "derrick": {"type": "human", "kind": "human"},
+    "oracle": {"type": "agent", "kind": "steward"},
+}
+_CLOSED_ACTOR_AUTHENTICATION = "ui-asserted"
+_ACTOR_PRESENTATION_MAX = 64
 
 
 # ---------------------------------------------------------------------------
@@ -169,11 +187,120 @@ def agent_hue(agent_id: str) -> str:
 
 
 def agent_kind(agent_id: str) -> str:
+    closed = _CLOSED_ACTORS.get(agent_id)
+    if closed is not None:
+        return closed["kind"]
     if agent_id.startswith("human:"):
         return "human"
     if agent_id in RUNTIME_AGENTS or "nemoclaw" in agent_id:
         return "runtime"
     return "dev"
+
+
+def _actor_projection(
+    actor_id: str,
+    actor_type: str,
+    kind: str,
+    hue: str,
+    authentication: str | None,
+    cryptographically_authenticated: bool | None,
+    source: str,
+) -> dict:
+    """Return the one stable, non-authoritative actor presentation shape."""
+    return {
+        "id": actor_id, "type": actor_type, "kind": kind, "hue": hue,
+        "authentication": authentication,
+        "cryptographically_authenticated": cryptographically_authenticated,
+        "source": source,
+    }
+
+
+def _bounded_unrecognized_actor_id(raw: object) -> str:
+    """Bound an untrusted actor claim without collapsing long IDs together.
+
+    The clipped slug is presentation-only; the small digest makes two long,
+    otherwise-identical prefixes deterministic but distinct.  No raw claim or
+    asserted authentication value enters the generated view.
+    """
+    text = raw if isinstance(raw, str) else ""
+    stem = slugify(text)[:38] or "unnamed"
+    digest = hashlib.sha256(text.encode("utf-8", errors="replace")).hexdigest()[:12]
+    return f"unrecognized:{stem}-{digest}"
+
+
+def _malformed_actor() -> dict:
+    return _actor_projection(
+        "unknown:malformed-actor", "unknown", "unknown",
+        agent_hue("unknown:malformed-actor"), None, None,
+        "malformed_structured_actor",
+    )
+
+
+def project_actor(row: object) -> dict:
+    """Project actor attribution without upgrading an assertion into proof.
+
+    New verdict rows contain an exact structured writer assertion: ``id``, the
+    matching identity ``type``, ``authentication='ui-asserted'``, and
+    ``cryptographically_authenticated=false``. Only those two complete closed
+    records are recognized. An arbitrary or malformed structured actor is
+    visibly labelled as such; it never falls through to a potentially
+    conflicting legacy ``agent_id``. Older scalar rows retain their historic
+    behavior, with authentication explicitly unavailable.
+    """
+    if not isinstance(row, dict):
+        return _malformed_actor()
+    structured = row.get("actor")
+    if structured is not None:
+        if not isinstance(structured, dict):
+            return _malformed_actor()
+        actor_id = structured.get("id")
+        actor_type = structured.get("type")
+        authentication = structured.get("authentication")
+        crypto = structured.get("cryptographically_authenticated")
+        known = _CLOSED_ACTORS.get(actor_id) if isinstance(actor_id, str) else None
+        if (known is not None and actor_type == known["type"]
+                and authentication == _CLOSED_ACTOR_AUTHENTICATION
+                and crypto is False):
+            return _actor_projection(
+                actor_id, actor_type, known["kind"], agent_hue(actor_id),
+                _CLOSED_ACTOR_AUTHENTICATION, False, "structured_ui_assertion",
+            )
+        # A claimed closed identity with any wrong/missing writer field is
+        # malformed, never an alternate third party or authentication proof.
+        if known is not None:
+            return _malformed_actor()
+        if (isinstance(actor_id, str) and actor_id.strip()
+                and isinstance(actor_type, str) and actor_type.strip()):
+            # Preserve only a small deterministic label for an unrecognized
+            # assertion.  Its supplied authentication/crypto claims are not
+            # surfaced as evidence or proof.
+            unrecognized_id = _bounded_unrecognized_actor_id(actor_id)
+            return _actor_projection(
+                unrecognized_id, "unknown", "unknown", agent_hue(unrecognized_id),
+                None, None, "unrecognized_structured_actor",
+            )
+        return _malformed_actor()
+
+    # Legacy values are evidence only of the scalar identity.  This preserves
+    # historic human:* presence while making the lack of authentication plain.
+    raw_agent_id = row.get("agent_id")
+    agent_id = raw_agent_id.strip() if isinstance(raw_agent_id, str) else ""
+    if not agent_id:
+        return _actor_projection("unknown", "unknown", "unknown",
+                                 agent_hue("unknown"), None, None, "missing_actor")
+    closed = _CLOSED_ACTORS.get(agent_id)
+    if closed is not None:
+        # A scalar identifier does not carry the writer's complete assertion;
+        # it must never make a legacy row look like a verified closed identity.
+        legacy_id = f"legacy-unverified:{agent_id}"
+        return _actor_projection(
+            legacy_id, "unknown", "unknown", agent_hue(legacy_id),
+            None, None, "legacy_closed_identity_unverified",
+        )
+    return _actor_projection(
+        agent_id, "human" if agent_id.startswith("human:") else "agent",
+        agent_kind(agent_id), agent_hue(agent_id), None, None, "legacy_agent_id",
+    )
 
 
 def canon_runlog_agent(raw: str | None, default: str) -> tuple[str, bool]:
@@ -222,7 +349,13 @@ def collapse_proposals(rows: list[dict]) -> dict[str, dict]:
 
 
 def final_verdict(p: dict) -> str:
-    return p["latest"].get("verdict") or "open"
+    # Enactment/verification evidence is appended after the verdict.  Preserve
+    # the governing verdict instead of letting a later evidence row reopen a
+    # closed proposal merely because it carries no verdict field itself.
+    for row in reversed(p["lifecycle"]):
+        if row.get("verdict"):
+            return row["verdict"]
+    return "open"
 
 
 def lifecycle_state(p: dict) -> str:
@@ -235,12 +368,156 @@ def lifecycle_state(p: dict) -> str:
     This is the authority for 'is this proposal in the open review queue?' —
     final_verdict alone can't tell a draft from an open proposal (both have no
     verdict), which is why a draft would otherwise leak into the inbox."""
+    verdict = final_verdict(p)
+    if verdict != "open":
+        return "human-review" if verdict == "human-review" else "closed"
     latest = p["latest"]
-    if latest.get("verdict"):
-        return "human-review" if latest["verdict"] == "human-review" else "closed"
     if (latest.get("status") or "").strip() == "draft":
         return "draft"
     return "open"
+
+
+# An acceptance is a decision, not proof that an edit occurred.  The optional
+# append-only evidence rows below deliberately require an exact commit/path
+# link, and verification must bind to that same commit.  Free-form prose and
+# commit-subject matches are discovery hints only; neither advances this state.
+_FULL_GIT_SHA = re.compile(r"^[0-9a-f]{40}$")
+_OUTPUT_SHA256 = re.compile(r"^[0-9a-f]{64}$")
+
+
+def _proposal_verdict_row(p: dict) -> dict | None:
+    """Latest lifecycle row that actually records the current verdict."""
+    for row in reversed(p["lifecycle"]):
+        if row.get("verdict"):
+            return row
+    return None
+
+
+def _proposal_verdict_index(p: dict) -> int | None:
+    """Index of the governing verdict in append order, if it exists."""
+    for index in range(len(p["lifecycle"]) - 1, -1, -1):
+        if p["lifecycle"][index].get("verdict"):
+            return index
+    return None
+
+
+def _target_skill_contract(p: dict) -> str | None:
+    """Exact contract path a skill proposal must prove it changed."""
+    first = p["first"]
+    if (first.get("target_type") or "").strip() != "skill":
+        return None
+    target = (first.get("target") or "").strip()
+    if not re.fullmatch(r"[a-z0-9-]+", target):
+        return None
+    return f".agents/skills/{target}/SKILL.md"
+
+
+def _valid_relative_paths(paths: object) -> list[str] | None:
+    if not isinstance(paths, list) or not paths:
+        return None
+    cleaned = []
+    for path in paths:
+        if not isinstance(path, str) or not path or path.startswith("/"):
+            return None
+        pure = Path(path)
+        if ".." in pure.parts:
+            return None
+        cleaned.append(path)
+    return cleaned
+
+
+def _commit_changed_paths(repo_root: Path, commit: str) -> set[str] | None:
+    """Changed repository-relative paths for one exact commit, else None.
+
+    This validates only a durable, locally inspectable Git fact.  It does not
+    infer semantic enactment from a commit subject or a natural-language claim.
+    """
+    try:
+        res = subprocess.run(
+            ["git", "-C", str(repo_root), "diff-tree", "--no-commit-id",
+             "--name-only", "-r", "--root", commit],
+            capture_output=True, text=True, timeout=20,
+        )
+    except (OSError, subprocess.TimeoutExpired):
+        return None
+    if res.returncode != 0:
+        return None
+    return {line for line in res.stdout.splitlines() if line}
+
+
+def proposal_healing_state(p: dict, repo_root: Path = REPO) -> dict:
+    """Return accepted/enacted/verified states for one collapsed proposal.
+
+    An evidence row may be appended after the verdict with either or both of:
+    ``enactment={commit:<40-hex>, paths:[<repo-relative changed paths>]}`` and
+    ``verification={commit:<same 40-hex>, command:<nonempty>, result:"pass",
+    output_sha256:<64-hex>}``.  Missing or malformed evidence fails closed.
+    """
+    verdict_index = _proposal_verdict_index(p)
+    verdict_row = (p["lifecycle"][verdict_index]
+                   if verdict_index is not None else None)
+    accepted = bool(verdict_row and verdict_row.get("verdict")
+                    in ("accepted", "auto-accept"))
+    accepted_at = (_date_of(verdict_row.get("timestamp"))
+                   if accepted and verdict_row else None)
+    result = {
+        "accepted": {"state": "accepted" if accepted else "unknown",
+                     "at": accepted_at},
+        "enacted": {"state": "pending" if accepted else "unknown"},
+        "verified": {"state": "unknown"},
+    }
+    if not accepted:
+        return result
+
+    enactment = None
+    enactment_at = None
+    is_skill_target = (p["first"].get("target_type") or "").strip() == "skill"
+    required_contract = _target_skill_contract(p)
+    # Evidence may be appended only after the governing acceptance.  Do not
+    # allow a pre-accept claim to be retroactively promoted by a later verdict.
+    for row in reversed(p["lifecycle"][verdict_index + 1:]):
+        candidate = row.get("enactment")
+        if not isinstance(candidate, dict):
+            continue
+        commit = candidate.get("commit")
+        paths = _valid_relative_paths(candidate.get("paths"))
+        if not isinstance(commit, str) or not _FULL_GIT_SHA.fullmatch(commit) or not paths:
+            continue
+        changed = _commit_changed_paths(repo_root, commit)
+        if (changed is None or not set(paths).issubset(changed)
+                or (is_skill_target
+                    and (required_contract is None
+                         or required_contract not in paths
+                         or required_contract not in changed))):
+            continue
+        enactment = {"commit": commit, "paths": paths}
+        enactment_at = _date_of(row.get("timestamp")) or None
+        break
+    if enactment is None:
+        return result
+
+    result["enacted"] = {"state": "enacted", "at": enactment_at,
+                          "evidence": enactment}
+    result["verified"] = {"state": "pending"}
+    for row in reversed(p["lifecycle"][verdict_index + 1:]):
+        candidate = row.get("verification")
+        if not isinstance(candidate, dict):
+            continue
+        if (candidate.get("commit") != enactment["commit"]
+                or not isinstance(candidate.get("command"), str)
+                or not candidate["command"].strip()
+                or candidate.get("result") != "pass"
+                or not isinstance(candidate.get("output_sha256"), str)
+                or not _OUTPUT_SHA256.fullmatch(candidate["output_sha256"])):
+            continue
+        result["verified"] = {
+            "state": "verified", "at": _date_of(row.get("timestamp")) or None,
+            "evidence": {"commit": candidate["commit"],
+                         "command": candidate["command"].strip(),
+                         "output_sha256": candidate["output_sha256"]},
+        }
+        break
+    return result
 
 
 def proposal_scope(first: dict, consumer_name: str | None) -> str:
@@ -455,7 +732,7 @@ def build_agents_and_matrix(
     run_attr: list[dict],
     feedback_rows: list[dict],
     contracts: list[dict],
-    human_actions: list[tuple[str, str]],   # (ts, human_agent_id)
+    actor_actions: list[tuple[str, dict]],  # (ts, projected actor)
     skill_names: set[str],
     win_start: str,
     win_end: str,
@@ -492,11 +769,16 @@ def build_agents_and_matrix(
     # --- agents -----------------------------------------------------------
     seen: dict[str, dict] = {}
 
-    def _touch(agent: str, ts: str, explicit: bool):
+    def _touch(agent: str, ts: str, explicit: bool, actor: dict | None = None):
         rec = seen.setdefault(agent, {
             "first": ts or "9999", "last": ts or "",
             "explicit": 0, "default": 0, "by_day": Counter(),
+            "actor": actor or project_actor({"agent_id": agent}),
         })
+        # A structured assertion is more specific than a legacy scalar and is
+        # safe to retain as presentation provenance (not authentication proof).
+        if actor is not None and actor.get("source") == "structured_ui_assertion":
+            rec["actor"] = actor
         if ts:
             rec["first"] = min(rec["first"], ts)
             rec["last"] = max(rec["last"], ts)
@@ -507,8 +789,8 @@ def build_agents_and_matrix(
 
     for a in run_attr:
         _touch(a["agent"], a["ts"], a["explicit_agent"])
-    for ts, who in human_actions:
-        _touch(who, ts, True)
+    for ts, actor in actor_actions:
+        _touch(actor["id"], ts, True, actor)
 
     agents: list[dict] = []
     for aid, rec in seen.items():
@@ -520,8 +802,12 @@ def build_agents_and_matrix(
             evidence = "inferred"
         agents.append({
             "id": aid,
-            "kind": agent_kind(aid),
-            "hue": agent_hue(aid),
+            "kind": rec["actor"]["kind"],
+            "hue": rec["actor"]["hue"],
+            "actor_type": rec["actor"]["type"],
+            "authentication": rec["actor"]["authentication"],
+            "cryptographically_authenticated": rec["actor"]["cryptographically_authenticated"],
+            "actor_source": rec["actor"]["source"],
             "first_seen": _date_of(rec["first"]) if rec["first"] != "9999" else None,
             "last_seen": _date_of(rec["last"]) or None,
             "runs_by_day": {d: rec["by_day"][d] for d in sorted(rec["by_day"])},
@@ -593,32 +879,35 @@ def build_skills(
         elif cls == "confirmed":
             confirmed[sk] += 1
 
-    # healed: accepted proposal targeting an existing skill, or a rule whose
-    # body extends [[skill]] (FR-002 → resume-state). "New skill" proposals
-    # (title says so) are births, not healings.
+    # A proposal decision is distinct from its eventual patch and verification.
+    # Retain every accepted skill proposal as pending lifecycle information, but
+    # mark a skill healed only after its exact patch and verification evidence.
+    # "New skill" proposals are births, not healings.
     new_skill_re = re.compile(r"\bnew\b.{0,40}\bskill\b", re.IGNORECASE)
-    extends_re = re.compile(r"extends\s+(?:the\s+)?\[\[([a-z0-9-]+)\]\]")
-    healed_by: dict[str, dict] = {}
+    healing_by: dict[str, dict] = {}
     born_via: dict[str, str] = {}
-    for pid, p in proposals.items():
+    for pid, p in sorted(proposals.items()):
         if final_verdict(p) not in ("accepted", "auto-accept"):
             continue
         first = p["first"]
         if (first.get("target_type") or "").strip() != "skill":
             continue
         target = (first.get("target") or "").strip()
-        accepted_at = _date_of(p["latest"].get("timestamp"))
         if new_skill_re.search(first.get("title") or ""):
             born_via[target] = pid
             continue
-        healed_by[target] = {"proposal_id": pid, "accepted_at": accepted_at,
-                             "rule_id": None}
-    for r in rules:
-        m = extends_re.search(r.get("body", ""))
-        if m and m.group(1) not in healed_by:
-            healed_by[m.group(1)] = {"proposal_id": None,
-                                     "accepted_at": r.get("date") or None,
-                                     "rule_id": r["rule_id"]}
+        lifecycle = proposal_healing_state(p)
+        record = {"proposal_id": pid, "accepted_at": lifecycle["accepted"]["at"],
+                  "rule_id": None, **lifecycle}
+        # Prefer the most advanced evidence state, then the newest decision.
+        rank = {"verified": 2, "enacted": 1, "pending": 0, "unknown": -1}
+        previous = healing_by.get(target)
+        if (previous is None
+                or (rank[record["verified"]["state"]], rank[record["enacted"]["state"]],
+                    record["accepted_at"] or "", pid)
+                > (rank[previous["verified"]["state"]], rank[previous["enacted"]["state"]],
+                   previous["accepted_at"] or "", previous["proposal_id"])):
+            healing_by[target] = record
 
     usage: dict[str, dict] = defaultdict(lambda: {"explicit": 0, "inferred": 0,
                                                   "last_used": "",
@@ -663,11 +952,19 @@ def build_skills(
                      "latest": drift_latest.get(name) or None,
                      "open_note": open_note}
 
+        healing = healing_by.get(name)
         healed = None
-        if name in healed_by:
-            h = healed_by[name]
-            healed = {**h, "in_window": bool(h["accepted_at"])
-                      and win_start <= h["accepted_at"] <= win_end}
+        if healing and healing["verified"]["state"] == "verified":
+            verified_at = healing["verified"].get("at")
+            healed = {
+                "proposal_id": healing["proposal_id"],
+                "accepted_at": healing["accepted_at"],
+                "enacted_at": healing["enacted"].get("at"),
+                "verified_at": verified_at,
+                "commit": healing["enacted"]["evidence"]["commit"],
+                "rule_id": None,
+                "in_window": bool(verified_at) and win_start <= verified_at <= win_end,
+            }
 
         born = skill_born_date(name)
         new = None
@@ -707,6 +1004,7 @@ def build_skills(
                 "state": state,
                 "conformance": conf_row,
                 "drift": drift,
+                "healing": healing,
                 "healed": healed,
                 "new": new,
                 "referenced_only_by_design": name in BY_DESIGN,
@@ -790,16 +1088,31 @@ def build_inbox(
             # bubbled drift candidate — its own lane, distinct from review. NOT a
             # copy-command and NOT a Review→ link (it isn't in review yet); a human
             # (or the graduated auto-path) promotes it to 'open' first.
+            refs = [ref for ref in (first.get("references") or []) if isinstance(ref, str)]
+            candidate = {
+                "blast_radius": blast_radius(first),
+                "evidence_reference": refs[0] if refs else None,
+                "references": refs,
+                "hold_reason": (
+                    "automatic graduation is closed; no attributable automated "
+                    "verdict writer is authorized"
+                ),
+                "authorized_next_route": (
+                    "attributable steward review only — Derrick or Oracle may triage, "
+                    "then route a deliberate promotion/review through the governed "
+                    "proposal path"
+                ),
+            }
             _item("candidate_review", pid, "low", True,
                   first.get("timestamp") or None,
                   f"{pid} — {first.get('title', '')} (candidate)",
-                  f"bubbled drift candidate ({first.get('agent_id', 'draft:auto')}); "
-                  f"promote to 'open' to enter review, or discard "
-                  f"(target {first.get('target_type', '?')}:{target})",
+                  f"bubbled candidate ({first.get('agent_id', 'draft:auto')}); "
+                  f"blast radius {candidate['blast_radius']}; automatic graduation is closed",
                   None,
                   "memory/brain/proposals.jsonl", "framework",
                   skill=target if is_skill else None,
                   url="memory/brain/proposals.jsonl")
+            items[-1]["candidate"] = candidate
             continue
         _item("proposal_review", pid, "med", True,
               first.get("timestamp") or None,
@@ -894,6 +1207,70 @@ def build_inbox(
     return items
 
 
+def build_attention(items: list[dict]) -> dict:
+    """Partition the old flat inbox without changing its total or authority.
+
+    The framework view can route only framework actions.  Apparatus items remain
+    an acknowledgement/history view because their governing write path belongs
+    to a_bgt_rsi.  Draft candidates are retained as transparent backlog, not
+    silently upgraded into a review or automatic-enactment lane.
+    """
+    framework_actions = []
+    external_acknowledgements = []
+    backlog_history = []
+    for item in items:
+        if item.get("kind") == "candidate_review":
+            backlog_history.append(item)
+        elif item.get("surface") == "framework":
+            framework_actions.append(item)
+        else:
+            # Copy before clearing an action string that may be useful in the
+            # legacy inbox projection.  This category is explicitly view-only.
+            external = dict(item)
+            external["actionable"] = False
+            external["action_cmd"] = None
+            external["authorized_route"] = (
+                "external a_bgt_rsi acknowledgement/history — resolve only through "
+                "the apparatus's governed human path"
+            )
+            external_acknowledgements.append(external)
+    # The full external list remains in the projection for audit/detail views.
+    # The dashboard receives a compact deterministic index so 100+ old apparatus
+    # acknowledgements do not masquerade as a current framework action wall.
+    grouped: dict[str, list[dict]] = defaultdict(list)
+    for item in external_acknowledgements:
+        grouped[item.get("kind") or "unknown"].append(item)
+    external_groups = []
+    for kind in sorted(grouped):
+        representative = grouped[kind][0]
+        external_groups.append({
+            "kind": kind,
+            "count": len(grouped[kind]),
+            "representative": {
+                "id": representative.get("id"),
+                "title": representative.get("title"),
+                "age_days": representative.get("age_days"),
+                "since": representative.get("since"),
+                "source": representative.get("source"),
+            },
+        })
+    return {
+        "framework_actions": framework_actions,
+        "external_acknowledgements": external_acknowledgements,
+        "external_groups": external_groups,
+        "backlog_history": backlog_history,
+        "totals": {
+            "all": len(items), "framework_actions": len(framework_actions),
+            "external_acknowledgements": len(external_acknowledgements),
+            "backlog_history": len(backlog_history),
+        },
+        "authority_note": (
+            "External a_bgt_rsi gates and acknowledgements remain view-only here; "
+            "this dashboard has no authority to resolve them."
+        ),
+    }
+
+
 # ---------------------------------------------------------------------------
 # Loop, timeline, incidents
 # ---------------------------------------------------------------------------
@@ -925,11 +1302,43 @@ def build_loop(proposals: dict[str, dict], rules: list[dict],
                         if lifecycle_state(p) == "draft"), default="")
     skills_created = sum(1 for s in skills
                          if (s["governance"]["new"] or {}).get("via", "git") != "git")
+    skills_enacted = sum(
+        1 for s in skills
+        if (s["governance"].get("healing") or {}).get("enacted", {}).get("state")
+        in ("enacted", "verified")
+    )
     skills_healed = sum(1 for s in skills if s["governance"]["healed"])
+    skills_pending = sum(
+        1 for s in skills
+        if (s["governance"].get("healing") or {}).get("enacted", {}).get("state")
+        == "pending"
+    )
 
     chains = []
     for pid, p in proposals.items():
         first = p["first"]
+        healing = proposal_healing_state(p)
+        verdict_row = _proposal_verdict_row(p)
+        verdict_actor = (project_actor(verdict_row) if verdict_row is not None
+                         else project_actor({}))
+        verdict_index = _proposal_verdict_index(p)
+        lifecycle = []
+        for index, row in enumerate(p["lifecycle"]):
+            # Evidence appended after a verdict does not acquire the verdict
+            # actor.  Carry that actor separately so readers can still see who
+            # governed the acceptance while remaining honest about who (if
+            # anyone) asserted the later enactment/verification evidence.
+            actor = project_actor(row)
+            lifecycle.append({
+                "ts": row.get("timestamp", ""),
+                "verdict": row.get("verdict") or "open",
+                "actor": actor["id"],
+                "actor_detail": actor,
+                "governing_verdict_actor": (
+                    verdict_actor if verdict_index is not None
+                    and index >= verdict_index else None
+                ),
+            })
         chains.append({
             "proposal_id": pid,
             "title": _trim(first.get("title", ""), 100),
@@ -941,14 +1350,13 @@ def build_loop(proposals: dict[str, dict], rules: list[dict],
                                and ref.startswith("feedback.jsonl:")],
             "final_verdict": final_verdict(p),
             "lane": lifecycle_state(p),
-            "rule_cited": p["latest"].get("rule_cited"),
+            "rule_cited": (verdict_row or {}).get("rule_cited"),
             "filed_date": _date_of(first.get("timestamp")),
-            "decided_at": (_date_of(p["latest"].get("timestamp"))
-                           if p["latest"].get("verdict") else None),
-            "lifecycle": [{"ts": r.get("timestamp", ""),
-                           "verdict": r.get("verdict") or "open",
-                           "actor": r.get("agent_id") or "unknown"}
-                          for r in p["lifecycle"]],
+            "decided_at": healing["accepted"]["at"],
+            "healing": healing,
+            "governing_verdict_actor": (verdict_actor
+                                         if verdict_index is not None else None),
+            "lifecycle": lifecycle,
         })
     chains.sort(key=lambda c: c["filed_date"], reverse=True)
 
@@ -965,9 +1373,13 @@ def build_loop(proposals: dict[str, dict], rules: list[dict],
                        "auto_accept": verdicts.get("auto-accept", 0),
                        "auto_reject": verdicts.get("auto-reject", 0),
                        "human_review": verdicts.get("human-review", 0)},
+            # Keep the pre-existing observed-rule count for compatibility; the
+            # skill counts below require proposal-bound evidence.
             "enacted": {"rules": len(rules),
                         "skills_created": skills_created,
+                        "skills_enacted": skills_enacted,
                         "skills_healed": skills_healed},
+            "verified": {"skills": skills_healed, "pending": skills_pending},
         },
         "state": state,
         "chains": chains,
@@ -1029,7 +1441,7 @@ def build_timeline_and_incidents(
             verdict = r.get("verdict")
             _row(_date_of(ts), ts,
                  "proposal_reviewed" if verdict else "proposal_filed",
-                 pid, title, r.get("agent_id") or "unknown",
+                 pid, title, project_actor(r)["id"],
                  verdict=verdict, skill=skill)
         latest = p["latest"]
         if final_verdict(p) in ("auto-reject", "rejected"):
@@ -1181,7 +1593,7 @@ def build_summary(now: datetime | None = None) -> dict:
     skills_meta = load_skills()
     skill_names = {s["name"] for s in skills_meta}
     rules_raw = load_rules()
-    proposals = collapse_proposals(load_jsonl(PROPOSALS))
+    proposals = collapse_proposals(load_proposals(PROPOSALS))
     feedback_rows = [f for f in load_jsonl(FEEDBACK) if f.get("harvest_id")]
     fw_dec = load_decisions(FW_DECISIONS, "framework")
     ap_dec = (load_decisions(consumer / "DECISIONS.md", "apparatus")
@@ -1210,24 +1622,27 @@ def build_summary(now: datetime | None = None) -> dict:
     win_start = (date_cls.fromisoformat(win_end)
                  - timedelta(days=WINDOW_MAX_DAYS - 1)).isoformat()
 
-    # human actions feed the human agent's presence
-    human_actions: list[tuple[str, str]] = []
+    # Verdict actions feed presence for every observed decision actor.  New
+    # structured assertions get first-class Derrick/Oracle identity; old
+    # human:* rows retain their historic scalar behavior.
+    actor_actions: list[tuple[str, dict]] = []
     for p in proposals.values():
         for r in p["lifecycle"]:
-            aid = (r.get("agent_id") or "").strip()
-            if aid.startswith("human:"):
-                human_actions.append((r.get("timestamp", ""), aid))
+            if r.get("verdict"):
+                actor_actions.append((r.get("timestamp", ""), project_actor(r)))
     for r in loop_feedback:
-        human_actions.append((r.get("gated_at", ""),
-                              f"human:{r.get('gated_by', 'unknown')}"))
+        actor_actions.append((r.get("gated_at", ""), project_actor({
+            "agent_id": f"human:{r.get('gated_by', 'unknown')}"
+        })))
 
     agents, matrix, attributions = build_agents_and_matrix(
-        run_attr, feedback_rows, contracts, human_actions, skill_names,
+        run_attr, feedback_rows, contracts, actor_actions, skill_names,
         win_start, win_end)
     skills, violations = build_skills(
         skills_meta, feedback_rows, parse_conformance(), proposals, rules_raw,
         attributions, win_start, win_end)
     inbox = build_inbox(consumer, gates, proposals, skills, contracts, now, today)
+    attention = build_attention(inbox)
     loop = build_loop(proposals, rules_raw, feedback_rows, skills, today,
                       consumer.name if consumer is not None else None)
     timeline, incidents = build_timeline_and_incidents(
@@ -1296,6 +1711,7 @@ def build_summary(now: datetime | None = None) -> dict:
                           "recall_floor": newest_corr[1] if newest_corr else None},
         },
         "inbox": inbox,
+        "attention": attention,
         "agents": agents,
         "skills": skills,
         "matrix": matrix,

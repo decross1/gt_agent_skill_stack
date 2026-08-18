@@ -48,8 +48,25 @@ section{margin-top:12px}
 .ticksv{display:flex;gap:2px;align-items:flex-end;height:12px}
 .ticksv i{width:3px;border-radius:1px;display:block}
 
-/* needs-you inbox */
-#inbox{display:grid;grid-template-columns:1fr minmax(380px,40%);min-height:188px}
+/* operations truth: each value is compact, but its status/provenance remains
+   inspectable. This is observational only — it contains no control affordance. */
+#operations{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+.op{min-width:0;padding:9px 12px;border-left:1px solid var(--border)}
+.op:first-child{border-left:none}.op:nth-child(n+5){border-top:1px solid var(--border)}
+.op .k{font-size:10px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-faint)}
+.op .v{font-family:var(--font-mono);font-size:12px;color:var(--text);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px}
+.op .v.warn{color:var(--warn)} .op .v.bad{color:var(--bad)} .op .v.ok{color:var(--ok)}
+.opnote{grid-column:1/-1;padding:7px 12px;border-top:1px solid var(--border);font:11px/1.35 var(--font-mono);color:var(--text-ghost)}
+
+/* shared attention: framework routing, external acknowledgement history, backlog */
+#inbox{min-height:188px}
+.attention-group{padding:12px 0}.attention-group+.attention-group{border-top:1px solid var(--border)}
+.attention-head{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;padding:0 14px 7px}.attention-head .k{font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--text-faint)}
+.attention-head .desc{font-size:11px;color:var(--text-ghost);min-width:0}.attention-head .cnt{margin-left:auto}
+.attention-empty{padding:4px 14px;color:var(--text-ghost);font:11px var(--font-mono)}
+.attention-candidate{margin:0 14px;border:1px solid rgba(251,191,36,.28);background:rgba(69,53,10,.1);border-radius:5px;padding:8px 10px}
+.attention-candidate+.attention-candidate{margin-top:6px}.candidate-meta{font:11px/1.45 var(--font-mono);color:var(--text-faint);margin-top:5px;overflow-wrap:anywhere}
+.candidate-meta strong{color:var(--warn);font-weight:500}
 .irows{display:flex;flex-direction:column;justify-content:center;padding:6px 0;min-width:0}
 .irow{display:flex;align-items:center;gap:10px;padding:0 16px;height:44px;min-width:0;cursor:pointer}
 .irow:hover{background:var(--surface-2)}
@@ -110,6 +127,19 @@ section{margin-top:12px}
   background:var(--surface-2);border-radius:6px;padding:4px 10px;white-space:nowrap;cursor:pointer}
 .chipday:hover{border-color:var(--border-2);color:var(--text)}
 footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var(--text-ghost);display:flex;gap:8px;flex-wrap:wrap}
+@media (max-width:780px){
+  #operations{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .op:nth-child(odd){border-left:none}.op:nth-child(n+3){border-top:1px solid var(--border)}
+}
+@media (max-width:540px){
+  header{gap:8px;padding:0 10px}.brand .sub{display:none}main{padding-left:10px;padding-right:10px}
+  header .stepper,header .asof,header .xnav{display:none}
+  #status{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));height:auto}
+  #status .seg{height:44px;padding:0 10px;border-top:1px solid var(--border)}
+  #status .seg:nth-child(-n+2){border-top:none}#status .seg:nth-child(odd){border-left:none}
+  #operations{grid-template-columns:1fr}.op{border-left:none!important;border-top:1px solid var(--border)}.op:first-child{border-top:none}
+  .row{gap:7px;padding:0 10px}.rid.w{width:90px}.aid{width:90px}.rmono{display:none}
+}
 </style>
 </head>
 <body>
@@ -127,6 +157,11 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
 
 <main>
   <section class="band" id="status"></section>
+
+  <section id="operationsband">
+    <span class="sec" title="bounded local observations; no service controls">operations truth</span>
+    <div class="band" id="operations"><div class="opnote">operations data unavailable offline — start the brain server to inspect bounded local observations</div></div>
+  </section>
 
   <section class="band" id="inbox">
     <div class="irows" id="irows"></div>
@@ -176,6 +211,7 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
 const U = window.UI;
 let D = window.BRAIN_SUMMARY || null;  // static fallback; replaced by live /api/summary
 let M = window.BRAIN_MAP || null;      // static fallback; replaced by live /api/map
+let O = null;                          // operations has no baked fallback: unknown offline
 const $ = id => document.getElementById(id);
 const esc = U.esc;
 
@@ -293,6 +329,49 @@ function renderStatus() {
   e.innerHTML = '<span class="k">fresh</span><span class="v ' + fcls + '">' + fr.recall_floor_age_days + "d</span>";
 }
 
+/* ---------- bounded operations truth (read-only; no implied control) ---------- */
+function renderOperations() {
+  const host = $("operations");
+  if (!O || !O.read_only) return;
+  const f = (obj, fallback = "unknown") => obj && obj.value !== undefined && obj.value !== null ? obj.value : fallback;
+  const stat = obj => (obj && obj.status) || "unknown";
+  const cls = obj => stat(obj) === "observed" ? "ok" : stat(obj) === "stale" || stat(obj) === "partial" ? "warn" : "bad";
+  const short = value => {
+    if (value === null || value === undefined || value === "") return "unknown";
+    if (typeof value === "object") return JSON.stringify(value);
+    return String(value);
+  };
+  const cell = (key, value, detail) => '<div class="op" title="' + esc(detail || "") + '">' +
+    '<div class="k">' + esc(key) + ' · ' + esc(stat(value)) + '</div><div class="v ' + cls(value) + '">' +
+    esc(short(f(value))) + '</div></div>';
+  const lifecycle = O.proposals && O.proposals.counts;
+  const c = f(lifecycle, {});
+  const cursor = O.cursors && O.cursors.consumer;
+  const cursorValue = f(cursor, null);
+  const cursorText = cursorValue && typeof cursorValue === "object"
+    ? "Δ " + cursorValue.delta_lines + " lines" : "unknown";
+  const repoParts = O.repo ? [O.repo.branch, O.repo.head, O.repo.tracked_dirty_count] : [];
+  const repoStatus = !O.repo || repoParts.some(x => stat(x) === "unknown") ? "unknown" : "observed";
+  host.innerHTML =
+    cell("brain server", O.server && O.server.alive, O.server && O.server.alive && O.server.alive.uncertainty) +
+    cell("watcher", O.watcher && O.watcher.state, O.watcher && O.watcher.state && O.watcher.state.uncertainty) +
+    cell("last pipeline ok", O.pipeline && O.pipeline.last_success, "bounded log tail only") +
+    cell("last pipeline fail", O.pipeline && O.pipeline.last_failure, "absence in tail is unknown, not proof of none") +
+    cell("projection age", O.projection && O.projection.age_seconds,
+         "seconds since static summary.json; live dashboard data is separate") +
+    cell("consumer cursor", {value: cursorText, status: stat(cursor), provenance: "cursor"},
+         cursor && cursor.uncertainty) +
+    cell("proposal lifecycle", {value: "A" + (c.accepted ?? "?") + " · E" + (c.enacted ?? "?") + " · V" + (c.verified ?? "?"),
+                                  status: stat(lifecycle), provenance: "proposal evidence"},
+         lifecycle && lifecycle.uncertainty) +
+    cell("repo", {value: (f(O.repo && O.repo.branch) || "detached") + " · " + f(O.repo && O.repo.head) +
+                          " · tracked dirty " + f(O.repo && O.repo.tracked_dirty_count), status: repoStatus, provenance: "git"},
+         "untracked files, paths, and contents are intentionally excluded") +
+    '<div class="opnote">' + esc((O.warnings || []).length
+      ? "warnings: " + O.warnings.join(" · ")
+      : "all displayed fields include a local provenance/status envelope; acceptance alone never counts as enactment") + '</div>';
+}
+
 /* ---------- needs-you inbox ---------- */
 const RANK = { high: 0, med: 1, low: 2 };
 const sorted = () => (D.inbox || []).slice()
@@ -332,52 +411,83 @@ function reviewLink(it, cls) {
 }
 
 function renderInbox() {
-  const items = sorted();
-  if (!items.length) {
-    $("inbox").innerHTML = '<div class="empty">nothing needs you — loop unblocked</div>';
-    return;
-  }
-  const top = items[0];
-  const rows = $("irows"), card = $("icard");
-  rows.innerHTML = ""; card.innerHTML = "";
-
-  const groups = new Map();
-  items.slice(1).forEach(it => {
-    if (!groups.has(it.kind)) groups.set(it.kind, []);
-    groups.get(it.kind).push(it);
+  const fallback = sorted();
+  const attention = D.attention || {
+    framework_actions: fallback.filter(it => it.surface === "framework" && it.kind !== "candidate_review"),
+    external_acknowledgements: fallback.filter(it => it.surface !== "framework"),
+    external_groups: [],
+    backlog_history: fallback.filter(it => it.kind === "candidate_review"),
+    totals: { all: fallback.length },
+    authority_note: "External items are view-only here.",
+  };
+  const groups = [
+    ["framework_actions", "framework actions", "Derrick/Oracle may route these through framework-governed paths."],
+    ["external_acknowledgements", "external a_bgt_rsi acknowledgements/history", "View-only here; authority and acknowledgement remain with a_bgt_rsi."],
+    ["backlog_history", "backlog / history", "Candidates remain held for attributable Derrick/Oracle review; automatic graduation is closed."],
+  ];
+  const host = $("inbox");
+  host.innerHTML = "";
+  groups.forEach(([key, label, description]) => {
+    const list = attention[key] || [];
+    const section = document.createElement("div");
+    section.className = "attention-group";
+    section.innerHTML = '<div class="attention-head"><span class="k">' + esc(label) + '</span>' +
+      '<span class="desc">' + esc(description) + '</span><span class="cnt">×' + list.length + "</span></div>";
+    if (!list.length) {
+      section.innerHTML += '<div class="attention-empty">none currently</div>';
+    } else if (key === "backlog_history") {
+      list.forEach(it => {
+        const candidate = it.candidate || {};
+        const card = document.createElement("div");
+        card.className = "attention-candidate";
+        card.title = it.detail || "";
+        card.innerHTML = '<div class="top"><span class="dot" style="background:' + U.sevColor(it.severity) + '"></span>' +
+          '<span class="kind">candidate</span><span style="flex:1"></span><span class="age">' + U.fmtAge(it.age_days) + "</span></div>" +
+          '<div class="ttl">' + esc(it.title) + "</div>" +
+          '<div class="candidate-meta">evidence: ' + esc(candidate.evidence_reference || "unknown") +
+          " · blast radius: <strong>" + esc(candidate.blast_radius || "unknown") + "</strong>" +
+          " · hold: " + esc(candidate.hold_reason || "automatic graduation is closed") +
+          " · next route: " + esc(candidate.authorized_next_route || "attributable steward review only") + "</div>";
+        card.addEventListener("click", () => openInboxKind(it.kind));
+        section.appendChild(card);
+      });
+    } else if (key === "external_acknowledgements") {
+      const grouped = (attention.external_groups && attention.external_groups.length)
+        ? attention.external_groups
+        : (() => {
+          const byKind = new Map();
+          list.forEach(it => { if (!byKind.has(it.kind)) byKind.set(it.kind, []); byKind.get(it.kind).push(it); });
+          return Array.from(byKind.keys()).sort().map(kind => {
+            const representative = byKind.get(kind)[0];
+            return {kind: kind, count: byKind.get(kind).length, representative: representative};
+          });
+        })();
+      grouped.forEach(group => {
+        const representative = group.representative || {};
+        const row = document.createElement("div");
+        row.className = "irow";
+        row.title = "open all " + group.count + " external " + group.kind + " item(s); view-only here";
+        row.innerHTML = '<span class="dot" style="background:var(--text-ghost)"></span>' +
+          '<span class="kind">' + esc(group.kind) + '</span><span class="cnt">×' + Number(group.count || 0) + '</span>' +
+          '<span class="ititle">' + esc(representative.title || representative.id || "external acknowledgement") + '</span>' +
+          '<span class="age">' + U.fmtAge(representative.age_days) + "</span>";
+        row.addEventListener("click", () => openInboxKind(group.kind));
+        section.appendChild(row);
+      });
+    } else {
+      list.forEach(it => {
+        const row = document.createElement("div");
+        row.className = "irow";
+        row.title = it.detail || "";
+        row.innerHTML = '<span class="dot" style="background:' + U.sevColor(it.severity) + '"></span>' +
+          '<span class="kind">' + esc(it.kind) + '</span><span class="ititle">' + esc(it.title) + '</span>' +
+          '<span class="age">' + U.fmtAge(it.age_days) + "</span>";
+        row.addEventListener("click", () => openInboxKind(it.kind));
+        section.appendChild(row);
+      });
+    }
+    host.appendChild(section);
   });
-  for (const [kind, list] of groups) {
-    const it = list[0];
-    const r = document.createElement("div");
-    r.className = "irow";
-    r.title = it.action_cmd || it.detail || "";
-    r.innerHTML =
-      '<span class="dot" style="background:' + U.sevColor(it.severity) + '"></span>' +
-      '<span class="kind">' + esc(kind) + '</span>' +
-      '<span class="cnt">×' + list.length + '</span>' +
-      '<span class="ititle">' + esc(it.title) + '</span>' +
-      '<span class="age">' + U.fmtAge(it.age_days) + "</span>";
-    r.addEventListener("click", () => openInboxKind(kind));
-    rows.appendChild(r);
-  }
-
-  const c = document.createElement("div");
-  c.className = "dcard";
-  c.title = top.detail || "";
-  c.innerHTML =
-    '<div class="top"><span class="dot" style="background:' + U.sevColor(top.severity) + '"></span>' +
-    '<span class="kind" style="color:var(--bad)">' + esc(top.kind) + '</span>' +
-    '<span style="flex:1"></span><span class="age">' + U.fmtAge(top.age_days) + "</span></div>" +
-    '<div class="ttl">' + esc(top.title) + "</div>" +
-    (top.actionable === false
-      ? '<div class="ui-note" style="opacity:.65">view-only — resolve in the apparatus UI</div>'
-      : (isReviewItem(top) ? reviewLink(top, "rvw") : "") +
-        (top.action_cmd ? U.copyBlock(top.action_cmd) : ""));
-  c.addEventListener("click", e => {
-    if (e.target.closest("[data-copy]") || e.target.closest("[data-review-link]")) return;
-    openInboxKind(top.kind);
-  });
-  card.appendChild(c);
 }
 
 function openInboxKind(kind) {
@@ -805,6 +915,7 @@ function fetchLive(path, valid) {
 }
 const fetchLiveSummary = () => fetchLive("api/summary", d => !!d.status_strip);
 const fetchLiveMap = () => fetchLive("api/map", d => Array.isArray(d.nodes));
+const fetchLiveOperations = () => fetchLive("api/operations", d => d.read_only === true && !!d.server);
 // Render signature = exactly what the map draws from, sans generated_at: the map
 // payload (nodes/edges/cards) plus the slices of D the renderer reads — skills
 // (governance halos), matrix (windowed edge weights), agents (run counts), window.
@@ -820,9 +931,10 @@ function mapSig() {
 let lastMapSig = "";
 
 (async function boot() {
-  const [liveD, liveM] = await Promise.all([fetchLiveSummary(), fetchLiveMap()]);
+  const [liveD, liveM, liveO] = await Promise.all([fetchLiveSummary(), fetchLiveMap(), fetchLiveOperations()]);
   if (liveD) D = liveD;
   if (liveM) M = liveM;
+  if (liveO) O = liveO;
   if (!D) {
     document.querySelector("main").innerHTML =
       '<div class="empty mono">no summary available — start the brain server ' +
@@ -831,13 +943,15 @@ let lastMapSig = "";
   }
   initWindowState();
   paint();
+  renderOperations();
   probeReviewUi();
   lastMapSig = mapSig();
   mountMap();
   setInterval(async () => {
-    const [nextD, nextM] = await Promise.all([fetchLiveSummary(), fetchLiveMap()]);
+    const [nextD, nextM, nextO] = await Promise.all([fetchLiveSummary(), fetchLiveMap(), fetchLiveOperations()]);
     if (nextD) { D = nextD; paint(); }
     if (nextM) M = nextM;
+    if (nextO) { O = nextO; renderOperations(); }
     const sig = mapSig();
     if (sig !== lastMapSig) { lastMapSig = sig; mountMap(); }  // remount only on real change
   }, 30000);
