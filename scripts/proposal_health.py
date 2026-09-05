@@ -46,8 +46,6 @@ def load_proposals(path: Path) -> dict[str, list[dict]]:
     for row in read_proposals(path, quarantine_known_legacy=True):
         pid = row["proposal_id"]
         groups.setdefault(pid, []).append(row)
-    for pid, rows in groups.items():
-        rows.sort(key=lambda r: r.get("timestamp", ""))
     return groups
 
 
@@ -98,21 +96,23 @@ def main() -> int:
         first = entries[0]
         latest = entries[-1]
         first_ts = parse_ts(first["timestamp"])
-        verdict = ps.final_verdict(
-            {"first": first, "latest": latest, "lifecycle": entries}
-        )
+        proposal = {"first": first, "latest": latest, "lifecycle": entries}
+        verdict = ps.final_verdict(proposal)
+        lane = ps.lifecycle_state(proposal)
         verdict_row = next((row for row in reversed(entries) if row.get("verdict")), None)
+        if verdict_row is None:
+            verdict = lane  # an undecided draft is not an open review
         verdict_ts = parse_ts((verdict_row or latest)["timestamp"])
         title = (first.get("title") or "").strip()
         lifecycle = proposal_state(entries, repo_root)
 
-        is_closed = verdict in CLOSED_VERDICTS
+        is_closed = lane == "closed"
         if is_closed:
             days_metric = (verdict_ts - first_ts).total_seconds() / 86400.0
             days_label = "days→verdict"
         else:
             days_metric = (now - first_ts).total_seconds() / 86400.0
-            days_label = "days open"
+            days_label = "days draft" if lane == "draft" else "days open"
 
         rule_cited = ((verdict_row or {}).get("rule_cited")
                       or first.get("rule_cited") or "")
@@ -131,6 +131,7 @@ def main() -> int:
                 "commit_mentions": commits,
                 "lifecycle": lifecycle,
                 "is_closed": is_closed,
+                "lane": lane,
             }
         )
 
@@ -161,7 +162,7 @@ def main() -> int:
     for v in sorted(by_verdict):
         print(f"- {v}: {by_verdict[v]}")
 
-    open_days = [r["days_metric"] for r in rows if not r["is_closed"]]
+    open_days = [r["days_metric"] for r in rows if r["lane"] in ("open", "human-review")]
     closed_days = [r["days_metric"] for r in rows if r["is_closed"]]
     if open_days:
         print(f"- median days open (open proposals): {statistics.median(open_days):.1f}")
@@ -188,6 +189,11 @@ def main() -> int:
         if mentions:
             print("- unlinked commit-message mentions (not enactment evidence): "
                   + ", ".join(r["pid"] for r in mentions))
+
+    reported = [r for r in rows if r["lifecycle"]["verified"].get("reported")]
+    if reported:
+        print("- reported verification claims (not independently verified): "
+              + ", ".join(r["pid"] for r in reported))
 
     rejects = [r for r in rows if r["verdict"] == "auto-reject"]
     unciited = [r for r in rejects if not r["rule_cited"]]

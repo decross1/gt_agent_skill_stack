@@ -131,7 +131,11 @@ def decision_slug(head: str, side: str, title: str = "") -> str:
 def load_decisions(path: Path, side: str) -> list[dict]:
     if not path.exists():
         return []
-    text = path.read_text()
+    return parse_decisions(path.read_text(), side)
+
+
+def parse_decisions(text: str, side: str) -> list[dict]:
+    """Parse one supplied text snapshot using the projector's existing IDs."""
     headers = list(DECISION_HEADER_RE.finditer(text))
     out = []
     for i, m in enumerate(headers):
