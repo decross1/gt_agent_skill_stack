@@ -61,14 +61,17 @@ nav.views .v.on{background:#27272a;color:var(--text)}
 
 <header>
   <div class="brand">brain<span class="sep">·</span><span class="sub">governance</span></div>
-  <nav class="views" title="view">
-    <a class="v" href="dashboard.html">Dashboard</a><a class="v on" href="graph.html">Map</a><a class="v" href="proposal_review.html">Review</a>
+  <nav class="views" title="view" aria-label="Brain views">
+    <a class="v" href="dashboard.html">Dashboard</a><a class="v on" href="graph.html" aria-current="page">Map</a><a class="v" href="activity.html">Skills &amp; Activity</a><a class="v" href="proposal_review.html">Review</a>
   </nav>
   <div class="hspace"></div>
   <div class="stepper" id="stepper"></div>
   <div class="asof" id="asof"></div>
   <a class="xnav" id="apparatus" title="open the apparatus dashboard">apparatus →</a>
 </header>
+
+<div id="data-source-status" aria-label="Projection data sources">Data sources have not been checked.</div>
+<div id="data-source-announcement" role="status" aria-live="polite" aria-atomic="true" class="ui-visually-hidden"></div>
 
 <div id="mapwrap">
   <canvas id="map"></canvas>
@@ -314,23 +317,24 @@ document.addEventListener("click", e => {
   if (b && inst) inst.egoMode(b.getAttribute("data-lineage"));
 });
 
-/* ---------- live data: prefer GET /api/{summary,map}; baked files are fallback ----
-   The Map page is no longer static: both projections compute from the ledgers at
-   request time (deterministic; no LLM), so it cannot drift while served by the
-   brain server. The baked summary_data.js / map_data.js remain as offline /
-   server-down fallbacks. A ~30s poll keeps it in sync; the map is remounted only
+/* ---------- projection data: independently fetched, explicitly attributed ----
+   Saved files and last successful responses remain available on request failure.
+   The source strip discloses each fallback and generation time. Successful
+   responses do not establish that both projections describe the same revision.
+   The existing ~30s page refresh retains the view on failure; remount only
    when its content (or governance overlays) actually changes, so the user's
    zoom/pan and ego-mode survive no-op polls. */
-function fetchLive(path, valid) {
-  if (location.protocol !== "http:" && location.protocol !== "https:")
-    return Promise.resolve(null);
-  return fetch(path, { cache: "no-store" })
-    .then(r => (r.ok ? r.json() : null))
-    .then(d => (d && valid(d) ? d : null))
-    .catch(() => null);
+const summarySource = U.dataSource && U.dataSource(D, d => !!d.status_strip);
+const mapSource = U.dataSource && U.dataSource(M, d => Array.isArray(d.nodes));
+async function refreshData() {
+  // Keep the existing offline shim usable if the shared UI script is absent.
+  if (!summarySource || !mapSource) return [false, false];
+  const refreshed = await Promise.all([summarySource.refresh("api/summary"), mapSource.refresh("api/map")]);
+  D = summarySource.data;
+  M = mapSource.data;
+  U.renderDataStatus($("data-source-status"), summarySource, mapSource, $("data-source-announcement"));
+  return refreshed;
 }
-const fetchLiveSummary = () => fetchLive("api/summary", d => !!d.status_strip);
-const fetchLiveMap = () => fetchLive("api/map", d => Array.isArray(d.nodes));
 // Render signature = exactly what the map draws from, sans generated_at: the map
 // payload (nodes/edges/cards) plus the slices of D the renderer reads — skills
 // (governance halos), matrix (windowed edge weights), agents (run counts), window.
@@ -345,18 +349,14 @@ function mapSig() {
 let lastMapSig = "";
 
 (async function boot() {
-  const [liveD, liveM] = await Promise.all([fetchLiveSummary(), fetchLiveMap()]);
-  if (liveD) D = liveD;
-  if (liveM) M = liveM;
+  await refreshData();
   applyData();
   initWindowState();
   renderStepper();
   lastMapSig = mapSig();
   mountMap();
   setInterval(async () => {
-    const [nextD, nextM] = await Promise.all([fetchLiveSummary(), fetchLiveMap()]);
-    if (nextD) D = nextD;
-    if (nextM) M = nextM;
+    const [nextD, nextM] = await refreshData();
     if (nextD || nextM) { applyData(); renderStepper(); }
     const sig = mapSig();
     if (sig !== lastMapSig) { lastMapSig = sig; mountMap(); }  // remount only on real change

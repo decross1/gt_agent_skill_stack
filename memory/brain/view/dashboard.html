@@ -146,14 +146,17 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
 
 <header>
   <div class="brand">brain<span class="sep">·</span><span class="sub">governance</span></div>
-  <nav class="views" title="view">
-    <a class="v on" href="dashboard.html">Dashboard</a><a class="v" href="graph.html">Map</a><a class="v" href="proposal_review.html">Review</a>
+  <nav class="views" title="view" aria-label="Brain views">
+    <a class="v on" href="dashboard.html" aria-current="page">Dashboard</a><a class="v" href="graph.html">Map</a><a class="v" href="activity.html">Skills &amp; Activity</a><a class="v" href="proposal_review.html">Review</a>
   </nav>
   <div class="hspace"></div>
   <div class="stepper" id="stepper"></div>
   <div class="asof" id="asof"></div>
   <a class="xnav" id="apparatus" title="open the apparatus dashboard">apparatus →</a>
 </header>
+
+<div id="data-source-status" aria-label="Projection data sources">Data sources have not been checked.</div>
+<div id="data-source-announcement" role="status" aria-live="polite" aria-atomic="true" class="ui-visually-hidden"></div>
 
 <main>
   <section class="band" id="status"></section>
@@ -361,9 +364,9 @@ function renderOperations() {
          "seconds since static summary.json; live dashboard data is separate") +
     cell("consumer cursor", {value: cursorText, status: stat(cursor), provenance: "cursor"},
          cursor && cursor.uncertainty) +
-    cell("proposal lifecycle", {value: "A" + (c.accepted ?? "?") + " · E" + (c.enacted ?? "?") + " · V" + (c.verified ?? "?"),
+    cell("proposal evidence counts", {value: "accepted " + (c.accepted ?? "?") + " · enacted " + (c.enacted ?? "?") + " · reported verification receipts " + (c.verified ?? "?"),
                                   status: stat(lifecycle), provenance: "proposal evidence"},
-         lifecycle && lifecycle.uncertainty) +
+         "Counts are per proposal. Verification receipts are structurally reported; execution and output bytes are not independently verified. " + ((lifecycle && lifecycle.uncertainty) || "")) +
     cell("repo", {value: (f(O.repo && O.repo.branch) || "detached") + " · " + f(O.repo && O.repo.head) +
                           " · tracked dirty " + f(O.repo && O.repo.tracked_dirty_count), status: repoStatus, provenance: "git"},
          "untracked files, paths, and contents are intentionally excluded") +
@@ -661,9 +664,10 @@ function renderLoop() {
   arr();
   seg("proposals", [["", String(pr.open)], ["dim", "open"]], pr.open + " open · newest " + pr.newest);
   arr();
-  seg("review", [["ok", "✓" + (rv.accepted + rv.auto_accept)], ["bad", "✗" + rv.auto_reject]],
+  const rejected = rv.rejected || 0; // older saved projections omit this field
+  seg("review", [["ok", "✓" + (rv.accepted + rv.auto_accept)], ["bad", "✗" + (rejected + rv.auto_reject)]],
     rv.accepted + " accepted · " + rv.auto_accept + " auto-accept · " + rv.auto_reject +
-    " auto-reject · " + rv.human_review + " to human");
+    " auto-reject · " + rejected + " rejected · " + rv.human_review + " to human");
   arr();
   seg("enacted", [["", en.rules + " rules"], ["dim", "· " + (en.skills_created + en.skills_healed) + " skills"]],
     en.rules + " rules · " + en.skills_created + " skill created · " + en.skills_healed + " healed");
@@ -675,13 +679,15 @@ function openLoop() {
     U.kv("open proposals", String(L.stages.proposals.open)) +
     '<div class="ui-sec">chains</div>';
   html += (L.chains || []).map(ch => {
-    const cls = ch.verdict === "accepted" ? "ok" : ch.verdict === "open" ? "warn" : "bad";
+    const verdict = ch.lane === "draft" ? "draft" : (ch.final_verdict || ch.verdict || ch.lane || "unknown");
+    const cls = ["accepted", "auto-accept"].includes(verdict) ? "ok"
+      : ["rejected", "auto-reject"].includes(verdict) ? "bad" : "warn";
     return '<div class="ui-item"><div class="ui-row">' +
       '<span class="ui-id" style="color:var(--text)">' + esc(ch.proposal_id) + "</span>" +
       '<span class="ui-note" style="flex:1">' + esc(ch.title) + "</span>" +
-      '<span class="ui-pill ' + cls + '">' + esc(ch.verdict) + "</span></div>" +
+      '<span class="ui-pill ' + cls + '">' + esc(verdict) + "</span></div>" +
       (ch.produced ? '<div class="ui-note">→ ' + esc(ch.produced) + "</div>" : "") +
-      '<div class="ui-row" style="min-height:18px"><span class="ui-num">' + esc(ch.date) + "</span>" +
+      '<div class="ui-row" style="min-height:18px"><span class="ui-num">' + esc(ch.filed_date || ch.date || "date unavailable") + "</span>" +
       (ch.target ? '<span class="ui-chip" data-skill="' + esc(ch.target) + '">' + esc(ch.target) + "</span>" : "") +
       "</div></div>";
   }).join("") || '<div class="ui-note">no chains yet</div>';
@@ -897,14 +903,22 @@ function paint() {
   paintFooter();
 }
 
-/* ---------- live data: prefer GET /api/{summary,map}, fall back to baked files ----
-   The dashboard is no longer a static snapshot. Both the governance data and the
-   cluster map compute from the ledgers at request time (deterministic; the server
-   never calls the LLM), so nothing drifts while served by the brain server. The
-   baked summary_data.js / map_data.js are kept only as offline / server-down
-   fallbacks. A ~30s poll keeps an open tab current; a failed poll keeps the view.
+/* ---------- projection data: independently fetched, explicitly attributed ----
+   Saved files and last successful responses remain available on request failure.
+   The source strip discloses each fallback and generation time. Successful
+   responses do not establish that both projections describe the same revision.
+   The existing ~30s page refresh retains the view on failure.
    The map is only remounted when its content changes (signature compare excluding
    generated_at), so a user's zoom/pan survives polls that bring no map change. */
+const summarySource = U.dataSource(D, d => !!d.status_strip);
+const mapSource = U.dataSource(M, d => Array.isArray(d.nodes));
+async function refreshData() {
+  const refreshed = await Promise.all([summarySource.refresh("api/summary"), mapSource.refresh("api/map")]);
+  D = summarySource.data;
+  M = mapSource.data;
+  U.renderDataStatus($("data-source-status"), summarySource, mapSource, $("data-source-announcement"));
+  return refreshed;
+}
 function fetchLive(path, valid) {
   if (location.protocol !== "http:" && location.protocol !== "https:")
     return Promise.resolve(null);
@@ -913,8 +927,6 @@ function fetchLive(path, valid) {
     .then(d => (d && valid(d) ? d : null))
     .catch(() => null);
 }
-const fetchLiveSummary = () => fetchLive("api/summary", d => !!d.status_strip);
-const fetchLiveMap = () => fetchLive("api/map", d => Array.isArray(d.nodes));
 const fetchLiveOperations = () => fetchLive("api/operations", d => d.read_only === true && !!d.server);
 // Render signature = exactly what the map draws from, sans generated_at: the map
 // payload (nodes/edges/cards) plus the slices of D the renderer reads — skills
@@ -931,9 +943,7 @@ function mapSig() {
 let lastMapSig = "";
 
 (async function boot() {
-  const [liveD, liveM, liveO] = await Promise.all([fetchLiveSummary(), fetchLiveMap(), fetchLiveOperations()]);
-  if (liveD) D = liveD;
-  if (liveM) M = liveM;
+  const [, liveO] = await Promise.all([refreshData(), fetchLiveOperations()]);
   if (liveO) O = liveO;
   if (!D) {
     document.querySelector("main").innerHTML =
@@ -948,9 +958,8 @@ let lastMapSig = "";
   lastMapSig = mapSig();
   mountMap();
   setInterval(async () => {
-    const [nextD, nextM, nextO] = await Promise.all([fetchLiveSummary(), fetchLiveMap(), fetchLiveOperations()]);
-    if (nextD) { D = nextD; paint(); }
-    if (nextM) M = nextM;
+    const [[nextD], nextO] = await Promise.all([refreshData(), fetchLiveOperations()]);
+    if (nextD) paint();
     if (nextO) { O = nextO; renderOperations(); }
     const sig = mapSig();
     if (sig !== lastMapSig) { lastMapSig = sig; mountMap(); }  // remount only on real change

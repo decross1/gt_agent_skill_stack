@@ -1,6 +1,6 @@
 // ui.js — shared chrome for dashboard.html + graph.html: escHTML, date/age
 // formatters, severity pills, agent hues, right side-panel overlay, and
-// copy-to-clipboard. No fetch(); must work from file:// and http alike.
+// copy-to-clipboard and projection provenance. Works from file:// and http alike.
 (function () {
   "use strict";
 
@@ -22,6 +22,67 @@
     if (n >= 1e6) return (n / 1e6).toFixed(1) + "M";
     if (n >= 1e3) return Math.round(n / 1e3) + "K";
     return n + "B";
+  }
+
+  // ---- projection sources: response success does not prove revision agreement ----
+  function dataSource(snapshot, valid) {
+    const initial = snapshot && valid(snapshot) ? snapshot : null;
+    let request = 0;
+    const state = {
+      data: initial, source: initial ? "snapshot" : "unavailable",
+      error: "", receivedAt: null, checkedAt: null,
+      async refresh(path) {
+        if (location.protocol !== "http:" && location.protocol !== "https:") return false;
+        const current = ++request;
+        let data, error = "";
+        try {
+          const response = await fetch(path, { cache: "no-store" });
+          if (!response.ok) error = "HTTP " + response.status;
+          else {
+            data = await response.json();
+            if (!data || !valid(data)) error = "invalid response";
+          }
+        } catch (_) { error = "request or JSON response failed"; }
+        // A slower earlier request must not overwrite a later refresh's status.
+        if (current !== request) return false;
+        state.checkedAt = new Date().toISOString();
+        state.error = error;
+        if (error) return false; // retain the actual last successful source
+        state.data = data;
+        state.source = "live";
+        state.receivedAt = state.checkedAt;
+        return true;
+      }
+    };
+    return state;
+  }
+
+  function renderDataStatus(host, summary, map, announcement) {
+    const mode = s => !s.data ? "unavailable" : s.source === "live"
+      ? (s.error ? "cached live response" : "live response") : "snapshot";
+    const modes = [mode(summary), mode(map)];
+    const missing = modes.filter(m => m === "unavailable").length;
+    const label = missing === 2 ? "Data unavailable" : missing ? "Data incomplete"
+      : modes[0] !== modes[1] ? "Mixed data"
+      : modes[0] === "live response" ? "Live responses"
+      : modes[0] === "cached live response" ? "Cached live data" : "Snapshot data";
+    const describe = (name, state) => {
+      const raw = state.data && state.data.generated_at;
+      const ts = typeof raw === "string" && /(?:Z|[+-]\d{2}:\d{2})$/.test(raw) ? Date.parse(raw) : NaN;
+      const generation = Number.isFinite(ts) ? "generated " + new Date(ts).toISOString() : "generation time unavailable";
+      return name + ": " + mode(state) + (state.data ? " · " + generation : "") +
+        (state.receivedAt ? " · last success " + state.receivedAt : "") +
+        (state.error ? " · refresh failed (" + state.error + ")" : "");
+    };
+    // Text, not HTML: response metadata never becomes markup.
+    host.textContent = label + ". " + describe("Summary", summary) + ". " +
+      describe("Map", map) + ". Sources are fetched separately; matching revisions are not established.";
+    host.dataset.mode = label;
+    // Announce source/error transitions only. Successful refresh timestamps
+    // remain visible without repeating a long live-region message every poll.
+    const notice = label + ". Summary: " + modes[0] + (summary.error ? " (" + summary.error + ")" : "") +
+      ". Map: " + modes[1] + (map.error ? " (" + map.error + ")" : "") + ".";
+    if (announcement && announcement.textContent !== notice) announcement.textContent = notice;
   }
 
   // ---- agent hues: summary-declared first, known ids, then deterministic fallback ----
@@ -94,6 +155,8 @@
 
   // panel + shared-widget styles travel with ui.js so graph.html gets them too
   const css = [
+    "#data-source-status{padding:8px 18px;border-bottom:1px solid var(--border);flex:none;font-size:11px;color:var(--text-dim);overflow-wrap:anywhere}",
+    ".ui-visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}",
     "#ui-panel{position:fixed;top:0;right:0;bottom:0;width:380px;max-width:100vw;box-sizing:border-box;z-index:40;display:flex;flex-direction:column;",
     "  background:var(--bg);border-left:1px solid var(--border-2);box-shadow:-18px 0 44px rgba(0,0,0,.55);",
     "  transform:translateX(103%);transition:transform .16s ease;font-size:12px}",
@@ -140,6 +203,7 @@
 
   window.UI = {
     esc, escHTML: esc, fmtDate, fmtTs, fmtAge, fmtBytes,
+    dataSource, renderDataStatus,
     agentHue, sevColor, sevPill,
     sec, kv, copyBlock,
     panel: { open, close, isOpen }
