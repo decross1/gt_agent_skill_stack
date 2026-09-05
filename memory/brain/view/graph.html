@@ -117,7 +117,28 @@ const U = window.UI || (function () {
     el.querySelector("#ui-shim-x").addEventListener("click", close);
   }
   function close() { if (el) el.style.display = "none"; }
-  return { esc, agentHue: () => "var(--agent-other)",
+  const record = d => !!d && typeof d === "object" && !Array.isArray(d);
+  const rows = d => Array.isArray(d) && d.every(record);
+  // Offline-only fallback checks the inputs this graph consumes. It does not
+  // refresh or claim source provenance when shared UI helpers are unavailable.
+  const usableSummary = d => record(d) && record(d.window) &&
+    [d.window.min_days, d.window.max_days, d.window.default_days].every(Number.isSafeInteger) &&
+    d.window.min_days >= 1 && d.window.max_days <= 366 && d.window.max_days >= d.window.min_days &&
+    d.window.default_days >= d.window.min_days && d.window.default_days <= d.window.max_days &&
+    (d.window.newest_event == null || typeof d.window.newest_event === "string") &&
+    rows(d.skills) && rows(d.agents) && record(d.matrix) && rows(d.matrix.cells) &&
+    d.matrix.cells.every(c => c.by_day == null || (record(c.by_day) && Object.values(c.by_day).every(record)));
+  const usableMap = d => record(d) && rows(d.nodes) && rows(d.edges) &&
+    d.nodes.every(n => typeof n.id === "string" && (n.label === undefined || typeof n.label === "string") &&
+      (!["agent", "skill"].includes(n.type) || typeof n.label === "string") &&
+      (n.date == null || typeof n.date === "string")) &&
+    d.edges.every(e => typeof e.src === "string" && typeof e.dst === "string") &&
+    (d.cards === undefined || (record(d.cards) && Object.values(d.cards).every(card =>
+      record(card) && ["title", "one_line", "date", "source", "page"].every(k =>
+        card[k] == null || typeof card[k] === "string")))) &&
+    (d.generated_at == null || typeof d.generated_at === "string");
+  return { esc, agentHue: () => "var(--agent-other)", usableSummary, usableMap,
+    dataSource: (data, valid) => ({ data: data && valid(data) ? data : null }),
     kv: (k, v) => '<div class="ui-kv" style="display:flex;gap:10px"><span style="color:var(--text-faint);width:98px;flex:none">' +
       esc(k) + '</span><span class="mono">' + v + "</span></div>",
     panel: { open, close, isOpen: () => false } };
@@ -324,16 +345,25 @@ document.addEventListener("click", e => {
    The existing ~30s page refresh retains the view on failure; remount only
    when its content (or governance overlays) actually changes, so the user's
    zoom/pan and ego-mode survive no-op polls. */
-const summarySource = U.dataSource && U.dataSource(D, d => !!d.status_strip);
-const mapSource = U.dataSource && U.dataSource(M, d => Array.isArray(d.nodes));
-async function refreshData() {
-  // Keep the existing offline shim usable if the shared UI script is absent.
+const summarySource = U.dataSource(D, U.usableSummary);
+const mapSource = U.dataSource(M, U.usableMap);
+function showSources() {
+  if (U.renderDataStatus)
+    U.renderDataStatus($("data-source-status"), summarySource, mapSource, $("data-source-announcement"));
+}
+async function refreshData(current) {
   if (!summarySource || !mapSource) return [false, false];
-  const refreshed = await Promise.all([summarySource.refresh("api/summary"), mapSource.refresh("api/map")]);
-  D = summarySource.data;
-  M = mapSource.data;
-  U.renderDataStatus($("data-source-status"), summarySource, mapSource, $("data-source-announcement"));
-  return refreshed;
+  const update = changed => {
+    if (!current()) return changed;
+    D = summarySource.data;
+    M = mapSource.data;
+    showSources();
+    if (changed) { applyData(); renderStepper(); }
+    const sig = mapSig();
+    if (sig !== lastMapSig) { lastMapSig = sig; mountMap(); }
+    return changed;
+  };
+  return Promise.all([summarySource.refresh("api/summary").then(update), mapSource.refresh("api/map").then(update)]);
 }
 // Render signature = exactly what the map draws from, sans generated_at: the map
 // payload (nodes/edges/cards) plus the slices of D the renderer reads — skills
@@ -348,20 +378,18 @@ function mapSig() {
 }
 let lastMapSig = "";
 
-(async function boot() {
-  await refreshData();
-  applyData();
-  initWindowState();
-  renderStepper();
-  lastMapSig = mapSig();
-  mountMap();
-  setInterval(async () => {
-    const [nextD, nextM] = await refreshData();
-    if (nextD || nextM) { applyData(); renderStepper(); }
-    const sig = mapSig();
-    if (sig !== lastMapSig) { lastMapSig = sig; mountMap(); }  // remount only on real change
-  }, 30000);
-})();
+D = summarySource.data;
+M = mapSource.data;
+applyData();
+initWindowState();
+renderStepper();
+showSources();
+lastMapSig = mapSig();
+mountMap();
+// The existing offline shim paints without creating background page work.
+if (U.pageRefresh && summarySource && mapSource) U.pageRefresh(refreshData, () => {
+  summarySource.cancel(); mapSource.cancel();
+});
 })();
 </script>
 </body>

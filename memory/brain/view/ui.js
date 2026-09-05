@@ -24,38 +24,143 @@
     return n + "B";
   }
 
+  // Admission checks for the structures these two page renderers dereference.
+  // They neither rewrite producer data nor establish its authority/freshness.
+  const record = d => !!d && typeof d === "object" && !Array.isArray(d);
+  const rows = d => Array.isArray(d) && d.every(record);
+  const optionalRows = d => d === undefined || rows(d);
+  function usableSummary(d) {
+    if (!record(d) || !record(d.window) || !record(d.status_strip) ||
+        !record(d.loop) || !record(d.loop.stages) || !record(d.matrix) || !rows(d.matrix.cells)) return false;
+    const w = d.window;
+    if (![w.min_days, w.max_days, w.default_days].every(Number.isSafeInteger) ||
+        w.min_days < 1 || w.max_days > 366 || w.max_days < w.min_days ||
+        w.default_days < w.min_days || w.default_days > w.max_days ||
+        (w.newest_event != null && typeof w.newest_event !== "string")) return false;
+    if (typeof d.repo !== "string" || typeof d.consumer !== "string" ||
+        !generationTime(d.generated_at)) return false;
+    if (!["needs_you", "drift", "candidates", "loop", "firewall", "freshness"].every(k => record(d.status_strip[k])) ||
+        !["harvest", "candidates", "proposals", "review", "enacted"].every(k => record(d.loop.stages[k]))) return false;
+    // Inbox/attention own their malformed-record handling: do not discard
+    // descriptive evidence here or turn partition uncertainty into a grant.
+    if (!["skills", "agents", "incidents", "contracts", "timeline", "rules", "days"].every(k => optionalRows(d[k])) ||
+        !optionalRows(d.loop.chains)) return false;
+    if ((d.days || []).some(day => typeof day.date !== "string")) return false;
+    return d.matrix.cells.every(cell => cell.by_day == null ||
+      (record(cell.by_day) && Object.values(cell.by_day).every(record))) &&
+      (d.contracts || []).every(c => c.skill_subset == null || Array.isArray(c.skill_subset));
+  }
+  function usableMap(d) {
+    return record(d) && rows(d.nodes) && rows(d.edges) &&
+      d.nodes.every(n => typeof n.id === "string" &&
+        (n.label === undefined || typeof n.label === "string") &&
+        (!["agent", "skill"].includes(n.type) || typeof n.label === "string") &&
+        (n.date == null || typeof n.date === "string")) &&
+      d.edges.every(e => typeof e.src === "string" && typeof e.dst === "string") &&
+      (d.cards === undefined || (record(d.cards) && Object.values(d.cards).every(card =>
+        record(card) && ["title", "one_line", "date", "source", "page"].every(k =>
+          card[k] == null || typeof card[k] === "string")))) &&
+      (d.generated_at == null || typeof d.generated_at === "string");
+  }
+
   // ---- projection sources: response success does not prove revision agreement ----
-  function dataSource(snapshot, valid) {
+  function dataSource(snapshot, valid, options = {}) {
     const initial = snapshot && valid(snapshot) ? snapshot : null;
-    let request = 0;
+    let active = null;
     const state = {
       data: initial, source: initial ? "snapshot" : "unavailable",
       error: "", receivedAt: null, checkedAt: null,
-      async refresh(path) {
-        if (location.protocol !== "http:" && location.protocol !== "https:") return false;
-        const current = ++request;
-        let data, error = "";
-        try {
-          const response = await fetch(path, { cache: "no-store", redirect: "error" });
-          if (response.redirected) error = "Unexpected projection redirect rejected";
-          else if (!response.ok) error = "HTTP " + response.status;
-          else {
-            data = await response.json();
-            if (!data || !valid(data)) error = "invalid response";
-          }
-        } catch (_) { error = "request or JSON response failed"; }
-        // A slower earlier request must not overwrite a later refresh's status.
-        if (current !== request) return false;
-        state.checkedAt = new Date().toISOString();
-        state.error = error;
-        if (error) return false; // retain the actual last successful source
-        state.data = data;
-        state.source = "live";
-        state.receivedAt = state.checkedAt;
-        return true;
+      refresh(path) {
+        if (location.protocol !== "http:" && location.protocol !== "https:") return Promise.resolve(false);
+        if (active) return active.promise;
+        const job = { controller: typeof AbortController === "function" ? new AbortController() : null };
+        job.promise = new Promise(resolve => { job.resolve = resolve; });
+        active = job;
+        job.finish = (data, error = "") => {
+          // Identity guards both payload and cleanup: a timed-out/cancelled
+          // request cannot mutate a newer flight, even if it ignores abort.
+          if (active !== job) return;
+          active = null;
+          clearTimeout(job.timer);
+          state.checkedAt = new Date().toISOString();
+          state.error = error;
+          if (!error) {
+            state.data = data;
+            state.source = "live";
+            state.receivedAt = state.checkedAt;
+          } else if (job.controller) job.controller.abort();
+          job.resolve(!error);
+        };
+        // One deadline covers fetch AND body decoding. Aborting alone cannot
+        // settle an implementation (or fixture) that ignores its signal.
+        job.timer = setTimeout(() => job.finish(null, "request timed out after 5s"), 5000);
+        (async () => {
+          try {
+            const response = await fetch(path, { cache: "no-store", redirect: "error",
+              ...(options.method ? { method: options.method } : {}),
+              ...(job.controller ? { signal: job.controller.signal } : {}) });
+            if (active !== job) return;
+            if (response.redirected) return job.finish(null, "Unexpected projection redirect rejected");
+            if (!response.ok) return job.finish(null, "HTTP " + response.status);
+            const data = await (options.read ? options.read(response) : response.json());
+            if (active !== job) return;
+            job.finish(data, data && valid(data) ? "" : "invalid response");
+          } catch (_) { job.finish(null, "request or JSON response failed"); }
+        })();
+        return job.promise;
+      },
+      cancel() {
+        if (active) active.finish(null, "request cancelled");
       }
     };
     return state;
+  }
+
+  // A visible page owns one refresh cycle and one timer. Source deadlines
+  // bound each cycle; repeated timer events join it rather than start work.
+  function pageRefresh(refresh, cancel) {
+    let active = false, disposed = false, epoch = 0, interval = null, flight = null;
+    function run() {
+      if (!active) return Promise.resolve();
+      if (flight) return flight;
+      const version = epoch;
+      const current = () => active && epoch === version;
+      const job = Promise.resolve().then(() => { if (current()) return refresh(current); });
+      flight = job.finally(() => { if (epoch === version) flight = null; });
+      return flight;
+    }
+    function pause() {
+      active = false;
+      epoch++;
+      clearInterval(interval);
+      interval = null;
+      flight = null;
+      cancel();
+    }
+    function resume() {
+      if (disposed || active || document.hidden ||
+          (location.protocol !== "http:" && location.protocol !== "https:")) return;
+      active = true;
+      interval = setInterval(run, 30000);
+      run();
+    }
+    window.addEventListener("pagehide", event => { disposed = !event.persisted; pause(); });
+    window.addEventListener("pageshow", resume);
+    document.addEventListener("visibilitychange", () => { if (document.hidden) pause(); else resume(); });
+    resume();
+    return { refresh: run };
+  }
+
+  const sourceMode = s => !s.data ? "unavailable" : s.source === "live"
+    ? (s.error ? "cached live response" : "live response") : "snapshot";
+  function describeDataSource(name, state) {
+    const raw = state.data && state.data.generated_at;
+    const ts = generationTime(raw) ? Date.parse(raw) : NaN;
+    const generation = Number.isFinite(ts) ? "generated " + new Date(ts).toISOString() : "generation time unavailable";
+    return name + ": " + sourceMode(state) + (state.data ? " · " + generation : "") +
+      (state.receivedAt ? " · last success " + state.receivedAt : "") +
+      (state.error === "request cancelled" ? " · refresh cancelled" :
+        state.error ? " · refresh failed (" + state.error + ")" : "");
   }
 
   function generationTime(value) {
@@ -72,22 +177,14 @@
   }
 
   function renderDataStatus(host, summary, map, announcement) {
-    const mode = s => !s.data ? "unavailable" : s.source === "live"
-      ? (s.error ? "cached live response" : "live response") : "snapshot";
+    const mode = sourceMode;
     const modes = [mode(summary), mode(map)];
     const missing = modes.filter(m => m === "unavailable").length;
     const label = missing === 2 ? "Data unavailable" : missing ? "Data incomplete"
       : modes[0] !== modes[1] ? "Mixed data"
       : modes[0] === "live response" ? "Live responses"
       : modes[0] === "cached live response" ? "Cached live data" : "Snapshot data";
-    const describe = (name, state) => {
-      const raw = state.data && state.data.generated_at;
-      const ts = generationTime(raw) ? Date.parse(raw) : NaN;
-      const generation = Number.isFinite(ts) ? "generated " + new Date(ts).toISOString() : "generation time unavailable";
-      return name + ": " + mode(state) + (state.data ? " · " + generation : "") +
-        (state.receivedAt ? " · last success " + state.receivedAt : "") +
-        (state.error ? " · refresh failed (" + state.error + ")" : "");
-    };
+    const describe = describeDataSource;
     // Text, not HTML: response metadata never becomes markup.
     host.textContent = label + ". " + describe("Summary", summary) + ". " +
       describe("Map", map) + ". Sources are fetched separately; matching revisions are not established.";
@@ -217,7 +314,7 @@
 
   window.UI = {
     esc, escHTML: esc, fmtDate, fmtTs, fmtAge, fmtBytes,
-    dataSource, renderDataStatus,
+    dataSource, renderDataStatus, describeDataSource, pageRefresh, usableSummary, usableMap,
     agentHue, sevColor, sevPill,
     sec, kv, copyBlock,
     panel: { open, close, isOpen }

@@ -165,6 +165,7 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
     <span class="sec" title="bounded local observations; no service controls">operations truth</span>
     <div class="band" id="operations"><div class="opnote">operations data unavailable offline — start the brain server to inspect bounded local observations</div></div>
   </section>
+  <div id="operations-source-status" class="opnote" aria-label="Operations data source"></div>
 
   <section class="band" id="inbox">
     <div class="irows" id="irows"></div>
@@ -266,7 +267,7 @@ function renderStepper() {
   }
 }
 function setWindow(n) {
-  if (n === windowDays || n < D.window.min_days || n > D.window.max_days) return;
+  if (!D || n === windowDays || n < D.window.min_days || n > D.window.max_days) return;
   windowDays = n;
   try { localStorage.setItem("brain.windowDays", String(n)); } catch (_) {}
   renderStepper();
@@ -396,16 +397,17 @@ const isReviewItem = it =>
   it && it.kind === "proposal_review" && it.surface === "framework" &&
   it.actionable === true && /^P-\d+$/.test(it.id || "");
 let reviewUiPresent = null; // null=unknown, true/false once probed
-function probeReviewUi() {
+const reviewSource = U.dataSource(null, d => d.present === true,
+  { method: "HEAD", read: () => ({ present: true }) });
+async function probeReviewUi(current) {
   if (reviewUiPresent !== null) return;
   if (location.protocol !== "http:" && location.protocol !== "https:") {
     reviewUiPresent = true; // can't probe file://; assume present, let nav handle it
     return;
   }
   reviewUiPresent = true; // optimistic until the probe answers
-  fetch("proposal_review.html", { method: "HEAD" })
-    .then(r => { if (!r.ok) hideReviewLinks(); })
-    .catch(() => hideReviewLinks());
+  const available = await reviewSource.refresh("proposal_review.html");
+  if (current() && !available) hideReviewLinks();
 }
 function hideReviewLinks() {
   reviewUiPresent = false;
@@ -542,7 +544,7 @@ function openInboxKind(kind, key) {
 
 /* ---------- embedded cluster map (BrainMap is B2's frozen interface) ---------- */
 function mountMap() {
-  const ok = typeof window.BrainMap !== "undefined" && M;
+  const ok = typeof window.BrainMap !== "undefined" && D && M;
   $("mapnote").hidden = !!ok;
   if (!ok) return;
   BrainMap.mount($("map"), {
@@ -619,7 +621,8 @@ function openSkill(name) {
   })()) + U.kv("all-time e·i", "e" + (u.explicit || 0) + " · i" + (u.inferred || 0)) +
     U.kv("last used", esc(u.last_used || "—"));
 
-  const props = (D.inbox || []).filter(it => it.kind === "proposal_review" && it.link && it.link.skill === name);
+  const props = (Array.isArray(D.inbox) ? D.inbox : []).map(attentionItem)
+    .filter(it => it.kind === "proposal_review" && it.link && it.link.skill === name);
   const heal = g.healed;
   if (props.length || (heal && heal.proposal_id)) {
     html += '<div class="ui-div"></div><div class="ui-sec">proposal</div>';
@@ -931,24 +934,33 @@ function paint() {
    The existing ~30s page refresh retains the view on failure.
    The map is only remounted when its content changes (signature compare excluding
    generated_at), so a user's zoom/pan survives polls that bring no map change. */
-const summarySource = U.dataSource(D, d => !!d.status_strip);
-const mapSource = U.dataSource(M, d => Array.isArray(d.nodes));
-async function refreshData() {
-  const refreshed = await Promise.all([summarySource.refresh("api/summary"), mapSource.refresh("api/map")]);
-  D = summarySource.data;
-  M = mapSource.data;
+const summarySource = U.dataSource(D, U.usableSummary);
+const mapSource = U.dataSource(M, U.usableMap);
+const operationsSource = U.dataSource(null, d => d.read_only === true && !!d.server);
+function showSources() {
   U.renderDataStatus($("data-source-status"), summarySource, mapSource, $("data-source-announcement"));
-  return refreshed;
+}
+async function refreshData(current) {
+  const update = changed => {
+    if (!current()) return changed;
+    const prior = D;
+    D = summarySource.data;
+    M = mapSource.data;
+    showSources();
+    if (D && D !== prior) { if (!prior) initWindowState(); paint(); }
+    const sig = mapSig();
+    if (sig !== lastMapSig) { lastMapSig = sig; mountMap(); }
+    return changed;
+  };
+  return Promise.all([summarySource.refresh("api/summary").then(update), mapSource.refresh("api/map").then(update)]);
 }
 function fetchLive(path, valid) {
-  if (location.protocol !== "http:" && location.protocol !== "https:")
-    return Promise.resolve(null);
-  return fetch(path, { cache: "no-store", redirect: "error" })
-    .then(r => (r.ok && !r.redirected ? r.json() : null))
-    .then(d => (d && valid(d) ? d : null))
-    .catch(() => null);
+  return operationsSource.refresh(path).then(ok => ok && valid(operationsSource.data) ? operationsSource.data : null);
 }
 const fetchLiveOperations = () => fetchLive("api/operations", d => d.read_only === true && !!d.server);
+function showOperationsSource() {
+  $("operations-source-status").textContent = U.describeDataSource("Operations", operationsSource);
+}
 // Render signature = exactly what the map draws from, sans generated_at: the map
 // payload (nodes/edges/cards) plus the slices of D the renderer reads — skills
 // (governance halos), matrix (windowed edge weights), agents (run counts), window.
@@ -963,29 +975,31 @@ function mapSig() {
 }
 let lastMapSig = "";
 
-(async function boot() {
-  const [, liveO] = await Promise.all([refreshData(), fetchLiveOperations()]);
-  if (liveO) O = liveO;
-  if (!D) {
-    document.querySelector("main").innerHTML =
-      '<div class="empty mono">no summary available — start the brain server ' +
-      "(scripts/serve_brain.sh) or run scripts/project_summary.py</div>";
-    return;
-  }
-  initWindowState();
-  paint();
-  renderOperations();
-  probeReviewUi();
-  lastMapSig = mapSig();
-  mountMap();
-  setInterval(async () => {
-    const [[nextD], nextO] = await Promise.all([refreshData(), fetchLiveOperations()]);
-    if (nextD) paint();
-    if (nextO) { O = nextO; renderOperations(); }
-    const sig = mapSig();
-    if (sig !== lastMapSig) { lastMapSig = sig; mountMap(); }  // remount only on real change
-  }, 30000);
-})();
+// Paint saved content before starting any request. Each source paints on its
+// own completion; a hanging operations response cannot hold back projections.
+D = summarySource.data;
+M = mapSource.data;
+if (D) { initWindowState(); paint(); }
+showSources();
+renderOperations();
+showOperationsSource();
+lastMapSig = mapSig();
+mountMap();
+if (location.protocol !== "http:" && location.protocol !== "https:") reviewUiPresent = true;
+U.pageRefresh(current => Promise.all([
+  refreshData(current),
+  fetchLiveOperations().then(live => {
+    if (!current()) return;
+    if (live) { O = live; renderOperations(); }
+    showOperationsSource();
+  }),
+  probeReviewUi(current),
+]), () => {
+  summarySource.cancel(); mapSource.cancel(); operationsSource.cancel(); reviewSource.cancel();
+  // A cancelled optimistic HEAD probe is checked again after restoration.
+  // Presence of this link grants no verdict authority.
+  if (reviewSource.error === "request cancelled") reviewUiPresent = null;
+});
 })();
 </script>
 </body>

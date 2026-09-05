@@ -23,22 +23,24 @@ function element() {
     appendChild(e){this.children.push(e);}, querySelector(){return element();},
     classList:{add(){},remove(){},contains(){return false;}}};
 }
-const context = {console, Date, Promise, JSON, setTimeout, clearTimeout,
-  addEventListener(){},
+const events = new Map(), documentEvents = new Map(), activeIntervals = new Map();
+const context = {console, Date, Promise, JSON, setTimeout, clearTimeout, AbortController,
+  addEventListener(k,fn){if(!events.has(k))events.set(k,[]);events.get(k).push(fn);},
   location:{protocol:'http:',hostname:'localhost'}, navigator:{},
   localStorage:{getItem(){return null;}},
-  document:{addEventListener(){},createElement:element,head:element(),body:element(),
+  document:{addEventListener(k,fn){if(!documentEvents.has(k))documentEvents.set(k,[]);documentEvents.get(k).push(fn);},createElement:element,head:element(),body:element(),
     getElementById(id){if(!elements.has(id))elements.set(id,element());return elements.get(id);},
-    querySelector(){return element();}},
-  intervals:[], setInterval(fn){context.intervals.push(fn);},
+    querySelector(){return element();},querySelectorAll(){return [];}},
+  intervals:[], setInterval(fn){context.intervals.push(fn);const id=context.intervals.length;activeIntervals.set(id,fn);return id;},
+  clearInterval(id){activeIntervals.delete(id);},
   fetch:async()=>{throw new Error('unexpected fetch');}};
 context.window=context;
 vm.createContext(context);
 vm.runInContext(fs.readFileSync(process.argv[1]+'/ui.js','utf8'),context);
 const U=context.UI;
 const stamp='2026-08-01T00:00:00Z';
-const summary={status_strip:{},generated_at:stamp};
-const map={nodes:[],edges:[],cards:[],generated_at:stamp};
+const summary={status_strip:{},generated_at:stamp,matrix:{cells:[]},skills:[],agents:[]};
+const map={nodes:[],edges:[],cards:{},generated_at:stamp};
 const validSummary=d=>!!d.status_strip;
 const validMap=d=>Array.isArray(d.nodes);
 const ok=d=>({ok:true,status:200,json:async()=>d});
@@ -119,6 +121,7 @@ let finish;
 context.fetch=()=>new Promise(resolve=>{finish=resolve;});
 const s=U.dataSource(summary,validSummary);
 const slow=s.refresh('api/summary');
+s.cancel();await slow;
 const newer={...summary,generated_at:'2026-08-02T00:00:00Z'};
 context.fetch=async()=>ok(newer);
 await s.refresh('api/summary');
@@ -252,8 +255,333 @@ assert.equal(mounts.length,2);
 def test_operations_request_rejects_redirected_local_facts():
     run_js(r"""
 const html=fs.readFileSync(process.argv[1]+'/dashboard.html','utf8');
-const helper=html.slice(html.indexOf('function fetchLive(path, valid)'),html.indexOf('// Render signature ='));
+const helper=html.slice(html.indexOf('const operationsSource ='),html.indexOf('// Render signature ='));
+context.U=U;
 vm.runInContext(helper+';globalThis.reviewFetchOperations=fetchLiveOperations;',context);
 let options;context.fetch=async(_path,opts)=>{options=opts;return {...ok({read_only:true,server:{},proposals:{counts:{value:{verified:9}}}}),redirected:true};};
 assert.equal(await context.reviewFetchOperations(),null);assert.equal(options.redirect,'error');
+""")
+
+
+FAKE_CLOCK = r"""
+const timers=new Map();let timerId=0;
+context.setTimeout=(fn,ms)=>{assert.ok(ms>0 && ms<=5000);timers.set(++timerId,fn);return timerId;};
+context.clearTimeout=id=>timers.delete(id);
+const flush=async()=>{for(let i=0;i<40;i++)await Promise.resolve();};
+const expire=async()=>{for(const [id,fn] of [...timers]){timers.delete(id);fn();}await flush();};
+const fire=async name=>{for(const fn of events.get(name)||[])fn({persisted:true});await flush();};
+"""
+
+
+@pytest.mark.parametrize("hang", ["fetch", "body"])
+def test_source_deadline_singleflight_cancel_and_late_completion(hang):
+    run_js(FAKE_CLOCK + r"""
+let finish,signal,calls=0;
+context.fetch=(_path,opts)=>{calls++;signal=opts.signal;
+ const pending=new Promise(resolve=>{finish=resolve;});
+ return HANG==='fetch'?pending:{ok:true,json:()=>pending};
+};
+const s=U.dataSource(summary,validSummary);
+const pending=s.refresh('api/summary');let settled=false;pending.then(()=>{settled=true;});
+const duplicate=s.refresh('api/summary');await flush();
+assert.equal(duplicate,pending);
+assert.equal(calls,1,'overlapping refresh must reuse one request');
+assert.ok(timers.size>0,'whole fetch/body wait needs a finite deadline');
+await expire();assert.equal(settled,true);assert.equal(await duplicate,false);
+assert.equal(signal.aborted,true);assert.match(s.error,/timed out/i);
+assert.equal(s.data,summary);assert.equal(s.receivedAt,null);
+const snapshot=JSON.stringify(s);
+finish(HANG==='fetch'?ok({...summary,stale:true}):{...summary,stale:true});await flush();
+assert.equal(JSON.stringify(s),snapshot,'late response must not change data or provenance');
+context.fetch=async()=>ok(summary);await s.refresh('api/summary');const success=s.receivedAt;
+context.fetch=(_path,opts)=>{signal=opts.signal;return new Promise(resolve=>{finish=resolve;});};
+const cancelled=s.refresh('api/summary');s.cancel();await cancelled;
+assert.equal(signal.aborted,true);assert.equal(s.receivedAt,success);assert.match(s.error,/cancel/i);
+const afterCancel=JSON.stringify(s);finish(ok({...summary,stale:true}));await flush();
+assert.equal(JSON.stringify(s),afterCancel);
+context.fetch=async()=>ok(summary);assert.equal(await s.refresh('api/summary'),true);
+assert.equal(s.error,'');assert.equal(timers.size,0);
+""".replace("HANG", json.dumps(hang)))
+
+
+@pytest.mark.parametrize("page", ["dashboard.html", "graph.html"])
+@pytest.mark.parametrize("hang", ["fetch", "body"])
+def test_actual_page_hang_paints_snapshot_and_restores_one_loop(page, hang):
+    run_js(FAKE_CLOCK + r"""
+const fixture={...summary,repo:'/fixture/framework',consumer:'/fixture/consumer',
+ window:{min_days:1,max_days:7,default_days:7,newest_event:stamp},
+ status_strip:{system:'attention',needs_you:{high:0,med:0,low:0,total:0},drift:{skills:0},
+ candidates:{total:0},loop:{state:'dormant',dormant_days:1},firewall:{status:'intact'},
+ freshness:{recall_floor_age_days:1}},
+ loop:{chains:[],stages:{harvest:{all:0},candidates:{total:0},proposals:{open:0},
+ review:{accepted:0,auto_accept:0,rejected:0,auto_reject:0,human_review:0},
+ enacted:{rules:0,skills_created:0,skills_healed:0}}}};
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=map;
+const mounts=[];context.BrainMap={mount(_,data){mounts.push(data);return{demoCard(){}};}};
+const requests=[];
+context.fetch=(path,opts)=>{
+ if(path==='proposal_review.html')return Promise.resolve({ok:true});
+ let finish;const pending=new Promise(resolve=>{finish=resolve;});
+ requests.push({path,signal:opts.signal,finish});
+ return HANG==='fetch'?pending:{ok:true,json:()=>pending};
+};
+const html=fs.readFileSync(process.argv[1]+'/'+PAGE,'utf8');
+vm.runInContext(html.match(/<script>([\s\S]*?)<\/script>/)[1],context);
+assert.equal(mounts.length,1,'saved map must paint before network completion');
+assert.equal(elements.get('asof').textContent,'2026-08-01');
+await flush();const count=PAGE==='dashboard.html'?3:2;
+assert.equal(requests.length,count);assert.equal(activeIntervals.size,1);
+const tick=[...activeIntervals.values()][0];tick();tick();await flush();
+assert.equal(requests.length,count,'a slow refresh must not overlap');
+await expire();assert.match(elements.get('data-source-status').textContent,/refresh failed.*timed out/i);
+if(PAGE==='dashboard.html')assert.match(elements.get('operations-source-status').textContent,/unavailable.*timed out/i);
+assert.ok(requests.every(r=>r.signal.aborted));
+const before=elements.get('data-source-status').textContent;
+for(const r of requests)r.finish(HANG==='fetch'?ok(fixture):fixture);await flush();
+assert.equal(elements.get('data-source-status').textContent,before);
+tick();await flush();assert.equal(requests.length,count*2);
+await fire('pagehide');assert.equal(activeIntervals.size,0);assert.equal(timers.size,0);
+assert.ok(requests.every(r=>r.signal.aborted));
+const hidden=elements.get('data-source-status').textContent;
+for(const r of requests)r.finish(HANG==='fetch'?ok(fixture):fixture);await flush();
+assert.equal(elements.get('data-source-status').textContent,hidden);
+const operations={read_only:true,server:{},proposals:{counts:{value:{accepted:0}}}};
+context.fetch=async path=>ok(path==='api/summary'?fixture:path==='api/map'?map:operations);
+await fire('pageshow');await fire('pageshow');
+assert.equal(activeIntervals.size,1);assert.equal(timers.size,0);
+assert.match(elements.get('data-source-status').textContent,/^Live responses/);
+assert.equal(mounts.length,1,'unchanged map keeps interaction after recovery');
+if(PAGE==='dashboard.html'){
+ assert.match(elements.get('operations-source-status').textContent,/live response.*last success/i);
+ const success=elements.get('operations-source-status').textContent;
+ context.fetch=async()=>failure;await [...activeIntervals.values()][0]();
+ assert.match(elements.get('operations-source-status').textContent,/cached live response.*refresh failed/i);
+ assert.ok(elements.get('operations-source-status').textContent.includes(success.split('last success ')[1]));
+}
+""".replace("PAGE", json.dumps(page)).replace("HANG", json.dumps(hang)))
+
+
+def test_cancelled_flight_cannot_clear_its_replacement_without_abort_support():
+    run_js(FAKE_CLOCK + r"""
+delete context.AbortController;
+const finishes=[];context.fetch=()=>new Promise(resolve=>finishes.push(resolve));
+const s=U.dataSource(summary,validSummary);
+const old=s.refresh('api/summary');await expire();assert.equal(await old,false);
+const current=s.refresh('api/summary');
+finishes[0](ok({...summary,stale:true}));await flush();
+assert.equal(s.refresh('api/summary'),current);assert.equal(finishes.length,2);
+finishes[1](ok({...summary,newer:true}));assert.equal(await current,true);
+assert.equal(s.data.newer,true);assert.equal(timers.size,0);
+""")
+
+
+@pytest.mark.parametrize("dispose_before_start", [True, False])
+def test_page_lifecycle_visibility_and_permanent_disposal(dispose_before_start):
+    run_js(FAKE_CLOCK + r"""
+let calls=0,painted=0;
+const s=U.dataSource(summary,validSummary);
+context.fetch=()=>{calls++;return new Promise(()=>{});};
+U.pageRefresh(async current=>{await s.refresh('api/summary');if(current())painted++;},()=>s.cancel());
+if(!EARLY)await flush();
+for(const fn of events.get('pagehide'))fn({persisted:false});await flush();
+assert.equal(calls,EARLY?0:1);assert.equal(timers.size,0);assert.equal(activeIntervals.size,0);assert.equal(painted,0);
+await fire('pageshow');assert.equal(activeIntervals.size,0);assert.equal(calls,EARLY?0:1);
+// A separate visible-page owner pauses and resumes, without duplicate loops.
+U.pageRefresh(async current=>{await s.refresh('api/summary');if(current())painted++;},()=>s.cancel());
+await flush();context.document.hidden=true;
+for(const fn of documentEvents.get('visibilitychange'))fn();await flush();
+assert.equal(activeIntervals.size,0);assert.equal(timers.size,0);
+context.document.hidden=false;
+for(const fn of documentEvents.get('visibilitychange'))fn();await flush();
+assert.equal(activeIntervals.size,1);
+await fire('pagehide');assert.equal(activeIntervals.size,0);assert.equal(timers.size,0);
+""".replace("EARLY", json.dumps(dispose_before_start)))
+
+
+@pytest.mark.parametrize("page", ["dashboard.html", "graph.html"])
+def test_actual_page_file_mode_has_no_requests_or_polling(page):
+    run_js(FAKE_CLOCK + r"""
+context.location.protocol='file:';let calls=0;context.fetch=()=>{calls++;throw Error('offline');};
+const html=fs.readFileSync(process.argv[1]+'/'+PAGE,'utf8');
+vm.runInContext(html.match(/<script>([\s\S]*?)<\/script>/)[1],context);await flush();
+assert.equal(calls,0);assert.equal(timers.size,0);assert.equal(activeIntervals.size,0);
+await fire('pageshow');assert.equal(calls,0);assert.equal(activeIntervals.size,0);
+""".replace("PAGE", json.dumps(page)))
+
+
+def test_operations_and_probe_hangs_do_not_delay_dashboard_projection():
+    run_js(FAKE_CLOCK + r"""
+const fixture={...summary,repo:'/fixture/framework',consumer:'/fixture/consumer',
+ window:{min_days:1,max_days:7,default_days:7,newest_event:stamp},
+ status_strip:{system:'attention',needs_you:{high:0,med:0,low:0,total:0},drift:{skills:0},
+ candidates:{total:0},loop:{state:'dormant',dormant_days:1},firewall:{status:'intact'},
+ freshness:{recall_floor_age_days:1}},
+ loop:{chains:[],stages:{harvest:{all:0},candidates:{total:0},proposals:{open:0},
+ review:{accepted:0,auto_accept:0,rejected:0,auto_reject:0,human_review:0},
+ enacted:{rules:0,skills_created:0,skills_healed:0}}}};
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=map;
+const fresh={...fixture,generated_at:'2026-08-02T00:00:00Z'};
+const signals=[];context.fetch=(path,opts)=>{
+ if(path==='api/summary')return Promise.resolve(ok(fresh));
+ if(path==='api/map')return Promise.resolve(ok(map));
+ signals.push(opts.signal);return new Promise(()=>{});
+};
+const html=fs.readFileSync(process.argv[1]+'/dashboard.html','utf8');
+vm.runInContext(html.match(/<script>([\s\S]*?)<\/script>/)[1],context);await flush();
+assert.equal(elements.get('asof').textContent,'2026-08-02');
+assert.match(elements.get('data-source-status').textContent,/^Live responses/);
+assert.match(elements.get('operations-source-status').textContent,/unavailable/);
+assert.equal(signals.length,2);await fire('pagehide');
+assert.ok(signals.every(signal=>signal.aborted));assert.equal(timers.size,0);
+""")
+
+
+@pytest.mark.parametrize("page", ["dashboard.html", "graph.html"])
+def test_invalid_saved_payloads_are_not_painted_as_available_data(page):
+    run_js(FAKE_CLOCK + r"""
+context.location.protocol='file:';
+context.BRAIN_SUMMARY={unexpected:'invalid summary'};
+context.BRAIN_MAP={unexpected:'invalid map'};
+const mounts=[];context.BrainMap={mount(_,data){mounts.push(data);return{demoCard(){}};}};
+const html=fs.readFileSync(process.argv[1]+'/'+PAGE,'utf8');
+vm.runInContext(html.match(/<script>([\s\S]*?)<\/script>/)[1],context);await flush();
+assert.match(elements.get('data-source-status').textContent,/^Data unavailable/);
+assert.equal(mounts.length,0,'invalid saved map must not reach the renderer');
+assert.equal(activeIntervals.size,0);
+""".replace("PAGE", json.dumps(page)))
+
+
+PAGE_DATA = r"""
+const fixture={...summary,repo:'/fixture/framework',consumer:'/fixture/consumer',
+ window:{min_days:1,max_days:7,default_days:7,newest_event:stamp},
+ status_strip:{system:'attention',needs_you:{high:0,med:0,low:0,total:0},drift:{skills:0},
+ candidates:{total:0},loop:{state:'dormant',dormant_days:1},firewall:{status:'intact'},
+ freshness:{recall_floor_age_days:1}},
+ loop:{chains:[],stages:{harvest:{all:0},candidates:{total:0},proposals:{open:0},
+ review:{accepted:0,auto_accept:0,rejected:0,auto_reject:0,human_review:0},
+ enacted:{rules:0,skills_created:0,skills_healed:0}}}};
+const mounts=[];context.BrainMap={mount(_,data){mounts.push(data);return{demoCard(){}};}};
+const boot=()=>{
+ const html=fs.readFileSync(process.argv[1]+'/'+PAGE,'utf8');
+ vm.runInContext(html.match(/<script>([\s\S]*?)<\/script>/)[1],context);
+};
+"""
+
+
+BAD_PAGE_PAYLOADS = {
+    "summary_status_only": "badSummary={status_strip:{}};",
+    "summary_window": "badSummary.window='bad';",
+    "summary_window_type": "badSummary.window.max_days='7';",
+    "summary_window_nonfinite": "badSummary.window.max_days=Infinity;",
+    "summary_window_range": "badSummary.window.min_days=8;",
+    "summary_status_child": "badSummary.status_strip.needs_you=null;",
+    "summary_loop": "badSummary.loop.stages=[];",
+    "summary_array": "badSummary.days={bad:true};",
+    "summary_array_member": "badSummary.timeline=[null];",
+    "summary_matrix": "badSummary.matrix.cells='bad';",
+    "summary_date_type": "badSummary.generated_at={bad:true};",
+    "map_nodes": "badMap.nodes={bad:true};",
+    "map_node_member": "badMap.nodes=[null];",
+    "map_edges": "badMap.edges='bad';",
+    "map_cards": "badMap.cards=[];",
+}
+
+
+@pytest.mark.parametrize("page", ["dashboard.html", "graph.html"])
+@pytest.mark.parametrize("delivery", ["saved", "live"])
+@pytest.mark.parametrize("case", BAD_PAGE_PAYLOADS)
+def test_actual_pages_reject_wrong_shapes_without_losing_last_success(page, delivery, case):
+    run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", json.dumps(page)) + r"""
+let badSummary=JSON.parse(JSON.stringify(fixture)),badMap=JSON.parse(JSON.stringify(map));
+MUTATE
+if(DELIVERY==='saved'){
+ context.location.protocol='file:';context.BRAIN_SUMMARY=badSummary;context.BRAIN_MAP=badMap;
+ boot();await flush();
+ const status=elements.get('data-source-status').textContent;
+ assert.match(status,/Data incomplete|Data unavailable/);
+ assert.ok(mounts.every(m=>BAD_KIND==='summary'?m.summary!==badSummary:m.map!==badMap),
+   'rejected source objects must never reach the renderer');
+ // Missing summary must not leave keyboard window handlers dereferencing it.
+ for(const fn of documentEvents.get('keydown')||[])fn({target:{tagName:'DIV'},key:'ArrowRight'});
+}else{
+ context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=map;
+ context.fetch=async p=>ok(p==='api/summary'?fixture:p==='api/map'?map:{read_only:true,server:{}});
+ boot();await flush();
+ const before=elements.get('data-source-status').textContent;
+ assert.match(before,/^Live responses/);const mountCount=mounts.length;
+ context.fetch=async p=>ok(p==='api/summary'?badSummary:p==='api/map'?badMap:{read_only:true,server:{}});
+ await [...activeIntervals.values()][0]();
+ const failed=elements.get('data-source-status').textContent;
+ assert.match(failed,/refresh failed \(invalid response\)/);
+ assert.equal(mounts.length,mountCount);
+ assert.equal(elements.get('asof').textContent,'2026-08-01');
+ context.fetch=async p=>ok(p==='api/summary'?fixture:p==='api/map'?map:{read_only:true,server:{}});
+ await [...activeIntervals.values()][0]();
+ assert.match(elements.get('data-source-status').textContent,/^Live responses/);
+ assert.doesNotMatch(elements.get('data-source-status').textContent,/refresh failed/);
+ assert.equal(mounts.length,mountCount);
+ await fire('pagehide');
+}
+""".replace("MUTATE", BAD_PAGE_PAYLOADS[case]).replace("DELIVERY", json.dumps(delivery))
+        .replace("BAD_KIND", json.dumps(case.split("_")[0])))
+
+
+def test_renderer_admission_bounds_and_inner_map_shapes():
+    run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
+const badSummary={...fixture,window:{...fixture.window,max_days:1000000000}};
+assert.equal(U.usableSummary(badSummary),false,'finite request timeouts cannot bound a billion-step synchronous window');
+for(const badMap of [
+ {...map,nodes:[{id:'a',type:'agent'}]},
+ {...map,nodes:[{id:'a',type:'agent',label:'a',date:7}]},
+ {...map,cards:{a:{one_line:7}}},
+ {...map,cards:{a:{page:7}}},
+])assert.equal(U.usableMap(badMap),false);
+assert.equal(U.usableSummary({...fixture,window:{...fixture.window,max_days:366}}),true);
+""")
+
+
+def test_actual_dashboard_keeps_malformed_attention_evidence_without_actions():
+    run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'dashboard.html'") + r"""
+context.location.protocol='file:';
+fixture.inbox=[{id:'P-90',kind:'proposal_review',title:'SAFE_HISTORY',detail:'source evidence',
+ surface:'framework',actionable:true,action_cmd:'WITHHELD_COMMAND'},null];
+fixture.attention={framework_actions:'malformed'};
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=map;
+let panel='';U.panel.open=(_,html)=>{panel=html;};boot();await flush();
+elements.get('inbox').children[0].children[0].listeners.click();
+assert.match(panel,/SAFE_HISTORY/);assert.match(panel,/view-only/);
+assert.doesNotMatch(panel,/ui-copy|data-review-link|WITHHELD_COMMAND/);
+""")
+
+
+def test_offline_graph_shim_retains_valid_saved_map_without_shared_ui():
+    run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
+delete context.UI;context.location.protocol='file:';
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=map;boot();await flush();
+assert.equal(mounts.length,1);assert.equal(mounts[0].summary,fixture);assert.equal(mounts[0].map,map);
+assert.equal(activeIntervals.size,0);assert.equal(timers.size,0);
+""")
+
+
+def test_admitted_projection_mounts_the_actual_map_renderer():
+    run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
+const frames=new Map();let frameId=0;
+context.requestAnimationFrame=fn=>{frames.set(++frameId,fn);return frameId;};
+context.cancelAnimationFrame=id=>frames.delete(id);
+context.getComputedStyle=()=>({position:'relative',getPropertyValue(){return '';}});
+context.removeEventListener=()=>{};context.document.removeEventListener=()=>{};
+const drawing=new Proxy({measureText:()=>({width:10})},{get:(obj,key)=>key in obj?obj[key]:(()=>{})});
+const canvas=element();canvas.getContext=()=>drawing;canvas.parentElement=element();
+canvas.clientWidth=1000;canvas.clientHeight=600;canvas.removeEventListener=()=>{};
+const originalElement=context.document.createElement;
+context.document.createElement=()=>({...originalElement(),remove(){}});
+const projected={...map,nodes:[{id:'agent-fixture',type:'agent',label:'fixture'},
+ {id:'skill-gate-check',type:'skill',label:'gate-check',pack:'core'}],
+ edges:[{src:'agent-fixture',dst:'skill-gate-check',type:'used',weight_e:1,weight_i:0}],cards:{}};
+assert.equal(U.usableSummary(fixture),true);assert.equal(U.usableMap(projected),true);
+vm.runInContext(fs.readFileSync(process.argv[1]+'/map.js','utf8'),context);
+const instance=context.BrainMap.mount(canvas,{summary:fixture,map:projected,windowDays:7,embedded:true});
+assert.equal(instance.agents.length,1);assert.equal(instance.skills.length,1);
+const [id,frame]=[...frames][0];frames.delete(id);frame(0);
+instance.destroy();assert.equal(frames.size,0);
 """)

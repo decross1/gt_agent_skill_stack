@@ -86,3 +86,27 @@ existing UI configuration; this change does not restart or rebind it. Existing
 server processes may retain older imported projector code until their owner
 performs a separately authorized update. Keep source review, publication, merge
 and running adoption as separate delivery states.
+# Dashboard detail and page refresh
+
+Dashboard detail retains the selected attention partition. External, backlog,
+candidate and unqualified legacy records stay descriptive; command copy and
+review links require an explicitly actionable framework entry in the framework
+partition. These display checks do not authenticate an actor or grant a verdict.
+
+Dashboard and Map paint saved data immediately. Summary, map, operations and the
+Dashboard review-link presence probe each have a five-second request deadline,
+including body decoding, and cancel on page exit. Failed refreshes retain the
+last successful payload and disclose its source and receipt time. Operations
+updates do not delay summary/map rendering. A visible HTTP page has one refresh
+cycle at a time; file snapshots have no polling. BFCache restoration resumes one
+page loop, and unchanged map content preserves the existing map instance.
+
+Offline DOM and fake-timer checks cover these behaviors. They do not establish
+visual layout, browser performance, service adoption or publication approval.
+
+Before painting or refreshing, Dashboard and Map check the field types required
+by their renderers. They use the admitted source object unchanged; invalid saved
+data stays unavailable and invalid live data leaves the last successful response
+in place with an error. The window stepper supports bounds from 1 through 366
+days; larger or malformed windows are rejected without altering canonical data.
+Malformed inbox and attention evidence still uses the existing view-only path.
