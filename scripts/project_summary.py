@@ -692,10 +692,14 @@ def _contract_agent(spawn_id: str, surface: str) -> str:
     return "claude-code-main" if surface == "framework" else "nara"
 
 
-def normalize_done_check(status: str, raw: str | None) -> str:
+def normalize_done_check(status: str, raw: object) -> str:
     if status == "spawned":
         return "pending"
-    text = (raw or "").strip()
+    # Structured consumer receipts remain in done_check_raw; they do not
+    # establish one of this view's scalar verification verdicts.
+    if not isinstance(raw, str):
+        return "unverified"
+    text = raw.strip()
     if text in ("pass", "fail", "inconclusive"):
         return text
     if text:
