@@ -68,6 +68,7 @@ from project_pages import (  # noqa: E402
     load_decisions,
     slugify,
 )
+from validate_audit_links import parse_recorded_datetime  # noqa: E402
 from blast_radius import blast_radius  # noqa: E402  (same conservative classifier as draft triage)
 
 SCHEMA_VERSION = 2
@@ -337,10 +338,13 @@ def load_runlog(path: Path) -> list[tuple[int, dict]]:
 
 
 def collapse_proposals(rows: list[dict]) -> dict[str, dict]:
-    """{pid: {first, latest, lifecycle[]}} — lifecycle time-ordered; the last
-    row's verdict is the proposal's current verdict ('open' if never set)."""
+    """Group lifecycle rows in physical append order, never timestamp order.
+
+    Timestamps describe an observation; they cannot move an earlier claim past
+    a later decision. The governing verdict is selected by final_verdict.
+    """
     by_pid: dict[str, list[dict]] = {}
-    for r in sorted(rows, key=lambda x: x.get("timestamp", "")):
+    for r in rows:
         pid = r.get("proposal_id")
         if pid:
             by_pid.setdefault(pid, []).append(r)
@@ -445,20 +449,30 @@ def _commit_changed_paths(repo_root: Path, commit: str) -> set[str] | None:
     return {line for line in res.stdout.splitlines() if line}
 
 
-def proposal_healing_state(p: dict, repo_root: Path = REPO) -> dict:
-    """Return accepted/enacted/verified states for one collapsed proposal.
+def _recorded_date(value: object) -> str | None:
+    """A valid source-local receipt date, else unknown; never event proof."""
+    parsed = parse_recorded_datetime(value)
+    return parsed.date().isoformat() if parsed is not None else None
 
-    An evidence row may be appended after the verdict with either or both of:
-    ``enactment={commit:<40-hex>, paths:[<repo-relative changed paths>]}`` and
-    ``verification={commit:<same 40-hex>, command:<nonempty>, result:"pass",
-    output_sha256:<64-hex>}``.  Missing or malformed evidence fails closed.
+
+def proposal_healing_state(p: dict, repo_root: Path = REPO) -> dict:
+    """Return the evidence states for one collapsed proposal.
+
+    An enactment row after acceptance names a commit and its changed paths.
+    A later verification receipt may report that commit, command, result and
+    output digest. This projector does not verify the output bytes or execution,
+    so receipts remain reported/pending and cannot establish verified/healed.
+    Missing or malformed structural evidence fails closed. 'Enacted' here is
+    a checked Git/path fact, not authenticated execution. Temporal metadata is
+    qualified independently: malformed/missing dates are None; valid dates are
+    source-local recorded dates, not proof of event time or verdict authority.
     """
     verdict_index = _proposal_verdict_index(p)
     verdict_row = (p["lifecycle"][verdict_index]
                    if verdict_index is not None else None)
     accepted = bool(verdict_row and verdict_row.get("verdict")
                     in ("accepted", "auto-accept"))
-    accepted_at = (_date_of(verdict_row.get("timestamp"))
+    accepted_at = (_recorded_date(verdict_row.get("timestamp"))
                    if accepted and verdict_row else None)
     result = {
         "accepted": {"state": "accepted" if accepted else "unknown",
@@ -471,11 +485,13 @@ def proposal_healing_state(p: dict, repo_root: Path = REPO) -> dict:
 
     enactment = None
     enactment_at = None
+    enactment_index = None
     is_skill_target = (p["first"].get("target_type") or "").strip() == "skill"
     required_contract = _target_skill_contract(p)
     # Evidence may be appended only after the governing acceptance.  Do not
     # allow a pre-accept claim to be retroactively promoted by a later verdict.
-    for row in reversed(p["lifecycle"][verdict_index + 1:]):
+    for index in range(len(p["lifecycle"]) - 1, verdict_index, -1):
+        row = p["lifecycle"][index]
         candidate = row.get("enactment")
         if not isinstance(candidate, dict):
             continue
@@ -491,7 +507,8 @@ def proposal_healing_state(p: dict, repo_root: Path = REPO) -> dict:
                          or required_contract not in changed))):
             continue
         enactment = {"commit": commit, "paths": paths}
-        enactment_at = _date_of(row.get("timestamp")) or None
+        enactment_at = _recorded_date(row.get("timestamp"))
+        enactment_index = index
         break
     if enactment is None:
         return result
@@ -499,7 +516,7 @@ def proposal_healing_state(p: dict, repo_root: Path = REPO) -> dict:
     result["enacted"] = {"state": "enacted", "at": enactment_at,
                           "evidence": enactment}
     result["verified"] = {"state": "pending"}
-    for row in reversed(p["lifecycle"][verdict_index + 1:]):
+    for row in reversed(p["lifecycle"][enactment_index + 1:]):
         candidate = row.get("verification")
         if not isinstance(candidate, dict):
             continue
@@ -511,9 +528,12 @@ def proposal_healing_state(p: dict, repo_root: Path = REPO) -> dict:
                 or not _OUTPUT_SHA256.fullmatch(candidate["output_sha256"])):
             continue
         result["verified"] = {
-            "state": "verified", "at": _date_of(row.get("timestamp")) or None,
-            "evidence": {"commit": candidate["commit"],
+            "state": "pending",
+            "reason": "output bytes and execution not independently verified",
+            "reported": {"at": _recorded_date(row.get("timestamp")),
+                         "commit": candidate["commit"],
                          "command": candidate["command"].strip(),
+                         "result": candidate["result"],
                          "output_sha256": candidate["output_sha256"]},
         }
         break
@@ -792,6 +812,13 @@ def build_agents_and_matrix(
     for ts, actor in actor_actions:
         _touch(actor["id"], ts, True, actor)
 
+    # Historical skill attributions need endpoints, without inventing run presence.
+    for at in attributions:
+        seen.setdefault(at["agent"], {
+            "first": "9999", "last": "", "explicit": 0, "default": 0,
+            "by_day": Counter(), "actor": project_actor({"agent_id": at["agent"]}),
+        })
+
     agents: list[dict] = []
     for aid, rec in seen.items():
         if rec["explicit"] and rec["default"]:
@@ -845,7 +872,8 @@ def build_agents_and_matrix(
             "skill_used > status-semantics > task_id pattern; plus harvest "
             "findings (→ nara) and spawn-contract skill subsets — those two "
             "and the lower rungs are INFERRED. e=explicit, i=inferred; "
-            "by_day buckets cover the trailing window only."
+            "by_day buckets cover the trailing window only. Registry entries "
+            "may be inferred references with no recorded runs or seen dates."
         ),
     }
     return agents, matrix, attributions
@@ -1310,7 +1338,7 @@ def build_loop(proposals: dict[str, dict], rules: list[dict],
     skills_healed = sum(1 for s in skills if s["governance"]["healed"])
     skills_pending = sum(
         1 for s in skills
-        if (s["governance"].get("healing") or {}).get("enacted", {}).get("state")
+        if (s["governance"].get("healing") or {}).get("verified", {}).get("state")
         == "pending"
     )
 
@@ -1370,6 +1398,7 @@ def build_loop(proposals: dict[str, dict], rules: list[dict],
             "proposals": {"open": lane.get("open", 0) + lane.get("human-review", 0),
                           "newest": newest_proposal or None},
             "review": {"accepted": verdicts.get("accepted", 0),
+                       "rejected": verdicts.get("rejected", 0),
                        "auto_accept": verdicts.get("auto-accept", 0),
                        "auto_reject": verdicts.get("auto-reject", 0),
                        "human_review": verdicts.get("human-review", 0)},
@@ -1431,7 +1460,9 @@ def build_timeline_and_incidents(
         if m:
             rule_by_extends[r["rule_id"]] = m.group(1)
 
-    # proposals — filed + each verdict row
+    # Classify recorded appends, not inferred outcomes. Receipt presence is a
+    # reported claim even when malformed or carrying a copied filing status;
+    # actual healing/verification checks remain in proposal_healing_state.
     for pid, p in proposals.items():
         title = p["first"].get("title", "") or pid
         target = (p["first"].get("target") or "").strip()
@@ -1439,21 +1470,34 @@ def build_timeline_and_incidents(
         for r in p["lifecycle"]:
             ts = r.get("timestamp", "")
             verdict = r.get("verdict")
-            _row(_date_of(ts), ts,
-                 "proposal_reviewed" if verdict else "proposal_filed",
-                 pid, title, project_actor(r)["id"],
+            if verdict:
+                kind = "proposal_reviewed"
+            elif "enactment" in r or "verification" in r:
+                kind = "proposal_evidence_reported"
+            elif r.get("status") == "open":
+                # Includes explicit promotion and re-filing rows, not just the
+                # first physical row. Never discard a recorded revision.
+                kind = "proposal_filed"
+            elif r.get("status") == "draft":
+                kind = "proposal_drafted"
+            else:
+                kind = "proposal_annotation_unknown"
+            _row(_date_of(ts), ts, kind,
+                 pid, r.get("title") or title, project_actor(r)["id"],
                  verdict=verdict, skill=skill)
-        latest = p["latest"]
-        if final_verdict(p) in ("auto-reject", "rejected"):
-            _incident(pid, "proposal_rejected", _date_of(latest.get("timestamp")),
-                      "med", f"{pid} auto-rejected: {title}",
-                      latest.get("verdict_reasoning") or "",
+        verdict_row = _proposal_verdict_row(p) or {}
+        verdict = final_verdict(p)
+        if verdict in ("auto-reject", "rejected"):
+            label = "auto-rejected" if verdict == "auto-reject" else "rejected"
+            _incident(pid, "proposal_rejected", _date_of(verdict_row.get("timestamp")),
+                      "med", f"{pid} {label}: {title}",
+                      verdict_row.get("verdict_reasoning") or "",
                       {"outcome": "proposed: " + title,
                        "expected": "proposal consistent with active rules",
-                       "actual": _trim(latest.get("verdict_reasoning"), 300),
-                       "correction_or_rule": latest.get("rule_cited")},
+                       "actual": _trim(verdict_row.get("verdict_reasoning"), 300),
+                       "correction_or_rule": verdict_row.get("rule_cited")},
                       "memory/brain/proposals.jsonl",
-                      skill=skill, rule=latest.get("rule_cited"))
+                      skill=skill, rule=verdict_row.get("rule_cited"))
 
     # decisions / corrections (framework + apparatus)
     rule_by_src = {(r.get("date"), r["title"].strip().lower()): r["rule_id"]
@@ -1555,8 +1599,9 @@ def build_timeline_and_incidents(
 def build_rules(rules: list[dict], proposals: dict[str, dict]) -> list[dict]:
     enforced: Counter = Counter()
     for pid, p in proposals.items():
-        if final_verdict(p) in ("auto-reject", "rejected") and p["latest"].get("rule_cited"):
-            enforced[p["latest"]["rule_cited"]] += 1
+        verdict_row = _proposal_verdict_row(p) or {}
+        if final_verdict(p) in ("auto-reject", "rejected") and verdict_row.get("rule_cited"):
+            enforced[verdict_row["rule_cited"]] += 1
     imp_re = re.compile(r"\*\*Imperative:\*\*\s*(.+?)(?:\n-\s\*\*|\Z)", re.DOTALL)
     ext_re = re.compile(r"extends\s+(?:the\s+)?\[\[([a-z0-9-]+)\]\]")
     out = []

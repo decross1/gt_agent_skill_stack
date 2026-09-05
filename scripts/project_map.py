@@ -481,14 +481,23 @@ def build_map() -> dict:
             touch_agent(who, r.get("gated_at") or "")
 
     # ---- agent nodes + used edges -------------------------------------------
+    # Preserve supported historical attributions even without consumer logs.
+    # Register their endpoints without turning references into observed runs.
+    for agent, _skill in cells:
+        agent_seen.setdefault(agent, {"first": "9999", "last": "", "rows": 0})
     for agent, rec in sorted(agent_seen.items()):
         nid = f"agent-{slugify(agent)}"
         first = date_of(rec["first"]) if rec["first"] != "9999" else ""
         add_node(nid, "agent", agent, date=first or None)
-        add_card(nid, agent, first,
-                 f"{rec['rows']} ledger rows · first seen {first or '?'} · "
-                 f"last {date_of(rec['last']) or '?'}",
-                 "run logs + ledgers (attribution ladder)")
+        if rec["rows"]:
+            add_card(nid, agent, first,
+                     f"{rec['rows']} ledger rows · first seen {first or '?'} · "
+                     f"last {date_of(rec['last']) or '?'}",
+                     "run logs + ledgers (attribution ladder)")
+        else:
+            add_card(nid, agent, "",
+                     "Historical inferred skill references · no recorded run presence",
+                     "harvest/contract references (inferred attribution)")
     for (agent, skill), c in sorted(cells.items()):
         add_edge(f"agent-{slugify(agent)}", skill_id[skill], "used",
                  e=c["e"], i=c["i"], agent=agent)
