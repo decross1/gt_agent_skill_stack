@@ -16,14 +16,20 @@
 
   function attentionItems(data) {
     const keys = ["framework_actions", "external_acknowledgements", "backlog_history"];
+    const invalidRows = values => values.filter(value => !object(value)).length;
+    if (!Object.prototype.hasOwnProperty.call(data, "attention")) return {
+      note: "Legacy inbox projection · view-only; governed attention partitions unavailable",
+      malformed: invalidRows(data.inbox), error: "", items: data.inbox.filter(object).map(item =>
+        ({...item, actionable: false, action_cmd: null, attentionGroup: "legacy inbox"}))};
     const canonical = object(data.attention) && keys.every(key => Array.isArray(data.attention[key]));
-    if (!canonical) return {note: "Legacy inbox projection · view-only; governed attention partitions unavailable", items:
-      data.inbox.filter(object).map(item => ({...item, actionable: false, action_cmd: null, attentionGroup: "legacy inbox"}))};
-    return {note: "Supplied attention partitions; external acknowledgements are view-only", items: keys.flatMap(key =>
-      data.attention[key].filter(object).map(item => {
-        const external = key === "external_acknowledgements" || item.surface !== "framework";
+    if (!canonical) return {note: "Attention unavailable: supplied partitions are malformed; raw inbox not used",
+      malformed: 0, error: "Malformed attention partitions could not be displayed; this view is incomplete.", items: []};
+    return {note: "Supplied attention partitions; external acknowledgements are view-only",
+      malformed: keys.reduce((sum, key) => sum + invalidRows(data.attention[key]), 0), error: "",
+      items: keys.flatMap(key => data.attention[key].filter(object).map(item => {
+        const viewOnly = key !== "framework_actions" || item.surface !== "framework";
         return {...item, attentionGroup: key.replaceAll("_", " "),
-          ...(external ? {actionable: false, action_cmd: null} : {})};
+          ...(viewOnly ? {actionable: false, action_cmd: null} : {})};
       }))};
   }
 
@@ -57,7 +63,7 @@
       loading: false, hash: null, hashKind: data ? "snapshot JSON value" : null};
     let revision = 0, controller = null, disposed = false;
     if (data) digest(runtime, JSON.stringify(data)).then(hash => {
-      if (revision === 0 && !disposed) { state.hash = hash; changed(state); }
+      if (!disposed && state.data === data && state.source === "snapshot") { state.hash = hash; changed(state); }
     });
     state.refresh = async function () {
       if (disposed) return false;
@@ -165,10 +171,10 @@
     const tr = (host, values) => { const row = el("tr"); values.forEach(value => row.appendChild(el("td", value))); host.appendChild(row); };
     let store;
     const stateLabel = state => !state.data ? "Data unavailable" : state.source === "snapshot" ? "Snapshot data" : state.error ? "Cached response · refresh failed" : "Live response received";
-    function showSource(state, malformed) {
+    function showSource(state, malformed, attentionError) {
       const label = stateLabel(state);
       get("data-state").textContent = label + (state.loading ? " · checking for an update…" : "");
-      const warning = (state.error || "") + (malformed ? " " + malformed + " malformed rows could not be displayed; this view is incomplete." : "");
+      const warning = (state.error || "") + (malformed ? " " + malformed + " malformed rows could not be displayed; this view is incomplete." : "") + (attentionError ? " " + attentionError : "");
       const notice = (state.loading ? "Checking for a summary update" : label + (state.checkedAt ? "; checked " + state.checkedAt : "")) + (warning ? ". " + warning : "");
       if (get("data-announcement").textContent !== notice) get("data-announcement").textContent = notice;
       get("data-warning").textContent = warning;
@@ -199,8 +205,9 @@
     function render(state) {
       const hosts = ["activity-list", "actors-list", "usage-list", "skills-list", "proposals-list", "candidates-list", "blockers-list"];
       const d = state.data;
-      const malformed = d ? [d.skills, d.agents, d.timeline, d.matrix.cells, d.loop.chains, d.inbox].reduce((n, values) => n + values.filter(value => !object(value)).length, 0) : 0;
-      showSource(state, malformed);
+      const attention = d ? attentionItems(d) : null;
+      const malformed = d ? [d.skills, d.agents, d.timeline, d.matrix.cells, d.loop.chains].reduce((n, values) => n + values.filter(value => !object(value)).length, attention.malformed) : 0;
+      showSource(state, malformed, attention && attention.error);
       // Fresh response metadata alone must not replace controls being read.
       const key = JSON.stringify([d ? {...d, generated_at: null} : null,
         get("activity-search").value, get("actor-filter").value, get("skill-filter").value]);
@@ -219,7 +226,6 @@
         hosts.forEach(id => empty(get(id), "Evidence unavailable. " + recovery + "; absence is not a successful outcome."));
         return;
       }
-      const attention = attentionItems(d);
       const agents = new Map(d.agents.filter(object).map(agent => [agent.id, agent]));
       options("actor-filter", d.agents.filter(object).map(a => a.id).concat(d.timeline.filter(object).map(t => t.agent), d.matrix.cells.filter(object).map(c => c.agent)), "All recorded actors");
       options("skill-filter", d.skills.filter(object).map(skill => skill.name).concat(
@@ -247,11 +253,15 @@
       const actorRows = d.agents.filter(object).filter(row => (!actor || row.id === actor) && matches(row.id));
       if (!actorRows.length) empty(get("actors-list"), "No matching actor records supplied.");
       else {
-        const body = table(get("actors-list"), ["Actor label", "Registry evidence", "Recorded observation span"], "Actor labels are unauthenticated; registry presence is not liveness");
+        const body = table(get("actors-list"), ["Actor label", "Registry evidence", "Recorded observation span", "Reported actor metadata"], "Actor labels are unauthenticated; registry presence is not liveness");
         actorRows.forEach(row => {
           const referenceOnly = row.evidence === "inferred" && !row.first_seen && !row.last_seen && object(row.runs_by_day) && !Object.keys(row.runs_by_day).length;
+          const crypto = row.cryptographically_authenticated === false ? "no (assertion only)"
+            : row.cryptographically_authenticated === true ? "unsupported claim" : "unknown";
+          const actorMetadata = "source: " + known(row.actor_source) + " · type: " + known(row.actor_type) +
+            " · reported authentication: " + known(row.authentication) + " · cryptographic authentication: " + crypto;
           tr(body, [known(row.id), known(row.evidence), referenceOnly ? "Reference only · no recorded run presence; observation time unavailable" :
-            (recordedTime(row.first_seen) || "Unknown first observation") + " → " + (recordedTime(row.last_seen) || "Unknown last observation")]);
+            (recordedTime(row.first_seen) || "Unknown first observation") + " → " + (recordedTime(row.last_seen) || "Unknown last observation"), actorMetadata]);
         });
         source(get("actors-list"), "summary.agents; registry evidence does not determine the provenance of each timeline event");
       }

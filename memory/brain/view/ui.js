@@ -36,8 +36,9 @@
         const current = ++request;
         let data, error = "";
         try {
-          const response = await fetch(path, { cache: "no-store" });
-          if (!response.ok) error = "HTTP " + response.status;
+          const response = await fetch(path, { cache: "no-store", redirect: "error" });
+          if (response.redirected) error = "Unexpected projection redirect rejected";
+          else if (!response.ok) error = "HTTP " + response.status;
           else {
             data = await response.json();
             if (!data || !valid(data)) error = "invalid response";
@@ -57,6 +58,19 @@
     return state;
   }
 
+  function generationTime(value) {
+    if (typeof value !== "string") return null;
+    const match = /^(\d{4})-(\d{2})-(\d{2})(?:[T ](\d{2}):(\d{2}):(\d{2})(?:\.\d+)?(Z|[+-]\d{2}:\d{2})?)?$/.exec(value);
+    if (!match || !match[7]) return null;
+    const [year, month, day] = match.slice(1, 4).map(Number);
+    const leap = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+    const days = [31, leap ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    if (year < 1 || month < 1 || month > 12 || day < 1 || day > days[month - 1]) return null;
+    if (match[4] && (Number(match[4]) > 23 || Number(match[5]) > 59 || Number(match[6]) > 59)) return null;
+    if (match[7] && match[7] !== "Z" && (Number(match[7].slice(1, 3)) > 23 || Number(match[7].slice(4)) > 59)) return null;
+    return value;
+  }
+
   function renderDataStatus(host, summary, map, announcement) {
     const mode = s => !s.data ? "unavailable" : s.source === "live"
       ? (s.error ? "cached live response" : "live response") : "snapshot";
@@ -68,7 +82,7 @@
       : modes[0] === "cached live response" ? "Cached live data" : "Snapshot data";
     const describe = (name, state) => {
       const raw = state.data && state.data.generated_at;
-      const ts = typeof raw === "string" && /(?:Z|[+-]\d{2}:\d{2})$/.test(raw) ? Date.parse(raw) : NaN;
+      const ts = generationTime(raw) ? Date.parse(raw) : NaN;
       const generation = Number.isFinite(ts) ? "generated " + new Date(ts).toISOString() : "generation time unavailable";
       return name + ": " + mode(state) + (state.data ? " · " + generation : "") +
         (state.receivedAt ? " · last success " + state.receivedAt : "") +

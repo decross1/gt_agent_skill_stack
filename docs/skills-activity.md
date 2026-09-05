@@ -1,6 +1,6 @@
 # Skills & Activity
 
-Open **Skills & Activity** from the existing dashboard or map. The page is
+Open **Activity** from the existing dashboard or map to reach **Skills & Activity**. The page is
 `memory/brain/view/activity.html`; it uses the existing summary projection and
 local visual tokens. It has no mutation endpoint or model dependency.
 
@@ -55,13 +55,20 @@ future-looking dates, do not change physical proposal append order or authority.
 Contradictory supplied lifecycle states remain visible for owner reconciliation.
 
 Source references are evidence pointers. Activity uses the supplied framework,
-external and backlog attention partitions. External records remain view-only
-and their action commands are withheld. A legacy or incomplete partition falls
-back to a labeled, view-only inbox with no commands. Framework action commands
+external and backlog attention partitions. External and backlog records remain
+view-only and their action commands are withheld. If attention partitions are absent, a
+legacy inbox remains visible with no commands. Present but malformed partitions
+are reported as unavailable; raw inbox data does not substitute for them.
+Malformed rows in the chosen partitions are counted in the warning. Actor
+records also show their supplied source, type and authentication labels; a
+cryptographic claim remains unsupported by this page. Framework action commands
 from supported partitions appear only as reported text; the page does not execute
 them. The existing dashboard retains its operations and grouped attention bands.
 Its operations counter labels verification receipts as reported counts per
-proposal, separate from independently verified execution or output bytes. Decisions use
+proposal, separate from independently verified execution or output bytes. The
+receipt qualification appears in the cell heading so a compact value cannot
+hide it. Dashboard and map projection requests, and the dashboard operations
+request, reject redirects; failed requests retain their prior data. Decisions use
 the existing separately governed review workflow. The page neither accepts
 proposals nor installs skills or changes actor authority.
 

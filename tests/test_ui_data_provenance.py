@@ -153,6 +153,22 @@ def run_js(code):
     assert result.returncode == 0, result.stdout + result.stderr
 
 
+
+CASES.update({
+ "redirects_preserve_prior_projection_source": r"""
+const s=U.dataSource(summary,validSummary);let options;
+context.fetch=async(_path,opts)=>{options=opts;return {...ok(summary),redirected:true};};
+assert.equal(await s.refresh('api/summary'),false);assert.equal(options.redirect,'error');
+assert.equal(s.source,'snapshot');assert.equal(s.data,summary);assert.match(s.error,/redirect/i);
+""",
+ "impossible_generation_dates_are_not_normalized": r"""
+for(const generated_at of ['2026-02-30T00:00:00Z','2026-08-01T24:00:00Z','2026-08-01T00:00:00+01:99']){
+ const s=U.dataSource({...summary,generated_at},validSummary),m=U.dataSource(map,validMap);
+ assert.match(show(s,m),/Summary: snapshot · generation time unavailable/);
+}
+""",
+})
+
 @pytest.mark.parametrize("case", CASES)
 def test_source_provenance_transitions(case):
     run_js(CASES[case])
@@ -202,6 +218,7 @@ assert.equal(mounts[0].summary,fixture);
 if (PAGE==='dashboard.html') {
  const ops=elements.get('operations').innerHTML;
  assert.match(ops,/reported verification receipts 1/);
+ assert.match(ops,/<div class="k">reported verification receipts/);
  assert.match(ops,/not independently verified/);
  assert.doesNotMatch(ops,/ · V1|verified 1/);
  const review=elements.get('loopstrip').children.find(e=>(e.title||'').includes('auto-reject'));
@@ -230,3 +247,13 @@ assert.match(status.textContent,/^Cached live data/);
 assert.match(status.textContent,/refresh failed/);
 assert.equal(mounts.length,2);
 """.replace("PAGE", json.dumps(page)))
+
+
+def test_operations_request_rejects_redirected_local_facts():
+    run_js(r"""
+const html=fs.readFileSync(process.argv[1]+'/dashboard.html','utf8');
+const helper=html.slice(html.indexOf('function fetchLive(path, valid)'),html.indexOf('// Render signature ='));
+vm.runInContext(helper+';globalThis.reviewFetchOperations=fetchLiveOperations;',context);
+let options;context.fetch=async(_path,opts)=>{options=opts;return {...ok({read_only:true,server:{},proposals:{counts:{value:{verified:9}}}}),redirected:true};};
+assert.equal(await context.reviewFetchOperations(),null);assert.equal(options.redirect,'error');
+""")

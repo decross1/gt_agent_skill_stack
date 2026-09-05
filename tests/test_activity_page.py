@@ -378,19 +378,60 @@ assert.doesNotMatch(content('blockers-list'),/EXTERNAL_COMMAND_MUST_NOT_RENDER/)
 assert.match(content('blockers-list'),/review fixture evidence; do not execute this text/);
 assert.ok($('skill-filter').children.some(e=>e.value==='external-only'));
 """,
-    "legacy_or_incomplete_attention_stays_visible_without_commands": r"""
-for(const attention of [undefined,{framework_actions:[]}]){
- const d=fixture();d.attention=attention;context.BRAIN_SUMMARY=d;
- boot();await settle();
- assert.match(content('blockers-list'),/Legacy inbox.*view-only/);
- assert.match(content('blockers-list'),/Missing independent verification/);
- assert.doesNotMatch(content('blockers-list'),/review fixture evidence; do not execute this text/);
-}
+    "legacy_attention_stays_visible_without_commands": r"""
+const d=fixture();delete d.attention;context.BRAIN_SUMMARY=d;
+boot();await settle();
+assert.match(content('blockers-list'),/Legacy inbox.*view-only/);
+assert.match(content('blockers-list'),/Missing independent verification/);
+assert.doesNotMatch(content('blockers-list'),/review fixture evidence; do not execute this text/);
+""",
+    "malformed_attention_does_not_fall_back_to_raw_inbox": r"""
+context.BRAIN_SUMMARY.attention={framework_actions:[]};
+boot();await settle();
+assert.match(content('blockers-list'),/Attention unavailable.*malformed/);
+assert.doesNotMatch(content('blockers-list'),/Missing independent verification/);
+assert.match(content('data-warning'),/Malformed attention partitions/);
+""",
+    "malformed_partition_rows_are_disclosed": r"""
+context.BRAIN_SUMMARY.attention={framework_actions:[null,9],external_acknowledgements:[],backlog_history:[]};
+boot();await settle();assert.match(content('data-warning'),/2 malformed rows/);
+""",
+    "published_actor_metadata_stays_asserted_not_authenticated": r"""
+context.BRAIN_SUMMARY.agents=[
+ {id:'oracle',evidence:'explicit',actor_source:'structured_actor',actor_type:'agent',authentication:'ui-asserted',cryptographically_authenticated:false},
+ {id:'legacy-unverified:derrick',evidence:'inferred',actor_source:'legacy_scalar',actor_type:'unknown',authentication:'unverified'},
+ {id:'malformed-claim',authentication:'claimed-proof',cryptographically_authenticated:true}];
+boot();await settle();
+assert.match(content('actors-list'),/Reported actor metadata/);
+assert.match(content('actors-list'),/structured_actor.*agent.*ui-asserted.*no \(assertion only\)/);
+assert.match(content('actors-list'),/legacy-unverified:derrick.*legacy_scalar/);
+assert.match(content('actors-list'),/unsupported claim/);
+assert.doesNotMatch(content('actors-list'),/cryptographic authentication: true/);
 """,
     "external_partition_cannot_regain_command_from_malformed_copy": r"""
 context.BRAIN_SUMMARY.attention={framework_actions:[],external_acknowledgements:[{id:'bad-copy',title:'Still external',actionable:true,action_cmd:'EXTERNAL_COMMAND_MUST_NOT_RENDER'}],backlog_history:[]};
 boot();await settle();assert.match(content('blockers-list'),/Still external/);
 assert.doesNotMatch(content('blockers-list'),/EXTERNAL_COMMAND_MUST_NOT_RENDER/);
+""",
+})
+
+
+CASES.update({
+ "backlog_commands_remain_withheld": r"""
+context.BRAIN_SUMMARY.attention={framework_actions:[],external_acknowledgements:[],backlog_history:[{id:'backlog-1',surface:'framework',title:'Held candidate',actionable:true,action_cmd:'BACKLOG_COMMAND_MUST_NOT_RENDER'}]};
+boot();await settle();assert.match(content('blockers-list'),/Held candidate/);
+assert.match(content('blockers-list'),/backlog history.*view-only/);
+assert.doesNotMatch(content('blockers-list'),/BACKLOG_COMMAND_MUST_NOT_RENDER/);
+""",
+ "failed_initial_refresh_retains_snapshot_digest": r"""
+let finishDigest;const snapshot=context.BRAIN_SUMMARY;
+const expected=require('node:crypto').createHash('sha256').update(JSON.stringify(snapshot)).digest();
+context.crypto={subtle:{digest:()=>new Promise(resolve=>{finishDigest=resolve;})}};
+context.location.protocol='http:';context.fetch=async()=>({ok:false,status:503});boot();
+await context.activityStore.refresh();finishDigest(Uint8Array.from(expected).buffer);await settle();
+assert.equal(context.activityStore.source,'snapshot');assert.equal(context.activityStore.data,snapshot);
+assert.equal(context.activityStore.hash,expected.toString('hex'));
+assert.equal(context.activityStore.hashKind,'snapshot JSON value');
 """,
 })
 

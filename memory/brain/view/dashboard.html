@@ -147,7 +147,7 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
 <header>
   <div class="brand">brain<span class="sep">·</span><span class="sub">governance</span></div>
   <nav class="views" title="view" aria-label="Brain views">
-    <a class="v on" href="dashboard.html" aria-current="page">Dashboard</a><a class="v" href="graph.html">Map</a><a class="v" href="activity.html">Skills &amp; Activity</a><a class="v" href="proposal_review.html">Review</a>
+    <a class="v on" href="dashboard.html" aria-current="page">Dashboard</a><a class="v" href="graph.html">Map</a><a class="v" href="activity.html">Activity</a><a class="v" href="proposal_review.html">Review</a>
   </nav>
   <div class="hspace"></div>
   <div class="stepper" id="stepper"></div>
@@ -364,7 +364,7 @@ function renderOperations() {
          "seconds since static summary.json; live dashboard data is separate") +
     cell("consumer cursor", {value: cursorText, status: stat(cursor), provenance: "cursor"},
          cursor && cursor.uncertainty) +
-    cell("proposal evidence counts", {value: "accepted " + (c.accepted ?? "?") + " · enacted " + (c.enacted ?? "?") + " · reported verification receipts " + (c.verified ?? "?"),
+    cell("reported verification receipts / proposal evidence", {value: "accepted " + (c.accepted ?? "?") + " · enacted " + (c.enacted ?? "?") + " · reported verification receipts " + (c.verified ?? "?"),
                                   status: stat(lifecycle), provenance: "proposal evidence"},
          "Counts are per proposal. Verification receipts are structurally reported; execution and output bytes are not independently verified. " + ((lifecycle && lifecycle.uncertainty) || "")) +
     cell("repo", {value: (f(O.repo && O.repo.branch) || "detached") + " · " + f(O.repo && O.repo.head) +
@@ -922,8 +922,8 @@ async function refreshData() {
 function fetchLive(path, valid) {
   if (location.protocol !== "http:" && location.protocol !== "https:")
     return Promise.resolve(null);
-  return fetch(path, { cache: "no-store" })
-    .then(r => (r.ok ? r.json() : null))
+  return fetch(path, { cache: "no-store", redirect: "error" })
+    .then(r => (r.ok && !r.redirected ? r.json() : null))
     .then(d => (d && valid(d) ? d : null))
     .catch(() => null);
 }
