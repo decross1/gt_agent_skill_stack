@@ -377,7 +377,10 @@ function renderOperations() {
 
 /* ---------- needs-you inbox ---------- */
 const RANK = { high: 0, med: 1, low: 2 };
-const sorted = () => (D.inbox || []).slice()
+const attentionKeys = ["framework_actions", "external_acknowledgements", "backlog_history"];
+const attentionItem = it => it && typeof it === "object" && !Array.isArray(it)
+  ? it : { title: "Malformed attention record", detail: String(it), actionable: false };
+const sorted = (rows = D.inbox) => (Array.isArray(rows) ? rows : []).map(attentionItem)
   // null-safe age tiebreak: live-reconciled items can carry age_days=null (no
   // timestamp from the API); treat null as oldest so it never yields NaN.
   .sort((a, b) => RANK[a.severity] - RANK[b.severity] ||
@@ -390,7 +393,8 @@ const sorted = () => (D.inbox || []).slice()
 // gracefully. P-NNN proposal id lives in it.id.
 const isReviewItem = it =>
   reviewUiPresent !== false &&
-  it && it.kind === "proposal_review" && it.actionable !== false && /^P-\d+$/.test(it.id || "");
+  it && it.kind === "proposal_review" && it.surface === "framework" &&
+  it.actionable === true && /^P-\d+$/.test(it.id || "");
 let reviewUiPresent = null; // null=unknown, true/false once probed
 function probeReviewUi() {
   if (reviewUiPresent !== null) return;
@@ -413,11 +417,23 @@ function reviewLink(it, cls) {
     '" title="open the dynamic review for ' + esc(it.id) + '">Review &rarr;</a>';
 }
 
+function attentionPartitions() {
+  const a = D.attention;
+  return a && typeof a === "object" && !Array.isArray(a) &&
+    attentionKeys.every(key => Array.isArray(a[key])) ? a : null;
+}
+function frameworkAction(it, key, attention) {
+  return !!attention && key === "framework_actions" && it.surface === "framework" &&
+    it.actionable === true && typeof it.id === "string" && !!it.id &&
+    typeof it.kind === "string" && !!it.kind && it.kind !== "candidate_review" &&
+    !it.candidate && !["external_acknowledgements", "backlog_history"].some(partition =>
+      attention[partition].some(other => other && other.id === it.id));
+}
 function renderInbox() {
   const fallback = sorted();
-  const attention = D.attention || {
+  const attention = attentionPartitions() || {
     framework_actions: fallback.filter(it => it.surface === "framework" && it.kind !== "candidate_review"),
-    external_acknowledgements: fallback.filter(it => it.surface !== "framework"),
+    external_acknowledgements: fallback.filter(it => it.surface !== "framework" && it.kind !== "candidate_review"),
     external_groups: [],
     backlog_history: fallback.filter(it => it.kind === "candidate_review"),
     totals: { all: fallback.length },
@@ -431,7 +447,7 @@ function renderInbox() {
   const host = $("inbox");
   host.innerHTML = "";
   groups.forEach(([key, label, description]) => {
-    const list = attention[key] || [];
+    const list = attention[key].map(attentionItem);
     const section = document.createElement("div");
     section.className = "attention-group";
     section.innerHTML = '<div class="attention-head"><span class="k">' + esc(label) + '</span>' +
@@ -451,11 +467,12 @@ function renderInbox() {
           " · blast radius: <strong>" + esc(candidate.blast_radius || "unknown") + "</strong>" +
           " · hold: " + esc(candidate.hold_reason || "automatic graduation is closed") +
           " · next route: " + esc(candidate.authorized_next_route || "attributable steward review only") + "</div>";
-        card.addEventListener("click", () => openInboxKind(it.kind));
+        card.addEventListener("click", () => openInboxKind(it.kind, key));
         section.appendChild(card);
       });
     } else if (key === "external_acknowledgements") {
-      const grouped = (attention.external_groups && attention.external_groups.length)
+      const grouped = (Array.isArray(attention.external_groups) && attention.external_groups.length &&
+        attention.external_groups.every(g => g && typeof g === "object"))
         ? attention.external_groups
         : (() => {
           const byKind = new Map();
@@ -474,7 +491,7 @@ function renderInbox() {
           '<span class="kind">' + esc(group.kind) + '</span><span class="cnt">×' + Number(group.count || 0) + '</span>' +
           '<span class="ititle">' + esc(representative.title || representative.id || "external acknowledgement") + '</span>' +
           '<span class="age">' + U.fmtAge(representative.age_days) + "</span>";
-        row.addEventListener("click", () => openInboxKind(group.kind));
+        row.addEventListener("click", () => openInboxKind(group.kind, key));
         section.appendChild(row);
       });
     } else {
@@ -485,7 +502,7 @@ function renderInbox() {
         row.innerHTML = '<span class="dot" style="background:' + U.sevColor(it.severity) + '"></span>' +
           '<span class="kind">' + esc(it.kind) + '</span><span class="ititle">' + esc(it.title) + '</span>' +
           '<span class="age">' + U.fmtAge(it.age_days) + "</span>";
-        row.addEventListener("click", () => openInboxKind(it.kind));
+        row.addEventListener("click", () => openInboxKind(it.kind, key));
         section.appendChild(row);
       });
     }
@@ -493,8 +510,12 @@ function renderInbox() {
   });
 }
 
-function openInboxKind(kind) {
-  const list = sorted().filter(it => it.kind === kind);
+function openInboxKind(kind, key) {
+  const attention = attentionPartitions();
+  const contextual = attention && attentionKeys.includes(key);
+  // Raw/legacy detail remains descriptive. A kind alone never conveys the
+  // partition's action eligibility, especially when several lanes share it.
+  const list = sorted(contextual ? attention[key] : D.inbox).filter(it => it.kind === kind);
   const html = list.map(it => {
     const inc = (D.incidents || []).find(x => x.id === it.id);
     return '<div class="ui-item">' +
@@ -504,10 +525,10 @@ function openInboxKind(kind) {
       '<span class="ui-num">' + U.fmtAge(it.age_days) + "</span></div>" +
       '<div class="ui-title">' + esc(it.title) + "</div>" +
       (it.detail ? '<div class="ui-note">' + esc(it.detail) + "</div>" : "") +
-      (it.actionable === false
-        ? '<div class="ui-note" style="opacity:.65">view-only — resolve in the apparatus UI</div>'
+      (!frameworkAction(it, key, attention)
+        ? '<div class="ui-note" style="opacity:.65">view-only — use the record’s governed route; no action granted here</div>'
         : (isReviewItem(it) ? '<div class="ui-row" style="min-height:24px">' + reviewLink(it, "rvw") + "</div>" : "") +
-          (it.action_cmd ? U.copyBlock(it.action_cmd) : "")) +
+          (typeof it.action_cmd === "string" && it.action_cmd ? U.copyBlock(it.action_cmd) : "")) +
       '<div class="ui-row" style="min-height:20px"><span class="ui-num">' + esc(it.surface || "") +
       " · " + esc(it.source || "") + "</span><span style='flex:1'></span>" +
       (it.link && it.link.skill ? '<span class="ui-chip" data-skill="' + esc(it.link.skill) + '">' + esc(it.link.skill) + "</span>" : "") +
