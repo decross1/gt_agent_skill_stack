@@ -1,0 +1,11 @@
+[Unit]
+Description=Restart Brain after a clean main deployment
+
+[Service]
+Type=oneshot
+TimeoutStartSec=60
+WorkingDirectory=%h/projects/agent_system
+ExecStart=/usr/bin/python3 %h/projects/agent_system/scripts/brain_deploy.py --source %h/projects/agent_system --state %h/.local/state/brain-server/brain-deploy-state.json --branch main --service brain.service
+StandardOutput=append:%h/projects/agent_system/run_state/brain-deploy.log
+StandardError=append:%h/projects/agent_system/run_state/brain-deploy.log
+Environment=PYTHONUNBUFFERED=1
