@@ -49,6 +49,26 @@ uses private profiles and distinct WebDriver/WebSocket ports. The probe records
 actual navigation, console/network events and screenshots without calling
 application render functions or injecting projection globals.
 
+Graph success in HTTP, file mode and the saved-only fallback requires the
+renderer-owned `canvas.__brainmap` marker captured as `canvas.rendererMounted`.
+A default nonzero canvas, valid data and a hidden empty-state note do not prove
+that the renderer mounted. The marker records a completed mount; it is not a
+pixel-correctness, authenticated-identity or scientific-validation claim.
+
+`metadata.json` separates the executing probe's `runner.path` and `runner.sha256`
+from the tested checkout's `source_head`, copied `source_assets` hashes and
+private `fixture_assets` hashes. The runner fingerprint reads its own file before
+browser startup. It is a local file identity, not signed execution attestation;
+keep that file fixed during a run and preserve any wrapper separately.
+
+A successful `--phase baseline --case normal` records `baseline-observed`.
+`baseline-red-reproduced` requires at least one observed held-resource transition
+from unchecked to a terminal result after release, and no failed case or probe
+error. A loading label after release is not terminal. Normal-only or synthetic
+pagehide-only observations cannot establish that a parser-blocking hold was
+reproduced; a mixed run with a failed hold remains `not-established`. These labels
+describe the evidence collected, not a requirement to make every baseline fail.
+
 A hanging-resource fixture must hold a response longer than the startup
 budget, sample the visible failure, then release it and verify the failure
 remains terminal with no API requests. Test every dependency on both pages,
