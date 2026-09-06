@@ -738,7 +738,7 @@ def build_contracts(consumer: Path | None, today: str) -> list[dict]:
             "task": first_row.get("child_task_id")
                     or _trim(contract.get("task_statement"), 80),
             "done_check": normalize_done_check(status, raw_check),
-            "done_check_raw": (raw_check or None),
+            "done_check_raw": raw_check,
             "skill_subset": list(contract.get("skill_subset") or []),
             "authority_cap": _trim(contract.get("authority_cap"), 200) or None,
             "budget": contract.get("budget") or {},

@@ -14,8 +14,18 @@ def test_unsupported_check_shapes_are_unverified(raw):
     assert ps.normalize_done_check("completed", raw) == "unverified"
 
 
-@pytest.mark.parametrize("raw", [{"identity": "pass", "review": "pending"}, ["pass"], 7, True])
-def test_consumer_contract_preserves_structured_receipt_without_promoting_it(tmp_path, monkeypatch, raw):
+@pytest.mark.parametrize("raw,expected", [
+    ({"identity": "pass", "review": "pending"}, "unverified"),
+    (["pass", {"review": "pending"}], "unverified"),
+    ({"toString": "not callable", "detail": "<script>&\"'"}, "unverified"),
+    (7, "unverified"), (True, "unverified"), ({}, "unverified"),
+    ([], "unverified"), (0, "unverified"), (False, "unverified"),
+    ("", "unverified"), (None, "unverified"),
+    ("pass", "pass"), (" fail ", "fail"), ("inconclusive", "inconclusive"),
+    ("a reported explanation", "freeform"),
+])
+@pytest.mark.parametrize("status", ["completed", "spawned"])
+def test_consumer_contract_preserves_receipt_without_promoting_it(tmp_path, monkeypatch, raw, expected, status):
     framework = tmp_path / "framework.jsonl"
     framework.write_text("")
     monkeypatch.setattr(ps, "SPAWN_LEDGER", framework)
@@ -26,15 +36,16 @@ def test_consumer_contract_preserves_structured_receipt_without_promoting_it(tmp
         {"spawn_id": "synthetic-check", "timestamp": "2026-09-03T00:00:00Z",
          "status": "spawned", "child_task_id": "synthetic-task", "contract": {}},
         {"spawn_id": "synthetic-check", "timestamp": "2026-09-03T01:00:00Z",
-         "status": "completed", "result": {"done_condition_check": raw}},
+         "status": status, "result": {"done_condition_check": raw}},
     ]
     source.write_text("".join(json.dumps(row) + "\n" for row in rows))
     before = source.read_bytes()
     contracts = ps.build_contracts(consumer, "2026-09-05")
     assert len(contracts) == 1
-    assert contracts[0]["status"] == "completed"
-    assert contracts[0]["done_check"] == "unverified"
+    assert contracts[0]["status"] == status
+    assert contracts[0]["done_check"] == ("pending" if status == "spawned" else expected)
     assert contracts[0]["done_check_raw"] == raw
+    assert type(contracts[0]["done_check_raw"]) is type(raw)
     assert source.read_bytes() == before
 
 
