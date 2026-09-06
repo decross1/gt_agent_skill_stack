@@ -11,7 +11,8 @@ def test_operations_band_is_read_only_and_has_offline_degradation():
     assert "fetchLiveOperations" in HTML
     assert 'fetchLive("api/operations"' in HTML
     assert "read_only === true" in HTML
-    assert "operations data unavailable offline" in HTML
+    assert "operations data unavailable in this offline file view" in HTML
+    assert "operations data unavailable — request failed" in HTML
     # It presents facts but intentionally never offers service action endpoints.
     assert "api/operations" in HTML
     assert "operations/start" not in HTML

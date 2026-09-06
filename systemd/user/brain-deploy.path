@@ -1,0 +1,10 @@
+[Unit]
+Description=Watch canonical main ref changes for Brain deployment
+
+[Path]
+PathChanged=%h/projects/agent_system/.git/refs/heads/main
+PathChanged=%h/projects/agent_system/.git/logs/refs/heads/main
+Unit=brain-deploy.service
+
+[Install]
+WantedBy=default.target

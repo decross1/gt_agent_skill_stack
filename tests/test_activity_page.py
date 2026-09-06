@@ -96,6 +96,7 @@ const context={console,Date,Promise,JSON,Uint8Array,TextEncoder,AbortController,
 context.window=context;vm.createContext(context);
 const boot=()=>vm.runInContext(fs.readFileSync(process.argv[1]+'/activity.js','utf8'),context);
 const settle=()=>new Promise(resolve=>setImmediate(resolve));
+const tab=async name=>{await $(name+'-tab').dispatch('click');await settle();};
 const response=data=>({ok:true,status:200,text:async()=>JSON.stringify(data)});
 """
 
@@ -108,7 +109,8 @@ assert.match(content('source-metadata'),/Not supplied/);
 assert.match(content('activity-list'),/failure-1/);
 assert.match(content('activity-list'),/2026-09-05T04:29:32.722209\+00:00/);
 assert.match(content('activity-list'),/failed/);
-assert.equal(descendants($('skills-list'),e=>e.className.includes('skill-card')).length,2);
+assert.equal(descendants($('skills-list'),e=>e.className.includes('skill-card')).length,0);
+assert.equal(descendants($('proposals-list'),e=>e.tagName==='ARTICLE').length,0);
 assert.equal($('refresh-data').disabled,true);
 assert.equal(descendants(page,e=>e.tagName==='H1').length,1);
 assert.equal(descendants(page,e=>e.attrs['aria-current']==='page')[0].attrs.href,'activity.html');
@@ -118,10 +120,11 @@ assert.equal($('data-announcement').attrs['aria-live'],'polite');
 """,
     "historical_and_mixed_actor": r"""
 boot();await settle();
-assert.match(content('actors-list'),/Reference only · no recorded run presence; observation time unavailable/);
-assert.match(content('actors-list'),/mixed/);
 assert.match(content('activity-list'),/registry: mixed; event attribution provenance not supplied/);
 assert.match(content('activity-list'),/reported-label · not resolved/);
+await tab('actors');
+assert.match(content('actors-list'),/Reference only · no recorded run presence; observation time unavailable/);
+assert.match(content('actors-list'),/mixed/);
 assert.doesNotMatch(content('actors-list'),/active session|running now/);
 assert.match(content('usage-list'),/contract: 10/);
 assert.match(content('usage-list'),/Explicit usage labels/);
@@ -130,12 +133,14 @@ assert.doesNotMatch(content('usage-list'),/11 uses/);
 """,
     "independent_lifecycle_and_candidates": r"""
 boot();await settle();
+await tab('proposals');
 assert.match(content('proposals-list'),/Recorded acceptance/);
 assert.match(content('proposals-list'),/Projector-reported Git\/path evidence · date unknown/);
 assert.match(content('proposals-list'),/Reported verification · pending/);
 assert.match(content('proposals-list'),/human:reported-label/);
 assert.match(content('proposals-list'),/Rejected verdict/);
 assert.match(content('proposals-list'),/reported-reviewer/);
+await tab('candidates');
 assert.match(content('candidates-list'),/P-FIXTURE-D/);
 assert.doesNotMatch(content('candidates-list'),/P-FIXTURE-A|P-FIXTURE-R/);
 assert.match(content('candidates-list'),/recorded gaps/);
@@ -144,12 +149,14 @@ assert.doesNotMatch(content('proposals-list'),/verified badge|healed/);
     "contradiction_is_visible": r"""
 context.BRAIN_SUMMARY.loop.chains[0].final_verdict='rejected';
 boot();await settle();
+await tab('proposals');
 assert.match(content('proposals-list'),/Contradictory supplied lifecycle evidence/);
 assert.match(content('proposals-list'),/reconcile the contradictory verdict/);
 assert.match(content('proposals-list'),/Projector-reported Git\/path evidence/);
 """,
     "friction_is_not_automatically_active_drift": r"""
 boot();await settle();
+await tab('skills');
 const cards=descendants($('skills-list'),e=>e.className.includes('skill-card'));
 assert.match(cards[0].textContent,/Confirmed \/ friction3 \/ 2/);
 assert.doesNotMatch(cards[0].textContent,/Friction or gap remains/);
@@ -159,15 +166,19 @@ assert.match(cards[1].textContent,/Friction or gap remains: Unresolved friction/
 boot();await settle();
 $('actor-filter').value='historical';await $('actor-filter').dispatch('change');
 assert.match(content('activity-list'),/No recorded activity matches/);
+await tab('actors');
 assert.match(content('usage-list'),/historical \/ review/);
 assert.doesNotMatch(content('usage-list'),/builder \/ validate/);
 $('clear-filters').dispatch('click');
 assert.equal(focused,$('activity-search'));
 $('skill-filter').value='review';await $('skill-filter').dispatch('change');
+await tab('skills');
 assert.doesNotMatch(content('skills-list'),/Check independent signals/);
+await tab('proposals');
 assert.match(content('proposals-list'),/P-FIXTURE-D/);
 await $('clear-filters').dispatch('click');
 $('activity-search').value='P-FIXTURE-R';await $('activity-search').dispatch('input');
+await tab('proposals');
 assert.match(content('proposals-list'),/P-FIXTURE-R/);
 assert.doesNotMatch(content('proposals-list'),/P-FIXTURE-A/);
 """,
@@ -177,9 +188,12 @@ context.BRAIN_SUMMARY.skills[0].purpose=bad;
 context.BRAIN_SUMMARY.loop.chains[0].title=bad;
 context.BRAIN_SUMMARY.inbox[0].action_cmd=bad;
 boot();await settle();
+await tab('skills');
 assert.match(content('skills-list'),/<img src=x onerror=alert\(1\)>/);
+await tab('proposals');
 assert.match(content('proposals-list'),/<img src=x onerror=alert\(1\)>/);
 assert.equal(descendants($('skills-list'),e=>e.tagName==='IMG').length,0);
+await tab('blockers');
 assert.equal(descendants($('blockers-list'),e=>e.tagName==='BUTTON').length,0);
 assert.match(content('blockers-list'),/text only; not executed/);
 """,
@@ -197,10 +211,11 @@ assert.match(content('activity-list'),/2040-01-02T00:15:00\+05:30/);
     "missing_initial_data_can_recover": r"""
 context.BRAIN_SUMMARY=null;boot();await settle();
 assert.match(content('data-state'),/Data unavailable/);
-assert.match(content('proposals-list'),/absence is not a successful outcome/);
+assert.match(content('activity-list'),/absence is not a successful outcome/);
 context.location.protocol='http:';context.fetch=async()=>response(fixture());
 assert.equal(await context.activityStore.refresh(),true);
 assert.match(content('data-state'),/Live response received/);
+await tab('skills');
 assert.match(content('skills-list'),/validate/);
 assert.match(content('source-metadata'),/response bytes/);
 """,
@@ -221,6 +236,7 @@ boot();context.location.protocol='http:';context.fetch=async()=>response({schema
 await context.activityStore.refresh();
 assert.match(content('data-state'),/Snapshot data/);
 assert.match(content('data-warning'),/Unsupported or incomplete/);
+await tab('skills');
 assert.match(content('skills-list'),/validate/);
 context.fetch=async()=>({ok:true,text:async()=>'{bad'});await context.activityStore.refresh();
 assert.match(content('data-state'),/Snapshot data/);
@@ -266,6 +282,7 @@ assert.match(content('activity-list'),/failure-1/);
 """,
     "generation_refresh_preserves_open_evidence": r"""
 boot();await settle();
+await tab('proposals');
 const original=descendants($('proposals-list'),e=>e.tagName==='DETAILS')[0];original.open=true;
 context.location.protocol='http:';const updated=fixture();updated.generated_at='2026-09-05T06:00:00Z';
 context.fetch=async()=>response(updated);await context.activityStore.refresh();
@@ -276,6 +293,7 @@ assert.equal(current.open,true);assert.match(content('source-metadata'),/2026-09
     "changed_content_preserves_expansion_and_filter": r"""
 boot();await settle();
 $('skill-filter').value='validate';await $('skill-filter').dispatch('change');
+await tab('proposals');
 const original=descendants($('proposals-list'),e=>e.tagName==='DETAILS')[0];original.open=true;
 $('activity-search').focus();context.location.protocol='http:';
 const updated=fixture();updated.loop.chains[0].title='Updated evidence';
@@ -286,12 +304,14 @@ assert.equal($('skill-filter').value,'validate');assert.equal(focused,$('activit
 """,
     "bare_enactment_claim_is_not_structural_evidence": r"""
 context.BRAIN_SUMMARY.loop.chains[0].healing.enacted={state:'enacted'};boot();await settle();
+await tab('proposals');
 assert.match(content('proposals-list'),/Incomplete enactment claim/);
 assert.doesNotMatch(content('proposals-list'),/Projector-reported Git\/path evidence|Structural Git\/path evidence/);
 assert.match(content('proposals-list'),/provide the implementation commit and paths/);
 """,
     "canonical_enactment_receipt_is_visible_but_reported": r"""
 boot();await settle();
+await tab('proposals');
 assert.match(content('proposals-list'),/Reported commit/);
 assert.match(content('proposals-list'),new RegExp('a'.repeat(40)));
 assert.match(content('proposals-list'),/Reported paths/);
@@ -308,8 +328,8 @@ globalEvents.pagehide({persisted:false});assert.equal(intervals.size,0);
     "file_snapshot_absence_has_actionable_diagnostic": r"""
 context.BRAIN_SUMMARY=undefined;boot();await settle();
 assert.match(content('data-warning'),/Snapshot unavailable/);
-assert.match(content('skills-list'),/existing brain UI|valid generated snapshot/);
-assert.doesNotMatch(content('skills-list'),/Refresh to try again/);
+assert.match(content('activity-list'),/existing brain UI|valid generated snapshot/);
+assert.doesNotMatch(content('activity-list'),/Refresh to try again/);
 assert.equal($('auto-refresh').checked,false);assert.equal($('auto-refresh').disabled,true);
 assert.equal(intervals.size,0);
 """,
@@ -323,8 +343,10 @@ const draft=context.BRAIN_SUMMARY.loop.chains[1];draft.target='future-fixture-sk
 boot();await settle();
 assert.ok($('skill-filter').children.some(option=>option.value==='future-fixture-skill'));
 $('skill-filter').value='future-fixture-skill';await $('skill-filter').dispatch('change');
+await tab('candidates');
 assert.match(content('candidates-list'),/P-FIXTURE-D/);
 await $('clear-filters').dispatch('click');$('activity-search').value='human:reported-label';await $('activity-search').dispatch('input');
+await tab('proposals');
 assert.match(content('proposals-list'),/P-FIXTURE-A/);
 """,
     "file_snapshot_does_not_start_a_refresh_timer": r"""
@@ -357,6 +379,7 @@ const valid=A.lifecycle(fixture().loop.chains[0]);assert.equal(valid.completeEna
 """,
     "open_verdict_cannot_silently_pair_with_acceptance": r"""
 context.BRAIN_SUMMARY.loop.chains[0].final_verdict='open';boot();await settle();
+await tab('proposals');
 assert.match(content('proposals-list'),/Contradictory supplied lifecycle evidence/);
 assert.match(content('proposals-list'),/reconcile the contradictory verdict/);
 """,
@@ -372,6 +395,7 @@ const external={id:'external-1',title:'External retained history',kind:'gate',su
 d.inbox.push(external);
 d.attention={framework_actions:[d.inbox[0]],external_acknowledgements:[{...external,actionable:false,action_cmd:null}],backlog_history:[]};
 boot();await settle();
+await tab('blockers');
 assert.match(content('blockers-list'),/External retained history/);
 assert.match(content('blockers-list'),/external acknowledgements.*view-only/i);
 assert.doesNotMatch(content('blockers-list'),/EXTERNAL_COMMAND_MUST_NOT_RENDER/);
@@ -381,6 +405,7 @@ assert.ok($('skill-filter').children.some(e=>e.value==='external-only'));
     "legacy_attention_stays_visible_without_commands": r"""
 const d=fixture();delete d.attention;context.BRAIN_SUMMARY=d;
 boot();await settle();
+await tab('blockers');
 assert.match(content('blockers-list'),/Legacy inbox.*view-only/);
 assert.match(content('blockers-list'),/Missing independent verification/);
 assert.doesNotMatch(content('blockers-list'),/review fixture evidence; do not execute this text/);
@@ -388,6 +413,7 @@ assert.doesNotMatch(content('blockers-list'),/review fixture evidence; do not ex
     "malformed_attention_does_not_fall_back_to_raw_inbox": r"""
 context.BRAIN_SUMMARY.attention={framework_actions:[]};
 boot();await settle();
+await tab('blockers');
 assert.match(content('blockers-list'),/Attention unavailable.*malformed/);
 assert.doesNotMatch(content('blockers-list'),/Missing independent verification/);
 assert.match(content('data-warning'),/Malformed attention partitions/);
@@ -402,6 +428,7 @@ context.BRAIN_SUMMARY.agents=[
  {id:'legacy-unverified:derrick',evidence:'inferred',actor_source:'legacy_scalar',actor_type:'unknown',authentication:'unverified'},
  {id:'malformed-claim',authentication:'claimed-proof',cryptographically_authenticated:true}];
 boot();await settle();
+await tab('actors');
 assert.match(content('actors-list'),/Reported actor metadata/);
 assert.match(content('actors-list'),/structured_actor.*agent.*ui-asserted.*no \(assertion only\)/);
 assert.match(content('actors-list'),/legacy-unverified:derrick.*legacy_scalar/);
@@ -410,16 +437,35 @@ assert.doesNotMatch(content('actors-list'),/cryptographic authentication: true/)
 """,
     "external_partition_cannot_regain_command_from_malformed_copy": r"""
 context.BRAIN_SUMMARY.attention={framework_actions:[],external_acknowledgements:[{id:'bad-copy',title:'Still external',actionable:true,action_cmd:'EXTERNAL_COMMAND_MUST_NOT_RENDER'}],backlog_history:[]};
-boot();await settle();assert.match(content('blockers-list'),/Still external/);
+boot();await settle();await tab('blockers');assert.match(content('blockers-list'),/Still external/);
 assert.doesNotMatch(content('blockers-list'),/EXTERNAL_COMMAND_MUST_NOT_RENDER/);
 """,
 })
 
 
 CASES.update({
+ "large_projection_mounts_one_compact_page_with_paging_and_details": r"""
+context.BRAIN_SUMMARY.timeline=Array.from({length:30},(_,index)=>({id:'large-'+index,ts:'2026-08-'+String(index+1).padStart(2,'0')+'T00:00:00Z',kind:'run_flag',title:'Large record '+index,agent:'builder',skill:'validate',verdict:index===29?null:'failed'}));
+boot();await settle();
+assert.equal(descendants($('activity-list'),e=>e.tagName==='TR').length,13);
+assert.match(content('activity-list'),/Large record 29/);assert.match(content('activity-list'),/Unknown/);
+assert.doesNotMatch(content('activity-list'),/Large record 0/);
+assert.equal(descendants($('actors-list'),e=>e.tagName==='TR').length,0);
+assert.equal(descendants($('skills-list'),e=>e.tagName==='ARTICLE').length,0);
+const evidence=descendants($('activity-list'),e=>e.tagName==='DETAILS')[0];assert.equal(evidence.open,false);evidence.open=true;
+assert.match(evidence.textContent,/summary.timeline — supplied row cursor unavailable/);
+const next=descendants($('activity-list'),e=>e.tagName==='BUTTON'&&e.textContent==='Next')[0];await next.dispatch('click');
+assert.match(content('activity-list'),/Showing 13–24 of 30/);
+const previous=descendants($('activity-list'),e=>e.tagName==='BUTTON'&&e.textContent==='Previous')[0];assert.equal(previous.disabled,false);await previous.dispatch('click');
+assert.match(content('activity-list'),/Showing 1–12 of 30/);
+await descendants($('activity-list'),e=>e.tagName==='BUTTON'&&e.textContent==='Next')[0].dispatch('click');
+$('activity-search').value='Large record 29';await $('activity-search').dispatch('input');
+assert.match(content('activity-list'),/Large record 29/);assert.doesNotMatch(content('activity-list'),/Showing 13–24/);
+await $('clear-filters').dispatch('click');assert.match(content('activity-list'),/Showing 1–12 of 30/);
+""",
  "backlog_commands_remain_withheld": r"""
 context.BRAIN_SUMMARY.attention={framework_actions:[],external_acknowledgements:[],backlog_history:[{id:'backlog-1',surface:'framework',title:'Held candidate',actionable:true,action_cmd:'BACKLOG_COMMAND_MUST_NOT_RENDER'}]};
-boot();await settle();assert.match(content('blockers-list'),/Held candidate/);
+boot();await settle();await tab('blockers');assert.match(content('blockers-list'),/Held candidate/);
 assert.match(content('blockers-list'),/backlog history.*view-only/);
 assert.doesNotMatch(content('blockers-list'),/BACKLOG_COMMAND_MUST_NOT_RENDER/);
 """,
@@ -469,7 +515,7 @@ def test_generated_snapshot_script_bootstrap(tmp_path, mode):
     program += "try{vm.runInContext(fs.readFileSync(" + json.dumps(str(script)) + ",'utf8'),context);}catch(_){/* Browser continues to the next script after a failed data asset. */}\n"
     program += "boot();await settle();\n"
     if mode == "emitted":
-        program += "assert.match(content('skills-list'),/Synthetic emitted evidence/);assert.match(content('data-state'),/Snapshot data/);"
+        program += "await tab('skills');assert.match(content('skills-list'),/Synthetic emitted evidence/);assert.match(content('data-state'),/Snapshot data/);"
     else:
         program += "assert.match(content('data-warning'),/Snapshot unavailable/);assert.match(content('data-state'),/Data unavailable/);assert.equal($('auto-refresh').disabled,true);"
     program += "\n})().catch(error=>{console.error(error);process.exitCode=1;});"

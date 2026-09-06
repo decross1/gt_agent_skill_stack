@@ -1,0 +1,17 @@
+[Unit]
+Description=Brain governance HTTP server
+StartLimitIntervalSec=5min
+StartLimitBurst=3
+
+[Service]
+Type=simple
+WorkingDirectory=%h/projects/agent_system
+ExecStart=/usr/bin/python3 %h/projects/agent_system/scripts/brain_server.py --host 0.0.0.0 --port 5180
+Restart=on-failure
+RestartSec=15s
+StandardOutput=append:%h/projects/agent_system/run_state/brain-systemd.log
+StandardError=append:%h/projects/agent_system/run_state/brain-systemd.log
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=default.target

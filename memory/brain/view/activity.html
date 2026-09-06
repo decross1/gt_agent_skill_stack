@@ -33,12 +33,14 @@
       <p id="data-announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
       <p id="data-warning"></p>
       <details id="source-details"><summary>Source identity and freshness</summary><dl id="source-metadata"></dl></details>
-      <p class="muted">Recorded labels do not authenticate people or agents. Historical references do not establish an active session. Reported verification is still pending.</p>
     </section>
-    <nav class="section-nav" aria-label="On this page">
-      <a href="#activity-section">Activity</a><a href="#skills-section">Skills</a>
-      <a href="#proposals-section">Proposals</a><a href="#candidates-section">Skill candidates</a>
-      <a href="#blockers-section">Needs attention</a>
+    <nav class="section-nav" role="tablist" aria-label="Evidence sections">
+      <button id="activity-tab" type="button" role="tab" aria-selected="true" aria-controls="activity-section" data-activity-tab="activity">Activity</button>
+      <button id="actors-tab" type="button" role="tab" aria-selected="false" aria-controls="actors-section" data-activity-tab="actors" tabindex="-1">Actors &amp; attribution</button>
+      <button id="skills-tab" type="button" role="tab" aria-selected="false" aria-controls="skills-section" data-activity-tab="skills" tabindex="-1">Skills</button>
+      <button id="proposals-tab" type="button" role="tab" aria-selected="false" aria-controls="proposals-section" data-activity-tab="proposals" tabindex="-1">Proposals</button>
+      <button id="candidates-tab" type="button" role="tab" aria-selected="false" aria-controls="candidates-section" data-activity-tab="candidates" tabindex="-1">Skill candidates</button>
+      <button id="blockers-tab" type="button" role="tab" aria-selected="false" aria-controls="blockers-section" data-activity-tab="blockers" tabindex="-1">Needs attention</button>
     </nav>
     <form id="activity-filters" role="search">
       <label>Search this view<input id="activity-search" type="search" placeholder="Skill, proposal, actor or task" autocomplete="off"></label>
@@ -50,6 +52,9 @@
     <section id="activity-section" aria-labelledby="activity-heading">
       <h2 id="activity-heading">Recorded activity</h2><p id="activity-range" class="muted"></p>
       <div id="activity-list"></div>
+    </section>
+    <section id="actors-section" aria-labelledby="actors-heading" hidden>
+      <h2 id="actors-heading">Actors &amp; attribution</h2>
       <h3>Actors in the supplied record</h3>
       <p class="muted">Registry evidence describes recorded attribution. It is not a roster of running agents.</p>
       <div id="actors-list"></div>
