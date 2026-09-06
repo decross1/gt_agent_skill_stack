@@ -71,6 +71,7 @@ nav.views .v.on{background:#27272a;color:var(--text)}
 </header>
 
 <div id="data-source-status" aria-label="Projection data sources">Data sources have not been checked.</div>
+<noscript><p role="alert">Map needs JavaScript to load and display data. Enable JavaScript for this site, then reload this page.</p></noscript>
 <div id="data-source-announcement" role="status" aria-live="polite" aria-atomic="true" class="ui-visually-hidden"></div>
 
 <div id="mapwrap">
@@ -91,13 +92,80 @@ nav.views .v.on{background:#27272a;color:var(--text)}
   <span class="lg" title="inner emerald ring — runtime-safe core"><span class="lball rt"></span></span>
 </section>
 
-<script src="summary_data.js"></script>
-<script src="map_data.js"></script>
-<script src="ui.js"></script>
-<script src="map.js"></script>
+<script defer src="summary_data.js"></script>
+<script defer src="map_data.js"></script>
+<script defer src="ui.js?v=5dcf781d655c42b38ddfe704a6ca133db13ab339e66fc74ed5413e1f3873d664"></script>
+<script defer src="map.js"></script>
 <script>
 (function () {
 "use strict";
+// Start only after deferred scripts settle. This watchdog runs while downloads
+// are pending; it does not depend on ui.js or create another external loader.
+const startupName = "Map";
+function bootFailure(message, error) {
+  const status = document.getElementById("data-source-status");
+  status.textContent = startupName + " could not start. " + message;
+  status.setAttribute("role", "alert");
+  if (error) console.error(startupName + " startup failed", error);
+}
+let startupSettled = false, startupTimer = null;
+const startupNow = () => window.performance ? window.performance.now() : Date.now();
+const startupDeadline = startupNow() + 5000;
+function clearStartup() {
+  clearTimeout(startupTimer);
+  document.removeEventListener("DOMContentLoaded", readyToStart);
+  document.removeEventListener("visibilitychange", checkStartupDeadline);
+  window.removeEventListener("pagehide", interruptStartup);
+}
+function failStartup(message) {
+  if (startupSettled) return;
+  startupSettled = true;
+  clearStartup();
+  bootFailure(message);
+}
+function expireStartup() {
+  failStartup("Interface files did not finish loading within 5 seconds. Reload this page; if it persists, report the page URL and pending browser request.");
+}
+function checkStartupDeadline() {
+  if (!document.hidden && startupNow() >= startupDeadline) expireStartup();
+}
+function interruptStartup() {
+  failStartup("Page startup was interrupted. Reload this page to load the interface again.");
+}
+function readyToStart() {
+  if (startupSettled) return;
+  // Visibility throttling can delay the timer; a late ready event must not win.
+  if (startupNow() >= startupDeadline) { expireStartup(); return; }
+  startupSettled = true;
+  clearStartup();
+  try { startPage(); }
+  catch (error) {
+    bootFailure("An initialization error interrupted loading. Reload this page; if it persists, report the page URL and browser error.", error);
+  }
+}
+if (document.readyState === "complete") readyToStart();
+else {
+  document.getElementById("data-source-status").textContent = "Loading interface files (up to 5 seconds)…";
+  document.addEventListener("DOMContentLoaded", readyToStart);
+  document.addEventListener("visibilitychange", checkStartupDeadline);
+  window.addEventListener("pagehide", interruptStartup);
+  startupTimer = setTimeout(expireStartup, 5000);
+}
+function startPage() {
+if (!window.UI && location.protocol !== "file:") {
+  bootFailure("The interface files are unavailable. Reload this page to request the current files.");
+  return;
+}
+if (!window.BrainMap || typeof window.BrainMap.mount !== "function") {
+  bootFailure("The map interface file is missing or incompatible. Reload this page to request the current files.");
+  return;
+}
+if (window.UI && (!["esc", "kv", "agentHue", "dataSource", "usableSummary", "usableMap",
+    "renderDataStatus", "pageRefresh"].every(name => typeof window.UI[name] === "function") ||
+    !window.UI.panel || typeof window.UI.panel.open !== "function")) {
+  bootFailure("The interface files are incompatible. Reload this page to request the current files.");
+  return;
+}
 // degrade gracefully when ui.js is absent at dev time: minimal esc/kv/panel shim
 const U = window.UI || (function () {
   const esc = s => String(s == null ? "" : s)
@@ -350,6 +418,8 @@ const mapSource = U.dataSource(M, U.usableMap);
 function showSources() {
   if (U.renderDataStatus)
     U.renderDataStatus($("data-source-status"), summarySource, mapSource, $("data-source-announcement"));
+  else $("data-source-status").textContent = (D && M ? "Saved data only. " : "Data unavailable. ") +
+    "Shared interface files are unavailable; live refresh and source checks are disabled. Reload this page to request the current files.";
 }
 async function refreshData(current) {
   if (!summarySource || !mapSource) return [false, false];
@@ -390,6 +460,7 @@ mountMap();
 if (U.pageRefresh && summarySource && mapSource) U.pageRefresh(refreshData, () => {
   summarySource.cancel(); mapSource.cancel();
 });
+}
 })();
 </script>
 </body>
