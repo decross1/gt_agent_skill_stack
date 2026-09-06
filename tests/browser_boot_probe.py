@@ -487,7 +487,8 @@ return {
   hasSummary: !!window.BRAIN_SUMMARY,
   hasMap: !!window.BRAIN_MAP,
   statusRows: document.getElementById('status')?.children.length ?? null,
-  canvas: canvas ? {width:canvas.width,height:canvas.height,clientWidth:canvas.clientWidth,clientHeight:canvas.clientHeight} : null,
+  canvas: canvas ? {width:canvas.width,height:canvas.height,clientWidth:canvas.clientWidth,clientHeight:canvas.clientHeight,
+    rendererMounted:!!canvas.__brainmap} : null,
   mapNoteHidden: document.getElementById('mapnote')?.hidden ?? null,
   resources: performance.getEntriesByType('resource').map(entry => ({
     name: entry.name,
@@ -627,7 +628,9 @@ def verdict_for(
         first = captures[first_name]
         released = captures["released"]
         if phase == "baseline":
-            passed = status_kind(first) == "unchecked" and status_kind(released) != "unchecked"
+            passed = (status_kind(first) == "unchecked" and released.get("readyState") == "complete"
+                      and status_kind(released) in {"supported-data", "failure"})
+            details["baseline_hold_transition"] = case.mode == "hold" and passed
             reason = "baseline parser block reproduced, then released" if passed else "baseline parser block was not reproduced"
             return passed, reason, details
         if phase == "candidate":
@@ -648,7 +651,7 @@ def verdict_for(
         rendered = (
             (final.get("statusRows") or 0) > 0 if case.page == "dashboard.html"
             else canvas.get("width", 0) > 0 and canvas.get("height", 0) > 0
-            and final.get("mapNoteHidden") is True
+            and final.get("mapNoteHidden") is True and canvas.get("rendererMounted") is True
         )
         passed = (kind == "supported-data" and final.get("readyState") == "complete"
                   and rendered and not (final.get("probe") or {}).get("errors"))
@@ -670,6 +673,7 @@ def verdict_for(
                 and "source checks are disabled" in status
                 and bool(final.get("hasSummary"))
                 and bool(final.get("hasMap"))
+                and (final.get("canvas") or {}).get("rendererMounted") is True
             )
             reason = (
                 "file-mode Graph rendered explicitly qualified saved data"
@@ -860,6 +864,10 @@ def main(argv: list[str] | None = None) -> int:
     metadata = {
         "started_at": utc_now(),
         "argv": sys.argv if argv is None else [sys.argv[0], *argv],
+        "runner": {
+            "path": str(Path(__file__).resolve()),
+            "sha256": sha256_bytes(Path(__file__).read_bytes()),
+        },
         "source": str(source),
         "source_head": subprocess.run(
             ["git", "-C", str(source), "rev-parse", "HEAD"], check=True, capture_output=True, text=True
@@ -1025,13 +1033,21 @@ def main(argv: list[str] | None = None) -> int:
             shutil.rmtree(file_fixture, ignore_errors=True)
         shutil.rmtree(source_snapshot, ignore_errors=True)
     overall = fatal is None and bool(results) and all(result["probe_pass"] for result in results)
+    reproduced_hold = any(
+        result.get("mode") == "hold" and result.get("probe_pass") is True
+        and result.get("details", {}).get("baseline_hold_transition") is True
+        for result in results
+    )
+    product_state = "not-established"
+    if overall and args.phase == "baseline":
+        product_state = "baseline-red-reproduced" if reproduced_hold else "baseline-observed"
+    elif overall and args.phase == "candidate":
+        product_state = "candidate-green"
     result_doc = {
         "timestamp": utc_now(),
         "phase": args.phase,
         "overall_probe_pass": overall,
-        "product_state": "baseline-red-reproduced" if args.phase == "baseline" and overall else (
-            "candidate-green" if args.phase == "candidate" and overall else "not-established"
-        ),
+        "product_state": product_state,
         "results": results,
         "fatal": fatal,
         "metadata": "metadata.json",
