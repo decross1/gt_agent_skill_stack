@@ -156,6 +156,7 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
 </header>
 
 <div id="data-source-status" aria-label="Projection data sources">Data sources have not been checked.</div>
+<noscript><p role="alert">Dashboard needs JavaScript to check and display data. Enable JavaScript for this site, then reload this page.</p></noscript>
 <div id="data-source-announcement" role="status" aria-live="polite" aria-atomic="true" class="ui-visually-hidden"></div>
 
 <main>
@@ -207,12 +208,29 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
 
 <script src="summary_data.js"></script>
 <script src="map_data.js"></script>
-<script src="ui.js"></script>
+<script src="ui.js?v=5dcf781d655c42b38ddfe704a6ca133db13ab339e66fc74ed5413e1f3873d664"></script>
 <script src="map.js"></script>
 <script>
 (function () {
 "use strict";
+// The HTML and shared interface must agree. A versioned URL avoids reusing an
+// older cached interface after deployment; a failed download must stay visible.
+function bootFailure(message, error) {
+  const status = document.getElementById("data-source-status");
+  status.textContent = "Dashboard could not start. " + message;
+  status.setAttribute("role", "alert");
+  if (error) console.error("Dashboard startup failed", error);
+}
 const U = window.UI;
+const required = ["esc", "dataSource", "usableSummary", "usableMap", "pageRefresh",
+  "renderDataStatus", "describeDataSource", "sevColor", "sevPill", "fmtAge",
+  "fmtDate", "fmtBytes", "fmtTs", "agentHue", "kv", "copyBlock"];
+if (!U || !required.every(name => typeof U[name] === "function") ||
+    !U.panel || typeof U.panel.open !== "function") {
+  bootFailure("The interface files are missing or incompatible. Reload this page to request the current files. If this persists, report the page URL and browser error.");
+  return;
+}
+try {
 let D = window.BRAIN_SUMMARY || null;  // static fallback; replaced by live /api/summary
 let M = window.BRAIN_MAP || null;      // static fallback; replaced by live /api/map
 let O = null;                          // operations has no baked fallback: unknown offline
@@ -1033,6 +1051,9 @@ U.pageRefresh(current => Promise.all([
   // Presence of this link grants no verdict authority.
   if (reviewSource.error === "request cancelled") reviewUiPresent = null;
 });
+} catch (error) {
+  bootFailure("An initialization error interrupted loading. Reload this page; if it persists, report the page URL and browser error.", error);
+}
 })();
 </script>
 </body>
