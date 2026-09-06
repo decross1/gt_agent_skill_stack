@@ -145,6 +145,9 @@
 
   function mount(runtime, document) {
     const expandedEvidence = new Set();
+    const pageSize = 12;
+    const pages = new Map();
+    let activePanel = "activity";
     let lastRenderKey;
     const get = id => document.getElementById(id);
     const el = (tag, content, className) => {
@@ -168,7 +171,22 @@
       headings.forEach(label => { const th = el("th", label); th.setAttribute("scope", "col"); tr.appendChild(th); });
       add(head, tr); add(grid, el("caption", caption), head, body); add(wrap, grid); host.appendChild(wrap); return body;
     };
-    const tr = (host, values) => { const row = el("tr"); values.forEach(value => row.appendChild(el("td", value))); host.appendChild(row); };
+    const tr = (host, values) => { const row = el("tr"); values.forEach(value => row.appendChild(value && value.tagName ? value : el("td", value))); host.appendChild(row); };
+    const page = (host, key, values, renderValues) => {
+      const last = Math.max(0, Math.ceil(values.length / pageSize) - 1);
+      const current = Math.min(Math.max(pages.get(key) || 0, 0), last);
+      pages.set(key, current);
+      renderValues(values.slice(current * pageSize, (current + 1) * pageSize));
+      if (values.length <= pageSize) return;
+      const controls = el("div", undefined, "pager");
+      const previous = el("button", "Previous"); previous.setAttribute("type", "button"); previous.disabled = current === 0;
+      const next = el("button", "Next"); next.setAttribute("type", "button"); next.disabled = current === last;
+      previous.addEventListener("click", () => { pages.set(key, current - 1); render(store); });
+      next.addEventListener("click", () => { pages.set(key, current + 1); render(store); });
+      add(controls, previous, el("p", "Showing " + (current * pageSize + 1) + "–" + Math.min(values.length, (current + 1) * pageSize) + " of " + values.length), next);
+      host.appendChild(controls);
+    };
+    const resetPages = () => pages.clear();
     let store;
     const stateLabel = state => !state.data ? "Data unavailable" : state.source === "snapshot" ? "Snapshot data" : state.error ? "Cached response · refresh failed" : "Live response received";
     function showSource(state, malformed, attentionError) {
@@ -189,7 +207,7 @@
       pair(host, "Payload SHA256", state.hash ? state.hash + " (" + state.hashKind + ")" : "Unavailable; payload identity not established");
       pair(host, "Source repository label", d ? known(d.repo) + " (reported)" : "Unknown");
       pair(host, "Source revision / cursor", "Not supplied. The payload hash does not identify a Git revision or an exact source-ledger prefix.");
-      pair(host, "Trust", "A fresh response does not prove fresh underlying events, authenticated actors or verified execution.");
+      pair(host, "Trust", "Recorded labels do not authenticate people or agents. Historical references do not establish an active session. A fresh response does not prove fresh underlying events or verified execution.");
     }
 
     function options(id, values, label) {
@@ -210,7 +228,7 @@
       showSource(state, malformed, attention && attention.error);
       // Fresh response metadata alone must not replace controls being read.
       const key = JSON.stringify([d ? {...d, generated_at: null} : null,
-        get("activity-search").value, get("actor-filter").value, get("skill-filter").value]);
+        activePanel, Array.from(pages.entries()), get("activity-search").value, get("actor-filter").value, get("skill-filter").value]);
       if (key === lastRenderKey) return;
       lastRenderKey = key;
       hosts.forEach(id => {
@@ -223,7 +241,8 @@
       if (!d) {
         get("activity-range").textContent = "No recorded range available.";
         const recovery = /^https?:$/.test(runtime.location.protocol) ? "Refresh to try again" : "Open this page through the existing brain UI or restore a valid generated snapshot";
-        hosts.forEach(id => empty(get(id), "Evidence unavailable. " + recovery + "; absence is not a successful outcome."));
+        const activeHosts = {activity: ["activity-list"], actors: ["actors-list", "usage-list"], skills: ["skills-list"], proposals: ["proposals-list"], candidates: ["candidates-list"], blockers: ["blockers-list"]};
+        activeHosts[activePanel].forEach(id => empty(get(id), "Evidence unavailable. " + recovery + "; absence is not a successful outcome."));
         return;
       }
       const agents = new Map(d.agents.filter(object).map(agent => [agent.id, agent]));
@@ -236,104 +255,137 @@
       const actor = get("actor-filter").value, selectedSkill = get("skill-filter").value;
       const matches = value => !query || text(value).toLowerCase().includes(query);
       const skillMatch = value => !selectedSkill || value === selectedSkill;
-      get("activity-range").textContent = "Supplied recorded range: " + (recordedTime(d.window.oldest_event) || "unknown") + " → " +
-        (recordedTime(d.window.newest_event) || "unknown") + ". Timeline is a bounded projection; it is not a complete run ledger or a current-session list.";
-      const activity = d.timeline.filter(object).filter(row => (!actor || row.agent === actor) && skillMatch(row.skill) && matches([row.title, row.id, row.agent, row.skill, row.kind]));
-      if (!activity.length) empty(get("activity-list"), "No recorded activity matches these filters in the supplied timeline.");
-      else {
-        const body = table(get("activity-list"), ["Recorded time", "Actor label", "Activity", "Recorded outcome", "Skill / evidence"], activity.length + " supplied timeline rows match");
-        activity.forEach(row => {
-          const actorRecord = agents.get(row.agent);
-          const actorEvidence = actorRecord ? "registry: " + known(actorRecord.evidence) + "; event attribution provenance not supplied" : "not resolved in supplied actor registry";
-          tr(body, [recordedTime(row.ts) || "Unknown / invalid recorded time", known(row.agent) + " · " + actorEvidence,
-            known(row.title) + " [" + known(row.kind) + "] · " + known(row.id), known(row.verdict), known(row.skill) + " · timeline label; usage attribution is below"]);
-        });
-        source(get("activity-list"), "summary.timeline — supplied order retained; underlying row cursor not provided");
-      }
-      const actorRows = d.agents.filter(object).filter(row => (!actor || row.id === actor) && matches(row.id));
-      if (!actorRows.length) empty(get("actors-list"), "No matching actor records supplied.");
-      else {
-        const body = table(get("actors-list"), ["Actor label", "Registry evidence", "Recorded observation span", "Reported actor metadata"], "Actor labels are unauthenticated; registry presence is not liveness");
-        actorRows.forEach(row => {
-          const referenceOnly = row.evidence === "inferred" && !row.first_seen && !row.last_seen && object(row.runs_by_day) && !Object.keys(row.runs_by_day).length;
-          const crypto = row.cryptographically_authenticated === false ? "no (assertion only)"
-            : row.cryptographically_authenticated === true ? "unsupported claim" : "unknown";
-          const actorMetadata = "source: " + known(row.actor_source) + " · type: " + known(row.actor_type) +
-            " · reported authentication: " + known(row.authentication) + " · cryptographic authentication: " + crypto;
-          tr(body, [known(row.id), known(row.evidence), referenceOnly ? "Reference only · no recorded run presence; observation time unavailable" :
-            (recordedTime(row.first_seen) || "Unknown first observation") + " → " + (recordedTime(row.last_seen) || "Unknown last observation"), actorMetadata]);
-        });
-        source(get("actors-list"), "summary.agents; registry evidence does not determine the provenance of each timeline event");
-      }
-      const cells = d.matrix.cells.filter(object).filter(cell => (!actor || cell.agent === actor) && skillMatch(cell.skill) && matches([cell.agent, cell.skill]));
-      if (!cells.length) empty(get("usage-list"), "No matching attribution in the supplied matrix.");
-      else {
-        const body = table(get("usage-list"), ["Actor / skill", "Explicit usage labels", "Inferred references", "Last attributed date", "Attribution methods"], "Attribution totals supplied by the projection");
-        cells.forEach(cell => tr(body, [known(cell.agent) + " / " + known(cell.skill), count(cell.explicit), count(cell.inferred), recordedTime(cell.last) || "Unknown",
-          object(cell.methods) ? Object.entries(cell.methods).map(([method, value]) => method + ": " + count(value)).join(" · ") : "Unknown"]));
-        source(get("usage-list"), "summary.matrix.cells; historical references can predate the timeline range");
-      }
-
       const skills = d.skills.filter(object).filter(skill => skillMatch(skill.name) && matches([skill.name, skill.purpose, skill.pack]));
-      skills.forEach(skill => {
-        const card = el("article", undefined, "card skill-card"), governance = object(skill.governance) ? skill.governance : {};
-        const conformance = object(governance.conformance) ? governance.conformance : {}, usage = object(skill.usage) ? skill.usage : {};
-        add(card, el("h3", known(skill.name)), el("p", known(skill.purpose)));
-        add(card, el("span", "Layer " + known(skill.layer), "pill"), el("span", known(skill.pack), "pill"),
-          el("span", skill.runtime_safe === true ? "Declared runtime-safe" : skill.runtime_safe === false ? "Dev-time only" : "Runtime designation unknown", "pill"));
-        const dl = el("dl"); pair(dl, "Explicit / inferred usage", count(usage.explicit) + " / " + count(usage.inferred));
-        pair(dl, "Confirmed / friction", count(conformance.confirmed) + " / " + count(conformance.friction));
-        pair(dl, "Gaps / divergence", count(conformance.gap) + " / " + count(conformance.diverged));
-        pair(dl, "Recorded conformance", known(conformance.status)); add(card, dl);
-        if (object(governance.drift) && governance.drift.active) add(card, el("p", "Friction or gap remains: " + known(governance.drift.open_note), "next-action"));
-        if (governance.firewall_violation) add(card, el("p", "Reported boundary violation: owner review required.", "pill bad"));
-        source(card, "summary.skills; .agents/skills/" + known(skill.name) + "/SKILL.md; memory/feedback.jsonl (row cursor unavailable)");
-        get("skills-list").appendChild(card);
-      });
-      if (!skills.length) empty(get("skills-list"), "No matching skills in the supplied projection.");
-
-      const chains = d.loop.chains.filter(object).filter(chain => skillMatch(chain.target) && matches([chain.proposal_id, chain.title, chain.target, chain.final_verdict, chain.lane, rows(chain.lifecycle).filter(object).map(row => row.actor)]));
-      chains.forEach(chain => {
-        const view = lifecycle(chain), card = el("article", undefined, "card proposal-card");
-        add(card, el("h3", known(chain.proposal_id) + " · " + known(chain.title)), el("p", "Target: " + known(chain.target) + " · " + known(chain.target_type)),
-          el("span", "Verdict: " + view.verdict, "pill"), el("span", "Lane: " + view.lane, "pill"));
-        const dl = el("dl"); pair(dl, "Acceptance", view.acceptance + " · " + (view.acceptedAt || "date unknown"));
-        pair(dl, "Enactment", view.enactment + " · " + (view.enactedAt || "date unknown"));
-        pair(dl, "Verification", view.verification + " · " + (view.reportedAt || "date unknown")); add(card, dl);
-        if (view.completeEnactment) { pair(dl, "Reported commit", view.evidence.commit); pair(dl, "Reported paths", view.evidence.paths.join(" · ")); }
-        if (view.contradiction) add(card, el("p", "Contradictory supplied lifecycle evidence", "pill bad"));
-        add(card, el("p", view.next, "next-action"));
-        details(card, "Recorded lifecycle and evidence", JSON.stringify({lifecycle: chain.lifecycle, healing: chain.healing, rule_cited: chain.rule_cited}, null, 2), "proposal:" + known(chain.proposal_id));
-        source(card, "memory/brain/proposals.jsonl · " + known(chain.proposal_id) + "; projected lifecycle, physical line cursor unavailable");
-        get("proposals-list").appendChild(card);
-      });
-      if (!chains.length) empty(get("proposals-list"), "No matching proposals in the supplied projection.");
-
-      const candidates = chains.filter(chain => chain.target_type === "skill" && ["draft", "open", "human-review"].includes(chain.lane));
-      const gaps = skills.filter(skill => object(skill.governance) && object(skill.governance.conformance) && Number(skill.governance.conformance.gap) > 0);
-      candidates.forEach(chain => {
-        const card = el("article", undefined, "card"); add(card, el("h3", known(chain.proposal_id) + " · " + known(chain.title)), el("p", "Recorded skill proposal · " + known(chain.lane) + ". Consider through the existing owner review workflow."));
-        source(card, "memory/brain/proposals.jsonl · " + known(chain.proposal_id)); get("candidates-list").appendChild(card);
-      });
-      gaps.forEach(skill => { const card = el("article", undefined, "card"); add(card, el("h3", "Feedback gaps: " + known(skill.name)), el("p", count(skill.governance.conformance.gap) + " recorded gaps. Owner: inspect the feedback before proposing a skill or section change.")); source(card, "memory/feedback.jsonl; exact feedback rows not supplied"); get("candidates-list").appendChild(card); });
-      if (!candidates.length && !gaps.length) empty(get("candidates-list"), "No matching skill candidates or recorded gaps supplied. This does not establish that the backlog is complete.");
-
-      add(get("blockers-list"), el("p", attention.note, "source-note"));
-      const inbox = attention.items.filter(item => skillMatch(object(item.link) ? item.link.skill : null) && matches([item.id, item.title, item.detail, item.kind]));
-      inbox.forEach(item => {
-        const card = el("article", undefined, "card"); add(card, el("h3", known(item.title)), el("span", known(item.severity) + " · " + known(item.kind), "pill warn"), el("p", known(item.detail)));
-        add(card, el("p", item.attentionGroup + (item.actionable === false ? " · view-only" : " · source review"), "source-note"));
-        add(card, el("p", item.actionable === false ? "Owner: inspect the source; this projection supplies no actionable resolution." : "Owner: review the source and follow the existing governed workflow.", "next-action"));
-        if (item.action_cmd) details(card, "Reported next action (text only; not executed)", text(item.action_cmd), "attention:" + known(item.id));
-        source(card, known(item.source) + " · " + known(item.id)); get("blockers-list").appendChild(card);
-      });
-      if (!inbox.length) empty(get("blockers-list"), "No matching attention items supplied. Missing evidence and unreported failures may remain.");
+      const chains = d.loop.chains.filter(object).filter(chain => skillMatch(chain.target) && matches([chain.proposal_id, chain.title, chain.target, chain.final_verdict, chain.lane, rows(chain.lifecycle).filter(row => object(row)).map(row => row.actor)]));
+      if (activePanel === "activity") {
+        get("activity-range").textContent = "Supplied recorded range: " + (recordedTime(d.window.oldest_event) || "unknown") + " → " +
+          (recordedTime(d.window.newest_event) || "unknown") + ". Recent supplied timestamps appear first; this bounded timeline is not a complete run ledger or current-session list.";
+        const activity = d.timeline.filter(object).filter(row => (!actor || row.agent === actor) && skillMatch(row.skill) && matches([row.title, row.id, row.agent, row.skill, row.kind]))
+          .sort((left, right) => (recordedTime(right.ts) || recordedTime(right.date) || "").localeCompare(recordedTime(left.ts) || recordedTime(left.date) || ""));
+        if (!activity.length) empty(get("activity-list"), "No recorded activity matches these filters in the supplied timeline.");
+        else {
+          const host = get("activity-list");
+          const body = table(host, ["Time", "Actor", "Task", "Outcome", "Evidence"], activity.length + " matching timeline rows · 12 per page");
+          page(host, "activity", activity, visible => visible.forEach(row => {
+            const actorRecord = agents.get(row.agent);
+            const actorEvidence = actorRecord ? "registry: " + known(actorRecord.evidence) + "; event attribution provenance not supplied" : "not resolved in supplied actor registry";
+            const evidence = el("td", undefined, "activity-evidence");
+            const record = el("details"); record.dataset.evidenceKey = "activity:" + known(row.id); record.open = expandedEvidence.has(record.dataset.evidenceKey);
+            add(record, el("summary", "Evidence & source"), el("p", "Actor: " + known(row.agent) + " · " + actorEvidence, "source-ref"),
+              el("p", "Skill label: " + known(row.skill) + "; kind: " + known(row.kind) + "; record: " + known(row.id), "source-ref"),
+              el("p", "summary.timeline — supplied row cursor unavailable", "source-ref"));
+            evidence.appendChild(record);
+            tr(body, [el("td", recordedTime(row.ts) || "Unknown / invalid recorded time", "compact-cell"), el("td", known(row.agent), "compact-cell"),
+              el("td", known(row.title), "compact-cell"), el("td", known(row.verdict)), evidence]);
+          }));
+        }
+      }
+      if (activePanel === "actors") {
+        const actorRows = d.agents.filter(object).filter(row => (!actor || row.id === actor) && matches(row.id));
+        if (!actorRows.length) empty(get("actors-list"), "No matching actor records supplied.");
+        else {
+          const host = get("actors-list"); const body = table(host, ["Actor label", "Registry evidence", "Recorded observation span", "Reported actor metadata"], "Actor labels are unauthenticated; registry presence is not liveness");
+          page(host, "actors", actorRows, visible => visible.forEach(row => {
+            const referenceOnly = row.evidence === "inferred" && !row.first_seen && !row.last_seen && object(row.runs_by_day) && !Object.keys(row.runs_by_day).length;
+            const crypto = row.cryptographically_authenticated === false ? "no (assertion only)" : row.cryptographically_authenticated === true ? "unsupported claim" : "unknown";
+            tr(body, [known(row.id), known(row.evidence), referenceOnly ? "Reference only · no recorded run presence; observation time unavailable" :
+              (recordedTime(row.first_seen) || "Unknown first observation") + " → " + (recordedTime(row.last_seen) || "Unknown last observation"),
+            "source: " + known(row.actor_source) + " · type: " + known(row.actor_type) + " · reported authentication: " + known(row.authentication) + " · cryptographic authentication: " + crypto]);
+          }));
+          source(host, "summary.agents; registry evidence does not determine the provenance of each timeline event");
+        }
+        const cells = d.matrix.cells.filter(object).filter(cell => (!actor || cell.agent === actor) && skillMatch(cell.skill) && matches([cell.agent, cell.skill]));
+        if (!cells.length) empty(get("usage-list"), "No matching attribution in the supplied matrix.");
+        else {
+          const host = get("usage-list"); const body = table(host, ["Actor / skill", "Explicit usage labels", "Inferred references", "Last attributed date", "Attribution methods"], "Attribution totals supplied by the projection");
+          page(host, "usage", cells, visible => visible.forEach(cell => tr(body, [known(cell.agent) + " / " + known(cell.skill), count(cell.explicit), count(cell.inferred), recordedTime(cell.last) || "Unknown",
+            object(cell.methods) ? Object.entries(cell.methods).map(([method, value]) => method + ": " + count(value)).join(" · ") : "Unknown"])));
+          source(host, "summary.matrix.cells; historical references can predate the timeline range");
+        }
+      }
+      if (activePanel === "skills") {
+        if (!skills.length) empty(get("skills-list"), "No matching skills in the supplied projection.");
+        else page(get("skills-list"), "skills", skills, visible => visible.forEach(skill => {
+          const card = el("article", undefined, "card skill-card"), governance = object(skill.governance) ? skill.governance : {};
+          const conformance = object(governance.conformance) ? governance.conformance : {}, usage = object(skill.usage) ? skill.usage : {};
+          add(card, el("h3", known(skill.name)), el("p", known(skill.purpose)), el("span", "Layer " + known(skill.layer), "pill"), el("span", known(skill.pack), "pill"),
+            el("span", skill.runtime_safe === true ? "Declared runtime-safe" : skill.runtime_safe === false ? "Dev-time only" : "Runtime designation unknown", "pill"));
+          const dl = el("dl"); pair(dl, "Explicit / inferred usage", count(usage.explicit) + " / " + count(usage.inferred)); pair(dl, "Confirmed / friction", count(conformance.confirmed) + " / " + count(conformance.friction));
+          pair(dl, "Gaps / divergence", count(conformance.gap) + " / " + count(conformance.diverged)); pair(dl, "Recorded conformance", known(conformance.status)); add(card, dl);
+          if (object(governance.drift) && governance.drift.active) add(card, el("p", "Friction or gap remains: " + known(governance.drift.open_note), "next-action"));
+          if (governance.firewall_violation) add(card, el("p", "Reported boundary violation: owner review required.", "pill bad"));
+          source(card, "summary.skills; .agents/skills/" + known(skill.name) + "/SKILL.md; memory/feedback.jsonl (row cursor unavailable)"); get("skills-list").appendChild(card);
+        }));
+      }
+      if (activePanel === "proposals") {
+        if (!chains.length) empty(get("proposals-list"), "No matching proposals in the supplied projection.");
+        else page(get("proposals-list"), "proposals", chains, visible => visible.forEach(chain => {
+          const view = lifecycle(chain), card = el("article", undefined, "card proposal-card");
+          add(card, el("h3", known(chain.proposal_id) + " · " + known(chain.title)), el("p", "Target: " + known(chain.target) + " · " + known(chain.target_type)), el("span", "Verdict: " + view.verdict, "pill"), el("span", "Lane: " + view.lane, "pill"));
+          const dl = el("dl"); pair(dl, "Acceptance", view.acceptance + " · " + (view.acceptedAt || "date unknown")); pair(dl, "Enactment", view.enactment + " · " + (view.enactedAt || "date unknown")); pair(dl, "Verification", view.verification + " · " + (view.reportedAt || "date unknown"));
+          if (view.completeEnactment) { pair(dl, "Reported commit", view.evidence.commit); pair(dl, "Reported paths", view.evidence.paths.join(" · ")); } add(card, dl);
+          if (view.contradiction) add(card, el("p", "Contradictory supplied lifecycle evidence", "pill bad")); add(card, el("p", view.next, "next-action"));
+          details(card, "Recorded lifecycle and evidence", JSON.stringify({lifecycle: chain.lifecycle, healing: chain.healing, rule_cited: chain.rule_cited}, null, 2), "proposal:" + known(chain.proposal_id));
+          source(card, "memory/brain/proposals.jsonl · " + known(chain.proposal_id) + "; projected lifecycle, physical line cursor unavailable"); get("proposals-list").appendChild(card);
+        }));
+      }
+      if (activePanel === "candidates") {
+        const candidates = chains.filter(chain => chain.target_type === "skill" && ["draft", "open", "human-review"].includes(chain.lane));
+        const gaps = skills.filter(skill => object(skill.governance) && object(skill.governance.conformance) && Number(skill.governance.conformance.gap) > 0);
+        const candidateRows = candidates.map(chain => ({type: "proposal", value: chain})).concat(gaps.map(skill => ({type: "gap", value: skill})));
+        if (!candidateRows.length) empty(get("candidates-list"), "No matching skill candidates or recorded gaps supplied. This does not establish that the backlog is complete.");
+        else page(get("candidates-list"), "candidates", candidateRows, visible => visible.forEach(item => {
+          const card = el("article", undefined, "card");
+          if (item.type === "proposal") { const chain = item.value; add(card, el("h3", known(chain.proposal_id) + " · " + known(chain.title)), el("p", "Recorded skill proposal · " + known(chain.lane) + ". Consider through the existing owner review workflow.")); source(card, "memory/brain/proposals.jsonl · " + known(chain.proposal_id)); }
+          else { const skill = item.value; add(card, el("h3", "Feedback gaps: " + known(skill.name)), el("p", count(skill.governance.conformance.gap) + " recorded gaps. Owner: inspect the feedback before proposing a skill or section change.")); source(card, "memory/feedback.jsonl; exact feedback rows not supplied"); }
+          get("candidates-list").appendChild(card);
+        }));
+      }
+      if (activePanel === "blockers") {
+        const host = get("blockers-list"); add(host, el("p", attention.note, "source-note"));
+        const inbox = attention.items.filter(item => skillMatch(object(item.link) ? item.link.skill : null) && matches([item.id, item.title, item.detail, item.kind]));
+        if (!inbox.length) empty(host, "No matching attention items supplied. Missing evidence and unreported failures may remain.");
+        else page(host, "blockers", inbox, visible => visible.forEach(item => {
+          const card = el("article", undefined, "card"); add(card, el("h3", known(item.title)), el("span", known(item.severity) + " · " + known(item.kind), "pill warn"), el("p", known(item.detail)));
+          add(card, el("p", item.attentionGroup + (item.actionable === false ? " · view-only" : " · source review"), "source-note"), el("p", item.actionable === false ? "Owner: inspect the source; this projection supplies no actionable resolution." : "Owner: review the source and follow the existing governed workflow.", "next-action"));
+          if (item.action_cmd) details(card, "Reported next action (text only; not executed)", text(item.action_cmd), "attention:" + known(item.id)); source(card, known(item.source) + " · " + known(item.id)); host.appendChild(card);
+        }));
+      }
+      lastRenderKey = JSON.stringify([d ? {...d, generated_at: null} : null,
+        activePanel, Array.from(pages.entries()), get("activity-search").value, get("actor-filter").value, get("skill-filter").value]);
     }
 
     store = createStore(runtime, runtime.BRAIN_SUMMARY, render);
+    const panels = {activity: "activity-section", actors: "actors-section", skills: "skills-section", proposals: "proposals-section", candidates: "candidates-section", blockers: "blockers-section"};
+    const tabNames = Object.keys(panels);
+    const activatePanel = (name, moveFocus) => {
+      activePanel = name;
+      Object.entries(panels).forEach(([candidate, section]) => {
+        const selected = candidate === activePanel;
+        get(candidate + "-tab").setAttribute("aria-selected", String(selected));
+        get(candidate + "-tab").setAttribute("tabindex", selected ? "0" : "-1");
+        get(section).hidden = !selected;
+      });
+      if (moveFocus) get(name + "-tab").focus();
+      render(store);
+    };
+    tabNames.forEach((name, index) => {
+      const tab = get(name + "-tab");
+      tab.addEventListener("click", () => activatePanel(name, false));
+      tab.addEventListener("keydown", event => {
+        let next;
+        if (event.key === "ArrowLeft") next = (index - 1 + tabNames.length) % tabNames.length;
+        else if (event.key === "ArrowRight") next = (index + 1) % tabNames.length;
+        else if (event.key === "Home") next = 0;
+        else if (event.key === "End") next = tabNames.length - 1;
+        else return;
+        event.preventDefault();
+        activatePanel(tabNames[next], true);
+      });
+    });
     get("activity-filters").addEventListener("submit", event => event.preventDefault());
-    ["activity-search", "actor-filter", "skill-filter"].forEach(id => get(id).addEventListener(id === "activity-search" ? "input" : "change", () => render(store)));
-    get("clear-filters").addEventListener("click", () => { ["activity-search", "actor-filter", "skill-filter"].forEach(id => { get(id).value = ""; }); render(store); get("activity-search").focus(); });
+    ["activity-search", "actor-filter", "skill-filter"].forEach(id => get(id).addEventListener(id === "activity-search" ? "input" : "change", () => { resetPages(); render(store); }));
+    get("clear-filters").addEventListener("click", () => { ["activity-search", "actor-filter", "skill-filter"].forEach(id => { get(id).value = ""; }); resetPages(); render(store); get("activity-search").focus(); });
     get("refresh-data").addEventListener("click", () => store.refresh());
     render(store);
     if (/^https?:$/.test(runtime.location.protocol)) store.refresh();
