@@ -163,7 +163,7 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
 
   <section id="operationsband">
     <span class="sec" title="bounded local observations; no service controls">operations truth</span>
-    <div class="band" id="operations"><div class="opnote">operations data unavailable offline — start the brain server to inspect bounded local observations</div></div>
+    <div class="band" id="operations"><div class="opnote" data-state="loading">checking operations data availability…</div></div>
   </section>
   <div id="operations-source-status" class="opnote" aria-label="Operations data source"></div>
 
@@ -301,7 +301,7 @@ function renderStatus() {
   let e = seg("inbox", "system: " + s.system);
   e.innerHTML = '<span class="dot" style="background:' + sy[0] + '"></span><span class="v ' + sy[1] + '">' + esc(s.system) + "</span>";
 
-  const n = s.needs_you;
+  const n = currentNeedsYou();
   e = seg("inbox", n.high + " high · " + n.med + " med · " + n.low + " low");
   e.innerHTML = '<span class="k">needs you</span><span class="v">' + n.total + '</span>' +
     '<span class="ticksv">' +
@@ -334,9 +334,27 @@ function renderStatus() {
 }
 
 /* ---------- bounded operations truth (read-only; no implied control) ---------- */
-function renderOperations() {
+function renderOperations(phase = "unavailable") {
   const host = $("operations");
-  if (!O || !O.read_only) return;
+  if (!O || !O.read_only) {
+    const online = location.protocol === "http:" || location.protocol === "https:";
+    let state, message;
+    if (!online) {
+      state = "offline";
+      message = "operations data unavailable in this offline file view — open the dashboard through the brain server to inspect bounded local observations";
+    } else if (phase === "loading") {
+      state = "loading";
+      message = "loading operations data from api/operations…";
+    } else if (operationsSource.error) {
+      state = "error";
+      message = "operations data unavailable — request failed (" + operationsSource.error + "); api/operations did not return usable data";
+    } else {
+      state = "unavailable";
+      message = "operations data unavailable — no usable response has been received from api/operations";
+    }
+    host.innerHTML = '<div class="opnote" data-state="' + state + '">' + esc(message) + '</div>';
+    return;
+  }
   const f = (obj, fallback = "unknown") => obj && obj.value !== undefined && obj.value !== null ? obj.value : fallback;
   const stat = obj => (obj && obj.status) || "unknown";
   const cls = obj => stat(obj) === "observed" ? "ok" : stat(obj) === "stale" || stat(obj) === "partial" ? "warn" : "bad";
@@ -430,6 +448,17 @@ function frameworkAction(it, key, attention) {
     typeof it.kind === "string" && !!it.kind && it.kind !== "candidate_review" &&
     !it.candidate && !["external_acknowledgements", "backlog_history"].some(partition =>
       attention[partition].some(other => other && other.id === it.id));
+}
+function currentNeedsYou() {
+  const counts = { high: 0, med: 0, low: 0, total: 0 };
+  const attention = attentionPartitions();
+  if (!attention) return counts;
+  attention.framework_actions.map(attentionItem).forEach(it => {
+    if (!frameworkAction(it, "framework_actions", attention)) return;
+    counts.total++;
+    if (["high", "med", "low"].includes(it.severity)) counts[it.severity]++;
+  });
+  return counts;
 }
 function renderInbox() {
   const fallback = sorted();
@@ -984,16 +1013,17 @@ D = summarySource.data;
 M = mapSource.data;
 if (D) { initWindowState(); paint(); }
 showSources();
-renderOperations();
+renderOperations(location.protocol === "http:" || location.protocol === "https:" ? "loading" : "unavailable");
 showOperationsSource();
 lastMapSig = mapSig();
 mountMap();
 if (location.protocol !== "http:" && location.protocol !== "https:") reviewUiPresent = true;
 U.pageRefresh(current => Promise.all([
   refreshData(current),
-  fetchLiveOperations().then(live => {
+  (() => { if (!O) renderOperations("loading"); return fetchLiveOperations(); })().then(live => {
     if (!current()) return;
-    if (live) { O = live; renderOperations(); }
+    if (live) O = live;
+    renderOperations();
     showOperationsSource();
   }),
   probeReviewUi(current),
