@@ -757,6 +757,9 @@ function renderContracts() {
 }
 function openContract(c) {
   const cls = c.done_check === "pass" ? "ok" : c.done_check === "fail" ? "bad" : "warn";
+  const rawCheck = c.done_check_raw ?? "";
+  // JSON is display text for container receipts, independent of the verdict.
+  const rawCheckText = typeof rawCheck === "object" ? JSON.stringify(rawCheck) : rawCheck;
   const html =
     '<div class="ui-row"><span class="ui-dot" style="background:' + U.agentHue(c.agent) + '"></span>' +
     '<span class="ui-id" style="width:auto">' + esc(c.agent) + "</span>" +
@@ -765,7 +768,7 @@ function openContract(c) {
     '<div class="ui-title">' + esc(c.task || "") + "</div>" +
     U.kv("date", esc(c.date) + " · " + U.fmtAge(c.age_days) + " ago") +
     U.kv("status", esc(c.status)) +
-    U.kv("done-check", esc(c.done_check_raw || "")) +
+    U.kv("done-check", esc(rawCheckText)) +
     U.kv("authority cap", esc(c.authority_cap || "")) +
     U.kv("budget", esc(JSON.stringify(c.budget || {}))) +
     '<div class="ui-sec">skill subset</div><div class="ui-row" style="flex-wrap:wrap">' +
