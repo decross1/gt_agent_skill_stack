@@ -138,6 +138,20 @@ def test_inactive_service_cannot_record_success(deployment_paths):
     assert not state.exists()
 
 
+def test_service_exit_during_readiness_cannot_record_success(deployment_paths, monkeypatch):
+    source, state = deployment_paths
+    runner = FakeRunner(source, active=True)
+
+    def ready_then_service_exits():
+        runner.active = False
+        return True
+
+    monkeypatch.setattr(brain_deploy, "service_ready", ready_then_service_exits)
+    with pytest.raises(brain_deploy.DeploymentError, match="not active after readiness"):
+        brain_deploy.deploy(source, state, "main", "brain.service", runner)
+    assert not state.exists()
+
+
 @pytest.fixture
 def real_source(tmp_path):
     root = tmp_path / "real-source"
@@ -149,7 +163,8 @@ def real_source(tmp_path):
     git("config", "user.name", "Synthetic deployment fixture")
     git("config", "user.email", "fixture@example.invalid")
     for path, content in {"scripts/app.py": "pass\n", "AGENTS.md": "fixture authority\n",
-                          "memory/brain/narratives.jsonl": "{}\n", "docs/note.md": "note\n"}.items():
+                          "memory/brain/narratives.jsonl": "{}\n", "docs/note.md": "note\n",
+                          "systemd/user/brain.service": "[Service]\nExecStart=old\n"}.items():
         target = root / path
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_text(content)
@@ -175,6 +190,25 @@ def test_non_runtime_commit_keeps_source_fingerprint(real_source):
     git("commit", "-m", "No runtime source changes")
     after = brain_deploy.source_fingerprint(source, "main", subprocess.run)
     assert before.fingerprint == after.fingerprint
+
+
+def test_unit_only_commit_keeps_applied_runtime_fingerprint(real_source):
+    source, git = real_source
+    before = brain_deploy.source_fingerprint(source, "main", subprocess.run)
+    (source / "systemd/user/brain.service").write_text("[Service]\nExecStart=new\n")
+    git("add", "systemd/user/brain.service")
+    git("commit", "-m", "Change separately installed unit template")
+    after = brain_deploy.source_fingerprint(source, "main", subprocess.run)
+    assert before.status == after.status == "ready"
+    assert before.fingerprint == after.fingerprint
+
+
+def test_dirty_unit_template_defers_deployment(real_source):
+    source, _git = real_source
+    (source / "systemd/user/brain.service").write_text("[Service]\nExecStart=dirty\n")
+    result = brain_deploy.source_fingerprint(source, "main", subprocess.run)
+    assert result.status == "deferred"
+    assert "uncommitted" in result.detail
 
 
 def test_another_branch_at_main_commit_is_not_a_main_deployment(real_source):

@@ -20,7 +20,8 @@ from typing import Callable
 
 Runner = Callable[..., subprocess.CompletedProcess[str]]
 STATE_SCHEMA_VERSION = 1
-SOURCE_PATHS = ("scripts", "memory/brain/view", "systemd/user")
+DIRTY_GUARD_PATHS = ("scripts", "memory/brain/view", "systemd/user")
+FINGERPRINT_PATHS = ("scripts", "memory/brain/view")
 
 
 class DeploymentError(RuntimeError):
@@ -79,10 +80,10 @@ def source_fingerprint(source: Path, branch: str, runner: Runner) -> DeploymentR
     staged = git_output(source, "diff", "--cached", "--name-only", runner=runner)
     if staged:
         return DeploymentResult("deferred", "Git index has staged changes")
-    changes = git_output(source, "status", "--porcelain", "--untracked-files=all", "--", *SOURCE_PATHS, runner=runner)
+    changes = git_output(source, "status", "--porcelain", "--untracked-files=all", "--", *DIRTY_GUARD_PATHS, runner=runner)
     if changes:
         return DeploymentResult("deferred", "runtime source has uncommitted or untracked changes")
-    tree = git_output(source, "ls-tree", "-r", "--full-tree", head_commit, "--", *SOURCE_PATHS, runner=runner)
+    tree = git_output(source, "ls-tree", "-r", "--full-tree", head_commit, "--", *FINGERPRINT_PATHS, runner=runner)
     if not tree:
         return DeploymentResult("deferred", "no committed runtime source files")
     fingerprint = hashlib.sha256(tree.encode()).hexdigest()
@@ -197,6 +198,8 @@ def deploy(source: Path, state: Path, branch: str, service: str, runner: Runner 
         restart_service(service, source, runner)
         if not service_ready():
             raise DeploymentError("Brain API readiness failed; previous fingerprint retained")
+        if not service_active(service, source, runner):
+            raise DeploymentError(f"{service} is not active after readiness; previous fingerprint retained")
         after_restart = source_fingerprint(source, branch, runner)
         if after_restart.status != "ready" or after_restart.fingerprint != current.fingerprint:
             return DeploymentResult("deferred", "source changed during restart")

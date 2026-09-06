@@ -46,7 +46,7 @@ let timerId=0, focused=null;
 class Element {
  constructor(tag,attrs={}) {this.tagName=tag.toUpperCase();this.attrs={...attrs};this.children=[];
   this.listeners={};this.value=attrs.value||'';this.checked=Object.hasOwn(attrs,'checked');this.disabled=false;
-  this._text='';this.className=attrs.class||'';this.dataset={};this.hidden=false;}
+  this._text='';this.className=attrs.class||'';this.dataset={};this.hidden=Object.hasOwn(attrs,'hidden');}
  get textContent(){return this._text+this.children.map(c=>c.textContent).join('');}
  set textContent(v){this._text=String(v);this.children=[];}
  set innerHTML(_){throw new Error('Dynamic HTML is forbidden in this view');}
@@ -56,7 +56,8 @@ class Element {
  getAttribute(k){return this.attrs[k]??null;}
  querySelectorAll(selector){assert.equal(selector,'details[data-evidence-key]');return descendants(this,e=>e.tagName==='DETAILS'&&e.dataset.evidenceKey!==undefined);}
  addEventListener(k,fn){(this.listeners[k]??=[]).push(fn);}
- async dispatch(k){if(this.disabled)return;for(const fn of this.listeners[k]||[])await fn({preventDefault(){},target:this});}
+ async dispatch(k,extra={}){if(this.disabled)return;const event={defaultPrevented:false,target:this,
+  preventDefault(){this.defaultPrevented=true;},...extra};for(const fn of this.listeners[k]||[])await fn(event);return event;}
  focus(){focused=this;}
 }
 function build(node){if(typeof node==='string'){const e=new Element('#text');e.textContent=node;return e;}
@@ -101,6 +102,30 @@ const response=data=>({ok:true,status:200,text:async()=>JSON.stringify(data)});
 """
 
 CASES = {
+    "initial_tab_state_hides_every_inactive_panel_natively": r"""
+const names=['activity','actors','skills','proposals','candidates','blockers'];
+for(const name of names){
+ assert.equal($(name+'-tab').getAttribute('aria-selected'),String(name==='activity'));
+ assert.equal($(name+'-section').hidden,name!=='activity');
+}
+boot();await settle();
+for(const name of names)assert.equal($(name+'-section').hidden,name!=='activity');
+""",
+    "tab_keyboard_navigation_tracks_focus_selection_and_panels": r"""
+boot();await settle();
+const names=['activity','actors','skills','proposals','candidates','blockers'];
+const state=selected=>{for(const name of names){
+ assert.equal($(name+'-tab').getAttribute('aria-selected'),String(name===selected));
+ assert.equal($(name+'-tab').getAttribute('tabindex'),name===selected?'0':'-1');
+ assert.equal($(name+'-section').hidden,name!==selected);
+}assert.equal(focused,$(selected+'-tab'));};
+$('activity-tab').focus();
+let event=await $('activity-tab').dispatch('keydown',{key:'ArrowLeft'});state('blockers');assert.equal(event.defaultPrevented,true);
+event=await $('blockers-tab').dispatch('keydown',{key:'ArrowRight'});state('activity');assert.equal(event.defaultPrevented,true);
+event=await $('activity-tab').dispatch('keydown',{key:'ArrowRight'});state('actors');assert.equal(event.defaultPrevented,true);
+event=await $('actors-tab').dispatch('keydown',{key:'End'});state('blockers');assert.equal(event.defaultPrevented,true);
+event=await $('blockers-tab').dispatch('keydown',{key:'Home'});state('activity');assert.equal(event.defaultPrevented,true);
+""",
     "actual_html_and_snapshot": r"""
 boot(); await settle();
 assert.match(content('data-state'),/Snapshot data/);

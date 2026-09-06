@@ -357,7 +357,8 @@
 
     store = createStore(runtime, runtime.BRAIN_SUMMARY, render);
     const panels = {activity: "activity-section", actors: "actors-section", skills: "skills-section", proposals: "proposals-section", candidates: "candidates-section", blockers: "blockers-section"};
-    Object.entries(panels).forEach(([name, panel]) => get(name + "-tab").addEventListener("click", () => {
+    const tabNames = Object.keys(panels);
+    const activatePanel = (name, moveFocus) => {
       activePanel = name;
       Object.entries(panels).forEach(([candidate, section]) => {
         const selected = candidate === activePanel;
@@ -365,8 +366,23 @@
         get(candidate + "-tab").setAttribute("tabindex", selected ? "0" : "-1");
         get(section).hidden = !selected;
       });
+      if (moveFocus) get(name + "-tab").focus();
       render(store);
-    }));
+    };
+    tabNames.forEach((name, index) => {
+      const tab = get(name + "-tab");
+      tab.addEventListener("click", () => activatePanel(name, false));
+      tab.addEventListener("keydown", event => {
+        let next;
+        if (event.key === "ArrowLeft") next = (index - 1 + tabNames.length) % tabNames.length;
+        else if (event.key === "ArrowRight") next = (index + 1) % tabNames.length;
+        else if (event.key === "Home") next = 0;
+        else if (event.key === "End") next = tabNames.length - 1;
+        else return;
+        event.preventDefault();
+        activatePanel(tabNames[next], true);
+      });
+    });
     get("activity-filters").addEventListener("submit", event => event.preventDefault());
     ["activity-search", "actor-filter", "skill-filter"].forEach(id => get(id).addEventListener(id === "activity-search" ? "input" : "change", () => { resetPages(); render(store); }));
     get("clear-filters").addEventListener("click", () => { ["activity-search", "actor-filter", "skill-filter"].forEach(id => { get(id).value = ""; }); resetPages(); render(store); get("activity-search").focus(); });
