@@ -1,0 +1,13 @@
+[Unit]
+Description=Apply a verified Brain release after a clean main update
+
+[Service]
+Type=oneshot
+TimeoutStartSec=90s
+WorkingDirectory=%h/projects/agent_system
+ExecStart=/usr/bin/python3 -I %h/.local/lib/brain-server/brain-launch.py deploy --source %h/projects/agent_system --branch main --state-root %h/.local/state/brain-server --selection %h/.local/state/brain-server/active-release.json --helper-state %h/.local/state/brain-server/brain-deploy-state.json --service brain.service
+SuccessExitStatus=20
+UMask=0077
+StandardOutput=append:%h/projects/agent_system/run_state/brain-deploy.log
+StandardError=append:%h/projects/agent_system/run_state/brain-deploy.log
+Environment=PYTHONUNBUFFERED=1
