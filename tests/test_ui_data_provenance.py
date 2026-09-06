@@ -26,9 +26,12 @@ function element() {
 const events = new Map(), documentEvents = new Map(), activeIntervals = new Map();
 const context = {console, Date, Promise, JSON, setTimeout, clearTimeout, AbortController,
   addEventListener(k,fn){if(!events.has(k))events.set(k,[]);events.get(k).push(fn);},
+  removeEventListener(k,fn){events.set(k,(events.get(k)||[]).filter(f=>f!==fn));},
   location:{protocol:'http:',hostname:'localhost'}, navigator:{},
   localStorage:{getItem(){return null;}},
-  document:{addEventListener(k,fn){if(!documentEvents.has(k))documentEvents.set(k,[]);documentEvents.get(k).push(fn);},createElement:element,head:element(),body:element(),
+  // This harness evaluates assets before the page; acquisition is tested separately.
+  BrainMap:{mount(){return{demoCard(){}};}},
+  document:{readyState:'complete',removeEventListener(k,fn){documentEvents.set(k,(documentEvents.get(k)||[]).filter(f=>f!==fn));},addEventListener(k,fn){if(!documentEvents.has(k))documentEvents.set(k,[]);documentEvents.get(k).push(fn);},createElement:element,head:element(),body:element(),
     getElementById(id){if(!elements.has(id))elements.set(id,element());return elements.get(id);},
     querySelector(){return element();},querySelectorAll(){return [];}},
   intervals:[], setInterval(fn){context.intervals.push(fn);const id=context.intervals.length;activeIntervals.set(id,fn);return id;},
@@ -556,7 +559,7 @@ assert.doesNotMatch(panel,/ui-copy|data-review-link|WITHHELD_COMMAND/);
 
 def test_offline_graph_shim_retains_valid_saved_map_without_shared_ui():
     run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
-delete context.UI;context.location.protocol='file:';
+context.UI=undefined;context.location.protocol='file:';
 context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=map;boot();await flush();
 assert.equal(mounts.length,1);assert.equal(mounts[0].summary,fixture);assert.equal(mounts[0].map,map);
 assert.equal(activeIntervals.size,0);assert.equal(timers.size,0);

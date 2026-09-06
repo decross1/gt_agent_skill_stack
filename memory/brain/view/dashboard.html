@@ -206,21 +206,68 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
   <footer id="foot"></footer>
 </main>
 
-<script src="summary_data.js"></script>
-<script src="map_data.js"></script>
-<script src="ui.js?v=5dcf781d655c42b38ddfe704a6ca133db13ab339e66fc74ed5413e1f3873d664"></script>
-<script src="map.js"></script>
+<script defer src="summary_data.js"></script>
+<script defer src="map_data.js"></script>
+<script defer src="ui.js?v=5dcf781d655c42b38ddfe704a6ca133db13ab339e66fc74ed5413e1f3873d664"></script>
+<script defer src="map.js"></script>
 <script>
 (function () {
 "use strict";
-// The HTML and shared interface must agree. A versioned URL avoids reusing an
-// older cached interface after deployment; a failed download must stay visible.
+// Start only after deferred scripts settle. This watchdog runs while downloads
+// are pending; it does not depend on ui.js or create another external loader.
+const startupName = "Dashboard";
 function bootFailure(message, error) {
   const status = document.getElementById("data-source-status");
-  status.textContent = "Dashboard could not start. " + message;
+  status.textContent = startupName + " could not start. " + message;
   status.setAttribute("role", "alert");
-  if (error) console.error("Dashboard startup failed", error);
+  if (error) console.error(startupName + " startup failed", error);
 }
+let startupSettled = false, startupTimer = null;
+const startupNow = () => window.performance ? window.performance.now() : Date.now();
+const startupDeadline = startupNow() + 5000;
+function clearStartup() {
+  clearTimeout(startupTimer);
+  document.removeEventListener("DOMContentLoaded", readyToStart);
+  document.removeEventListener("visibilitychange", checkStartupDeadline);
+  window.removeEventListener("pagehide", interruptStartup);
+}
+function failStartup(message) {
+  if (startupSettled) return;
+  startupSettled = true;
+  clearStartup();
+  bootFailure(message);
+}
+function expireStartup() {
+  failStartup("Interface files did not finish loading within 5 seconds. Reload this page; if it persists, report the page URL and pending browser request.");
+}
+function checkStartupDeadline() {
+  if (!document.hidden && startupNow() >= startupDeadline) expireStartup();
+}
+function interruptStartup() {
+  failStartup("Page startup was interrupted. Reload this page to load the interface again.");
+}
+function readyToStart() {
+  if (startupSettled) return;
+  // Visibility throttling can delay the timer; a late ready event must not win.
+  if (startupNow() >= startupDeadline) { expireStartup(); return; }
+  startupSettled = true;
+  clearStartup();
+  try { startPage(); }
+  catch (error) {
+    bootFailure("An initialization error interrupted loading. Reload this page; if it persists, report the page URL and browser error.", error);
+  }
+}
+if (document.readyState === "complete") readyToStart();
+else {
+  document.getElementById("data-source-status").textContent = "Loading interface files (up to 5 seconds)…";
+  document.addEventListener("DOMContentLoaded", readyToStart);
+  document.addEventListener("visibilitychange", checkStartupDeadline);
+  window.addEventListener("pagehide", interruptStartup);
+  startupTimer = setTimeout(expireStartup, 5000);
+}
+function startPage() {
+// The HTML and shared interface must agree. A versioned URL avoids reusing an
+// older cached interface after deployment; a failed download must stay visible.
 const U = window.UI;
 const required = ["esc", "dataSource", "usableSummary", "usableMap", "pageRefresh",
   "renderDataStatus", "describeDataSource", "sevColor", "sevPill", "fmtAge",
@@ -230,7 +277,6 @@ if (!U || !required.every(name => typeof U[name] === "function") ||
   bootFailure("The interface files are missing or incompatible. Reload this page to request the current files. If this persists, report the page URL and browser error.");
   return;
 }
-try {
 let D = window.BRAIN_SUMMARY || null;  // static fallback; replaced by live /api/summary
 let M = window.BRAIN_MAP || null;      // static fallback; replaced by live /api/map
 let O = null;                          // operations has no baked fallback: unknown offline
@@ -1051,8 +1097,6 @@ U.pageRefresh(current => Promise.all([
   // Presence of this link grants no verdict authority.
   if (reviewSource.error === "request cancelled") reviewUiPresent = null;
 });
-} catch (error) {
-  bootFailure("An initialization error interrupted loading. Reload this page; if it persists, report the page URL and browser error.", error);
 }
 })();
 </script>
