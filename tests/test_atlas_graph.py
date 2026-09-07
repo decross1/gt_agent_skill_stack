@@ -67,13 +67,22 @@ def test_graph_shell_exposes_real_controls_and_keyboard_alternative():
 
 def test_graph_copy_discloses_projection_limits_and_relation_meaning():
     source = (VIEW / "graph.html").read_text()
-    assert "does not supply dependency records or exact parent/child source IDs" in source
-    assert "they are not a task DAG" in source
+    assert "does not turn assignments into child execution" in source
+    assert "does not call a cyclic projection a DAG" in source
     assert "Allowed contract skills do not prove observed use" in source
     assert "it is not a lifecycle enactment or verification count" in source
     assert "Neighborhoods are visual grouping only" in source
     assert "POST(" not in source
     assert ".post(" not in source.lower()
+
+
+def test_recorded_work_controls_name_each_foundation_relation():
+    source = (VIEW / "graph.html").read_text()
+    for label in ("recorded parent", "recorded assignment", "explicit dependency",
+                  "allowed skill", "caller-reported use"):
+        assert label in source
+    assert 'option value="work"' in source
+    assert 'id="work-evidence"' in source
 
 
 def test_normal_edge_colors_composite_above_three_to_one_on_white():
@@ -165,24 +174,21 @@ const edges=[
 ];
 let selected='';
 const instance=context.BrainMap.mount(canvas,{map:{nodes,edges,cards:{}},summary:{matrix:{cells:[]}},
-  windowDays:7,onSelect:node=>{selected=node.id;}});
+  windowDays:7,mode:'usage',onSelect:node=>{selected=node.id;}});
 assert.equal(canvas.__brainmap,instance);
 assert.equal(instance.skills.length,1);assert.equal(instance.agents.length,1);
-assert.deepEqual([...new Set(instance.getVisibleEdges().map(edge=>edge.type))].sort(),['launched','uses']);
-assert.ok(instance.getVisibleNodes().every(node=>['agent','spawn','skill'].includes(node.type)));
-assert.equal(instance.getVisibleNodes().filter(node=>node.type==='spawn').length,8);
-assert.ok(instance.getHiddenCount()>0,'bounded work view discloses omitted source records');
+assert.deepEqual(instance.getVisibleEdges().map(edge=>edge.type),['used']);
+assert.ok(instance.getVisibleNodes().every(node=>['agent','skill'].includes(node.type)));
 instance.selectById('actor');drawnText.length=0;instance._draw();
-assert.equal(drawnText.filter(value=>value.includes('recorded launch')).length,1,
+assert.equal(drawnText.filter(value=>value.includes('skill attribution')).length,1,
  'a selected actor gets one counted relation label instead of overlapping edge labels');
-assert.ok(drawnText.some(value=>value.includes('8 × recorded launch')));
-instance.setFilter({query:'contract 0',type:'all'});
-assert.ok(instance.getVisibleNodes().some(node=>node.id==='spawn-0'),'search reaches a record outside the initial recent slice');
-instance.setFilter({query:'',type:'skill'});
-assert.ok(instance.getVisibleNodes().every(node=>node.type==='skill'));
 instance.setMode('governance');
 assert.deepEqual(instance.getVisibleEdges().map(edge=>edge.type),['enacts']);
 assert.ok(instance.getVisibleNodes().some(node=>node.id==='proposal'));
+instance.setFilter({query:'P-1',type:'all'});
+assert.ok(instance.getVisibleNodes().some(node=>node.id==='proposal'));
+instance.setFilter({query:'',type:'skill'});
+assert.ok(instance.getVisibleNodes().every(node=>node.type==='skill'));
 instance.setMode('usage');
 assert.deepEqual(instance.getVisibleEdges().map(edge=>edge.type),['used']);
 assert.equal(instance.selectById('skill'),true);assert.equal(selected,'skill');
@@ -224,6 +230,128 @@ def test_renderer_modes_search_selection_and_finite_lifecycle():
         pytest.fail("Node is required for the functional graph renderer check")
     result = subprocess.run(
         [NODE, "-e", RENDERER_CHECK, str(VIEW / "map.js")],
+        capture_output=True, text=True, timeout=15,
+    )
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
+WORK_RENDERER_CHECK = r"""
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const vm = require('node:vm');
+function element(){
+  return {style:{},children:[],listeners:{},textContent:'',className:'',attributes:{},
+    appendChild(child){this.children.push(child);return child;},remove(){this.removed=true;},
+    addEventListener(name,fn){this.listeners[name]=fn;},removeEventListener(name){delete this.listeners[name];},
+    setAttribute(name,value){this.attributes[name]=String(value);},getAttribute(name){return this.attributes[name]||null;},
+    getBoundingClientRect(){return {left:0,top:0,width:442,height:440};}};
+}
+const frames=new Map();let frameId=0;
+const root=element();root.setAttribute('data-theme','light');
+const document={hidden:false,documentElement:root,head:element(),getElementById(){return null;},
+ createElement(){return element();},addEventListener(){},removeEventListener(){}};
+const context={console,document,devicePixelRatio:1,UI:{agentHue(){return '#6677cc';}},
+ getComputedStyle(){return {position:'relative',getPropertyValue(){return '';}};},
+ requestAnimationFrame(fn){frames.set(++frameId,fn);return frameId;},cancelAnimationFrame(id){frames.delete(id);},
+ addEventListener(){},removeEventListener(){},setTimeout,clearTimeout};
+context.window=context;vm.createContext(context);
+vm.runInContext(fs.readFileSync(process.argv[1],'utf8'),context);
+const draw=new Proxy({measureText(){return {width:10};}},
+ {get(target,key){if(!(key in target))target[key]=()=>{};return target[key];}});
+function mount(map){
+ const wrap=element(),canvas=element();canvas.parentElement=wrap;canvas.clientWidth=442;canvas.clientHeight=440;
+ canvas.getContext=()=>draw;return context.BrainMap.mount(canvas,{map,summary:{matrix:{cells:[]}},mode:'work'});
+}
+const capture={namespace:'agent_system/framework',locator:'framework:run-and-spawn',capture_basis:{
+ captured_at:'2026-09-07T23:30:00Z',files:[
+  {locator:'run_state/framework.run.jsonl',digest:'a'.repeat(64),size:120,availability:'available'},
+  {locator:'run_state/spawn.jsonl',digest:'b'.repeat(64),size:80,availability:'available'}]}};
+const review={id:'work:agent_system%2Fframework:task:review',type:'work',record_id:'review',kind:'task',
+ role:false,raw_status:{state:'assigned',toString:7},source_locator:'run:review',source_metadata:capture};
+const check={id:'work:agent_system%2Fframework:task:check',type:'work',record_id:'check',kind:'task',
+ raw_status:0,source_locator:'run:check',source_metadata:capture};
+const skill={id:'skill:agent_system%2Fframework:validate',type:'skill',skill_id:'validate',
+ source_locator:{collection:capture.locator,skill_id:'validate'},source_metadata:capture};
+const edge=(type,source,target,extra={})=>({id:'edge:'+type+':'+source+':'+target,type,source,target,
+ source_locator:'edge:'+type,source_metadata:capture,...extra});
+const work={schema_version:'work-graph/v1',source:capture,
+ projection_state:{state:'partial',reason:'unresolved_references'},
+ dependency_availability:{state:'available',reason:null},
+ limits:{unit:'items',record_cap:2048,record_count:2,node_cap:256,edge_cap:1024,diagnostic_cap:256,
+  node_candidates:3,edge_candidates:6,unresolved_candidates:1,cycle_candidates:1,nodes_omitted:0,
+  edges_omitted:0,unresolved_omitted:0,cycles_omitted:0},
+ nodes:[review,check,skill],edges:[
+  edge('parent',review.id,check.id),edge('spawn_assignment',review.id,check.id),
+  edge('dependency',check.id,review.id),edge('allowed_skill',review.id,skill.id),
+  edge('observed_skill',check.id,skill.id,{assertion_basis:'caller_supplied'}),
+  edge('spawn_assignment',review.id,review.id)],
+ unresolved:[{reason:'duplicate_id',record_id:'held-duplicate',occurrences:2}],
+ cycles:[{node_ids:[review.id,check.id]}]};
+const legacy={generated_at:'2026-09-07T23:30:01Z',
+ nodes:[{id:'legacy-agent',type:'agent',label:'legacy actor'},
+  {id:'legacy-spawn',type:'spawn',label:'legacy contract'},
+  {id:'legacy-proposal',type:'proposal',label:'P-1'}],
+ edges:[{src:'legacy-agent',dst:'legacy-spawn',type:'launched'},
+  {src:'legacy-proposal',dst:'legacy-agent',type:'authored'}],cards:{},work};
+const before=JSON.stringify(work),instance=mount(legacy);
+assert.deepEqual(instance.getVisibleNodes().map(node=>node.id).sort(),work.nodes.map(node=>node.id).sort());
+assert.deepEqual(instance.getVisibleEdges().map(item=>item.type).sort(),
+ ['allowed_skill','dependency','observed_skill','parent','spawn_assignment','spawn_assignment']);
+assert.equal(instance.getWorkState().state,'partial');
+assert.equal(instance.getWorkState().reason,'unresolved_references');
+assert.equal(instance.getNodeById(review.id).record_id,'review');
+assert.equal(JSON.stringify(work),before,'renderer must not rewrite the qualified library output');
+const related=instance.getConnections(review.id);
+assert.deepEqual([...new Set(related.map(row=>row.edge.type))].sort(),
+ ['allowed_skill','dependency','parent','spawn_assignment']);
+assert.ok(related.some(row=>row.edge.type==='spawn_assignment'&&row.node.id===review.id),
+ 'self-assignment remains inspectable');
+assert.equal(related.filter(row=>row.node.id===check.id).length,3,
+ 'parallel parent, assignment and dependency evidence stays separate');
+const metrics=instance.getRenderMetrics();
+assert.ok(metrics.labelCssPixels>=12);assert.ok(metrics.minimumNodeCssWidth>0);
+assert.equal(metrics.selfLoopEdges,1);assert.equal(metrics.parallelRelationPairs,1);
+assert.ok(metrics.visibleNodes<=36);instance.selectById(review.id,false);
+assert.equal(instance.getRenderMetrics().selectedNodeInsideCanvas,true,
+ 'keyboard/pointer selection pans the selected narrow-canvas work node into view');
+instance.setMode('governance');
+assert.ok(instance.getVisibleNodes().some(node=>node.id==='legacy-proposal'));
+assert.ok(instance.getVisibleNodes().every(node=>!node._workProjection));
+instance.setMode('usage');assert.equal(instance.getVisibleNodes().length,1);
+instance.destroy();
+
+for(const [map,state] of [
+ [{...legacy,work:undefined},'missing'],
+ [{...legacy,work:{...work,projection_state:{state:'unavailable',reason:'capture_failed'},nodes:[],edges:[]}},'unavailable'],
+ [{...legacy,work:{...work,edges:[edge('dependency',check.id,'missing')]}},'malformed'],
+ [{...legacy,work:{...work,schema_version:'work-graph/v0'}},'malformed'],
+]){
+ const item=mount(map);assert.equal(item.getWorkState().state,state);
+ assert.equal(item.getVisibleNodes().length,0,'unavailable work must not fall back to legacy contracts');item.destroy();
+}
+
+const manyNodes=[];
+for(let index=0;index<70;index++)manyNodes.push({id:'work:n:task:'+index,type:'work',record_id:String(index),kind:'task',
+ source_locator:'record:'+index,source_metadata:capture});
+const many={...legacy,work:{...work,projection_state:{state:'complete',reason:null},
+ dependency_availability:{state:'unavailable',reason:'dependencies_not_supplied'},nodes:manyNodes,edges:[],unresolved:[],cycles:[],
+ limits:{...work.limits,record_count:70,node_candidates:70,edge_candidates:0,unresolved_candidates:0,
+  cycle_candidates:0,nodes_omitted:0}}};
+const bounded=mount(many);assert.equal(bounded.getVisibleNodes().length,36);
+assert.deepEqual(bounded.getWorkState().projection.dependency_availability,
+ {state:'unavailable',reason:'dependencies_not_supplied'},
+ 'a real-shaped capture without dependency fields stays distinct from a synthetic dependency graph');
+assert.equal(bounded.getHiddenCount(),34);bounded.setFilter({query:'record:69',type:'all'});
+assert.equal(bounded.getVisibleNodes()[0].record_id,'69','search reaches an item beyond the initial neighborhood');
+bounded.destroy();
+"""
+
+
+def test_recorded_work_renderer_admits_typed_projection_without_legacy_fallback():
+    if not NODE:
+        pytest.fail("Node is required for the functional recorded-work renderer check")
+    result = subprocess.run(
+        [NODE, "-e", WORK_RENDERER_CHECK, str(VIEW / "map.js")],
         capture_output=True, text=True, timeout=15,
     )
     assert result.returncode == 0, result.stdout + result.stderr

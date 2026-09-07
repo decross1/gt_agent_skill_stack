@@ -30,6 +30,24 @@ validation must report the measured viewport rather than the requested width.
 
 ## What the evidence means
 
+Recorded work reads the optional typed `map.work` projection with schema
+`work-graph/v1`. It keeps recorded parent, assignment, explicit dependency,
+allowed-skill and caller-reported-use relations separate. An assignment is not
+a child execution receipt, an allowed skill is not observed use, and a supplied
+raw status is not a liveness or success verdict. Dependency cycles are shown as
+source qualifications; the Atlas does not relabel a cyclic input as a DAG.
+
+The work disclosure shows the capture time, per-file locator, byte and row
+counts, whole-file SHA-256 when available, captured-prefix evidence for a
+bounded failure, and the producer's item caps, omissions, unresolved reasons
+and pre-cap cycle count. Those values are copied source evidence. They do not
+authenticate an actor or make separately read files an atomic snapshot.
+`projection_state: partial` remains inspectable with its qualifications.
+Missing, malformed and explicitly unavailable work stays unavailable; Atlas
+does not substitute the older contract/governance graph or describe a failed
+capture as zero work. A failed live refresh may retain the last valid response,
+but both the data-source line and work qualification identify it as cached.
+
 - A recorded failure is a failure even when its timestamp is successfully
   observed. A saved snapshot's generation time and the beginning of its recall
   window describe different things.
@@ -37,8 +55,11 @@ validation must report the measured viewport rather than the requested width.
   actions. The review catalog determines current eligibility; an unavailable
   catalog leaves that eligibility unknown.
 - Knowledge and governance relationships do not establish task dependencies.
-  The published projections do not currently supply a complete execution DAG.
-  Missing joins stay unavailable. Task descriptions are not stable task IDs.
+  The typed work projection only displays dependencies explicitly supplied in
+  its bounded source capture. The framework-shaped capture currently supplies
+  none, so dependency availability remains unavailable rather than becoming an
+  empty complete execution DAG. Missing child execution joins stay unavailable.
+  Task descriptions are not stable task IDs.
 - An assigned or allowed skill is different from explicitly recorded use.
   Inferred historical attribution is neither authenticated identity nor proof
   that an agent is currently running.
