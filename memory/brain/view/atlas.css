@@ -35,8 +35,8 @@ html[data-atlas][data-theme="dark"] {
   --text: #f5f7fb;
   --text-dim: #c0cad8;
   --text-faint: #9eacbd;
-  --text-ghost: #7f8da1;
-  --accent: #9b87f5;
+  --text-ghost: #9eacbd;
+  --accent: #aa99ff;
   --ok: #72cfc4;
   --warn: #edb45f;
   --bad: #f18498;
@@ -70,7 +70,7 @@ html[data-atlas] input,
 html[data-atlas] select,
 html[data-atlas] textarea { font: inherit; }
 html[data-atlas] :focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--accent) 62%, white);
+  outline: 3px solid var(--accent);
   outline-offset: 3px;
 }
 
@@ -396,10 +396,33 @@ html[data-atlas] .status-heading {
 }
 html[data-atlas] .status-heading h2 { margin: 0; font-size: 16px; }
 html[data-atlas] .status-heading span { color: var(--text-faint); font-size: 11px; }
-html[data-atlas] #status { height: auto; min-height: 62px; background: var(--surface); }
-html[data-atlas] #status .seg { min-height: 62px; padding: 10px 14px; }
+html[data-atlas] #status {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  height: auto;
+  min-height: 70px;
+  background: var(--surface);
+}
+html[data-atlas] #status .seg {
+  min-width: 0;
+  min-height: 70px;
+  padding: 10px 12px;
+  flex-wrap: wrap;
+  align-content: center;
+  column-gap: 8px;
+  row-gap: 2px;
+  overflow: hidden;
+}
 html[data-atlas] #status .seg:hover { background: var(--surface-2); }
-html[data-atlas] #status .seg .k { color: var(--text-faint); }
+html[data-atlas] #status .seg .k {
+  order: -1;
+  flex: 1 0 100%;
+  min-width: 0;
+  color: var(--text-faint);
+  line-height: 1.2;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
 
 html[data-atlas] .evidence-vault {
   margin-top: 22px;
@@ -436,6 +459,9 @@ html[data-atlas] .dcard {
 }
 html[data-atlas] .row.flag { background: var(--warn-bg); }
 html[data-atlas] .rvw:hover { color: white; }
+html[data-atlas][data-theme="dark"] .tick.on,
+html[data-atlas][data-theme="dark"] .decision-link,
+html[data-atlas][data-theme="dark"] .rvw:hover { color: var(--bg); }
 html[data-atlas] .opnote { color: var(--text-faint); }
 html[data-atlas] .op .v.bad { font-weight: 650; }
 

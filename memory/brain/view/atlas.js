@@ -40,5 +40,13 @@
     paint(next, true);
   });
 
-  paint(theme, false);
+  // Async loading keeps this optional presentation helper outside the data
+  // boot dependency chain. If it arrives after a saved theme should already be
+  // visible, announce the actual token change so mounted renderers can repaint.
+  paint(theme, true);
+  // An async script may also win the race with body parsing. Repaint labels
+  // once controls exist; this second pass emits nothing because the mode holds.
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", () => paint(theme, false), { once: true });
+  }
 })();

@@ -65,6 +65,29 @@ assert.equal(fixture.attention.external_acknowledgements.length,511);
 """)
 
 
+def test_status_has_seven_cells_and_activation_opens_hidden_evidence_before_scroll():
+    run_js(STATUS_SETUP + r"""
+context.drawStatus();
+const status=elements.get('status');
+assert.equal(status.children.length,7);
+assert.match(status.children[1].innerHTML,/recorded blockers/);
+assert.match(status.children[2].innerHTML,/drift/);
+const disclosure=context.document.getElementById('evidence-details');disclosure.open=false;
+const inbox=context.document.getElementById('inbox');let inboxScrolls=0;
+inbox.scrollIntoView=options=>{inboxScrolls++;assert.equal(options.block,'start');};
+status.children[1].listeners.click();
+assert.equal(disclosure.open,true);assert.equal(inboxScrolls,1);
+disclosure.open=false;
+const mapband=context.document.getElementById('mapband');let mapScrolls=0;
+mapband.scrollIntoView=()=>{mapScrolls++;};let prevented=0;
+status.children[2].listeners.keydown({key:'Enter',preventDefault(){prevented++;}});
+assert.equal(disclosure.open,true);assert.equal(mapScrolls,1);assert.equal(prevented,1);
+disclosure.open=false;
+status.children[2].listeners.keydown({key:'Escape',preventDefault(){prevented++;}});
+assert.equal(disclosure.open,false);assert.equal(mapScrolls,1);assert.equal(prevented,1);
+""")
+
+
 @pytest.mark.parametrize("attention", ["undefined", "null", "{}", "{framework_actions:'bad'}"])
 def test_headline_fails_closed_when_attention_authority_is_unknown(attention):
     run_js(STATUS_SETUP + "fixture.attention=" + attention + r""";
@@ -160,6 +183,36 @@ assert.equal(calls.filter(call=>call.path==='api/proposals').length,1);
 assert.ok(calls.every(call=>call.method==='GET' || call.method==='HEAD'));
 assert.match(elements.get('decision-catalog').innerHTML,/P-100/);
 assert.match(elements.get('decision-catalog').innerHTML,/Review/);
+for(const fn of events.get('pagehide')||[])fn({persisted:false});
+""")
+
+
+def test_missing_saved_summary_timeout_replaces_primary_waiting_cards_with_error():
+    run_js(r"""
+const timers=new Map();let timerId=0;
+context.setTimeout=(fn,ms)=>{assert.equal(ms,5000);timers.set(++timerId,fn);return timerId;};
+context.clearTimeout=id=>timers.delete(id);
+const flush=async()=>{for(let i=0;i<40;i++)await Promise.resolve();};
+context.BRAIN_SUMMARY={unexpected:'invalid summary'};context.BRAIN_MAP=map;
+context.fetch=(path,options={})=>{
+  if(path==='api/summary')return new Promise(()=>{});
+  if(path==='api/map')return Promise.resolve(ok(map));
+  if(path==='api/operations')return Promise.resolve(ok({read_only:true,server:{alive:{value:true,status:'observed'}},warnings:[]}));
+  if(path==='proposal_review.html')return Promise.resolve({ok:true,status:200,redirected:false});
+  throw new Error('unexpected '+path);
+};
+const html=fs.readFileSync(process.argv[1]+'/dashboard.html','utf8');
+vm.runInContext(html.match(/<script>([\s\S]*?)<\/script>/)[1],context);
+await flush();assert.ok(timers.size>0,'missing live summary must retain its source deadline');
+for(const [id,fn] of [...timers]){timers.delete(id);fn();}await flush();
+const blockers=elements.get('blocker-summary').innerHTML;
+const changes=elements.get('change-summary').innerHTML;
+assert.match(blockers,/Blocker status unavailable/);assert.match(changes,/Change history unavailable/);
+assert.match(blockers,/live summary request failed \(request timed out after 5s\)/);
+assert.doesNotMatch(blockers,/No framework blockers|0 source-reported/);
+assert.doesNotMatch(changes,/No recorded changes/);
+assert.doesNotMatch(blockers+changes,/Waiting for summary data/);
+assert.match(elements.get('data-source-status').textContent,/Summary: unavailable.*refresh failed.*timed out/i);
 for(const fn of events.get('pagehide')||[])fn({persisted:false});
 """)
 
