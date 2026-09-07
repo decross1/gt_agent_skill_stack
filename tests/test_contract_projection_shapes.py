@@ -172,6 +172,11 @@ def test_completed_execution_does_not_imply_successful_validation(check, expecte
 @pytest.mark.parametrize("spawned_at,completed_at", [
     ("2026-09-05T12:00:00Z", "2026-09-04T12:00:00Z"),
     ("zz-malformed-spawn-time", "aa-malformed-completion-time"),
+    ("2026-09-05T12:00:00Z", None),
+    (False, "2026-09-04T12:00:00Z"),
+    (0, {"reported": "unparseable"}),
+    ([], "2026-09-04T12:00:00Z"),
+    ({"source": "clock"}, ""),
 ])
 def test_contract_lineage_follows_physical_ledger_order(
         tmp_path, monkeypatch, spawned_at, completed_at):
