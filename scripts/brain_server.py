@@ -943,7 +943,7 @@ def _proposal_rows_bounded(warnings: list[str]) -> tuple[list[dict], str, int]:
 
 
 def _exact_enactment_state(proposal: dict, *, deadline: float) -> tuple[str, str]:
-    """Bounded local proof of lifecycle state; never trusts an acceptance or prose."""
+    """Bounded local Git/path evidence only; no command-execution verification."""
     rows = proposal["lifecycle"]
     verdict_index = next((i for i in range(len(rows) - 1, -1, -1)
                           if rows[i].get("verdict")), None)
@@ -979,14 +979,9 @@ def _exact_enactment_state(proposal: dict, *, deadline: float) -> tuple[str, str
         break
     if enacted_commit is None:
         return "pending", ""
-    for row in reversed(rows[verdict_index + 1:]):
-        evidence = row.get("verification")
-        if (isinstance(evidence, dict) and evidence.get("commit") == enacted_commit
-                and isinstance(evidence.get("command"), str) and evidence["command"].strip()
-                and evidence.get("result") == "pass"
-                and isinstance(evidence.get("output_sha256"), str)
-                and _SHA256.fullmatch(evidence["output_sha256"])):
-            return "verified", ""
+    # A verification-shaped row is a source report. Its command and output hash
+    # are not checked here, matching project_summary.proposal_healing_state.
+    # Preserve the claim in the ledger/detail view without promoting it.
     return "enacted", ""
 
 
@@ -1004,18 +999,16 @@ def _lifecycle_observation(warnings: list[str], *, deadline: float) -> dict:
             warnings.append(f"lifecycle evidence unavailable: {error}")
         elif state == "enacted":
             enacted += 1
-        elif state == "verified":
-            enacted += 1
-            verified += 1
     if len(accepted) > OPS_MAX_LIFECYCLE_PROPOSALS:
         unknown += len(accepted) - OPS_MAX_LIFECYCLE_PROPOSALS
         warnings.append("lifecycle evidence count capped by proposal budget")
     status = "partial" if row_status == "partial" or unknown else "observed"
     return {"counts": _fact({"accepted": len(accepted), "enacted": enacted,
-                               "verified": verified, "unverified_or_pending": len(accepted) - enacted,
+                               "verified": verified, "unverified_or_pending": len(accepted) - verified,
                                "evidence_unknown": unknown}, status,
                               "proposal ledger + exact local commit/path checks",
-                              "acceptance is a decision only; enactment/verification require exact evidence")}
+                              "acceptance is a decision only; enactment checks Git/paths; "
+                              "execution verification is not performed; verification rows remain source reports")}
 
 
 def _repo_observation(*, deadline: float) -> dict:

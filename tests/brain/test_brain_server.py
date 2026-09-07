@@ -1090,8 +1090,8 @@ def test_operations_reports_only_exact_lifecycle_evidence_and_mixed_rows(operati
     assert body["pipeline"]["last_success"]["value"] == "2026-06-01T00:00:01Z"
     assert body["cursors"]["consumer"]["value"]["delta_lines"] == 1
     counts = body["proposals"]["counts"]["value"]
-    assert counts == {"accepted": 1, "enacted": 1, "verified": 1,
-                      "unverified_or_pending": 0, "evidence_unknown": 1}
+    assert counts == {"accepted": 1, "enacted": 1, "verified": 0,
+                      "unverified_or_pending": 1, "evidence_unknown": 1}
     assert body["proposals"]["counts"]["status"] == "partial"
     assert any("mixed-schema" in w for w in body["warnings"])
     assert before == after  # endpoint has no write side effect
@@ -1237,3 +1237,28 @@ def test_operations_requires_exact_watcher_argv_and_timezone_aware_timestamps(op
     assert body["projection"]["generated_at"]["status"] == "unknown"
     assert body["proposals"]["counts"]["status"] == "partial"
     assert body["proposals"]["counts"]["value"]["evidence_unknown"] == 1
+
+
+def test_operations_reported_verification_does_not_establish_execution(operations, monkeypatch):
+    commit = "a" * 40
+    rows = [dict(FW_PROP, verdict="accepted", status="closed"),
+            {"timestamp": "2026-06-02T00:00:00Z", "proposal_id": "P-100",
+             "enactment": {"commit": commit, "paths": [".agents/skills/validate/SKILL.md"]}},
+            {"timestamp": "2026-06-03T00:00:00Z", "proposal_id": "P-100",
+             "verification": {"commit": commit, "command": "pytest private-fixture", "result": "pass",
+                              "output_sha256": "b" * 64}}]
+    operations.seed(*rows)
+    before = operations.proposals.read_bytes()
+    monkeypatch.setattr(bs, "_run_bounded", lambda argv, **kw: (".agents/skills/validate/SKILL.md\n", None))
+    monkeypatch.setattr(bs.ps, "_commit_changed_paths", lambda *args: {".agents/skills/validate/SKILL.md"})
+    proposal = bs.ps.collapse_proposals(rows)["P-100"]
+    projected = bs.ps.proposal_healing_state(proposal, bs.ROOT)
+    assert projected["verified"]["state"] == "pending"
+    state, error = bs._exact_enactment_state(proposal, deadline=time.monotonic() + 3)
+    assert state == "enacted" and error == ""
+    observed = bs.operations_snapshot()["proposals"]["counts"]
+    assert observed["value"]["enacted"] == 1
+    assert observed["value"]["verified"] == 0
+    assert observed["value"]["unverified_or_pending"] == 1
+    assert "execution verification is not performed" in observed["uncertainty"]
+    assert operations.proposals.read_bytes() == before
