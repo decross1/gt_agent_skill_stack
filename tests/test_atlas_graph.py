@@ -99,6 +99,29 @@ def test_normal_edge_colors_composite_above_three_to_one_on_white():
         assert contrast >= 3, (hue, alpha, composited, contrast)
 
 
+def test_inspector_action_cascade_contrast_and_fact_spacing():
+    source = (VIEW / "graph.html").read_text()
+    assert "html[data-atlas] .graph-inspector .source-action" in source
+    assert 'html[data-atlas][data-theme="dark"] .graph-inspector .source-action' in source
+    assert "grid-template-columns:minmax(92px,.42fr) minmax(0,1fr)" in source
+    assert "gap:12px" in source
+
+    def rgb(value):
+        return tuple(int(value[index:index + 2], 16) / 255 for index in (1, 3, 5))
+
+    def luminance(value):
+        channels = [channel / 12.92 if channel <= .04045
+                    else ((channel + .055) / 1.055) ** 2.4 for channel in rgb(value)]
+        return .2126 * channels[0] + .7152 * channels[1] + .0722 * channels[2]
+
+    def contrast(one, two):
+        light, dark = sorted((luminance(one), luminance(two)), reverse=True)
+        return (light + .05) / (dark + .05)
+
+    assert contrast("#ffffff", "#5657d8") >= 4.5
+    assert contrast("#172334", "#aa99ff") >= 4.5
+
+
 RENDERER_CHECK = r"""
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
@@ -122,7 +145,9 @@ const context={console,document,devicePixelRatio:1,UI:{agentHue(){return '#6677c
   setTimeout,clearTimeout};
 context.window=context;vm.createContext(context);
 vm.runInContext(fs.readFileSync(process.argv[1],'utf8'),context);
-const draw=new Proxy({}, {get(target,key){if(!(key in target))target[key]=()=>{};return target[key];}});
+const drawnText=[];
+const draw=new Proxy({fillText(value){drawnText.push(String(value));}},
+ {get(target,key){if(!(key in target))target[key]=()=>{};return target[key];}});
 const wrap=element(),canvas=element();canvas.parentElement=wrap;canvas.clientWidth=1000;canvas.clientHeight=620;
 canvas.getContext=()=>draw;
 const nodes=[
@@ -133,7 +158,7 @@ const nodes=[
 ];
 for(let i=0;i<21;i++)nodes.push({id:'spawn-'+i,type:'spawn',label:'contract '+i,date:'2026-09-'+String(i+1).padStart(2,'0')});
 const edges=[
- {src:'actor',dst:'spawn-20',type:'launched',weight_e:1},
+ ...Array.from({length:8},(_,index)=>({src:'actor',dst:'spawn-'+(13+index),type:'launched',weight_e:1})),
  {src:'spawn-20',dst:'skill',type:'uses',weight_i:1},
  {src:'actor',dst:'skill',type:'used',weight_e:2,weight_i:1},
  {src:'proposal',dst:'rule',type:'enacts',weight_e:1},
@@ -147,6 +172,10 @@ assert.deepEqual([...new Set(instance.getVisibleEdges().map(edge=>edge.type))].s
 assert.ok(instance.getVisibleNodes().every(node=>['agent','spawn','skill'].includes(node.type)));
 assert.equal(instance.getVisibleNodes().filter(node=>node.type==='spawn').length,8);
 assert.ok(instance.getHiddenCount()>0,'bounded work view discloses omitted source records');
+instance.selectById('actor');drawnText.length=0;instance._draw();
+assert.equal(drawnText.filter(value=>value.includes('recorded launch')).length,1,
+ 'a selected actor gets one counted relation label instead of overlapping edge labels');
+assert.ok(drawnText.some(value=>value.includes('8 × recorded launch')));
 instance.setFilter({query:'contract 0',type:'all'});
 assert.ok(instance.getVisibleNodes().some(node=>node.id==='spawn-0'),'search reaches a record outside the initial recent slice');
 instance.setFilter({query:'',type:'skill'});
@@ -162,8 +191,19 @@ canvas.clientWidth=808;canvas.clientHeight=650;instance.resize();instance.fit();
 assert.ok(instance.getRenderMetrics().labelCssPixels>=12,'1440-class split layout keeps labels at least 12 CSS px');
 canvas.clientWidth=812;canvas.clientHeight=500;instance.resize();instance.fit();
 assert.ok(instance.getRenderMetrics().labelCssPixels>=12,'900px stacked layout keeps labels at least 12 CSS px');
+const narrowIds=instance.getVisibleNodes().map(node=>node.id);
+canvas.clientWidth=442;canvas.clientHeight=440;instance.resize();instance.fit();
+assert.ok(instance.getRenderMetrics().labelCssPixels>=12,'500px viewport keeps canvas labels at least 12 CSS px');
+assert.deepEqual(instance.getVisibleNodes().map(node=>node.id),narrowIds,'narrow sizing must not discard accessible records');
+assert.equal(instance.selectById('actor'),true,'narrow canvas records remain programmatically selectable');
+const actorItem=instance.visibleById.get('actor'),actorTransform=instance._transform();
+const actorLeft=actorTransform.x+(actorItem.x-actorItem.width/2)*actorTransform.scale;
+const actorRight=actorTransform.x+(actorItem.x+actorItem.width/2)*actorTransform.scale;
+assert.ok(actorLeft>=11 && actorRight<=canvas.clientWidth-11,
+ 'keyboard selection pans an offscreen narrow-canvas node into view');
 for(let i=0;i<30;i++)instance.zoomBy(.2);assert.equal(instance.getZoom(),2.1);
-instance.fit();assert.equal(instance.getZoom(),1);
+instance.fit();assert.ok(instance.getZoom()>1,'narrow fit preserves the minimum readable scale');
+canvas.clientWidth=808;canvas.clientHeight=650;instance.resize();instance.fit();assert.equal(instance.getZoom(),1);
 instance.update({map:{nodes:nodes.slice(0,4),edges,cards:{}},mode:'usage',query:'',type:'all'});
 assert.equal(instance.skills.length,1);
 instance.egoMode('skill',false);instance.hovered=instance.visible[0];
