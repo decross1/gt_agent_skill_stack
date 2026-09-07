@@ -130,6 +130,10 @@ These commands are an operator procedure for an already reviewed exact release.
 They are not run by the deployment helper, launcher, or path unit. Confirm the
 reviewed source commit and expected hashes first; substitute the recorded hashes
 from that review rather than trusting values computed only after copying.
+Before installation, save the exact existing enable states of `brain.service`
+and `brain-deploy.path`. This new installation requires both to be absent or
+not enabled. An unexpected existing installation or owner is a hold, not
+permission to overwrite it. Preserve these receipts for failure recovery.
 
 ```sh
 source_root="$HOME/projects/agent_system"
@@ -159,28 +163,45 @@ sha256sum "$launcher_installed" "$unit_root/brain.service" \
   "$unit_root/brain-deploy.service" "$unit_root/brain-deploy.path"
 
 systemctl --user daemon-reload
-systemctl --user enable brain.service
 ```
 
 `install` only copies reviewed bytes. `daemon-reload` only makes the user
-manager read those installed definitions. `enable brain.service` only creates
-future-start links; none of these commands cuts over the listener.
+manager read those installed definitions. Installation does not enable either
+unit or cut over the listener. Keep the working manual server running through
+every preparation check in the exact reviewed host plan.
 
 Before the controlled cutover, capture the existing manual server's exact PID,
 `/proc` start ticks, argv, cwd, port-5180 socket inode, log/PID files, and known
 good source/manifest identity. Recheck them immediately before stopping only
 that process by the separately reviewed host plan. Then run exactly one initial
-deployment and arm the watcher only after the deployment passes:
+deployment:
 
 ```sh
 systemctl --user start brain-deploy.service
 systemctl --user status brain.service brain-deploy.service --no-pager
+```
+
+Before enabling either unit, require **all** acceptance checks in the reviewed
+host plan to pass: the intended process/start/command/listener identity and
+supported summary/operations responses; actual LAN static bodies matching the
+deployed source; and automatic Dashboard, Graph, and Activity startup in the
+normal browser, including Activity's hidden panels, keyboard, paging, filters,
+and details. Inspect the finite receipts and service logs. Helper success alone
+does not satisfy visible acceptance. A failed or inconclusive check leaves both
+units unenabled and follows the bounded reviewed recovery procedure.
+
+Only after all those checks pass, enable both units:
+
+```sh
+systemctl --user enable brain.service
 systemctl --user enable --now brain-deploy.path
 systemctl --user status brain.service brain-deploy.path --no-pager
 ```
 
-Inspect the finite process/listener/API receipts and the two append-only service
-logs. Do not run `serve_brain.sh start` beside systemd; it is a second process
+Verify the exact new enable links, running Brain identity, and active/waiting
+path state. Keep the saved prior enable states; any failure after either enable,
+including these checks or later required no-op checks, takes the failure branch
+below. Do not run `serve_brain.sh start` beside systemd; it is a second process
 manager and its model-catalog preflight is outside this deployment path.
 
 Later source changes require no unit copy. Later launcher or unit changes are
@@ -188,6 +209,19 @@ not auto-adopted: review the exact bytes, repeat their explicit `install` and
 hash/`cmp` checks, run `daemon-reload`, and invoke one controlled deployment.
 Changing the canonical source path, state path, host, port, interpreter, or unit
 arguments requires another reviewed launcher/unit update.
+
+On any failure after either enable, first disable both newly introduced units
+whose exact prior receipts showed absent/not-enabled states:
+
+```sh
+systemctl --user disable --now brain-deploy.path
+systemctl --user disable brain.service
+```
+
+Verify neither new unit remains enabled before proceeding with the bounded
+reviewed recovery. If neither unit was enabled, preserve its enable state;
+do not perform unrelated cleanup. This procedure does not authorize changing
+an existing owner's enable state or disabling any other unit.
 
 If deployment fails after the restart command, the candidate process may still
 be running even though the candidate selector is removed, the prior selector is
