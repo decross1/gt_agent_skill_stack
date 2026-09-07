@@ -21,6 +21,7 @@ import json
 import os
 import shutil
 import sys
+import threading
 import time
 from pathlib import Path
 
@@ -517,6 +518,110 @@ def _post(pid: str, action: str, body: dict):
     h._send = _send
     h.do_POST()
     return captured["code"], captured["obj"]
+
+
+class PausingGemmaStub:
+    """Deterministic model stub that lets a verdict land during model latency."""
+
+    def __init__(self, reply: str):
+        self.reply = reply
+        self.calls = 0
+        self.entered = threading.Event()
+        self.release = threading.Event()
+
+    def __call__(self, _messages, max_tokens=700, temperature=0.3):
+        self.calls += 1
+        self.entered.set()
+        if not self.release.wait(timeout=5):
+            raise AssertionError("test did not release paused model")
+        return self.reply
+
+
+@pytest.mark.parametrize(("action", "body", "reply"), [
+    ("discuss", {"message": "Should this still change?"}, "No: the decision landed."),
+    ("synthesize", {}, "A model-authored draft that must be discarded."),
+])
+def test_advisory_post_discards_reply_when_verdict_closes_during_model_call(
+        brain, monkeypatch, action, body, reply):
+    """The shipped POST must recheck the governed ledger after model latency."""
+    brain.seed(FW_PROP)
+    paused = PausingGemmaStub(reply)
+    monkeypatch.setattr(bs, "gemma", paused)
+    result = {}
+
+    thread = threading.Thread(
+        target=lambda: result.setdefault("response", _post("P-100", action, body)),
+        daemon=True,
+    )
+    thread.start()
+    assert paused.entered.wait(timeout=2)
+
+    close_code, close_obj = _post(
+        "P-100", "verdict",
+        {"verdict": "reject", "note": "race closure", "basis": "original",
+         "actor_id": "derrick"},
+    )
+    assert close_code == 200
+    assert close_obj["ok"] is True
+
+    paused.release.set()
+    thread.join(timeout=2)
+    assert not thread.is_alive()
+    code, obj = result["response"]
+    assert code == 409
+    assert obj["error"] == "decision already recorded; inspection only"
+    assert obj["review"]["eligible"] is False
+    assert obj["review"]["verdict"] == "rejected"
+    assert brain.card_lines() == []
+
+
+@pytest.mark.parametrize(("action", "body", "reply", "expected_kinds"), [
+    ("discuss", {"message": "Keep it bounded."}, "Bounded reply.",
+     ["discuss", "discuss"]),
+    ("synthesize", {}, "A bounded amended proposal.", ["amended_draft"]),
+])
+def test_advisory_post_commits_model_reply_while_proposal_remains_eligible(
+        brain, action, body, reply, expected_kinds):
+    brain.seed(FW_PROP)
+    brain.gemma._reply = reply
+
+    code, obj = _post("P-100", action, body)
+
+    assert code == 200
+    assert brain.gemma.calls == 1
+    assert [row["kind"] for row in brain.card_lines()] == expected_kinds
+    if action == "discuss":
+        assert obj["reply"] == reply
+    else:
+        assert obj["amended_change"] == reply
+
+
+@pytest.mark.parametrize(("action", "body", "reply"), [
+    ("discuss", {"message": "Keep it bounded."}, "Bounded reply."),
+    ("synthesize", {}, "A bounded amended proposal."),
+])
+def test_advisory_post_fails_closed_when_proposal_lock_is_unavailable(
+        brain, monkeypatch, action, body, reply):
+    class UnavailableProposalLock:
+        def __init__(self, _path):
+            pass
+
+        def __enter__(self):
+            raise bs.ProposalLedgerError("private ledger detail")
+
+        def __exit__(self, _type, _value, _traceback):
+            pass
+
+    brain.seed(FW_PROP)
+    brain.gemma._reply = reply
+    monkeypatch.setattr(bs, "ProposalLedgerLock", UnavailableProposalLock)
+
+    code, obj = _post("P-100", action, body)
+
+    assert code == 503
+    assert obj == {"error": "proposal ledger unavailable; advisory was not recorded"}
+    assert brain.gemma.calls == 1
+    assert brain.card_lines() == []
 
 
 def _get(path: str):
