@@ -187,7 +187,7 @@ button,a,select,input{outline-offset:3px}
 <script defer src="summary_data.js"></script>
 <script defer src="map_data.js"></script>
 <script defer src="ui.js?v=5dcf781d655c42b38ddfe704a6ca133db13ab339e66fc74ed5413e1f3873d664"></script>
-<script defer src="map.js"></script>
+<script defer src="map.js?v=247bd200e9f49589be5018ede92fa8a641e5ecd880646ab2e5bd8510b591f165"></script>
 <script defer src="atlas.js?v=20260907-a"></script>
 <script>
 (function () {
@@ -272,6 +272,7 @@ let D = window.BRAIN_SUMMARY || null;
 let M = window.BRAIN_MAP || null;
 let instance = null;
 let mode = "work", query = "", type = "all";
+let selectedId = "";
 let WIN_MIN = 1, WIN_MAX = 7, windowDays = 7, asof = "";
 const NODE_TYPE_LABEL = { agent: "actor", spawn: "contract record", skill: "skill",
   proposal: "proposal", rule: "rule", harvest_finding: "finding", correction: "correction",
@@ -322,11 +323,19 @@ function mountMap() {
   instance = BrainMap.mount($("map"), { summary: D, map: M, windowDays, embedded: false,
     mode, query, type, onSelect: openNode });
   renderBrowser(); updateZoom();
-  const deep = deepLinkId();
-  if (deep && instance && typeof instance.selectById === "function") instance.selectById(deep);
+  const requested = selectedId || deepLinkId();
+  if (!requested) return;
+  if (currentTypedNode(requested) && instance && typeof instance.selectById === "function") {
+    instance.selectById(requested);
+  } else {
+    selectedId = "";
+    clearInspector("The selected record is unavailable in the current map response.", requested);
+    clearDeepLink();
+  }
 }
 function deepLinkId() {
-  const raw = String(location.hash || "").replace(/^#(?:node=)?/, "");
+  const hash = typeof location.hash === "string" ? location.hash : "";
+  const raw = hash.replace(/^#(?:node=)?/, "");
   if (!raw) return "";
   try { return decodeURIComponent(raw); } catch (_) { return ""; }
 }
@@ -334,6 +343,14 @@ function writeDeepLink(id) {
   if (!window.history || typeof window.history.replaceState !== "function") return;
   const hash = "#node=" + encodeURIComponent(id);
   history.replaceState(null, "", location.pathname + location.search + hash);
+}
+function clearDeepLink() {
+  if (!window.history || typeof window.history.replaceState !== "function") return;
+  history.replaceState(null, "", location.pathname + location.search);
+}
+function currentTypedNode(id) {
+  return M && Array.isArray(M.nodes) ? M.nodes.find(node => node && node.id === id &&
+    typeof node.type === "string" && node.type.length > 0) || null : null;
 }
 function safePage(raw) {
   const value = String(raw || "").trim();
@@ -369,8 +386,26 @@ function addFact(list, key, value) {
   const row = make("div", "fact"), term = make("dt", "", key), detail = make("dd", "", value);
   row.appendChild(term); row.appendChild(detail); list.appendChild(row);
 }
+function clearInspector(message, id) {
+  const body = $("inspector-body"); body.innerHTML = "";
+  const empty = make("div", "inspector-empty");
+  empty.appendChild(make("h3", "", "Recorded evidence unavailable"));
+  empty.appendChild(make("p", "", message));
+  if (id) empty.appendChild(make("p", "source-unavailable", "Requested record ID: " + id));
+  body.appendChild(empty);
+  $("graph-selection-announcement").textContent = message;
+}
 function openNode(node) {
   if (!node || !M) return;
+  const current = currentTypedNode(node.id);
+  if (!current) {
+    selectedId = "";
+    clearInspector("The selected record is unavailable in the current map response.", node.id);
+    clearDeepLink();
+    return;
+  }
+  node = current;
+  selectedId = node.id;
   const card = (M.cards && M.cards[node.id]) || {};
   const body = $("inspector-body"); body.innerHTML = "";
   const kind = make("div", "node-kind", ({ spawn: "recorded contract", agent: "recorded actor",
@@ -395,7 +430,8 @@ function openNode(node) {
   if (node.type === "skill") {
     const skill = ((D && D.skills) || []).find(row => row.name === node.label);
     if (skill) {
-      addFact(facts, "Runtime", skill.runtime_safe ? "Runtime-safe core" : "Development-time");
+      addFact(facts, "Runtime", skill.runtime_safe === true ? "Runtime-safe core" :
+        skill.runtime_safe === false ? "Development-time" : "Unknown — not supplied as a boolean");
       addFact(facts, "Evidence", ((skill.governance || {}).state) || "Unavailable");
     }
   }

@@ -7,7 +7,10 @@
 
 const FULL = { width: 1120, height: 650 };
 const COMPACT = { width: 920, height: 430 };
-const MAX_VISIBLE = 58;
+const MAX_VISIBLE = 36;
+const NODE_FONT_PX = 17;
+const GROUP_FONT_PX = 17;
+const EDGE_FONT_PX = 17;
 const MODE_EDGE_TYPES = {
   work: new Set(["launched", "uses"]),
   governance: new Set(["about", "targets", "becomes", "produces", "enacts", "extends",
@@ -222,6 +225,11 @@ class BrainMap {
   fit() { this.zoom = 1; this.panX = 0; this.panY = 0; this._requestDraw(); return this; }
   zoomBy(delta) { this.zoom = clamp(this.zoom + delta, 0.72, 2.1); this._requestDraw(); return this.zoom; }
   getZoom() { return this.zoom; }
+  getRenderMetrics() {
+    return { labelCssPixels: NODE_FONT_PX * this.baseScale * this.zoom,
+      groupLabelCssPixels: GROUP_FONT_PX * this.baseScale * this.zoom,
+      visibleNodes: this.visible.length };
+  }
   getVisibleNodes() { return this.visible.map(item => item.node); }
   getVisibleEdges() { return this.visibleEdges.map(edge => edge.raw); }
   getHiddenCount() { return this.hiddenCount; }
@@ -313,7 +321,7 @@ class BrainMap {
         if (edge.src === this.focusId) first.push(edge.dst);
         else if (edge.dst === this.focusId) first.push(edge.src);
       }
-      first.sort().slice(0, 28).forEach(id => ids.add(id));
+      first.sort().slice(0, 18).forEach(id => ids.add(id));
       const second = [];
       const firstHopIds = new Set(ids);
       for (const edge of this.edges) {
@@ -325,7 +333,7 @@ class BrainMap {
       this.totalForMode = chosen.length;
       this.hiddenCount = Math.max(0, first.length + second.length + 1 - chosen.length);
     } else if (query) {
-      const matches = allowed.filter(node => this._matches(node, query)).sort(byRecent).slice(0, 32);
+      const matches = allowed.filter(node => this._matches(node, query)).sort(byRecent).slice(0, 20);
       const ids = new Set(matches.map(node => node.id));
       const matchedIds = new Set(ids);
       for (const edge of modeEdges) {
@@ -337,7 +345,7 @@ class BrainMap {
       this.totalForMode = allowed.filter(node => this._matches(node, query)).length;
       this.hiddenCount = Math.max(0, this.totalForMode - matches.length);
     } else if (this.mode === "work") {
-      const recent = allowed.filter(node => node.type === "spawn").sort(byRecent).slice(0, this.embedded ? 8 : 16);
+      const recent = allowed.filter(node => node.type === "spawn").sort(byRecent).slice(0, 8);
       const ids = new Set(recent.map(node => node.id));
       const recentIds = new Set(ids);
       for (const edge of modeEdges) {
@@ -352,8 +360,8 @@ class BrainMap {
       this.totalForMode = allowed.length;
       this.hiddenCount = Math.max(0, allowed.length - chosen.length);
     } else {
-      const limits = { skill: 24, proposal: 8, harvest_finding: 8, rule: 8,
-        correction: 6, anomaly: 2, decision: 2, agent: 4 };
+      const limits = { skill: 18, proposal: 5, harvest_finding: 4, rule: 4,
+        correction: 3, anomaly: 1, decision: 1, agent: 2 };
       const buckets = new Map();
       for (const node of allowed) {
         if (!buckets.has(node.type)) buckets.set(node.type, []);
@@ -544,7 +552,7 @@ class BrainMap {
     const ctx = this.ctx, b = group.bounds, tone = this._tone(group.tone);
     ctx.save(); this._roundRect(ctx, b.x, b.y, b.width, b.height, 30);
     ctx.fillStyle = tone[0]; ctx.fill(); ctx.strokeStyle = tone[1]; ctx.lineWidth = 1; ctx.stroke();
-    ctx.fillStyle = tone[2]; ctx.font = "600 13px system-ui,sans-serif";
+    ctx.fillStyle = tone[2]; ctx.font = "600 " + GROUP_FONT_PX + "px system-ui,sans-serif";
     ctx.textAlign = "left"; ctx.textBaseline = "middle";
     const count = this.visible.filter(item => item.group === group.name).length;
     ctx.fillText(group.name + " · " + count, b.x + 16, b.y + 21); ctx.restore();
@@ -567,14 +575,14 @@ class BrainMap {
     ctx.beginPath(); ctx.moveTo(from.x, from.y);
     ctx.quadraticCurveTo(mx, (from.y + to.y) / 2 - bend, to.x, to.y); ctx.stroke(); ctx.restore();
     if (selected) {
-      ctx.save(); ctx.font = "600 10px system-ui,sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
+      ctx.save(); ctx.font = "600 " + EDGE_FONT_PX + "px system-ui,sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
       ctx.fillStyle = color("--text-dim"); ctx.fillText(EDGE_LABEL[edge.type] || edge.type, mx, (from.y + to.y) / 2 - 4);
       ctx.restore();
     }
   }
 
   _labelLines(label, width) {
-    const cap = Math.max(9, Math.floor(width / 7.2));
+    const cap = Math.max(8, Math.floor(width / 9.2));
     const raw = text(label || "Untitled record").replace(/\s+/g, " ").trim();
     if (raw.length <= cap) return [raw];
     const words = raw.split(" "), lines = [""];
@@ -599,10 +607,10 @@ class BrainMap {
     ctx.beginPath(); ctx.arc(item.x - item.width / 2 + 11, item.y, 3.5, 0, Math.PI * 2);
     ctx.fillStyle = node.type === "agent" ? agentColor(node.label) : tone[2]; ctx.fill();
     const lines = this._labelLines(node.label || node.id, item.width - 28);
-    ctx.fillStyle = color("--text"); ctx.font = "600 12px system-ui,sans-serif";
+    ctx.fillStyle = color("--text"); ctx.font = "600 " + NODE_FONT_PX + "px system-ui,sans-serif";
     ctx.textAlign = "left"; ctx.textBaseline = "middle";
     const start = item.y - (lines.length - 1) * 7;
-    lines.forEach((line, index) => ctx.fillText(line, item.x - item.width / 2 + 20, start + index * 14));
+    lines.forEach((line, index) => ctx.fillText(line, item.x - item.width / 2 + 20, start + index * 18));
     ctx.restore();
   }
 

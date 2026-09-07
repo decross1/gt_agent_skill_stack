@@ -5,6 +5,7 @@ Firefox interaction and visual checks belong to the integration owner.
 """
 from html.parser import HTMLParser
 from pathlib import Path
+import hashlib
 import shutil
 import subprocess
 
@@ -42,6 +43,8 @@ def test_graph_shell_exposes_real_controls_and_keyboard_alternative():
             "graph-inspector", "inspector-body", "data-source-status"} <= markup.ids
     assert "atlas.css?v=20260907-a" in markup.links
     assert "atlas.js?v=20260907-a" in markup.scripts
+    renderer_hash = hashlib.sha256((VIEW / "map.js").read_bytes()).hexdigest()
+    assert f"map.js?v={renderer_hash}" in markup.scripts
     assert [attrs.get("data-graph-mode") for tag, attrs in markup.attrs
             if tag == "button" and attrs.get("data-graph-mode")] == [
                 "work", "governance", "usage"]
@@ -110,6 +113,7 @@ assert.equal(canvas.__brainmap,instance);
 assert.equal(instance.skills.length,1);assert.equal(instance.agents.length,1);
 assert.deepEqual([...new Set(instance.getVisibleEdges().map(edge=>edge.type))].sort(),['launched','uses']);
 assert.ok(instance.getVisibleNodes().every(node=>['agent','spawn','skill'].includes(node.type)));
+assert.equal(instance.getVisibleNodes().filter(node=>node.type==='spawn').length,8);
 assert.ok(instance.getHiddenCount()>0,'bounded work view discloses omitted source records');
 instance.setFilter({query:'contract 0',type:'all'});
 assert.ok(instance.getVisibleNodes().some(node=>node.id==='spawn-0'),'search reaches a record outside the initial recent slice');
@@ -122,6 +126,10 @@ instance.setMode('usage');
 assert.deepEqual(instance.getVisibleEdges().map(edge=>edge.type),['used']);
 assert.equal(instance.selectById('skill'),true);assert.equal(selected,'skill');
 assert.ok(instance.getConnections('skill').some(row=>row.edge.type==='uses'));
+canvas.clientWidth=808;canvas.clientHeight=650;instance.resize();instance.fit();
+assert.ok(instance.getRenderMetrics().labelCssPixels>=12,'1440-class split layout keeps labels at least 12 CSS px');
+canvas.clientWidth=812;canvas.clientHeight=500;instance.resize();instance.fit();
+assert.ok(instance.getRenderMetrics().labelCssPixels>=12,'900px stacked layout keeps labels at least 12 CSS px');
 for(let i=0;i<30;i++)instance.zoomBy(.2);assert.equal(instance.getZoom(),2.1);
 instance.fit();assert.equal(instance.getZoom(),1);
 instance.update({map:{nodes:nodes.slice(0,4),edges,cards:{}},mode:'usage',query:'',type:'all'});
