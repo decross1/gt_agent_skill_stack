@@ -21,9 +21,20 @@ context.$=id=>context.document.getElementById(id);
 let panel='',title='';U.panel.open=(t,html)=>{title=t;panel=html;};
 const html=fs.readFileSync(process.argv[1]+'/dashboard.html','utf8');
 const section=html.slice(html.indexOf('/* ---------- needs-you inbox'),html.indexOf('/* ---------- embedded cluster map'));
-vm.runInContext(section+';globalThis.drawInbox=renderInbox;globalThis.detail=openInboxKind;',context);
+vm.runInContext(section+';globalThis.drawInbox=renderInbox;globalThis.drawBlockers=renderBlockerSummary;globalThis.detail=openInboxKind;',context);
 const viewOnly=()=>{assert.doesNotMatch(panel,/ui-copy|data-review-link|COMMAND_/);assert.match(panel,/view-only/);};
 """
+
+
+def test_today_blocker_preview_is_descriptive_and_fail_closed():
+    run_js(SETUP + r"""
+context.drawBlockers();
+const output=elements.get('blocker-summary').innerHTML;
+assert.match(output,/1 source-reported blocker/);assert.match(output,/FRAMEWORK/);
+assert.match(output,/do not grant decision authority/);
+assert.doesNotMatch(output,/EXTERNAL|BACKLOG|UNKNOWN|MALFORMED|CANDIDATE/);
+assert.doesNotMatch(output,/COMMAND_|ui-copy|data-review-link/);
+""")
 
 
 @pytest.mark.parametrize("lane", ["external", "backlog", "framework"])
