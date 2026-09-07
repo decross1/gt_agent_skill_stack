@@ -594,6 +594,32 @@ assert.ok(rendered.some(node=>/not a lifecycle enactment or verification count/.
 """)
 
 
+@pytest.mark.parametrize(("protocol", "linked"), [("file:", True), ("http:", False)])
+def test_graph_recorded_page_path_links_only_in_file_view(protocol, linked):
+    run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
+context.location.protocol=PROTOCOL;U.pageRefresh=()=>{};
+const node={id:'agent-claude-code-main',type:'agent',label:'claude-code-main',date:'2026-08-01'};
+const page='../pages/agent-claude-code-main.md';
+const graph={generated_at:stamp,nodes:[node],edges:[],cards:{
+ [node.id]:{title:'Claude Code',one_line:'recorded actor',date:'2026-08-01',source:'run logs',page}}};
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=graph;let choose;
+context.BrainMap={mount(_canvas,options){choose=options.onSelect;return{
+ getVisibleNodes(){return graph.nodes;},getHiddenCount(){return 0;},getZoom(){return 1;},
+ getConnections(){return [];},selectById(){return false;},egoMode(){return true;}
+};}};
+boot();await flush();choose(node);
+const walk=root=>[root,...root.children.flatMap(walk)];
+const rendered=walk(elements.get('inspector-body'));
+const action=rendered.find(item=>item.className==='source-action');
+if(LINKED){assert.ok(action);assert.equal(action.href,page);}
+else{
+ assert.equal(action,undefined,'server view must not advertise its known 404 route as an action');
+ assert.ok(rendered.some(item=>item.textContent.includes('Recorded source path: '+page)));
+ assert.ok(rendered.some(item=>/unavailable in the server view/i.test(item.textContent)));
+}
+""".replace("PROTOCOL", json.dumps(protocol)).replace("LINKED", json.dumps(linked)))
+
+
 def test_graph_runtime_safe_labels_require_exact_booleans():
     run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
 context.location.protocol='file:';
@@ -650,6 +676,77 @@ currentMap={...currentMap,generated_at:'2026-08-03T00:00:00Z',nodes:[],cards:{}}
 await [...activeIntervals.values()][0]();
 assert.match(text(),/selected record is unavailable in the current map response/i);
 assert.doesNotMatch(text(),/NEW CARD|old-source|new-source/);
+""")
+
+
+def test_graph_controls_clear_selection_excluded_from_visible_projection():
+    run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
+context.location.protocol='file:';context.location.pathname='/graph.html';
+context.location.search='';context.location.hash='';
+context.history={replaceState(_state,_title,url){
+ const value=String(url),hash=value.indexOf('#');context.location.hash=hash<0?'':value.slice(hash);
+}};
+const spawn={id:'spawn-current',type:'spawn',label:'contract current',date:'2026-08-01'};
+const skill={id:'skill-current',type:'skill',label:'validate',pack:'core'};
+const proposal={id:'proposal-current',type:'proposal',label:'proposal alpha',date:'2026-08-01'};
+const nodes=[spawn,skill,proposal];
+const graph={generated_at:stamp,nodes,edges:[],cards:{
+ [spawn.id]:{title:'Current contract',one_line:'spawn evidence',source:'spawn.jsonl',page:''},
+ [skill.id]:{title:'Validate',one_line:'skill evidence',source:'SKILL.md',page:''},
+ [proposal.id]:{title:'Proposal alpha',one_line:'proposal evidence',source:'proposals.jsonl',page:''}}};
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=graph;
+const modeButtons=['work','governance','usage'].map(value=>{
+ const button=element();button.attributes={};button.attributes['data-graph-mode']=value;
+ button.getAttribute=name=>button.attributes[name]||null;return button;
+});
+const legendItems=['work','governance','usage'].map(value=>{
+ const item=element();item.attributes={};item.attributes['data-legend-mode']=value;
+ item.getAttribute=name=>item.attributes[name]||null;return item;
+});
+context.document.querySelectorAll=selector=>selector==='[data-graph-mode]'?modeButtons:
+ selector==='[data-legend-mode]'?legendItems:[];
+const inspector=context.document.getElementById('inspector-body');let inspectorHtml='';
+Object.defineProperty(inspector,'innerHTML',{get(){return inspectorHtml;},set(value){
+ inspectorHtml=value;if(value==='')this.children=[];
+}});
+let activeMode='work',activeQuery='',activeType='all',active;const selectionRequests=[];
+const allowed={work:new Set(['spawn','skill','agent']),
+ governance:new Set(['proposal','skill','rule','harvest_finding','correction','anomaly','decision','agent']),
+ usage:new Set(['skill','agent'])};
+context.BrainMap={mount(_canvas,options){activeMode=options.mode;activeQuery=options.query||'';activeType=options.type||'all';
+ const visible=()=>nodes.filter(node=>allowed[activeMode].has(node.type) &&
+   (activeType==='all'||node.type===activeType) &&
+   (!activeQuery||[node.id,node.label,node.type].join(' ').toLowerCase().includes(activeQuery.toLowerCase())));
+ active={getVisibleNodes:visible,getHiddenCount(){return nodes.length-visible().length;},getZoom(){return 1;},
+  getConnections(){return [];},egoMode(){return true;},fit(){},zoomBy(){},
+  selectById(id){selectionRequests.push(id);const found=visible().find(node=>node.id===id);if(!found)return false;
+   options.onSelect(found);return true;},
+  setMode(next){activeMode=next;activeType='all';return this;},
+  setFilter(filter){activeQuery=filter.query||'';activeType=filter.type||'all';return this;}};
+ return active;}};
+boot();await flush();
+const text=()=>{const walk=root=>[root,...root.children.flatMap(walk)];
+ return walk(inspector).map(item=>item.textContent).join(' ');};
+const clickBrowser=id=>elements.get('graph-browser-list').children
+ .find(button=>button['data-node-id']===id).listeners.click();
+clickBrowser(spawn.id);assert.match(text(),/Current contract/);assert.match(context.location.hash,/spawn-current/);
+modeButtons.find(button=>button.getAttribute('data-graph-mode')==='governance').listeners.click();
+assert.match(text(),/unavailable in the current view/i);assert.equal(context.location.hash,'');
+const requestsAfterClear=selectionRequests.length;
+for(const handler of documentEvents.get('keydown')||[])handler({target:{tagName:'DIV'},key:'ArrowLeft'});
+assert.equal(selectionRequests.length,requestsAfterClear,'a later remount must not refocus an excluded ID');
+
+clickBrowser(proposal.id);assert.match(text(),/Proposal alpha/);assert.match(context.location.hash,/proposal-current/);
+elements.get('graph-search').listeners.input({target:{value:'validate'}});
+assert.match(text(),/unavailable in the current view/i);assert.equal(context.location.hash,'');
+
+elements.get('graph-search').listeners.input({target:{value:''}});clickBrowser(skill.id);
+elements.get('graph-type').listeners.change({target:{value:'proposal'}});
+assert.match(text(),/unavailable in the current view/i);assert.equal(context.location.hash,'');
+
+elements.get('graph-type').listeners.change({target:{value:'all'}});clickBrowser(skill.id);
+modeButtons.find(button=>button.getAttribute('data-graph-mode')==='usage').listeners.click();
+assert.match(text(),/Validate/);assert.match(context.location.hash,/skill-current/);
 """)
 
 

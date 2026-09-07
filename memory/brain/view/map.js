@@ -10,7 +10,7 @@ const COMPACT = { width: 920, height: 430 };
 const MAX_VISIBLE = 36;
 const NODE_FONT_PX = 17;
 const GROUP_FONT_PX = 17;
-const EDGE_FONT_PX = 17;
+const MIN_LABEL_CSS_PX = 12;
 // The lightest supplied work-link hue still composites above 3:1 on white.
 const NORMAL_EDGE_ALPHA = 0.92;
 const MODE_EDGE_TYPES = {
@@ -224,12 +224,23 @@ class BrainMap {
     return this;
   }
 
-  fit() { this.zoom = 1; this.panX = 0; this.panY = 0; this._requestDraw(); return this; }
-  zoomBy(delta) { this.zoom = clamp(this.zoom + delta, 0.72, 2.1); this._requestDraw(); return this.zoom; }
+  _minimumZoom() {
+    const scale = Number.isFinite(this.baseScale) && this.baseScale > 0 ? this.baseScale : 1;
+    return Math.max(0.72, MIN_LABEL_CSS_PX / NODE_FONT_PX / scale);
+  }
+  fit() {
+    this.zoom = Math.max(1, this._minimumZoom());
+    this.panX = 0; this.panY = 0; this._requestDraw(); return this;
+  }
+  zoomBy(delta) {
+    const minimum = this._minimumZoom(), maximum = Math.max(2.1, minimum);
+    this.zoom = clamp(this.zoom + delta, minimum, maximum); this._requestDraw(); return this.zoom;
+  }
   getZoom() { return this.zoom; }
   getRenderMetrics() {
-    return { labelCssPixels: NODE_FONT_PX * this.baseScale * this.zoom,
-      groupLabelCssPixels: GROUP_FONT_PX * this.baseScale * this.zoom,
+    const scale = this._renderScale();
+    return { labelCssPixels: NODE_FONT_PX * scale,
+      groupLabelCssPixels: GROUP_FONT_PX * scale,
       normalEdgeAlpha: NORMAL_EDGE_ALPHA, visibleNodes: this.visible.length };
   }
   getVisibleNodes() { return this.visible.map(item => item.node); }
@@ -249,6 +260,7 @@ class BrainMap {
     if (!node) return false;
     if (!this.visibleById.has(id)) this.egoMode(id, false);
     this.selected = node;
+    this._ensureVisible(this.visibleById.get(id));
     this._requestDraw();
     if (emit !== false && this.onSelect) this.onSelect(node);
     return true;
@@ -389,6 +401,7 @@ class BrainMap {
       .filter(edge => edge.type !== "used" || (Number(edge.raw.weight_e) || 0) + (Number(edge.raw.weight_i) || 0) > 0);
     this.visible = chosen.map(node => ({ node, x: 0, y: 0, width: 126, height: 42, group: this._group(node) }));
     this.visibleById = new Map(this.visible.map(item => [item.node.id, item]));
+    if (this.selected && !this.visibleById.has(this.selected.id)) this.selected = null;
     this._layout();
   }
 
@@ -469,13 +482,30 @@ class BrainMap {
     this.canvas.height = Math.max(1, Math.round(height * dpr));
     this.cssWidth = width; this.cssHeight = height; this.dpr = dpr;
     this.baseScale = Math.min(width / this.world.width, height / this.world.height);
+    this.zoom = Math.max(this.zoom, this._minimumZoom());
     this._requestDraw();
   }
 
+  _renderScale() {
+    return Math.max(this.baseScale * this.zoom, MIN_LABEL_CSS_PX / NODE_FONT_PX);
+  }
   _transform() {
-    const scale = this.baseScale * this.zoom;
+    const scale = this._renderScale();
     return { scale, x: (this.cssWidth - this.world.width * scale) / 2 + this.panX,
       y: (this.cssHeight - this.world.height * scale) / 2 + this.panY };
+  }
+
+  _ensureVisible(item) {
+    if (!item || !this.cssWidth || !this.cssHeight) return;
+    const transform = this._transform(), margin = 12;
+    const left = transform.x + (item.x - item.width / 2) * transform.scale;
+    const right = transform.x + (item.x + item.width / 2) * transform.scale;
+    const top = transform.y + (item.y - item.height / 2) * transform.scale;
+    const bottom = transform.y + (item.y + item.height / 2) * transform.scale;
+    if (left < margin) this.panX += margin - left;
+    else if (right > this.cssWidth - margin) this.panX += this.cssWidth - margin - right;
+    if (top < margin) this.panY += margin - top;
+    else if (bottom > this.cssHeight - margin) this.panY += this.cssHeight - margin - bottom;
   }
 
   _worldPoint(event) {
@@ -594,11 +624,38 @@ class BrainMap {
     const mx = (from.x + to.x) / 2, bend = (to.y - from.y) * .08;
     ctx.beginPath(); ctx.moveTo(from.x, from.y);
     ctx.quadraticCurveTo(mx, (from.y + to.y) / 2 - bend, to.x, to.y); ctx.stroke(); ctx.restore();
-    if (selected) {
-      ctx.save(); ctx.font = "600 " + EDGE_FONT_PX + "px system-ui,sans-serif"; ctx.textAlign = "center"; ctx.textBaseline = "bottom";
-      ctx.fillStyle = color("--text-dim"); ctx.fillText(EDGE_LABEL[edge.type] || edge.type, mx, (from.y + to.y) / 2 - 4);
-      ctx.restore();
+  }
+
+  _selectedRelationLabel() {
+    if (!this.selected) return "";
+    const counts = new Map();
+    for (const edge of this.visibleEdges) {
+      if (edge.src !== this.selected.id && edge.dst !== this.selected.id) continue;
+      counts.set(edge.type, (counts.get(edge.type) || 0) + 1);
     }
+    const rows = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    if (!rows.length) return "";
+    const first = rows[0], label = (first[1] > 1 ? first[1] + " × " : "") +
+      (EDGE_LABEL[first[0]] || first[0]);
+    return rows.length > 1 ? label + " · +" + (rows.length - 1) + " relation type" +
+      (rows.length === 2 ? "" : "s") + " in inspector" : label;
+  }
+
+  _drawSelectedRelationLabel() {
+    const raw = this._selectedRelationLabel();
+    if (!raw || !this.cssWidth || !this.cssHeight) return;
+    const ctx = this.ctx, maxWidth = Math.max(120, this.cssWidth - 24);
+    const width = Math.min(maxWidth, Math.max(140, raw.length * 7 + 22));
+    const cap = Math.max(10, Math.floor((width - 22) / 7));
+    const label = raw.length > cap ? raw.slice(0, Math.max(1, cap - 1)) + "…" : raw;
+    const x = 12, y = Math.max(12, this.cssHeight - 46);
+    ctx.save(); ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+    this._roundRect(ctx, x, y, width, 34, 8);
+    ctx.fillStyle = color("--surface"); ctx.fill();
+    ctx.strokeStyle = color("--border-2"); ctx.lineWidth = 1; ctx.stroke();
+    ctx.fillStyle = color("--text"); ctx.font = "600 12px system-ui,sans-serif";
+    ctx.textAlign = "left"; ctx.textBaseline = "middle"; ctx.fillText(label, x + 11, y + 17);
+    ctx.restore();
   }
 
   _labelLines(label, width) {
@@ -648,6 +705,7 @@ class BrainMap {
       ctx.textAlign = "center"; ctx.textBaseline = "middle";
       ctx.fillText("No recorded nodes match this view.", this.world.width / 2, this.world.height / 2); ctx.restore();
     }
+    this._drawSelectedRelationLabel();
   }
 }
 
