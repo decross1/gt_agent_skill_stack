@@ -322,10 +322,25 @@ function validateDetail(data, pid) {
       typeof data.proposal !== "object" || Array.isArray(data.proposal) ||
       data.proposal.proposal_id !== pid || !validReview(data.review) || data.review.proposal_id !== pid)
     throw new Error("unsupported or inconsistent proposal detail / identity mismatch");
+  const catalog = proposals.find(record => record.proposal_id === pid);
+  const facts = ["proposal_id", "scope", "lifecycle", "lane", "eligible", "verdict"];
+  if (!validReview(catalog) || facts.some(key => catalog[key] !== data.review[key]))
+    throw new Error("Records changed or disagree. Refresh records before taking any action.");
+  // An eligible record cannot also claim an enactment/verification or a
+  // conflicting governing decision. These remain source claims, not proof.
+  const eligibleEvidence = record => Array.isArray(record.evidence) && record.evidence.length === 0 &&
+    (record.lifecycle === "open" ? record.decision === null :
+      record.decision && typeof record.decision === "object" && !Array.isArray(record.decision) &&
+      record.decision.verdict === "human-review");
+  if (data.review.eligible && (!eligibleEvidence(catalog) || !eligibleEvidence(data.review)))
+    throw new Error("Inconsistent decision evidence. Refresh records; no action is enabled.");
   if (data.review.eligible && (typeof data.proposal.change !== "string" || !data.proposal.change.trim() ||
       typeof data.proposal.target !== "string" || typeof data.proposal.target_type !== "string"))
     throw new Error("invalid decision basis; inspection cannot enable a decision");
   return data;
+}
+function proposalBasis(proposal) {
+  return JSON.stringify([proposal.proposal_id, proposal.target_type, proposal.target, proposal.change]);
 }
 function captureSelection() {
   return current ? {pid: current, epoch: selectionEpoch} : null;
@@ -379,6 +394,16 @@ function renderList() {
 
 async function loadList() {
   const request = ++listEpoch;
+  // Invalidate before awaiting the catalog, so an open confirmation or a late
+  // detail response cannot keep the previous decision basis alive.
+  selectionEpoch += 1;
+  currentDetail = null;
+  amendedDraft = null;
+  busy = false;
+  if (activeModal) closeModal(activeModal);
+  $("detailbody").hidden = true;
+  $("placeholder").hidden = false;
+  $("placeholder").textContent = "Refreshing records. Decision controls are unavailable.";
   $("refresh-review").disabled = true;
   $("catalog-counts").textContent = "Checking current records…";
   try {
@@ -668,6 +693,10 @@ function scrollThread() {
 }
 
 async function selectProposal(pid) {
+  if ($("refresh-review").disabled) {
+    headerErr("Records are refreshing. Select a record when the current check finishes.");
+    return;
+  }
   const record = proposals.find(row => row.proposal_id === pid);
   if (!record) {
     headerErr("record is not in the framework review catalog");
@@ -803,6 +832,8 @@ function promptVerdict(verdict, basis) {
 function openModal(verdict, basis) {
   const selection = captureSelection();
   if (!selectionIsCurrent(selection) || !currentDetail || currentDetail.review.eligible !== true) return;
+  try { validateDetail(currentDetail, selection.pid); }
+  catch (error) { headerErr(error.message); return; }
   const isAccept = verdict === "accept";
   const title = isAccept
     ? (basis === "amended" ? "Accept amended draft" : "Accept original proposal")
@@ -836,6 +867,7 @@ function openModal(verdict, basis) {
     selection: selection,
     pid: selection.pid,
     proposal: proposal,
+    proposalBasis: proposalBasis(proposal),
     amendedChange: basis === "amended" ? amendedDraft : null,
   };
   const scrim = document.createElement("div");
@@ -916,6 +948,15 @@ async function submitVerdict(verdict, basis, note, actorId, scrim) {
     errEl.textContent = "selection changed; this decision is no longer available";
     return;
   }
+  try {
+    validateDetail(currentDetail, context.pid);
+    if (context.pid !== current || context.proposalBasis !== proposalBasis(currentDetail.proposal) ||
+        (basis === "amended" && context.amendedChange !== amendedDraft))
+      throw new Error("The displayed decision basis changed.");
+  } catch (error) {
+    errEl.textContent = error.message + " Refresh records and open a new confirmation.";
+    return;
+  }
   if (!note && verdict !== "accept") { errEl.textContent = "a reason is required to reject"; return; }
   // basis only meaningful on accept; reject always records the original verdict.
   const useBasis = (verdict === "accept") ? basis : "original";
@@ -943,8 +984,10 @@ async function submitVerdict(verdict, basis, note, actorId, scrim) {
     toast(verdict + "ed " + decided + (d.recorded ? " · recorded" : "") +
       (hp ? " · handoff written" : ""), "ok");
     // refresh the canonical list (decided proposals usually drop out of /api/proposals)
-    await loadList();
-    if (!selectionIsCurrent(context.selection)) return;
+    const refresh = loadList();
+    const refreshedSelection = captureSelection();
+    await refresh;
+    if (!selectionIsCurrent(refreshedSelection)) return;
     const stillListed = proposals.find(p => p.proposal_id === decided);
     if (stillListed) {
       // The additive catalog retains history, so re-show the canonical outcome.

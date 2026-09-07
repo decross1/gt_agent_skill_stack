@@ -131,13 +131,13 @@ if(which==='modal-response'){
   const submit=between('async function submitVerdict','/* ---------------- busy lock');
   let resolveRequest;const calls=[],markers={removed:0,toasts:[],loads:0,selected:[]};
   const generic={textContent:'',innerHTML:'',disabled:false,hidden:false};
-  const scrim={_reviewContext:{selection:{pid:'P-ONE',epoch:1},pid:'P-ONE',
-      proposal:{proposal_id:'P-ONE',change:'exact A'},amendedChange:null},
+  const scrim={_reviewContext:{selection:{pid:'P-101',epoch:1},pid:'P-101',
+      proposal:{proposal_id:'P-101',change:'exact A',target:'validate',target_type:'skill'},proposalBasis:JSON.stringify(['P-101','skill','validate','exact A']),amendedChange:null},
     querySelector(sel){return sel==='#note-err'?generic:generic;},remove(){markers.removed+=1;}};
   const factory=new Function('env',`
-    let current='P-ONE',selectionEpoch=1,busy=false,amendedDraft=null;
-    let currentDetail={proposal:{proposal_id:'P-ONE',change:'exact A'},review:{eligible:true}};
-    let proposals=[{proposal_id:'P-ONE',eligible:true}];
+    let current='P-101',selectionEpoch=1,busy=false,amendedDraft=null;
+    let currentDetail={proposal:{proposal_id:'P-101',change:'exact A',target:'validate',target_type:'skill'},review:{proposal_id:'P-101',scope:'framework',lifecycle:'open',lane:'ready',eligible:true,verdict:'open',decision:null,evidence:[]}};
+    let proposals=[currentDetail.review];
     const $=env.$,api=env.api,toast=env.toast,esc=env.esc;
     function setBusy(state){busy=state;}
     async function loadList(){env.markers.loads+=1;proposals=[];}
@@ -150,11 +150,11 @@ if(which==='modal-response'){
   const ui=factory({markers,esc,$:()=>generic,toast:m=>markers.toasts.push(m),
     api(path){calls.push(path);return new Promise(resolve=>{resolveRequest=resolve;});}});
   const pending=ui.submitVerdict('accept','original','ok','derrick',scrim);
-  assert.deepEqual(calls,['/api/proposal/P-ONE/verdict']);
-  ui.setCurrent('P-TWO');
+  assert.deepEqual(calls,['/api/proposal/P-101/verdict']);
+  ui.setCurrent('P-102');
   resolveRequest({ok:true,recorded:'accepted'});
   await pending;
-  assert.deepEqual(ui.state(),{current:'P-TWO',busy:false});
+  assert.deepEqual(ui.state(),{current:'P-102',busy:false});
   assert.equal(markers.removed,0);
   assert.deepEqual(markers.toasts,[]);
   assert.equal(markers.loads,0);
@@ -195,8 +195,8 @@ if(which==='deadline'){
 if(which==='detail-shape'){
  const identity=slice('/* request identity */','/* ---------------- list ---------------- */');
  const render=slice('function renderDetail(d)','/* Decide zone');
- const invoke=new Function(`let current='P-100',currentDetail=null;${identity}${render};return {renderDetail,validateDetail};`)();
- const review={proposal_id:'P-100',scope:'framework',lifecycle:'open',lane:'ready',verdict:'open',eligible:true};
+ const invoke=new Function(`let current='P-100',currentDetail=null;let proposals=[{proposal_id:'P-100',scope:'framework',lifecycle:'open',lane:'ready',verdict:'open',eligible:true,decision:null,evidence:[]}];${identity}${render};return {renderDetail,validateDetail};`)();
+ const review={proposal_id:'P-100',scope:'framework',lifecycle:'open',lane:'ready',verdict:'open',eligible:true,decision:null,evidence:[]};
  const valid={proposal:{proposal_id:'P-100',change:'exact body',target:'validate',target_type:'skill'},review};
  assert.equal(invoke.validateDetail(valid,'P-100'),valid);
  for(const bad of [null,[],{...valid,proposal:{...valid.proposal,proposal_id:'P-101'}},
@@ -228,3 +228,106 @@ def test_review_qualifies_loading_payload_and_advisory_evidence(case):
                           capture_output=True, text=True, timeout=10, check=False)
     assert proc.returncode == 0, proc.stdout + proc.stderr
     assert "QUALIFIED " + case in proc.stdout, "handler did not finish its assertions"
+
+
+CONSISTENCY_HARNESS = r"""
+(async()=>{
+const assert=require('node:assert/strict'),fs=require('node:fs');
+const html=fs.readFileSync(process.argv[1],'utf8'),which=process.argv[2];
+const source=html.split('<script>')[1].split('/* ---------------- init ---------------- */')[0];
+const clone=x=>JSON.parse(JSON.stringify(x));
+const ready={proposal_id:'P-100',scope:'framework',lifecycle:'open',lane:'ready',eligible:true,
+ verdict:'open',decision:null,evidence:[],target:'validate',target_type:'skill'};
+const closed={...ready,lifecycle:'closed',lane:'history',eligible:false,verdict:'accepted',
+ decision:{verdict:'accepted'}};
+const detail=review=>({proposal:{proposal_id:'P-100',change:'exact governed body',target:'validate',target_type:'skill'},review:clone(review)});
+function create(){
+ const calls=[],nodes=new Map();let request;
+ function node(id){if(!nodes.has(id))nodes.set(id,{id,hidden:false,disabled:false,value:'',textContent:'',innerHTML:'',
+   classList:{toggle(){},contains(){return false;},remove(){}},addEventListener(){},focus(){},remove(){this.removed=true;},
+   querySelector(selector){return node(id+selector);},querySelectorAll(){return [];},appendChild(){},setAttribute(){}});return nodes.get(id);}
+ const document={getElementById:node,activeElement:node('initial-focus'),body:node('body'),
+   createElement(){return node('created-'+nodes.size);}};
+ const fetch=async(path,options={})=>{calls.push({path,method:options.method||'GET'});
+   if(request)return request(path,options);
+   return {ok:true,json:async()=>path==='/api/proposals'?{records:[closed]}:
+     options.method==='POST'?{ok:true,recorded:'accepted'}:detail(closed)};};
+ const exports=`return {validateDetail,renderDetail,renderDecide,loadList,reloadRecords,selectProposal,openModal,submitVerdict,sendMessage,synthesize,
+ set(rows,d){proposals=rows;current='P-100';currentDetail=d;selectionEpoch=1;listEpoch=0;busy=false;},
+ catalog(rows){proposals=rows;},detail(d){currentDetail=d;},state(){return {currentDetail,activeModal,selectionEpoch,listEpoch};}};})();`;
+ const ui=new Function('document','fetch',source.replace('(function () {','return (function () {')+exports)(document,fetch);
+ ui.set([clone(ready)],detail(ready));return {ui,calls,node,request(fn){request=fn;}};
+}
+if(which.startsWith('catalog-')){
+ const {ui}=create();const field=which.slice(8);let row=clone(ready),d=detail(ready);
+ if(field==='closed')row=clone(closed);
+ else if(field==='inverse')d=detail(closed);
+ else if(field==='missing')row=null;
+ else if(field==='lifecycle')row.lifecycle='human-review';
+ else if(field==='lane')row.lane='history';
+ else if(field==='eligible')row.eligible='true';
+ else if(field==='scope')row.scope='apparatus';
+ else if(field==='verdict')row.verdict='rejected';
+ else if(field==='id')row.proposal_id='P-101';
+ ui.set(row?[row]:[],d);
+ assert.throws(()=>ui.validateDetail(d,'P-100'),/stale|inconsistent|refresh|mismatch|invalid/i);
+}
+if(which.startsWith('contradiction-')){
+ const {ui}=create();const d=detail(ready);
+ if(which==='contradiction-decision')d.review.decision={verdict:'accepted'};
+ else if(which==='contradiction-evidence')d.review.evidence=[{kind:'verification',result:'pass'}];
+ else d.review.evidence={result:'pass'};
+ ui.set([clone(ready)],d);assert.throws(()=>ui.validateDetail(d,'P-100'),/inconsistent|invalid|refresh/i);
+}
+if(which.startsWith('submit-')){
+ const {ui,calls}=create();ui.openModal('accept','original');const modal=ui.state().activeModal;assert.ok(modal);
+ if(which==='submit-catalog')ui.catalog([clone(closed)]);
+ else if(which==='submit-basis')ui.detail({...detail(ready),proposal:{...detail(ready).proposal,change:'different body'}});
+ else if(which==='submit-same-object')ui.state().currentDetail.proposal.change='changed in place';
+ else if(which==='submit-detail')ui.detail(detail(closed));
+ await ui.submitVerdict('accept','original','accepted','oracle',modal);
+ assert.equal(calls.filter(c=>c.method==='POST').length,0);
+ assert.match(modal.querySelector('#note-err').textContent,/changed|stale|refresh|unavailable/i);
+}
+if(which==='refresh-open-modal'){
+ const {ui,request}=create();ui.openModal('accept','original');let finish;
+ request(()=>new Promise(resolve=>{finish=resolve;}));const pending=ui.loadList();
+ assert.equal(ui.state().currentDetail,null);assert.equal(ui.state().activeModal,null);
+ finish({ok:true,json:async()=>({records:[ready]})});await pending;
+}
+if(which==='selection-during-refresh'){
+ const {ui,calls,request,node}=create();let finish;
+ request(()=>new Promise(resolve=>{finish=resolve;}));const pending=ui.loadList();
+ // Start the actual selection handler while the catalog is unresolved.
+ const selection=ui.selectProposal('P-100');
+ assert.equal(calls.length,1,'selection must not fetch detail against an unchecked catalog');
+ assert.match(node('gerr').textContent,/refresh|checking/i);
+ finish({ok:true,json:async()=>({records:[ready]})});await pending;await selection;
+ assert.equal(ui.state().currentDetail,null);
+}
+if(which==='matched-flow'){
+ for(const review of [ready,{...ready,lifecycle:'human-review',verdict:'human-review',decision:{verdict:'human-review'}}]){
+  const {ui,calls}=create();const d=detail(review);ui.set([clone(review)],d);
+  assert.equal(ui.validateDetail(d,'P-100'),d);ui.openModal('accept','original');const modal=ui.state().activeModal;assert.ok(modal);
+  await ui.submitVerdict('accept','original','accepted','oracle',modal);
+  assert.deepEqual(calls.filter(c=>c.method==='POST'),[{path:'/api/proposal/P-100/verdict',method:'POST'}]);
+ }
+}
+console.log('CONSISTENT '+which);
+})().catch(error=>{console.error(error.stack||error);process.exitCode=1;});
+"""
+
+
+@pytest.mark.parametrize("case", [
+    "catalog-closed", "catalog-inverse", "catalog-missing", "catalog-lifecycle",
+    "catalog-lane", "catalog-eligible", "catalog-scope", "catalog-verdict", "catalog-id",
+    "contradiction-decision", "contradiction-evidence", "contradiction-shape",
+    "submit-catalog", "submit-basis", "submit-same-object", "submit-detail",
+    "refresh-open-modal", "selection-during-refresh", "matched-flow",
+])
+def test_catalog_detail_and_confirmation_stay_consistent(case):
+    assert NODE is not None, "node is required for the actual shipped-handler check"
+    result = subprocess.run([NODE, "-e", CONSISTENCY_HARNESS, str(UI), case],
+                            text=True, capture_output=True, timeout=12, check=False)
+    assert result.returncode == 0, result.stdout + result.stderr
+    assert "CONSISTENT " + case in result.stdout
