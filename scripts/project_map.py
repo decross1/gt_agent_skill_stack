@@ -207,7 +207,8 @@ def build_map() -> dict:
                       "one_line": one_line(line), "source": source, "page": page}
 
     def add_edge(src: str, dst: str, etype: str, *, e: int = 0, i: int = 0,
-                 agent: str | None = None) -> None:
+                 agent: str | None = None,
+                 source_ref: str | None = None) -> None:
         edge: dict = {"src": src, "dst": dst, "type": etype}
         if e:
             edge["weight_e"] = e
@@ -215,6 +216,9 @@ def build_map() -> dict:
             edge["weight_i"] = i
         if agent:
             edge["agent"] = agent
+        if source_ref is not None:
+            edge["source_ref"] = source_ref
+            edge["source_refs"] = [source_ref]
         edges.append(edge)
 
     # ---- skills (all 24, the map's fixed cluster anatomy) -----------------
@@ -369,11 +373,22 @@ def build_map() -> dict:
             add_edge(proposal_id_map[pid], rule_id_map[cited], "references", e=1)
 
     # ---- harvest findings --------------------------------------------------
-    finding_by_hid: dict[str, str] = {}
+    # Index the exact source identities emitted by draft_proposals.py. A
+    # harvest can contain many findings, and even the same ref can occur on
+    # more than one skill, so every identity retains all of its candidates.
+    finding_by_reference: dict[str, list[tuple[str, dict]]] = defaultdict(list)
     for f in feedback_rows:
         hid = f["harvest_id"]
         nid = slugify(f"harvest-{hid}-l{f.get('_source_line', 0)}")
-        finding_by_hid.setdefault(hid, nid)
+        if isinstance(hid, str) and hid.strip():
+            legacy_ref = f"feedback.jsonl:{hid.strip()}"
+            finding_by_reference[legacy_ref].append((nid, f))
+            source_ref = f.get("ref")
+            if isinstance(source_ref, str) and source_ref.strip():
+                # Split nothing from the finding's ref: its complete value is
+                # source provenance and therefore part of the exact identity.
+                structured_ref = f"{legacy_ref}:{source_ref.strip()}"
+                finding_by_reference[structured_ref].append((nid, f))
         d = f.get("date") or ""
         add_node(nid, "harvest_finding", f"{hid}:{f.get('class', '?')}", date=d)
         add_card(nid, f"{hid} — {f.get('skill', '')}:{f.get('class', '')}", d,
@@ -383,13 +398,41 @@ def build_map() -> dict:
         if sk in skill_names:
             add_edge(nid, skill_id[sk], "about", e=1)
 
-    # finding → becomes → proposal (references carrying feedback.jsonl:HXXX)
+    def resolve_finding(reference: str, proposal: dict) -> str | None:
+        candidates = finding_by_reference.get(reference, [])
+        if len(candidates) == 1:
+            return candidates[0][0]
+        if len(candidates) < 2:
+            return None
+
+        # The proposal's governed skill target can disambiguate two findings
+        # that deliberately share a source ref (H008:D-042 is the live case).
+        # More than one exact target match remains ambiguous and is rejected.
+        target_type = proposal.get("target_type")
+        target = proposal.get("target")
+        if not (isinstance(target_type, str)
+                and target_type.strip() == "skill"
+                and isinstance(target, str)
+                and target.strip()):
+            return None
+        target = target.strip()
+        matches = [
+            nid for nid, finding in candidates
+            if isinstance(finding.get("skill"), str)
+            and finding["skill"].strip() == target
+        ]
+        return matches[0] if len(matches) == 1 else None
+
+    # finding → becomes → proposal. This edge records exact source provenance;
+    # proposal lifecycle, enactment, and healing are represented elsewhere.
     for pid, hist in proposals.items():
         for ref in hist[0].get("references") or []:
-            if isinstance(ref, str) and ref.startswith("feedback.jsonl:"):
-                hid = ref.split(":", 1)[1]
-                if hid in finding_by_hid:
-                    add_edge(finding_by_hid[hid], proposal_id_map[pid], "becomes", e=1)
+            if not isinstance(ref, str):
+                continue
+            finding = resolve_finding(ref, hist[0])
+            if finding is not None:
+                add_edge(finding, proposal_id_map[pid], "becomes", e=1,
+                         source_ref=ref)
 
     # ---- decisions / corrections -------------------------------------------
     fw_dec = load_decisions(FW_DECISIONS, "framework")
@@ -512,6 +555,11 @@ def build_map() -> dict:
             m = merged[key]
             m["weight_e"] = m.get("weight_e", 0) + e.get("weight_e", 0)
             m["weight_i"] = m.get("weight_i", 0) + e.get("weight_i", 0)
+            if "source_refs" in e:
+                source_refs = set(m.get("source_refs", []))
+                source_refs.update(e["source_refs"])
+                m["source_refs"] = sorted(source_refs)
+                m["source_ref"] = m["source_refs"][0]
             for k in ("weight_e", "weight_i"):
                 if not m.get(k):
                     m.pop(k, None)
