@@ -172,7 +172,7 @@ def test_unknown_skill_is_narrative_only_with_exact_reason():
 
 @pytest.mark.parametrize("signal_class,reason", [
     ("gap", "overlapping_non_signal"),
-    ("typo-class", "invalid_signal_class"),
+    ("typo-class", "overlapping_non_signal"),
 ])
 def test_overlapping_runlog_payload_stays_non_signal(signal_class, reason):
     src = {
@@ -209,6 +209,56 @@ def _run_cli(monkeypatch, logs: Path, state: Path, outputs: tuple[Path, Path, Pa
         argv.append("--dry-run")
     monkeypatch.setattr(sys, "argv", argv)
     return ia.main()
+
+
+@pytest.mark.parametrize("status", ["failed", "refused", "escalated"])
+@pytest.mark.parametrize("signal_hint", [False, True])
+def test_ordinary_runlog_is_not_reported_as_a_rejected_selfreport(
+    tmp_path, monkeypatch, capsys, status, signal_hint
+):
+    logs = tmp_path / "consumer" / "logs"
+    logs.mkdir(parents=True)
+    state = tmp_path / "consumer" / "run_state"
+    ordinary = {"task_id": "ordinary", "status": status,
+                "observable_actual": "The skill correctly recorded this outcome."}
+    if signal_hint:
+        ordinary.update(signal_class="typo-class", skill="validate")
+    _write_jsonl(state / "skill_signals.jsonl", [ordinary])
+    outputs = tuple(tmp_path / "outputs" / name for name in
+                    ("narratives.jsonl", "edges.jsonl", "drift.jsonl"))
+    assert _run_cli(monkeypatch, logs, state, outputs, dry_run=False) == 0
+    narrative = json.loads(outputs[0].read_text())
+    assert narrative["task_id"] == "ordinary"
+    assert f"status={status}" in narrative["observed"]
+    assert outputs[2].read_bytes() == b""
+    stdout = capsys.readouterr().out
+    assert "rejected" not in stdout
+    if signal_hint:
+        assert "non_signal reason=overlapping_non_signal ref=skill_signals.jsonl:L1" in stdout
+    else:
+        assert "signal admission:" not in stdout
+
+
+def test_stage_hint_is_non_signal_and_dedicated_non_object_is_rejected(
+    tmp_path, monkeypatch, capsys
+):
+    logs = tmp_path / "consumer" / "logs"
+    logs.mkdir(parents=True)
+    state = tmp_path / "consumer" / "run_state"
+    _write_jsonl(state / "skill_signals.jsonl", [
+        {"stage": "inspect", "detail": "ordinary stage", "task_id": "stage",
+         "signal_class": "typo-class", "skill": "validate"},
+        None,
+    ])
+    outputs = tuple(tmp_path / "outputs" / name for name in
+                    ("narratives.jsonl", "edges.jsonl", "drift.jsonl"))
+    assert _run_cli(monkeypatch, logs, state, outputs, dry_run=False) == 0
+    assert len(outputs[0].read_text().splitlines()) == 1
+    assert outputs[2].read_bytes() == b""
+    stdout = capsys.readouterr().out
+    assert "non_signal reason=overlapping_non_signal ref=skill_signals.jsonl:L1" in stdout
+    assert "rejected reason=invalid_signal_object ref=skill_signals.jsonl:L2" in stdout
+    assert "invalid_signal_class" not in stdout
 
 
 def test_full_cli_dry_run_absent_outputs_and_parents_remain_absent(

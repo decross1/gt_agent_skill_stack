@@ -229,19 +229,20 @@ def _has_non_signal_projection_shape(src: dict) -> bool:
 
 def _signal_admission_error(src: dict) -> str | None:
     """Return the bounded receiver rejection reason, or None when admissible."""
+    if _has_non_signal_projection_shape(src):
+        return "overlapping_non_signal"
     signal_class = src.get("signal_class")
     if not isinstance(signal_class, str) or signal_class not in _SIGNAL_CLASS_MAP:
         return "invalid_signal_class"
     skill = src.get("skill")
     if not isinstance(skill, str) or not skill.strip():
         return "invalid_skill"
-    if _has_non_signal_projection_shape(src):
-        return "overlapping_non_signal"
     return None
 
 
-def _is_signal_candidate(src: dict, source_name: str = "") -> bool:
-    return source_name == "skill_signals.jsonl" or "signal_class" in src
+def _is_signal_candidate(src: dict) -> bool:
+    # A filename does not turn an ordinary dictionary into a self-report.
+    return "signal_class" in src
 
 
 def _record_signal_disposition(
@@ -515,7 +516,7 @@ def ingest_one(
                         f"{log_path.name}:L{lineno}",
                     )
                 continue
-            if _is_signal_candidate(src, log_path.name):
+            if _is_signal_candidate(src):
                 error = _signal_admission_error(src)
                 if error:
                     disposition = "non_signal" if error == "overlapping_non_signal" else "rejected"
