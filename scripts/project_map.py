@@ -26,15 +26,20 @@ labels canonicalize via project_pages.canonicalize_agent; workflow:<role>
 collapses to the single map actor `workflow` (one node, m1 layout slot).
 
 cards = one-line summaries (≤220 chars) + page path — NO markdown bodies.
-Budget: ≤400 nodes, <300 KB. Deterministic; compare-before-write excludes
-generated_at so an unchanged rerun touches nothing. Read-only on the consumer
-(brain firewall). Consumer resolution: $BRAIN_CONSUMER_ROOT if set, else a
-walk-up from this script's location for a sibling a_bgt_rsi containing
-memory/loop_memory.jsonl — never REPO.parent (worktrees resolve to a void).
+The legacy governance payload remains ≤400 nodes and <300 KB. Optional recorded
+work has separate item and 1.2 MB encoded-byte caps; the combined payload stays
+<1.5 MB. Deterministic; compare-before-write excludes generated_at and the
+known capture timestamp fields so an unchanged rerun touches nothing. Read-only
+on the consumer (brain firewall). Consumer resolution: $BRAIN_CONSUMER_ROOT if
+set, else a walk-up from this script's location for a sibling a_bgt_rsi
+containing memory/loop_memory.jsonl — never REPO.parent (worktrees resolve to a
+void).
 """
 from __future__ import annotations
 
 import argparse
+from copy import deepcopy
+import hashlib
 import json
 import os
 import re
@@ -64,6 +69,7 @@ from project_pages import (  # noqa: E402
     narrative_slug,
     slugify,
 )
+from work_graph import build_work_graph  # noqa: E402
 
 OUT_JS = REPO / "memory" / "brain" / "view" / "map_data.js"
 PAGES_DIR = REPO / "memory" / "brain" / "pages"
@@ -72,8 +78,20 @@ CONFORMANCE = REPO / "memory" / "conformance.md"
 
 MAX_NODES = 400
 MAX_BYTES = 300_000
+WORK_MAX_BYTES = 1_200_000
+MAX_TOTAL_BYTES = 1_500_000
+WORK_FILE_MAX_BYTES = 1_048_576
+WORK_FILE_MAX_ROWS = 2_048
+WORK_ROW_MAX_BYTES = 65_536
+WORK_RECORD_CAP = 2_048
+WORK_NODE_CAP = 640
+WORK_EDGE_CAP = 2_048
+WORK_DIAGNOSTIC_CAP = 512
 RECENT_SPAWN_DAYS = 45
 ONE_LINE_CAP = 220
+
+FW_RUN_LOCATOR = "run_state/framework.run.jsonl"
+SPAWN_LOCATOR = "run_state/spawn.jsonl"
 
 EXCLUDED_TYPES = {"stage", "llm_call", "apparatus_event", "orchestrator_event",
                   "iteration", "run_log_entry"}
@@ -92,6 +110,237 @@ STATUS_TO_SKILL = {
 
 EXTENDS_RE = re.compile(r"extends\s+(?:the\s+)?\[\[([a-z0-9-]+)\]\]")
 DECISION_HEAD_RE = re.compile(r"^(D-\d+|\d{4}-\d{2}-\d{2})$")
+
+
+class MapBudgetError(RuntimeError):
+    """A returned map would exceed one of its declared encoded-byte caps."""
+
+
+def _capture_time() -> str:
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def _encoded_json_bytes(value: object) -> int:
+    return len(json.dumps(value, indent=1, ensure_ascii=False).encode("utf-8"))
+
+
+def _capture_jsonl(path: Path, locator: str) -> tuple[list[dict], dict]:
+    """Read one bounded byte string and parse mapping rows for both consumers."""
+    try:
+        with path.open("rb") as source:
+            raw = source.read(WORK_FILE_MAX_BYTES + 1)
+    except OSError:
+        return [], {
+            "locator": locator,
+            "sha256": None,
+            "bytes": None,
+            "rows": None,
+            "availability": "unavailable",
+            "reason": "source_unreadable",
+        }
+
+    if len(raw) > WORK_FILE_MAX_BYTES:
+        return [], {
+            "locator": locator,
+            "sha256": None,
+            "bytes": None,
+            "rows": None,
+            "captured_prefix_sha256": hashlib.sha256(raw).hexdigest(),
+            "captured_prefix_bytes": len(raw),
+            "availability": "unavailable",
+            "reason": "file_byte_cap_exceeded",
+        }
+
+    lines = [(line_number, line.strip())
+             for line_number, line in enumerate(raw.splitlines(), 1)
+             if line.strip()]
+    descriptor = {
+        "locator": locator,
+        "sha256": hashlib.sha256(raw).hexdigest(),
+        "bytes": len(raw),
+        "rows": len(lines),
+        "availability": "available",
+    }
+    if len(lines) > WORK_FILE_MAX_ROWS:
+        descriptor.update(availability="unavailable",
+                          reason="file_row_cap_exceeded")
+        return [], descriptor
+    if any(len(line) > WORK_ROW_MAX_BYTES for _, line in lines):
+        descriptor.update(availability="unavailable",
+                          reason="row_byte_cap_exceeded")
+        return [], descriptor
+
+    rows: list[dict] = []
+    malformed = 0
+    non_objects = 0
+    for line_number, line in lines:
+        try:
+            row = json.loads(line)
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            malformed += 1
+            continue
+        if not isinstance(row, dict):
+            non_objects += 1
+            continue
+        row["_source_line"] = line_number
+        rows.append(row)
+    if malformed or non_objects:
+        reason = "malformed_jsonl" if malformed else "non_object_json"
+        descriptor.update(
+            availability="unavailable",
+            reason=reason,
+            invalid_rows=malformed + non_objects,
+        )
+    return rows, descriptor
+
+
+def _work_record(row: dict, *, kind: str, id_key: str,
+                 locator: str) -> dict:
+    """Map only the explicit fields frozen by the AS029 comparison."""
+    record = {
+        "id": row.get(id_key),
+        "kind": kind,
+        "raw_status": row.get("status"),
+        "source_locator": f"{locator}:L{row['_source_line']}",
+    }
+    if "agent" in row:
+        record["role"] = row["agent"]
+    if "parent_task_id" in row:
+        record["parent_id"] = row["parent_task_id"]
+    if "child_task_id" in row:
+        record["spawn_assignments"] = [row["child_task_id"]]
+    if "skill_used" in row:
+        record["observed_skills"] = [row["skill_used"]]
+    contract = row.get("contract")
+    if isinstance(contract, dict) and "skill_subset" in contract:
+        record["allowed_skills"] = contract["skill_subset"]
+    if "dependencies" in row:
+        record["dependencies"] = row["dependencies"]
+    return record
+
+
+def _capture_framework_work() -> dict:
+    captured_at = _capture_time()
+    run_rows, run_file = _capture_jsonl(FW_RUN, FW_RUN_LOCATOR)
+    spawn_rows, spawn_file = _capture_jsonl(SPAWN_LEDGER, SPAWN_LOCATOR)
+    files = [run_file, spawn_file]
+    source = {
+        "namespace": "agent_system/framework",
+        "locator": "framework:run-and-spawn",
+        "capture_basis": {
+            "captured_at": captured_at,
+            "atomic": False,
+            "limits": {
+                "file_bytes": WORK_FILE_MAX_BYTES,
+                "file_rows": WORK_FILE_MAX_ROWS,
+                "row_bytes": WORK_ROW_MAX_BYTES,
+            },
+            "files": files,
+        },
+    }
+    for descriptor in files:
+        if descriptor["availability"] != "available":
+            print(f"warn: recorded work unavailable: {descriptor['locator']} "
+                  f"{descriptor['reason']}", file=sys.stderr)
+    records = [
+        *(_work_record(row, kind="run", id_key="task_id",
+                       locator=FW_RUN_LOCATOR) for row in run_rows),
+        *(_work_record(row, kind="spawn", id_key="spawn_id",
+                       locator=SPAWN_LOCATOR) for row in spawn_rows),
+    ]
+    return {
+        "available": all(item["availability"] == "available" for item in files),
+        "source": source,
+        "rows": {FW_RUN_LOCATOR: run_rows, SPAWN_LOCATOR: spawn_rows},
+        "records": records,
+    }
+
+
+def _legacy_payload(payload: dict) -> dict:
+    return {key: value for key, value in payload.items()
+            if key not in {"work", "work_capture"}}
+
+
+def _attach_recorded_work(payload: dict, capture: dict) -> dict:
+    legacy_bytes = _encoded_json_bytes(_legacy_payload(payload))
+    if legacy_bytes >= MAX_BYTES:
+        raise MapBudgetError(
+            f"legacy payload {legacy_bytes} B >= cap {MAX_BYTES} B")
+
+    if not capture["available"]:
+        payload["work_capture"] = {
+            "state": "unavailable",
+            "reason": "framework_source_unavailable",
+            "source": capture["source"],
+        }
+    else:
+        work = build_work_graph(
+            capture["records"],
+            source=capture["source"],
+            record_cap=WORK_RECORD_CAP,
+            node_cap=WORK_NODE_CAP,
+            edge_cap=WORK_EDGE_CAP,
+            diagnostic_cap=WORK_DIAGNOSTIC_CAP,
+        )
+        work_bytes = _encoded_json_bytes(work)
+        if work_bytes >= WORK_MAX_BYTES:
+            print(f"warn: recorded work unavailable: output {work_bytes} B >= "
+                  f"cap {WORK_MAX_BYTES} B", file=sys.stderr)
+            payload["work_capture"] = {
+                "state": "unavailable",
+                "reason": "work_output_byte_cap_exceeded",
+                "source": capture["source"],
+                "limits": {"work_bytes": WORK_MAX_BYTES,
+                           "observed_work_bytes": work_bytes},
+            }
+        else:
+            payload["work"] = work
+
+    total_bytes = _encoded_json_bytes(payload)
+    if total_bytes >= MAX_TOTAL_BYTES and "work" in payload:
+        work_bytes = _encoded_json_bytes(payload.pop("work"))
+        print(f"warn: recorded work unavailable: combined output {total_bytes} B >= "
+              f"cap {MAX_TOTAL_BYTES} B", file=sys.stderr)
+        payload["work_capture"] = {
+            "state": "unavailable",
+            "reason": "combined_output_byte_cap_exceeded",
+            "source": capture["source"],
+            "limits": {"work_bytes": WORK_MAX_BYTES,
+                       "observed_work_bytes": work_bytes,
+                       "total_bytes": MAX_TOTAL_BYTES,
+                       "observed_total_bytes": total_bytes},
+        }
+        total_bytes = _encoded_json_bytes(payload)
+    if total_bytes >= MAX_TOTAL_BYTES:
+        raise MapBudgetError(
+            f"combined payload {total_bytes} B >= cap {MAX_TOTAL_BYTES} B")
+    return payload
+
+
+def _without_volatile_capture_times(payload: dict) -> dict:
+    """Strip only projector-owned capture clocks used by compare-before-write."""
+    comparable = deepcopy(payload)
+    comparable["generated_at"] = None
+
+    def strip_source(source: object) -> None:
+        if not isinstance(source, dict):
+            return
+        basis = source.get("capture_basis")
+        if isinstance(basis, dict):
+            basis.pop("captured_at", None)
+
+    work = comparable.get("work")
+    if isinstance(work, dict):
+        strip_source(work.get("source"))
+        for collection in (work.get("nodes"), work.get("edges")):
+            if isinstance(collection, list):
+                for item in collection:
+                    if isinstance(item, dict):
+                        strip_source(item.get("source_metadata"))
+    failure = comparable.get("work_capture")
+    if isinstance(failure, dict):
+        strip_source(failure.get("source"))
+    return comparable
 
 
 def resolve_consumer() -> Path | None:
@@ -183,6 +432,7 @@ def collapse_by_id(rows: list[dict], key: str) -> dict[str, list[dict]]:
 # ---------------------------------------------------------------------------
 
 def build_map() -> dict:
+    framework_capture = _capture_framework_work()
     consumer = resolve_consumer()
     if consumer is None:
         print("warn: consumer not resolved — framework-side sources only",
@@ -234,9 +484,12 @@ def build_map() -> dict:
     skill_id = {name: slugify(f"skill-{name}") for name in skill_names}
 
     # ---- run-log attribution (rungs 1-3) ----------------------------------
-    runlogs: list[tuple[str, Path]] = [("claude-code-main", FW_RUN)]
+    runlogs: list[tuple[str, list[dict]]] = [
+        ("claude-code-main", framework_capture["rows"][FW_RUN_LOCATOR])
+    ]
     if consumer is not None:
-        runlogs.insert(0, ("nara", consumer / "run_state" / "week1.run.jsonl"))
+        runlogs.insert(0, (
+            "nara", load_jsonl(consumer / "run_state" / "week1.run.jsonl")))
 
     cells: dict[tuple[str, str], dict] = {}   # (agent, skill) -> {e,i,last}
     agent_seen: dict[str, dict] = {}          # agent -> {first,last,rows}
@@ -255,8 +508,8 @@ def build_map() -> dict:
         c["e" if explicit else "i"] += 1
         c["last"] = max(c["last"], date_of(ts))
 
-    for default, path in runlogs:
-        for row in load_jsonl(path):
+    for default, rows in runlogs:
+        for row in rows:
             agent = map_agent(row.get("agent"), default)
             ts = row.get("timestamp") or ""
             touch_agent(agent, ts)
@@ -271,7 +524,10 @@ def build_map() -> dict:
                   (f.get("date") or "") + "T00:00:00Z", False)
 
     # ---- spawns (both ledgers, recent window) ------------------------------
-    spawn_rows: list[tuple[str, dict]] = [("framework", r) for r in load_jsonl(SPAWN_LEDGER)]
+    spawn_rows: list[tuple[str, dict]] = [
+        ("framework", row)
+        for row in framework_capture["rows"][SPAWN_LOCATOR]
+    ]
     if consumer is not None:
         spawn_rows += [("apparatus", r)
                        for r in load_jsonl(consumer / "run_state" / "spawn.jsonl")]
@@ -571,8 +827,9 @@ def build_map() -> dict:
 
     generated_at = datetime.now(timezone.utc).replace(microsecond=0) \
         .isoformat().replace("+00:00", "Z")
-    return {"generated_at": generated_at, "nodes": node_list,
-            "edges": edge_list, "cards": card_map}
+    payload = {"generated_at": generated_at, "nodes": node_list,
+               "edges": edge_list, "cards": card_map}
+    return _attach_recorded_work(payload, framework_capture)
 
 
 # ---------------------------------------------------------------------------
@@ -594,9 +851,8 @@ def emit(payload: dict) -> bool:
     if OUT_JS.exists():
         old = parse_map_js(OUT_JS.read_text())
         if old is not None:
-            a, b = dict(old), dict(payload)
-            a["generated_at"] = b["generated_at"] = None
-            if a == b:
+            if (_without_volatile_capture_times(old)
+                    == _without_volatile_capture_times(payload)):
                 return False
     # Atomic write (tmp + os.replace): a verdict-triggered regen can run while the
     # HTTP server serves map_data.js; a plain truncate-then-write risks a torn read.
@@ -616,7 +872,11 @@ def main() -> int:
                         help="Print the rollup; write nothing.")
     args = parser.parse_args()
 
-    payload = build_map()
+    try:
+        payload = build_map()
+    except MapBudgetError as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 1
     bad = [n for n in payload["nodes"] if n["type"] in EXCLUDED_TYPES]
     if bad:
         print(f"ERROR: {len(bad)} excluded-type nodes leaked: "
@@ -626,9 +886,9 @@ def main() -> int:
         print(f"ERROR: {len(payload['nodes'])} nodes > cap {MAX_NODES}", file=sys.stderr)
         return 1
     blob = json.dumps(payload, indent=1, ensure_ascii=False)
-    if len(blob) >= MAX_BYTES:
-        print(f"ERROR: payload {len(blob)} B ≥ cap {MAX_BYTES} B", file=sys.stderr)
-        return 1
+    legacy_bytes = _encoded_json_bytes(_legacy_payload(payload))
+    work_bytes = _encoded_json_bytes(payload["work"]) if "work" in payload else 0
+    total_bytes = len(blob.encode("utf-8"))
 
     by_type = defaultdict(int)
     for n in payload["nodes"]:
@@ -642,7 +902,8 @@ def main() -> int:
           + "  ".join(f"{t}={c}" for t, c in sorted(by_type.items())))
     print(f"  edges: {len(payload['edges'])}  "
           + "  ".join(f"{t}={c}" for t, c in sorted(by_edge.items())))
-    print(f"  cards: {len(payload['cards'])}  bytes: {len(blob)}")
+    print(f"  cards: {len(payload['cards'])}  legacy bytes: {legacy_bytes}  "
+          f"work bytes: {work_bytes}  total bytes: {total_bytes}")
     if args.dry_run:
         print("DRY RUN — nothing written.")
         return 0
