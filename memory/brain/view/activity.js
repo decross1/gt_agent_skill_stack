@@ -191,6 +191,7 @@
       add(node, el("summary", label), el("p", value, "source-ref")); host.appendChild(node);
     };
     const pair = (host, key, value) => add(host, el("dt", key), el("dd", value));
+    const compactTitle = value => { const full = known(value); return full.length > 72 ? full.slice(0, 71).trimEnd() + "…" : full; };
     const inspectLink = proposalId => {
       const href = proposalHref(proposalId);
       if (!href) return null;
@@ -244,7 +245,9 @@
     }
 
     function showLifecycleOverview(values) {
-      const host = get("lifecycle-overview"), stats = lifecycleCounts(values), unknownAcceptance = stats.readable - stats.accepted;
+      const host = get("lifecycle-overview");
+      if (!host) return; // The previous HTML shell has no optional overview.
+      const stats = lifecycleCounts(values), unknownAcceptance = stats.readable - stats.accepted;
       const unknownEnactment = stats.readable - stats.enacted, unknownVerification = stats.readable - stats.reportedVerification;
       if (!stats.readable) {
         add(host, el("p", "No readable supplied records · " + stats.malformed + " malformed. Lifecycle counts are unknown.", "overview-total"),
@@ -266,6 +269,9 @@
       node.dataset.evidenceKey = "proposal:" + known(chain.proposal_id);
       node.open = expandedEvidence.has(node.dataset.evidenceKey);
       const facts = el("dl");
+      pair(facts, "Full source title", known(chain.title));
+      pair(facts, "Target", known(chain.target) + " · " + known(chain.target_type));
+      pair(facts, "Verdict / lane", view.verdict + " / " + view.lane);
       pair(facts, "Acceptance", view.acceptance + " · " + (view.acceptedAt || "date unknown"));
       pair(facts, "Enactment", view.enactment + " · " + (view.enactedAt || "date unknown"));
       pair(facts, "Verification", view.verification + " · " + (view.reportedAt || "date unknown"));
@@ -302,6 +308,7 @@
       if (key === lastRenderKey) return;
       lastRenderKey = key;
       hosts.forEach(id => {
+        if (id === "lifecycle-overview" && !get(id)) return;
         get(id).querySelectorAll("details[data-evidence-key]").forEach(node => {
           if (node.open) expandedEvidence.add(node.dataset.evidenceKey);
           else expandedEvidence.delete(node.dataset.evidenceKey);
@@ -392,8 +399,8 @@
         if (!chains.length) empty(get("proposals-list"), "No matching proposals in the supplied projection.");
         else page(get("proposals-list"), "proposals", chains, visible => visible.forEach(chain => {
           const view = lifecycle(chain), card = el("article", undefined, "card proposal-card");
-          add(card, el("h3", known(chain.proposal_id) + " · " + known(chain.title)), el("p", "Target: " + known(chain.target) + " · " + known(chain.target_type)), el("span", "Verdict: " + view.verdict, "pill"), el("span", "Lane: " + view.lane, "pill"));
-          add(card, el("p", "Current stage · " + view.stage, "stage-line"));
+          add(card, el("h3", known(chain.proposal_id) + " · " + compactTitle(chain.title)),
+            el("p", known(chain.target) + " · Current stage · " + view.stage, "stage-line"));
           if (view.contradiction) add(card, el("p", "Contradictory supplied lifecycle evidence", "pill bad"));
           add(card, el("p", "Required next evidence · " + view.next, "next-action"));
           const link = inspectLink(chain.proposal_id); if (link) card.appendChild(link);
@@ -407,7 +414,17 @@
         if (!candidateRows.length) empty(get("candidates-list"), "No matching skill candidates or recorded gaps supplied. This does not establish that the backlog is complete.");
         else page(get("candidates-list"), "candidates", candidateRows, visible => visible.forEach(item => {
           const card = el("article", undefined, "card");
-          if (item.type === "proposal") { const chain = item.value, view = lifecycle(chain); card.className += " candidate-card"; const stage = view.contradiction ? "Contradiction needs reconciliation" : chain.lane === "draft" ? "Draft held" : "Awaiting governed Review"; const next = view.contradiction ? "Reconcile source records." : chain.lane === "draft" ? "Graduation record required (graduation closed)." : "Inspect supporting evidence before a decision."; add(card, el("h3", known(chain.proposal_id) + " · " + known(chain.title)), el("p", "Target: " + known(chain.target) + " · Stage: " + stage, "stage-line")); if (view.contradiction) add(card, el("p", "Contradictory supplied lifecycle evidence", "pill bad")); add(card, el("p", "Next evidence · " + next, "next-action")); const link = inspectLink(chain.proposal_id); if (link) card.appendChild(link); details(card, "Source record", "memory/brain/proposals.jsonl · " + known(chain.proposal_id), "candidate:" + known(chain.proposal_id)); }
+          if (item.type === "proposal") {
+            const chain = item.value, view = lifecycle(chain); card.className += " candidate-card";
+            const stage = view.contradiction ? "Contradiction needs reconciliation" : chain.lane === "draft" ? "Draft held" : "Awaiting governed Review";
+            const next = view.contradiction ? "Reconcile source records." : chain.lane === "draft" ? "Graduation record required (graduation closed)." : "Inspect supporting evidence before a decision.";
+            add(card, el("h3", known(chain.proposal_id) + " · " + compactTitle(chain.title)),
+              el("p", known(chain.target) + " · " + stage, "stage-line"));
+            if (view.contradiction) add(card, el("p", "Contradictory supplied lifecycle evidence", "pill bad"));
+            add(card, el("p", chain.lane === "draft" && !view.contradiction ? "Next: graduation closed" : "Next: " + next, "next-action"));
+            const link = inspectLink(chain.proposal_id); if (link) card.appendChild(link);
+            details(card, "Full source", known(chain.title) + "\nTarget: " + known(chain.target) + " · Stage: " + stage + "\nNext evidence · " + next + "\nmemory/brain/proposals.jsonl · " + known(chain.proposal_id), "candidate:" + known(chain.proposal_id));
+          }
           else { const skill = item.value; add(card, el("h3", "Feedback gaps: " + known(skill.name)), el("p", count(skill.governance.conformance.gap) + " recorded gaps. Owner: inspect the feedback before proposing a skill or section change.")); source(card, "memory/feedback.jsonl; exact feedback rows not supplied"); }
           get("candidates-list").appendChild(card);
         }));

@@ -469,6 +469,35 @@ assert.doesNotMatch(content('blockers-list'),/EXTERNAL_COMMAND_MUST_NOT_RENDER/)
 
 
 CASES.update({
+ "compact_record_titles_keep_full_source_in_disclosure": r"""
+const longTitle='Full source title '+ 'detailed evidence '.repeat(20);
+context.BRAIN_SUMMARY.loop.chains[1].title=longTitle;
+boot();await settle();
+for(const panel of ['proposals','candidates']){
+ await tab(panel);
+ const cards=descendants($(panel+'-list'),e=>e.tagName==='ARTICLE');
+ const card=cards.find(e=>e.textContent.includes('P-FIXTURE-D'));
+ const heading=descendants(card,e=>e.tagName==='H3')[0];
+ assert.ok(heading.textContent.length<=110,'compact heading retains ID, not full title wall');
+ const disclosure=descendants(card,e=>e.tagName==='DETAILS')[0];
+ assert.equal(disclosure.open,false);
+ assert.ok(disclosure.textContent.includes(longTitle),'full title preserved as disclosed source');
+ assert.match(card.textContent,/Graduation|graduation/);
+}
+""",
+ "required_activity_host_is_not_silently_skipped": r"""
+elements.delete('activity-list');
+assert.throws(boot);
+""",
+ "legacy_html_without_overview_still_boots_activity": r"""
+elements.delete('lifecycle-overview');
+boot();await settle();
+assert.match(content('activity-list'),/Fixture validation/);
+await tab('proposals');
+assert.match(content('proposals-list'),/P-FIXTURE-A/);
+assert.equal($('activity-section').hidden,true);
+assert.equal($('proposals-section').hidden,false);
+""",
  "proposal_overview_is_counted_without_funnel_claims": r"""
 context.BRAIN_SUMMARY.loop.chains.push(null);
 boot();await settle();await tab('proposals');
