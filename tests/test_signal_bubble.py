@@ -94,6 +94,21 @@ def test_signal_candidates_one_per_uncovered_signal(bubble_env):
     assert "skill_signals.jsonl:L2 task=D-041" in refs
 
 
+@pytest.mark.parametrize("omitted", [True, False])
+def test_missing_ref_reports_source_line_without_minting(bubble_env, omitted):
+    _tmp, drift, _feedback, proposals = bubble_env
+    signal = {**SIG_RUNTIME, "ref": None}
+    if omitted:
+        del signal["ref"]
+    _write_jsonl(drift, [signal])
+    before = proposals.read_bytes()
+    new, skipped = dp.build_drafts()
+    assert new == []
+    assert skipped == [{"target": "validate", "source_ref": "drift_signals.jsonl:L1",
+                        "reason": "missing source ref"}]
+    assert proposals.read_bytes() == before
+
+
 def test_signal_candidates_skips_covered_skills(bubble_env):
     # `run-log` is already spoken to by a non-draft proposal → skip it.
     cands = dp.signal_candidates(FRAMEWORK_SKILLS, covered_skills={"run-log"})

@@ -450,6 +450,10 @@ def signal_candidates(skills: set[str], covered_skills: set[str],
             rejected.append(_diagnostic(skill, diagnostic_ref,
                                         "unknown framework skill"))
             continue
+        if ref_raw is None:
+            rejected.append(_diagnostic(skill, diagnostic_ref,
+                                        "missing source ref"))
+            continue
         if not isinstance(ref_raw, str):
             rejected.append(_diagnostic(skill, diagnostic_ref,
                                         "invalid source ref type"))
