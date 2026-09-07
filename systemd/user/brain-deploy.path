@@ -1,0 +1,13 @@
+[Unit]
+Description=Watch canonical main ref changes for a verified Brain deployment
+
+[Path]
+PathChanged=%h/projects/agent_system/.git/refs/heads/main
+PathChanged=%h/projects/agent_system/.git/logs/refs/heads/main
+PathChanged=%h/projects/agent_system/.git/packed-refs
+Unit=brain-deploy.service
+TriggerLimitIntervalSec=30s
+TriggerLimitBurst=3
+
+[Install]
+WantedBy=default.target
