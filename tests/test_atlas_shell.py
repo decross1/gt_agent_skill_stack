@@ -1,5 +1,6 @@
 """Static and executable checks for the shared Atlas presentation shell."""
 
+import hashlib
 import re
 import shutil
 import subprocess
@@ -29,7 +30,8 @@ def test_today_uses_the_shared_light_shell_and_progressive_evidence():
     assert '<html lang="en" data-atlas data-theme="light">' in html
     assert html.index("</style>") < html.index('atlas.css?v=20260907-a')
     assert '<script async src="atlas.js?v=20260907-a"></script>' in html
-    assert '<script defer src="map.js?v=cd95b584cdc24386ac9fea75a0dd7e1c118511627c62873961c4ab43627ccda3"></script>' in html
+    map_digest = hashlib.sha256((VIEW / "map.js").read_bytes()).hexdigest()
+    assert f'<script defer src="map.js?v={map_digest}"></script>' in html
     assert '<script defer src="map.js"></script>' not in html
     assert 'window.addEventListener("atlas-theme-change", mountMap)' not in html
     assert '<aside class="atlas-nav" aria-label="Agent System navigation">' in html
