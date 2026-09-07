@@ -8,6 +8,16 @@ The Brain keeps its existing URLs and uses three primary destinations:
 | Work graph | `graph.html` | Explore recorded relationships and inspect the evidence behind a selection. |
 | Skills & healing | `activity.html` | Compare skill observations, browse work and follow proposal stages. |
 
+The server routes both `/` and `/index.html` to `dashboard.html` on the same
+origin, carrying any query string and browser fragment through to Today. The
+`mockups/` directory and its `m1.html`–`m3.html` pages are retained as a clearly
+labelled source-only archive: their embedded values are historical mock data,
+not live Atlas status, and each page links back to Today.
+
+Today's dated source links are labelled **Raw Markdown**. Only the generated
+relative `YYYY-MM-DD.md` filenames are linkable; unsupported, absolute, external,
+or parent-traversing destinations remain visible but inert.
+
 Proposal review remains at `proposal_review.html`, including existing `?id=`
 links. It is a contextual destination. Reducing primary navigation does not
 delete the underlying records or grant new review authority.

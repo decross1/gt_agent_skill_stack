@@ -1276,26 +1276,38 @@ function renderRules() {
 }
 
 /* ---------- per-day chips ---------- */
+function safeRawMarkdownDayHref(file) {
+  return typeof file === "string" && /^\d{4}-\d{2}-\d{2}\.md$/.test(file) ? file : null;
+}
+
 function renderDays() {
   const host = $("days");
   host.innerHTML = "";
   const days = (D.days || []).slice().sort((a, b) => b.date.localeCompare(a.date));
   days.slice(0, 8).forEach(d => {
-    const a = document.createElement("a");
-    a.className = "chipday";
-    a.href = d.file;
-    a.title = d.date + " rendered view · " + d.bytes + " bytes";
-    a.textContent = U.fmtDate(d.date) + " · " + U.fmtBytes(d.bytes);
-    host.appendChild(a);
+    const href = safeRawMarkdownDayHref(d.file);
+    const item = document.createElement(href ? "a" : "span");
+    item.className = "chipday";
+    if (href) item.href = href;
+    item.title = href
+      ? d.date + " raw Markdown source · " + d.bytes + " bytes"
+      : d.date + " Raw Markdown source unavailable: unsupported destination";
+    item.textContent = U.fmtDate(d.date) + " · Raw Markdown · " + U.fmtBytes(d.bytes);
+    host.appendChild(item);
   });
   if (days.length > 8) {
     const m = document.createElement("span");
     m.className = "chipday";
     m.textContent = "all " + days.length;
     m.title = "open the full day list";
-    m.addEventListener("click", () => U.panel.open("days · " + days.length, days.map(d =>
-      '<div class="ui-row"><a class="ui-id" style="width:auto" href="' + esc(d.file) + '">' + esc(d.date) +
-      '</a><span style="flex:1"></span><span class="ui-num">' + U.fmtBytes(d.bytes) + "</span></div>").join("")));
+    m.addEventListener("click", () => U.panel.open("days · " + days.length, days.map(d => {
+      const href = safeRawMarkdownDayHref(d.file);
+      const source = href
+        ? '<a class="ui-id" style="width:auto" href="' + esc(href) + '">' + esc(d.date) + ' · Raw Markdown</a>'
+        : '<span class="ui-id" style="width:auto" title="unsupported source destination">' + esc(d.date) + ' · Raw Markdown unavailable</span>';
+      return '<div class="ui-row">' + source +
+        '<span style="flex:1"></span><span class="ui-num">' + U.fmtBytes(d.bytes) + "</span></div>";
+    }).join("")));
     host.appendChild(m);
   }
 }

@@ -40,6 +40,9 @@ nav.views .v.on{background:#27272a;color:var(--text)}
 .tick.on{background:var(--ok-bg);border-color:var(--accent);color:var(--ok)}
 .asof{font-family:var(--font-mono);color:var(--text-faint);font-size:12px}
 .xnav{font-size:12px;white-space:nowrap}
+.archive-notice{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:9px 18px;
+  border-bottom:1px solid rgba(251,191,36,.45);background:var(--warn-bg);color:var(--text-dim)}
+.archive-notice strong{color:var(--warn)}.archive-notice a{margin-left:auto;color:var(--ok)}
 
 main{padding:0 18px 28px}
 section{margin-top:12px}
@@ -158,6 +161,12 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
 </style>
 </head>
 <body>
+
+<aside class="archive-notice" role="note" aria-label="Archived mockup notice">
+  <strong>Archived mockup · mock data · not live</strong>
+  <span>Historical design study retained for reference; its values are not current system status.</span>
+  <a href="../dashboard.html">Return to Atlas Today</a>
+</aside>
 
 <header>
   <div class="brand">brain<span class="sep">·</span><span class="sub">governance</span></div>
