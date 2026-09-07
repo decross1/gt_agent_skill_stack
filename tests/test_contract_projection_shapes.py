@@ -291,3 +291,50 @@ def test_identical_spawn_ids_remain_distinct_across_source_ledgers(
     assert by_surface["apparatus"]["done_check_raw"] == "pass"
     assert framework.read_bytes() == framework_before
     assert apparatus.read_bytes() == apparatus_before
+
+
+@pytest.mark.parametrize("reported_start,expected_date", [
+    ("zz-malformed-spawn-time", ""), ("2026-99-99T00:00:00Z", ""),
+    ("2026-02-30T00:00:00Z", ""), (None, ""), (False, ""),
+    (0, ""), ([], ""), ({"reported": "clock"}, ""),
+    ("2026-09-05T23:00:00+02:00", "2026-09-05"),
+])
+def test_full_summary_retains_unusable_contract_time_without_invalid_window(
+        tmp_path, monkeypatch, reported_start, expected_date):
+    # Exercise the complete projection, including its global window anchor,
+    # with private on-disk input. Helper-only lineage checks miss this failure.
+    from datetime import datetime, timezone
+
+    for name in ("REPO", "VIEW_DIR", "NARRATIVES", "CONFORMANCE", "FW_RUN",
+                 "SKILLS_DIR", "PROPOSALS", "FEEDBACK", "FW_DECISIONS"):
+        monkeypatch.setattr(ps, name, tmp_path / name.lower())
+    monkeypatch.setattr(ps, "resolve_consumer", lambda: None)
+    monkeypatch.setattr(ps, "load_skills", lambda: [])
+    monkeypatch.setattr(ps, "load_rules", lambda: [])
+    ledger = tmp_path / "spawn.jsonl"
+    rows = [
+        {"spawn_id": "private-bad-clock", "timestamp": reported_start,
+         "status": "spawned", "contract": {"state_basis": "HEAD@fixture"}},
+        {"spawn_id": "private-bad-clock", "timestamp": "aa-malformed-receipt",
+         "status": "completed", "result": {"done_condition_check": "pass"}},
+        {"spawn_id": "private-valid-clock", "timestamp": "2026-09-06T12:00:00Z",
+         "status": "spawned", "contract": {}},
+    ]
+    ledger.write_text("".join(json.dumps(row) + "\n" for row in rows))
+    before = ledger.read_bytes()
+    monkeypatch.setattr(ps, "SPAWN_LEDGER", ledger)
+
+    summary = ps.build_summary(datetime(2026, 9, 7, tzinfo=timezone.utc))
+
+    contracts = {row["spawn_id"]: row for row in summary["contracts"]}
+    record = contracts["private-bad-clock"]
+    assert record["date"] == expected_date
+    assert record["started_at"] == reported_start
+    assert type(record["started_at"]) is type(reported_start)
+    assert record["status_at"] == "aa-malformed-receipt"
+    assert record["status"] == "completed"
+    assert record["done_check_raw"] == "pass"
+    assert record["state_basis"] == "HEAD@fixture"
+    assert summary["window"]["newest_event"] == "2026-09-06"
+    assert summary["window"]["oldest_event"] == (expected_date or "2026-09-06")
+    assert ledger.read_bytes() == before

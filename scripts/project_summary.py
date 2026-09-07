@@ -770,7 +770,10 @@ def build_contracts(consumer: Path | None, today: str) -> list[dict]:
         done_check = normalize_done_check(status, raw_check)
         started_at = first_row.get("timestamp")
         status_at = latest_row.get("timestamp")
-        date = _date_of(started_at if isinstance(started_at, str) else None)
+        # Only a usable calendar date may anchor the summary window. Keep the
+        # original source metadata above even when its derived date is unknown.
+        parsed_date = _parse_date(started_at) if isinstance(started_at, str) else None
+        date = parsed_date.isoformat() if parsed_date is not None else ""
         out.append({
             "spawn_id": sid,
             "surface": surface,
