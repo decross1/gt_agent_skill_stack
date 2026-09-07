@@ -594,6 +594,65 @@ assert.ok(rendered.some(node=>/not a lifecycle enactment or verification count/.
 """)
 
 
+def test_graph_runtime_safe_labels_require_exact_booleans():
+    run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
+context.location.protocol='file:';
+const nodes=[{id:'skill-true',type:'skill',label:'true-skill',pack:'core'},
+ {id:'skill-false',type:'skill',label:'false-skill',pack:'research'},
+ {id:'skill-unknown',type:'skill',label:'unknown-skill',pack:'core'}];
+fixture.skills=[{name:'true-skill',runtime_safe:true,governance:{}},
+ {name:'false-skill',runtime_safe:false,governance:{}},
+ {name:'unknown-skill',runtime_safe:'true',governance:{}}];
+const graph={generated_at:stamp,nodes,edges:[],cards:{}};
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=graph;let choose;
+const inspector=elements.get('inspector-body')||context.document.getElementById('inspector-body');let inspectorHtml='';
+Object.defineProperty(inspector,'innerHTML',{get(){return inspectorHtml;},set(value){inspectorHtml=value;if(value==='')this.children=[];}});
+context.BrainMap={mount(_canvas,options){choose=options.onSelect;return{
+ getVisibleNodes(){return nodes;},getHiddenCount(){return 0;},getZoom(){return 1;},
+ getConnections(){return [];},selectById(){return false;},egoMode(){return true;}
+};}};
+boot();await flush();
+const text=()=>{const walk=root=>[root,...root.children.flatMap(walk)];
+ return walk(elements.get('inspector-body')).map(node=>node.textContent).join(' ');};
+choose(nodes[0]);assert.match(text(),/Runtime-safe core/);
+choose(nodes[1]);assert.match(text(),/Development-time/);
+choose(nodes[2]);assert.match(text(),/Unknown — not supplied as a boolean/);
+assert.doesNotMatch(text(),/Runtime-safe core|Development-time/);
+""")
+
+
+def test_graph_refresh_revalidates_changed_and_removed_selection():
+    run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
+const node={id:'skill-current',type:'skill',label:'validate',pack:'core'};
+fixture.skills=[{name:'validate',runtime_safe:true,governance:{state:'recorded'}}];
+let currentMap={generated_at:stamp,nodes:[node],edges:[],cards:{
+ [node.id]:{title:'Validate',one_line:'OLD CARD',date:'2026-08-01',source:'old-source',page:''}}};
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=currentMap;
+const inspector=elements.get('inspector-body')||context.document.getElementById('inspector-body');let inspectorHtml='';
+Object.defineProperty(inspector,'innerHTML',{get(){return inspectorHtml;},set(value){inspectorHtml=value;if(value==='')this.children=[];}});
+let active;
+context.BrainMap={mount(_canvas,options){active={
+ getVisibleNodes(){return options.map.nodes;},getHiddenCount(){return 0;},getZoom(){return 1;},
+ getConnections(){return [];},egoMode(){return true;},
+ selectById(id){const found=options.map.nodes.find(item=>item.id===id);if(!found)return false;
+   options.onSelect(found);return true;}
+};return active;}};
+context.fetch=async path=>ok(path==='api/summary'?fixture:currentMap);
+boot();await flush();active.selectById(node.id);
+const text=()=>{const walk=root=>[root,...root.children.flatMap(walk)];
+ return walk(elements.get('inspector-body')).map(item=>item.textContent).join(' ');};
+assert.match(text(),/OLD CARD/);
+currentMap={...currentMap,generated_at:'2026-08-02T00:00:00Z',cards:{
+ [node.id]:{title:'Validate',one_line:'NEW CARD',date:'2026-08-02',source:'new-source',page:''}}};
+await [...activeIntervals.values()][0]();
+assert.match(text(),/NEW CARD/);assert.doesNotMatch(text(),/OLD CARD/);
+currentMap={...currentMap,generated_at:'2026-08-03T00:00:00Z',nodes:[],cards:{}};
+await [...activeIntervals.values()][0]();
+assert.match(text(),/selected record is unavailable in the current map response/i);
+assert.doesNotMatch(text(),/NEW CARD|old-source|new-source/);
+""")
+
+
 def test_admitted_projection_mounts_the_actual_map_renderer():
     run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
 const frames=new Map();let frameId=0;
