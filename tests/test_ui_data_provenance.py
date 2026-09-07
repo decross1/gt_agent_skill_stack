@@ -772,3 +772,152 @@ assert.equal(instance.agents.length,1);assert.equal(instance.skills.length,1);
 const [id,frame]=[...frames][0];frames.delete(id);frame(0);
 instance.destroy();assert.equal(frames.size,0);
 """)
+
+
+def test_graph_recorded_work_inspector_discloses_typed_raw_evidence_safely():
+    run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
+context.location.protocol='file:';context.location.pathname='/graph.html';context.location.search='';context.location.hash='';
+context.history={replaceState(_state,_title,url){const value=String(url),at=value.indexOf('#');
+ context.location.hash=at<0?'':value.slice(at);}};
+const capture={namespace:'agent_system/framework',locator:'framework:run-and-spawn',capture_basis:{
+ captured_at:'2026-09-07T23:30:00Z',atomic:false,limits:{file_bytes:1048576,file_rows:2048,row_bytes:65536},files:[
+  {locator:'run_state/framework.run.jsonl',sha256:'a'.repeat(64),bytes:120,rows:2,availability:'available'},
+  {locator:'run_state/spawn.jsonl',sha256:null,bytes:null,rows:0,availability:'unavailable',
+   captured_prefix_sha256:'b'.repeat(64),captured_prefix_bytes:80}]}};
+const source={id:'work:source',type:'work',label:'review',record_id:'review',kind:'task',role:false,
+ raw_status:{state:'assigned',toString:7},source_locator:'run:review',source_metadata:capture,_workProjection:true};
+const target={id:'work:target',type:'work',label:'check',record_id:'check',kind:'task',raw_status:0,
+ source_locator:'run:check',source_metadata:capture,_workProjection:true};
+const skill={id:'skill:validate',type:'skill',label:'validate',skill_id:'validate',source_metadata:capture,_workProjection:true};
+const parallel=['parent','spawn_assignment'].map(type=>({type,source:source.id,target:target.id,
+ source_locator:'edge:'+type,source_metadata:capture}));
+parallel.push({type:'dependency',source:target.id,target:source.id,source_locator:'edge:dependency',source_metadata:capture});
+parallel.push({type:'allowed_skill',source:source.id,target:skill.id,source_locator:'edge:allowed',source_metadata:capture,
+ source_refs:['finding:one#ref='+'x'.repeat(80),'finding:two#ref='+'y'.repeat(80)]});
+parallel.push({type:'observed_skill',source:source.id,target:skill.id,source_locator:'edge:observed',
+ assertion_basis:'caller_supplied',source_metadata:capture});
+parallel.push({type:'spawn_assignment',source:source.id,target:source.id,source_locator:'edge:self',source_metadata:capture});
+const graph={...map,work:{schema_version:'work-graph/v1',source:capture,
+ projection_state:{state:'partial',reason:'unresolved_references'},
+ dependency_availability:{state:'available',reason:null},limits:{unit:'items',record_count:2,node_candidates:3,
+ edge_candidates:6,unresolved_candidates:1,cycle_candidates:1,nodes_omitted:0,edges_omitted:0,
+ unresolved_omitted:0,cycles_omitted:0},nodes:[source,target,skill],edges:parallel,
+ unresolved:[{reason:'duplicate_id',record_id:'held-duplicate',occurrences:2}],cycles:[{node_ids:[source.id,target.id]}]}};
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=graph;let choose;
+context.BrainMap={mount(_canvas,options){choose=options.onSelect;return{
+ getVisibleNodes(){return [source,target,skill];},getHiddenCount(){return 0;},getZoom(){return 1;},
+ getWorkState(){return {state:'partial',reason:'unresolved_references',projection:graph.work};},
+ getNodeById(id){return [source,target,skill].find(node=>node.id===id)||null;},
+ getConnections(id){return parallel.filter(edge=>edge.source===id||edge.target===id).map(edge=>({edge,
+  node:[source,target,skill].find(node=>node.id===(edge.source===id?edge.target:edge.source)),
+  direction:edge.source===id?'out':'in'}));},selectById(){return false;},egoMode(){return true;}
+};}};
+boot();await flush();choose(source);
+const descendants=root=>[root,...root.children.flatMap(descendants)];
+const rendered=descendants(elements.get('inspector-body')).map(node=>node.textContent).join('\n');
+assert.match(rendered,/\{"state":"assigned","toString":7\}/);assert.match(rendered,/Role\nfalse/);
+assert.match(rendered,/Self-assignment/);assert.match(rendered,/Recorded parent/);
+assert.match(rendered,/Recorded assignment/);assert.match(rendered,/Explicit dependency/);
+assert.match(rendered,/Allowed skill/);assert.match(rendered,/caller-reported/);
+assert.match(rendered,/finding:one#ref=/);assert.match(rendered,/finding:two#ref=/);
+assert.ok(rendered.includes('x'.repeat(80)));assert.ok(rendered.includes('y'.repeat(80)),
+ 'complete exact source_refs remain available in disclosure');
+const status=descendants(elements.get('work-evidence-body')).map(node=>node.textContent).join('\n');
+assert.match(status,/unresolved_references/);assert.match(status,/duplicate_id/);assert.match(status,/cycle/i);
+assert.match(status,/run_state\/framework\.run\.jsonl/);assert.match(status,/a{64}/);
+assert.match(status,/run_state\/spawn\.jsonl/);assert.match(status,/unavailable/);
+assert.match(status,/not authenticated/i);assert.match(status,/not an atomic/i);
+assert.equal(elements.get('work-state')['data-work-state'],'partial');
+assert.equal(elements.get('work-state')['data-dependency-state'],'available');
+""")
+
+
+def test_graph_current_malformed_work_refresh_clears_prior_selection():
+    run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
+const capture={namespace:'agent_system/framework',locator:'framework:run-and-spawn',capture_basis:{captured_at:stamp,files:[]}};
+const node={id:'work:current',type:'work',label:'current task',record_id:'current',kind:'task',
+ source_locator:'run:current',source_metadata:capture,_workProjection:true};
+const baseWork={schema_version:'work-graph/v1',source:capture,projection_state:{state:'complete',reason:null},
+ dependency_availability:{state:'unavailable',reason:'dependencies_not_supplied'},limits:{unit:'items',record_count:1,
+ node_candidates:1,edge_candidates:0,unresolved_candidates:0,cycle_candidates:0,nodes_omitted:0,edges_omitted:0,
+ unresolved_omitted:0,cycles_omitted:0},nodes:[node],edges:[],unresolved:[],cycles:[]};
+let currentMap={...map,work:baseWork};context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=currentMap;
+const inspector=context.document.getElementById('inspector-body');let inspectorHtml='';
+Object.defineProperty(inspector,'innerHTML',{get(){return inspectorHtml;},set(value){inspectorHtml=value;if(value==='')this.children=[];}});
+let active,failMap=false;
+context.BrainMap={mount(_canvas,options){const valid=options.map.work&&options.map.work.schema_version==='work-graph/v1'&&
+ Array.isArray(options.map.work.nodes)&&Array.isArray(options.map.work.edges);
+ const nodes=valid?[node]:[];active={getVisibleNodes(){return nodes;},getHiddenCount(){return 0;},getZoom(){return 1;},
+ getWorkState(){return valid?{state:'complete',reason:null,projection:options.map.work}:
+  {state:'malformed',reason:'invalid_work_projection'};},getNodeById(id){return nodes.find(item=>item.id===id)||null;},
+ getConnections(){return [];},egoMode(){return true;},selectById(id){const found=nodes.find(item=>item.id===id);if(!found)return false;
+  options.onSelect(found);return true;}};return active;}};
+context.fetch=async path=>path==='api/map'&&failMap?failure:ok(path==='api/summary'?fixture:currentMap);
+boot();await flush();active.selectById(node.id);
+const bodyText=()=>{const walk=root=>[root,...root.children.flatMap(walk)];
+ return walk(elements.get('inspector-body')).map(item=>item.textContent).join(' ');};
+assert.match(bodyText(),/current task/);
+failMap=true;await [...activeIntervals.values()][0]();
+assert.match(bodyText(),/current task/,'failed refresh retains the explicitly qualified last valid selection');
+const staleState=()=>{const walk=root=>[root,...root.children.flatMap(walk)];
+ return walk(elements.get('work-state')).map(item=>item.textContent).join(' ');};
+assert.match(staleState(),/last valid map response/);assert.match(staleState(),/current refresh failed/);
+failMap=false;
+currentMap={...currentMap,generated_at:'2026-08-02T00:00:00Z',work:{schema_version:'work-graph/v1',nodes:'bad'}};
+await [...activeIntervals.values()][0]();
+assert.match(bodyText(),/selected record is unavailable in the current map response/i);
+assert.doesNotMatch(bodyText(),/current task|run:current/);
+const stateText=()=>{const walk=root=>[root,...root.children.flatMap(walk)];
+ return walk(elements.get('work-state')).map(item=>item.textContent).join(' ');};
+assert.match(stateText(),/Recorded work unavailable/);
+""")
+
+
+def test_graph_failed_capture_discloses_prefix_without_synthetic_zero_graph():
+    run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
+const prefix='c'.repeat(64);const capture={state:'unavailable',reason:'source_file_byte_limit_exceeded',source:{
+ namespace:'agent_system/framework',locator:'framework:run-and-spawn',capture_basis:{captured_at:stamp,atomic:false,
+ limits:{file_bytes:1048576,file_rows:2048,row_bytes:65536},files:[{locator:'run_state/framework.run.jsonl',
+ sha256:null,bytes:null,rows:2048,availability:'byte_limit_exceeded',captured_prefix_sha256:prefix,
+ captured_prefix_bytes:1048576}]}}};
+const graph={...map,nodes:[{id:'legacy-spawn',type:'spawn',label:'legacy contract'}],work_capture:capture};
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=graph;
+context.BrainMap={mount(){return{getVisibleNodes(){return [];},getHiddenCount(){return 0;},getZoom(){return 1;},
+ getWorkState(){return {state:'unavailable',reason:capture.reason,projection:null,capture};},getConnections(){return [];},
+ getNodeById(){return null;},selectById(){return false;},egoMode(){return false;}};}};
+boot();await flush();
+const walk=root=>[root,...root.children.flatMap(walk)];
+const state=walk(elements.get('work-state')).map(item=>item.textContent).join(' ');
+const evidence=walk(elements.get('work-evidence-body')).map(item=>item.textContent).join(' ');
+assert.match(state,/explicitly unavailable/);assert.match(state,/source_file_byte_limit_exceeded/);
+assert.doesNotMatch(state,/0 work|zero work/i);assert.equal(elements.get('graph-browser-list').children.length,1);
+assert.match(evidence,/captured_prefix_bytes=1048576/);assert.ok(evidence.includes(prefix));
+assert.equal(elements.get('work-state')['data-dependency-state'],'unavailable');
+""")
+
+
+@pytest.mark.parametrize(("node_type", "expected_mode"), [
+    ("proposal", "governance"),
+    ("agent", "usage"),
+])
+def test_graph_legacy_deep_link_routes_to_existing_mode_and_preserves_query(node_type, expected_mode):
+    run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
+context.location.protocol='file:';context.location.pathname='/graph.html';context.location.search='?keep=1';
+const id=NODE_TYPE+':legacy/source id';context.location.hash='#node='+encodeURIComponent(id);
+let written='';context.history={replaceState(_state,_title,url){written=String(url);
+ const at=written.indexOf('#');context.location.hash=at<0?'':written.slice(at);}};
+const node={id,type:NODE_TYPE,label:'legacy linked record',date:'2026-08-01'};
+const graph={...map,nodes:[node],cards:{[id]:{title:'Legacy linked record',one_line:'preserved source',source:'legacy',page:''}}};
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=graph;let activeMode='work';
+const allowed=()=>activeMode==='usage'?['agent','skill']:
+ activeMode==='governance'?['proposal','rule','harvest_finding','correction','anomaly','decision','agent','skill']:['work'];
+context.BrainMap={mount(_canvas,options){activeMode=options.mode;return{
+ getVisibleNodes(){return allowed().includes(node.type)?[node]:[];},getHiddenCount(){return 0;},getZoom(){return 1;},
+ getWorkState(){return {state:'missing',reason:'work_projection_missing',projection:null};},
+ getNodeById(requested){return requested===id&&allowed().includes(node.type)?node:null;},getConnections(){return [];},
+ egoMode(){return true;},setMode(next){activeMode=next;return this;},selectById(requested){if(requested!==id||!allowed().includes(node.type))return false;
+  options.onSelect(node);return true;}};}};
+boot();await flush();
+assert.equal(activeMode,EXPECTED_MODE);assert.match(elements.get('inspector-body').children[1].textContent,/Legacy linked record/);
+assert.ok(written.startsWith('/graph.html?keep=1#node='));assert.equal(decodeURIComponent(context.location.hash.slice(6)),id);
+""".replace("NODE_TYPE", json.dumps(node_type)).replace("EXPECTED_MODE", json.dumps(expected_mode)))

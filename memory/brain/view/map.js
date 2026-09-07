@@ -11,27 +11,33 @@ const MAX_VISIBLE = 36;
 const NODE_FONT_PX = 17;
 const GROUP_FONT_PX = 17;
 const MIN_LABEL_CSS_PX = 12;
+const WORK_NODE_LIMIT = 10000;
+const WORK_EDGE_LIMIT = 50000;
+const WORK_DIAGNOSTIC_LIMIT = 10000;
 // The lightest supplied work-link hue still composites above 3:1 on white.
 const NORMAL_EDGE_ALPHA = 0.92;
 const MODE_EDGE_TYPES = {
-  work: new Set(["launched", "uses"]),
+  work: new Set(["parent", "spawn_assignment", "dependency", "allowed_skill", "observed_skill"]),
   governance: new Set(["about", "targets", "becomes", "produces", "enacts", "extends",
     "references", "authored", "filed", "linked_to"]),
   usage: new Set(["used"]),
 };
 const MODE_NODE_TYPES = {
-  work: new Set(["agent", "spawn", "skill"]),
+  work: new Set(["work", "skill"]),
   governance: new Set(["skill", "proposal", "rule", "harvest_finding", "correction",
     "anomaly", "decision", "agent"]),
   usage: new Set(["agent", "skill"]),
 };
 const TYPE_LABEL = {
-  agent: "actor", spawn: "contract record", skill: "skill", proposal: "proposal",
+  agent: "actor", spawn: "contract record", work: "work record", skill: "skill", proposal: "proposal",
   rule: "rule", harvest_finding: "finding", correction: "correction",
   anomaly: "anomaly", decision: "decision",
 };
 const EDGE_LABEL = {
   launched: "recorded launch", uses: "allowed skill", used: "skill attribution",
+  parent: "recorded parent", spawn_assignment: "recorded assignment",
+  dependency: "explicit dependency", allowed_skill: "allowed skill",
+  observed_skill: "caller-reported use",
   about: "about", targets: "targets", becomes: "became", produces: "produced",
   enacts: "enacts", extends: "extends", references: "references", authored: "authored",
   filed: "filed", linked_to: "recorded link",
@@ -74,6 +80,67 @@ function agentColor(id) {
   return color("--agent-other");
 }
 function safeRows(value) { return Array.isArray(value) ? value.filter(row => row && typeof row === "object") : []; }
+function record(value) { return !!value && typeof value === "object" && !Array.isArray(value); }
+function safeJson(value) {
+  try { const encoded = JSON.stringify(value); return typeof encoded === "string" ? encoded : ""; }
+  catch (_) { return ""; }
+}
+function workProjection(map) {
+  const supplied = record(map) && Object.prototype.hasOwnProperty.call(map, "work");
+  const capture = record(map) && record(map.work_capture) ? map.work_capture : null;
+  if (!supplied || map.work == null) {
+    return capture ? { state: "unavailable", reason: typeof capture.reason === "string" ? capture.reason :
+      "capture_unavailable", projection: null, capture } :
+      { state: "missing", reason: "work_projection_missing", projection: null, capture: null };
+  }
+  const value = map.work;
+  const malformed = reason => ({ state: "malformed", reason, projection: null, capture });
+  if (!record(value) || value.schema_version !== "work-graph/v1" || !record(value.source) ||
+      typeof value.source.namespace !== "string" || !value.source.namespace ||
+      typeof value.source.locator !== "string" || !value.source.locator ||
+      !record(value.source.capture_basis) || !record(value.projection_state) ||
+      !record(value.dependency_availability) || !record(value.limits) ||
+      !Array.isArray(value.nodes) || !Array.isArray(value.edges) ||
+      !Array.isArray(value.unresolved) || !Array.isArray(value.cycles)) {
+    return malformed("invalid_work_projection");
+  }
+  if (!["complete", "partial", "unavailable"].includes(value.projection_state.state) ||
+      !["available", "partial", "unavailable"].includes(value.dependency_availability.state) ||
+      (value.projection_state.reason != null && typeof value.projection_state.reason !== "string") ||
+      (value.dependency_availability.reason != null && typeof value.dependency_availability.reason !== "string") ||
+      value.nodes.length > WORK_NODE_LIMIT || value.edges.length > WORK_EDGE_LIMIT ||
+      value.unresolved.length > WORK_DIAGNOSTIC_LIMIT || value.cycles.length > WORK_DIAGNOSTIC_LIMIT ||
+      !value.unresolved.every(record) || !value.cycles.every(record)) return malformed("invalid_work_projection");
+  const limitFields = ["record_count", "node_candidates", "edge_candidates", "unresolved_candidates",
+    "cycle_candidates", "nodes_omitted", "edges_omitted", "unresolved_omitted", "cycles_omitted"];
+  if (limitFields.some(key => !Number.isSafeInteger(value.limits[key]) || value.limits[key] < 0))
+    return malformed("invalid_work_limits");
+  const ids = new Set();
+  for (const node of value.nodes) {
+    if (!record(node) || typeof node.id !== "string" || !node.id || !["work", "skill"].includes(node.type) ||
+        (node.type === "work" && (typeof node.record_id !== "string" || !node.record_id ||
+          typeof node.kind !== "string" || !node.kind)) ||
+        (node.type === "skill" && (typeof node.skill_id !== "string" || !node.skill_id)) || ids.has(node.id))
+      return malformed("invalid_work_nodes");
+    ids.add(node.id);
+  }
+  const edgeTypes = MODE_EDGE_TYPES.work;
+  if (value.edges.some(edge => !record(edge) || typeof edge.source !== "string" ||
+      typeof edge.target !== "string" || !edgeTypes.has(edge.type) ||
+      !ids.has(edge.source) || !ids.has(edge.target))) return malformed("invalid_work_edges");
+  if (value.projection_state.state === "unavailable") return {
+    state: "unavailable", reason: value.projection_state.reason || "projection_unavailable",
+    projection: value, capture: value.source, nodes: [], edges: [],
+  };
+  const nodes = value.nodes.map(node => Object.assign({}, node, {
+    label: node.type === "work" ? node.record_id : node.skill_id,
+    _workProjection: true,
+  }));
+  const byId = new Map(nodes.map(node => [node.id, node]));
+  const edges = value.edges.map(edge => ({ raw: edge, src: edge.source, dst: edge.target, type: edge.type }));
+  return { state: value.projection_state.state, reason: value.projection_state.reason,
+    projection: value, capture: value.source, nodes, edges, byId };
+}
 
 function injectStyles() {
   if (document.getElementById("bm-style")) return;
@@ -238,15 +305,29 @@ class BrainMap {
   }
   getZoom() { return this.zoom; }
   getRenderMetrics() {
-    const scale = this._renderScale();
+    const scale = this._renderScale(), transform = this._transform();
+    const selected = this.selected && this.visibleById.get(this.selected.id);
+    const selectedInside = !selected || (transform.x + (selected.x - selected.width / 2) * scale >= 11 &&
+      transform.x + (selected.x + selected.width / 2) * scale <= this.cssWidth - 11 &&
+      transform.y + (selected.y - selected.height / 2) * scale >= 11 &&
+      transform.y + (selected.y + selected.height / 2) * scale <= this.cssHeight - 11);
     return { labelCssPixels: NODE_FONT_PX * scale,
       groupLabelCssPixels: GROUP_FONT_PX * scale,
+      minimumNodeCssWidth: this.visible.length ? Math.min(...this.visible.map(item => item.width * scale)) : 0,
+      minimumNodeCssHeight: this.visible.length ? Math.min(...this.visible.map(item => item.height * scale)) : 0,
+      selectedNodeInsideCanvas: selectedInside,
+      selfLoopEdges: this.visibleEdges.filter(edge => edge.src === edge.dst).length,
+      parallelRelationPairs: new Set(this.visibleEdges.filter(edge => edge.parallelCount > 1 && edge.src !== edge.dst)
+        .map(edge => edge.pairKey)).size,
       normalEdgeAlpha: NORMAL_EDGE_ALPHA, visibleNodes: this.visible.length };
   }
   getVisibleNodes() { return this.visible.map(item => item.node); }
   getVisibleEdges() { return this.visibleEdges.map(edge => edge.raw); }
   getHiddenCount() { return this.hiddenCount; }
   getMode() { return this.mode; }
+  getWorkState() { return { state: this.work.state, reason: this.work.reason,
+    projection: this.work.projection, capture: this.work.capture }; }
+  getNodeById(id) { return this.byId.get(id) || null; }
   getConnections(id) {
     return this.edges.filter(edge => edge.src === id || edge.dst === id).map(edge => ({
       edge: edge.raw,
@@ -285,20 +366,26 @@ class BrainMap {
 
   _prepare() {
     const nodes = safeRows(this.map && this.map.nodes).filter(node => typeof node.id === "string");
-    this.nodes = nodes;
-    this.byId = new Map(nodes.map(node => [node.id, node]));
+    this.baseNodes = nodes;
+    this.work = workProjection(this.map);
+    this.workNodes = this.work.nodes || [];
     this.cards = this.map && this.map.cards && typeof this.map.cards === "object" ? this.map.cards : {};
-    this.edges = safeRows(this.map && this.map.edges).filter(edge =>
+    this.baseById = new Map(nodes.map(node => [node.id, node]));
+    this.baseEdges = safeRows(this.map && this.map.edges).filter(edge =>
       typeof edge.src === "string" && typeof edge.dst === "string" &&
-      this.byId.has(edge.src) && this.byId.has(edge.dst)).map(edge => ({
+      this.baseById.has(edge.src) && this.baseById.has(edge.dst)).map(edge => ({
         raw: edge, src: edge.src, dst: edge.dst, type: text(edge.type || "linked_to"),
       }));
     this.skills = nodes.filter(node => node.type === "skill").map(node => ({ n: node, label: node.label }));
     this.agents = nodes.filter(node => node.type === "agent").map(node => ({ n: node, label: node.label }));
-    if (this.selected) this.selected = this.byId.get(this.selected.id) || null;
+    if (this.selected) {
+      const current = this.mode === "work" ? this.work.byId : this.baseById;
+      this.selected = current && current.get(this.selected.id) || null;
+    }
     this.hovered = null;
     this._hideHover();
-    if (this.focusId && !this.byId.has(this.focusId)) {
+    const current = this.mode === "work" ? this.work.byId : this.baseById;
+    if (this.focusId && (!current || !current.has(this.focusId))) {
       this.focusId = null;
       this.back.style.display = "none";
     }
@@ -327,11 +414,18 @@ class BrainMap {
   _matches(node, query) {
     if (!query) return true;
     const card = this.cards[node.id] || {};
-    return [node.id, node.label, node.type, node.pack, node.date, card.title, card.one_line, card.source]
+    return [node.id, node.label, node.type, node.pack, node.date, node.record_id, node.kind, node.skill_id,
+      typeof node.role === "string" ? node.role : safeJson(node.role),
+      typeof node.raw_status === "string" ? node.raw_status : safeJson(node.raw_status),
+      typeof node.source_locator === "string" ? node.source_locator : safeJson(node.source_locator),
+      card.title, card.one_line, card.source]
       .map(lower).join(" ").includes(query);
   }
 
   _rebuild() {
+    this.nodes = this.mode === "work" ? this.workNodes : this.baseNodes;
+    this.edges = this.mode === "work" ? (this.work.edges || []) : this.baseEdges;
+    this.byId = new Map(this.nodes.map(node => [node.id, node]));
     const allowed = this.nodes.filter(node => MODE_NODE_TYPES[this.mode].has(node.type));
     const modeEdges = this.edges.filter(edge => MODE_EDGE_TYPES[this.mode].has(edge.type));
     const query = lower(this.query);
@@ -366,13 +460,21 @@ class BrainMap {
       this.totalForMode = allowed.filter(node => this._matches(node, query)).length;
       this.hiddenCount = Math.max(0, this.totalForMode - matches.length);
     } else if (this.mode === "work") {
-      const recent = allowed.filter(node => node.type === "spawn").sort(byRecent).slice(0, 8);
-      const ids = new Set(recent.map(node => node.id));
-      const recentIds = new Set(ids);
+      const degree = new Map(allowed.map(node => [node.id, 0]));
       for (const edge of modeEdges) {
-        if (recentIds.has(edge.src)) ids.add(edge.dst);
-        if (recentIds.has(edge.dst)) ids.add(edge.src);
+        degree.set(edge.src, (degree.get(edge.src) || 0) + 1);
+        if (edge.dst !== edge.src) degree.set(edge.dst, (degree.get(edge.dst) || 0) + 1);
       }
+      const ranked = allowed.slice().sort((a, b) => (degree.get(b.id) || 0) - (degree.get(a.id) || 0) ||
+        text(a.label).localeCompare(text(b.label)) || a.id.localeCompare(b.id));
+      const seeds = ranked.filter(node => node.type === "work").slice(0, 8);
+      const ids = new Set(seeds.map(node => node.id));
+      for (const seed of seeds) for (const edge of modeEdges) {
+        if (ids.size >= MAX_VISIBLE) break;
+        if (edge.src === seed.id) ids.add(edge.dst);
+        if (edge.dst === seed.id && ids.size < MAX_VISIBLE) ids.add(edge.src);
+      }
+      for (const node of ranked) { if (ids.size >= MAX_VISIBLE) break; ids.add(node.id); }
       chosen = allowed.filter(node => ids.has(node.id));
       this.totalForMode = allowed.length;
       this.hiddenCount = Math.max(0, allowed.length - chosen.length);
@@ -399,6 +501,16 @@ class BrainMap {
     this.visibleEdges = (this.focusId ? this.edges : modeEdges).filter(edge => ids.has(edge.src) && ids.has(edge.dst))
       .map(edge => ({ raw: this._windowUsage(edge), src: edge.src, dst: edge.dst, type: edge.type }))
       .filter(edge => edge.type !== "used" || (Number(edge.raw.weight_e) || 0) + (Number(edge.raw.weight_i) || 0) > 0);
+    const pairs = new Map();
+    for (const edge of this.visibleEdges) {
+      edge.pairKey = [edge.src, edge.dst].sort().join("\u0000");
+      if (!pairs.has(edge.pairKey)) pairs.set(edge.pairKey, []);
+      pairs.get(edge.pairKey).push(edge);
+    }
+    for (const rows of pairs.values()) rows.sort((a, b) => a.type.localeCompare(b.type) ||
+      text(a.raw.id).localeCompare(text(b.raw.id))).forEach((edge, index) => {
+        edge.parallelIndex = index; edge.parallelCount = rows.length;
+      });
     this.visible = chosen.map(node => ({ node, x: 0, y: 0, width: 126, height: 42, group: this._group(node) }));
     this.visibleById = new Map(this.visible.map(item => [item.node.id, item]));
     if (this.selected && !this.visibleById.has(this.selected.id)) this.selected = null;
@@ -408,8 +520,7 @@ class BrainMap {
   _group(node) {
     if (this.focusId) return node.type === "agent" ? "Related actors" :
       node.type === "skill" ? "Related skills" : "Related records";
-    if (this.mode === "work") return node.type === "agent" ? "Recorded actors" :
-      node.type === "spawn" ? "Recent contract records" : "Allowed skills";
+    if (this.mode === "work") return node.type === "work" ? "Recorded work" : "Referenced skills";
     if (this.mode === "usage") {
       if (node.type === "agent") return "Recorded actors";
       const pack = text(node.pack || "other");
@@ -603,8 +714,12 @@ class BrainMap {
     const ctx = this.ctx, explicit = Number(edge.raw.weight_e) || 0, inferred = Number(edge.raw.weight_i) || 0;
     const root = document.documentElement, dark = !!root && root.getAttribute("data-theme") === "dark";
     let stroke = dark ? color("--text-faint") : "#52617a", dashed = false;
-    if (edge.type === "uses") { stroke = this._tone("amber")[2]; dashed = true; }
+    if (edge.type === "uses" || edge.type === "allowed_skill" || edge.type === "spawn_assignment") {
+      stroke = this._tone("amber")[2]; dashed = true;
+    }
     else if (edge.type === "launched") stroke = this._tone("teal")[2];
+    else if (edge.type === "parent" || edge.type === "observed_skill") stroke = this._tone("teal")[2];
+    else if (edge.type === "dependency") stroke = this._tone("purple")[2];
     else if (edge.type === "used") {
       const actor = (this.byId.get(edge.src) || {}).label;
       if (dark) stroke = agentColor(actor);
@@ -620,10 +735,32 @@ class BrainMap {
     const selected = this.selected && (edge.src === this.selected.id || edge.dst === this.selected.id);
     ctx.save(); ctx.strokeStyle = stroke; ctx.globalAlpha = selected ? 1 : NORMAL_EDGE_ALPHA;
     ctx.lineWidth = selected ? 1.8 : 1;
-    if (dashed) ctx.setLineDash(edge.type === "uses" ? [5, 5] : [2, 5]);
-    const mx = (from.x + to.x) / 2, bend = (to.y - from.y) * .08;
-    ctx.beginPath(); ctx.moveTo(from.x, from.y);
-    ctx.quadraticCurveTo(mx, (from.y + to.y) / 2 - bend, to.x, to.y); ctx.stroke(); ctx.restore();
+    if (edge.type === "observed_skill") ctx.setLineDash([2, 5]);
+    else if (dashed) ctx.setLineDash([5, 5]);
+    if (edge.src === edge.dst) {
+      const radius = Math.max(18, Math.min(from.width, from.height) * .58);
+      ctx.beginPath(); ctx.arc(from.x + from.width * .28, from.y - from.height * .42, radius,
+        Math.PI * .2, Math.PI * 1.82); ctx.stroke();
+      this._drawArrow(from.x + from.width * .28 + radius * Math.cos(Math.PI * 1.82),
+        from.y - from.height * .42 + radius * Math.sin(Math.PI * 1.82), Math.PI * 2.32, stroke);
+    } else {
+      const dx = to.x - from.x, dy = to.y - from.y, length = Math.max(1, Math.hypot(dx, dy));
+      const parallel = (edge.parallelIndex - (edge.parallelCount - 1) / 2) * 12;
+      const canonical = edge.src.localeCompare(edge.dst) <= 0 ? 1 : -1;
+      const mx = (from.x + to.x) / 2 - canonical * dy / length * parallel;
+      const my = (from.y + to.y) / 2 + canonical * dx / length * parallel;
+      ctx.beginPath(); ctx.moveTo(from.x, from.y); ctx.quadraticCurveTo(mx, my, to.x, to.y); ctx.stroke();
+      this._drawArrow(to.x, to.y, Math.atan2(to.y - my, to.x - mx), stroke);
+    }
+    ctx.restore();
+  }
+
+  _drawArrow(x, y, angle, stroke) {
+    const ctx = this.ctx, size = 6;
+    ctx.save(); ctx.fillStyle = stroke; ctx.beginPath(); ctx.moveTo(x, y);
+    ctx.lineTo(x - size * Math.cos(angle - Math.PI / 6), y - size * Math.sin(angle - Math.PI / 6));
+    ctx.lineTo(x - size * Math.cos(angle + Math.PI / 6), y - size * Math.sin(angle + Math.PI / 6));
+    ctx.closePath(); ctx.fill(); ctx.restore();
   }
 
   _selectedRelationLabel() {

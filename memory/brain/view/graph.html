@@ -39,6 +39,12 @@ button,a,select,input{outline-offset:3px}
 .graph-window output{min-width:58px;text-align:center;color:var(--text-dim);font-size:12px}
 .dependency-state{display:flex;gap:10px;align-items:flex-start;margin:12px 12px 0;padding:10px 12px;border:1px solid color-mix(in srgb,var(--warn) 26%,var(--border));border-radius:9px;background:color-mix(in srgb,var(--warn) 6%,var(--surface));color:var(--text-dim);font-size:12px}
 .dependency-state strong{color:var(--text);white-space:nowrap}
+.work-evidence{margin:8px 12px 0;border:1px solid var(--border);border-radius:9px;background:var(--surface);color:var(--text-dim);font-size:12px}
+.work-evidence summary{cursor:pointer;padding:9px 11px;font-weight:650;color:var(--text)}
+.work-evidence-body{padding:0 11px 10px;border-top:1px solid var(--border)}
+.work-evidence-body .facts{margin:0}.work-evidence-note{margin:9px 0;color:var(--text-faint)}
+.work-source-file{padding:8px 0;border-top:1px solid var(--border);overflow-wrap:anywhere}
+.work-source-file strong,.work-source-file span{display:block}.work-source-file span{color:var(--text-faint);font-family:ui-monospace,monospace;font-size:11px}
 #mapwrap{position:relative;height:clamp(500px,61vh,650px);min-height:420px;margin:8px 8px 0;overflow:hidden;border-radius:10px;background:radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--surface-2) 55%,transparent),transparent 68%)}
 #map{display:block;width:100%;height:100%;cursor:grab}
 #mapnote{position:absolute;inset:0;display:grid;place-items:center;padding:30px;color:var(--text-faint);text-align:center;pointer-events:none}
@@ -49,6 +55,10 @@ button,a,select,input{outline-offset:3px}
 .legend-line{width:22px;height:0;border-top:2px solid var(--accent)}
 .legend-line.work{border-color:var(--ok)}
 .legend-line.allowed{border-color:var(--warn);border-top-style:dashed}
+.legend-line.parent{border-color:var(--ok)}
+.legend-line.assignment{border-color:var(--warn);border-top-style:dashed}
+.legend-line.dependency{border-color:var(--accent)}
+.legend-line.observed{border-color:var(--ok);border-top-style:dotted}
 .legend-line.inferred{border-color:var(--text-faint);border-top-style:dotted}
 .graph-browser{border-top:1px solid var(--border)}
 .graph-browser summary{cursor:pointer;padding:11px 14px;color:var(--text-dim);font-weight:650}
@@ -133,7 +143,7 @@ html[data-atlas][data-theme="dark"] .graph-inspector .source-action{color:#17233
         </div>
         <label class="graph-search"><span aria-hidden="true">⌕</span><span class="ui-visually-hidden">Search recorded nodes</span><input id="graph-search" type="search" autocomplete="off" placeholder="Search recorded nodes"></label>
         <label><span class="ui-visually-hidden">Filter by record type</span><select id="graph-type">
-          <option value="all">All types</option><option value="agent">Actors</option><option value="spawn">Contract records</option>
+          <option value="all">All types</option><option value="work">Work records</option><option value="agent">Actors</option><option value="spawn">Contract records</option>
           <option value="skill">Skills</option><option value="proposal">Proposals</option><option value="rule">Rules</option>
           <option value="harvest_finding">Findings</option><option value="correction">Corrections</option>
         </select></label>
@@ -144,18 +154,25 @@ html[data-atlas][data-theme="dark"] .graph-inspector .source-action{color:#17233
         <div class="graph-window" id="stepper" aria-label="Activity window"></div>
       </div>
 
-      <div class="dependency-state" data-dependency-state="unavailable" role="note">
-        <strong>Dependencies unavailable</strong>
-        <span>This projection does not supply dependency records or exact parent/child source IDs. Recorded launch and contract-skill links appear below; they are not a task DAG.</span>
+      <div class="dependency-state" id="work-state" data-dependency-state="unavailable" role="note">
+        <strong>Recorded work unavailable</strong>
+        <span>The optional typed work projection has not been checked. The page does not turn assignments into child execution and does not call a cyclic projection a DAG.</span>
       </div>
+      <details class="work-evidence" id="work-evidence">
+        <summary>Source and projection qualification</summary>
+        <div class="work-evidence-body" id="work-evidence-body"></div>
+      </details>
 
       <div id="mapwrap">
         <canvas id="map" aria-hidden="true"></canvas>
         <div id="mapnote" hidden>Map data is unavailable. The page will not invent replacement records.</div>
       </div>
       <div class="graph-caption" aria-label="Relationship legend">
-        <span class="legend-key" data-legend-mode="work"><span class="legend-line work"></span>recorded launch</span>
+        <span class="legend-key" data-legend-mode="work"><span class="legend-line parent"></span>recorded parent</span>
+        <span class="legend-key" data-legend-mode="work"><span class="legend-line assignment"></span>recorded assignment</span>
+        <span class="legend-key" data-legend-mode="work"><span class="legend-line dependency"></span>explicit dependency</span>
         <span class="legend-key" data-legend-mode="work"><span class="legend-line allowed"></span>allowed skill</span>
+        <span class="legend-key" data-legend-mode="work"><span class="legend-line observed"></span>caller-reported use</span>
         <span class="legend-key" data-legend-mode="governance" hidden><span class="legend-line"></span>typed governance relation</span>
         <span class="legend-key" data-legend-mode="usage" hidden><span class="legend-line"></span>explicit attribution</span>
         <span class="legend-key" data-legend-mode="usage" hidden><span class="legend-line inferred"></span>inferred attribution</span>
@@ -177,6 +194,7 @@ html[data-atlas][data-theme="dark"] .graph-inspector .source-action{color:#17233
           <ul class="truth-list">
             <li>Neighborhoods are visual grouping only.</li>
             <li>Allowed contract skills do not prove observed use.</li>
+            <li>Assignments do not prove child execution; dependencies appear only when explicitly supplied.</li>
             <li>Graph <em>enacts</em> links are governance relations, not lifecycle completion counts.</li>
           </ul>
         </div>
@@ -188,7 +206,7 @@ html[data-atlas][data-theme="dark"] .graph-inspector .source-action{color:#17233
 <script defer src="summary_data.js"></script>
 <script defer src="map_data.js"></script>
 <script defer src="ui.js?v=5dcf781d655c42b38ddfe704a6ca133db13ab339e66fc74ed5413e1f3873d664"></script>
-<script defer src="map.js?v=f93aa9ab0840dfedadef07899ecc7c84a64d476efe4bd3b48745f90af1acb69c"></script>
+<script defer src="map.js?v=4c89f2b6178d57f45f8c24c922c5ac829fd9eb8876f72f924b8deb64ad8e6a97"></script>
 <script async src="atlas.js?v=20260907-a"></script>
 <script>
 (function () {
@@ -276,7 +294,7 @@ let mode = "work", query = "", type = "all";
 let selectedId = "";
 let WIN_MIN = 1, WIN_MAX = 7, windowDays = 7, asof = "";
 const NODE_TYPE_LABEL = { agent: "actor", spawn: "contract record", skill: "skill",
-  proposal: "proposal", rule: "rule", harvest_finding: "finding", correction: "correction",
+  work: "work record", proposal: "proposal", rule: "rule", harvest_finding: "finding", correction: "correction",
   anomaly: "anomaly", decision: "decision" };
 $("apparatus").href = "http://" + (location.hostname || "localhost") + ":5173";
 
@@ -286,7 +304,6 @@ function applyData() {
   asof = ((D && D.window && D.window.newest_event) || (M && M.generated_at) || "").slice(0, 10);
   $("asof").textContent = asof || "date unavailable";
   $("asof").title = asof ? "as of " + asof : "generation date unavailable";
-  $("mapnote").hidden = !!M;
 }
 function initWindowState() {
   windowDays = (D && D.window && D.window.default_days) || 7;
@@ -323,10 +340,11 @@ function mountMap() {
   if (!M || typeof window.BrainMap === "undefined") return;
   instance = BrainMap.mount($("map"), { summary: D, map: M, windowDays, embedded: false,
     mode, query, type, onSelect: openNode });
-  renderBrowser(); updateZoom();
+  renderBrowser(); updateZoom(); renderWorkState();
   const retainedSelection = !!selectedId;
   const requested = selectedId || deepLinkId();
   if (!requested) return;
+  if (!retainedSelection) routeInitialDeepLink(requested);
   const current = currentTypedNode(requested);
   const selectable = current && (!retainedSelection || currentVisibleTypedNode(requested));
   if (selectable && instance && typeof instance.selectById === "function" && instance.selectById(requested) !== false) return;
@@ -334,6 +352,21 @@ function mountMap() {
   clearInspector(current && retainedSelection ? "The selected record is unavailable in the current view." :
     "The selected record is unavailable in the current map response.", requested);
   clearDeepLink();
+}
+function baseNode(id) {
+  return M && Array.isArray(M.nodes) ? M.nodes.find(node => node && node.id === id &&
+    typeof node.type === "string" && node.type.length > 0) || null : null;
+}
+function routeInitialDeepLink(id) {
+  if (!instance || typeof instance.getNodeById !== "function" || instance.getNodeById(id)) return;
+  const node = baseNode(id);
+  if (!node) return;
+  const next = ["agent", "skill"].includes(node.type) ? "usage" :
+    ["proposal", "rule", "harvest_finding", "correction", "anomaly", "decision"].includes(node.type) ?
+      "governance" : "";
+  if (!next || next === mode || typeof instance.setMode !== "function") return;
+  mode = next; type = "all"; $("graph-type").value = "all";
+  renderModeControls(); instance.setMode(mode); renderBrowser(); updateZoom();
 }
 function deepLinkId() {
   const hash = typeof location.hash === "string" ? location.hash : "";
@@ -351,8 +384,9 @@ function clearDeepLink() {
   history.replaceState(null, "", location.pathname + location.search);
 }
 function currentTypedNode(id) {
-  return M && Array.isArray(M.nodes) ? M.nodes.find(node => node && node.id === id &&
-    typeof node.type === "string" && node.type.length > 0) || null : null;
+  const rendered = instance && typeof instance.getNodeById === "function" ? instance.getNodeById(id) : null;
+  if (rendered && typeof rendered.type === "string" && rendered.type.length > 0) return rendered;
+  return baseNode(id);
 }
 function currentVisibleTypedNode(id) {
   const current = currentTypedNode(id);
@@ -376,8 +410,21 @@ function safePage(raw) {
   const rest = value.replace(/^\.\.\/pages\//, "").replace(/^pages\//, "");
   return rest.split("/").includes("..") ? "" : value;
 }
-function relationReason(edge) {
+function relationReason(edge, direction, selectedId) {
   const explicit = Number(edge.weight_e) || 0, inferred = Number(edge.weight_i) || 0;
+  if (edge.source === edge.target && edge.type === "spawn_assignment")
+    return "Self-assignment: the recorded assignment targets the same source record; this is not a child execution receipt.";
+  if (edge.type === "parent") return direction === "out" ?
+    "Recorded parent: the selected record is the supplied parent of this child record." :
+    "Recorded parent: the related record is the supplied parent of this selected child record.";
+  if (edge.type === "spawn_assignment") return direction === "out" ?
+    "Recorded assignment: the selected record names the related record as assigned work; no child execution is inferred." :
+    "Recorded assignment: the related record names the selected record as assigned work; no child execution is inferred.";
+  if (edge.type === "dependency") return direction === "out" ?
+    "Explicit dependency: the selected work record declares the related record as a prerequisite." :
+    "Explicit dependency: the related work record declares the selected record as a prerequisite.";
+  if (edge.type === "allowed_skill") return "Allowed skill: explicitly permitted for the work record; permission is not observed use.";
+  if (edge.type === "observed_skill") return "Caller-reported use: supplied by the caller and not independently verified.";
   if (edge.type === "uses") return "Skill listed in a recorded contract; this does not establish observed use.";
   if (edge.type === "launched") return "Recorded launch attribution; exact parent/child source IDs are unavailable in this projection.";
   if (edge.type === "used") {
@@ -396,8 +443,15 @@ function relationReason(edge) {
 function make(tag, className, value) {
   const element = document.createElement(tag);
   if (className) element.className = className;
-  if (value != null) element.textContent = String(value);
+  if (value != null) element.textContent = evidenceText(value);
   return element;
+}
+function evidenceText(value) {
+  if (typeof value === "string") return value;
+  if (value === null) return "null";
+  if (["number", "boolean", "bigint"].includes(typeof value)) return String(value);
+  try { const encoded = JSON.stringify(value); return typeof encoded === "string" ? encoded : "Unavailable"; }
+  catch (_) { return "Unavailable (value is not JSON serializable)"; }
 }
 function addFact(list, key, value) {
   if (value == null || value === "") return;
@@ -423,17 +477,27 @@ function openNode(node) {
     return;
   }
   node = current;
+  const fromWork = node._workProjection === true;
   selectedId = node.id;
   const card = (M.cards && M.cards[node.id]) || {};
   const body = $("inspector-body"); body.innerHTML = "";
   const kind = make("div", "node-kind", ({ spawn: "recorded contract", agent: "recorded actor",
-    harvest_finding: "harvest finding" }[node.type] || node.type || "record"));
-  const title = make("h3", "node-title", card.title || node.label || node.id);
+    work: "recorded work", harvest_finding: "harvest finding" }[node.type] ||
+    (fromWork && node.type === "skill" ? "work skill reference" : node.type) || "record"));
+  const title = make("h3", "node-title", card.title || node.label || node.record_id || node.skill_id || node.id);
   body.appendChild(kind); body.appendChild(title);
   if (card.one_line) body.appendChild(make("p", "node-summary", card.one_line));
   const facts = make("dl", "facts");
   addFact(facts, "Record ID", node.id); addFact(facts, "Date", node.date || card.date || "Unavailable");
   addFact(facts, "Pack", node.pack); addFact(facts, "Source", card.source || "Unavailable");
+  if (fromWork) {
+    addFact(facts, "Source record ID", node.record_id);
+    addFact(facts, "Record kind", node.kind);
+    if (Object.prototype.hasOwnProperty.call(node, "role")) addFact(facts, "Role", evidenceText(node.role));
+    if (Object.prototype.hasOwnProperty.call(node, "raw_status")) addFact(facts, "Raw status", evidenceText(node.raw_status));
+    addFact(facts, "Skill ID", node.skill_id);
+    addFact(facts, "Source locator", evidenceText(node.source_locator));
+  }
   if (node.type === "agent") {
     const actor = ((D && D.agents) || []).find(row => row.id === node.label);
     if (actor) {
@@ -445,7 +509,7 @@ function openNode(node) {
         actor.cryptographically_authenticated === true ? "Reported true — not verified here" : "Unknown");
     }
   }
-  if (node.type === "skill") {
+  if (node.type === "skill" && !fromWork) {
     const skill = ((D && D.skills) || []).find(row => row.name === node.label);
     if (skill) {
       addFact(facts, "Runtime", skill.runtime_safe === true ? "Runtime-safe core" :
@@ -455,7 +519,9 @@ function openNode(node) {
   }
   body.appendChild(facts);
   const page = safePage(card.page);
-  if (page && location.protocol === "file:") {
+  if (fromWork) body.appendChild(make("p", "source-unavailable",
+    "The raw source locator and capture qualification are shown here and above; no direct source link was supplied."));
+  else if (page && location.protocol === "file:") {
     const link = make("a", "source-action", "Open source evidence"); link.href = page;
     body.appendChild(link);
   } else if (page) body.appendChild(make("p", "source-unavailable", "Recorded source path: " + page +
@@ -473,8 +539,20 @@ function openNode(node) {
   rows.slice(0, 24).forEach(row => {
     const button = make("button", "relation-row"); button.type = "button";
     button.setAttribute("data-related-id", row.node.id);
-    button.appendChild(make("strong", "", row.node.label || row.node.id));
-    button.appendChild(make("span", "", relationReason(row.edge)));
+    button.appendChild(make("strong", "", row.node.label || row.node.record_id || row.node.skill_id || row.node.id));
+    button.appendChild(make("span", "", relationReason(row.edge, row.direction, node.id)));
+    const relationType = ({ parent: "recorded parent", spawn_assignment: "recorded assignment",
+      dependency: "explicit dependency", allowed_skill: "allowed skill",
+      observed_skill: "caller-reported use" }[row.edge.type] || row.edge.type || "unknown relation");
+    button.appendChild(make("span", "", relationType + " · " +
+      (row.edge.source === row.edge.target ? "self" : row.direction === "out" ? "outgoing" : "incoming")));
+    if (Object.prototype.hasOwnProperty.call(row.edge, "source_locator"))
+      button.appendChild(make("span", "", "Source locator: " + evidenceText(row.edge.source_locator)));
+    const refs = Array.isArray(row.edge.source_refs) ? row.edge.source_refs.filter(ref => typeof ref === "string") :
+      typeof row.edge.source_ref === "string" ? [row.edge.source_ref] : [];
+    refs.forEach(ref => button.appendChild(make("span", "", "Source reference: " + ref)));
+    if (row.edge.assertion_basis != null)
+      button.appendChild(make("span", "", "Assertion basis: " + evidenceText(row.edge.assertion_basis)));
     button.addEventListener("click", () => { instance.selectById(row.node.id); renderBrowser(); });
     section.appendChild(button);
   });
@@ -499,6 +577,98 @@ function renderBrowser() {
   if (!nodes.length) list.appendChild(make("p", "browser-copy", "No recorded nodes match this view."));
   updateCount();
 }
+function currentWorkState() {
+  if (instance && typeof instance.getWorkState === "function") return instance.getWorkState();
+  if (M && M.work_capture && typeof M.work_capture === "object") return {
+    state: "unavailable", reason: typeof M.work_capture.reason === "string" ? M.work_capture.reason : "capture_unavailable",
+    projection: null, capture: M.work_capture,
+  };
+  return { state: M && Object.prototype.hasOwnProperty.call(M, "work") ? "malformed" : "missing",
+    reason: M ? "work_projection_missing" : "map_unavailable", projection: null, capture: null };
+}
+function reasonCounts(rows) {
+  const counts = new Map();
+  (Array.isArray(rows) ? rows : []).forEach(row => {
+    const reason = row && typeof row.reason === "string" ? row.reason : "unknown_reason";
+    counts.set(reason, (counts.get(reason) || 0) + 1);
+  });
+  return [...counts].sort((a, b) => a[0].localeCompare(b[0])).map(row => row[0] + " × " + row[1]).join(" · ");
+}
+function renderWorkState() {
+  const host = $("work-state"), details = $("work-evidence"), body = $("work-evidence-body");
+  const state = currentWorkState(), projection = state.projection;
+  host.hidden = mode !== "work"; details.hidden = mode !== "work";
+  host.innerHTML = ""; body.innerHTML = "";
+  let title = "Recorded work unavailable", message = "The current map response has no typed work projection; legacy graph nodes are not substituted.";
+  if (state.state === "malformed") message = "The current map response contains malformed typed work data; the former work view is not retained as current.";
+  else if (state.state === "unavailable") message = "The work capture or projection is explicitly unavailable: " +
+    evidenceText(state.reason || "reason unavailable") + ". No zero-work claim is made.";
+  else if (state.state === "partial") {
+    title = "Recorded work is qualified";
+    message = "The bounded typed projection is partial (" + evidenceText(state.reason || "reason unavailable") +
+      "). Inspect omissions, diagnostics, cycles, and dependency coverage below.";
+  } else if (state.state === "complete") {
+    const dependency = projection && projection.dependency_availability;
+    title = dependency && dependency.state === "available" ? "Recorded work captured" : "Dependencies unavailable or partial";
+    message = dependency && dependency.state === "available" ?
+      "Explicit recorded parent, assignment, dependency, allowed-skill, and caller-reported-use relations are available." :
+      "Recorded work is available, but dependency evidence is " + evidenceText(dependency && dependency.state || "unavailable") +
+      " (" + evidenceText(dependency && dependency.reason || "reason unavailable") + ").";
+  }
+  if (typeof mapSource !== "undefined" && mapSource && mapSource.error)
+    message += " Showing the last valid map response; its current refresh failed (" + evidenceText(mapSource.error) + ").";
+  const dependencyState = projection && projection.dependency_availability &&
+    ["available", "partial", "unavailable"].includes(projection.dependency_availability.state) ?
+      projection.dependency_availability.state : "unavailable";
+  host.setAttribute("data-work-state", state.state);
+  host.setAttribute("data-dependency-state", dependencyState);
+  host.appendChild(make("strong", "", title)); host.appendChild(make("span", "", message));
+  const captureEnvelope = projection && projection.source || state.capture || null;
+  const source = captureEnvelope && captureEnvelope.source || captureEnvelope;
+  const basis = source && source.capture_basis || captureEnvelope && captureEnvelope.capture_basis || null;
+  const facts = make("dl", "facts");
+  addFact(facts, "Work state", state.state); addFact(facts, "Reason", state.reason);
+  if (projection) {
+    addFact(facts, "Schema", projection.schema_version);
+    addFact(facts, "Dependency coverage", evidenceText(projection.dependency_availability));
+    addFact(facts, "Projection limits", evidenceText(projection.limits));
+    addFact(facts, "Diagnostics", reasonCounts(projection.unresolved) || "None supplied");
+    const cycles = Array.isArray(projection.cycles) ? projection.cycles.length : 0;
+    addFact(facts, "Dependency cycles", cycles + " supplied before output caps");
+  }
+  if (source) {
+    addFact(facts, "Source namespace", source.namespace);
+    addFact(facts, "Source locator", source.locator);
+  }
+  if (basis) {
+    addFact(facts, "Captured at", basis.captured_at || "Unavailable");
+    if (Object.prototype.hasOwnProperty.call(basis, "atomic")) addFact(facts, "Atomic capture", evidenceText(basis.atomic));
+    addFact(facts, "Capture limits", evidenceText(basis.limits));
+  }
+  body.appendChild(facts);
+  body.appendChild(make("p", "work-evidence-note", "Capture metadata and caller-reported fields are supplied evidence, not authenticated actors, liveness, or successful execution. Separate files are not an atomic snapshot."));
+  const files = basis && Array.isArray(basis.files) ? basis.files : [];
+  files.forEach(file => {
+    const row = make("div", "work-source-file");
+    row.appendChild(make("strong", "", file && file.locator || "Source locator unavailable"));
+    const parts = [];
+    if (file && file.availability != null) parts.push("availability=" + evidenceText(file.availability));
+    if (file && file.bytes != null) parts.push("bytes=" + evidenceText(file.bytes));
+    if (file && file.rows != null) parts.push("rows=" + evidenceText(file.rows));
+    if (file && file.sha256 != null) parts.push("sha256=" + evidenceText(file.sha256));
+    if (file && file.captured_prefix_bytes != null) parts.push("captured_prefix_bytes=" + evidenceText(file.captured_prefix_bytes));
+    if (file && file.captured_prefix_sha256 != null) parts.push("captured_prefix_sha256=" + evidenceText(file.captured_prefix_sha256));
+    row.appendChild(make("span", "", parts.join(" · ") || "capture details unavailable")); body.appendChild(row);
+  });
+  if (!files.length) body.appendChild(make("p", "work-evidence-note", "Per-file capture details are unavailable."));
+  if (mode === "work") {
+    const count = instance && typeof instance.getVisibleNodes === "function" ? instance.getVisibleNodes().length : 0;
+    $("mapnote").hidden = state.state !== "missing" && state.state !== "malformed" && state.state !== "unavailable" && count > 0;
+    $("mapnote").textContent = count ? "" : state.state === "complete" || state.state === "partial" ?
+      "No work records appear in this bounded captured projection; this is not a liveness claim." :
+      "Recorded work data is unavailable. The page will not invent replacement records.";
+  } else $("mapnote").hidden = !!M;
+}
 function updateCount() {
   const count = instance && typeof instance.getVisibleNodes === "function" ? instance.getVisibleNodes().length : 0;
   const hidden = instance && typeof instance.getHiddenCount === "function" ? instance.getHiddenCount() : 0;
@@ -512,11 +682,14 @@ function updateZoom() {
 function setMode(next) {
   if (!["work", "governance", "usage"].includes(next)) return;
   mode = next; type = "all"; $("graph-type").value = "all";
-  document.querySelectorAll("[data-graph-mode]").forEach(button => button.setAttribute("aria-pressed", String(button.getAttribute("data-graph-mode") === mode)));
-  document.querySelectorAll("[data-legend-mode]").forEach(item => { item.hidden = item.getAttribute("data-legend-mode") !== mode; });
+  renderModeControls();
   if (instance && typeof instance.setMode === "function") instance.setMode(mode);
   revalidateSelectionForView();
-  renderBrowser(); updateZoom();
+  renderBrowser(); updateZoom(); renderWorkState();
+}
+function renderModeControls() {
+  document.querySelectorAll("[data-graph-mode]").forEach(button => button.setAttribute("aria-pressed", String(button.getAttribute("data-graph-mode") === mode)));
+  document.querySelectorAll("[data-legend-mode]").forEach(item => { item.hidden = item.getAttribute("data-legend-mode") !== mode; });
 }
 document.querySelectorAll("[data-graph-mode]").forEach(button => button.addEventListener("click", () => setMode(button.getAttribute("data-graph-mode"))));
 $("graph-search").addEventListener("input", event => {
@@ -545,6 +718,7 @@ function showSources() {
   if (U.renderDataStatus) U.renderDataStatus($("data-source-status"), summarySource, mapSource, $("data-source-announcement"));
   else $("data-source-status").textContent = (D && M ? "Saved data only. " : "Data unavailable. ") +
     "Shared interface files are unavailable; live refresh and source checks are disabled. Reload this page to request the current files.";
+  renderWorkState();
 }
 async function refreshData(current) {
   if (!summarySource || !mapSource) return [false, false];
@@ -558,7 +732,8 @@ async function refreshData(current) {
   };
   return Promise.all([summarySource.refresh("api/summary").then(update), mapSource.refresh("api/map").then(update)]);
 }
-function mapSig() { return JSON.stringify([M && [M.nodes, M.edges, M.cards], D && [D.skills, D.matrix, D.agents, D.window]]); }
+function mapSig() { return JSON.stringify([M && [M.nodes, M.edges, M.cards, M.work, M.work_capture],
+  D && [D.skills, D.matrix, D.agents, D.window]]); }
 let lastMapSig = "";
 D = summarySource.data; M = mapSource.data;
 applyData(); initWindowState(); renderStepper(); showSources(); lastMapSig = mapSig(); mountMap();
