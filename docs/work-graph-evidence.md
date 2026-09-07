@@ -59,6 +59,42 @@ using untrusted data. Source overflow fails closed before traversal. Output
 omissions are counted and mark the projection partial; unavailable input is
 explicit. Inspect limits and unresolved reasons before presenting coverage.
 
+## Framework map adapter
+
+`scripts/project_map.py` optionally places the unchanged library return at
+`map.work`. It captures `run_state/framework.run.jsonl` and
+`run_state/spawn.jsonl` separately, once each, and reuses those parsed rows for
+the existing governance/usage attribution. The two reads are not an atomic
+snapshot. Their hashes, sizes, locators, row counts, actual `captured_at`, and
+availability appear under `work.source.capture_basis.files`; these are capture
+receipts, not authenticated authorship, execution, or liveness.
+
+The adapter maps the same explicit fields as the qualified AS029 comparison:
+`task_id` becomes a `run` ID, `spawn_id` becomes a `spawn` ID, and only supplied
+`status`, `agent`, `parent_task_id`, `child_task_id`, `skill_used`,
+`contract.skill_subset`, and `dependencies` populate the corresponding work
+record fields. It does not join task and child IDs, choose among repeated IDs,
+or infer dependencies from prose, roles, ordering, or time.
+
+Each file is limited to 1,048,576 captured bytes, 2,048 nonblank rows, and
+65,536 bytes per row. A read error, malformed/non-object JSON row, or file/row
+overflow omits `map.work` and returns a small sibling `map.work_capture` with
+`state: unavailable`, the reason, and the per-file capture descriptors. A byte
+overflow labels the capped read as `captured_prefix_sha256` and
+`captured_prefix_bytes`; it is never presented as a whole-file hash. Consumers
+must treat missing work or this failure envelope as unavailable, not zero work.
+
+Valid capture uses item caps of 2,048 records, 640 nodes, 2,048 edges, and 512
+diagnostics. These retain the known 705-row/568-node/321-edge/81-diagnostic
+reference while leaving all library omission counts intact. The legacy map
+stays independently below 300,000 encoded JSON bytes, optional work stays below
+1,200,000, and their combined JSON stays below 1,500,000. These counts include
+the source metadata repeated by the library on nodes and edges. Exceeding a
+work or combined byte cap returns `work_capture` unavailable rather than
+truncating identity fields. Compare-before-write ignores only the projector's
+known capture-time fields (including repeated `source_metadata` copies); a
+source digest, field, relation, status, or role change still causes a write.
+
 ## Synthetic example
 
 This is an illustration, not a record of running agents:
