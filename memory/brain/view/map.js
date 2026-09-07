@@ -11,6 +11,8 @@ const MAX_VISIBLE = 36;
 const NODE_FONT_PX = 17;
 const GROUP_FONT_PX = 17;
 const EDGE_FONT_PX = 17;
+// The lightest supplied work-link hue still composites above 3:1 on white.
+const NORMAL_EDGE_ALPHA = 0.92;
 const MODE_EDGE_TYPES = {
   work: new Set(["launched", "uses"]),
   governance: new Set(["about", "targets", "becomes", "produces", "enacts", "extends",
@@ -228,7 +230,7 @@ class BrainMap {
   getRenderMetrics() {
     return { labelCssPixels: NODE_FONT_PX * this.baseScale * this.zoom,
       groupLabelCssPixels: GROUP_FONT_PX * this.baseScale * this.zoom,
-      visibleNodes: this.visible.length };
+      normalEdgeAlpha: NORMAL_EDGE_ALPHA, visibleNodes: this.visible.length };
   }
   getVisibleNodes() { return this.visible.map(item => item.node); }
   getVisibleEdges() { return this.visibleEdges.map(edge => edge.raw); }
@@ -281,6 +283,13 @@ class BrainMap {
       }));
     this.skills = nodes.filter(node => node.type === "skill").map(node => ({ n: node, label: node.label }));
     this.agents = nodes.filter(node => node.type === "agent").map(node => ({ n: node, label: node.label }));
+    if (this.selected) this.selected = this.byId.get(this.selected.id) || null;
+    this.hovered = null;
+    this._hideHover();
+    if (this.focusId && !this.byId.has(this.focusId)) {
+      this.focusId = null;
+      this.back.style.display = "none";
+    }
     this.asof = ((this.sum && this.sum.window && this.sum.window.newest_event) ||
       (this.map && this.map.generated_at) || "").slice(0, 10);
     this._rebuild();
@@ -562,13 +571,24 @@ class BrainMap {
     const from = this.visibleById.get(edge.src), to = this.visibleById.get(edge.dst);
     if (!from || !to) return;
     const ctx = this.ctx, explicit = Number(edge.raw.weight_e) || 0, inferred = Number(edge.raw.weight_i) || 0;
-    let stroke = color("--text-faint"), dashed = false;
-    if (edge.type === "uses") { stroke = color("--warn"); dashed = true; }
-    else if (edge.type === "launched") stroke = color("--ok");
-    else if (edge.type === "used") { stroke = agentColor((this.byId.get(edge.src) || {}).label); dashed = !explicit && !!inferred; }
-    else if (["about", "targets", "enacts", "extends", "becomes", "produces"].includes(edge.type)) stroke = color("--accent");
+    const root = document.documentElement, dark = !!root && root.getAttribute("data-theme") === "dark";
+    let stroke = dark ? color("--text-faint") : "#52617a", dashed = false;
+    if (edge.type === "uses") { stroke = this._tone("amber")[2]; dashed = true; }
+    else if (edge.type === "launched") stroke = this._tone("teal")[2];
+    else if (edge.type === "used") {
+      const actor = (this.byId.get(edge.src) || {}).label;
+      if (dark) stroke = agentColor(actor);
+      else {
+        const palette = ["#4f5fb8", "#6b479d", "#176c73", "#8a5200"];
+        let hash = 0; for (const char of text(actor)) hash = (hash * 31 + char.charCodeAt(0)) >>> 0;
+        stroke = palette[hash % palette.length];
+      }
+      dashed = !explicit && !!inferred;
+    } else if (["about", "targets", "enacts", "extends", "becomes", "produces"].includes(edge.type)) {
+      stroke = this._tone("purple")[2];
+    }
     const selected = this.selected && (edge.src === this.selected.id || edge.dst === this.selected.id);
-    ctx.save(); ctx.strokeStyle = stroke; ctx.globalAlpha = selected ? .88 : .22;
+    ctx.save(); ctx.strokeStyle = stroke; ctx.globalAlpha = selected ? 1 : NORMAL_EDGE_ALPHA;
     ctx.lineWidth = selected ? 1.8 : 1;
     if (dashed) ctx.setLineDash(edge.type === "uses" ? [5, 5] : [2, 5]);
     const mx = (from.x + to.x) / 2, bend = (to.y - from.y) * .08;
