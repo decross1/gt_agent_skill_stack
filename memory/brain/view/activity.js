@@ -386,26 +386,59 @@
         else page(get("skills-list"), "skills", skills, visible => visible.forEach(skill => {
           const card = el("article", undefined, "card skill-card"), governance = object(skill.governance) ? skill.governance : {};
           const conformance = object(governance.conformance) ? governance.conformance : {}, usage = object(skill.usage) ? skill.usage : {};
-          add(card, el("h3", known(skill.name)), el("p", known(skill.purpose)), el("span", "Layer " + known(skill.layer), "pill"), el("span", known(skill.pack), "pill"),
-            el("span", skill.runtime_safe === true ? "Declared runtime-safe" : skill.runtime_safe === false ? "Dev-time only" : "Runtime designation unknown", "pill"));
-          const dl = el("dl"); pair(dl, "Explicit / inferred usage", count(usage.explicit) + " / " + count(usage.inferred)); pair(dl, "Confirmed / friction", count(conformance.confirmed) + " / " + count(conformance.friction));
-          pair(dl, "Gaps / divergence", count(conformance.gap) + " / " + count(conformance.diverged)); pair(dl, "Recorded conformance", known(conformance.status)); add(card, dl);
+          const allowed = skill.runtime_safe === true ? "Declared runtime-safe" : skill.runtime_safe === false ? "Dev-time only" : "Runtime designation unknown";
+          const head = el("div", undefined, "skill-head");
+          add(head, el("h3", known(skill.name)), el("span", "Layer " + known(skill.layer), "pill accent"));
+          add(card, head, el("p", known(skill.purpose), "skill-purpose"));
+          const compare = el("div", undefined, "skill-comparison");
+          const allowedCell = el("div"); add(allowedCell, el("strong", "Allowed use"), el("span", allowed + " · " + known(skill.pack) + " pack"));
+          const historyCell = el("div"); add(historyCell, el("strong", "Historical attribution"), el("span", "Explicit labels " + count(usage.explicit) + " · inferred references " + count(usage.inferred)));
+          const confirmedCell = el("div"); add(confirmedCell, el("strong", "Confirmed / friction"), el("span", count(conformance.confirmed) + " / " + count(conformance.friction)));
+          const gapCell = el("div"); add(gapCell, el("strong", "Gaps / divergence"), el("span", count(conformance.gap) + " / " + count(conformance.diverged)));
+          add(compare, allowedCell, historyCell, confirmedCell, gapCell); card.appendChild(compare);
           if (object(governance.drift) && governance.drift.active) add(card, el("p", "Friction or gap remains: " + known(governance.drift.open_note), "next-action"));
           if (governance.firewall_violation) add(card, el("p", "Reported boundary violation: owner review required.", "pill bad"));
-          source(card, "summary.skills; .agents/skills/" + known(skill.name) + "/SKILL.md; memory/feedback.jsonl (row cursor unavailable)"); get("skills-list").appendChild(card);
+          const record = el("details");
+          record.dataset.evidenceKey = "skill:" + known(skill.name);
+          record.open = expandedEvidence.has(record.dataset.evidenceKey);
+          add(record, el("summary", "Inspect skill evidence"),
+            el("p", "Recorded conformance: " + known(conformance.status) + ". Historical attribution does not grant runtime use or prove a successful outcome.", "source-note"),
+            el("pre", JSON.stringify({governance, usage}, null, 2), "raw-evidence"));
+          source(record, "summary.skills; .agents/skills/" + known(skill.name) + "/SKILL.md; memory/feedback.jsonl (row cursor unavailable)");
+          card.appendChild(record); get("skills-list").appendChild(card);
         }));
       }
       if (activePanel === "proposals") {
         if (!chains.length) empty(get("proposals-list"), "No matching proposals in the supplied projection.");
-        else page(get("proposals-list"), "proposals", chains, visible => visible.forEach(chain => {
-          const view = lifecycle(chain), card = el("article", undefined, "card proposal-card");
-          add(card, el("h3", known(chain.proposal_id) + " · " + compactTitle(chain.title)),
-            el("p", known(chain.target) + " · Current stage · " + view.stage, "stage-line"));
-          if (view.contradiction) add(card, el("p", "Contradictory supplied lifecycle evidence", "pill bad"));
-          add(card, el("p", "Required next evidence · " + view.next, "next-action"));
-          const link = inspectLink(chain.proposal_id); if (link) card.appendChild(link);
-          proposalEvidence(card, chain, view); get("proposals-list").appendChild(card);
-        }));
+        else page(get("proposals-list"), "proposals", chains, visible => {
+          const host = get("proposals-list");
+          const addGroup = (label, values, className) => {
+            if (!values.length) return;
+            const group = el("section", undefined, "proposal-group " + className);
+            group.setAttribute("aria-label", label);
+            group.appendChild(el("h3", label, "proposal-group-title"));
+            values.forEach(chain => {
+              const view = lifecycle(chain), card = el("article", undefined, "card proposal-card");
+              add(card, el("h3", known(chain.proposal_id) + " · " + compactTitle(chain.title)),
+                el("p", known(chain.target) + " · Current stage · " + view.stage, "stage-line"));
+              if (view.contradiction) add(card, el("p", "Contradictory supplied lifecycle evidence", "pill bad"));
+              const track = el("div", undefined, "lifecycle-track");
+              [["Acceptance", view.acceptance], ["Enactment", view.enactment], ["Verification", view.verification]].forEach(([label, value]) => {
+                const step = el("div", undefined, "lifecycle-step"); add(step, el("b", label), el("span", value)); track.appendChild(step);
+              });
+              add(card, track, el("p", "Required next evidence · " + view.next, "next-action"));
+              const link = inspectLink(chain.proposal_id); if (link) card.appendChild(link);
+              proposalEvidence(card, chain, view); group.appendChild(card);
+            });
+            host.appendChild(group);
+          };
+          // A closed decision is not a completed repair. This view has no
+          // independent outcome verifier, so reported passes still need inspection.
+          const history = chain => !lifecycle(chain).contradiction &&
+            (chain.lane === "rejected" || ["rejected", "auto-reject"].includes(chain.final_verdict));
+          addGroup("Lifecycle evidence to inspect", visible.filter(chain => !history(chain)), "proposal-current");
+          addGroup("Recorded rejection history", visible.filter(history), "proposal-history");
+        });
       }
       if (activePanel === "candidates") {
         const candidates = chains.filter(chain => chain.target_type === "skill" && ["draft", "open", "human-review"].includes(chain.lane));

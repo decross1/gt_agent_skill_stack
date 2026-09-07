@@ -176,11 +176,18 @@ class Scripts(HTMLParser):
 @pytest.mark.parametrize('page', PAGES)
 def test_ordered_dependencies_do_not_block_the_inline_deadline(page):
     scripts = Scripts((VIEW / page).read_text()).external
-    assert [s['src'].split('?')[0] for s in scripts] == [
+    presentation = [s for s in scripts if s['src'].split('?')[0] == 'atlas.js']
+    critical = [s for s in scripts if s['src'].split('?')[0] != 'atlas.js']
+    assert len(presentation) == 1
+    assert presentation[0]['src'] == 'atlas.js?v=20260907-a'
+    assert [s['src'].split('?')[0] for s in critical] == [
         'summary_data.js', 'map_data.js', 'ui.js', 'map.js']
-    assert all('defer' in s and 'async' not in s for s in scripts)
+    assert 'async' in presentation[0] and 'defer' not in presentation[0]
+    assert all('defer' in s and 'async' not in s for s in critical)
     digest = hashlib.sha256((VIEW / 'ui.js').read_bytes()).hexdigest()
-    assert scripts[2]['src'] == f'ui.js?v={digest}'
+    assert critical[2]['src'] == f'ui.js?v={digest}'
+    map_digest = hashlib.sha256((VIEW / 'map.js').read_bytes()).hexdigest()
+    assert critical[3]['src'] == f'map.js?v={map_digest}'
 
 
 LIFECYCLE = r"""

@@ -305,6 +305,28 @@ if(which==='selection-during-refresh'){
  finish({ok:true,json:async()=>({records:[ready]})});await pending;await selection;
  assert.equal(ui.state().currentDetail,null);
 }
+if(which==='empty-catalog'){
+ const {ui,calls,request,node}=create();
+ request(async()=>({ok:true,json:async()=>({proposals:[],records:[],counts:{ready:0,candidates:0,history:0,total:0}})}));
+ assert.equal(await ui.loadList(),true);
+ assert.deepEqual(calls,[{path:'/api/proposals',method:'GET'}]);
+ assert.equal(node('placeholder').hidden,false);
+ assert.match(node('placeholder').textContent,/Catalog loaded: no framework review records/);
+ assert.doesNotMatch(node('placeholder').textContent,/Refreshing/);
+ assert.match(node('catalog-counts').textContent,/0 ready · 0 held · 0 history/);
+ assert.equal(node('refresh-review').disabled,false);
+ assert.equal(ui.state().currentDetail,null);
+}
+if(which==='malformed-catalog-load'){
+ const {ui,calls,request,node}=create();
+ request(async()=>({ok:true,json:async()=>({records:[{proposal_id:'P-100',scope:'framework',lifecycle:'draft',lane:'ready',eligible:true,verdict:'open'}]})}));
+ assert.equal(await ui.loadList(),false);
+ assert.deepEqual(calls,[{path:'/api/proposals',method:'GET'}]);
+ assert.match(node('placeholder').textContent,/Records unavailable/);
+ assert.match(node('catalog-counts').textContent,/Counts unavailable/);
+ assert.equal(node('refresh-review').disabled,false);
+ assert.equal(ui.state().currentDetail,null);
+}
 if(which==='matched-flow'){
  for(const review of [ready,{...ready,lifecycle:'human-review',verdict:'human-review',decision:{verdict:'human-review'}}]){
   const {ui,calls}=create();const d=detail(review);ui.set([clone(review)],d);
@@ -323,7 +345,8 @@ console.log('CONSISTENT '+which);
     "catalog-lane", "catalog-eligible", "catalog-scope", "catalog-verdict", "catalog-id",
     "contradiction-decision", "contradiction-evidence", "contradiction-shape",
     "submit-catalog", "submit-basis", "submit-same-object", "submit-detail",
-    "refresh-open-modal", "selection-during-refresh", "matched-flow",
+    "refresh-open-modal", "selection-during-refresh", "empty-catalog",
+    "malformed-catalog-load", "matched-flow",
 ])
 def test_catalog_detail_and_confirmation_stay_consistent(case):
     assert NODE is not None, "node is required for the actual shipped-handler check"

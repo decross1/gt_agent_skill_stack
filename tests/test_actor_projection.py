@@ -151,12 +151,37 @@ def test_later_enactment_keeps_governing_verdict_actor_separate():
 
 
 def test_graph_agent_detail_displays_attribution_with_escaping():
-    graph = (REPO / "memory" / "brain" / "view" / "graph.html").read_text()
-    assert 'U.kv("actor source", esc(a.actor_source || "unknown"))' in graph
-    assert 'U.kv("authentication", esc(auth))' in graph
-    assert 'U.kv("cryptographic auth", esc(crypto))' in graph
-    assert '? "unsupported claim" : "unknown"' in graph
-    assert '? "yes" : "unknown"' not in graph
+    import json
+    from test_ui_data_provenance import FAKE_CLOCK, PAGE_DATA, run_js
+
+    for value, expected in [(False, "No — assertion only"),
+                            (True, "Reported true — not verified here"),
+                            (None, "Unknown")]:
+        run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
+context.location.protocol='file:';
+const hostile='<img src=x onerror=alert(1)>';
+const actor={id:hostile,actor_source:hostile,actor_type:'agent',
+ authentication:hostile,evidence:'inferred',cryptographically_authenticated:VALUE};
+const node={id:'agent-fixture',type:'agent',label:hostile};
+fixture.agents=[actor];
+const graph={...map,nodes:[node],cards:{[node.id]:{title:hostile,source:hostile}}};
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=graph;
+let choose;
+context.BrainMap={mount(_canvas,options){choose=options.onSelect;return{
+ getVisibleNodes(){return[node];},getHiddenCount(){return 0;},getZoom(){return 1;},
+ getConnections(){return[];},selectById(){return false;},egoMode(){return true;}
+};}};
+boot();await flush();choose(node);
+const body=elements.get('inspector-body');
+const descendants=root=>[root,...root.children.flatMap(descendants)];
+const rendered=descendants(body), text=rendered.map(n=>n.textContent).join('\n');
+assert.ok(rendered.every(n=>n.innerHTML===''),'actor source must stay inert text');
+for(const label of ['Actor source','Actor type','Attribution','Authentication','Crypto auth'])
+ assert.ok(text.includes(label),label);
+assert.ok(rendered.some(n=>n.textContent===hostile),'raw attribution remains visible');
+assert.ok(text.includes(EXPECTED),'authentication claim must remain qualified');
+assert.ok(!rendered.some(n=>n.tagName==='IMG'),'hostile attribution is not parsed');
+""".replace("VALUE", json.dumps(value)).replace("EXPECTED", json.dumps(expected)))
 
 
 def test_shared_jsonl_loader_quarantines_non_object_rows_before_projection(

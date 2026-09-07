@@ -1,32 +1,41 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-atlas data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Skills &amp; Activity · Agent System</title>
+  <title>Skills &amp; healing · Agent System</title>
   <link rel="stylesheet" href="tokens.css">
-  <link rel="stylesheet" href="activity.css?v=20260907-r3-final">
+  <link rel="stylesheet" href="activity.css?v=20260907-atlas">
+  <link rel="stylesheet" href="atlas.css?v=20260907-a">
+  <script async src="atlas.js?v=20260907-a"></script>
 </head>
 <body>
   <a class="skip-link" href="#activity-root">Skip to activity</a>
-  <header>
-    <a class="brand" href="dashboard.html">Agent System</a>
-    <nav aria-label="Brain views">
-      <a href="dashboard.html">Dashboard</a>
-      <a href="graph.html">Map</a>
-      <a href="activity.html" aria-current="page">Skills &amp; Activity</a>
-      <a href="proposal_review.html">Review</a>
+  <aside class="atlas-nav" aria-label="Agent System navigation">
+    <a class="atlas-brand" href="dashboard.html">Agent System<span>Development workspace</span></a>
+    <nav aria-label="Primary">
+      <a href="dashboard.html">Today</a>
+      <a href="graph.html">Work graph</a>
+      <a href="activity.html" aria-current="page">Skills &amp; healing</a>
     </nav>
-  </header>
-  <main id="activity-root" tabindex="-1">
+    <div class="atlas-nav-foot"><span>Recorded evidence</span><button type="button" data-atlas-theme>Dark theme</button></div>
+  </aside>
+  <main id="activity-root" class="atlas-workspace" tabindex="-1">
     <div class="page-heading">
-      <div><p class="eyebrow">Development evidence</p><h1>Skills &amp; Activity</h1>
-        <p class="lede">Follow recorded work, skill friction and proposals through to the evidence still needed.</p></div>
+      <div><p class="eyebrow">Framework evidence</p><h1>Skills &amp; healing</h1>
+        <p class="lede">Compare declared skill boundaries with recorded use, then follow proposals to the evidence still missing.</p></div>
       <div class="refresh-controls">
-        <button id="refresh-data" type="button">Refresh data</button>
+        <a class="review-link" href="proposal_review.html">Open contextual Review</a>
+        <button id="refresh-data" type="button">Refresh evidence</button>
         <label><input id="auto-refresh" type="checkbox" checked> Refresh every 30 seconds while visible</label>
       </div>
     </div>
+    <section class="meaning-strip" aria-label="How to read healing evidence">
+      <div><span class="meaning-step">01</span><strong>Accepted</strong><small>A recorded decision</small></div>
+      <div><span class="meaning-step">02</span><strong>Enacted</strong><small>A matching commit and path receipt</small></div>
+      <div><span class="meaning-step">03</span><strong>Verified</strong><small>Independent outcome evidence</small></div>
+      <p>These states are assessed separately. A proposal can stop at any step.</p>
+    </section>
     <section class="source-band" aria-labelledby="source-heading">
       <div class="source-status"><h2 id="source-heading">Source status</h2>
         <p id="data-state">Loading available evidence…</p></div>
@@ -35,11 +44,11 @@
       <details id="source-details"><summary>Source identity and freshness</summary><dl id="source-metadata"></dl></details>
     </section>
     <nav class="section-nav" role="tablist" aria-label="Evidence sections">
-      <button id="activity-tab" type="button" role="tab" aria-selected="true" aria-controls="activity-section" data-activity-tab="activity">Activity</button>
+      <button id="activity-tab" type="button" role="tab" aria-selected="true" aria-controls="activity-section" data-activity-tab="activity">Recent activity</button>
       <button id="actors-tab" type="button" role="tab" aria-selected="false" aria-controls="actors-section" data-activity-tab="actors" tabindex="-1">Actors &amp; attribution</button>
-      <button id="skills-tab" type="button" role="tab" aria-selected="false" aria-controls="skills-section" data-activity-tab="skills" tabindex="-1">Skills</button>
-      <button id="proposals-tab" type="button" role="tab" aria-selected="false" aria-controls="proposals-section" data-activity-tab="proposals" tabindex="-1">Proposals</button>
-      <button id="candidates-tab" type="button" role="tab" aria-selected="false" aria-controls="candidates-section" data-activity-tab="candidates" tabindex="-1">Skill candidates</button>
+      <button id="skills-tab" type="button" role="tab" aria-selected="false" aria-controls="skills-section" data-activity-tab="skills" tabindex="-1">Skill comparison</button>
+      <button id="proposals-tab" type="button" role="tab" aria-selected="false" aria-controls="proposals-section" data-activity-tab="proposals" tabindex="-1">Healing lifecycle</button>
+      <button id="candidates-tab" type="button" role="tab" aria-selected="false" aria-controls="candidates-section" data-activity-tab="candidates" tabindex="-1">Candidates</button>
       <button id="blockers-tab" type="button" role="tab" aria-selected="false" aria-controls="blockers-section" data-activity-tab="blockers" tabindex="-1">Needs attention</button>
     </nav>
     <form id="activity-filters" role="search">
@@ -48,7 +57,7 @@
       <label>Skill<select id="skill-filter"><option value="">All skills</option></select></label>
       <button id="clear-filters" type="button">Clear filters</button>
     </form>
-    <p class="muted">Actor filtering applies to activity and usage. Search and skill filters also apply to proposals and attention items.</p>
+    <p class="filter-note">Actor filtering applies to recorded activity and attribution. Historical references remain distinct from each skill’s declared allowed use.</p>
     <section id="activity-section" aria-labelledby="activity-heading">
       <h2 id="activity-heading">Recorded activity</h2><p id="activity-range" class="muted"></p>
       <div id="activity-list"></div>
@@ -63,13 +72,13 @@
       <div id="usage-list"></div>
     </section>
     <section id="skills-section" aria-labelledby="skills-heading" hidden>
-      <h2 id="skills-heading">Skill evidence</h2>
-      <p class="muted">Confirmed observations, friction and gaps describe recorded feedback. They do not measure improvement caused by a skill.</p>
+      <div class="section-heading"><div><p class="eyebrow">Declared boundary × observed history</p><h2 id="skills-heading">Compare skills</h2></div>
+        <p>Confirmed observations, friction and gaps describe recorded feedback. They do not measure improvement caused by a skill.</p></div>
       <div id="skills-list" class="card-grid"></div>
     </section>
     <section id="proposals-section" aria-labelledby="proposals-heading" hidden>
-      <h2 id="proposals-heading">Proposal progress</h2>
-      <p class="muted">Read each supplied stage independently; recorded acceptance, enactment claims and reported verification can overlap.</p>
+      <div class="section-heading"><div><p class="eyebrow">Decision ≠ implementation ≠ result</p><h2 id="proposals-heading">Healing lifecycle</h2></div>
+        <p>Read every supplied stage independently. History is shown separately from records still awaiting review or evidence.</p></div>
       <p id="proposal-gate" class="gate-note"><strong>Draft graduation is closed.</strong> Review can inspect records and decide only proposals already open or human-review.</p>
       <div id="lifecycle-overview" aria-label="Recorded proposal lifecycle overview"></div>
       <div id="proposals-list" class="card-grid"></div>
@@ -82,9 +91,9 @@
     <section id="blockers-section" aria-labelledby="blockers-heading" hidden>
       <h2 id="blockers-heading">Needs attention</h2><div id="blockers-list"></div>
     </section>
-    <footer>Read-only evidence view. <a href="dashboard.html">Open the dashboard</a> or <a href="proposal_review.html">open the existing review workflow</a> for separately governed decisions.</footer>
+    <footer>Read-only evidence view. <a href="dashboard.html">Open Today</a> or <a href="proposal_review.html">open contextual Review</a> for separately governed decisions.</footer>
   </main>
   <script src="summary_data.js"></script>
-  <script src="activity.js?v=20260907-r3-final"></script>
+  <script src="activity.js?v=b55859fb57bb24bcad48243475d2491c76e092fc7fbbd7bb47efee5615e5d7bd"></script>
 </body>
 </html>

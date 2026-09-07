@@ -526,9 +526,9 @@ context.BRAIN_SUMMARY.loop.chains[1].proposal_id='P-205';
 boot();await settle();await tab('proposals');
 const proposalLinks=descendants($('proposals-list'),e=>e.tagName==='A');
 assert.equal(proposalLinks.length,2);
-assert.equal(proposalLinks[0].textContent,'Inspect record');
-assert.equal(proposalLinks[0].getAttribute('href'),'proposal_review.html?id=P-104');
-assert.equal(proposalLinks[1].getAttribute('href'),'proposal_review.html?id=P-205');
+assert.ok(proposalLinks.every(link=>link.textContent==='Inspect record'));
+assert.deepEqual(proposalLinks.map(link=>link.getAttribute('href')).sort(),
+ ['proposal_review.html?id=P-104','proposal_review.html?id=P-205']);
 assert.doesNotMatch(content('proposals-list'),/Approve|Accept record/);
 await tab('candidates');
 const candidateLinks=descendants($('candidates-list'),e=>e.tagName==='A');
@@ -553,7 +553,7 @@ assert.match(content('candidates-list'),/Unsafe 4/);
  "proposal_cards_keep_full_evidence_in_closed_disclosures": r"""
 context.BRAIN_SUMMARY.loop.chains[0].proposal_id='P-104';
 boot();await settle();await tab('proposals');
-const card=descendants($('proposals-list'),e=>e.tagName==='ARTICLE')[0];
+const card=descendants($('proposals-list'),e=>e.tagName==='ARTICLE').find(e=>e.textContent.includes('P-104'));
 assert.match(card.textContent,/Current stage/);
 assert.match(card.textContent,/Required next evidence/);
 const disclosure=descendants(card,e=>e.tagName==='DETAILS')[0];
@@ -602,6 +602,45 @@ await context.activityStore.refresh();finishDigest(Uint8Array.from(expected).buf
 assert.equal(context.activityStore.source,'snapshot');assert.equal(context.activityStore.data,snapshot);
 assert.equal(context.activityStore.hash,expected.toString('hex'));
 assert.equal(context.activityStore.hashKind,'snapshot JSON value');
+""",
+ "skill_comparison_keeps_permission_and_history_distinct": r"""
+boot();await settle();await tab('skills');
+const cards=descendants($('skills-list'),e=>e.className.includes('skill-card'));
+assert.match(cards[0].textContent,/Allowed useDeclared runtime-safe · core pack/);
+assert.match(cards[0].textContent,/Historical attributionExplicit labels 1 · inferred references 10/);
+assert.match(cards[0].textContent,/Historical attribution does not grant runtime use or prove a successful outcome/);
+const evidence=descendants(cards[0],e=>e.tagName==='DETAILS')[0];
+assert.equal(evidence.open,false);assert.match(evidence.textContent,/summary.skills/);
+""",
+ "healing_lifecycle_separates_current_records_from_history": r"""
+boot();await settle();await tab('proposals');
+const sections=descendants($('proposals-list'),e=>e.className.split(' ').includes('proposal-group'));
+assert.equal(sections.length,2);
+assert.match(sections[0].textContent,/Lifecycle evidence to inspect/);
+assert.match(sections[0].textContent,/P-FIXTURE-D/);
+assert.match(sections[0].textContent,/P-FIXTURE-A/);
+assert.doesNotMatch(sections[0].textContent,/P-FIXTURE-R/);
+assert.match(sections[1].textContent,/Recorded rejection history/);
+assert.match(sections[1].textContent,/P-FIXTURE-R/);
+assert.doesNotMatch(sections[1].textContent,/P-FIXTURE-A/);
+assert.match(sections[0].textContent,/AcceptanceRecorded acceptance/);
+assert.match(sections[0].textContent,/EnactmentProjector-reported Git\/path evidence/);
+assert.match(sections[0].textContent,/VerificationReported verification · pending/);
+""",
+ "accepted_without_enactment_and_conflicting_rejection_need_evidence": r"""
+const accepted=context.BRAIN_SUMMARY.loop.chains[0];
+accepted.healing.enacted={state:'pending'};accepted.healing.verified={};
+const contradictory=JSON.parse(JSON.stringify(accepted));contradictory.proposal_id='P-CONFLICT';contradictory.final_verdict='rejected';
+context.BRAIN_SUMMARY.loop.chains.push(contradictory);
+boot();await settle();await tab('proposals');
+const sections=descendants($('proposals-list'),e=>e.className.split(' ').includes('proposal-group'));
+assert.match(sections[0].textContent,/P-FIXTURE-A/);
+assert.match(sections[0].textContent,/Recorded accepted; implementation evidence needed/);
+assert.match(sections[0].textContent,/P-CONFLICT/);
+assert.match(sections[0].textContent,/Contradictory supplied lifecycle evidence/);
+assert.doesNotMatch(sections[1].textContent,/P-FIXTURE-A|P-CONFLICT/);
+assert.match(sections[1].textContent,/P-FIXTURE-R/);
+assert.equal(descendants($('proposals-list'),e=>e.tagName==='BUTTON').filter(e=>/accept|enact|verify/i.test(e.textContent)).length,0);
 """,
 })
 
