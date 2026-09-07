@@ -37,7 +37,12 @@ from datetime import datetime, timezone
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
-from brain_ledger import accepted_decision, inspect_proposals
+from brain_ledger import (
+    ProposalLedgerError,
+    ProposalLedgerLock,
+    accepted_decision,
+    inspect_proposals,
+)
 
 ROOT = Path(__file__).resolve().parent.parent
 VIEW = ROOT / "memory" / "brain" / "view"
@@ -163,6 +168,14 @@ def gemma(messages: list[dict], max_tokens: int = 700, temperature: float = 0.3)
         raise GemmaError("drafting assistant returned an unusable response") from e
 
 
+class AdvisoryCommitConflict(RuntimeError):
+    """The proposal stopped accepting advisory rows during model latency."""
+
+    def __init__(self, review: dict):
+        super().__init__(review["eligibility_reason"])
+        self.review = review
+
+
 def strip_fence(s: str) -> str:
     s = s.strip()
     if s.startswith("```"):
@@ -265,12 +278,38 @@ def framework_review_records() -> list[dict]:
     return records
 
 
-def _framework_review_context(pid: str) -> tuple[dict, dict] | None:
-    """Resolve one governed framework record and its public review summary."""
-    proposal = ps.collapse_proposals(governed_proposal_rows()).get(pid)
+def _framework_review_context_from_rows(
+        pid: str, rows: list[dict]) -> tuple[dict, dict] | None:
+    """Resolve one framework record from an already validated ledger snapshot."""
+    proposal = ps.collapse_proposals(rows).get(pid)
     if proposal is None or ps.proposal_scope(proposal["first"], "a_bgt_rsi") != "framework":
         return None
     return proposal, _review_summary(pid, proposal)
+
+
+def _framework_review_context(pid: str) -> tuple[dict, dict] | None:
+    """Resolve one governed framework record and its public review summary."""
+    return _framework_review_context_from_rows(pid, governed_proposal_rows())
+
+
+def _commit_advisory(pid: str, append) -> None:
+    """Recheck lifecycle under the proposal writer lock, then append a card row.
+
+    Model work happens before callers enter this helper. Holding the same lock as
+    governed verdict writers only across the final check-and-append prevents a
+    verdict from closing the proposal between those two operations.
+    """
+    with ProposalLedgerLock(PROPOSALS) as locked:
+        context = _framework_review_context_from_rows(pid, locked.rows)
+        if context is None:
+            raise AdvisoryCommitConflict({
+                "eligibility_reason": "proposal is not in framework review scope",
+                "eligible": False,
+            })
+        _proposal, review = context
+        if not review["eligible"]:
+            raise AdvisoryCommitConflict(review)
+        append()
 
 
 def open_framework_proposals() -> list[dict]:
@@ -390,8 +429,12 @@ def discuss_turn(first: dict, message: str) -> str:
         msgs.append({"role": t["role"], "content": t["content"]})
     msgs.append({"role": "user", "content": message})
     reply = gemma(msgs, max_tokens=700, temperature=0.4)
-    append_discuss(pid, "user", message)
-    append_discuss(pid, "assistant", reply)
+
+    def append_turn() -> None:
+        append_discuss(pid, "user", message)
+        append_discuss(pid, "assistant", reply)
+
+    _commit_advisory(pid, append_turn)
     return reply
 
 
@@ -460,7 +503,7 @@ def synthesize_amended(first: dict) -> str:
     raw = gemma([{"role": "system", "content": sys_p},
                  {"role": "user", "content": user_p}], max_tokens=800, temperature=0.3)
     change = _strip_proposal_scaffold(raw)
-    append_amended_draft(pid, change)
+    _commit_advisory(pid, lambda: append_amended_draft(pid, change))
     return change
 
 
@@ -1274,8 +1317,14 @@ class Handler(SimpleHTTPRequestHandler):
                     return self._send(409, {"error": str(e)})
                 return self._send(200, {"path": path})
             return self._send(404, {"error": "no action"})
+        except AdvisoryCommitConflict as e:
+            return self._send(409, {"error": str(e), "review": e.review})
         except GemmaError as e:
             return self._send(503, {"error": str(e)})
+        except ProposalLedgerError as e:
+            print(f"do_POST: proposal ledger unavailable ({type(e).__name__})", file=sys.stderr)
+            return self._send(
+                503, {"error": "proposal ledger unavailable; advisory was not recorded"})
         except Exception:  # noqa: BLE001 — never leak a stack/internal to the client
             print(f"do_POST: unhandled error on {self.path}", file=sys.stderr)
             return self._send(500, {"error": "internal error"})
