@@ -12,9 +12,20 @@ class Tags(HTMLParser):
     def __init__(self):
         super().__init__()
         self.tags = []
+        self.in_primary = False
+        self.primary_links = []
 
     def handle_starttag(self, tag, attrs):
-        self.tags.append((tag, dict(attrs)))
+        attrs = dict(attrs)
+        self.tags.append((tag, attrs))
+        if tag == "nav" and attrs.get("aria-label") == "Primary":
+            self.in_primary = True
+        elif tag == "a" and self.in_primary:
+            self.primary_links.append(attrs)
+
+    def handle_endtag(self, tag):
+        if tag == "nav" and self.in_primary:
+            self.in_primary = False
 
 
 @pytest.mark.parametrize("page", ["dashboard.html", "graph.html"])
@@ -37,8 +48,25 @@ def test_activity_assets_and_primary_navigation_are_local_and_present():
         assert ".." not in Path(local_path).parts
         # Query/fragment version tags do not change the local filename.
         # The generated snapshot is an optional data input, not a shipped asset.
-        if local_path != "summary_data.js":
+        # These two shared assets are supplied by the Today lane at integration.
+        if local_path not in {"summary_data.js", "atlas.css", "atlas.js"}:
             assert (VIEW / local_path).is_file(), path
+
+
+def test_activity_uses_the_three_destination_atlas_navigation():
+    text = (VIEW / "activity.html").read_text()
+    parsed = Tags()
+    parsed.feed(text)
+    html = next(attrs for tag, attrs in parsed.tags if tag == "html")
+    assert "data-atlas" in html
+    assert html["data-theme"] == "light"
+    assert [link["href"] for link in parsed.primary_links] == [
+        "dashboard.html", "graph.html", "activity.html"
+    ]
+    assert parsed.primary_links[-1]["aria-current"] == "page"
+    assert text.index("activity.css?v=20260907-atlas") < text.index("atlas.css?v=20260907-a")
+    assert any(tag == "script" and attrs.get("src") == "atlas.js?v=20260907-a" and
+               "defer" in attrs for tag, attrs in parsed.tags)
 
 
 def test_read_only_page_controls_have_accessible_names_and_types():
