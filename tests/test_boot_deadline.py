@@ -186,6 +186,8 @@ def test_ordered_dependencies_do_not_block_the_inline_deadline(page):
     assert all('defer' in s and 'async' not in s for s in critical)
     digest = hashlib.sha256((VIEW / 'ui.js').read_bytes()).hexdigest()
     assert critical[2]['src'] == f'ui.js?v={digest}'
+    map_digest = hashlib.sha256((VIEW / 'map.js').read_bytes()).hexdigest()
+    assert critical[3]['src'] == f'map.js?v={map_digest}'
 
 
 LIFECYCLE = r"""
