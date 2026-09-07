@@ -707,6 +707,34 @@ def normalize_done_check(status: str, raw: object) -> str:
     return "unverified"
 
 
+_CONTRACT_FAILURE_STATUSES = frozenset({
+    "aborted", "escalated", "budget_exceeded",
+})
+
+
+def contract_evaluation_state(status: object, done_check: str) -> str:
+    """Conservatively reconcile terminal state with a reported check.
+
+    ``done_check`` remains the backwards-compatible normalized report.  This
+    separate state prevents a reported pass from overruling a terminal failure
+    or an unknown status.  It is presentation evidence only: the projector does
+    not authenticate the evaluator or re-run the child's done condition.
+    """
+    if not isinstance(status, str):
+        return "unknown"
+    if status in ("spawned", "running"):
+        return "pending"
+    if status == "completed":
+        if done_check == "pass":
+            return "pass"
+        if done_check in ("fail", "inconclusive"):
+            return done_check
+        return "unknown"
+    if status in _CONTRACT_FAILURE_STATUSES:
+        return "contradiction" if done_check == "pass" else "fail"
+    return "unknown"
+
+
 def build_contracts(consumer: Path | None, today: str) -> list[dict]:
     rows: list[tuple[str, dict]] = [("framework", r) for r in load_jsonl(SPAWN_LEDGER)]
     if consumer is not None:
@@ -725,23 +753,43 @@ def build_contracts(consumer: Path | None, today: str) -> list[dict]:
     out: list[dict] = []
     for sid, (surface, first_row) in first.items():
         latest_row = latest[sid][1]
-        contract = first_row.get("contract") or {}
-        status = latest_row.get("status", "?")
-        raw_check = ((latest_row.get("result") or {}).get("done_condition_check"))
-        date = _date_of(first_row.get("timestamp"))
+        raw_contract = first_row.get("contract")
+        contract = raw_contract if isinstance(raw_contract, dict) else {}
+        raw_result = latest_row.get("result")
+        result = raw_result if isinstance(raw_result, dict) else {}
+        status = latest_row.get("status")
+        raw_check = result.get("done_condition_check")
+        done_check = normalize_done_check(status, raw_check)
+        started_at = first_row.get("timestamp")
+        status_at = latest_row.get("timestamp")
+        date = _date_of(started_at if isinstance(started_at, str) else None)
         out.append({
             "spawn_id": sid,
             "surface": surface,
             "date": date,
+            "started_at": started_at,
+            "status_at": status_at,
             "status": status,
             "agent": _contract_agent(sid, surface),
             "task": first_row.get("child_task_id")
                     or _trim(contract.get("task_statement"), 80),
-            "done_check": normalize_done_check(status, raw_check),
+            "done_check": done_check,
             "done_check_raw": raw_check,
+            "evaluation_state": contract_evaluation_state(status, done_check),
+            # These values are unmodified source reports.  They are useful
+            # evaluator/context provenance, but none authenticates an actor or
+            # proves that the reported command/output existed.
+            "verified_by": result.get("verified_by"),
+            "verified_at": result.get("verified_at"),
+            "child_summary": result.get("child_summary"),
+            "parent_observations": result.get("parent_observations"),
+            "state_basis": contract.get("state_basis"),
             "skill_subset": list(contract.get("skill_subset") or []),
             "authority_cap": _trim(contract.get("authority_cap"), 200) or None,
             "budget": contract.get("budget") or {},
+            # The spawn result schema has no actual resource-use receipt.  Do
+            # not turn planned budget values or timestamp differences into one.
+            "actual_usage": None,
             "age_days": _days_between(date, today),
         })
     out.sort(key=lambda c: (c["date"], c["spawn_id"]), reverse=True)
