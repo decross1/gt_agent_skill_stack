@@ -38,8 +38,8 @@ OPEN_ROW = {
 }
 SIGNAL = {
     "timestamp": "2026-08-18T00:00:00Z", "signal_id": "DS-1",
-    "source": "scan", "detector": "runlog_failure", "skill": "validate",
-    "status_observed": "failed", "ref": "framework.run.jsonl:L42",
+    "source": "runtime", "detector": "runtime_selfreport", "skill": "validate",
+    "status_observed": "gap", "ref": "framework.run.jsonl:L42",
     "severity": "high", "evidence": "test signal", "scope": "framework",
 }
 

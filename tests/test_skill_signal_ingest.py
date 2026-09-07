@@ -51,11 +51,11 @@ def test_project_skill_signal_default_task_id():
 
 
 def test_signal_class_map_misuse_diverged():
-    # The mapping the drift row uses: misuse → diverged, others pass through.
+    # The receiver accepts exactly three input classes; misuse maps on output.
     assert ia._SIGNAL_CLASS_MAP["misuse"] == "diverged"
-    assert ia._SIGNAL_CLASS_MAP["diverged"] == "diverged"
     assert ia._SIGNAL_CLASS_MAP["friction"] == "friction"
     assert ia._SIGNAL_CLASS_MAP["gap"] == "gap"
+    assert set(ia._SIGNAL_CLASS_MAP) == {"friction", "misuse", "gap"}
 
 
 def test_project_skill_signal_drift_maps_misuse_to_diverged():
@@ -134,3 +134,212 @@ def test_build_path_idempotent_on_existing_keys(tmp_path):
     rows = ia.derive_drift_rows(pairs, existing_drift_keys=set(existing),
                                 start_signal_id=1)
     assert rows == []
+
+
+@pytest.mark.parametrize("signal_class", ["diverged", "typo-class", "", [], {}, None, 3])
+def test_invalid_signal_class_never_projects_as_runtime_drift(signal_class):
+    src = {"signal_class": signal_class, "skill": "validate"}
+    assert ia.project(src, lineno=4, strict=True) is None
+    with pytest.raises(ValueError, match="^invalid_signal_class$"):
+        ia.project_skill_signal_drift(src, lineno=4, task_id="signal_L4")
+
+
+@pytest.mark.parametrize("skill", ["", "   ", [], {}, None, 3])
+def test_invalid_skill_never_projects_as_runtime_drift(skill):
+    src = {"signal_class": "gap", "skill": skill}
+    assert ia.project(src, lineno=9, strict=True) is None
+    with pytest.raises(ValueError, match="^invalid_skill$"):
+        ia.project_skill_signal_drift(src, lineno=9, task_id="signal_L9")
+
+
+def test_unknown_skill_is_narrative_only_with_exact_reason():
+    src = {"signal_class": "gap", "skill": "not-a-framework-skill"}
+    proj = ia.project(src, lineno=12, strict=True)
+    assert proj is not None
+    assert proj["task_id"] == "signal_L12"
+    pair = ({"timestamp": "", "task_id": proj["task_id"], "agent_id": proj["agent_id"],
+             "_source": {"file": "skill_signals.jsonl", "line": 12}}, src)
+    report = {}
+    assert ia.derive_drift_rows([pair], set(), 1, signal_report=report) == []
+    assert report["examples"] == [{
+        "disposition": "narrative_only",
+        "reason": "unknown_skill",
+        "ref": "skill_signals.jsonl:L12",
+    }]
+    with pytest.raises(ValueError, match="^unknown_skill$"):
+        ia.project_skill_signal_drift(src, lineno=12, task_id="signal_L12")
+
+
+@pytest.mark.parametrize("signal_class,reason", [
+    ("gap", "overlapping_non_signal"),
+    ("typo-class", "overlapping_non_signal"),
+])
+def test_overlapping_runlog_payload_stays_non_signal(signal_class, reason):
+    src = {
+        "signal_class": signal_class,
+        "skill": "validate",
+        "task_id": "ordinary-run",
+        "status": "passed",
+        "observable_actual": "ordinary event",
+    }
+    proj = ia.project(src, lineno=13, strict=True)
+    assert proj is not None
+    assert proj["task_id"] == "ordinary-run"
+    assert "status=passed" in proj["observed"]
+    pair = ({"timestamp": "", "task_id": proj["task_id"], "agent_id": proj["agent_id"],
+             "_source": {"file": "skill_signals.jsonl", "line": 13}}, src)
+    report = {}
+    assert ia.derive_drift_rows([pair], set(), 1, signal_report=report) == []
+    assert report["examples"][0]["reason"] == reason
+
+
+def _write_jsonl(path: Path, rows: list[dict]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("".join(json.dumps(row, separators=(",", ":")) + "\n" for row in rows))
+
+
+def _run_cli(monkeypatch, logs: Path, state: Path, outputs: tuple[Path, Path, Path],
+             *, dry_run: bool) -> int:
+    argv = [
+        "ingest_apparatus.py", "--logs-dir", str(logs), "--state-dir", str(state),
+        "--narratives", str(outputs[0]), "--edges", str(outputs[1]),
+        "--drift", str(outputs[2]),
+    ]
+    if dry_run:
+        argv.append("--dry-run")
+    monkeypatch.setattr(sys, "argv", argv)
+    return ia.main()
+
+
+@pytest.mark.parametrize("status", ["failed", "refused", "escalated"])
+@pytest.mark.parametrize("signal_hint", [False, True])
+def test_ordinary_runlog_is_not_reported_as_a_rejected_selfreport(
+    tmp_path, monkeypatch, capsys, status, signal_hint
+):
+    logs = tmp_path / "consumer" / "logs"
+    logs.mkdir(parents=True)
+    state = tmp_path / "consumer" / "run_state"
+    ordinary = {"task_id": "ordinary", "status": status,
+                "observable_actual": "The skill correctly recorded this outcome."}
+    if signal_hint:
+        ordinary.update(signal_class="typo-class", skill="validate")
+    _write_jsonl(state / "skill_signals.jsonl", [ordinary])
+    outputs = tuple(tmp_path / "outputs" / name for name in
+                    ("narratives.jsonl", "edges.jsonl", "drift.jsonl"))
+    assert _run_cli(monkeypatch, logs, state, outputs, dry_run=False) == 0
+    narrative = json.loads(outputs[0].read_text())
+    assert narrative["task_id"] == "ordinary"
+    assert f"status={status}" in narrative["observed"]
+    assert outputs[2].read_bytes() == b""
+    stdout = capsys.readouterr().out
+    assert "rejected" not in stdout
+    if signal_hint:
+        assert "non_signal reason=overlapping_non_signal ref=skill_signals.jsonl:L1" in stdout
+    else:
+        assert "signal admission:" not in stdout
+
+
+def test_stage_hint_is_non_signal_and_dedicated_non_object_is_rejected(
+    tmp_path, monkeypatch, capsys
+):
+    logs = tmp_path / "consumer" / "logs"
+    logs.mkdir(parents=True)
+    state = tmp_path / "consumer" / "run_state"
+    _write_jsonl(state / "skill_signals.jsonl", [
+        {"stage": "inspect", "detail": "ordinary stage", "task_id": "stage",
+         "signal_class": "typo-class", "skill": "validate"},
+        None,
+    ])
+    outputs = tuple(tmp_path / "outputs" / name for name in
+                    ("narratives.jsonl", "edges.jsonl", "drift.jsonl"))
+    assert _run_cli(monkeypatch, logs, state, outputs, dry_run=False) == 0
+    assert len(outputs[0].read_text().splitlines()) == 1
+    assert outputs[2].read_bytes() == b""
+    stdout = capsys.readouterr().out
+    assert "non_signal reason=overlapping_non_signal ref=skill_signals.jsonl:L1" in stdout
+    assert "rejected reason=invalid_signal_object ref=skill_signals.jsonl:L2" in stdout
+    assert "invalid_signal_class" not in stdout
+
+
+def test_full_cli_dry_run_absent_outputs_and_parents_remain_absent(
+    tmp_path, monkeypatch, capsys
+):
+    consumer = tmp_path / "consumer"
+    logs = consumer / "logs"
+    logs.mkdir(parents=True)
+    state = consumer / "run_state"
+    _write_jsonl(state / "skill_signals.jsonl", [
+        {"signal_class": "gap", "skill": "validate"},
+        {"signal_class": "typo-class", "skill": "validate"},
+        {"signal_class": "gap", "skill": []},
+        {"signal_class": "gap", "skill": "not-a-framework-skill"},
+    ])
+    # The only sibling discovery root is private and declared under tmp_path.
+    _write_jsonl(consumer / ".claude" / "worktrees" / "private" / "logs" / "event.jsonl", [
+        {"task_id": "sibling", "status": "passed", "observable_actual": "private"},
+    ])
+    output_parent = tmp_path / "absent" / "nested"
+    outputs = tuple(output_parent / name for name in ("narratives.jsonl", "edges.jsonl", "drift.jsonl"))
+
+    assert _run_cli(monkeypatch, logs, state, outputs, dry_run=True) == 0
+    assert not output_parent.exists()
+    stdout = capsys.readouterr().out
+    assert "reason=invalid_signal_class ref=skill_signals.jsonl:L2" in stdout
+    assert "reason=invalid_skill ref=skill_signals.jsonl:L3" in stdout
+    assert "reason=unknown_skill ref=skill_signals.jsonl:L4" in stdout
+
+
+def test_full_cli_dry_run_existing_outputs_are_byte_identical(tmp_path, monkeypatch):
+    logs = tmp_path / "consumer" / "logs"
+    logs.mkdir(parents=True)
+    state = tmp_path / "consumer" / "run_state"
+    _write_jsonl(state / "skill_signals.jsonl", [
+        {"signal_class": "misuse", "skill": "fallback"},
+    ])
+    output_parent = tmp_path / "existing"
+    output_parent.mkdir()
+    outputs = tuple(output_parent / name for name in ("narratives.jsonl", "edges.jsonl", "drift.jsonl"))
+    for index, path in enumerate(outputs, 1):
+        path.write_bytes(f"sentinel-{index}\n".encode())
+    before = [path.read_bytes() for path in outputs]
+
+    assert _run_cli(monkeypatch, logs, state, outputs, dry_run=True) == 0
+    assert [path.read_bytes() for path in outputs] == before
+
+
+def test_full_cli_apply_preserves_valid_mapping_and_repeated_noop(tmp_path, monkeypatch):
+    logs = tmp_path / "consumer" / "logs"
+    logs.mkdir(parents=True)
+    state = tmp_path / "consumer" / "run_state"
+    _write_jsonl(state / "skill_signals.jsonl", [
+        {"signal_class": "misuse", "skill": "fallback", "evidence": "used another path"},
+    ])
+    outputs = tuple(tmp_path / "apply" / name for name in
+                    ("narratives.jsonl", "edges.jsonl", "drift.jsonl"))
+
+    assert _run_cli(monkeypatch, logs, state, outputs, dry_run=False) == 0
+    drift_rows = [json.loads(line) for line in outputs[2].read_text().splitlines()]
+    assert len(drift_rows) == 1
+    assert drift_rows[0]["status_observed"] == "diverged"
+    assert drift_rows[0]["ref"] == "skill_signals.jsonl:L1 task=signal_L1"
+    before = [path.read_bytes() for path in outputs]
+
+    assert _run_cli(monkeypatch, logs, state, outputs, dry_run=False) == 0
+    assert [path.read_bytes() for path in outputs] == before
+
+
+def test_signal_report_is_bounded_and_deterministic(tmp_path, monkeypatch, capsys):
+    logs = tmp_path / "consumer" / "logs"
+    logs.mkdir(parents=True)
+    state = tmp_path / "consumer" / "run_state"
+    _write_jsonl(state / "skill_signals.jsonl", [
+        {"signal_class": "invalid", "skill": "validate"} for _ in range(25)
+    ])
+    outputs = tuple(tmp_path / "absent" / name for name in
+                    ("narratives.jsonl", "edges.jsonl", "drift.jsonl"))
+
+    assert _run_cli(monkeypatch, logs, state, outputs, dry_run=True) == 0
+    stdout = capsys.readouterr().out
+    assert "ref=skill_signals.jsonl:L20" in stdout
+    assert "ref=skill_signals.jsonl:L21" not in stdout
+    assert "signal report omitted 5 additional row(s); limit=20" in stdout
