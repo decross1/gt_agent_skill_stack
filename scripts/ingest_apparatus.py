@@ -190,7 +190,106 @@ def project_run_log_entry(src: dict, lineno: int) -> dict:
 # Mirrors project_run_log_entry: rides the same append-only narrative path,
 # and additionally projects a source="runtime" row into drift_signals.jsonl
 # (see project_skill_signal_drift) so the scanner/bubbler can read it.
+_SIGNAL_CLASS_MAP = {
+    "friction": "friction",
+    "gap": "gap",
+    "misuse": "diverged",
+}
+_SIGNAL_REPORT_LIMIT = 20
+
+
+def framework_skills() -> set[str]:
+    """Return skill names from the live framework registry in this checkout."""
+    skills_dir = REPO / ".agents" / "skills"
+    if not skills_dir.is_dir():
+        return set()
+    return {
+        path.name for path in skills_dir.iterdir()
+        if path.is_dir() and (path / "SKILL.md").is_file()
+    }
+
+
+def _has_non_signal_projection_shape(src: dict) -> bool:
+    """Whether an earlier dispatch branch owns this payload as a non-signal."""
+    return bool(
+        ("iteration_id" in src and "seed" in src and "nara_summary" in src)
+        or (
+            isinstance(src.get("event_type"), str)
+            and src["event_type"].startswith("loop_v0_")
+        )
+        or ("stage" in src and "detail" in src)
+        or ("prompt_messages" in src and "completion" in src)
+        or (
+            src.get("task_id")
+            and src.get("status")
+            and ("observable_actual" in src or "observable_expected" in src)
+        )
+    )
+
+
+def _signal_admission_error(src: dict) -> str | None:
+    """Return the bounded receiver rejection reason, or None when admissible."""
+    signal_class = src.get("signal_class")
+    if not isinstance(signal_class, str) or signal_class not in _SIGNAL_CLASS_MAP:
+        return "invalid_signal_class"
+    skill = src.get("skill")
+    if not isinstance(skill, str) or not skill.strip():
+        return "invalid_skill"
+    if _has_non_signal_projection_shape(src):
+        return "overlapping_non_signal"
+    return None
+
+
+def _is_signal_candidate(src: dict, source_name: str = "") -> bool:
+    return source_name == "skill_signals.jsonl" or "signal_class" in src
+
+
+def _record_signal_disposition(
+    report: dict | None,
+    disposition: str,
+    reason: str,
+    ref: str,
+) -> None:
+    """Record counts plus at most _SIGNAL_REPORT_LIMIT deterministic examples."""
+    if report is None:
+        return
+    seen = report.setdefault("_seen", set())
+    key = (disposition, reason, ref)
+    if key in seen:
+        return
+    seen.add(key)
+    report["total"] = report.get("total", 0) + 1
+    count_key = f"{disposition}:{reason}"
+    counts = report.setdefault("counts", {})
+    counts[count_key] = counts.get(count_key, 0) + 1
+    examples = report.setdefault("examples", [])
+    if len(examples) < _SIGNAL_REPORT_LIMIT:
+        examples.append({"disposition": disposition, "reason": reason, "ref": ref})
+
+
+def _print_signal_report(report: dict) -> None:
+    total = report.get("total", 0)
+    if not total:
+        return
+    counts = ", ".join(
+        f"{name}={count}" for name, count in sorted(report.get("counts", {}).items())
+    )
+    print(f"signal admission: {total} row(s) did not enter runtime drift ({counts})")
+    examples = report.get("examples", [])
+    for item in examples:
+        print(
+            f"  signal {item['disposition']} reason={item['reason']} "
+            f"ref={item['ref']}"
+        )
+    omitted = total - len(examples)
+    if omitted:
+        print(f"  signal report omitted {omitted} additional row(s); limit={_SIGNAL_REPORT_LIMIT}")
+
+
 def project_skill_signal(src: dict, lineno: int) -> dict:
+    error = _signal_admission_error(src)
+    if error:
+        raise ValueError(error)
     cls = src.get("signal_class", "")
     skill = src.get("skill", "")
     task_id = src.get("task_id") or f"signal_L{lineno}"
@@ -207,25 +306,20 @@ def project_skill_signal(src: dict, lineno: int) -> dict:
     }
 
 
-# Map a runtime signal_class onto the drift_signals status vocabulary the
-# scanner/bubbler share. `misuse` and `diverged` both land on "diverged";
-# the original word is preserved verbatim in the evidence string.
-_SIGNAL_CLASS_MAP = {
-    "friction": "friction",
-    "gap": "gap",
-    "misuse": "diverged",
-    "diverged": "diverged",
-}
-
-
 def project_skill_signal_drift(src: dict, lineno: int, task_id: str) -> dict:
     """Build a source="runtime" drift_signals.jsonl row from a skill signal.
 
     Mirrors the SHARED drift schema (scan + runtime share one ledger). The
     `signal_id` is allocated by the caller (sequential across the file).
     """
-    cls = src.get("signal_class", "")
-    status_observed = _SIGNAL_CLASS_MAP.get(cls, cls)
+    error = _signal_admission_error(src)
+    if error:
+        raise ValueError(error)
+    skill = src["skill"]
+    if skill not in framework_skills():
+        raise ValueError("unknown_skill")
+    cls = src["signal_class"]
+    status_observed = _SIGNAL_CLASS_MAP[cls]
     ref = f"skill_signals.jsonl:L{lineno} task={task_id}"
     evidence = _trim(src.get("evidence") or "", 200)
     expected = src.get("expected")
@@ -242,7 +336,7 @@ def project_skill_signal_drift(src: dict, lineno: int, task_id: str) -> dict:
     return {
         "source": "runtime",
         "detector": "runtime_selfreport",
-        "skill": src.get("skill", ""),
+        "skill": skill,
         "status_observed": status_observed,
         "ref": ref,
         "severity": src.get("severity", "low"),
@@ -269,7 +363,7 @@ def project(src: dict, lineno: int, strict: bool) -> dict | None:
         return project_run_log_entry(src, lineno)
     # Runtime skill-signal — recognized by shape (signal_class + skill). Allowed
     # in strict mode: it is a first-class detector lane, not an unknown shape.
-    if isinstance(src.get("signal_class"), str) and src.get("skill"):
+    if _signal_admission_error(src) is None:
         return project_skill_signal(src, lineno)
     if strict:
         return None
@@ -395,6 +489,7 @@ def ingest_one(
     log_path: Path,
     existing: set[tuple[str, int]],
     strict: bool,
+    signal_report: dict | None = None,
 ) -> list[tuple[dict, dict]]:
     """Project one JSONL file. Returns list of (narrative_entry, source_dict) pairs."""
     new_pairs: list[tuple[dict, dict]] = []
@@ -411,6 +506,25 @@ def ingest_one(
             except json.JSONDecodeError as e:
                 print(f"warn: {log_path.name}:{lineno} malformed JSON: {e}", file=sys.stderr)
                 continue
+            if not isinstance(src, dict):
+                if log_path.name == "skill_signals.jsonl":
+                    _record_signal_disposition(
+                        signal_report,
+                        "rejected",
+                        "invalid_signal_object",
+                        f"{log_path.name}:L{lineno}",
+                    )
+                continue
+            if _is_signal_candidate(src, log_path.name):
+                error = _signal_admission_error(src)
+                if error:
+                    disposition = "non_signal" if error == "overlapping_non_signal" else "rejected"
+                    _record_signal_disposition(
+                        signal_report,
+                        disposition,
+                        error,
+                        f"{log_path.name}:L{lineno}",
+                    )
             proj = project(src, lineno, strict=strict)
             if proj is None:
                 continue
@@ -520,13 +634,15 @@ def derive_edges(
 
 
 def _is_skill_signal(src: dict) -> bool:
-    return isinstance(src.get("signal_class"), str) and bool(src.get("skill"))
+    return _signal_admission_error(src) is None
 
 
 def derive_drift_rows(
     new_pairs: list[tuple[dict, dict]],
     existing_drift_keys: set[tuple[str, int]],
     start_signal_id: int,
+    signal_report: dict | None = None,
+    known_skills: set[str] | None = None,
 ) -> list[dict]:
     """Project runtime skill signals into source="runtime" drift_signals rows.
 
@@ -538,11 +654,23 @@ def derive_drift_rows(
     """
     rows: list[dict] = []
     next_id = start_signal_id
+    known = framework_skills() if known_skills is None else known_skills
     for narrative, src in new_pairs:
-        if not _is_skill_signal(src):
+        if not _is_signal_candidate(src):
             continue
         source = narrative.get("_source", {}) or {}
         lineno = int(source.get("line", 0))
+        ref = f"{source.get('file', '')}:L{lineno}"
+        error = _signal_admission_error(src)
+        if error:
+            disposition = "non_signal" if error == "overlapping_non_signal" else "rejected"
+            _record_signal_disposition(signal_report, disposition, error, ref)
+            continue
+        if src["skill"] not in known:
+            _record_signal_disposition(
+                signal_report, "narrative_only", "unknown_skill", ref
+            )
+            continue
         task_id = narrative.get("task_id", "")
         key = (source.get("file", ""), lineno)
         if key in existing_drift_keys:
@@ -607,12 +735,13 @@ def main() -> int:
     if not logs_dir.is_dir():
         print(f"error: logs directory not found: {logs_dir}", file=sys.stderr)
         return 2
-    narratives.parent.mkdir(parents=True, exist_ok=True)
-    narratives.touch(exist_ok=True)
-    edges_path.parent.mkdir(parents=True, exist_ok=True)
-    edges_path.touch(exist_ok=True)
-    drift_path.parent.mkdir(parents=True, exist_ok=True)
-    drift_path.touch(exist_ok=True)
+    if not args.dry_run:
+        narratives.parent.mkdir(parents=True, exist_ok=True)
+        narratives.touch(exist_ok=True)
+        edges_path.parent.mkdir(parents=True, exist_ok=True)
+        edges_path.touch(exist_ok=True)
+        drift_path.parent.mkdir(parents=True, exist_ok=True)
+        drift_path.touch(exist_ok=True)
 
     # Collect log files: main logs dir + sibling worktree logs dirs.
     consumer_root = logs_dir.parent
@@ -643,9 +772,17 @@ def main() -> int:
 
     all_new_pairs: list[tuple[dict, dict]] = []
     per_file: dict[str, int] = {}
+    signal_report: dict = {"total": 0, "counts": {}, "examples": [], "_seen": set()}
     for log_path, strict in log_paths:
         before = len(all_new_pairs)
-        all_new_pairs.extend(ingest_one(log_path, existing_narrative_keys, strict=strict))
+        all_new_pairs.extend(
+            ingest_one(
+                log_path,
+                existing_narrative_keys,
+                strict=strict,
+                signal_report=signal_report,
+            )
+        )
         report_key = log_path.name
         if ".claude/worktrees/" in str(log_path):
             wt = log_path.parts[log_path.parts.index("worktrees") + 1]
@@ -655,7 +792,13 @@ def main() -> int:
         per_file[report_key] = len(all_new_pairs) - before
 
     new_edges = derive_edges(all_new_pairs, calls_index, existing_edge_keys)
-    new_drift = derive_drift_rows(all_new_pairs, existing_drift_keys, next_signal_id)
+    new_drift = derive_drift_rows(
+        all_new_pairs,
+        existing_drift_keys,
+        next_signal_id,
+        signal_report=signal_report,
+    )
+    _print_signal_report(signal_report)
 
     if not all_new_pairs and not new_edges and not new_drift:
         print(
