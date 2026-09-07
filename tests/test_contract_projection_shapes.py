@@ -59,3 +59,282 @@ def test_existing_string_receipts_keep_their_meaning(raw, expected):
 
 def test_spawned_contract_remains_pending_with_structured_receipt():
     assert ps.normalize_done_check("spawned", {"identity": "pass"}) == "pending"
+
+
+@pytest.mark.parametrize("status", ["aborted", "escalated", "budget_exceeded"])
+def test_terminal_failure_with_reported_pass_is_a_contradiction(
+        tmp_path, monkeypatch, status):
+    ledger = tmp_path / "spawn.jsonl"
+    rows = [
+        {
+            "spawn_id": "synthetic-contradiction",
+            "timestamp": "2026-09-03T00:00:00.123+02:00",
+            "status": "spawned",
+            "child_task_id": "synthetic-task",
+            "contract": {
+                "state_basis": "HEAD@deadbeef",
+                "skill_subset": ["validate"],
+                "authority_cap": "read-only",
+                "budget": {
+                    "wall_time_seconds": 0,
+                    "iterations": 2,
+                    "cost_usd": 1.25,
+                },
+            },
+        },
+        {
+            "spawn_id": "synthetic-contradiction",
+            "timestamp": "2026-09-03T00:00:07.999+02:00",
+            "status": status,
+            "result": {
+                "done_condition_check": "pass",
+                "verified_by": "parent-task<script>",
+                "verified_at": "2026-09-03T00:00:08.001+02:00",
+                "child_summary": {"reported": "<child>"},
+                "parent_observations": ["wrong <state> basis", "second"],
+            },
+        },
+    ]
+    ledger.write_text("".join(json.dumps(row) + "\n" for row in rows))
+    before = ledger.read_bytes()
+    monkeypatch.setattr(ps, "SPAWN_LEDGER", ledger)
+
+    contract = ps.build_contracts(None, "2026-09-05")[0]
+
+    assert contract["status"] == status
+    assert contract["done_check"] == "pass"
+    assert contract["done_check_raw"] == "pass"
+    assert contract["evaluation_state"] == "contradiction"
+    assert contract["started_at"] == rows[0]["timestamp"]
+    assert contract["status_at"] == rows[1]["timestamp"]
+    assert contract["state_basis"] == "HEAD@deadbeef"
+    assert contract["verified_by"] == "parent-task<script>"
+    assert contract["verified_at"] == "2026-09-03T00:00:08.001+02:00"
+    assert contract["child_summary"] == {"reported": "<child>"}
+    assert contract["parent_observations"] == ["wrong <state> basis", "second"]
+    assert contract["budget"] == rows[0]["contract"]["budget"]
+    assert contract["actual_usage"] is None
+    assert ledger.read_bytes() == before
+
+
+@pytest.mark.parametrize("status,raw,reported,evaluation", [
+    (None, "pass", "pass", "unknown"),
+    ("unknown-terminal-state", "pass", "pass", "unknown"),
+    ("completed", "pass", "pass", "pass"),
+    ("spawned", "pass", "pending", "pending"),
+    ("completed", {"identity": "pass"}, "unverified", "unknown"),
+    ("completed", {}, "unverified", "unknown"),
+    ("completed", [], "unverified", "unknown"),
+    ("completed", 0, "unverified", "unknown"),
+    ("completed", False, "unverified", "unknown"),
+])
+def test_evaluation_state_requires_a_supported_terminal_check_pair(
+        tmp_path, monkeypatch, status, raw, reported, evaluation):
+    ledger = tmp_path / "spawn.jsonl"
+    first = {
+        "spawn_id": "synthetic-state-matrix",
+        "timestamp": "2026-09-04T00:00:00Z",
+        "status": "spawned",
+        "contract": {"budget": {"wall_time_seconds": 45}},
+    }
+    latest = {
+        "spawn_id": "synthetic-state-matrix",
+        "timestamp": "2026-09-04T00:00:01Z",
+        "result": {"done_condition_check": raw},
+    }
+    if status is not None:
+        latest["status"] = status
+    ledger.write_text(json.dumps(first) + "\n" + json.dumps(latest) + "\n")
+    before = ledger.read_bytes()
+    monkeypatch.setattr(ps, "SPAWN_LEDGER", ledger)
+
+    contract = ps.build_contracts(None, "2026-09-05")[0]
+
+    assert contract["status"] == status
+    assert contract["done_check"] == reported
+    assert contract["done_check_raw"] == raw
+    assert type(contract["done_check_raw"]) is type(raw)
+    assert contract["evaluation_state"] == evaluation
+    assert contract["verified_by"] is None
+    assert contract["verified_at"] is None
+    assert contract["child_summary"] is None
+    assert contract["parent_observations"] is None
+    assert contract["state_basis"] is None
+    assert contract["actual_usage"] is None
+    assert ledger.read_bytes() == before
+
+
+@pytest.mark.parametrize("check,expected", [("fail", "fail"), ("inconclusive", "inconclusive")])
+def test_completed_execution_does_not_imply_successful_validation(check, expected):
+    assert ps.contract_evaluation_state("completed", check) == expected
+
+
+@pytest.mark.parametrize("spawned_at,completed_at", [
+    ("2026-09-05T12:00:00Z", "2026-09-04T12:00:00Z"),
+    ("zz-malformed-spawn-time", "aa-malformed-completion-time"),
+    ("2026-09-05T12:00:00Z", None),
+    (False, "2026-09-04T12:00:00Z"),
+    (0, {"reported": "unparseable"}),
+    ([], "2026-09-04T12:00:00Z"),
+    ({"source": "clock"}, ""),
+])
+def test_contract_lineage_follows_physical_ledger_order(
+        tmp_path, monkeypatch, spawned_at, completed_at):
+    ledger = tmp_path / "spawn.jsonl"
+    rows = [
+        {
+            "spawn_id": "synthetic-append-order",
+            "timestamp": spawned_at,
+            "status": "spawned",
+            "child_task_id": "physical-first-task",
+            "contract": {
+                "state_basis": "HEAD@physical-first",
+                "skill_subset": ["validate"],
+                "authority_cap": "bounded",
+                "budget": {"wall_time_seconds": 0},
+            },
+        },
+        {
+            "spawn_id": "synthetic-append-order",
+            "timestamp": completed_at,
+            "status": "completed",
+            "child_task_id": "must-not-replace-first",
+            "contract": {"state_basis": "HEAD@must-not-replace-first"},
+            "result": {
+                "done_condition_check": False,
+                "verified_by": "physical-latest-evaluator",
+                "verified_at": "reported-verification-time",
+                "child_summary": {"reported": False},
+                "parent_observations": [],
+            },
+        },
+    ]
+    ledger.write_text("".join(json.dumps(row) + "\n" for row in rows))
+    before = ledger.read_bytes()
+    monkeypatch.setattr(ps, "SPAWN_LEDGER", ledger)
+
+    contract = ps.build_contracts(None, "2026-09-05")[0]
+
+    assert contract["status"] == "completed"
+    assert contract["started_at"] == spawned_at
+    assert contract["status_at"] == completed_at
+    assert contract["task"] == "physical-first-task"
+    assert contract["state_basis"] == "HEAD@physical-first"
+    assert contract["budget"] == {"wall_time_seconds": 0}
+    assert contract["done_check_raw"] is False
+    assert contract["done_check"] == "unverified"
+    assert contract["evaluation_state"] == "unknown"
+    assert contract["verified_by"] == "physical-latest-evaluator"
+    assert contract["verified_at"] == "reported-verification-time"
+    assert contract["child_summary"] == {"reported": False}
+    assert contract["parent_observations"] == []
+    assert ledger.read_bytes() == before
+
+
+def test_identical_spawn_ids_remain_distinct_across_source_ledgers(
+        tmp_path, monkeypatch):
+    framework = tmp_path / "framework.jsonl"
+    framework_rows = [
+        {
+            "spawn_id": "synthetic-shared-id",
+            "timestamp": "framework-malformed-start",
+            "status": "spawned",
+            "child_task_id": "framework-task",
+            "contract": {"state_basis": "HEAD@framework"},
+        },
+        {
+            "spawn_id": "synthetic-shared-id",
+            "timestamp": "1900-01-01T00:00:00Z",
+            "status": "completed",
+            "result": {"done_condition_check": "fail"},
+        },
+    ]
+    framework.write_text("".join(json.dumps(row) + "\n" for row in framework_rows))
+    consumer = tmp_path / "consumer"
+    (consumer / "run_state").mkdir(parents=True)
+    apparatus = consumer / "run_state" / "spawn.jsonl"
+    apparatus_rows = [
+        {
+            "spawn_id": "synthetic-shared-id",
+            "timestamp": "apparatus-malformed-start",
+            "status": "spawned",
+            "child_task_id": "apparatus-task",
+            "contract": {"state_basis": "snapshot:apparatus"},
+        },
+        {
+            "spawn_id": "synthetic-shared-id",
+            "timestamp": "1800-01-01T00:00:00Z",
+            "status": "completed",
+            "result": {"done_condition_check": "pass"},
+        },
+    ]
+    apparatus.write_text("".join(json.dumps(row) + "\n" for row in apparatus_rows))
+    framework_before = framework.read_bytes()
+    apparatus_before = apparatus.read_bytes()
+    monkeypatch.setattr(ps, "SPAWN_LEDGER", framework)
+
+    contracts = ps.build_contracts(consumer, "2026-09-05")
+
+    assert len(contracts) == 2
+    by_surface = {contract["surface"]: contract for contract in contracts}
+    assert set(by_surface) == {"framework", "apparatus"}
+    assert {contract["spawn_id"] for contract in contracts} == {"synthetic-shared-id"}
+    assert by_surface["framework"]["task"] == "framework-task"
+    assert by_surface["framework"]["state_basis"] == "HEAD@framework"
+    assert by_surface["framework"]["started_at"] == "framework-malformed-start"
+    assert by_surface["framework"]["status_at"] == "1900-01-01T00:00:00Z"
+    assert by_surface["framework"]["done_check_raw"] == "fail"
+    assert by_surface["apparatus"]["task"] == "apparatus-task"
+    assert by_surface["apparatus"]["state_basis"] == "snapshot:apparatus"
+    assert by_surface["apparatus"]["started_at"] == "apparatus-malformed-start"
+    assert by_surface["apparatus"]["status_at"] == "1800-01-01T00:00:00Z"
+    assert by_surface["apparatus"]["done_check_raw"] == "pass"
+    assert framework.read_bytes() == framework_before
+    assert apparatus.read_bytes() == apparatus_before
+
+
+@pytest.mark.parametrize("reported_start,expected_date", [
+    ("zz-malformed-spawn-time", ""), ("2026-99-99T00:00:00Z", ""),
+    ("2026-02-30T00:00:00Z", ""), (None, ""), (False, ""),
+    (0, ""), ([], ""), ({"reported": "clock"}, ""),
+    ("2026-09-05T23:00:00+02:00", "2026-09-05"),
+])
+def test_full_summary_retains_unusable_contract_time_without_invalid_window(
+        tmp_path, monkeypatch, reported_start, expected_date):
+    # Exercise the complete projection, including its global window anchor,
+    # with private on-disk input. Helper-only lineage checks miss this failure.
+    from datetime import datetime, timezone
+
+    for name in ("REPO", "VIEW_DIR", "NARRATIVES", "CONFORMANCE", "FW_RUN",
+                 "SKILLS_DIR", "PROPOSALS", "FEEDBACK", "FW_DECISIONS"):
+        monkeypatch.setattr(ps, name, tmp_path / name.lower())
+    monkeypatch.setattr(ps, "resolve_consumer", lambda: None)
+    monkeypatch.setattr(ps, "load_skills", lambda: [])
+    monkeypatch.setattr(ps, "load_rules", lambda: [])
+    ledger = tmp_path / "spawn.jsonl"
+    rows = [
+        {"spawn_id": "private-bad-clock", "timestamp": reported_start,
+         "status": "spawned", "contract": {"state_basis": "HEAD@fixture"}},
+        {"spawn_id": "private-bad-clock", "timestamp": "aa-malformed-receipt",
+         "status": "completed", "result": {"done_condition_check": "pass"}},
+        {"spawn_id": "private-valid-clock", "timestamp": "2026-09-06T12:00:00Z",
+         "status": "spawned", "contract": {}},
+    ]
+    ledger.write_text("".join(json.dumps(row) + "\n" for row in rows))
+    before = ledger.read_bytes()
+    monkeypatch.setattr(ps, "SPAWN_LEDGER", ledger)
+
+    summary = ps.build_summary(datetime(2026, 9, 7, tzinfo=timezone.utc))
+
+    contracts = {row["spawn_id"]: row for row in summary["contracts"]}
+    record = contracts["private-bad-clock"]
+    assert record["date"] == expected_date
+    assert record["started_at"] == reported_start
+    assert type(record["started_at"]) is type(reported_start)
+    assert record["status_at"] == "aa-malformed-receipt"
+    assert record["status"] == "completed"
+    assert record["done_check_raw"] == "pass"
+    assert record["state_basis"] == "HEAD@fixture"
+    assert summary["window"]["newest_event"] == "2026-09-06"
+    assert summary["window"]["oldest_event"] == (expected_date or "2026-09-06")
+    assert ledger.read_bytes() == before

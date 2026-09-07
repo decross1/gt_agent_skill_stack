@@ -21,6 +21,7 @@ import json
 import os
 import shutil
 import sys
+import threading
 import time
 from pathlib import Path
 
@@ -519,6 +520,110 @@ def _post(pid: str, action: str, body: dict):
     return captured["code"], captured["obj"]
 
 
+class PausingGemmaStub:
+    """Deterministic model stub that lets a verdict land during model latency."""
+
+    def __init__(self, reply: str):
+        self.reply = reply
+        self.calls = 0
+        self.entered = threading.Event()
+        self.release = threading.Event()
+
+    def __call__(self, _messages, max_tokens=700, temperature=0.3):
+        self.calls += 1
+        self.entered.set()
+        if not self.release.wait(timeout=5):
+            raise AssertionError("test did not release paused model")
+        return self.reply
+
+
+@pytest.mark.parametrize(("action", "body", "reply"), [
+    ("discuss", {"message": "Should this still change?"}, "No: the decision landed."),
+    ("synthesize", {}, "A model-authored draft that must be discarded."),
+])
+def test_advisory_post_discards_reply_when_verdict_closes_during_model_call(
+        brain, monkeypatch, action, body, reply):
+    """The shipped POST must recheck the governed ledger after model latency."""
+    brain.seed(FW_PROP)
+    paused = PausingGemmaStub(reply)
+    monkeypatch.setattr(bs, "gemma", paused)
+    result = {}
+
+    thread = threading.Thread(
+        target=lambda: result.setdefault("response", _post("P-100", action, body)),
+        daemon=True,
+    )
+    thread.start()
+    assert paused.entered.wait(timeout=2)
+
+    close_code, close_obj = _post(
+        "P-100", "verdict",
+        {"verdict": "reject", "note": "race closure", "basis": "original",
+         "actor_id": "derrick"},
+    )
+    assert close_code == 200
+    assert close_obj["ok"] is True
+
+    paused.release.set()
+    thread.join(timeout=2)
+    assert not thread.is_alive()
+    code, obj = result["response"]
+    assert code == 409
+    assert obj["error"] == "decision already recorded; inspection only"
+    assert obj["review"]["eligible"] is False
+    assert obj["review"]["verdict"] == "rejected"
+    assert brain.card_lines() == []
+
+
+@pytest.mark.parametrize(("action", "body", "reply", "expected_kinds"), [
+    ("discuss", {"message": "Keep it bounded."}, "Bounded reply.",
+     ["discuss", "discuss"]),
+    ("synthesize", {}, "A bounded amended proposal.", ["amended_draft"]),
+])
+def test_advisory_post_commits_model_reply_while_proposal_remains_eligible(
+        brain, action, body, reply, expected_kinds):
+    brain.seed(FW_PROP)
+    brain.gemma._reply = reply
+
+    code, obj = _post("P-100", action, body)
+
+    assert code == 200
+    assert brain.gemma.calls == 1
+    assert [row["kind"] for row in brain.card_lines()] == expected_kinds
+    if action == "discuss":
+        assert obj["reply"] == reply
+    else:
+        assert obj["amended_change"] == reply
+
+
+@pytest.mark.parametrize(("action", "body", "reply"), [
+    ("discuss", {"message": "Keep it bounded."}, "Bounded reply."),
+    ("synthesize", {}, "A bounded amended proposal."),
+])
+def test_advisory_post_fails_closed_when_proposal_lock_is_unavailable(
+        brain, monkeypatch, action, body, reply):
+    class UnavailableProposalLock:
+        def __init__(self, _path):
+            pass
+
+        def __enter__(self):
+            raise bs.ProposalLedgerError("private ledger detail")
+
+        def __exit__(self, _type, _value, _traceback):
+            pass
+
+    brain.seed(FW_PROP)
+    brain.gemma._reply = reply
+    monkeypatch.setattr(bs, "ProposalLedgerLock", UnavailableProposalLock)
+
+    code, obj = _post("P-100", action, body)
+
+    assert code == 503
+    assert obj == {"error": "proposal ledger unavailable; advisory was not recorded"}
+    assert brain.gemma.calls == 1
+    assert brain.card_lines() == []
+
+
 def _get(path: str):
     """Drive Handler.do_GET in-process for an /api/* path (no socket). Only safe
     for API routes — non-API paths fall through to the static file handler which
@@ -534,6 +639,136 @@ def _get(path: str):
     h._send = _send
     h.do_GET()
     return captured["code"], captured["obj"]
+
+
+# ---------------------------------------------------------------------------
+# AS022 review boundary — deterministic inspection, framework scope, lifecycle
+# ---------------------------------------------------------------------------
+
+def test_detail_get_is_read_only_when_no_stored_model_card(brain, monkeypatch):
+    """Opening a record is inspection only: a missing optional card stays absent."""
+    brain.seed(FW_PROP)
+    effects = {"generate": 0}
+
+    def forbidden_generate(_first):
+        effects["generate"] += 1
+        raise AssertionError("GET must not invoke the drafting model")
+
+    monkeypatch.setattr(bs, "generate_card", forbidden_generate)
+    before = {brain.proposals: brain.proposals.read_bytes(),
+              brain.cards: brain.cards.read_bytes()}
+
+    code, obj = _get("/api/proposal/P-100")
+
+    assert code == 200
+    assert obj["proposal"]["proposal_id"] == "P-100"
+    assert obj["card"] is None
+    assert obj["review"]["scope"] == "framework"
+    assert obj["review"]["lifecycle"] == "open"
+    assert obj["review"]["eligible"] is True
+    assert obj["review"]["verdict"] == "open"
+    assert effects == {"generate": 0}
+    assert {path: path.read_bytes() for path in before} == before
+
+
+def test_proposals_catalogs_ready_candidates_and_history_truthfully(brain):
+    draft = dict(FW_PROP, proposal_id="P-101", title="Held candidate", status="draft")
+    closed = dict(FW_PROP, proposal_id="P-102", title="Recorded rejection")
+    rejected = {
+        "timestamp": "2026-06-02T00:00:00Z", "proposal_id": "P-102",
+        "agent_id": "human:legacy", "verdict": "rejected", "status": "closed",
+    }
+    brain.seed(FW_PROP, draft, closed, rejected, RESEARCH_PROP)
+
+    code, obj = _get("/api/proposals")
+
+    assert code == 200
+    assert [row["proposal_id"] for row in obj["proposals"]] == ["P-100"]
+    by_id = {row["proposal_id"]: row for row in obj["records"]}
+    assert set(by_id) == {"P-100", "P-101", "P-102"}
+    assert by_id["P-100"]["lane"] == "ready"
+    assert by_id["P-100"]["eligible"] is True
+    assert by_id["P-101"]["lane"] == "candidate"
+    assert by_id["P-101"]["lifecycle"] == "draft"
+    assert by_id["P-101"]["eligible"] is False
+    assert by_id["P-102"]["lane"] == "history"
+    assert by_id["P-102"]["verdict"] == "rejected"
+    assert by_id["P-102"]["eligible"] is False
+    assert obj["counts"] == {"ready": 1, "candidates": 1, "history": 1, "total": 3}
+
+
+def test_external_scope_is_rejected_before_every_review_effect(brain, monkeypatch):
+    brain.seed(RESEARCH_PROP)
+    effects = {name: 0 for name in ("generate", "discuss", "synthesize", "verdict", "handoff")}
+
+    def effect(name, result):
+        def invoke(*_args, **_kwargs):
+            effects[name] += 1
+            return result
+        return invoke
+
+    monkeypatch.setattr(bs, "generate_card", effect("generate", {}))
+    monkeypatch.setattr(bs, "discuss_turn", effect("discuss", "reply"))
+    monkeypatch.setattr(bs, "synthesize_amended", effect("synthesize", "draft"))
+    monkeypatch.setattr(bs, "record_verdict", effect("verdict", {"ok": True, "recorded": "accepted"}))
+    monkeypatch.setattr(bs, "write_handoff", effect("handoff", "handoffs/P-200.md"))
+    before = {brain.proposals: brain.proposals.read_bytes(), brain.cards: brain.cards.read_bytes()}
+
+    results = [_get("/api/proposal/P-200")]
+    results.extend([
+        _post("P-200", "discuss", {"message": "why"}),
+        _post("P-200", "synthesize", {}),
+        _post("P-200", "verdict", {"verdict": "accept", "note": "",
+                                     "basis": "original", "actor_id": "derrick"}),
+        _post("P-200", "handoff", {"basis": "original", "actor_id": "derrick"}),
+    ])
+
+    assert [code for code, _obj in results] == [404, 404, 404, 404, 404]
+    assert effects == {name: 0 for name in effects}
+    assert {path: path.read_bytes() for path in before} == before
+    assert not brain.handoffs.exists()
+
+
+@pytest.mark.parametrize("pid,lifecycle", [("P-101", "draft"), ("P-102", "closed")])
+def test_ineligible_detail_is_inspectable_but_all_actions_fail_closed(
+        brain, monkeypatch, pid, lifecycle):
+    draft = dict(FW_PROP, proposal_id="P-101", title="Held candidate", status="draft")
+    closed = dict(FW_PROP, proposal_id="P-102", title="Recorded rejection")
+    rejected = {
+        "timestamp": "2026-06-02T00:00:00Z", "proposal_id": "P-102",
+        "agent_id": "human:legacy", "verdict": "rejected", "status": "closed",
+    }
+    brain.seed(draft, closed, rejected)
+    effects = {name: 0 for name in ("discuss", "synthesize", "verdict", "handoff")}
+
+    def effect(name, result):
+        def invoke(*_args, **_kwargs):
+            effects[name] += 1
+            return result
+        return invoke
+
+    monkeypatch.setattr(bs, "discuss_turn", effect("discuss", "reply"))
+    monkeypatch.setattr(bs, "synthesize_amended", effect("synthesize", "draft"))
+    monkeypatch.setattr(bs, "record_verdict", effect("verdict", {"ok": True}))
+    monkeypatch.setattr(bs, "write_handoff", effect("handoff", "handoffs/out.md"))
+    monkeypatch.setattr(bs, "generate_card", lambda _first: (_ for _ in ()).throw(
+        AssertionError("ineligible GET must not generate a card")))
+
+    detail_code, detail = _get(f"/api/proposal/{pid}")
+    actions = [
+        _post(pid, "discuss", {"message": "why"}),
+        _post(pid, "synthesize", {}),
+        _post(pid, "verdict", {"verdict": "reject", "note": "no",
+                                "basis": "original", "actor_id": "oracle"}),
+        _post(pid, "handoff", {"basis": "original", "actor_id": "oracle"}),
+    ]
+
+    assert detail_code == 200
+    assert detail["review"]["lifecycle"] == lifecycle
+    assert detail["review"]["eligible"] is False
+    assert detail["card"] is None
+    assert [code for code, _obj in actions] == [409, 409, 409, 409]
+    assert effects == {name: 0 for name in effects}
 
 
 # ---------------------------------------------------------------------------
@@ -960,8 +1195,8 @@ def test_operations_reports_only_exact_lifecycle_evidence_and_mixed_rows(operati
     assert body["pipeline"]["last_success"]["value"] == "2026-06-01T00:00:01Z"
     assert body["cursors"]["consumer"]["value"]["delta_lines"] == 1
     counts = body["proposals"]["counts"]["value"]
-    assert counts == {"accepted": 1, "enacted": 1, "verified": 1,
-                      "unverified_or_pending": 0, "evidence_unknown": 1}
+    assert counts == {"accepted": 1, "enacted": 1, "verified": 0,
+                      "unverified_or_pending": 1, "evidence_unknown": 1}
     assert body["proposals"]["counts"]["status"] == "partial"
     assert any("mixed-schema" in w for w in body["warnings"])
     assert before == after  # endpoint has no write side effect
@@ -1107,3 +1342,28 @@ def test_operations_requires_exact_watcher_argv_and_timezone_aware_timestamps(op
     assert body["projection"]["generated_at"]["status"] == "unknown"
     assert body["proposals"]["counts"]["status"] == "partial"
     assert body["proposals"]["counts"]["value"]["evidence_unknown"] == 1
+
+
+def test_operations_reported_verification_does_not_establish_execution(operations, monkeypatch):
+    commit = "a" * 40
+    rows = [dict(FW_PROP, verdict="accepted", status="closed"),
+            {"timestamp": "2026-06-02T00:00:00Z", "proposal_id": "P-100",
+             "enactment": {"commit": commit, "paths": [".agents/skills/validate/SKILL.md"]}},
+            {"timestamp": "2026-06-03T00:00:00Z", "proposal_id": "P-100",
+             "verification": {"commit": commit, "command": "pytest private-fixture", "result": "pass",
+                              "output_sha256": "b" * 64}}]
+    operations.seed(*rows)
+    before = operations.proposals.read_bytes()
+    monkeypatch.setattr(bs, "_run_bounded", lambda argv, **kw: (".agents/skills/validate/SKILL.md\n", None))
+    monkeypatch.setattr(bs.ps, "_commit_changed_paths", lambda *args: {".agents/skills/validate/SKILL.md"})
+    proposal = bs.ps.collapse_proposals(rows)["P-100"]
+    projected = bs.ps.proposal_healing_state(proposal, bs.ROOT)
+    assert projected["verified"]["state"] == "pending"
+    state, error = bs._exact_enactment_state(proposal, deadline=time.monotonic() + 3)
+    assert state == "enacted" and error == ""
+    observed = bs.operations_snapshot()["proposals"]["counts"]
+    assert observed["value"]["enacted"] == 1
+    assert observed["value"]["verified"] == 0
+    assert observed["value"]["unverified_or_pending"] == 1
+    assert "execution verification is not performed" in observed["uncertainty"]
+    assert operations.proposals.read_bytes() == before

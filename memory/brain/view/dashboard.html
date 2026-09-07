@@ -140,6 +140,12 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
   #operations{grid-template-columns:1fr}.op{border-left:none!important;border-top:1px solid var(--border)}.op:first-child{border-top:none}
   .row{gap:7px;padding:0 10px}.rid.w{width:90px}.aid{width:90px}.rmono{display:none}
 }
+
+/* Keep complete contract titles readable inside the existing narrow drawer. */
+#ui-panel summary.contract-summary{flex-wrap:wrap;gap:6px 8px}
+#ui-panel summary.contract-summary .ui-id{width:auto;flex:1;min-width:0}
+#ui-panel summary.contract-summary .ui-note{color:var(--text-dim);flex:1 0 100% !important;order:1;min-width:0;overflow-wrap:anywhere;white-space:normal}
+#ui-panel summary.contract-summary .ui-num{color:var(--text-dim);white-space:nowrap}
 </style>
 </head>
 <body>
@@ -184,7 +190,7 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
   </section>
 
   <section id="contractsband">
-    <span class="sec" title="spawn contracts: bounded autonomous children">contracts</span>
+    <span class="sec" title="Source-reported task checks; inspect evaluator and source context. No independent execution verification here.">contracts · reported checks</span>
     <div class="band" id="contracts"></div>
   </section>
 
@@ -812,19 +818,83 @@ function openLoop() {
 }
 
 /* ---------- contracts ---------- */
+const CONTRACT_FAILURE_STATUSES = new Set(["aborted", "escalated", "budget_exceeded"]);
+function contractText(value, missing = "unknown") {
+  if (value === null || value === undefined) return missing;
+  if (typeof value === "string") return value;
+  if (typeof value === "number" || typeof value === "boolean" || typeof value === "bigint") {
+    return String(value);
+  }
+  try {
+    const encoded = JSON.stringify(value);
+    return encoded === undefined ? missing : encoded;
+  } catch (_) {
+    return "unavailable";
+  }
+}
+function contractEvaluation(c) {
+  const status = typeof c.status === "string" && c.status ? c.status : null;
+  const check = typeof c.done_check === "string" && c.done_check ? c.done_check : "unverified";
+  let state = "unknown";
+  if (status === "spawned" || status === "running") state = "pending";
+  else if (status === "completed" && check === "pass") state = "pass";
+  else if (status === "completed" && ["fail", "inconclusive"].includes(check)) state = check;
+  else if (CONTRACT_FAILURE_STATUSES.has(status)) state = check === "pass" ? "contradiction" : "fail";
+
+  // A projected warning may make the derived state more conservative, never
+  // upgrade an incompatible terminal/check pair to pass.
+  if (c.evaluation_state === "contradiction") state = "contradiction";
+  else if (c.evaluation_state === "unknown" && state === "pass") state = "unknown";
+  else if (c.evaluation_state === "fail" && state !== "contradiction") state = "fail";
+  else if (c.evaluation_state === "pending" && state === "unknown") state = "pending";
+
+  const label = state === "pass" ? "reported pass"
+    : state === "fail" ? (CONTRACT_FAILURE_STATUSES.has(status) ? "terminal failure" : "reported fail")
+    : state === "inconclusive" ? "reported inconclusive"
+    : state === "contradiction" ? "status/check conflict"
+    : state;
+  return {
+    state, label, check,
+    status: status || "unknown",
+    cls: state === "pass" ? "ok" : ["fail", "contradiction"].includes(state) ? "bad" : "warn",
+  };
+}
+function contractPlannedWall(c) {
+  const budget = c && c.budget;
+  if (!budget || typeof budget !== "object" || Array.isArray(budget) ||
+      !Object.prototype.hasOwnProperty.call(budget, "wall_time_seconds")) return "planned —";
+  if (budget.wall_time_seconds === null || budget.wall_time_seconds === undefined) return "planned unknown";
+  if (typeof budget.wall_time_seconds !== "number" || !Number.isFinite(budget.wall_time_seconds) || budget.wall_time_seconds < 0)
+    return "planned unknown (invalid duration)";
+  return "planned " + budget.wall_time_seconds + "s";
+}
+function contractInteractive(row, action) {
+  row.tabIndex = 0;
+  row.setAttribute("role", "button");
+  row.addEventListener("click", action);
+  row.addEventListener("keydown", event => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    if (event.preventDefault) event.preventDefault();
+    action();
+  });
+}
 function contractRow(c) {
-  const cls = c.done_check === "pass" ? "ok" : c.done_check === "fail" ? "bad" : "warn";
+  const evaluation = contractEvaluation(c);
   const r = document.createElement("div");
   r.className = "row";
-  r.title = "spawn " + c.spawn_id + " · " + (c.task || "") + " · check: " + c.done_check;
+  r.title = "spawn " + contractText(c.spawn_id, "") + " · " + contractText(c.task, "") +
+    " · terminal state: " + evaluation.status + " · reported check: " + evaluation.check +
+    " · evaluation: " + evaluation.label;
   r.innerHTML =
     '<span class="rid w">' + esc(c.spawn_id) + "</span>" +
     '<span class="aid"><span class="dot" style="background:' + U.agentHue(c.agent) + '"></span>' + esc(c.agent) + "</span>" +
-    '<span class="ui-pill ' + cls + '">' + esc(c.done_check) + "</span>" +
+    '<span class="rmono">' + esc(evaluation.status) + "</span>" +
+    '<span class="ui-pill ' + evaluation.cls + '">' + esc(evaluation.check) + "</span>" +
+    (evaluation.state === "contradiction" ? '<span class="nbadge">status/check conflict</span>' : "") +
     "<span style='flex:1'></span>" +
-    '<span class="rmono">' + (c.budget && c.budget.wall_s ? c.budget.wall_s + "s" : "—") + "</span>" +
+    '<span class="rmono">' + esc(contractPlannedWall(c)) + "</span>" +
     '<span class="rmono">' + U.fmtAge(c.age_days) + "</span>";
-  r.addEventListener("click", () => openContract(c));
+  contractInteractive(r, () => openContract(c));
   return r;
 }
 function renderContracts() {
@@ -836,38 +906,59 @@ function renderContracts() {
     const r = document.createElement("div");
     r.className = "row more";
     r.innerHTML = '<span class="rtxt">show all ' + all.length + "</span>";
-    r.addEventListener("click", () => U.panel.open("contracts · " + all.length, all.map(c => {
-      const cls = c.done_check === "pass" ? "ok" : c.done_check === "fail" ? "bad" : "warn";
-      return '<div class="ui-item"><div class="ui-row">' +
+    contractInteractive(r, () => U.panel.open("contracts · " + all.length, all.map(c => {
+      const evaluation = contractEvaluation(c);
+      return '<details class="ui-item"><summary class="ui-row contract-summary">' +
         '<span class="ui-dot" style="background:' + U.agentHue(c.agent) + '"></span>' +
         '<span class="ui-id" style="color:var(--text)">' + esc(c.spawn_id) + "</span>" +
         '<span class="ui-note" style="flex:1">' + esc(c.task || "") + "</span>" +
-        '<span class="ui-pill ' + cls + '">' + esc(c.done_check) + "</span>" +
-        '<span class="ui-num">' + U.fmtAge(c.age_days) + "</span></div></div>";
+        '<span class="ui-num">' + esc(evaluation.status) + "</span>" +
+        '<span class="ui-pill ' + evaluation.cls + '">' + esc(evaluation.check) + "</span>" +
+        (evaluation.state === "contradiction" ? '<span class="nbadge">status/check conflict</span>' : "") +
+        '<span class="ui-num">' + U.fmtAge(c.age_days) + "</span></summary>" + contractDetailsHTML(c) + "</details>";
     }).join("")));
     host.appendChild(r);
   }
 }
-function openContract(c) {
-  const cls = c.done_check === "pass" ? "ok" : c.done_check === "fail" ? "bad" : "warn";
+function contractDetailsHTML(c) {
+  const evaluation = contractEvaluation(c);
   const rawCheck = c.done_check_raw ?? "";
-  // JSON is display text for container receipts, independent of the verdict.
-  const rawCheckText = typeof rawCheck === "object" ? JSON.stringify(rawCheck) : rawCheck;
+  // JSON is display text for container receipts, independent of the verdict;
+  // malformed coercion hooks must not interrupt the rest of the evidence.
+  const rawCheckText = contractText(rawCheck, "");
+  const plannedBudget = contractText(c.budget || {}, "{}");
+  const plannedWall = contractPlannedWall(c).replace(/^planned /, "");
   const html =
     '<div class="ui-row"><span class="ui-dot" style="background:' + U.agentHue(c.agent) + '"></span>' +
     '<span class="ui-id" style="width:auto">' + esc(c.agent) + "</span>" +
     '<span class="ui-chip">' + esc(c.surface) + "</span>" +
-    "<span style='flex:1'></span><span class='ui-pill " + cls + "'>" + esc(c.done_check) + "</span></div>" +
+    "<span style='flex:1'></span><span class='ui-pill " + evaluation.cls + "'>" + esc(evaluation.check) + "</span></div>" +
     '<div class="ui-title">' + esc(c.task || "") + "</div>" +
     U.kv("date", esc(c.date) + " · " + U.fmtAge(c.age_days) + " ago") +
-    U.kv("status", esc(c.status)) +
+    '<details><summary>Source times and evaluator context</summary>' +
+    U.kv("launched (source timestamp)", esc(contractText(c.started_at))) +
+    U.kv("terminal update (source timestamp)", esc(contractText(c.status_at))) +
+    U.kv("terminal state", esc(evaluation.status)) +
     U.kv("done-check", esc(rawCheckText)) +
-    U.kv("authority cap", esc(c.authority_cap || "")) +
-    U.kv("budget", esc(JSON.stringify(c.budget || {}))) +
+    U.kv("reported done-check class", esc(evaluation.check)) +
+    U.kv("evaluation", esc(evaluation.label)) +
+    U.kv("evaluator (source-reported)", esc(contractText(c.verified_by))) +
+    U.kv("verification time (source-reported)", esc(contractText(c.verified_at))) +
+    U.kv("state basis (source-reported)", esc(contractText(c.state_basis))) +
+    U.kv("child report", esc(contractText(c.child_summary))) +
+    U.kv("parent evaluation", esc(contractText(c.parent_observations))) +
+    "</details>" +
+    U.kv("authority cap", esc(contractText(c.authority_cap, ""))) +
+    U.kv("planned wall time", esc(plannedWall)) +
+    U.kv("planned budget", esc(plannedBudget)) +
+    U.kv("actual usage", "unknown (no receipt)") +
     '<div class="ui-sec">skill subset</div><div class="ui-row" style="flex-wrap:wrap">' +
     (c.skill_subset || []).map(s => '<span class="ui-chip" data-skill="' + esc(s) + '">' + esc(s) + "</span>").join("") +
     "</div>";
-  U.panel.open(c.spawn_id, html);
+  return html;
+}
+function openContract(c) {
+  U.panel.open(c.spawn_id, contractDetailsHTML(c));
 }
 
 /* ---------- timeline ---------- */

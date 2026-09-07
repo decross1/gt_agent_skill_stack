@@ -469,6 +469,105 @@ assert.doesNotMatch(content('blockers-list'),/EXTERNAL_COMMAND_MUST_NOT_RENDER/)
 
 
 CASES.update({
+ "compact_record_titles_keep_full_source_in_disclosure": r"""
+const longTitle='Full source title '+ 'detailed evidence '.repeat(20);
+context.BRAIN_SUMMARY.loop.chains[1].title=longTitle;
+boot();await settle();
+for(const panel of ['proposals','candidates']){
+ await tab(panel);
+ const cards=descendants($(panel+'-list'),e=>e.tagName==='ARTICLE');
+ const card=cards.find(e=>e.textContent.includes('P-FIXTURE-D'));
+ const heading=descendants(card,e=>e.tagName==='H3')[0];
+ assert.ok(heading.textContent.length<=110,'compact heading retains ID, not full title wall');
+ const disclosure=descendants(card,e=>e.tagName==='DETAILS')[0];
+ assert.equal(disclosure.open,false);
+ assert.ok(disclosure.textContent.includes(longTitle),'full title preserved as disclosed source');
+ assert.match(card.textContent,/Graduation|graduation/);
+}
+""",
+ "required_activity_host_is_not_silently_skipped": r"""
+elements.delete('activity-list');
+assert.throws(boot);
+""",
+ "legacy_html_without_overview_still_boots_activity": r"""
+elements.delete('lifecycle-overview');
+boot();await settle();
+assert.match(content('activity-list'),/Fixture validation/);
+await tab('proposals');
+assert.match(content('proposals-list'),/P-FIXTURE-A/);
+assert.equal($('activity-section').hidden,true);
+assert.equal($('proposals-section').hidden,false);
+""",
+ "proposal_overview_is_counted_without_funnel_claims": r"""
+context.BRAIN_SUMMARY.loop.chains.push(null);
+boot();await settle();await tab('proposals');
+assert.match(content('lifecycle-overview'),/3 readable supplied records · 1 malformed/);
+assert.match(content('lifecycle-overview'),/1 recorded acceptance/);
+assert.match(content('lifecycle-overview'),/2 unknown, pending, rejected, or other/);
+assert.match(content('lifecycle-overview'),/1 recorded enactment claim/);
+assert.match(content('lifecycle-overview'),/1 structurally complete reported Git\/path receipt/);
+assert.match(content('lifecycle-overview'),/1 reported verification record/);
+assert.match(content('lifecycle-overview'),/Counts can overlap/);
+assert.doesNotMatch(content('lifecycle-overview'),/success rate|conversion|healed/);
+assert.match(content('proposal-gate'),/Draft graduation is closed/);
+assert.match(content('proposal-gate'),/open or human-review/);
+""",
+ "unavailable_lifecycle_counts_stay_unknown": r"""
+context.BRAIN_SUMMARY.loop.chains=[null];
+boot();await settle();await tab('proposals');
+assert.match(content('lifecycle-overview'),/No readable supplied records · 1 malformed/);
+assert.match(content('lifecycle-overview'),/Lifecycle counts are unknown/);
+assert.doesNotMatch(content('lifecycle-overview'),/0 recorded acceptance|0 recorded enactment|0 reported verification/);
+assert.match(content('data-warning'),/malformed row/);
+""",
+ "canonical_records_get_inspect_only_relative_links": r"""
+context.BRAIN_SUMMARY.loop.chains[0].proposal_id='P-104';
+context.BRAIN_SUMMARY.loop.chains[1].proposal_id='P-205';
+boot();await settle();await tab('proposals');
+const proposalLinks=descendants($('proposals-list'),e=>e.tagName==='A');
+assert.equal(proposalLinks.length,2);
+assert.equal(proposalLinks[0].textContent,'Inspect record');
+assert.equal(proposalLinks[0].getAttribute('href'),'proposal_review.html?id=P-104');
+assert.equal(proposalLinks[1].getAttribute('href'),'proposal_review.html?id=P-205');
+assert.doesNotMatch(content('proposals-list'),/Approve|Accept record/);
+await tab('candidates');
+const candidateLinks=descendants($('candidates-list'),e=>e.tagName==='A');
+assert.equal(candidateLinks.length,1);
+assert.equal(candidateLinks[0].textContent,'Inspect record');
+assert.equal(candidateLinks[0].getAttribute('href'),'proposal_review.html?id=P-205');
+assert.match(content('candidates-list'),/Next evidence · Graduation record required/);
+assert.doesNotMatch(content('candidates-list'),/separately governed graduation record/);
+""",
+ "malformed_test_and_source_urls_never_become_links": r"""
+const original=context.BRAIN_SUMMARY.loop.chains[1];
+const ids=['P-FIXTURE-D','P-12?next=https://evil.invalid','javascript:alert(1)','https://evil.invalid/P-9','P-7/../../review'];
+context.BRAIN_SUMMARY.loop.chains=ids.map((proposal_id,index)=>({...original,proposal_id,
+ title:'Unsafe '+index,lane:'draft',proposal_review_url:'https://evil.invalid/approve',url:'javascript:alert(1)'}));
+boot();await settle();await tab('proposals');
+assert.equal(descendants($('proposals-list'),e=>e.tagName==='A').length,0);
+assert.match(content('proposals-list'),/Unsafe 0/);
+await tab('candidates');
+assert.equal(descendants($('candidates-list'),e=>e.tagName==='A').length,0);
+assert.match(content('candidates-list'),/Unsafe 4/);
+""",
+ "proposal_cards_keep_full_evidence_in_closed_disclosures": r"""
+context.BRAIN_SUMMARY.loop.chains[0].proposal_id='P-104';
+boot();await settle();await tab('proposals');
+const card=descendants($('proposals-list'),e=>e.tagName==='ARTICLE')[0];
+assert.match(card.textContent,/Current stage/);
+assert.match(card.textContent,/Required next evidence/);
+const disclosure=descendants(card,e=>e.tagName==='DETAILS')[0];
+assert.equal(disclosure.open,false);
+assert.match(disclosure.textContent,/Full lifecycle evidence and source/);
+assert.match(disclosure.textContent,/Acceptance.*Recorded acceptance.*2026-09-01/);
+assert.match(disclosure.textContent,/Enactment.*Projector-reported Git\/path evidence/);
+assert.match(disclosure.textContent,/Verification.*Reported verification · pending/);
+assert.match(disclosure.textContent,/human:reported-label/);
+assert.match(disclosure.textContent,new RegExp('a'.repeat(40)));
+assert.match(disclosure.textContent,/memory\/brain\/proposals.jsonl/);
+disclosure.open=true;
+assert.equal(disclosure.open,true);
+""",
  "large_projection_mounts_one_compact_page_with_paging_and_details": r"""
 context.BRAIN_SUMMARY.timeline=Array.from({length:30},(_,index)=>({id:'large-'+index,ts:'2026-08-'+String(index+1).padStart(2,'0')+'T00:00:00Z',kind:'run_flag',title:'Large record '+index,agent:'builder',skill:'validate',verdict:index===29?null:'failed'}));
 boot();await settle();

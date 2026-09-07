@@ -6,6 +6,8 @@
   const rows = value => Array.isArray(value) ? value : [];
   const count = value => Number.isInteger(value) && value >= 0 ? String(value) : "Unknown";
   const known = value => typeof value === "string" && value.trim() ? value : "Unknown";
+  const proposalHref = value => typeof value === "string" && /^P-[0-9]+$/.test(value)
+    ? "proposal_review.html?id=" + encodeURIComponent(value) : null;
 
   function validSummary(data) {
     return !!(object(data) && data.schema_version === 2 && object(data.window) &&
@@ -126,11 +128,20 @@
     const contradiction = (accepted.state === "accepted" && !acceptedVerdict) ||
       (!acceptedVerdict && enacted.state === "enacted") || (acceptedVerdict && accepted.state !== "accepted");
     let next = "Owner: review the recorded proposal and its supporting evidence.";
-    if (rejected) next = "Owner: retain the rejection and its reason; any new proposal needs a separate review.";
+    if (chain.lane === "draft") next = "A separately governed graduation record is required before Review can decide this draft.";
+    else if (rejected) next = "Owner: retain the rejection and its reason; any new proposal needs a separate review.";
     else if (enacted.state === "enacted" && !completeEnactment) next = "Owner: provide the implementation commit and paths in the canonical enactment evidence before assessing verification.";
     else if (accepted.state === "accepted" && enacted.state !== "enacted") next = "Owner: provide a reviewed implementation commit and matching changed paths.";
     else if (completeEnactment) next = "Owner: independently verify execution and results against this implementation; a reported pass is insufficient.";
     if (contradiction) next = "Owner: reconcile the contradictory verdict and lifecycle projection against the original records.";
+    let stage = "Supplied lane · " + known(chain.lane);
+    if (contradiction) stage = "Lifecycle contradiction needs reconciliation";
+    else if (rejected) stage = "Rejected record";
+    else if (completeEnactment) stage = "Implementation receipt supplied; outcome still unverified";
+    else if (enacted.state === "enacted") stage = "Enactment claim lacks a complete receipt";
+    else if (accepted.state === "accepted") stage = "Recorded accepted; implementation evidence needed";
+    else if (chain.lane === "draft") stage = "Draft held; graduation closed";
+    else if (["open", "human-review"].includes(chain.lane)) stage = "Awaiting governed Review";
     return {
       verdict: known(chain.final_verdict), lane: known(chain.lane),
       acceptance: rejected ? "Rejected verdict" : accepted.state === "accepted" ? "Recorded acceptance" : "Acceptance unknown / pending",
@@ -139,7 +150,21 @@
       verification: object(verified.reported) ? "Reported verification · pending" : "Independent verification not established",
       acceptedAt: recordedTime(accepted.at), enactedAt: recordedTime(enacted.at),
       reportedAt: object(verified.reported) ? recordedTime(verified.reported.at) : null,
-      contradiction, next, healing, completeEnactment, evidence
+      contradiction, next, stage, healing, completeEnactment, evidence
+    };
+  }
+
+  function lifecycleCounts(value) {
+    const supplied = rows(value), readable = supplied.filter(object);
+    const views = readable.map(chain => ({chain, view: lifecycle(chain)}));
+    return {
+      readable: readable.length,
+      malformed: supplied.length - readable.length,
+      accepted: readable.filter(chain => object(chain.healing) && object(chain.healing.accepted) && chain.healing.accepted.state === "accepted").length,
+      enacted: readable.filter(chain => object(chain.healing) && object(chain.healing.enacted) && chain.healing.enacted.state === "enacted").length,
+      completeReceipts: views.filter(item => item.view.completeEnactment).length,
+      reportedVerification: readable.filter(chain => object(chain.healing) && object(chain.healing.verified) && object(chain.healing.verified.reported)).length,
+      contradictions: views.filter(item => item.view.contradiction).length
     };
   }
 
@@ -166,6 +191,15 @@
       add(node, el("summary", label), el("p", value, "source-ref")); host.appendChild(node);
     };
     const pair = (host, key, value) => add(host, el("dt", key), el("dd", value));
+    const compactTitle = value => { const full = known(value); return full.length > 72 ? full.slice(0, 71).trimEnd() + "…" : full; };
+    const inspectLink = proposalId => {
+      const href = proposalHref(proposalId);
+      if (!href) return null;
+      const link = el("a", "Inspect record", "inspect-link");
+      link.setAttribute("href", href);
+      link.setAttribute("aria-label", "Inspect record " + proposalId + " in Review");
+      return link;
+    };
     const table = (host, headings, caption) => {
       const wrap = el("div", undefined, "table-scroll"), grid = el("table"), head = el("thead"), tr = el("tr"), body = el("tbody");
       headings.forEach(label => { const th = el("th", label); th.setAttribute("scope", "col"); tr.appendChild(th); });
@@ -210,6 +244,48 @@
       pair(host, "Trust", "Recorded labels do not authenticate people or agents. Historical references do not establish an active session. A fresh response does not prove fresh underlying events or verified execution.");
     }
 
+    function showLifecycleOverview(values) {
+      const host = get("lifecycle-overview");
+      if (!host) return; // The previous HTML shell has no optional overview.
+      const stats = lifecycleCounts(values), unknownAcceptance = stats.readable - stats.accepted;
+      const unknownEnactment = stats.readable - stats.enacted, unknownVerification = stats.readable - stats.reportedVerification;
+      if (!stats.readable) {
+        add(host, el("p", "No readable supplied records · " + stats.malformed + " malformed. Lifecycle counts are unknown.", "overview-total"),
+          el("p", "No supplied record is treated as a healthy zero or evidence of absence.", "source-note"));
+        return;
+      }
+      add(host, el("p", stats.readable + " readable supplied records · " + stats.malformed + " malformed", "overview-total"));
+      const grid = el("dl", undefined, "stage-overview");
+      const stat = (label, value) => add(grid, add(el("div", undefined, "stage-stat"), el("dt", label), el("dd", value)));
+      stat("Acceptance states", stats.accepted + " recorded acceptance" + (stats.accepted === 1 ? "" : "s") + " · " + unknownAcceptance + " unknown, pending, rejected, or other");
+      stat("Enactment states", stats.enacted + " recorded enactment claim" + (stats.enacted === 1 ? "" : "s") + " · " + stats.completeReceipts + " structurally complete reported Git/path receipt" + (stats.completeReceipts === 1 ? "" : "s") + " · " + unknownEnactment + " unknown, pending, rejected, or other");
+      stat("Verification evidence", stats.reportedVerification + " reported verification record" + (stats.reportedVerification === 1 ? "" : "s") + " · " + unknownVerification + " unknown or absent");
+      stat("Contradictions", stats.contradictions ? stats.contradictions + " readable record" + (stats.contradictions === 1 ? "" : "s") + " need reconciliation" : "None observed in readable records; malformed records remain unknown");
+      add(host, grid, el("p", "Counts can overlap and describe supplied states only. They do not show throughput, causal flow, runtime liveness or independently verified outcomes.", "source-note"));
+    }
+
+    function proposalEvidence(card, chain, view) {
+      const node = el("details");
+      node.dataset.evidenceKey = "proposal:" + known(chain.proposal_id);
+      node.open = expandedEvidence.has(node.dataset.evidenceKey);
+      const facts = el("dl");
+      pair(facts, "Full source title", known(chain.title));
+      pair(facts, "Target", known(chain.target) + " · " + known(chain.target_type));
+      pair(facts, "Verdict / lane", view.verdict + " / " + view.lane);
+      pair(facts, "Acceptance", view.acceptance + " · " + (view.acceptedAt || "date unknown"));
+      pair(facts, "Enactment", view.enactment + " · " + (view.enactedAt || "date unknown"));
+      pair(facts, "Verification", view.verification + " · " + (view.reportedAt || "date unknown"));
+      if (view.completeEnactment) {
+        pair(facts, "Reported commit", view.evidence.commit);
+        pair(facts, "Reported paths", view.evidence.paths.join(" · "));
+      }
+      const raw = el("pre", JSON.stringify({lifecycle: chain.lifecycle, healing: chain.healing, rule_cited: chain.rule_cited}, null, 2), "raw-evidence");
+      add(node, el("summary", "Full lifecycle evidence and source"), facts,
+        el("h4", "Raw supplied lifecycle"), raw,
+        el("p", "Source: memory/brain/proposals.jsonl · " + known(chain.proposal_id) + "; projected lifecycle, physical line cursor unavailable", "source-ref"));
+      card.appendChild(node);
+    }
+
     function options(id, values, label) {
       const select = get(id), chosen = select.value;
       clear(select); const all = el("option", label); all.value = ""; select.appendChild(all);
@@ -221,7 +297,7 @@
     }
 
     function render(state) {
-      const hosts = ["activity-list", "actors-list", "usage-list", "skills-list", "proposals-list", "candidates-list", "blockers-list"];
+      const hosts = ["activity-list", "actors-list", "usage-list", "skills-list", "lifecycle-overview", "proposals-list", "candidates-list", "blockers-list"];
       const d = state.data;
       const attention = d ? attentionItems(d) : null;
       const malformed = d ? [d.skills, d.agents, d.timeline, d.matrix.cells, d.loop.chains].reduce((n, values) => n + values.filter(value => !object(value)).length, attention.malformed) : 0;
@@ -232,6 +308,7 @@
       if (key === lastRenderKey) return;
       lastRenderKey = key;
       hosts.forEach(id => {
+        if (id === "lifecycle-overview" && !get(id)) return;
         get(id).querySelectorAll("details[data-evidence-key]").forEach(node => {
           if (node.open) expandedEvidence.add(node.dataset.evidenceKey);
           else expandedEvidence.delete(node.dataset.evidenceKey);
@@ -245,6 +322,7 @@
         activeHosts[activePanel].forEach(id => empty(get(id), "Evidence unavailable. " + recovery + "; absence is not a successful outcome."));
         return;
       }
+      showLifecycleOverview(d.loop.chains);
       const agents = new Map(d.agents.filter(object).map(agent => [agent.id, agent]));
       options("actor-filter", d.agents.filter(object).map(a => a.id).concat(d.timeline.filter(object).map(t => t.agent), d.matrix.cells.filter(object).map(c => c.agent)), "All recorded actors");
       options("skill-filter", d.skills.filter(object).map(skill => skill.name).concat(
@@ -321,12 +399,12 @@
         if (!chains.length) empty(get("proposals-list"), "No matching proposals in the supplied projection.");
         else page(get("proposals-list"), "proposals", chains, visible => visible.forEach(chain => {
           const view = lifecycle(chain), card = el("article", undefined, "card proposal-card");
-          add(card, el("h3", known(chain.proposal_id) + " · " + known(chain.title)), el("p", "Target: " + known(chain.target) + " · " + known(chain.target_type)), el("span", "Verdict: " + view.verdict, "pill"), el("span", "Lane: " + view.lane, "pill"));
-          const dl = el("dl"); pair(dl, "Acceptance", view.acceptance + " · " + (view.acceptedAt || "date unknown")); pair(dl, "Enactment", view.enactment + " · " + (view.enactedAt || "date unknown")); pair(dl, "Verification", view.verification + " · " + (view.reportedAt || "date unknown"));
-          if (view.completeEnactment) { pair(dl, "Reported commit", view.evidence.commit); pair(dl, "Reported paths", view.evidence.paths.join(" · ")); } add(card, dl);
-          if (view.contradiction) add(card, el("p", "Contradictory supplied lifecycle evidence", "pill bad")); add(card, el("p", view.next, "next-action"));
-          details(card, "Recorded lifecycle and evidence", JSON.stringify({lifecycle: chain.lifecycle, healing: chain.healing, rule_cited: chain.rule_cited}, null, 2), "proposal:" + known(chain.proposal_id));
-          source(card, "memory/brain/proposals.jsonl · " + known(chain.proposal_id) + "; projected lifecycle, physical line cursor unavailable"); get("proposals-list").appendChild(card);
+          add(card, el("h3", known(chain.proposal_id) + " · " + compactTitle(chain.title)),
+            el("p", known(chain.target) + " · Current stage · " + view.stage, "stage-line"));
+          if (view.contradiction) add(card, el("p", "Contradictory supplied lifecycle evidence", "pill bad"));
+          add(card, el("p", "Required next evidence · " + view.next, "next-action"));
+          const link = inspectLink(chain.proposal_id); if (link) card.appendChild(link);
+          proposalEvidence(card, chain, view); get("proposals-list").appendChild(card);
         }));
       }
       if (activePanel === "candidates") {
@@ -336,7 +414,17 @@
         if (!candidateRows.length) empty(get("candidates-list"), "No matching skill candidates or recorded gaps supplied. This does not establish that the backlog is complete.");
         else page(get("candidates-list"), "candidates", candidateRows, visible => visible.forEach(item => {
           const card = el("article", undefined, "card");
-          if (item.type === "proposal") { const chain = item.value; add(card, el("h3", known(chain.proposal_id) + " · " + known(chain.title)), el("p", "Recorded skill proposal · " + known(chain.lane) + ". Consider through the existing owner review workflow.")); source(card, "memory/brain/proposals.jsonl · " + known(chain.proposal_id)); }
+          if (item.type === "proposal") {
+            const chain = item.value, view = lifecycle(chain); card.className += " candidate-card";
+            const stage = view.contradiction ? "Contradiction needs reconciliation" : chain.lane === "draft" ? "Draft held" : "Awaiting governed Review";
+            const next = view.contradiction ? "Reconcile source records." : chain.lane === "draft" ? "Graduation record required (graduation closed)." : "Inspect supporting evidence before a decision.";
+            add(card, el("h3", known(chain.proposal_id) + " · " + compactTitle(chain.title)),
+              el("p", known(chain.target) + " · " + stage, "stage-line"));
+            if (view.contradiction) add(card, el("p", "Contradictory supplied lifecycle evidence", "pill bad"));
+            add(card, el("p", chain.lane === "draft" && !view.contradiction ? "Next: graduation closed" : "Next: " + next, "next-action"));
+            const link = inspectLink(chain.proposal_id); if (link) card.appendChild(link);
+            details(card, "Full source", known(chain.title) + "\nTarget: " + known(chain.target) + " · Stage: " + stage + "\nNext evidence · " + next + "\nmemory/brain/proposals.jsonl · " + known(chain.proposal_id), "candidate:" + known(chain.proposal_id));
+          }
           else { const skill = item.value; add(card, el("h3", "Feedback gaps: " + known(skill.name)), el("p", count(skill.governance.conformance.gap) + " recorded gaps. Owner: inspect the feedback before proposing a skill or section change.")); source(card, "memory/feedback.jsonl; exact feedback rows not supplied"); }
           get("candidates-list").appendChild(card);
         }));
@@ -402,6 +490,6 @@
     });
     return store;
   }
-  root.Activity = {validSummary, recordedTime, createStore, lifecycle, mount};
+  root.Activity = {validSummary, recordedTime, createStore, lifecycle, lifecycleCounts, proposalHref, mount};
   if (root.document && root.document.getElementById("activity-root")) root.activityStore = mount(root, root.document);
 })(window);

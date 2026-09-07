@@ -37,7 +37,12 @@ from datetime import datetime, timezone
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
-from brain_ledger import accepted_decision, inspect_proposals
+from brain_ledger import (
+    ProposalLedgerError,
+    ProposalLedgerLock,
+    accepted_decision,
+    inspect_proposals,
+)
 
 ROOT = Path(__file__).resolve().parent.parent
 VIEW = ROOT / "memory" / "brain" / "view"
@@ -163,6 +168,14 @@ def gemma(messages: list[dict], max_tokens: int = 700, temperature: float = 0.3)
         raise GemmaError("drafting assistant returned an unusable response") from e
 
 
+class AdvisoryCommitConflict(RuntimeError):
+    """The proposal stopped accepting advisory rows during model latency."""
+
+    def __init__(self, review: dict):
+        super().__init__(review["eligibility_reason"])
+        self.review = review
+
+
 def strip_fence(s: str) -> str:
     s = s.strip()
     if s.startswith("```"):
@@ -181,22 +194,127 @@ def governed_proposal_rows() -> list[dict]:
     return inspect_proposals(PROPOSALS, quarantine_known_legacy=True).rows
 
 
-def open_framework_proposals() -> list[dict]:
+def _review_summary(pid: str, proposal: dict) -> dict:
+    """Return the canonical, read-only review facts for one framework record.
+
+    Lifecycle and eligibility come from the same collapsed rows used by the
+    governed CLI.  Stored evidence is reported as ledger evidence only; this
+    endpoint does not run Git, verify commands, or upgrade it into proof.
+    """
+    lifecycle = ps.lifecycle_state(proposal)
+    verdict = ps.final_verdict(proposal)
+    eligible = lifecycle in ("open", "human-review")
+    lane = "ready" if eligible else ("candidate" if lifecycle == "draft" else "history")
+    if lifecycle == "draft":
+        reason = "candidate graduation is closed; inspection only"
+    elif lifecycle == "closed":
+        reason = ("decision already recorded; accepted handoff recovery only"
+                  if verdict in ("accepted", "auto-accept")
+                  else "decision already recorded; inspection only")
+    elif lifecycle == "human-review":
+        reason = "human-review record is eligible for a governed decision"
+    else:
+        reason = "open record is eligible for a governed decision"
+
+    decision_row = next((row for row in reversed(proposal["lifecycle"])
+                         if row.get("verdict")), None)
+    decision = None
+    if decision_row is not None and decision_row.get("verdict") != "open":
+        decision = {
+            "verdict": decision_row.get("verdict"),
+            "status": decision_row.get("status"),
+            "timestamp": decision_row.get("timestamp"),
+            "actor": ps.project_actor(decision_row),
+            "source": "memory/brain/proposals.jsonl",
+        }
+
+    evidence = []
+    for row in proposal["lifecycle"]:
+        enactment = row.get("enactment")
+        if isinstance(enactment, dict):
+            evidence.append({
+                "kind": "enactment", "timestamp": row.get("timestamp"),
+                "commit": enactment.get("commit"), "paths": enactment.get("paths"),
+                "source": "memory/brain/proposals.jsonl",
+            })
+        verification = row.get("verification")
+        if isinstance(verification, dict):
+            evidence.append({
+                "kind": "verification", "timestamp": row.get("timestamp"),
+                "commit": verification.get("commit"),
+                "command": verification.get("command"),
+                "result": verification.get("result"),
+                "output_sha256": verification.get("output_sha256"),
+                "source": "memory/brain/proposals.jsonl",
+            })
+
+    first = proposal["first"]
+    return {
+        "proposal_id": pid,
+        "title": first.get("title", ""),
+        "target": first.get("target", ""),
+        "target_type": first.get("target_type", ""),
+        "scope": "framework",
+        "lifecycle": lifecycle,
+        "lane": lane,
+        "verdict": verdict,
+        "eligible": eligible,
+        "eligibility_reason": reason,
+        "decision": decision,
+        "evidence": evidence,
+    }
+
+
+def framework_review_records() -> list[dict]:
+    """All governed framework records, including held candidates and history."""
     collapsed = ps.collapse_proposals(governed_proposal_rows())
-    out = []
-    for pid, p in collapsed.items():
-        # lifecycle_state (not final_verdict) is the gate: a draft has no verdict
-        # and would otherwise read as "open" and leak into the review queue.
-        if ps.lifecycle_state(p) not in ("open", "human-review"):
-            continue
-        if ps.proposal_scope(p["first"], "a_bgt_rsi") != "framework":
-            continue
-        f = p["first"]
-        out.append({"proposal_id": pid, "title": f.get("title", ""),
-                    "target": f.get("target", ""), "target_type": f.get("target_type", ""),
-                    "verdict": ps.final_verdict(p)})
-    out.sort(key=lambda x: x["proposal_id"])
-    return out
+    records = [
+        _review_summary(pid, proposal)
+        for pid, proposal in collapsed.items()
+        if ps.proposal_scope(proposal["first"], "a_bgt_rsi") == "framework"
+    ]
+    lane_order = {"ready": 0, "candidate": 1, "history": 2}
+    records.sort(key=lambda row: (lane_order[row["lane"]], row["proposal_id"]))
+    return records
+
+
+def _framework_review_context_from_rows(
+        pid: str, rows: list[dict]) -> tuple[dict, dict] | None:
+    """Resolve one framework record from an already validated ledger snapshot."""
+    proposal = ps.collapse_proposals(rows).get(pid)
+    if proposal is None or ps.proposal_scope(proposal["first"], "a_bgt_rsi") != "framework":
+        return None
+    return proposal, _review_summary(pid, proposal)
+
+
+def _framework_review_context(pid: str) -> tuple[dict, dict] | None:
+    """Resolve one governed framework record and its public review summary."""
+    return _framework_review_context_from_rows(pid, governed_proposal_rows())
+
+
+def _commit_advisory(pid: str, append) -> None:
+    """Recheck lifecycle under the proposal writer lock, then append a card row.
+
+    Model work happens before callers enter this helper. Holding the same lock as
+    governed verdict writers only across the final check-and-append prevents a
+    verdict from closing the proposal between those two operations.
+    """
+    with ProposalLedgerLock(PROPOSALS) as locked:
+        context = _framework_review_context_from_rows(pid, locked.rows)
+        if context is None:
+            raise AdvisoryCommitConflict({
+                "eligibility_reason": "proposal is not in framework review scope",
+                "eligible": False,
+            })
+        _proposal, review = context
+        if not review["eligible"]:
+            raise AdvisoryCommitConflict(review)
+        append()
+
+
+def open_framework_proposals() -> list[dict]:
+    """Compatibility queue: only records currently eligible for a verdict."""
+    return [record for record in framework_review_records() if record["eligible"]]
 
 
 def proposal_first(pid: str) -> dict | None:
@@ -311,8 +429,12 @@ def discuss_turn(first: dict, message: str) -> str:
         msgs.append({"role": t["role"], "content": t["content"]})
     msgs.append({"role": "user", "content": message})
     reply = gemma(msgs, max_tokens=700, temperature=0.4)
-    append_discuss(pid, "user", message)
-    append_discuss(pid, "assistant", reply)
+
+    def append_turn() -> None:
+        append_discuss(pid, "user", message)
+        append_discuss(pid, "assistant", reply)
+
+    _commit_advisory(pid, append_turn)
     return reply
 
 
@@ -381,7 +503,7 @@ def synthesize_amended(first: dict) -> str:
     raw = gemma([{"role": "system", "content": sys_p},
                  {"role": "user", "content": user_p}], max_tokens=800, temperature=0.3)
     change = _strip_proposal_scaffold(raw)
-    append_amended_draft(pid, change)
+    _commit_advisory(pid, lambda: append_amended_draft(pid, change))
     return change
 
 
@@ -864,7 +986,7 @@ def _proposal_rows_bounded(warnings: list[str]) -> tuple[list[dict], str, int]:
 
 
 def _exact_enactment_state(proposal: dict, *, deadline: float) -> tuple[str, str]:
-    """Bounded local proof of lifecycle state; never trusts an acceptance or prose."""
+    """Bounded local Git/path evidence only; no command-execution verification."""
     rows = proposal["lifecycle"]
     verdict_index = next((i for i in range(len(rows) - 1, -1, -1)
                           if rows[i].get("verdict")), None)
@@ -900,14 +1022,9 @@ def _exact_enactment_state(proposal: dict, *, deadline: float) -> tuple[str, str
         break
     if enacted_commit is None:
         return "pending", ""
-    for row in reversed(rows[verdict_index + 1:]):
-        evidence = row.get("verification")
-        if (isinstance(evidence, dict) and evidence.get("commit") == enacted_commit
-                and isinstance(evidence.get("command"), str) and evidence["command"].strip()
-                and evidence.get("result") == "pass"
-                and isinstance(evidence.get("output_sha256"), str)
-                and _SHA256.fullmatch(evidence["output_sha256"])):
-            return "verified", ""
+    # A verification-shaped row is a source report. Its command and output hash
+    # are not checked here, matching project_summary.proposal_healing_state.
+    # Preserve the claim in the ledger/detail view without promoting it.
     return "enacted", ""
 
 
@@ -925,18 +1042,16 @@ def _lifecycle_observation(warnings: list[str], *, deadline: float) -> dict:
             warnings.append(f"lifecycle evidence unavailable: {error}")
         elif state == "enacted":
             enacted += 1
-        elif state == "verified":
-            enacted += 1
-            verified += 1
     if len(accepted) > OPS_MAX_LIFECYCLE_PROPOSALS:
         unknown += len(accepted) - OPS_MAX_LIFECYCLE_PROPOSALS
         warnings.append("lifecycle evidence count capped by proposal budget")
     status = "partial" if row_status == "partial" or unknown else "observed"
     return {"counts": _fact({"accepted": len(accepted), "enacted": enacted,
-                               "verified": verified, "unverified_or_pending": len(accepted) - enacted,
+                               "verified": verified, "unverified_or_pending": len(accepted) - verified,
                                "evidence_unknown": unknown}, status,
                               "proposal ledger + exact local commit/path checks",
-                              "acceptance is a decision only; enactment/verification require exact evidence")}
+                              "acceptance is a decision only; enactment checks Git/paths; "
+                              "execution verification is not performed; verification rows remain source reports")}
 
 
 def _repo_observation(*, deadline: float) -> dict:
@@ -1078,19 +1193,31 @@ class Handler(SimpleHTTPRequestHandler):
                 # this intentionally does not rebuild projections or touch ledgers.
                 return self._send(200, operations_snapshot())
             if self.path == "/api/proposals":
-                return self._send(200, {"proposals": open_framework_proposals()})
+                records = framework_review_records()
+                counts = {key: sum(row["lane"] == lane for row in records)
+                          for key, lane in (("ready", "ready"), ("candidates", "candidate"),
+                                            ("history", "history"))}
+                counts["total"] = len(records)
+                return self._send(200, {
+                    "proposals": [row for row in records if row["eligible"]],
+                    "records": records,
+                    "counts": counts,
+                })
             pid = self._pid_from(parts)  # validated against ^P-\d+$ before any fs/argv use
-            if pid:
-                first = proposal_first(pid)
-                if not first:
-                    return self._send(404, {"error": "unknown proposal"})
-                # Deterministic: read the stored card; only draft (one LLM call) if
-                # none exists yet. generate_card persists it exactly once.
-                card = stored_card(pid) or generate_card(first)
+            if pid and len(parts) == 3 and parts[1] == "proposal":
+                context = _framework_review_context(pid)
+                if context is None:
+                    return self._send(404, {"error": "proposal is not in framework review scope"})
+                proposal, review = context
+                first = proposal["first"]
+                # Inspection is deterministic and side-effect free. Model notes
+                # exist only when already stored by an explicit advisory action.
+                card = stored_card(pid)
                 amended = latest_amended_draft(pid)
                 return self._send(200, {"proposal": first, "card": card,
                                         "discussion": discussion(pid),
-                                        "amended_draft": amended.get("change") if amended else None})
+                                        "amended_draft": amended.get("change") if amended else None,
+                                        "review": review})
             return self._send(404, {"error": "no route"})
         except GemmaError as e:
             return self._send(503, {"error": str(e)})
@@ -1104,10 +1231,21 @@ class Handler(SimpleHTTPRequestHandler):
         action = parts[3] if len(parts) >= 4 else ""
         if not pid:
             return self._send(404, {"error": "bad proposal id"})
-        first = proposal_first(pid)
-        if not first:
-            return self._send(404, {"error": "unknown proposal"})
+        if (len(parts) != 4 or parts[:2] != ["api", "proposal"]
+                or action not in ("discuss", "synthesize", "verdict", "handoff")):
+            return self._send(404, {"error": "no action"})
+        context = _framework_review_context(pid)
+        if context is None:
+            return self._send(404, {"error": "proposal is not in framework review scope"})
+        proposal, review = context
+        first = proposal["first"]
+        accepted_recovery = (action == "handoff" and review["lifecycle"] == "closed"
+                             and review["verdict"] in ("accepted", "auto-accept"))
+        if not review["eligible"] and not accepted_recovery:
+            return self._send(409, {"error": review["eligibility_reason"], "review": review})
         body = self._body()
+        if not isinstance(body, dict):
+            return self._send(400, {"error": "request body must be an object"})
         try:
             if action == "discuss":
                 msg = (body.get("message") or "").strip()
@@ -1179,8 +1317,14 @@ class Handler(SimpleHTTPRequestHandler):
                     return self._send(409, {"error": str(e)})
                 return self._send(200, {"path": path})
             return self._send(404, {"error": "no action"})
+        except AdvisoryCommitConflict as e:
+            return self._send(409, {"error": str(e), "review": e.review})
         except GemmaError as e:
             return self._send(503, {"error": str(e)})
+        except ProposalLedgerError as e:
+            print(f"do_POST: proposal ledger unavailable ({type(e).__name__})", file=sys.stderr)
+            return self._send(
+                503, {"error": "proposal ledger unavailable; advisory was not recorded"})
         except Exception:  # noqa: BLE001 — never leak a stack/internal to the client
             print(f"do_POST: unhandled error on {self.path}", file=sys.stderr)
             return self._send(500, {"error": "internal error"})

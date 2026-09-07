@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Skills &amp; Activity · Agent System</title>
   <link rel="stylesheet" href="tokens.css">
-  <link rel="stylesheet" href="activity.css">
+  <link rel="stylesheet" href="activity.css?v=20260907-r3-final">
 </head>
 <body>
   <a class="skip-link" href="#activity-root">Skip to activity</a>
@@ -21,15 +21,15 @@
   <main id="activity-root" tabindex="-1">
     <div class="page-heading">
       <div><p class="eyebrow">Development evidence</p><h1>Skills &amp; Activity</h1>
-        <p>Follow recorded work, skill friction and proposals through to the evidence still needed.</p></div>
+        <p class="lede">Follow recorded work, skill friction and proposals through to the evidence still needed.</p></div>
       <div class="refresh-controls">
         <button id="refresh-data" type="button">Refresh data</button>
         <label><input id="auto-refresh" type="checkbox" checked> Refresh every 30 seconds while visible</label>
       </div>
     </div>
     <section class="source-band" aria-labelledby="source-heading">
-      <h2 id="source-heading">What this view knows</h2>
-      <p id="data-state">Loading available evidence…</p>
+      <div class="source-status"><h2 id="source-heading">Source status</h2>
+        <p id="data-state">Loading available evidence…</p></div>
       <p id="data-announcement" class="sr-only" role="status" aria-live="polite" aria-atomic="true"></p>
       <p id="data-warning"></p>
       <details id="source-details"><summary>Source identity and freshness</summary><dl id="source-metadata"></dl></details>
@@ -69,7 +69,9 @@
     </section>
     <section id="proposals-section" aria-labelledby="proposals-heading" hidden>
       <h2 id="proposals-heading">Proposal progress</h2>
-      <p class="muted">Read each stage independently. Acceptance is a recorded verdict; enactment checks Git and paths; verification needs independent evidence.</p>
+      <p class="muted">Read each supplied stage independently; recorded acceptance, enactment claims and reported verification can overlap.</p>
+      <p id="proposal-gate" class="gate-note"><strong>Draft graduation is closed.</strong> Review can inspect records and decide only proposals already open or human-review.</p>
+      <div id="lifecycle-overview" aria-label="Recorded proposal lifecycle overview"></div>
       <div id="proposals-list" class="card-grid"></div>
     </section>
     <section id="candidates-section" aria-labelledby="candidates-heading" hidden>
@@ -83,6 +85,6 @@
     <footer>Read-only evidence view. <a href="dashboard.html">Open the dashboard</a> or <a href="proposal_review.html">open the existing review workflow</a> for separately governed decisions.</footer>
   </main>
   <script src="summary_data.js"></script>
-  <script src="activity.js"></script>
+  <script src="activity.js?v=20260907-r3-final"></script>
 </body>
 </html>

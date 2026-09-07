@@ -1,6 +1,7 @@
 """Static navigation and local asset integration, without a server or network."""
 from html.parser import HTMLParser
 from pathlib import Path
+from urllib.parse import urlsplit, unquote
 
 import pytest
 
@@ -30,10 +31,14 @@ def test_activity_assets_and_primary_navigation_are_local_and_present():
         path = attrs.get("src") if tag == "script" else attrs.get("href") if tag in {"link", "a"} else None
         if not path or path.startswith("#"):
             continue
-        assert ":" not in path and not path.startswith("/")
+        parsed_url = urlsplit(path)
+        assert not parsed_url.scheme and not parsed_url.netloc and not parsed_url.path.startswith("/")
+        local_path = unquote(parsed_url.path)
+        assert ".." not in Path(local_path).parts
+        # Query/fragment version tags do not change the local filename.
         # The generated snapshot is an optional data input, not a shipped asset.
-        if path != "summary_data.js":
-            assert (VIEW / path).is_file(), path
+        if local_path != "summary_data.js":
+            assert (VIEW / local_path).is_file(), path
 
 
 def test_read_only_page_controls_have_accessible_names_and_types():
