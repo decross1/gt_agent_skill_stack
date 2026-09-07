@@ -736,23 +736,31 @@ def contract_evaluation_state(status: object, done_check: str) -> str:
 
 
 def build_contracts(consumer: Path | None, today: str) -> list[dict]:
-    rows: list[tuple[str, dict]] = [("framework", r) for r in load_jsonl(SPAWN_LEDGER)]
+    ledgers: list[tuple[str, list[dict]]] = [
+        ("framework", load_jsonl(SPAWN_LEDGER)),
+    ]
     if consumer is not None:
         ap_ledger = consumer / "run_state" / "spawn.jsonl"
-        rows += [("apparatus", r) for r in load_jsonl(ap_ledger)]
+        ledgers.append(("apparatus", load_jsonl(ap_ledger)))
 
-    first: dict[str, tuple[str, dict]] = {}
-    latest: dict[str, tuple[str, dict]] = {}
-    for surface, r in sorted(rows, key=lambda x: x[1].get("timestamp", "")):
-        sid = r.get("spawn_id")
-        if not sid:
-            continue
-        first.setdefault(sid, (surface, r))
-        latest[sid] = (surface, r)
+    # load_jsonl preserves physical source-line order. Reported timestamps are
+    # retained below as source metadata, but they cannot establish lineage:
+    # clocks may be reversed or malformed. A surface is part of the source
+    # identity so the same reported spawn_id in two ledgers is never combined.
+    first: dict[tuple[str, object], dict] = {}
+    latest: dict[tuple[str, object], dict] = {}
+    for surface, rows in ledgers:
+        for r in rows:
+            sid = r.get("spawn_id")
+            if not sid:
+                continue
+            source_id = (surface, sid)
+            first.setdefault(source_id, r)
+            latest[source_id] = r
 
     out: list[dict] = []
-    for sid, (surface, first_row) in first.items():
-        latest_row = latest[sid][1]
+    for (surface, sid), first_row in first.items():
+        latest_row = latest[(surface, sid)]
         raw_contract = first_row.get("contract")
         contract = raw_contract if isinstance(raw_contract, dict) else {}
         raw_result = latest_row.get("result")
