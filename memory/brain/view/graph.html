@@ -1,107 +1,198 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-atlas data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>brain · map</title>
+<title>Work graph · Agent System</title>
 <link rel="stylesheet" href="tokens.css">
 <style>
-html{color-scheme:dark;height:100%}
-body{margin:0;background:var(--bg);color:var(--text);font:13px/1.45 system-ui,sans-serif;-webkit-font-smoothing:antialiased;
-  height:100vh;display:flex;flex-direction:column;overflow:hidden}
-.mono{font-family:var(--font-mono)}
-a{color:var(--text-dim);text-decoration:none;cursor:pointer}
-a:hover{color:var(--text)}
-
-/* header — same idiom as dashboard.html */
-header{display:flex;align-items:center;gap:16px;height:56px;padding:0 18px;border-bottom:1px solid var(--border);flex:none}
-.brand{font-weight:600;letter-spacing:.02em;white-space:nowrap}
-.brand .sep{color:var(--text-ghost);font-weight:400;margin:0 4px}
-.brand .sub{color:var(--text-faint);font-weight:500}
-nav.views{display:flex;gap:2px;background:var(--surface-2);border:1px solid var(--border);border-radius:6px;padding:2px}
-nav.views .v{padding:3px 11px;border-radius:4px;color:var(--text-faint);font-size:12px}
-nav.views .v.on{background:#27272a;color:var(--text)}
-.hspace{flex:1}
-.stepper{display:flex;gap:3px;align-items:center}
-.tick{appearance:none;width:15px;height:15px;border:1px solid var(--border);border-radius:3px;display:grid;place-items:center;
-  font-size:9px;color:var(--text-ghost);font-family:var(--font-mono);background:var(--surface-2);padding:0;cursor:pointer}
-.tick.fill{background:#1b2a24;border-color:#1f3d33}
-.tick.on{background:var(--ok-bg);border-color:var(--accent);color:var(--ok)}
-.asof{font-family:var(--font-mono);color:var(--text-faint);font-size:12px}
-.xnav{font-size:12px;white-space:nowrap}
-
-/* full-canvas map */
-#mapwrap{flex:1;position:relative;min-height:0}
-#map{display:block;width:100%;height:100%}
-#mapnote{position:absolute;inset:0;display:grid;place-items:center;color:var(--text-ghost);
-  font-family:var(--font-mono);font-size:11px;pointer-events:none}
+*{box-sizing:border-box}
+body.atlas-graph-page{margin:0;min-height:100vh;background:var(--bg);color:var(--text);font:14px/1.5 system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit}
+button,a,select,input{outline-offset:3px}
+.ui-visually-hidden{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
+.graph-shell{width:min(100%,1440px);margin:0 auto;padding:30px 30px 48px}
+.graph-head{display:flex;align-items:flex-end;gap:24px;margin-bottom:22px}
+.graph-heading{min-width:0;max-width:720px}
+.graph-kicker{margin:0 0 5px;color:var(--accent);font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase}
+.graph-head h1{margin:0;font-size:32px;line-height:1.12;letter-spacing:-.025em}
+.graph-head p{margin:8px 0 0;color:var(--text-dim);font-size:15px}
+.graph-meta{margin-left:auto;min-width:250px;text-align:right;color:var(--text-faint);font-size:12px}
+#data-source-status{margin-bottom:3px}
+.graph-meta a{color:var(--accent);text-decoration:none}
+.graph-meta a:hover{text-decoration:underline}
+.work-grid{display:grid;grid-template-columns:minmax(0,1fr) 314px;gap:18px;align-items:start}
+.graph-stage,.graph-inspector{min-width:0;border:1px solid var(--border);border-radius:14px;background:var(--surface);box-shadow:0 8px 26px rgba(30,41,59,.045)}
+.graph-toolbar{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:12px;border-bottom:1px solid var(--border)}
+.mode-tabs{display:flex;gap:3px;padding:3px;background:var(--surface-2);border:1px solid var(--border);border-radius:9px}
+.mode-tabs button,.tool-button,.zoom-group button,.graph-window button{min-height:34px;border:1px solid transparent;border-radius:7px;background:transparent;color:var(--text-dim);cursor:pointer;padding:6px 10px;font-weight:600;font-size:12px}
+.mode-tabs button[aria-pressed="true"]{background:var(--surface);border-color:var(--border);color:var(--text);box-shadow:0 1px 3px rgba(15,23,42,.08)}
+.graph-search{position:relative;flex:1 1 190px;min-width:150px}
+.graph-search span{position:absolute;left:10px;top:50%;translate:0 -50%;color:var(--text-faint);pointer-events:none}
+.graph-search input{width:100%;height:36px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);padding:7px 10px 7px 31px}
+#graph-type{height:36px;max-width:145px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text-dim);padding:5px 28px 5px 9px}
+.tool-button,.zoom-group,.graph-window{border:1px solid var(--border);background:var(--surface);border-radius:8px}
+.tool-button:hover,.zoom-group button:hover,.graph-window button:hover{color:var(--text);background:var(--surface-2)}
+.zoom-group,.graph-window{display:flex;align-items:center;overflow:hidden}
+.zoom-group output{min-width:46px;text-align:center;color:var(--text-dim);font-size:12px;font-variant-numeric:tabular-nums}
+.zoom-group button,.graph-window button{border-radius:0;padding-inline:8px}
+.graph-window output{min-width:58px;text-align:center;color:var(--text-dim);font-size:12px}
+.dependency-state{display:flex;gap:10px;align-items:flex-start;margin:12px 12px 0;padding:10px 12px;border:1px solid color-mix(in srgb,var(--warn) 26%,var(--border));border-radius:9px;background:color-mix(in srgb,var(--warn) 6%,var(--surface));color:var(--text-dim);font-size:12px}
+.dependency-state strong{color:var(--text);white-space:nowrap}
+#mapwrap{position:relative;height:clamp(500px,61vh,650px);min-height:420px;margin:8px 8px 0;overflow:hidden;border-radius:10px;background:radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--surface-2) 55%,transparent),transparent 68%)}
+#map{display:block;width:100%;height:100%;cursor:grab}
+#mapnote{position:absolute;inset:0;display:grid;place-items:center;padding:30px;color:var(--text-faint);text-align:center;pointer-events:none}
 #mapnote[hidden]{display:none}
-
-/* legend — glyphs only, meanings in tooltips (SPEC §10) */
-#legend{display:flex;align-items:center;gap:14px;height:30px;padding:0 18px;border-top:1px solid var(--border);flex:none}
-.lg{display:flex;align-items:center;gap:5px;cursor:help}
-.lline{width:22px;height:0;border-top:2px solid var(--text-faint)}
-.lline.dash{border-top-style:dashed}
-.lball{width:11px;height:11px;border-radius:50%;background:var(--surface);border:1px solid var(--border-2);position:relative}
-.lball.fw{box-shadow:0 0 0 2.5px rgba(248,113,113,.55)}
-.lball.drift{box-shadow:0 0 0 2.5px rgba(251,191,36,.55)}
-.lball.heal{box-shadow:0 0 0 2.5px rgba(52,211,153,.45),0 0 9px 2px rgba(52,211,153,.35)}
-.lball.fresh{border:1px dashed rgba(255,255,255,.7)}
-.lball.ref{opacity:.4}
-.lball.dim{opacity:.55;border-style:dotted}
-.lball.rt::after{content:"";position:absolute;inset:2.5px;border-radius:50%;border:1.5px solid var(--accent)}
-@media (max-width:540px){
-  header{gap:8px;padding:0 10px}.brand .sub{display:none}
-  header .stepper,header .asof,header .xnav{display:none}
-  #legend{gap:8px;padding:0 10px}
-}
+.graph-caption{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:10px 14px;border-top:1px solid var(--border);color:var(--text-faint);font-size:12px}
+#graph-count{margin-left:auto;font-variant-numeric:tabular-nums}
+.legend-key{display:inline-flex;align-items:center;gap:6px}
+.legend-line{width:22px;height:0;border-top:2px solid var(--accent)}
+.legend-line.work{border-color:var(--ok)}
+.legend-line.allowed{border-color:var(--warn);border-top-style:dashed}
+.legend-line.inferred{border-color:var(--text-faint);border-top-style:dotted}
+.graph-browser{border-top:1px solid var(--border)}
+.graph-browser summary{cursor:pointer;padding:11px 14px;color:var(--text-dim);font-weight:650}
+.graph-browser summary:hover{color:var(--text)}
+.browser-copy{margin:0;padding:0 14px 10px;color:var(--text-faint);font-size:12px}
+#graph-browser-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;max-height:260px;overflow:auto;padding:0 12px 14px}
+.browser-node{display:flex;align-items:center;gap:8px;min-width:0;padding:8px 9px;border:1px solid var(--border);border-radius:8px;background:var(--surface);color:var(--text);text-align:left;cursor:pointer}
+.browser-node:hover{border-color:var(--border-2);background:var(--surface-2)}
+.browser-node .node-dot{width:7px;height:7px;flex:none;border-radius:50%;background:var(--accent)}
+.browser-node .node-copy{min-width:0}
+.browser-node strong,.browser-node small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.browser-node strong{font-size:12px}.browser-node small{color:var(--text-faint);font-size:11px}
+.graph-inspector{position:sticky;top:18px;max-height:calc(100vh - 36px);overflow:auto}
+.inspector-head{display:flex;align-items:center;gap:10px;padding:15px 16px;border-bottom:1px solid var(--border)}
+.inspector-head h2{margin:0;min-width:0;flex:1;font-size:15px}
+.inspector-body{padding:18px 16px 22px}
+.inspector-empty{color:var(--text-dim)}
+.inspector-empty h3{margin:0 0 7px;color:var(--text);font-size:19px}
+.inspector-empty p{margin:0 0 12px}
+.truth-list{margin:15px 0 0;padding:14px 0 0;border-top:1px solid var(--border);list-style:none;color:var(--text-faint);font-size:12px}
+.truth-list li+li{margin-top:7px}
+.node-kind{display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;color:var(--accent);font-size:11px;font-weight:750;letter-spacing:.06em;text-transform:uppercase}
+.node-kind::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.node-title{margin:0;font-size:22px;line-height:1.22;letter-spacing:-.015em;overflow-wrap:anywhere}
+.node-summary{margin:10px 0 16px;color:var(--text-dim)}
+.facts{display:grid;gap:0;margin:0 0 18px;border-top:1px solid var(--border)}
+.fact{display:grid;grid-template-columns:80px minmax(0,1fr);gap:9px;padding:8px 0;border-bottom:1px solid var(--border);font-size:12px}
+.fact dt{color:var(--text-faint)}.fact dd{margin:0;color:var(--text);overflow-wrap:anywhere}
+.source-action,.focus-action{display:inline-flex;align-items:center;justify-content:center;min-height:36px;padding:7px 11px;border-radius:8px;font-weight:650;font-size:12px;text-decoration:none;cursor:pointer}
+.source-action{background:var(--accent);border:1px solid var(--accent);color:#fff}
+.focus-action{margin-left:5px;border:1px solid var(--border);background:var(--surface);color:var(--text-dim)}
+.source-unavailable{margin:0;color:var(--text-faint);font-size:12px}
+.relations{margin-top:20px;padding-top:15px;border-top:1px solid var(--border)}
+.relations h3{margin:0 0 4px;font-size:13px}.relations>p{margin:0 0 10px;color:var(--text-faint);font-size:11px}
+.relation-row{width:100%;padding:9px 0;border:0;border-bottom:1px solid var(--border);background:transparent;color:var(--text);text-align:left;cursor:pointer}
+.relation-row strong{display:block;font-size:12px;overflow-wrap:anywhere}.relation-row span{display:block;margin-top:2px;color:var(--text-faint);font-size:11px}
+.relation-more{margin:9px 0 0;color:var(--text-faint);font-size:11px}
+.atlas-nav a[aria-current="page"]{color:#fff}
+@media(max-width:1180px){.work-grid{grid-template-columns:minmax(0,1fr)}.graph-inspector{position:static;max-height:none}.graph-inspector .inspector-body{max-width:760px}}
+@media(max-width:760px){.graph-shell{padding:22px 14px 36px}.graph-head{display:block}.graph-meta{margin:12px 0 0;text-align:left}.graph-head h1{font-size:28px}.mode-tabs{width:100%;overflow:auto}.mode-tabs button{flex:1;white-space:nowrap}.graph-search{order:2;flex-basis:100%}#mapwrap{height:500px;min-height:400px}.dependency-state{display:block}.dependency-state strong{display:block;margin-bottom:3px}#graph-browser-list{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){#graph-browser-list{grid-template-columns:1fr}.graph-caption{gap:9px}.graph-caption .legend-key:nth-of-type(3){display:none}#mapwrap{height:440px}}
 </style>
+<link rel="stylesheet" href="atlas.css?v=20260907-a">
 </head>
-<body>
-
-<header>
-  <div class="brand">brain<span class="sep">·</span><span class="sub">governance</span></div>
-  <nav class="views" title="view" aria-label="Brain views">
-    <a class="v" href="dashboard.html">Dashboard</a><a class="v on" href="graph.html" aria-current="page">Map</a><a class="v" href="activity.html">Activity</a><a class="v" href="proposal_review.html">Review</a>
+<body class="atlas-graph-page">
+<aside class="atlas-nav" aria-label="Agent System navigation">
+  <a class="atlas-brand" href="dashboard.html">Agent System<span>Development workspace</span></a>
+  <nav aria-label="Primary">
+    <a href="dashboard.html">Today</a>
+    <a href="graph.html" aria-current="page">Work graph</a>
+    <a href="activity.html">Skills &amp; healing</a>
   </nav>
-  <div class="hspace"></div>
-  <div class="stepper" id="stepper"></div>
-  <div class="asof" id="asof"></div>
-  <a class="xnav" id="apparatus" title="open the apparatus dashboard">apparatus →</a>
-</header>
+  <div class="atlas-nav-foot"><span>Recorded evidence</span><button type="button" data-atlas-theme>Dark theme</button></div>
+</aside>
 
-<div id="data-source-status" aria-label="Projection data sources">Data sources have not been checked.</div>
-<noscript><p role="alert">Map needs JavaScript to load and display data. Enable JavaScript for this site, then reload this page.</p></noscript>
-<div id="data-source-announcement" role="status" aria-live="polite" aria-atomic="true" class="ui-visually-hidden"></div>
+<main class="graph-shell">
+  <header class="graph-head">
+    <div class="graph-heading">
+      <p class="graph-kicker">Recorded workspace</p>
+      <h1>Work graph</h1>
+      <p>Explore recorded contracts, skills, actors, and governance links. Follow the source before drawing a conclusion.</p>
+    </div>
+    <div class="graph-meta">
+      <div id="data-source-status" aria-label="Projection data sources">Data sources have not been checked.</div>
+      <span id="asof"></span> · <a id="apparatus" title="Open the apparatus dashboard">apparatus ↗</a>
+    </div>
+  </header>
 
-<div id="mapwrap">
-  <canvas id="map"></canvas>
-  <div id="mapnote" hidden>map data not generated — scripts/project_map.py</div>
-</div>
+  <noscript><p role="alert">The Work graph needs JavaScript. Enable it, then reload this page.</p></noscript>
+  <div id="data-source-announcement" role="status" aria-live="polite" aria-atomic="true" class="ui-visually-hidden"></div>
+  <div id="graph-selection-announcement" role="status" aria-live="polite" aria-atomic="true" class="ui-visually-hidden"></div>
 
-<section id="legend">
-  <span class="lg" title="solid edge — explicit attribution (e &gt; 0)"><span class="lline"></span></span>
-  <span class="lg" title="dashed edge — inferred only (i &gt; 0, no explicit attribution)"><span class="lline dash"></span></span>
-  <span class="lg" title="skill, no governance signal"><span class="lball"></span></span>
-  <span class="lg" title="red halo — runtime-safe firewall violation"><span class="lball fw"></span></span>
-  <span class="lg" title="amber halo — governance drift"><span class="lball drift"></span></span>
-  <span class="lg" title="green pulse — healed this window"><span class="lball heal"></span></span>
-  <span class="lg" title="dashed white outline — new this window"><span class="lball fresh"></span></span>
-  <span class="lg" title="muted + tag — referenced-only, by design (D-042)"><span class="lball ref"></span></span>
-  <span class="lg" title="dim — untested by any consumer trace"><span class="lball dim"></span></span>
-  <span class="lg" title="inner emerald ring — runtime-safe core"><span class="lball rt"></span></span>
-</section>
+  <div class="work-grid">
+    <section class="graph-stage" aria-labelledby="graph-view-heading">
+      <h2 id="graph-view-heading" class="ui-visually-hidden">Recorded relationship map</h2>
+      <div class="graph-toolbar" aria-label="Graph controls">
+        <div class="mode-tabs" role="group" aria-label="Relationship mode">
+          <button type="button" data-graph-mode="work" aria-pressed="true">Recorded work</button>
+          <button type="button" data-graph-mode="governance" aria-pressed="false">Governance</button>
+          <button type="button" data-graph-mode="usage" aria-pressed="false">Usage</button>
+        </div>
+        <label class="graph-search"><span aria-hidden="true">⌕</span><span class="ui-visually-hidden">Search recorded nodes</span><input id="graph-search" type="search" autocomplete="off" placeholder="Search recorded nodes"></label>
+        <label><span class="ui-visually-hidden">Filter by record type</span><select id="graph-type">
+          <option value="all">All types</option><option value="agent">Actors</option><option value="spawn">Contract records</option>
+          <option value="skill">Skills</option><option value="proposal">Proposals</option><option value="rule">Rules</option>
+          <option value="harvest_finding">Findings</option><option value="correction">Corrections</option>
+        </select></label>
+        <button class="tool-button" type="button" data-graph-fit>Fit</button>
+        <div class="zoom-group" aria-label="Graph zoom">
+          <button type="button" data-graph-zoom="out" aria-label="Zoom out">−</button><output id="graph-zoom">100%</output><button type="button" data-graph-zoom="in" aria-label="Zoom in">+</button>
+        </div>
+        <div class="graph-window" id="stepper" aria-label="Activity window"></div>
+      </div>
+
+      <div class="dependency-state" data-dependency-state="unavailable" role="note">
+        <strong>Dependencies unavailable</strong>
+        <span>This projection does not supply dependency records or exact parent/child source IDs. Recorded launch and contract-skill links appear below; they are not a task DAG.</span>
+      </div>
+
+      <div id="mapwrap">
+        <canvas id="map" aria-hidden="true"></canvas>
+        <div id="mapnote" hidden>Map data is unavailable. The page will not invent replacement records.</div>
+      </div>
+      <div class="graph-caption" aria-label="Relationship legend">
+        <span class="legend-key" data-legend-mode="work"><span class="legend-line work"></span>recorded launch</span>
+        <span class="legend-key" data-legend-mode="work"><span class="legend-line allowed"></span>allowed skill</span>
+        <span class="legend-key" data-legend-mode="governance" hidden><span class="legend-line"></span>typed governance relation</span>
+        <span class="legend-key" data-legend-mode="usage" hidden><span class="legend-line"></span>explicit attribution</span>
+        <span class="legend-key" data-legend-mode="usage" hidden><span class="legend-line inferred"></span>inferred attribution</span>
+        <span id="graph-count">Waiting for map data</span>
+      </div>
+      <details class="graph-browser" open>
+        <summary>Keyboard record browser</summary>
+        <p class="browser-copy">The buttons below mirror the bounded canvas selection. Search to reach records outside the initial subset; each inspector relation is also keyboard reachable.</p>
+        <div id="graph-browser-list" aria-label="Visible recorded nodes"></div>
+      </details>
+    </section>
+
+    <aside class="graph-inspector" id="graph-inspector" aria-labelledby="inspector-title">
+      <div class="inspector-head"><h2 id="inspector-title">Record inspector</h2></div>
+      <div class="inspector-body" id="inspector-body">
+        <div class="inspector-empty">
+          <h3>Follow recorded evidence</h3>
+          <p>Select a map node or use the keyboard record browser. Its supplied summary, source, and typed relationships will appear here.</p>
+          <ul class="truth-list">
+            <li>Neighborhoods are visual grouping only.</li>
+            <li>Allowed contract skills do not prove observed use.</li>
+            <li>Graph <em>enacts</em> links are governance relations, not lifecycle completion counts.</li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
 
 <script defer src="summary_data.js"></script>
 <script defer src="map_data.js"></script>
 <script defer src="ui.js?v=5dcf781d655c42b38ddfe704a6ca133db13ab339e66fc74ed5413e1f3873d664"></script>
 <script defer src="map.js"></script>
+<script defer src="atlas.js?v=20260907-a"></script>
 <script>
 (function () {
 "use strict";
-// Start only after deferred scripts settle. This watchdog runs while downloads
-// are pending; it does not depend on ui.js or create another external loader.
-const startupName = "Map";
+const startupName = "Work graph";
 function bootFailure(message, error) {
   const status = document.getElementById("data-source-status");
   status.textContent = startupName + " could not start. " + message;
@@ -119,29 +210,17 @@ function clearStartup() {
 }
 function failStartup(message) {
   if (startupSettled) return;
-  startupSettled = true;
-  clearStartup();
-  bootFailure(message);
+  startupSettled = true; clearStartup(); bootFailure(message);
 }
-function expireStartup() {
-  failStartup("Interface files did not finish loading within 5 seconds. Reload this page; if it persists, report the page URL and pending browser request.");
-}
-function checkStartupDeadline() {
-  if (!document.hidden && startupNow() >= startupDeadline) expireStartup();
-}
-function interruptStartup() {
-  failStartup("Page startup was interrupted. Reload this page to load the interface again.");
-}
+function expireStartup() { failStartup("Interface files did not finish loading within 5 seconds. Reload this page; if it persists, report the page URL and pending browser request."); }
+function checkStartupDeadline() { if (!document.hidden && startupNow() >= startupDeadline) expireStartup(); }
+function interruptStartup() { failStartup("Page startup was interrupted. Reload this page to load the interface again."); }
 function readyToStart() {
   if (startupSettled) return;
-  // Visibility throttling can delay the timer; a late ready event must not win.
   if (startupNow() >= startupDeadline) { expireStartup(); return; }
-  startupSettled = true;
-  clearStartup();
+  startupSettled = true; clearStartup();
   try { startPage(); }
-  catch (error) {
-    bootFailure("An initialization error interrupted loading. Reload this page; if it persists, report the page URL and browser error.", error);
-  }
+  catch (error) { bootFailure("An initialization error interrupted loading. Reload this page; if it persists, report the page URL and browser error.", error); }
 }
 if (document.readyState === "complete") readyToStart();
 else {
@@ -151,273 +230,260 @@ else {
   window.addEventListener("pagehide", interruptStartup);
   startupTimer = setTimeout(expireStartup, 5000);
 }
+
 function startPage() {
 if (!window.UI && location.protocol !== "file:") {
-  bootFailure("The interface files are unavailable. Reload this page to request the current files.");
-  return;
+  bootFailure("The interface files are unavailable. Reload this page to request the current files."); return;
 }
 if (!window.BrainMap || typeof window.BrainMap.mount !== "function") {
-  bootFailure("The map interface file is missing or incompatible. Reload this page to request the current files.");
-  return;
+  bootFailure("The map interface file is missing or incompatible. Reload this page to request the current files."); return;
 }
 if (window.UI && (!["esc", "kv", "agentHue", "dataSource", "usableSummary", "usableMap",
     "renderDataStatus", "pageRefresh"].every(name => typeof window.UI[name] === "function") ||
     !window.UI.panel || typeof window.UI.panel.open !== "function")) {
-  bootFailure("The interface files are incompatible. Reload this page to request the current files.");
-  return;
+  bootFailure("The interface files are incompatible. Reload this page to request the current files."); return;
 }
-// degrade gracefully when ui.js is absent at dev time: minimal esc/kv/panel shim
 const U = window.UI || (function () {
-  const esc = s => String(s == null ? "" : s)
-    .replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  let el = null;
-  function open(title, html) {
-    if (!el) {
-      el = document.createElement("aside");
-      el.style.cssText = "position:fixed;top:0;right:0;bottom:0;width:380px;max-width:100vw;box-sizing:border-box;z-index:40;overflow:auto;" +
-        "background:var(--bg);border-left:1px solid var(--border-2);padding:12px 14px;font-size:12px";
-      document.body.appendChild(el);
-      document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
-    }
-    el.innerHTML = '<div style="display:flex;gap:10px;align-items:center"><b class="mono" style="flex:1">' +
-      esc(title) + '</b><button id="ui-shim-x" style="all:unset;cursor:pointer;color:var(--text-faint)">✕</button></div>' + html;
-    el.style.display = "block";
-    el.querySelector("#ui-shim-x").addEventListener("click", close);
-  }
-  function close() { if (el) el.style.display = "none"; }
-  const record = d => !!d && typeof d === "object" && !Array.isArray(d);
-  const rows = d => Array.isArray(d) && d.every(record);
-  // Offline-only fallback checks the inputs this graph consumes. It does not
-  // refresh or claim source provenance when shared UI helpers are unavailable.
-  const usableSummary = d => record(d) && record(d.window) &&
-    [d.window.min_days, d.window.max_days, d.window.default_days].every(Number.isSafeInteger) &&
-    d.window.min_days >= 1 && d.window.max_days <= 366 && d.window.max_days >= d.window.min_days &&
-    d.window.default_days >= d.window.min_days && d.window.default_days <= d.window.max_days &&
-    (d.window.newest_event == null || typeof d.window.newest_event === "string") &&
-    rows(d.skills) && rows(d.agents) && record(d.matrix) && rows(d.matrix.cells) &&
-    d.matrix.cells.every(c => c.by_day == null || (record(c.by_day) && Object.values(c.by_day).every(record)));
-  const usableMap = d => record(d) && rows(d.nodes) && rows(d.edges) &&
-    d.nodes.every(n => typeof n.id === "string" && (n.label === undefined || typeof n.label === "string") &&
-      (!["agent", "skill"].includes(n.type) || typeof n.label === "string") &&
-      (n.date == null || typeof n.date === "string")) &&
-    d.edges.every(e => typeof e.src === "string" && typeof e.dst === "string") &&
-    (d.cards === undefined || (record(d.cards) && Object.values(d.cards).every(card =>
-      record(card) && ["title", "one_line", "date", "source", "page"].every(k =>
-        card[k] == null || typeof card[k] === "string")))) &&
-    (d.generated_at == null || typeof d.generated_at === "string");
+  const esc = value => String(value == null ? "" : value).replace(/[&<>"']/g,
+    char => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[char]));
+  const record = value => !!value && typeof value === "object" && !Array.isArray(value);
+  const rows = value => Array.isArray(value) && value.every(record);
+  const usableSummary = data => record(data) && record(data.window) &&
+    [data.window.min_days, data.window.max_days, data.window.default_days].every(Number.isSafeInteger) &&
+    data.window.min_days >= 1 && data.window.max_days <= 366 && data.window.max_days >= data.window.min_days &&
+    data.window.default_days >= data.window.min_days && data.window.default_days <= data.window.max_days &&
+    (data.window.newest_event == null || typeof data.window.newest_event === "string") &&
+    rows(data.skills) && rows(data.agents) && record(data.matrix) && rows(data.matrix.cells) &&
+    data.matrix.cells.every(cell => cell.by_day == null || (record(cell.by_day) && Object.values(cell.by_day).every(record)));
+  const usableMap = data => record(data) && rows(data.nodes) && rows(data.edges) &&
+    data.nodes.every(node => typeof node.id === "string" && (node.label === undefined || typeof node.label === "string") &&
+      (!["agent", "skill"].includes(node.type) || typeof node.label === "string") &&
+      (node.date == null || typeof node.date === "string")) &&
+    data.edges.every(edge => typeof edge.src === "string" && typeof edge.dst === "string") &&
+    (data.cards === undefined || (record(data.cards) && Object.values(data.cards).every(card => record(card) &&
+      ["title", "one_line", "date", "source", "page"].every(key => card[key] == null || typeof card[key] === "string")))) &&
+    (data.generated_at == null || typeof data.generated_at === "string");
   return { esc, agentHue: () => "var(--agent-other)", usableSummary, usableMap,
     dataSource: (data, valid) => ({ data: data && valid(data) ? data : null }),
-    kv: (k, v) => '<div class="ui-kv" style="display:flex;gap:10px"><span style="color:var(--text-faint);width:98px;flex:none">' +
-      esc(k) + '</span><span class="mono">' + v + "</span></div>",
-    panel: { open, close, isOpen: () => false } };
+    kv: () => "", panel: { open() {}, close() {}, isOpen: () => false } };
 })();
-const esc = U.esc;
-let D = window.BRAIN_SUMMARY || null;  // static fallback; replaced by live /api/summary
-let M = window.BRAIN_MAP || null;      // static fallback; replaced by live /api/map
 const $ = id => document.getElementById(id);
+let D = window.BRAIN_SUMMARY || null;
+let M = window.BRAIN_MAP || null;
+let instance = null;
+let mode = "work", query = "", type = "all";
+let WIN_MIN = 1, WIN_MAX = 7, windowDays = 7, asof = "";
+const NODE_TYPE_LABEL = { agent: "actor", spawn: "contract record", skill: "skill",
+  proposal: "proposal", rule: "rule", harvest_finding: "finding", correction: "correction",
+  anomaly: "anomaly", decision: "decision" };
 $("apparatus").href = "http://" + (location.hostname || "localhost") + ":5173";
 
-/* ---------- window stepper (shared brain.windowDays key; ←/→ steps) ----------
-   Bounds + as-of derive from the active summary; safe defaults here (parse-time,
-   before data loads), refined by applyData()/initWindowState() once data arrives —
-   so a missing baked file can never crash the prelude. */
-let WIN_MIN = 1, WIN_MAX = 7, asof = "", windowDays = 7;
 function applyData() {
   WIN_MIN = (D && D.window && D.window.min_days) || 1;
   WIN_MAX = (D && D.window && D.window.max_days) || 7;
-  asof = ((D && D.window && D.window.newest_event) ||
-    (M && M.generated_at) || "").slice(0, 10);
-  $("asof").textContent = asof;
-  $("asof").title = "as of " + asof;
+  asof = ((D && D.window && D.window.newest_event) || (M && M.generated_at) || "").slice(0, 10);
+  $("asof").textContent = asof || "date unavailable";
+  $("asof").title = asof ? "as of " + asof : "generation date unavailable";
   $("mapnote").hidden = !!M;
 }
 function initWindowState() {
   windowDays = (D && D.window && D.window.default_days) || 7;
   try {
-    const s = parseInt(localStorage.getItem("brain.windowDays"), 10);
-    if (s >= WIN_MIN && s <= WIN_MAX) windowDays = s;
+    const saved = parseInt(localStorage.getItem("brain.windowDays"), 10);
+    if (saved >= WIN_MIN && saved <= WIN_MAX) windowDays = saved;
   } catch (_) {}
 }
 function renderStepper() {
-  const st = $("stepper");
-  st.innerHTML = "";
-  st.title = "window: last " + windowDays + " day" + (windowDays === 1 ? "" : "s") + " · ←/→ to step";
-  for (let d = WIN_MIN; d <= WIN_MAX; d++) {
-    const t = document.createElement("button");
-    t.className = d === windowDays ? "tick on" : d < windowDays ? "tick fill" : "tick";
-    if (d === WIN_MIN || d === WIN_MAX) t.textContent = d;
-    t.addEventListener("click", () => setWindow(d));
-    st.appendChild(t);
-  }
+  const host = $("stepper"); host.innerHTML = "";
+  const previous = document.createElement("button"); previous.type = "button"; previous.textContent = "−";
+  previous.setAttribute("aria-label", "Use a shorter activity window"); previous.disabled = windowDays <= WIN_MIN;
+  previous.addEventListener("click", () => setWindow(windowDays - 1));
+  const label = document.createElement("output"); label.textContent = windowDays + "d"; label.title = "Activity window: " + windowDays + " days";
+  const next = document.createElement("button"); next.type = "button"; next.textContent = "+";
+  next.setAttribute("aria-label", "Use a longer activity window"); next.disabled = windowDays >= WIN_MAX;
+  next.addEventListener("click", () => setWindow(windowDays + 1));
+  host.appendChild(previous); host.appendChild(label); host.appendChild(next);
 }
-function setWindow(n) {
-  if (n === windowDays || n < WIN_MIN || n > WIN_MAX) return;
-  windowDays = n;
-  try { localStorage.setItem("brain.windowDays", String(n)); } catch (_) {}
-  renderStepper();
-  mountMap();
+function setWindow(next) {
+  if (next === windowDays || next < WIN_MIN || next > WIN_MAX) return;
+  windowDays = next;
+  try { localStorage.setItem("brain.windowDays", String(next)); } catch (_) {}
+  renderStepper(); mountMap();
 }
-document.addEventListener("keydown", e => {
-  if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") return;
-  if (e.key === "ArrowLeft") setWindow(windowDays - 1);
-  if (e.key === "ArrowRight") setWindow(windowDays + 1);
+document.addEventListener("keydown", event => {
+  const tag = event.target && event.target.tagName;
+  if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+  if (event.key === "ArrowLeft") setWindow(windowDays - 1);
+  if (event.key === "ArrowRight") setWindow(windowDays + 1);
 });
 
-/* ---------- full-viewport BrainMap ---------- */
-let inst = null, demoShown = false;
 function mountMap() {
   if (!M || typeof window.BrainMap === "undefined") return;
-  inst = BrainMap.mount($("map"), {
-    summary: D, map: M, windowDays: windowDays, embedded: false, onSelect: openNode
-  });
-  if (!demoShown) {
-    demoShown = true;
-    if (window.innerWidth >= 760) inst.demoCard();  // avoid obscuring the mobile map
+  instance = BrainMap.mount($("map"), { summary: D, map: M, windowDays, embedded: false,
+    mode, query, type, onSelect: openNode });
+  renderBrowser(); updateZoom();
+  const deep = deepLinkId();
+  if (deep && instance && typeof instance.selectById === "function") instance.selectById(deep);
+}
+function deepLinkId() {
+  const raw = String(location.hash || "").replace(/^#(?:node=)?/, "");
+  if (!raw) return "";
+  try { return decodeURIComponent(raw); } catch (_) { return ""; }
+}
+function writeDeepLink(id) {
+  if (!window.history || typeof window.history.replaceState !== "function") return;
+  const hash = "#node=" + encodeURIComponent(id);
+  history.replaceState(null, "", location.pathname + location.search + hash);
+}
+function safePage(raw) {
+  const value = String(raw || "").trim();
+  if (!/^(?:\.\.\/pages\/|pages\/)[A-Za-z0-9][A-Za-z0-9._\/-]*\.(?:md|html)(?:#[A-Za-z0-9._:-]+)?$/.test(value)) return "";
+  const rest = value.replace(/^\.\.\/pages\//, "").replace(/^pages\//, "");
+  return rest.split("/").includes("..") ? "" : value;
+}
+function relationReason(edge) {
+  const explicit = Number(edge.weight_e) || 0, inferred = Number(edge.weight_i) || 0;
+  if (edge.type === "uses") return "Skill listed in a recorded contract; this does not establish observed use.";
+  if (edge.type === "launched") return "Recorded launch attribution; exact parent/child source IDs are unavailable in this projection.";
+  if (edge.type === "used") {
+    const parts = [];
+    if (explicit) parts.push(explicit + " explicit attribution" + (explicit === 1 ? "" : "s"));
+    if (inferred) parts.push(inferred + " inferred attribution" + (inferred === 1 ? "" : "s"));
+    return (parts.join(" · ") || "Attribution recorded without a count") + ".";
   }
+  if (edge.type === "enacts") return "Recorded governance relation from the graph source; it is not a lifecycle enactment or verification count.";
+  const labels = { about: "Recorded finding-to-skill relation.", targets: "Recorded proposal target.",
+    becomes: "Recorded finding-to-proposal relation.", produces: "Recorded proposal-to-decision relation.",
+    extends: "Recorded rule-to-skill relation.", references: "Recorded reference.",
+    authored: "Recorded authorship attribution.", filed: "Recorded filing attribution.", linked_to: "Typed source relation." };
+  return labels[edge.type] || "Recorded typed relation: " + String(edge.type || "unknown") + ".";
 }
-
-/* ---------- side panel: governance detail + view-lineage ---------- */
-const dayDiff = d => Math.round((Date.parse(asof) - Date.parse(String(d).slice(0, 10))) / 864e5);
-const inWin = d => { if (!d) return false; const x = dayDiff(d); return x >= 0 && x < windowDays; };
-function sliceCell(c) {
-  if (!c.by_day) return { e: c.explicit || 0, i: c.inferred || 0 };
-  let e = 0, i = 0;
-  for (const d in c.by_day) if (inWin(d)) { e += c.by_day[d].e || 0; i += c.by_day[d].i || 0; }
-  return { e, i };
+function make(tag, className, value) {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (value != null) element.textContent = String(value);
+  return element;
 }
-const hueOf = id => (window.UI ? window.UI.agentHue(id) : "var(--agent-other)");
-const usageLegend = '<span class="ui-dot" style="width:6px;height:6px;background:var(--text-dim)" title="solid = explicit"></span>' +
-  '<span class="ui-dot" style="width:6px;height:6px;background:none;border:1px solid var(--text-dim)" title="faded = inferred"></span>';
-
-function usageRows(filterKey, filterVal) {
-  const rows = (((D || {}).matrix || {}).cells || [])
-    .filter(c => c[filterKey] === filterVal)
-    .map(c => ({ c, w: sliceCell(c) }))
-    .filter(x => x.w.e + x.w.i > 0)
-    .sort((a, b) => (b.w.e + b.w.i) - (a.w.e + a.w.i));
-  if (!rows.length) return '<div class="ui-note">no usage in window</div>';
-  const mx = Math.max(...rows.map(x => x.w.e + x.w.i));
-  return rows.map(x => {
-    const other = filterKey === "skill" ? x.c.agent : x.c.skill;
-    const hue = filterKey === "skill" ? hueOf(x.c.agent) : hueOf(filterVal);
-    return '<div class="ui-row" title="' + esc(other) + ": " + x.w.e + " explicit · " + x.w.i + ' inferred">' +
-      '<span class="ui-dot" style="background:' + hue + '"></span>' +
-      '<span class="ui-id">' + esc(other) + '</span>' +
-      '<span class="ui-bar">' +
-      (x.w.e ? '<i style="width:' + (x.w.e / mx * 100).toFixed(1) + "%;background:" + hue + '"></i>' : "") +
-      (x.w.i ? '<i style="width:' + (x.w.i / mx * 100).toFixed(1) + "%;background:" + hue + ';opacity:.32"></i>' : "") +
-      '</span><span class="ui-num">e' + x.w.e + "·i" + x.w.i + "</span></div>";
-  }).join("");
+function addFact(list, key, value) {
+  if (value == null || value === "") return;
+  const row = make("div", "fact"), term = make("dt", "", key), detail = make("dd", "", value);
+  row.appendChild(term); row.appendChild(detail); list.appendChild(row);
 }
-const lineageBtn = id =>
-  '<div class="ui-row" style="margin-top:8px"><button data-lineage="' + esc(id) +
-  '" style="all:unset;cursor:pointer;font:11px var(--font-mono);color:var(--text-dim);' +
-  'border:1px solid var(--border-2);border-radius:5px;padding:4px 10px">view lineage ⌖</button></div>';
-const cardBlock = id => {
-  const c = (M && M.cards && M.cards[id]) || null;
-  if (!c) return "";
-  return (c.one_line ? '<div class="ui-note">' + esc(c.one_line) + "</div>" : "") +
-    (c.date ? U.kv("date", esc(c.date)) : "") +
-    (c.source ? U.kv("source", esc(c.source)) : "") +
-    (c.page ? '<div class="ui-row" style="min-height:20px"><a class="ui-num" href="' + esc(c.page) + '">' +
-      esc(c.page.replace("../pages/", "pages/")) + "</a></div>" : "");
-};
-
-function openSkill(node) {
-  const name = node.label;
-  const s = ((D || {}).skills || []).find(x => x.name === name) || null;
-  const g = (s && s.governance) || {};
-  let chips = '<span class="ui-chip">' + esc(node.pack || (s && s.pack) || "?") + "</span>";
-  if (s && s.runtime_safe) chips += '<span class="ui-chip rt" title="member of the 6-skill runtime-safe core">runtime-safe</span>';
-  if (g.firewall_violation) chips += '<span class="ui-chip warn">firewall</span>';
-  if (g.drift && g.drift.active) chips += '<span class="ui-chip warn">drift</span>';
-  let html = '<div class="ui-row" style="flex-wrap:wrap">' + chips + "</div>" +
-    (s ? '<div class="ui-note">' + esc(s.purpose || "") + "</div>" : cardBlock(node.id));
-
-  html += '<div class="ui-sec" title="' + esc(((D || {}).matrix || {}).method_note || "") + '">usage ' +
-    usageLegend + "</div>" + usageRows("skill", name);
-
-  // governance detail: drift findings (D-042 referenced-only dispositions),
-  // heal chain, conformance verdict
-  html += '<div class="ui-div"></div><div class="ui-sec">governance</div>';
-  if (g.referenced_only_by_design) {
-    html += '<div class="ui-note" title="a_bgt_rsi D-042: four skills are intentionally referenced-only in the consumer">' +
-      "referenced-only by design (D-042) — drift findings carry this disposition</div>";
-  }
-  if (g.drift) {
-    const cls = g.drift.classes || {};
-    const parts = Object.keys(cls).sort().map(k => k + " ×" + cls[k]).join(" · ");
-    html += '<div class="ui-note" style="color:var(--warn)">▲ ' + esc(parts || "misuse") +
-      (g.drift.latest ? " · latest " + esc(g.drift.latest) : "") + "</div>";
-    if (g.drift.open_note) html += '<div class="ui-note">' + esc(g.drift.open_note) + "</div>";
-  }
-  if (g.healed && (g.healed.proposal_id || g.healed.rule_id)) {
-    html += U.kv("heal chain", esc([g.healed.proposal_id, g.healed.rule_id].filter(Boolean).join(" → ")) +
-      (g.healed.accepted_at ? " · " + esc(g.healed.accepted_at) : ""));
-  }
-  if (g.new) html += U.kv("born", esc(g.new.born || "") + " · " + esc(g.new.via || ""));
-  if (g.conformance && g.conformance.status) {
-    html += '<div class="ui-note" title="memory/conformance.md">verdict: ' + esc(g.conformance.status) + "</div>";
-  } else if (!s) {
-    html += '<div class="ui-note">summary_data.js absent — governance detail unavailable</div>';
-  }
-  html += lineageBtn(node.id);
-  U.panel.open(name, html);
-}
-
-function openAgent(node) {
-  const id = node.label;
-  const a = ((D || {}).agents || []).find(x => x.id === id) || null;
-  let runs = 0;
-  if (a) for (const d in (a.runs_by_day || {})) if (inWin(d)) runs += a.runs_by_day[d];
-  const auth = a && a.authentication != null ? a.authentication : "unverified / unavailable";
-  const crypto = a && a.cryptographically_authenticated === false ? "no (assertion only)"
-    : a && a.cryptographically_authenticated === true ? "unsupported claim" : "unknown";
-  let html = '<div class="ui-row"><span class="ui-dot" style="background:' + hueOf(id) + '"></span>' +
-    (a ? '<span class="ui-chip">' + esc(a.kind) + '</span><span class="ui-chip" title="attribution evidence quality">' +
-      esc(a.evidence) + "</span>" : "") + "</div>" +
-    U.kv("runs / " + windowDays + "d", String(runs)) +
-    (a ? U.kv("first seen", esc(a.first_seen || "—")) + U.kv("last seen", esc(a.last_seen || "—")) +
-      U.kv("actor source", esc(a.actor_source || "unknown")) +
-      U.kv("actor type", esc(a.actor_type || "unknown")) +
-      U.kv("authentication", esc(auth)) +
-      U.kv("cryptographic auth", esc(crypto)) : cardBlock(node.id)) +
-    '<div class="ui-sec">skills ' + usageLegend + "</div>" + usageRows("agent", id) +
-    lineageBtn(node.id);
-  U.panel.open(id, html);
-}
-
-function openOther(node) {
-  const c = (M && M.cards && M.cards[node.id]) || {};
-  const html = '<div class="ui-row"><span class="ui-chip">' + esc(node.type) + "</span></div>" +
-    (c.title ? '<div class="ui-title">' + esc(c.title) + "</div>" : "") +
-    cardBlock(node.id) + lineageBtn(node.id);
-  U.panel.open(node.label || node.id, html);
-}
-
 function openNode(node) {
-  if (!node) return;
-  if (node.type === "skill") return openSkill(node);
-  if (node.type === "agent") return openAgent(node);
-  return openOther(node);
+  if (!node || !M) return;
+  const card = (M.cards && M.cards[node.id]) || {};
+  const body = $("inspector-body"); body.innerHTML = "";
+  const kind = make("div", "node-kind", ({ spawn: "recorded contract", agent: "recorded actor",
+    harvest_finding: "harvest finding" }[node.type] || node.type || "record"));
+  const title = make("h3", "node-title", card.title || node.label || node.id);
+  body.appendChild(kind); body.appendChild(title);
+  if (card.one_line) body.appendChild(make("p", "node-summary", card.one_line));
+  const facts = make("dl", "facts");
+  addFact(facts, "Record ID", node.id); addFact(facts, "Date", node.date || card.date || "Unavailable");
+  addFact(facts, "Pack", node.pack); addFact(facts, "Source", card.source || "Unavailable");
+  if (node.type === "agent") {
+    const actor = ((D && D.agents) || []).find(row => row.id === node.label);
+    if (actor) {
+      addFact(facts, "Actor source", actor.actor_source || "Unknown");
+      addFact(facts, "Actor type", actor.actor_type || "Unknown");
+      addFact(facts, "Attribution", actor.evidence || "Unavailable");
+      addFact(facts, "Authentication", actor.authentication || "Unverified / unavailable");
+      addFact(facts, "Crypto auth", actor.cryptographically_authenticated === false ? "No — assertion only" :
+        actor.cryptographically_authenticated === true ? "Reported true — not verified here" : "Unknown");
+    }
+  }
+  if (node.type === "skill") {
+    const skill = ((D && D.skills) || []).find(row => row.name === node.label);
+    if (skill) {
+      addFact(facts, "Runtime", skill.runtime_safe ? "Runtime-safe core" : "Development-time");
+      addFact(facts, "Evidence", ((skill.governance || {}).state) || "Unavailable");
+    }
+  }
+  body.appendChild(facts);
+  const page = safePage(card.page);
+  if (page) {
+    const link = make("a", "source-action", "Open source evidence"); link.href = page;
+    body.appendChild(link);
+  } else body.appendChild(make("p", "source-unavailable", "Source evidence link unavailable for this record."));
+  if (instance && typeof instance.egoMode === "function") {
+    const focus = make("button", "focus-action", "Focus connections"); focus.type = "button";
+    focus.setAttribute("data-focus-node", node.id); focus.addEventListener("click", () => { instance.egoMode(node.id, false); renderBrowser(); updateCount(); });
+    body.appendChild(focus);
+  }
+  const section = make("section", "relations"), heading = make("h3", "", "Recorded relationships");
+  section.appendChild(heading);
+  section.appendChild(make("p", "", "Typed links from the supplied map projection. Select a related record to inspect it."));
+  const rows = instance && typeof instance.getConnections === "function" ? instance.getConnections(node.id) : [];
+  rows.slice(0, 24).forEach(row => {
+    const button = make("button", "relation-row"); button.type = "button";
+    button.setAttribute("data-related-id", row.node.id);
+    button.appendChild(make("strong", "", row.node.label || row.node.id));
+    button.appendChild(make("span", "", relationReason(row.edge)));
+    button.addEventListener("click", () => { instance.selectById(row.node.id); renderBrowser(); });
+    section.appendChild(button);
+  });
+  if (!rows.length) section.appendChild(make("p", "source-unavailable", "No typed relationships were supplied for this record."));
+  if (rows.length > 24) section.appendChild(make("p", "relation-more", "Showing 24 of " + rows.length + " recorded relationships. Focus or search to continue."));
+  body.appendChild(section);
+  writeDeepLink(node.id);
+  $("graph-selection-announcement").textContent = "Selected " + (card.title || node.label || node.id);
 }
-document.addEventListener("click", e => {
-  const b = e.target.closest && e.target.closest("[data-lineage]");
-  if (b && inst) inst.egoMode(b.getAttribute("data-lineage"));
-});
 
-/* ---------- projection data: independently fetched, explicitly attributed ----
-   Saved files and last successful responses remain available on request failure.
-   The source strip discloses each fallback and generation time. Successful
-   responses do not establish that both projections describe the same revision.
-   The existing ~30s page refresh retains the view on failure; remount only
-   when its content (or governance overlays) actually changes, so the user's
-   zoom/pan and ego-mode survive no-op polls. */
+function renderBrowser() {
+  const list = $("graph-browser-list"); list.innerHTML = "";
+  const nodes = instance && typeof instance.getVisibleNodes === "function" ? instance.getVisibleNodes() : [];
+  nodes.forEach(node => {
+    const button = make("button", "browser-node"); button.type = "button";
+    button.setAttribute("data-node-id", node.id); button.title = String(node.label || node.id);
+    button.appendChild(make("span", "node-dot"));
+    const copy = make("span", "node-copy"); copy.appendChild(make("strong", "", node.label || node.id));
+    copy.appendChild(make("small", "", (NODE_TYPE_LABEL[node.type] || node.type || "record") + (node.date ? " · " + node.date : "")));
+    button.appendChild(copy); button.addEventListener("click", () => instance.selectById(node.id)); list.appendChild(button);
+  });
+  if (!nodes.length) list.appendChild(make("p", "browser-copy", "No recorded nodes match this view."));
+  updateCount();
+}
+function updateCount() {
+  const count = instance && typeof instance.getVisibleNodes === "function" ? instance.getVisibleNodes().length : 0;
+  const hidden = instance && typeof instance.getHiddenCount === "function" ? instance.getHiddenCount() : 0;
+  $("graph-count").textContent = "Showing " + count + " recorded node" + (count === 1 ? "" : "s") +
+    (hidden ? " · " + hidden + " outside this bounded view" : "");
+}
+function updateZoom() {
+  const zoom = instance && typeof instance.getZoom === "function" ? instance.getZoom() : 1;
+  $("graph-zoom").textContent = Math.round(zoom * 100) + "%";
+}
+function setMode(next) {
+  if (!["work", "governance", "usage"].includes(next)) return;
+  mode = next; type = "all"; $("graph-type").value = "all";
+  document.querySelectorAll("[data-graph-mode]").forEach(button => button.setAttribute("aria-pressed", String(button.getAttribute("data-graph-mode") === mode)));
+  document.querySelectorAll("[data-legend-mode]").forEach(item => { item.hidden = item.getAttribute("data-legend-mode") !== mode; });
+  if (instance && typeof instance.setMode === "function") instance.setMode(mode);
+  renderBrowser(); updateZoom();
+}
+document.querySelectorAll("[data-graph-mode]").forEach(button => button.addEventListener("click", () => setMode(button.getAttribute("data-graph-mode"))));
+$("graph-search").addEventListener("input", event => {
+  query = String(event.target.value || "");
+  if (instance && typeof instance.setFilter === "function") instance.setFilter({ query, type });
+  renderBrowser();
+});
+$("graph-type").addEventListener("change", event => {
+  type = String(event.target.value || "all");
+  if (instance && typeof instance.setFilter === "function") instance.setFilter({ query, type });
+  renderBrowser();
+});
+document.querySelector("[data-graph-fit]").addEventListener("click", () => {
+  if (instance && typeof instance.fit === "function") instance.fit(); updateZoom();
+});
+document.querySelectorAll("[data-graph-zoom]").forEach(button => button.addEventListener("click", () => {
+  if (instance && typeof instance.zoomBy === "function") instance.zoomBy(button.getAttribute("data-graph-zoom") === "in" ? .14 : -.14);
+  updateZoom();
+}));
+
 const summarySource = U.dataSource(D, U.usableSummary);
 const mapSource = U.dataSource(M, U.usableMap);
 function showSources() {
-  if (U.renderDataStatus)
-    U.renderDataStatus($("data-source-status"), summarySource, mapSource, $("data-source-announcement"));
+  if (U.renderDataStatus) U.renderDataStatus($("data-source-status"), summarySource, mapSource, $("data-source-announcement"));
   else $("data-source-status").textContent = (D && M ? "Saved data only. " : "Data unavailable. ") +
     "Shared interface files are unavailable; live refresh and source checks are disabled. Reload this page to request the current files.";
 }
@@ -425,41 +491,19 @@ async function refreshData(current) {
   if (!summarySource || !mapSource) return [false, false];
   const update = changed => {
     if (!current()) return changed;
-    D = summarySource.data;
-    M = mapSource.data;
-    showSources();
+    D = summarySource.data; M = mapSource.data; showSources();
     if (changed) { applyData(); renderStepper(); }
-    const sig = mapSig();
-    if (sig !== lastMapSig) { lastMapSig = sig; mountMap(); }
+    const signature = mapSig();
+    if (signature !== lastMapSig) { lastMapSig = signature; mountMap(); }
     return changed;
   };
   return Promise.all([summarySource.refresh("api/summary").then(update), mapSource.refresh("api/map").then(update)]);
 }
-// Render signature = exactly what the map draws from, sans generated_at: the map
-// payload (nodes/edges/cards) plus the slices of D the renderer reads — skills
-// (governance halos), matrix (windowed edge weights), agents (run counts), window.
-// Covers every map-visible field (no missed remount) without churning on unrelated
-// summary changes (no needless zoom reset). Deterministic ⇒ byte-stable per ledger.
-function mapSig() {
-  return JSON.stringify([
-    M && [M.nodes, M.edges, M.cards],
-    D && [D.skills, D.matrix, D.agents, D.window],
-  ]);
-}
+function mapSig() { return JSON.stringify([M && [M.nodes, M.edges, M.cards], D && [D.skills, D.matrix, D.agents, D.window]]); }
 let lastMapSig = "";
-
-D = summarySource.data;
-M = mapSource.data;
-applyData();
-initWindowState();
-renderStepper();
-showSources();
-lastMapSig = mapSig();
-mountMap();
-// The existing offline shim paints without creating background page work.
-if (U.pageRefresh && summarySource && mapSource) U.pageRefresh(refreshData, () => {
-  summarySource.cancel(); mapSource.cancel();
-});
+D = summarySource.data; M = mapSource.data;
+applyData(); initWindowState(); renderStepper(); showSources(); lastMapSig = mapSig(); mountMap();
+if (U.pageRefresh && summarySource && mapSource) U.pageRefresh(refreshData, () => { summarySource.cancel(); mapSource.cancel(); });
 }
 })();
 </script>

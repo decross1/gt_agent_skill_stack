@@ -566,6 +566,34 @@ assert.equal(activeIntervals.size,0);assert.equal(timers.size,0);
 """)
 
 
+def test_graph_inspector_keeps_hostile_source_text_inert_and_explains_enacts():
+    run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
+context.location.protocol='file:';
+const hostile='<img src=x onerror=alert(1)>';
+const proposal={id:'proposal-hostile',type:'proposal',label:hostile,date:'2026-08-01'};
+const rule={id:'rule-safe',type:'rule',label:'R-safe',date:'2026-08-01'};
+const graph={generated_at:stamp,nodes:[proposal,rule],
+ edges:[{src:proposal.id,dst:rule.id,type:'enacts',weight_e:1}],
+ cards:{[proposal.id]:{title:hostile,one_line:hostile,date:'2026-08-01',source:hostile,
+   page:'javascript:alert(1)'},[rule.id]:{title:'R-safe',one_line:'source rule',date:'2026-08-01',source:'rules.md',page:''}}};
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=graph;
+let choose;
+context.BrainMap={mount(_canvas,options){choose=options.onSelect;return{
+ getVisibleNodes(){return graph.nodes;},getHiddenCount(){return 0;},getZoom(){return 1;},
+ getConnections(id){return id===proposal.id?[{edge:graph.edges[0],node:rule,direction:'out'}]:[];},
+ selectById(){return false;},egoMode(){return true;}
+};}};
+boot();await flush();choose(proposal);
+const body=elements.get('inspector-body');
+const descendants=root=>[root,...root.children.flatMap(descendants)];
+const rendered=descendants(body);
+assert.equal(body.innerHTML,'','source values must be emitted through textContent, not HTML parsing');
+assert.ok(rendered.some(node=>node.textContent===hostile));
+assert.ok(rendered.every(node=>!String(node.href||'').startsWith('javascript:')));
+assert.ok(rendered.some(node=>/not a lifecycle enactment or verification count/.test(node.textContent)));
+""")
+
+
 def test_admitted_projection_mounts_the_actual_map_renderer():
     run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
 const frames=new Map();let frameId=0;
