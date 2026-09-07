@@ -9,9 +9,14 @@ VIEW = REPO / "memory" / "brain" / "view"
 def test_graph_mobile_header_panel_and_demo_are_bounded():
     graph = (VIEW / "graph.html").read_text()
     shared = (VIEW / "ui.js").read_text()
-    assert "header .stepper,header .asof,header .xnav{display:none}" in graph
-    assert "max-width:100vw;box-sizing:border-box" in graph
-    assert "if (window.innerWidth >= 760) inst.demoCard()" in graph
+    # Atlas keeps its controls available in a wrapped toolbar and a stacked
+    # inspector. The removed header/demo markup is no longer the mechanism.
+    assert "@media(max-width:760px)" in graph
+    assert ".mode-tabs{width:100%;overflow:auto}" in graph
+    assert "grid-template-columns:1fr" in graph
+    assert "minmax(0,1fr)" in graph
+    assert 'id="graph-browser-list" aria-label="Visible recorded nodes"' in graph
+    assert ".demoCard(" not in graph, "no automatic hover card may cover narrow controls"
     assert "max-width:100vw;box-sizing:border-box" in shared
 
 
