@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-atlas data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>brain · governance</title>
+<title>Today · Agent System</title>
 <link rel="stylesheet" href="tokens.css">
 <style>
 html{color-scheme:dark}
@@ -147,67 +147,116 @@ footer{margin:20px 2px 6px;font-family:var(--font-mono);font-size:11px;color:var
 #ui-panel summary.contract-summary .ui-note{color:var(--text-dim);flex:1 0 100% !important;order:1;min-width:0;overflow-wrap:anywhere;white-space:normal}
 #ui-panel summary.contract-summary .ui-num{color:var(--text-dim);white-space:nowrap}
 </style>
+<link rel="stylesheet" href="atlas.css?v=20260907-a">
+<script defer src="atlas.js?v=20260907-a"></script>
 </head>
 <body>
 
-<header>
-  <div class="brand">brain<span class="sep">·</span><span class="sub">governance</span></div>
-  <nav class="views" title="view" aria-label="Brain views">
-    <a class="v on" href="dashboard.html" aria-current="page">Dashboard</a><a class="v" href="graph.html">Map</a><a class="v" href="activity.html">Activity</a><a class="v" href="proposal_review.html">Review</a>
+<aside class="atlas-nav" aria-label="Agent System navigation">
+  <a class="atlas-brand" href="dashboard.html">Agent System<span>Development workspace</span></a>
+  <nav aria-label="Primary">
+    <a href="dashboard.html" aria-current="page">Today</a>
+    <a href="graph.html">Work graph</a>
+    <a href="activity.html">Skills &amp; healing</a>
   </nav>
-  <div class="hspace"></div>
-  <div class="stepper" id="stepper"></div>
-  <div class="asof" id="asof"></div>
-  <a class="xnav" id="apparatus" title="open the apparatus dashboard">apparatus →</a>
+  <div class="atlas-nav-foot"><span>Recorded evidence</span><button type="button" data-atlas-theme>Dark theme</button></div>
+</aside>
+
+<header class="today-header">
+  <div class="today-heading">
+    <p class="atlas-eyebrow">Today</p>
+    <h1>What needs attention now</h1>
+    <p class="atlas-lede">See the next governed decision, what is blocking progress, and the latest recorded change.</p>
+  </div>
+  <div class="today-controls" aria-label="Today view controls">
+    <div class="today-window"><span>Evidence window</span><div class="stepper" id="stepper"></div></div>
+    <a class="xnav" id="apparatus" title="open the apparatus dashboard">Research workspace ↗</a>
+    <div class="source-stamp">Projection generated <span class="asof" id="asof">time unavailable</span> · <span id="window-label">selected window unavailable</span></div>
+  </div>
 </header>
 
 <div id="data-source-status" aria-label="Projection data sources">Data sources have not been checked.</div>
 <noscript><p role="alert">Dashboard needs JavaScript to check and display data. Enable JavaScript for this site, then reload this page.</p></noscript>
 <div id="data-source-announcement" role="status" aria-live="polite" aria-atomic="true" class="ui-visually-hidden"></div>
 
-<main>
-  <section class="band" id="status"></section>
-
-  <section id="operationsband">
-    <span class="sec" title="bounded local observations; no service controls">operations truth</span>
-    <div class="band" id="operations"><div class="opnote" data-state="loading">checking operations data availability…</div></div>
-  </section>
-  <div id="operations-source-status" class="opnote" aria-label="Operations data source"></div>
-
-  <section class="band" id="inbox">
-    <div class="irows" id="irows"></div>
-    <div class="cardcol" id="icard"></div>
-  </section>
-
-  <section class="band" id="mapband">
-    <canvas id="map"></canvas>
-    <div id="mapnote" hidden>map data not generated — scripts/project_map.py</div>
-  </section>
-
-  <section id="loopband">
-    <span class="sec" title="harvest → propose → review → enact: the self-healing loop">loop</span>
-    <div class="strip" id="loopstrip"></div>
-  </section>
-
-  <section id="contractsband">
-    <span class="sec" title="Source-reported task checks; inspect evaluator and source context. No independent execution verification here.">contracts · reported checks</span>
-    <div class="band" id="contracts"></div>
+<main class="today-main">
+  <section class="today-focus-grid" aria-label="Today's recorded priorities">
+    <article class="focus-card decision-focus" aria-labelledby="decision-heading">
+      <div class="focus-card-head">
+        <div><span class="focus-kicker">Next decision</span><h2 id="decision-heading">Decision catalog</h2></div>
+        <span class="source-badge">GET /api/proposals</span>
+      </div>
+      <div id="decision-catalog" aria-live="polite">
+        <p class="catalog-status">Catalog not checked. No decision is enabled.</p>
+      </div>
+    </article>
+    <article class="focus-card" aria-labelledby="blocker-heading">
+      <div class="focus-card-head">
+        <div><span class="focus-kicker">What blocks</span><h2 id="blocker-heading">Recorded blockers</h2></div>
+        <span class="source-badge">summary</span>
+      </div>
+      <div id="blocker-summary"><p class="focus-note">Waiting for summary data.</p></div>
+    </article>
+    <article class="focus-card" aria-labelledby="change-heading">
+      <div class="focus-card-head">
+        <div><span class="focus-kicker">What changed</span><h2 id="change-heading">Latest evidence</h2></div>
+        <span class="source-badge">selected window</span>
+      </div>
+      <div id="change-summary"><p class="focus-note">Waiting for summary data.</p></div>
+    </article>
   </section>
 
-  <section id="timelineband">
-    <span class="sec" title="brain events in the selected window">timeline</span>
-    <div class="band" id="timeline"></div>
-  </section>
+  <div class="status-heading"><h2>Recorded system state</h2><span>Summary projection; decision eligibility comes from the catalog above.</span></div>
+  <section class="band" id="status" aria-label="Recorded system state"></section>
 
-  <section id="rulesband">
-    <span class="sec" title="active framework rules distilled from corrections">rules</span>
-    <div class="band" id="rules"></div>
-  </section>
+  <details class="evidence-vault" id="evidence-details">
+    <summary>Explore recorded evidence <span>Operations, alerts, map, healing loop, contracts, timeline, rules, and raw receipts</span></summary>
+    <div class="evidence-body">
+      <section id="operationsband">
+        <span class="sec" title="bounded local observations; no service controls">operations truth</span>
+        <div class="band" id="operations"><div class="opnote" data-state="loading">checking operations data availability…</div></div>
+      </section>
+      <div id="operations-source-status" class="opnote" aria-label="Operations data source"></div>
 
-  <section id="daysband">
-    <span class="sec" title="per-day rendered brain views">days</span>
-    <div class="chips" id="days"></div>
-  </section>
+      <section aria-labelledby="attention-heading">
+        <span class="sec" id="attention-heading">attention evidence · actions, acknowledgements, and backlog kept separate</span>
+        <div class="band" id="inbox">
+          <div class="irows" id="irows"></div>
+          <div class="cardcol" id="icard"></div>
+        </div>
+      </section>
+
+      <section class="band" id="mapband" aria-label="Embedded recorded work map">
+        <canvas id="map"></canvas>
+        <div id="mapnote" hidden>map data not generated — scripts/project_map.py</div>
+      </section>
+
+      <section id="loopband">
+        <span class="sec" title="harvest → propose → review → enact: the self-healing loop">healing loop</span>
+        <div class="strip" id="loopstrip"></div>
+      </section>
+
+      <section id="contractsband">
+        <span class="sec" title="Source-reported task checks; inspect evaluator and source context. No independent execution verification here.">contracts · reported checks</span>
+        <div class="band" id="contracts"></div>
+      </section>
+
+      <section id="timelineband">
+        <span class="sec" title="brain events in the selected window">timeline · selected window</span>
+        <div class="band" id="timeline"></div>
+      </section>
+
+      <section id="rulesband">
+        <span class="sec" title="active framework rules distilled from corrections">active rules</span>
+        <div class="band" id="rules"></div>
+      </section>
+
+      <section id="daysband">
+        <span class="sec" title="per-day rendered brain views">rendered day views</span>
+        <div class="chips" id="days"></div>
+      </section>
+    </div>
+  </details>
 
   <footer id="foot"></footer>
 </main>
@@ -341,6 +390,8 @@ function setWindow(n) {
   windowDays = n;
   try { localStorage.setItem("brain.windowDays", String(n)); } catch (_) {}
   renderStepper();
+  $("window-label").textContent = "selected window " + windowDays + "d";
+  renderChangeSummary();
   renderTimeline();
   mountMap();
 }
@@ -351,7 +402,97 @@ document.addEventListener("keydown", e => {
 });
 $("apparatus").href = "http://" + (location.hostname || "localhost") + ":5173";
 
-/* ---------- status strip (6 segments; click scrolls to band) ---------- */
+/* ---------- current decision catalog (independent GET authority) ---------- */
+let C = null;
+const catalogView = { phase: "idle", error: "", receivedAt: null, checkedAt: null };
+function validReviewRecord(record) {
+  if (!record || typeof record !== "object" || Array.isArray(record) ||
+      typeof record.proposal_id !== "string" || !/^P-\d+$/.test(record.proposal_id) ||
+      record.scope !== "framework" || typeof record.eligible !== "boolean") return false;
+  const lanes = { open: "ready", "human-review": "ready", draft: "candidate", closed: "history" };
+  if (!Object.prototype.hasOwnProperty.call(lanes, record.lifecycle) ||
+      record.lane !== lanes[record.lifecycle]) return false;
+  const eligible = record.lifecycle === "open" || record.lifecycle === "human-review";
+  if (record.eligible !== eligible) return false;
+  return record.lifecycle === "closed"
+    ? ["accepted", "auto-accept", "rejected", "auto-reject"].includes(record.verdict)
+    : record.verdict === (record.lifecycle === "human-review" ? "human-review" : "open");
+}
+function validCatalog(data) {
+  if (!data || typeof data !== "object" || Array.isArray(data) ||
+      !Array.isArray(data.proposals) || !Array.isArray(data.records) ||
+      !data.counts || typeof data.counts !== "object" || Array.isArray(data.counts) ||
+      data.records.some(record => !validReviewRecord(record)) ||
+      data.proposals.some(record => !validReviewRecord(record) || record.eligible !== true)) return false;
+  const ids = data.records.map(record => record.proposal_id);
+  if (new Set(ids).size !== ids.length) return false;
+  const eligible = data.records.filter(record => record.eligible);
+  const eligibleIds = eligible.map(record => record.proposal_id).sort();
+  const proposalIds = data.proposals.map(record => record.proposal_id).sort();
+  if (new Set(proposalIds).size !== proposalIds.length ||
+      JSON.stringify(eligibleIds) !== JSON.stringify(proposalIds)) return false;
+  const facts = ["scope", "lifecycle", "lane", "eligible", "verdict"];
+  if (data.proposals.some(proposal => {
+    const record = data.records.find(row => row.proposal_id === proposal.proposal_id);
+    return !record || facts.some(key => record[key] !== proposal[key]);
+  })) return false;
+  const actual = {
+    ready: data.records.filter(record => record.lane === "ready").length,
+    candidates: data.records.filter(record => record.lane === "candidate").length,
+    history: data.records.filter(record => record.lane === "history").length,
+    total: data.records.length,
+  };
+  return Object.keys(actual).every(key => Number.isSafeInteger(data.counts[key]) &&
+    data.counts[key] >= 0 && data.counts[key] === actual[key]);
+}
+function catalogLaneHTML(lane, empty) {
+  const rows = C.records.filter(record => record.lane === lane);
+  if (!rows.length) return '<p class="focus-empty">' + esc(empty) + '</p>';
+  return '<div class="catalog-lane-list">' + rows.map(record =>
+    '<a href="proposal_review.html?id=' + encodeURIComponent(record.proposal_id) + '">' +
+      '<span class="decision-id">' + esc(record.proposal_id) + '</span> · ' +
+      esc(record.title || "Untitled record") + '</a>').join("") + '</div>';
+}
+function renderDecisionCatalog() {
+  const host = $("decision-catalog");
+  if (!C) {
+    const loading = catalogView.phase === "loading";
+    const offline = catalogView.phase === "offline";
+    const message = loading
+      ? "Checking the current proposal catalog (up to 5 seconds). No decision is enabled while eligibility is unknown."
+      : offline
+        ? "Decision catalog unavailable in this offline file view. Open this page through the brain server to check eligibility."
+        : "Decision catalog unavailable" + (catalogView.error ? " (" + catalogView.error + ")" : "") +
+          ". No decision is enabled.";
+    host.innerHTML = '<p class="catalog-status' + (loading ? "" : " bad") + '">' + esc(message) + '</p>';
+    return;
+  }
+  const ready = C.proposals;
+  const source = catalogView.error
+    ? "Last successful catalog response retained; refresh failed (" + catalogView.error + ")."
+    : "Current catalog response checked " + (catalogView.receivedAt || "time unavailable") + ".";
+  let html = '<p class="catalog-status' + (catalogView.error ? " bad" : "") + '">' + esc(source) +
+    ' The source does not report a generation timestamp.</p>';
+  if (!ready.length) {
+    html += '<p class="focus-empty"><strong>No eligible decisions.</strong> The current catalog returned an empty eligible list.</p>';
+  } else {
+    html += ready.map(record => '<div class="decision-row"><div class="decision-copy">' +
+      '<div class="decision-id">' + esc(record.proposal_id) + '</div>' +
+      '<div class="decision-title">' + esc(record.title || "Untitled proposal") + '</div>' +
+      '<div class="decision-meta">' + esc(record.target_type || "target") + ':' +
+      esc(record.target || "unknown") + ' · ' + esc(record.lifecycle) + '</div></div>' +
+      '<a class="decision-link" href="proposal_review.html?id=' + encodeURIComponent(record.proposal_id) +
+      '">Review</a></div>').join("");
+  }
+  html += '<div class="catalog-secondary">' +
+    '<details><summary>Held candidates · ' + C.counts.candidates + '</summary>' +
+      catalogLaneHTML("candidate", "No held candidates in this response.") + '</details>' +
+    '<details><summary>Decision history · ' + C.counts.history + '</summary>' +
+      catalogLaneHTML("history", "No decision history in this response.") + '</details></div>';
+  host.innerHTML = html;
+}
+
+/* ---------- status strip (6 summary segments; click scrolls to evidence) ---------- */
 function renderStatus() {
   const s = D.status_strip, host = $("status");
   host.innerHTML = "";
@@ -359,9 +500,17 @@ function renderStatus() {
     const e = document.createElement("div");
     e.className = "seg";
     e.title = title;
-    e.addEventListener("click", () => {
+    e.tabIndex = 0;
+    e.setAttribute("role", "button");
+    const open = () => {
       const t = $(target);
       if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+    e.addEventListener("click", open);
+    e.addEventListener("keydown", event => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      if (event.preventDefault) event.preventDefault();
+      open();
     });
     host.appendChild(e);
     return e;
@@ -372,8 +521,8 @@ function renderStatus() {
   e.innerHTML = '<span class="dot" style="background:' + sy[0] + '"></span><span class="v ' + sy[1] + '">' + esc(s.system) + "</span>";
 
   const n = currentNeedsYou();
-  e = seg("inbox", n.high + " high · " + n.med + " med · " + n.low + " low");
-  e.innerHTML = '<span class="k">needs you</span><span class="v">' + n.total + '</span>' +
+  e = seg("inbox", "summary-reported blockers: " + n.high + " high · " + n.med + " med · " + n.low + " low; not decision eligibility");
+  e.innerHTML = '<span class="k">recorded blockers</span><span class="v">' + n.total + '</span>' +
     '<span class="ticksv">' +
     [["high", 10, "var(--bad)"], ["med", 7, "var(--warn)"], ["low", 4, "var(--idle)"]].map(b =>
       '<i style="height:' + b[1] + "px;background:" + b[2] + ";opacity:" + (n[b[0]] ? 1 : .25) + '"></i>').join("") +
@@ -398,9 +547,13 @@ function renderStatus() {
     (fwOk ? '<span class="v ok">✓</span>' : '<span class="v bad">✗ ' + fw.violations + "</span>");
 
   const fr = s.freshness;
-  const fcls = fr.recall_floor_age_days <= 1 ? "ok" : fr.recall_floor_age_days <= 3 ? "warn" : "bad";
-  e = seg("daysband", "recall floor: " + fr.recall_floor + " · newest event " + fr.newest_event);
-  e.innerHTML = '<span class="k">fresh</span><span class="v ' + fcls + '">' + fr.recall_floor_age_days + "d</span>";
+  const floorAge = Number.isFinite(fr.recall_floor_age_days) ? fr.recall_floor_age_days : null;
+  const fcls = floorAge === null ? "warn" : floorAge <= 1 ? "ok" : floorAge <= 3 ? "warn" : "bad";
+  const selectedDays = typeof windowDays === "number" ? windowDays : "unknown";
+  e = seg("daysband", "source-reported recall floor: " + (fr.recall_floor || "unavailable") +
+    " · newest recorded event " + (fr.newest_event || "unavailable") + " · projection window " + selectedDays + "d");
+  e.innerHTML = '<span class="k">recall floor</span><span class="v ' + fcls + '">' +
+    (floorAge === null ? "unknown" : floorAge + "d old") + "</span>";
 }
 
 /* ---------- bounded operations truth (read-only; no implied control) ---------- */
@@ -427,14 +580,15 @@ function renderOperations(phase = "unavailable") {
   }
   const f = (obj, fallback = "unknown") => obj && obj.value !== undefined && obj.value !== null ? obj.value : fallback;
   const stat = obj => (obj && obj.status) || "unknown";
-  const cls = obj => stat(obj) === "observed" ? "ok" : stat(obj) === "stale" || stat(obj) === "partial" ? "warn" : "bad";
+  const cls = (obj, tone) => tone || (stat(obj) === "observed" ? "ok" :
+    stat(obj) === "stale" || stat(obj) === "partial" ? "warn" : "bad");
   const short = value => {
     if (value === null || value === undefined || value === "") return "unknown";
     if (typeof value === "object") return JSON.stringify(value);
     return String(value);
   };
-  const cell = (key, value, detail) => '<div class="op" title="' + esc(detail || "") + '">' +
-    '<div class="k">' + esc(key) + ' · ' + esc(stat(value)) + '</div><div class="v ' + cls(value) + '">' +
+  const cell = (key, value, detail, tone) => '<div class="op" title="' + esc(detail || "") + '">' +
+    '<div class="k">' + esc(key) + ' · ' + esc(stat(value)) + '</div><div class="v ' + cls(value, tone) + '">' +
     esc(short(f(value))) + '</div></div>';
   const lifecycle = O.proposals && O.proposals.counts;
   const c = f(lifecycle, {});
@@ -448,7 +602,8 @@ function renderOperations(phase = "unavailable") {
     cell("brain server", O.server && O.server.alive, O.server && O.server.alive && O.server.alive.uncertainty) +
     cell("watcher", O.watcher && O.watcher.state, O.watcher && O.watcher.state && O.watcher.state.uncertainty) +
     cell("last pipeline ok", O.pipeline && O.pipeline.last_success, "bounded log tail only") +
-    cell("last pipeline fail", O.pipeline && O.pipeline.last_failure, "absence in tail is unknown, not proof of none") +
+    cell("last pipeline failure", O.pipeline && O.pipeline.last_failure,
+         "recorded failure timestamp; observed means the source field was read, not that the outcome succeeded", "bad") +
     cell("projection age", O.projection && O.projection.age_seconds,
          "seconds since static summary.json; live dashboard data is separate") +
     cell("consumer cursor", {value: cursorText, status: stat(cursor), provenance: "cursor"},
@@ -529,6 +684,48 @@ function currentNeedsYou() {
     if (["high", "med", "low"].includes(it.severity)) counts[it.severity]++;
   });
   return counts;
+}
+function renderBlockerSummary() {
+  const host = $("blocker-summary");
+  const attention = attentionPartitions();
+  if (!attention) {
+    host.innerHTML = '<p class="focus-empty"><strong>Blocker status unavailable.</strong> The summary did not supply valid attention partitions.</p>';
+    return;
+  }
+  const rows = attention.framework_actions.map(attentionItem)
+    .filter(it => frameworkAction(it, "framework_actions", attention))
+    .sort((a, b) => (RANK[a.severity] ?? 9) - (RANK[b.severity] ?? 9) ||
+      ((a.age_days ?? 1e9) - (b.age_days ?? 1e9)));
+  if (!rows.length) {
+    host.innerHTML = '<p class="focus-empty"><strong>No framework blockers reported.</strong> This summary state does not establish that every external obligation is clear.</p>';
+    return;
+  }
+  const counts = currentNeedsYou();
+  host.innerHTML = '<p class="focus-note"><strong>' + rows.length + ' source-reported blocker' +
+    (rows.length === 1 ? "" : "s") + '.</strong> ' + counts.high + ' high, ' + counts.med +
+    ' medium, ' + counts.low + ' low. These signals do not grant decision authority.</p>' +
+    rows.slice(0, 3).map(it => '<div class="focus-row"><span class="dot" style="background:' +
+      U.sevColor(it.severity) + '"></span><div class="focus-copy"><div class="focus-title">' +
+      esc(it.title || it.id) + '</div><div class="focus-meta">' + esc(it.kind || "unknown kind") +
+      ' · ' + esc(it.id || "id unavailable") + ' · ' + (U.fmtAge(it.age_days) || "age unavailable") +
+      '</div></div></div>').join("") +
+    (rows.length > 3 ? '<p class="focus-note">+' + (rows.length - 3) + ' more in recorded evidence.</p>' : "");
+}
+
+function renderChangeSummary() {
+  const host = $("change-summary");
+  const rows = winRows();
+  if (!rows.length) {
+    host.innerHTML = '<p class="focus-empty"><strong>No recorded changes in this ' + windowDays +
+      '-day window.</strong> This describes the supplied projection only.</p>';
+    return;
+  }
+  host.innerHTML = rows.slice(0, 3).map((event, index) => '<div class="focus-row">' +
+    '<span class="dot" style="background:' + kindColor(event.kind) + '"></span>' +
+    '<div class="focus-copy"><div class="focus-title">' + esc(event.title || event.id) + '</div>' +
+    '<div class="focus-meta">' + (index === 0 ? "Newest · " : "") + esc(event.kind || "event") +
+    ' · ' + esc(event.date || "date unavailable") + ' · ' + esc(event.id || "id unavailable") +
+    '</div></div></div>').join("");
 }
 function renderInbox() {
   const fallback = sorted();
@@ -654,6 +851,11 @@ function mountMap() {
 }
 let rsz;
 window.addEventListener("resize", () => { clearTimeout(rsz); rsz = setTimeout(mountMap, 180); });
+window.addEventListener("atlas-theme-change", mountMap);
+const evidenceDetails = $("evidence-details");
+if (evidenceDetails) evidenceDetails.addEventListener("toggle", () => {
+  if (evidenceDetails.open) mountMap();
+});
 
 function openNode(node) {
   if (!node) return;
@@ -1101,10 +1303,13 @@ function paintFooter() {
    changes instead. */
 function paint() {
   asof = (D.generated_at || "").slice(0, 10);
-  $("asof").textContent = asof;
-  $("asof").title = "as of " + U.fmtTs(D.generated_at);
+  $("asof").textContent = asof || "time unavailable";
+  $("asof").title = "Projection generation timestamp and selected evidence window; neither establishes source freshness";
+  $("window-label").textContent = "selected window " + windowDays + "d";
   renderStepper();
   renderStatus();
+  renderBlockerSummary();
+  renderChangeSummary();
   renderInbox();
   renderLoop();
   renderContracts();
@@ -1161,6 +1366,20 @@ function mapSig() {
   ]);
 }
 let lastMapSig = "";
+const catalogSource = U.dataSource(null, validCatalog);
+const atlasPage = !!(document.documentElement && document.documentElement.hasAttribute &&
+  document.documentElement.hasAttribute("data-atlas"));
+async function refreshCatalog(current) {
+  await catalogSource.refresh("api/proposals");
+  if (!current()) return false;
+  C = catalogSource.data;
+  catalogView.error = catalogSource.error;
+  catalogView.receivedAt = catalogSource.receivedAt;
+  catalogView.checkedAt = catalogSource.checkedAt;
+  catalogView.phase = C ? (catalogSource.error ? "cached" : "ready") : "error";
+  renderDecisionCatalog();
+  return !!C;
+}
 
 // Paint saved content before starting any request. Each source paints on its
 // own completion; a hanging operations response cannot hold back projections.
@@ -1170,6 +1389,8 @@ if (D) { initWindowState(); paint(); }
 showSources();
 renderOperations(location.protocol === "http:" || location.protocol === "https:" ? "loading" : "unavailable");
 showOperationsSource();
+catalogView.phase = location.protocol === "http:" || location.protocol === "https:" ? "loading" : "offline";
+renderDecisionCatalog();
 lastMapSig = mapSig();
 mountMap();
 if (location.protocol !== "http:" && location.protocol !== "https:") reviewUiPresent = true;
@@ -1181,9 +1402,10 @@ U.pageRefresh(current => Promise.all([
     renderOperations();
     showOperationsSource();
   }),
+  atlasPage ? refreshCatalog(current) : Promise.resolve(false),
   probeReviewUi(current),
 ]), () => {
-  summarySource.cancel(); mapSource.cancel(); operationsSource.cancel(); reviewSource.cancel();
+  summarySource.cancel(); mapSource.cancel(); operationsSource.cancel(); catalogSource.cancel(); reviewSource.cancel();
   // A cancelled optimistic HEAD probe is checked again after restoration.
   // Presence of this link grants no verdict authority.
   if (reviewSource.error === "request cancelled") reviewUiPresent = null;
