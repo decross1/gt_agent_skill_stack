@@ -182,7 +182,8 @@ def test_ordered_dependencies_do_not_block_the_inline_deadline(page):
     assert presentation[0]['src'] == 'atlas.js?v=20260907-a'
     assert [s['src'].split('?')[0] for s in critical] == [
         'summary_data.js', 'map_data.js', 'ui.js', 'map.js']
-    assert all('defer' in s and 'async' not in s for s in scripts)
+    assert 'async' in presentation[0] and 'defer' not in presentation[0]
+    assert all('defer' in s and 'async' not in s for s in critical)
     digest = hashlib.sha256((VIEW / 'ui.js').read_bytes()).hexdigest()
     assert critical[2]['src'] == f'ui.js?v={digest}'
 

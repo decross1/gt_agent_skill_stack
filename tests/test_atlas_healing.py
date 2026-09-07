@@ -3,6 +3,7 @@ from __future__ import annotations
 
 from html.parser import HTMLParser
 from pathlib import Path
+import hashlib
 import shutil
 import subprocess
 
@@ -53,7 +54,7 @@ def test_atlas_shell_has_exact_primary_navigation_and_local_theme_assets(page, c
     assert all(link.get("href") != "proposal_review.html" for link in shell.primary_links)
     assert source.index("atlas.css?v=20260907-a") < source.index("atlas.js?v=20260907-a")
     assert any(tag == "script" and attrs.get("src") == "atlas.js?v=20260907-a" and
-               "defer" in attrs for tag, attrs in shell.tags)
+               "async" in attrs and "defer" not in attrs for tag, attrs in shell.tags)
 
 
 def test_activity_initial_panels_use_native_hidden_and_contextual_review_link():
@@ -109,3 +110,12 @@ def test_review_boot_is_get_only_and_loaded_empty_catalog_settles():
     )
     assert result.returncode == 0, result.stdout + result.stderr
     assert "REVIEW BOOT EMPTY CATALOG QUALIFIED" in result.stdout
+
+
+def test_activity_changed_renderer_uses_its_exact_content_revision():
+    shell = Shell()
+    shell.feed((VIEW / "activity.html").read_text())
+    digest = hashlib.sha256((VIEW / "activity.js").read_bytes()).hexdigest()
+    scripts = [attrs["src"] for tag, attrs in shell.tags
+               if tag == "script" and attrs.get("src", "").split("?")[0] == "activity.js"]
+    assert scripts == [f"activity.js?v={digest}"]

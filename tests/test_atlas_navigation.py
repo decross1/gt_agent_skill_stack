@@ -82,7 +82,7 @@ def test_light_default_and_versioned_local_theme_assets_are_available(page):
         assert urlsplit(src).query, f"{page} must version its shared presentation dependency"
         assert not urlsplit(src).netloc
         assert (VIEW / name).is_file()
-    assert "defer" in assets["atlas.js"][1], "theme preference must not block data bootstrap"
+    assert "async" in assets["atlas.js"][1] and "defer" not in assets["atlas.js"][1], "optional theme must not gate DOMContentLoaded"
 
 
 def test_all_destinations_use_one_shared_theme_revision():

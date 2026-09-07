@@ -66,7 +66,7 @@ def test_activity_uses_the_three_destination_atlas_navigation():
     assert parsed.primary_links[-1]["aria-current"] == "page"
     assert text.index("activity.css?v=20260907-atlas") < text.index("atlas.css?v=20260907-a")
     assert any(tag == "script" and attrs.get("src") == "atlas.js?v=20260907-a" and
-               "defer" in attrs for tag, attrs in parsed.tags)
+               "async" in attrs and "defer" not in attrs for tag, attrs in parsed.tags)
 
 
 def test_read_only_page_controls_have_accessible_names_and_types():
