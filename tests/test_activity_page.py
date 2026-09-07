@@ -614,19 +614,33 @@ assert.equal(evidence.open,false);assert.match(evidence.textContent,/summary.ski
 """,
  "healing_lifecycle_separates_current_records_from_history": r"""
 boot();await settle();await tab('proposals');
-const groups=descendants($('proposals-list'),e=>e.className.includes('proposal-group'));
-const sections=groups.filter(e=>e.className.split(' ').includes('proposal-group'));
+const sections=descendants($('proposals-list'),e=>e.className.split(' ').includes('proposal-group'));
 assert.equal(sections.length,2);
-assert.match(sections[0].textContent,/Needs review or evidence/);
+assert.match(sections[0].textContent,/Lifecycle evidence to inspect/);
 assert.match(sections[0].textContent,/P-FIXTURE-D/);
-assert.doesNotMatch(sections[0].textContent,/P-FIXTURE-A|P-FIXTURE-R/);
-assert.match(sections[1].textContent,/Decision history/);
-assert.match(sections[1].textContent,/P-FIXTURE-A/);
+assert.match(sections[0].textContent,/P-FIXTURE-A/);
+assert.doesNotMatch(sections[0].textContent,/P-FIXTURE-R/);
+assert.match(sections[1].textContent,/Recorded rejection history/);
 assert.match(sections[1].textContent,/P-FIXTURE-R/);
-const closed=descendants(sections[1],e=>e.tagName==='ARTICLE')[0];
-assert.match(closed.textContent,/AcceptanceRecorded acceptance/);
-assert.match(closed.textContent,/EnactmentProjector-reported Git\/path evidence/);
-assert.match(closed.textContent,/VerificationReported verification · pending/);
+assert.doesNotMatch(sections[1].textContent,/P-FIXTURE-A/);
+assert.match(sections[0].textContent,/AcceptanceRecorded acceptance/);
+assert.match(sections[0].textContent,/EnactmentProjector-reported Git\/path evidence/);
+assert.match(sections[0].textContent,/VerificationReported verification · pending/);
+""",
+ "accepted_without_enactment_and_conflicting_rejection_need_evidence": r"""
+const accepted=context.BRAIN_SUMMARY.loop.chains[0];
+accepted.healing.enacted={state:'pending'};accepted.healing.verified={};
+const contradictory=JSON.parse(JSON.stringify(accepted));contradictory.proposal_id='P-CONFLICT';contradictory.final_verdict='rejected';
+context.BRAIN_SUMMARY.loop.chains.push(contradictory);
+boot();await settle();await tab('proposals');
+const sections=descendants($('proposals-list'),e=>e.className.split(' ').includes('proposal-group'));
+assert.match(sections[0].textContent,/P-FIXTURE-A/);
+assert.match(sections[0].textContent,/Recorded accepted; implementation evidence needed/);
+assert.match(sections[0].textContent,/P-CONFLICT/);
+assert.match(sections[0].textContent,/Contradictory supplied lifecycle evidence/);
+assert.doesNotMatch(sections[1].textContent,/P-FIXTURE-A|P-CONFLICT/);
+assert.match(sections[1].textContent,/P-FIXTURE-R/);
+assert.equal(descendants($('proposals-list'),e=>e.tagName==='BUTTON').filter(e=>/accept|enact|verify/i.test(e.textContent)).length,0);
 """,
 })
 

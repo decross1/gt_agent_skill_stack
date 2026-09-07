@@ -432,9 +432,12 @@
             });
             host.appendChild(group);
           };
-          const history = chain => ["closed", "rejected"].includes(chain.lane) || ["accepted", "auto-accept", "rejected", "auto-reject"].includes(chain.final_verdict);
-          addGroup("Needs review or evidence", visible.filter(chain => !history(chain)), "proposal-current");
-          addGroup("Decision history", visible.filter(history), "proposal-history");
+          // A closed decision is not a completed repair. This view has no
+          // independent outcome verifier, so reported passes still need inspection.
+          const history = chain => !lifecycle(chain).contradiction &&
+            (chain.lane === "rejected" || ["rejected", "auto-reject"].includes(chain.final_verdict));
+          addGroup("Lifecycle evidence to inspect", visible.filter(chain => !history(chain)), "proposal-current");
+          addGroup("Recorded rejection history", visible.filter(history), "proposal-history");
         });
       }
       if (activePanel === "candidates") {
