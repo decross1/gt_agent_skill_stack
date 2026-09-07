@@ -7,10 +7,10 @@ WHY THIS EXISTS
 The brain's proposal loop only moves when a proposal exists. Today proposals
 are filed by hand (the [[propose]] skill). But the framework already *records*
 drift in two append-only ledgers — harvest findings (memory/feedback.jsonl) and
-run-log discipline flags (run_state/framework.run.jsonl, and read-only the
-consumer's run log). This script reads those signals and emits a DRAFT proposal
-per *new* signal, so a steward reviewing the brain sees candidates bubble up
-instead of having to author every proposal cold.
+admitted deterministic/runtime drift signals (memory/brain/drift_signals.jsonl).
+This script reads those signals and emits a DRAFT proposal per *new* signal, so
+a steward reviewing the brain sees candidates bubble up instead of having to
+author every proposal cold.
 
 WHAT IT EMITS
 -------------
@@ -35,26 +35,12 @@ a `draft` is a candidate the brain bubbled up that a human must promote to
     references    [<source ref>, <skill>]   the finding / run-log row it came from
     status        "draft"
 
-VISIBILITY (coordination note — READ BEFORE WIRING DRAFTS INTO THE UI)
-----------------------------------------------------------------------
-brain_server.open_framework_proposals() filters proposals by their *verdict*,
-keeping those whose project_summary.final_verdict(p) is in {open, human-review}.
-final_verdict reads the `verdict` field of the latest lifecycle row and DEFAULTS
-TO "open" when none is set. A draft is a single filing row with status="draft"
-and NO `verdict` field — so final_verdict(draft) == "open".
-
-CONSEQUENCE: with the server AS-IS, a draft WOULD leak into /api/proposals,
-because the list keys off `verdict`, not `status`. This script cannot fix that
-(it owns only this file). The intended end state for this slice is that drafts
-do NOT appear in the open list until a follow-up explicitly opts them in. To get
-there the follow-up must teach open_framework_proposals (or final_verdict) to
-treat status=="draft" as a distinct, NON-open lifecycle state — e.g. skip rows
-whose first entry has status "draft" unless a `?include_drafts=1` query / a
-separate /api/drafts route asks for them. Until that lands, run --apply only when
-a leaked draft in the open list is acceptable, or keep drafts in --dry-run.
-
-drafts() below returns the in-file draft rows so the follow-up can surface them
-(its own route) without re-deriving the signals.
+VISIBILITY AND GRADUATION
+-------------------------
+The delivered lifecycle inspector exposes draft candidates deterministically
+without a model call. Drafts remain distinct from open/human-review proposals,
+and automatic graduation remains physically closed. ``drafts()`` returns the
+in-file draft rows for that read-only candidate surface.
 
 SOURCES
 -------
@@ -64,8 +50,9 @@ SOURCES
    proposals.jsonl (match by skill/target). Source ref: feedback.jsonl:<H>:<ref>.
 2. Drift signals in memory/brain/drift_signals.jsonl — the machine-detected
    ledger (deterministic scan + runtime self-reports) written by scan_drift.py /
-   ingest_apparatus.py. Each signal whose `skill` is a real framework skill and
-   is NOT already covered by an existing (non-draft) proposal bubbles to a draft.
+   ingest_apparatus.py. Only the current detector-specific trigger shapes are
+   admitted. Each admitted signal whose `skill` is a real framework skill and is
+   NOT already covered by an existing (non-draft) proposal bubbles to a draft.
    Source ref: the signal's own `ref` field (e.g. framework.run.jsonl:L42).
 
    (Run-log / schema detection used to live here as runlog_signals(); that is
@@ -75,9 +62,9 @@ SOURCES
 IDEMPOTENCY
 -----------
 A second run produces no duplicates. Dedupe key is (target, source_ref): if a
-draft for that pair already exists in proposals.jsonl it is skipped. The
-existing-proposal coverage check (source 1) dedupes against hand-filed/agent
-proposals by skill alone.
+draft for that pair already exists in proposals.jsonl it is skipped. The broad
+existing-proposal coverage check applies to both sources and keeps every skill
+targeted by any non-draft filing covered, including terminal lifecycle outcomes.
 
 DESIGN INVARIANTS HONORED
 -------------------------
@@ -121,6 +108,9 @@ DRAFT_STATUS = "draft"
 
 # Harvest finding classes that count as drift worth bubbling.
 DRIFT_CLASSES = {"diverged", "friction", "gap"}
+# Runtime self-reports arrive here after ingest maps producer ``misuse`` to the
+# shared drift-ledger output word ``diverged``.
+RUNTIME_OUTPUT_CLASSES = {"friction", "diverged", "gap"}
 # Run-log statuses that count as a failure-ish discipline flag.
 FAILURE_STATUSES = {"failed", "aborted", "escalated"}
 
@@ -131,6 +121,11 @@ FAILURE_STATUSES = {"failed", "aborted", "escalated"}
 
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
+
+
+def _string(value: object) -> str:
+    """Return a stripped string, or empty for every non-string value."""
+    return value.strip() if isinstance(value, str) else ""
 
 
 def jsonl(path: Path) -> list[dict]:
@@ -216,7 +211,7 @@ def existing_state(rows: list[dict] | None = None) -> tuple[set[str], set[tuple[
     max_num = 0
     for r in (read_proposals(PROPOSALS, quarantine_known_legacy=True)
               if rows is None else rows):
-        pid = r.get("proposal_id") or ""
+        pid = _string(r.get("proposal_id"))
         if pid.startswith("P-"):
             try:
                 max_num = max(max_num, int(pid[2:]))
@@ -226,14 +221,16 @@ def existing_state(rows: list[dict] | None = None) -> tuple[set[str], set[tuple[
         # later verdict/outcome rows omit it.
         if "title" not in r:
             continue
-        status = (r.get("status") or "").strip()
-        target = (r.get("target") or "").strip()
+        status = _string(r.get("status"))
+        target = _string(r.get("target"))
         if status == DRAFT_STATUS:
-            for ref in (r.get("references") or []):
+            refs = r.get("references")
+            for ref in (refs if isinstance(refs, list) else []):
                 if isinstance(ref, str):
                     draft_keys.add((target, ref))
-        elif (r.get("target_type") or "").strip() == "skill" and target:
-            # An open/closed/human-review proposal already speaks to this skill.
+        elif _string(r.get("target_type")) == "skill" and target:
+            # Every non-draft filing speaks to the skill: open, closed, accepted,
+            # or rejected lifecycle outcomes do not create recurrence eligibility.
             covered_skills.add(target)
     return covered_skills, draft_keys, max_num
 
@@ -242,9 +239,18 @@ def existing_state(rows: list[dict] | None = None) -> tuple[set[str], set[tuple[
 # Signal -> draft proposal payload (no id yet; assigned at emit time)
 # ---------------------------------------------------------------------------
 
-def _trim(s: str, n: int) -> str:
-    s = " ".join((s or "").split())
+def _trim(s: object, n: int) -> str:
+    s = " ".join(_string(s).split())
     return s if len(s) <= n else s[: n - 1] + "…"
+
+
+def _diagnostic(target: str, source_ref: str, reason: str) -> dict:
+    """Return the existing bounded skip shape used by preview/CLI output."""
+    return {
+        "target": _trim(target, 80) or "<missing>",
+        "source_ref": _trim(source_ref, 180),
+        "reason": _trim(reason, 100),
+    }
 
 
 # A skill name quoted in backticks/quotes or written as a [[wikilink]].
@@ -273,13 +279,13 @@ def last_clean_harvest(skills: set[str]) -> dict[str, int]:
     confirmed: dict[str, set[int]] = {}
     opened: dict[str, set[int]] = {}
     for f in jsonl(FEEDBACK):
-        skill = (f.get("skill") or "").strip()
+        skill = _string(f.get("skill"))
         if skill not in skills:
             continue
         hn = _harvest_num(f.get("harvest_id"))
         if hn is None:
             continue
-        cls = (f.get("class") or "").strip()
+        cls = _string(f.get("class"))
         if cls == "confirmed":
             confirmed.setdefault(skill, set()).add(hn)
         elif cls in DRIFT_CLASSES:
@@ -320,37 +326,69 @@ def harvest_signals(skills: set[str],
     """Source 1 — one candidate per (skill, harvest_id, ref) drift finding on a
     framework skill not already covered by an existing proposal.
 
-    Returns (candidates, resolved). `resolved` carries findings skipped because
-    their remedy already shipped (they propose a 'new skill' that now exists);
-    each is {target, source_ref, reason} so the bubbler reports them rather than
-    dropping them silently."""
+    Returns (candidates, skipped). Every suppression/rejection carries the
+    existing {target, source_ref, reason} shape for inspectable preview output."""
     out: list[dict] = []
-    resolved: list[dict] = []
+    skipped: list[dict] = []
     seen: set[tuple[str, str]] = set()
     clean_after = last_clean_harvest(skills)
-    for f in jsonl(FEEDBACK):
-        cls = (f.get("class") or "").strip()
-        skill = (f.get("skill") or "").strip()
-        if cls not in DRIFT_CLASSES or skill not in skills:
+    for ln, f in jsonl_numbered(FEEDBACK):
+        cls_raw = f.get("class")
+        cls = _string(cls_raw)
+        # ``confirmed`` is a healthy harvest observation, not a rejected trigger.
+        if cls == "confirmed":
+            continue
+        skill_raw = f.get("skill")
+        skill = _string(skill_raw)
+        hid = _string(f.get("harvest_id")) or "?"
+        ref_raw = f.get("ref")
+        ref = _string(ref_raw)
+        source_ref = (f"feedback.jsonl:{hid}:{ref}" if ref else
+                      f"feedback.jsonl:{hid}")
+        target = ("<invalid>" if not isinstance(skill_raw, str) else
+                  skill or "<missing>")
+        if not isinstance(cls_raw, str):
+            skipped.append(_diagnostic(target, source_ref,
+                                       "invalid harvest class type"))
+            continue
+        if cls not in DRIFT_CLASSES:
+            skipped.append(_diagnostic(target, source_ref,
+                                       "invalid harvest class"))
+            continue
+        if not isinstance(skill_raw, str):
+            skipped.append(_diagnostic("<invalid>", source_ref,
+                                       "invalid skill type"))
+            continue
+        if not skill:
+            skipped.append(_diagnostic("<missing>", source_ref, "missing skill"))
+            continue
+        if skill not in skills:
+            skipped.append(_diagnostic(skill, source_ref,
+                                       "unknown framework skill"))
+            continue
+        if ref_raw is not None and not isinstance(ref_raw, str):
+            skipped.append(_diagnostic(skill, f"feedback.jsonl:{hid}:L{ln}",
+                                       "invalid source ref type"))
             continue
         if skill in covered_skills:
+            skipped.append(_diagnostic(
+                skill, source_ref, "covered by existing non-draft proposal"))
             continue
-        hid = (f.get("harvest_id") or "?").strip()
-        ref = (f.get("ref") or "").strip()
-        source_ref = f"feedback.jsonl:{hid}:{ref}" if ref else f"feedback.jsonl:{hid}"
         key = (skill, source_ref)
         if key in seen:
+            skipped.append(_diagnostic(skill, source_ref,
+                                       "duplicate harvest finding"))
             continue
         seen.add(key)
-        evidence = (f.get("evidence") or "").strip()
-        plan = (f.get("plan_candidate") or "").strip()
+        evidence = _string(f.get("evidence"))
+        plan = _string(f.get("plan_candidate"))
         # Resolved-finding guard #1: skip a finding whose proposed remedy (a new
         # skill) already exists. Precise — checks actual skill existence — and
         # does NOT suppress future real findings on existing skills.
         shipped = proposes_existing_skill(f"{plan} {evidence}", skills)
         if shipped:
-            resolved.append({"target": skill, "source_ref": source_ref,
-                             "reason": f"resolved (skill '{shipped}' exists)"})
+            skipped.append(_diagnostic(
+                skill, source_ref, f"resolved (skill '{shipped}' exists)"))
             continue
         # Resolved-finding guard #2: skip a finding superseded by a CLEAN harvest
         # (one that confirmed the skill AND carried no open finding on it) LATER
@@ -360,10 +398,10 @@ def harvest_signals(skills: set[str],
         fin_num = _harvest_num(hid)
         clean_h = clean_after.get(skill)
         if fin_num is not None and clean_h is not None and clean_h > fin_num:
-            resolved.append({
-                "target": skill, "source_ref": source_ref,
-                "reason": (f"superseded (skill clean at H{clean_h:03d} — confirmed, "
-                           f"no open finding — > finding H{fin_num:03d})")})
+            skipped.append(_diagnostic(
+                skill, source_ref,
+                f"superseded (skill clean at H{clean_h:03d} — confirmed, "
+                f"no open finding — > finding H{fin_num:03d})"))
             continue
         title = f"[{cls}] {skill}: {_trim(plan or evidence, 90)}"
         change = (plan or f"Address the {cls} signal on [[{skill}]]: {evidence}")
@@ -380,34 +418,99 @@ def harvest_signals(skills: set[str],
             "reasoning": reasoning,
             "source_ref": source_ref,
         })
-    return out, resolved
+    return out, skipped
 
 
-def signal_candidates(skills: set[str],
-                      covered_skills: set[str]) -> list[dict]:
+def signal_candidates(skills: set[str], covered_skills: set[str],
+                      diagnostics: list[dict] | None = None) -> list[dict]:
     """Source 2 — one candidate per drift signal in drift_signals.jsonl (the
     machine-detected ledger: deterministic scan + runtime self-reports) on a
     framework skill not already covered by an existing proposal. Mirrors the
     shape harvest_signals returns; the signal's own `ref` is the source_ref so
-    the existing (target, source_ref) dedup keeps it idempotent."""
+    the existing (target, source_ref) dedup keeps it idempotent. When supplied,
+    ``diagnostics`` receives bounded rejection/suppression rows."""
     out: list[dict] = []
+    rejected = diagnostics if diagnostics is not None else []
     seen: set[tuple[str, str]] = set()
-    for s in jsonl(DRIFT_SIGNALS):
-        skill = (s.get("skill") or "").strip()
-        if skill not in skills or skill in covered_skills:
+    for ln, s in jsonl_numbered(DRIFT_SIGNALS):
+        ref_raw = s.get("ref")
+        source_ref = _string(ref_raw)
+        diagnostic_ref = source_ref or f"drift_signals.jsonl:L{ln}"
+        skill_raw = s.get("skill")
+        skill = _string(skill_raw)
+        if not isinstance(skill_raw, str):
+            rejected.append(_diagnostic("<invalid>", diagnostic_ref,
+                                        "invalid skill type"))
             continue
-        source_ref = (s.get("ref") or "").strip()
+        if not skill:
+            rejected.append(_diagnostic("<missing>", diagnostic_ref,
+                                        "missing skill"))
+            continue
+        if skill not in skills:
+            rejected.append(_diagnostic(skill, diagnostic_ref,
+                                        "unknown framework skill"))
+            continue
+        if not isinstance(ref_raw, str):
+            rejected.append(_diagnostic(skill, diagnostic_ref,
+                                        "invalid source ref type"))
+            continue
         if not source_ref:
+            rejected.append(_diagnostic(skill, diagnostic_ref,
+                                        "missing source ref"))
+            continue
+        source_raw = s.get("source")
+        detector_raw = s.get("detector")
+        observed_raw = s.get("status_observed")
+        if not isinstance(source_raw, str):
+            rejected.append(_diagnostic(skill, source_ref,
+                                        "invalid source type"))
+            continue
+        if not isinstance(detector_raw, str):
+            rejected.append(_diagnostic(skill, source_ref,
+                                        "invalid detector type"))
+            continue
+        if not isinstance(observed_raw, str):
+            rejected.append(_diagnostic(skill, source_ref,
+                                        "invalid status_observed type"))
+            continue
+        source = source_raw.strip()
+        detector = detector_raw.strip()
+        observed = observed_raw.strip()
+        if source == "runtime" and detector == "runtime_selfreport":
+            if not observed:
+                rejected.append(_diagnostic(skill, source_ref,
+                                            "missing runtime output class"))
+                continue
+            if observed == "misuse":
+                rejected.append(_diagnostic(
+                    skill, source_ref,
+                    "invalid runtime output class: producer misuse must map to diverged"))
+                continue
+            if observed not in RUNTIME_OUTPUT_CLASSES:
+                rejected.append(_diagnostic(skill, source_ref,
+                                            "invalid runtime output class"))
+                continue
+        elif source == "scan" and detector == "runlog_schema":
+            if not observed:
+                rejected.append(_diagnostic(skill, source_ref,
+                                            "missing runlog_schema status"))
+                continue
+        else:
+            rejected.append(_diagnostic(skill, source_ref,
+                                        "invalid signal trigger"))
+            continue
+        if skill in covered_skills:
+            rejected.append(_diagnostic(
+                skill, source_ref, "covered by existing non-draft proposal"))
             continue
         key = (skill, source_ref)
         if key in seen:
+            rejected.append(_diagnostic(skill, source_ref,
+                                        "duplicate input signal"))
             continue
         seen.add(key)
-        sid = (s.get("signal_id") or "?").strip()
-        detector = (s.get("detector") or "signal").strip()
-        source = (s.get("source") or "scan").strip()
-        observed = (s.get("status_observed") or "").strip()
-        evidence = (s.get("evidence") or "").strip()
+        sid = _string(s.get("signal_id")) or "?"
+        evidence = _string(s.get("evidence"))
         title = f"[{detector}] {skill}: {_trim(evidence, 90)}"
         change = (
             f"Address the drift signal on [[{skill}]] "
@@ -498,11 +601,13 @@ def build_drafts(rows: list[dict] | None = None) -> tuple[list[dict], list[dict]
     # owns run-log/schema detection and its findings arrive via the
     # drift_signals.jsonl ledger that signal_candidates() reads. Calling both
     # would double-bubble the same run-log rows.
-    harvest_cands, resolved = harvest_signals(skills, covered_skills)
-    candidates = harvest_cands + signal_candidates(skills, covered_skills)
+    harvest_cands, harvest_skips = harvest_signals(skills, covered_skills)
+    signal_skips: list[dict] = []
+    signal_cands = signal_candidates(skills, covered_skills, signal_skips)
+    candidates = harvest_cands + signal_cands
 
     new_drafts: list[dict] = []
-    skipped: list[dict] = list(resolved)  # resolved-finding skips, reported not silent
+    skipped: list[dict] = harvest_skips + signal_skips
     minted_keys: set[tuple[str, str]] = set()
     ts = _now()
     n = max_num
@@ -534,7 +639,7 @@ def drafts() -> list[dict]:
     """All draft-status proposals currently in proposals.jsonl. Exposed so a
     follow-up can opt the UI into surfacing drafts without re-deriving them."""
     return [r for r in read_proposals(PROPOSALS, quarantine_known_legacy=True)
-            if (r.get("status") or "").strip() == DRAFT_STATUS and "title" in r]
+            if _string(r.get("status")) == DRAFT_STATUS and "title" in r]
 
 
 # ---------------------------------------------------------------------------
@@ -598,15 +703,12 @@ def main() -> int:
         print(f"      {d['title']}")
     if not new_drafts:
         print("  (no new signals to bubble)")
-    # Surface guard skips (resolved-finding + superseded) rather than hiding them
-    # — a silent drop would read as "nothing to bubble" when it isn't.
-    guard_skips = [s for s in skipped
-                   if str(s.get("reason", "")).startswith(("resolved", "superseded"))]
-    if guard_skips:
-        print(f"  not bubbled — remedy already shipped or superseded by a later "
-              f"confirmation: {len(guard_skips)}")
-        for s in guard_skips:
-            print(f"    · skill:{s['target']}  {s['reason']}  <- {s['source_ref']}")
+    if skipped:
+        print(f"  not bubbled — rejected or suppressed: {len(skipped)}")
+        for s in skipped:
+            print(f"    · skill:{_trim(s.get('target'), 80)}  "
+                  f"{_trim(s.get('reason'), 100)}  <- "
+                  f"{_trim(s.get('source_ref'), 180)}")
 
     if apply:
         if new_drafts:
