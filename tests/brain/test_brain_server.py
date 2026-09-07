@@ -537,6 +537,136 @@ def _get(path: str):
 
 
 # ---------------------------------------------------------------------------
+# AS022 review boundary — deterministic inspection, framework scope, lifecycle
+# ---------------------------------------------------------------------------
+
+def test_detail_get_is_read_only_when_no_stored_model_card(brain, monkeypatch):
+    """Opening a record is inspection only: a missing optional card stays absent."""
+    brain.seed(FW_PROP)
+    effects = {"generate": 0}
+
+    def forbidden_generate(_first):
+        effects["generate"] += 1
+        raise AssertionError("GET must not invoke the drafting model")
+
+    monkeypatch.setattr(bs, "generate_card", forbidden_generate)
+    before = {brain.proposals: brain.proposals.read_bytes(),
+              brain.cards: brain.cards.read_bytes()}
+
+    code, obj = _get("/api/proposal/P-100")
+
+    assert code == 200
+    assert obj["proposal"]["proposal_id"] == "P-100"
+    assert obj["card"] is None
+    assert obj["review"]["scope"] == "framework"
+    assert obj["review"]["lifecycle"] == "open"
+    assert obj["review"]["eligible"] is True
+    assert obj["review"]["verdict"] == "open"
+    assert effects == {"generate": 0}
+    assert {path: path.read_bytes() for path in before} == before
+
+
+def test_proposals_catalogs_ready_candidates_and_history_truthfully(brain):
+    draft = dict(FW_PROP, proposal_id="P-101", title="Held candidate", status="draft")
+    closed = dict(FW_PROP, proposal_id="P-102", title="Recorded rejection")
+    rejected = {
+        "timestamp": "2026-06-02T00:00:00Z", "proposal_id": "P-102",
+        "agent_id": "human:legacy", "verdict": "rejected", "status": "closed",
+    }
+    brain.seed(FW_PROP, draft, closed, rejected, RESEARCH_PROP)
+
+    code, obj = _get("/api/proposals")
+
+    assert code == 200
+    assert [row["proposal_id"] for row in obj["proposals"]] == ["P-100"]
+    by_id = {row["proposal_id"]: row for row in obj["records"]}
+    assert set(by_id) == {"P-100", "P-101", "P-102"}
+    assert by_id["P-100"]["lane"] == "ready"
+    assert by_id["P-100"]["eligible"] is True
+    assert by_id["P-101"]["lane"] == "candidate"
+    assert by_id["P-101"]["lifecycle"] == "draft"
+    assert by_id["P-101"]["eligible"] is False
+    assert by_id["P-102"]["lane"] == "history"
+    assert by_id["P-102"]["verdict"] == "rejected"
+    assert by_id["P-102"]["eligible"] is False
+    assert obj["counts"] == {"ready": 1, "candidates": 1, "history": 1, "total": 3}
+
+
+def test_external_scope_is_rejected_before_every_review_effect(brain, monkeypatch):
+    brain.seed(RESEARCH_PROP)
+    effects = {name: 0 for name in ("generate", "discuss", "synthesize", "verdict", "handoff")}
+
+    def effect(name, result):
+        def invoke(*_args, **_kwargs):
+            effects[name] += 1
+            return result
+        return invoke
+
+    monkeypatch.setattr(bs, "generate_card", effect("generate", {}))
+    monkeypatch.setattr(bs, "discuss_turn", effect("discuss", "reply"))
+    monkeypatch.setattr(bs, "synthesize_amended", effect("synthesize", "draft"))
+    monkeypatch.setattr(bs, "record_verdict", effect("verdict", {"ok": True, "recorded": "accepted"}))
+    monkeypatch.setattr(bs, "write_handoff", effect("handoff", "handoffs/P-200.md"))
+    before = {brain.proposals: brain.proposals.read_bytes(), brain.cards: brain.cards.read_bytes()}
+
+    results = [_get("/api/proposal/P-200")]
+    results.extend([
+        _post("P-200", "discuss", {"message": "why"}),
+        _post("P-200", "synthesize", {}),
+        _post("P-200", "verdict", {"verdict": "accept", "note": "",
+                                     "basis": "original", "actor_id": "derrick"}),
+        _post("P-200", "handoff", {"basis": "original", "actor_id": "derrick"}),
+    ])
+
+    assert [code for code, _obj in results] == [404, 404, 404, 404, 404]
+    assert effects == {name: 0 for name in effects}
+    assert {path: path.read_bytes() for path in before} == before
+    assert not brain.handoffs.exists()
+
+
+@pytest.mark.parametrize("pid,lifecycle", [("P-101", "draft"), ("P-102", "closed")])
+def test_ineligible_detail_is_inspectable_but_all_actions_fail_closed(
+        brain, monkeypatch, pid, lifecycle):
+    draft = dict(FW_PROP, proposal_id="P-101", title="Held candidate", status="draft")
+    closed = dict(FW_PROP, proposal_id="P-102", title="Recorded rejection")
+    rejected = {
+        "timestamp": "2026-06-02T00:00:00Z", "proposal_id": "P-102",
+        "agent_id": "human:legacy", "verdict": "rejected", "status": "closed",
+    }
+    brain.seed(draft, closed, rejected)
+    effects = {name: 0 for name in ("discuss", "synthesize", "verdict", "handoff")}
+
+    def effect(name, result):
+        def invoke(*_args, **_kwargs):
+            effects[name] += 1
+            return result
+        return invoke
+
+    monkeypatch.setattr(bs, "discuss_turn", effect("discuss", "reply"))
+    monkeypatch.setattr(bs, "synthesize_amended", effect("synthesize", "draft"))
+    monkeypatch.setattr(bs, "record_verdict", effect("verdict", {"ok": True}))
+    monkeypatch.setattr(bs, "write_handoff", effect("handoff", "handoffs/out.md"))
+    monkeypatch.setattr(bs, "generate_card", lambda _first: (_ for _ in ()).throw(
+        AssertionError("ineligible GET must not generate a card")))
+
+    detail_code, detail = _get(f"/api/proposal/{pid}")
+    actions = [
+        _post(pid, "discuss", {"message": "why"}),
+        _post(pid, "synthesize", {}),
+        _post(pid, "verdict", {"verdict": "reject", "note": "no",
+                                "basis": "original", "actor_id": "oracle"}),
+        _post(pid, "handoff", {"basis": "original", "actor_id": "oracle"}),
+    ]
+
+    assert detail_code == 200
+    assert detail["review"]["lifecycle"] == lifecycle
+    assert detail["review"]["eligible"] is False
+    assert detail["card"] is None
+    assert [code for code, _obj in actions] == [409, 409, 409, 409]
+    assert effects == {name: 0 for name in effects}
+
+
+# ---------------------------------------------------------------------------
 # GET /api/summary — live dashboard data (computed, not baked)
 # ---------------------------------------------------------------------------
 

@@ -181,22 +181,101 @@ def governed_proposal_rows() -> list[dict]:
     return inspect_proposals(PROPOSALS, quarantine_known_legacy=True).rows
 
 
-def open_framework_proposals() -> list[dict]:
+def _review_summary(pid: str, proposal: dict) -> dict:
+    """Return the canonical, read-only review facts for one framework record.
+
+    Lifecycle and eligibility come from the same collapsed rows used by the
+    governed CLI.  Stored evidence is reported as ledger evidence only; this
+    endpoint does not run Git, verify commands, or upgrade it into proof.
+    """
+    lifecycle = ps.lifecycle_state(proposal)
+    verdict = ps.final_verdict(proposal)
+    eligible = lifecycle in ("open", "human-review")
+    lane = "ready" if eligible else ("candidate" if lifecycle == "draft" else "history")
+    if lifecycle == "draft":
+        reason = "candidate graduation is closed; inspection only"
+    elif lifecycle == "closed":
+        reason = ("decision already recorded; accepted handoff recovery only"
+                  if verdict in ("accepted", "auto-accept")
+                  else "decision already recorded; inspection only")
+    elif lifecycle == "human-review":
+        reason = "human-review record is eligible for a governed decision"
+    else:
+        reason = "open record is eligible for a governed decision"
+
+    decision_row = next((row for row in reversed(proposal["lifecycle"])
+                         if row.get("verdict")), None)
+    decision = None
+    if decision_row is not None and decision_row.get("verdict") != "open":
+        decision = {
+            "verdict": decision_row.get("verdict"),
+            "status": decision_row.get("status"),
+            "timestamp": decision_row.get("timestamp"),
+            "actor": ps.project_actor(decision_row),
+            "source": "memory/brain/proposals.jsonl",
+        }
+
+    evidence = []
+    for row in proposal["lifecycle"]:
+        enactment = row.get("enactment")
+        if isinstance(enactment, dict):
+            evidence.append({
+                "kind": "enactment", "timestamp": row.get("timestamp"),
+                "commit": enactment.get("commit"), "paths": enactment.get("paths"),
+                "source": "memory/brain/proposals.jsonl",
+            })
+        verification = row.get("verification")
+        if isinstance(verification, dict):
+            evidence.append({
+                "kind": "verification", "timestamp": row.get("timestamp"),
+                "commit": verification.get("commit"),
+                "command": verification.get("command"),
+                "result": verification.get("result"),
+                "output_sha256": verification.get("output_sha256"),
+                "source": "memory/brain/proposals.jsonl",
+            })
+
+    first = proposal["first"]
+    return {
+        "proposal_id": pid,
+        "title": first.get("title", ""),
+        "target": first.get("target", ""),
+        "target_type": first.get("target_type", ""),
+        "scope": "framework",
+        "lifecycle": lifecycle,
+        "lane": lane,
+        "verdict": verdict,
+        "eligible": eligible,
+        "eligibility_reason": reason,
+        "decision": decision,
+        "evidence": evidence,
+    }
+
+
+def framework_review_records() -> list[dict]:
+    """All governed framework records, including held candidates and history."""
     collapsed = ps.collapse_proposals(governed_proposal_rows())
-    out = []
-    for pid, p in collapsed.items():
-        # lifecycle_state (not final_verdict) is the gate: a draft has no verdict
-        # and would otherwise read as "open" and leak into the review queue.
-        if ps.lifecycle_state(p) not in ("open", "human-review"):
-            continue
-        if ps.proposal_scope(p["first"], "a_bgt_rsi") != "framework":
-            continue
-        f = p["first"]
-        out.append({"proposal_id": pid, "title": f.get("title", ""),
-                    "target": f.get("target", ""), "target_type": f.get("target_type", ""),
-                    "verdict": ps.final_verdict(p)})
-    out.sort(key=lambda x: x["proposal_id"])
-    return out
+    records = [
+        _review_summary(pid, proposal)
+        for pid, proposal in collapsed.items()
+        if ps.proposal_scope(proposal["first"], "a_bgt_rsi") == "framework"
+    ]
+    lane_order = {"ready": 0, "candidate": 1, "history": 2}
+    records.sort(key=lambda row: (lane_order[row["lane"]], row["proposal_id"]))
+    return records
+
+
+def _framework_review_context(pid: str) -> tuple[dict, dict] | None:
+    """Resolve one governed framework record and its public review summary."""
+    proposal = ps.collapse_proposals(governed_proposal_rows()).get(pid)
+    if proposal is None or ps.proposal_scope(proposal["first"], "a_bgt_rsi") != "framework":
+        return None
+    return proposal, _review_summary(pid, proposal)
+
+
+def open_framework_proposals() -> list[dict]:
+    """Compatibility queue: only records currently eligible for a verdict."""
+    return [record for record in framework_review_records() if record["eligible"]]
 
 
 def proposal_first(pid: str) -> dict | None:
@@ -1078,19 +1157,31 @@ class Handler(SimpleHTTPRequestHandler):
                 # this intentionally does not rebuild projections or touch ledgers.
                 return self._send(200, operations_snapshot())
             if self.path == "/api/proposals":
-                return self._send(200, {"proposals": open_framework_proposals()})
+                records = framework_review_records()
+                counts = {key: sum(row["lane"] == lane for row in records)
+                          for key, lane in (("ready", "ready"), ("candidates", "candidate"),
+                                            ("history", "history"))}
+                counts["total"] = len(records)
+                return self._send(200, {
+                    "proposals": [row for row in records if row["eligible"]],
+                    "records": records,
+                    "counts": counts,
+                })
             pid = self._pid_from(parts)  # validated against ^P-\d+$ before any fs/argv use
-            if pid:
-                first = proposal_first(pid)
-                if not first:
-                    return self._send(404, {"error": "unknown proposal"})
-                # Deterministic: read the stored card; only draft (one LLM call) if
-                # none exists yet. generate_card persists it exactly once.
-                card = stored_card(pid) or generate_card(first)
+            if pid and len(parts) == 3 and parts[1] == "proposal":
+                context = _framework_review_context(pid)
+                if context is None:
+                    return self._send(404, {"error": "proposal is not in framework review scope"})
+                proposal, review = context
+                first = proposal["first"]
+                # Inspection is deterministic and side-effect free. Model notes
+                # exist only when already stored by an explicit advisory action.
+                card = stored_card(pid)
                 amended = latest_amended_draft(pid)
                 return self._send(200, {"proposal": first, "card": card,
                                         "discussion": discussion(pid),
-                                        "amended_draft": amended.get("change") if amended else None})
+                                        "amended_draft": amended.get("change") if amended else None,
+                                        "review": review})
             return self._send(404, {"error": "no route"})
         except GemmaError as e:
             return self._send(503, {"error": str(e)})
@@ -1104,10 +1195,21 @@ class Handler(SimpleHTTPRequestHandler):
         action = parts[3] if len(parts) >= 4 else ""
         if not pid:
             return self._send(404, {"error": "bad proposal id"})
-        first = proposal_first(pid)
-        if not first:
-            return self._send(404, {"error": "unknown proposal"})
+        if (len(parts) != 4 or parts[:2] != ["api", "proposal"]
+                or action not in ("discuss", "synthesize", "verdict", "handoff")):
+            return self._send(404, {"error": "no action"})
+        context = _framework_review_context(pid)
+        if context is None:
+            return self._send(404, {"error": "proposal is not in framework review scope"})
+        proposal, review = context
+        first = proposal["first"]
+        accepted_recovery = (action == "handoff" and review["lifecycle"] == "closed"
+                             and review["verdict"] in ("accepted", "auto-accept"))
+        if not review["eligible"] and not accepted_recovery:
+            return self._send(409, {"error": review["eligibility_reason"], "review": review})
         body = self._body()
+        if not isinstance(body, dict):
+            return self._send(400, {"error": "request body must be an object"})
         try:
             if action == "discuss":
                 msg = (body.get("message") or "").strip()
