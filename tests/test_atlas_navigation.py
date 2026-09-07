@@ -9,6 +9,8 @@ from urllib.parse import urlsplit
 
 import pytest
 
+from test_ui_data_provenance import run_js
+
 VIEW = Path(__file__).resolve().parents[1] / "memory/brain/view"
 PAGES = ("dashboard.html", "graph.html", "activity.html", "proposal_review.html")
 DESTINATIONS = [
@@ -92,3 +94,49 @@ def test_all_destinations_use_one_shared_theme_revision():
         references.append(tuple(sorted(src for src, _ in shell.assets if urlsplit(src).path in ("atlas.css", "atlas.js"))))
     assert len(references[0]) == 2
     assert len(set(references)) == 1
+
+
+@pytest.mark.parametrize("name", ("m1.html", "m2.html", "m3.html"))
+def test_historical_mockups_warn_before_the_old_visual_and_return_to_atlas(name):
+    text = (VIEW / "mockups" / name).read_text()
+    notice = text.index('class="archive-notice"')
+    visual = min(pos for marker in ("<header", '<section id="stage"')
+                 if (pos := text.find(marker)) >= 0)
+    assert notice < visual
+    assert "Archived mockup" in text[notice:visual]
+    assert "mock data" in text[notice:visual]
+    assert "not live" in text[notice:visual]
+    assert 'href="../dashboard.html"' in text[notice:visual]
+    assert "Return to Atlas Today" in text[notice:visual]
+
+
+def test_day_destinations_are_labelled_raw_markdown_and_fail_closed():
+    run_js(r"""
+context.U=U;context.esc=U.esc;
+context.$=id=>context.document.getElementById(id);
+context.D={days:[
+  {date:'2026-09-07',file:'2026-09-07.md',bytes:70},
+  {date:'2026-09-06',file:'javascript:alert(1)',bytes:60},
+  {date:'2026-09-05',file:'https://example.test/private.md',bytes:50},
+  {date:'2026-09-04',file:'/private/2026-09-04.md',bytes:40},
+  {date:'2026-09-03',file:'../2026-09-03.md',bytes:30},
+]};
+const html=fs.readFileSync(process.argv[1]+'/dashboard.html','utf8');
+const source=html.slice(html.indexOf('/* ---------- per-day chips'),
+  html.indexOf('/* ---------- footer'));
+vm.runInContext(source+';globalThis.drawDays=renderDays;globalThis.safeDay=safeRawMarkdownDayHref;',context);
+assert.equal(context.safeDay('2026-09-07.md'),'2026-09-07.md');
+for(const bad of ['javascript:alert(1)','https://example.test/private.md','/private.md',
+                  '../2026-09-03.md','nested/2026-09-02.md','notes.txt']) {
+  assert.equal(context.safeDay(bad),null);
+}
+context.drawDays();
+const children=elements.get('days').children;
+assert.equal(children.length,5);
+assert.equal(children[0].href,'2026-09-07.md');
+assert.match(children[0].textContent,/Raw Markdown/);
+for(const item of children.slice(1)) {
+  assert.equal(Object.hasOwn(item,'href'),false);
+  assert.match(item.textContent,/Raw Markdown/);
+}
+""")

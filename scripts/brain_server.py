@@ -23,6 +23,7 @@ Design invariants (keep the brain honest while making it dynamic):
 Run: python3 scripts/brain_server.py [--port 5180]
 """
 import argparse
+from io import BytesIO
 import json
 import os
 import re
@@ -33,6 +34,7 @@ import threading
 import time
 import urllib.error
 import urllib.request
+from urllib.parse import urlsplit, urlunsplit
 from datetime import datetime, timezone
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -1173,6 +1175,43 @@ class Handler(SimpleHTTPRequestHandler):
             return json.loads(self.rfile.read(n) or b"{}")
         except json.JSONDecodeError:
             return {}
+
+    def send_head(self):
+        """Route workspace entry URLs to Today; retain all other static behavior."""
+        request = urlsplit(self.path)
+        if request.path in ("/", "/index.html"):
+            location = urlunsplit(("", "", "/dashboard.html", request.query,
+                                   request.fragment))
+            self.send_response(302)
+            self.send_header("Location", location)
+            self.send_header("Content-Length", "0")
+            self.end_headers()
+            return None
+        return super().send_head()
+
+    def list_directory(self, path):
+        """Give the retained mockups directory explicit archive context."""
+        if Path(path).resolve() != (Path(self.directory) / "mockups").resolve():
+            return super().list_directory(path)
+        payload = b"""<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Archived mockups \xc2\xb7 Agent System</title></head><body>
+<main><h1>Archived mockups</h1>
+<p>These are source-only historical design studies with mock data. They are not live status views.</p>
+<p><a href="/dashboard.html">Return to Atlas Today</a></p>
+<ul>
+<li><a href="m1.html">m1.html \xe2\x80\x94 archived mock view</a></li>
+<li><a href="m2.html">m2.html \xe2\x80\x94 archived mock view</a></li>
+<li><a href="m3.html">m3.html \xe2\x80\x94 archived mock view</a></li>
+<li><a href="SPEC.md">SPEC.md \xe2\x80\x94 raw Markdown source</a></li>
+</ul></main></body></html>
+"""
+        self.send_response(200)
+        self.send_header("Content-Type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(payload)))
+        self.end_headers()
+        return BytesIO(payload)
 
     def do_GET(self):
         # Non-API paths fall through to SimpleHTTPRequestHandler, which serves
