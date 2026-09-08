@@ -175,6 +175,7 @@ def _capture_jsonl(path: Path, locator: str) -> tuple[list[dict], dict]:
     malformed = 0
     non_objects = 0
     excessive_nesting = 0
+    invalid_utf8 = 0
     for line_number, line in lines:
         try:
             row = json.loads(line)
@@ -187,31 +188,49 @@ def _capture_jsonl(path: Path, locator: str) -> tuple[list[dict], dict]:
         if not isinstance(row, dict):
             non_objects += 1
             continue
-        # Iterative admission prevents parser/library recursive-shape failures.
+        # Validate keys and values before either typed or legacy projection.
+        # JSON escapes can decode to unpaired surrogates even from ASCII input.
+        # Keep container depth bounded without recursively walking the row.
         pending = [(row, 1)]
         too_deep = False
+        invalid_text = False
         while pending:
             value, depth = pending.pop()
+            if isinstance(value, str):
+                try:
+                    value.encode("utf-8")
+                except UnicodeEncodeError:
+                    invalid_text = True
+                    break
+                continue
             if not isinstance(value, (dict, list)):
                 continue
             if depth > WORK_JSON_MAX_DEPTH:
                 too_deep = True
                 break
-            children = value.values() if isinstance(value, dict) else value
+            if isinstance(value, dict):
+                pending.extend((key, depth + 1) for key in value)
+                children = value.values()
+            else:
+                children = value
             pending.extend((child, depth + 1) for child in children
-                           if isinstance(child, (dict, list)))
+                           if isinstance(child, (str, dict, list)))
         if too_deep:
             excessive_nesting += 1
             continue
+        if invalid_text:
+            invalid_utf8 += 1
+            continue
         row["_source_line"] = line_number
         rows.append(row)
-    if malformed or non_objects or excessive_nesting:
+    if malformed or non_objects or excessive_nesting or invalid_utf8:
         reason = ("json_nesting_exceeded" if excessive_nesting else
+                  "invalid_utf8_scalar" if invalid_utf8 else
                   "malformed_jsonl" if malformed else "non_object_json")
         descriptor.update(
             availability="unavailable",
             reason=reason,
-            invalid_rows=malformed + non_objects + excessive_nesting,
+            invalid_rows=malformed + non_objects + excessive_nesting + invalid_utf8,
         )
     return rows, descriptor
 
@@ -409,7 +428,8 @@ def ladder_attribution(row: dict) -> tuple[str | None, bool]:
     sk = (row.get("skill_used") or "").strip()
     if sk:
         return sk, True
-    st = (row.get("status") or "").strip()
+    raw_status = row.get("status")
+    st = raw_status.strip() if isinstance(raw_status, str) else ""
     if st in STATUS_TO_SKILL:
         return STATUS_TO_SKILL[st], False
     task = (row.get("task_id") or "").strip()

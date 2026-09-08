@@ -590,3 +590,52 @@ def test_capture_amendment_physical_row_before_strip(framework, monkeypatch):
     assert source["reason"] == "row_byte_cap_exceeded"
     assert source["sha256"] == hashlib.sha256(raw).hexdigest()
     assert source["bytes"] == len(raw)
+
+
+@pytest.mark.parametrize("field", [
+    b'"status":"\\ud800"',
+    b'"agent":"\\udfff"',
+    b'"status":{"nested":["\\ud800"]}',
+    b'"\\ud800":"value"',
+    b'"status":[{"\\udfff":"value"}]',
+])
+def test_capture_rejects_non_utf8_strings_and_keys_without_losing_healthy_rows(
+        framework, monkeypatch, field):
+    healthy = b'{"task_id":"healthy","agent":"claude-code-main","skill_used":"validate"}\n'
+    rejected = b'{"task_id":"rejected","skill_used":"validate",' + field + b'}\n'
+    raw = healthy + rejected
+    source = _OneReadPath(raw)
+    rows, descriptor = pm._capture_jsonl(source, pm.FW_RUN_LOCATOR)
+    assert [row["task_id"] for row in rows] == ["healthy"]
+    assert rows[0]["_source_line"] == 1
+    assert descriptor == {
+        "locator": pm.FW_RUN_LOCATOR, "sha256": hashlib.sha256(raw).hexdigest(),
+        "bytes": len(raw), "rows": 2, "availability": "unavailable",
+        "reason": "invalid_utf8_scalar", "invalid_rows": 1,
+    }
+    monkeypatch.setattr(pm, "FW_RUN", _OneReadPath(raw))
+    monkeypatch.setattr(pm, "SPAWN_LEDGER", _OneReadPath(b""))
+    result = pm.build_map()
+    assert "work" not in result
+    assert result["work_capture"]["state"] == "unavailable"
+    assert result["work_capture"]["source"]["capture_basis"]["files"][0] == descriptor
+    explicit = [edge for edge in result["edges"] if edge["type"] == "used" and edge.get("weight_e")]
+    assert len(explicit) == 1 and explicit[0]["weight_e"] == 1
+    # The invalid row cannot become legacy attribution or escaped apparent work.
+    json.dumps(result, ensure_ascii=False).encode("utf-8")
+    assert source.reads == pm.FW_RUN.reads == pm.SPAWN_LEDGER.reads == 1
+
+
+@pytest.mark.parametrize("raw", [
+    '{"task_id":"valid","status":{"café":["漢字","🧠"]}}\n'.encode("utf-8"),
+    b'{"task_id":"valid","status":{"\\ud83e\\udde0":["\\ud83e\\udde0"]}}\n',
+])
+def test_capture_preserves_valid_unicode_and_decoded_surrogate_pairs(framework, monkeypatch, raw):
+    monkeypatch.setattr(pm, "FW_RUN", _OneReadPath(raw))
+    monkeypatch.setattr(pm, "SPAWN_LEDGER", _OneReadPath(b""))
+    result = pm.build_map()
+    assert "work_capture" not in result
+    node = next(node for node in result["work"]["nodes"] if node.get("record_id") == "valid")
+    assert node["raw_status"] == json.loads(raw)["status"]
+    assert result["work"]["source"]["capture_basis"]["files"][0]["sha256"] == hashlib.sha256(raw).hexdigest()
+    json.dumps(result, ensure_ascii=False).encode("utf-8")

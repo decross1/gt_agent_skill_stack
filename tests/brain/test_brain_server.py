@@ -17,6 +17,8 @@ The module pins its paths at import time as module-level constants
 We monkeypatch all of them at a tmp fixture dir so the real brain is untouched.
 write_handoff returns `path.relative_to(ROOT)`, so ROOT is repointed at tmp too.
 """
+import hashlib
+import io
 import json
 import os
 import shutil
@@ -849,6 +851,80 @@ def test_current_map_caches_within_ttl(brain, monkeypatch):
     b = bs.current_map()
     assert n["c"] == 1
     assert a is b
+
+
+def _get_serialized_map():
+    """Execute the real API handler AND _send serializer without a socket."""
+    handler = bs.Handler.__new__(bs.Handler)
+    handler.path = "/api/map"
+    handler.headers = {}
+    handler.wfile = io.BytesIO()
+    response = {"headers": {}}
+    handler.send_response = lambda code: response.update(code=code)
+    handler.send_header = lambda key, value: response["headers"].update({key: value})
+    handler.end_headers = lambda: None
+    handler.do_GET()
+    raw = handler.wfile.getvalue()
+    assert int(response["headers"]["Content-Length"]) == len(raw)
+    assert response["headers"]["Content-Type"] == "application/json"
+    return response["code"], json.loads(raw.decode("utf-8"))
+
+
+def _private_map_sources(brain, monkeypatch, raw):
+    root = brain.root / "map-inputs"
+    root.mkdir()
+    for name in ("EDGES", "NARRATIVES", "PROPOSALS", "FEEDBACK", "SPAWN_LEDGER",
+                 "FW_DECISIONS", "FW_RUN", "CONFORMANCE"):
+        path = root / name
+        path.write_bytes(raw if name == "FW_RUN" else b"")
+        monkeypatch.setattr(bs.pm, name, path)
+    monkeypatch.setattr(bs.pm, "PAGES_DIR", root / "pages")
+    monkeypatch.setattr(bs.pm, "load_skills", lambda: [{"name": "validate", "pack": "core",
+        "runtime_safe": "true", "layer": "A", "description": "private fixture"}])
+    monkeypatch.setattr(bs.pm, "load_rules", lambda: [])
+    monkeypatch.setattr(bs.pm, "resolve_consumer", lambda: None)
+    return root
+
+
+@pytest.mark.parametrize("field", [
+    b'"status":"\\ud800"', b'"agent":"\\ud800"',
+    b'"status":{"nested":["\\ud800"]}', b'"\\udfff":"value"',
+    b'"status":[{"\\ud800":["valid"]}]',
+])
+def test_map_handler_serializes_invalid_utf8_capture_as_unavailable(brain, monkeypatch, field):
+    healthy = b'{"task_id":"healthy","agent":"claude-code-main","skill_used":"validate"}\n'
+    raw = healthy + b'{"task_id":"rejected","skill_used":"validate",' + field + b'}\n'
+    root = _private_map_sources(brain, monkeypatch, raw)
+    before = {path: path.read_bytes() for path in root.iterdir()}
+    code, result = _get_serialized_map()
+    assert code == 200
+    assert "work" not in result
+    failure = result["work_capture"]
+    assert failure["state"] == "unavailable" and failure["reason"] == "framework_source_unavailable"
+    source = failure["source"]["capture_basis"]["files"][0]
+    assert source == {"locator": "run_state/framework.run.jsonl",
+        "sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw), "rows": 2,
+        "availability": "unavailable", "reason": "invalid_utf8_scalar", "invalid_rows": 1}
+    explicit = [edge for edge in result["edges"] if edge["type"] == "used" and edge.get("weight_e")]
+    assert len(explicit) == 1 and explicit[0]["weight_e"] == 1
+    assert before == {path: path.read_bytes() for path in root.iterdir()}
+    assert brain.gemma.calls == 0
+
+
+@pytest.mark.parametrize("raw", [
+    '{"task_id":"valid","status":{"café":["漢字","🧠"]}}\n'.encode("utf-8"),
+    b'{"task_id":"valid","status":{"\\ud83e\\udde0":["\\ud83e\\udde0"]}}\n',
+])
+def test_map_handler_serializes_valid_unicode_without_substitution(brain, monkeypatch, raw):
+    root = _private_map_sources(brain, monkeypatch, raw)
+    before = {path: path.read_bytes() for path in root.iterdir()}
+    code, result = _get_serialized_map()
+    assert code == 200 and "work_capture" not in result
+    node = next(node for node in result["work"]["nodes"] if node.get("record_id") == "valid")
+    assert node["raw_status"] == json.loads(raw)["status"]
+    assert result["work"]["source"]["capture_basis"]["files"][0]["sha256"] == hashlib.sha256(raw).hexdigest()
+    assert before == {path: path.read_bytes() for path in root.iterdir()}
+    assert brain.gemma.calls == 0
 
 
 def test_map_route_build_failure_is_clean_500(brain, monkeypatch):

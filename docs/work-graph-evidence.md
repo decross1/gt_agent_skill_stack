@@ -55,7 +55,11 @@ Output schema is `work-graph/v1`: source, limits, projection state, dependency
 availability, nodes, edges, unresolved diagnostics, and cycles. Ordering is
 deterministic for the same supplied records and metadata. Caps count items,
 **not bytes**: callers must bound individual record and metadata size before
-using untrusted data. Source overflow fails closed before traversal. Output
+using untrusted data. Callers that serialize as UTF-8 must also admit only
+UTF-8-encodable strings throughout supplied records and source metadata,
+including object keys. The pure library retains raw values; identity checks
+alone do not establish that arbitrary metadata is serialization-safe.
+Source overflow fails closed before traversal. Output
 omissions are counted and mark the projection partial; unavailable input is
 explicit. Inspect limits and unresolved reasons before presenting coverage.
 
@@ -81,9 +85,21 @@ Each file is limited to 1,048,576 captured bytes, 2,048 nonblank rows, and
 excluding CR/LF line terminators), and 64 nested JSON containers (root mapping
 counts as depth 1). Nesting is checked iteratively after parsing; a parser
 RecursionError or excessive nesting is reported as `json_nesting_exceeded`.
+Every decoded string value and object key is checked for UTF-8 encodability
+during the same bounded iterative traversal. An escaped unpaired surrogate,
+even in an otherwise ASCII JSONL row or nested metadata, is rejected as
+`invalid_utf8_scalar`; it is not replaced or escaped into apparent success.
+Valid non-ASCII text and legitimately decoded surrogate pairs are preserved.
+
 Rejected rows retain their file digest/byte/row receipt and make work
 unavailable; they are not passed into legacy attribution or converted to
-verified empty work. A read error, malformed/non-object JSON row, or file/row
+verified empty work. For row-level failures, healthy rows in that file remain
+available to legacy attribution, with their original physical line numbers;
+the typed work projection for the two-file capture is withheld as a whole.
+`invalid_rows` counts rejected rows, and the file descriptor remains unavailable.
+Structured raw status is retained for typed evidence; only string statuses
+participate in the existing legacy status-to-skill inference. A read error,
+malformed/non-object JSON row, invalid decoded text, or file/row
 overflow omits `map.work` and returns a small sibling `map.work_capture` with
 `state: unavailable`, the reason, and the per-file capture descriptors. A byte
 overflow labels the capped read as `captured_prefix_sha256` and
