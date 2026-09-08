@@ -393,7 +393,10 @@ function selectFromPage(id) {
 function cancelPendingRequest(clearUrl) {
   const requested = pendingRequestedId;
   pendingRequestedId = "";
-  if (requested && clearUrl) clearDeepLink();
+  if (requested && clearUrl) {
+    clearDeepLink();
+    if (!selectedId) clearInspector("No bookmarked record is selected.");
+  }
   return requested;
 }
 function qualifiedLiveMap() {
@@ -404,9 +407,11 @@ function qualifiedPendingAbsence(id) {
   if (!qualifiedLiveMap()) return false;
   return !typedWorkRequest(id) || currentWorkState().state === "complete";
 }
-function pendingRequestMessage(id) {
+function pendingRequestMessage(id, liveResponse) {
   if (mapSource && mapSource.error) return "The requested record is not present in the saved map. " +
     "The live map refresh failed (" + evidenceText(mapSource.error) + "); the bookmark is retained for retry.";
+  if (!liveResponse && qualifiedLiveMap()) return "The requested record is not present in the last received map. " +
+    "Waiting for the next live map response; the bookmark is retained for retry.";
   if (qualifiedLiveMap() && typedWorkRequest(id)) {
     const state = currentWorkState();
     return "The requested typed work record is not present in the current map response, but its work projection is " +
@@ -416,7 +421,7 @@ function pendingRequestMessage(id) {
   return "The requested record is not present in the saved map. Waiting for a qualified live map response; " +
     "the bookmark is retained for retry.";
 }
-function resolvePendingRequest() {
+function resolvePendingRequest(liveResponse = false) {
   const requested = pendingRequestedId;
   if (!requested || !instance) return false;
   routeInitialDeepLink(requested);
@@ -424,7 +429,8 @@ function resolvePendingRequest() {
     if (qualifiedLiveMap()) pendingRequestedId = "";
     return true;
   }
-  if (qualifiedPendingAbsence(requested)) {
+  // Only a map completion after the intent can establish current absence.
+  if (liveResponse && qualifiedPendingAbsence(requested)) {
     pendingRequestedId = "";
     if (selectedId === requested) selectedId = "";
     clearInspector("The requested record is unavailable in the current live map response.", requested);
@@ -432,7 +438,7 @@ function resolvePendingRequest() {
     return false;
   }
   if (selectedId === requested) selectedId = "";
-  clearInspector(pendingRequestMessage(requested), requested);
+  clearInspector(pendingRequestMessage(requested, liveResponse), requested);
   return false;
 }
 function currentTypedNode(id) {
@@ -814,7 +820,7 @@ async function refreshData(current) {
     if (changed) { applyData(); renderStepper(); }
     const signature = mapSig();
     if (signature !== lastMapSig) { lastMapSig = signature; mountMap(); }
-    if (source === "map") resolvePendingRequest();
+    if (source === "map") resolvePendingRequest(true);
     return changed;
   };
   return Promise.all([summarySource.refresh("api/summary").then(changed => update("summary", changed)),

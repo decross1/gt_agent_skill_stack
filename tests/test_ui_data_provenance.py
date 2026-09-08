@@ -1191,6 +1191,7 @@ if(['node','url'].includes(ACTION)){
  assert.equal(context.location.hash,'');assert.ok(!selections.includes(requestedId)||ACTION==='back');
  if(ACTION==='mode')assert.equal(activeMode,'governance');
  if(ACTION==='filter')assert.equal(activeQuery,'human choice');
+ assert.doesNotMatch(inspectorText(),/bookmark is retained for retry/i);
 }
 """.replace("ACTION", json.dumps(action)))
 
@@ -1213,7 +1214,8 @@ else for(const handler of documentEvents.get('keydown')||[])handler({
  key:ACTION==='boundary'?'ArrowRight':'ArrowLeft',target:{tagName:ACTION==='input'?'INPUT':'BODY'}});
 const changed=ACTION==='button'||ACTION==='keyboard';
 assert.equal(mounts.at(-1).windowDays,changed?6:7,'execute the actual admitted window handler');
-if(changed)assert.equal(context.location.hash,'','changing the window cancels older pending bookmark intent');
+if(changed){assert.equal(context.location.hash,'','changing the window cancels older pending bookmark intent');
+ assert.doesNotMatch(inspectorText(),/bookmark is retained for retry/i);}
 else assert.equal(decodeURIComponent(context.location.hash.slice(6)),requestedId,'a no-op or input key leaves intent intact');
 finishMap(ok(live));await flush();
 if(changed){
@@ -1224,3 +1226,37 @@ if(changed){
  assert.match(inspectorText(),/REQUESTED TARGET/);
 }
 """.replace("ACTION", json.dumps(action)), requested_id)
+
+
+@pytest.mark.parametrize("requested_id", ["work:fixture:requested", "spawn-new-url"])
+@pytest.mark.parametrize("event_name", ["hashchange", "popstate"])
+@pytest.mark.parametrize("timing", ["before-refresh", "during-refresh"])
+@pytest.mark.parametrize("found", [True, False])
+def test_graph_new_url_requires_subsequent_live_map_to_qualify_absence(requested_id, event_name, timing, found):
+    run_graph_pending(r"""
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=graph([otherWork], 'complete');
+context.fetch=async path=>ok(path==='api/summary'?fixture:graph([otherWork], 'complete'));
+boot();await flush();assert.equal(context.location.hash,'');
+let finishMap,refreshing;context.fetch=path=>path==='api/summary'?Promise.resolve(ok(fixture)):
+ new Promise(resolve=>{finishMap=resolve;});
+if(TIMING==='during-refresh'){refreshing=[...activeIntervals.values()][0]();await flush();}
+context.location.hash='#node='+encodeURIComponent(requestedId);
+for(const handler of events.get(EVENT_NAME)||[])handler({});
+assert.equal(decodeURIComponent(context.location.hash.slice(6)),requestedId,
+ 'a prior live map cannot erase a newer explicit URL bookmark');
+assert.match(inspectorText(),/bookmark is retained for retry/i);
+if(TIMING==='before-refresh'){refreshing=[...activeIntervals.values()][0]();await flush();}
+const target=requestedId.startsWith('work:')?requestedWork:requestedLegacy;
+const present=requestedId.startsWith('work:')?graph([target,otherWork], 'complete'):
+ graph([otherWork], 'complete',[target]);
+finishMap(ok(FOUND?present:graph([otherWork], 'complete')));await refreshing;await flush();
+if(FOUND){
+ assert.equal(decodeURIComponent(context.location.hash.slice(6)),requestedId);
+ assert.match(inspectorText(),/REQUESTED TARGET/);
+}else{
+ assert.equal(context.location.hash,'');
+ assert.match(inspectorText(),/requested record is unavailable in the current live map response/i);
+ assert.doesNotMatch(inspectorText(),/bookmark is retained for retry/i);
+}
+""".replace("EVENT_NAME", json.dumps(event_name)).replace("TIMING", json.dumps(timing))
+       .replace("FOUND", json.dumps(found)), requested_id)

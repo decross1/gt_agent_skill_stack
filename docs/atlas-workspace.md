@@ -86,8 +86,11 @@ response may instead label it unavailable. A failed or malformed refresh, and
 an unavailable, malformed or partial typed-work projection, cannot turn an
 unresolved typed bookmark into a current-absence claim, so the URL remains
 retryable. A later node choice, Back action, mode or filter change, or browser
-URL navigation supersedes that pending startup request. The source status still
-distinguishes saved evidence, a current live response and a failed refresh.
+URL navigation supersedes that pending startup request. A prior live response
+cannot establish that a newer URL target is absent: that conclusion waits for
+a subsequent map completion. Cancelling an unresolved request also removes its
+retry message. The source status still distinguishes saved evidence, a current
+live response and a failed refresh.
 
 The existing managed Brain launcher fingerprints `memory/brain/view` as well
 as executable scripts. Adopting a reviewed UI commit can therefore trigger a
