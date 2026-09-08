@@ -977,3 +977,286 @@ boot();await flush();
 assert.equal(activeMode,EXPECTED_MODE);assert.match(elements.get('inspector-body').children[1].textContent,/Legacy linked record/);
 assert.ok(written.startsWith('/graph.html?keep=1#node='));assert.equal(decodeURIComponent(context.location.hash.slice(6)),id);
 """.replace("NODE_TYPE", json.dumps(node_type)).replace("EXPECTED_MODE", json.dumps(expected_mode)))
+
+
+@pytest.mark.parametrize(("node_id", "node_type"), [
+    ("spawn-live-only", "spawn"),
+    ("work:framework:run:live-only", "work"),
+])
+def test_graph_startup_retains_saved_missing_bookmark_until_live_map_resolves(node_id, node_type):
+    run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
+context.location.pathname='/graph.html';context.location.search='?keep=1';
+context.location.hash='#node='+encodeURIComponent(NODE_ID);
+context.history={replaceState(_state,_title,url){const value=String(url),at=value.indexOf('#');
+ context.location.hash=at<0?'':value.slice(at);}};
+const saved={...map,nodes:[],cards:{},generated_at:'2026-08-01T00:00:00Z'};
+const target={id:NODE_ID,type:NODE_TYPE,label:'Live-only target',date:'2026-08-02',
+ record_id:NODE_TYPE==='work'?'live-only':undefined,kind:NODE_TYPE==='work'?'run':undefined};
+const work={projection_state:{state:'complete',reason:null},dependency_availability:{state:'available',reason:null},
+ source:{namespace:'fixture',locator:'fixture',capture_basis:{captured_at:stamp}},limits:{},
+ nodes:NODE_TYPE==='work'?[target]:[],edges:[],unresolved:[],cycles:[]};
+const live={...saved,generated_at:'2026-08-02T00:00:00Z',
+ nodes:NODE_TYPE==='work'?[]:[target],work,cards:{[NODE_ID]:{title:'LIVE TARGET',source:'live-map',page:''}}};
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=saved;
+const inspector=context.document.getElementById('inspector-body');let inspectorHtml='';
+Object.defineProperty(inspector,'innerHTML',{get(){return inspectorHtml;},set(value){
+ inspectorHtml=value;if(value==='')this.children=[];}});
+let activeMode='work',active;
+const workNodes=options=>(options.map.work&&Array.isArray(options.map.work.nodes)?options.map.work.nodes:[])
+ .map(node=>({...node,label:node.record_id||node.skill_id||node.label,_workProjection:true}));
+const baseAllowed=node=>activeMode==='governance'?
+ ['proposal','rule','harvest_finding','correction','anomaly','decision','agent','skill','spawn'].includes(node.type):
+ activeMode==='usage'?['agent','skill'].includes(node.type):false;
+context.BrainMap={mount(_canvas,options){activeMode=options.mode;
+ const nodes=()=>activeMode==='work'?workNodes(options):options.map.nodes.filter(baseAllowed);
+ active={getVisibleNodes:nodes,getHiddenCount(){return 0;},getZoom(){return 1;},getConnections(){return [];},
+  getWorkState(){const projection=options.map.work;return projection?
+   {state:projection.projection_state.state,reason:projection.projection_state.reason,projection,capture:projection.source}:
+   {state:'missing',reason:'work_projection_missing',projection:null,capture:null};},
+  getNodeById(id){return nodes().find(node=>node.id===id)||null;},egoMode(){return true;},
+  setMode(next){activeMode=next;return this;},
+  selectById(id){const found=nodes().find(node=>node.id===id);if(!found)return false;options.onSelect(found);return true;}};
+ return active;}};
+let finishMap;context.fetch=path=>path==='api/summary'?Promise.resolve(ok(fixture)):
+ new Promise(resolve=>{finishMap=resolve;});
+boot();await flush();
+assert.equal(decodeURIComponent(context.location.hash.slice(6)),NODE_ID,
+ 'the saved map cannot erase a newer requested ID while live map acquisition is pending');
+finishMap(ok(live));await flush();
+const walk=root=>[root,...root.children.flatMap(walk)];
+const text=walk(inspector).map(item=>item.textContent).join(' ');
+assert.match(text,/LIVE TARGET/);assert.doesNotMatch(text,/unavailable in the current map response/i);
+assert.equal(decodeURIComponent(context.location.hash.slice(6)),NODE_ID);
+""".replace("NODE_ID", json.dumps(node_id)).replace("NODE_TYPE", json.dumps(node_type)))
+
+
+GRAPH_PENDING_PAGE = FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
+context.location.pathname='/graph.html';context.location.search='?keep=1';
+const requestedId=__REQUESTED_ID__;context.location.hash='#node='+encodeURIComponent(requestedId);
+let written='';context.history={replaceState(_state,_title,url){written=String(url);
+ const at=written.indexOf('#');context.location.hash=at<0?'':written.slice(at);}};
+const source={namespace:'fixture',locator:'fixture:work',capture_basis:{captured_at:stamp,atomic:true}};
+const limits=omitted=>({unit:'items',record_cap:20,node_cap:20,edge_cap:20,diagnostic_cap:20,
+ record_count:0,node_candidates:omitted,edge_candidates:0,unresolved_candidates:0,cycle_candidates:0,
+ nodes_omitted:omitted,edges_omitted:0,unresolved_omitted:0,cycles_omitted:0});
+const workNode=(id,title='Requested work')=>({id,type:'work',record_id:title,kind:'run',source_locator:'fixture',source_metadata:source});
+const legacyNode=(id,title='Requested contract')=>({id,type:'spawn',label:title,date:'2026-08-02'});
+const workProjection=(nodes,state='complete')=>state==='malformed'?{unexpected:true}:{schema_version:'work-graph/v1',source,
+ projection_state:{state,reason:state==='complete'?null:state==='partial'?'projection_truncated':'capture_unavailable'},
+ dependency_availability:{state:'available',reason:null},limits:limits(state==='partial'?1:0),
+ nodes:state==='unavailable'?[]:nodes,edges:[],unresolved:[],cycles:[]};
+const graph=(workNodes=[],state='complete',baseNodes=[])=>({generated_at:'2026-08-01T00:00:00Z',
+ nodes:baseNodes,edges:[],work:workProjection(workNodes,state),cards:Object.fromEntries([...workNodes,...baseNodes]
+  .map(node=>[node.id,{title:node.record_id||node.label,one_line:'supplied evidence',source:'fixture',page:''}]))});
+const requestedWork=workNode(requestedId,'REQUESTED TARGET');
+const requestedLegacy=legacyNode(requestedId,'REQUESTED TARGET');
+const otherWork=workNode('work:fixture:other','HUMAN CHOICE');
+const inspector=context.document.getElementById('inspector-body');let inspectorHtml='';
+Object.defineProperty(inspector,'innerHTML',{get(){return inspectorHtml;},set(value){inspectorHtml=value;if(value==='')this.children=[];}});
+const modeButtons=['work','governance','usage'].map(value=>{const button=element();button['data-graph-mode']=value;
+ button.getAttribute=name=>button[name]||null;return button;});
+const legendItems=['work','governance','usage'].map(value=>{const item=element();item['data-legend-mode']=value;
+ item.getAttribute=name=>item[name]||null;return item;});
+context.document.querySelectorAll=selector=>selector==='[data-graph-mode]'?modeButtons:
+ selector==='[data-legend-mode]'?legendItems:[];
+let activeMode='work',activeQuery='',activeType='all',active;const selections=[];
+const classify=projection=>!projection||!projection.projection_state?{state:'malformed',reason:'invalid_work_projection',projection:null}:
+ {state:projection.projection_state.state,reason:projection.projection_state.reason,projection,capture:projection.source};
+const projected=options=>{const state=classify(options.map.work);return state.projection&&state.state!=='unavailable'?
+ state.projection.nodes.map(node=>({...node,label:node.record_id||node.skill_id,_workProjection:true})):[];};
+const allowedBase=node=>activeMode==='governance'?
+ ['proposal','rule','harvest_finding','correction','anomaly','decision','agent','skill','spawn'].includes(node.type):
+ activeMode==='usage'?['agent','skill'].includes(node.type):false;
+context.BrainMap={mount(_canvas,options){mounts.push(options);activeMode=options.mode;
+ const modeNodes=()=>activeMode==='work'?projected(options):options.map.nodes.filter(allowedBase);
+ const visible=()=>modeNodes().filter(node=>(activeType==='all'||node.type===activeType)&&
+  (!activeQuery||[node.id,node.label,node.record_id].join(' ').toLowerCase().includes(activeQuery.toLowerCase())));
+ active={getVisibleNodes:visible,getHiddenCount(){return modeNodes().length-visible().length;},getZoom(){return 1;},
+  getConnections(){return [];},getWorkState(){const state=classify(options.map.work);return {...state,capture:state.capture||null};},
+  getNodeById(id){return modeNodes().find(node=>node.id===id)||null;},egoMode(){return true;},fit(){},zoomBy(){},
+  setMode(next){activeMode=next;activeType='all';return this;},
+  setFilter(filter){activeQuery=filter.query||'';activeType=filter.type||'all';return this;},
+  selectById(id,emit){selections.push(id);const found=modeNodes().find(node=>node.id===id);if(!found)return false;
+   if(emit!==false)options.onSelect(found);return true;}};return active;}};
+const walk=root=>[root,...root.children.flatMap(walk)];
+const inspectorText=()=>walk(inspector).map(item=>item.textContent).join(' ');
+"""
+
+
+def run_graph_pending(code, requested_id="work:fixture:requested"):
+    run_js(GRAPH_PENDING_PAGE.replace("__REQUESTED_ID__", json.dumps(requested_id)) + code)
+
+
+@pytest.mark.parametrize("first", ["http", "invalid", "unavailable", "malformed", "partial"])
+def test_graph_pending_typed_bookmark_survives_failure_or_incomplete_work_then_recovers(first):
+    first_reply = {
+        "http": "failure",
+        "invalid": "ok({unexpected:'map shape'})",
+        "unavailable": "ok(graph([], 'unavailable'))",
+        "malformed": "ok(graph([], 'malformed'))",
+        "partial": "ok(graph([], 'partial'))",
+    }[first]
+    run_graph_pending(r"""
+const saved=graph([], 'complete');context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=saved;
+context.fetch=path=>Promise.resolve(path==='api/summary'?ok(fixture):FIRST_REPLY);
+boot();await flush();
+assert.equal(decodeURIComponent(context.location.hash.slice(6)),requestedId);
+assert.match(inspectorText(),/bookmark is retained for retry/i);assert.doesNotMatch(inspectorText(),/REQUESTED TARGET/);
+if(['http','invalid'].includes(FIRST))assert.match(elements.get('data-source-status').textContent,/refresh failed/i);
+context.fetch=async path=>ok(path==='api/summary'?fixture:graph([requestedWork], 'complete'));
+await [...activeIntervals.values()][0]();
+assert.match(inspectorText(),/REQUESTED TARGET/);assert.equal(decodeURIComponent(context.location.hash.slice(6)),requestedId);
+""".replace("FIRST_REPLY", first_reply).replace("FIRST", json.dumps(first)))
+
+
+@pytest.mark.parametrize(("requested_id", "node_type"), [
+    ("spawn-live-missing", "spawn"),
+    ("work:fixture:live-missing", "work"),
+])
+def test_graph_qualified_complete_live_map_labels_requested_absence(requested_id, node_type):
+    run_graph_pending(r"""
+const saved=graph([], 'complete');const live=graph([], 'complete');
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=saved;
+context.fetch=async path=>ok(path==='api/summary'?fixture:live);boot();await flush();
+assert.equal(context.location.hash,'');assert.match(inspectorText(),/requested record is unavailable in the current live map response/i);
+assert.match(inspectorText(),new RegExp(requestedId.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')));
+""", requested_id)
+
+
+@pytest.mark.parametrize(("requested_id", "node_type"), [
+    ("spawn-saved-present", "spawn"),
+    ("work:fixture:saved-present", "work"),
+])
+def test_graph_saved_present_becomes_live_without_remount_then_later_disappearance_clears(requested_id, node_type):
+    run_graph_pending(r"""
+const target=NODE_TYPE==='work'?requestedWork:requestedLegacy;
+const saved=NODE_TYPE==='work'?graph([target], 'complete'):graph([], 'complete',[target]);
+const sameLive={...saved,generated_at:'2026-08-02T00:00:00Z'};
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=saved;
+context.fetch=async path=>ok(path==='api/summary'?fixture:sameLive);boot();await flush();
+assert.equal(mounts.length,1,'a source transition with the same map signature must not remount');
+assert.match(inspectorText(),/REQUESTED TARGET/);assert.equal(decodeURIComponent(context.location.hash.slice(6)),requestedId);
+const removed=graph([], 'complete');removed.generated_at='2026-08-03T00:00:00Z';
+context.fetch=async path=>ok(path==='api/summary'?fixture:removed);await [...activeIntervals.values()][0]();
+assert.equal(context.location.hash,'');assert.match(inspectorText(),/selected record is unavailable in the current map response/i);
+""".replace("NODE_TYPE", json.dumps(node_type)), requested_id)
+
+
+@pytest.mark.parametrize(("requested_id", "node_type"), [
+    ("spawn-map-first", "spawn"),
+    ("work:fixture:map-first", "work"),
+])
+def test_graph_pending_bookmark_resolves_when_live_map_precedes_summary(requested_id, node_type):
+    run_graph_pending(r"""
+const target=NODE_TYPE==='work'?requestedWork:requestedLegacy;
+const live=NODE_TYPE==='work'?graph([target], 'complete'):graph([], 'complete',[target]);
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=graph([], 'complete');let finishSummary;
+context.fetch=path=>path==='api/map'?Promise.resolve(ok(live)):new Promise(resolve=>{finishSummary=resolve;});
+boot();await flush();assert.match(inspectorText(),/REQUESTED TARGET/);
+assert.equal(decodeURIComponent(context.location.hash.slice(6)),requestedId);
+finishSummary(ok(fixture));await flush();assert.match(inspectorText(),/REQUESTED TARGET/);
+""".replace("NODE_TYPE", json.dumps(node_type)), requested_id)
+
+
+@pytest.mark.parametrize("action", ["node", "mode", "filter", "url", "back"])
+def test_graph_human_navigation_supersedes_older_pending_bookmark(action):
+    run_graph_pending(r"""
+const saved=ACTION==='back'?graph([requestedWork], 'complete'):graph([otherWork], 'complete');
+const live=ACTION==='url'?graph([requestedWork,otherWork], 'complete'):
+ ACTION==='back'?{...saved,generated_at:'2026-08-02T00:00:00Z'}:graph([requestedWork,otherWork], 'complete');
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=saved;let finishMap;
+context.fetch=path=>path==='api/summary'?Promise.resolve(ok(fixture)):new Promise(resolve=>{finishMap=resolve;});
+boot();await flush();
+if(ACTION==='node'){
+ const button=elements.get('graph-browser-list').children.find(item=>item['data-node-id']===otherWork.id);button.listeners.click();
+}else if(ACTION==='mode'){
+ modeButtons.find(item=>item['data-graph-mode']==='governance').listeners.click();
+}else if(ACTION==='filter'){
+ elements.get('graph-search').listeners.input({target:{value:'human choice'}});
+}else if(ACTION==='url'){
+ context.location.hash='#node='+encodeURIComponent(otherWork.id);
+ for(const handler of events.get('hashchange')||[])handler({});
+}else{
+ const before=selections.length;
+ for(const handler of documentEvents.get('click')||[])handler({target:{classList:{contains:name=>name==='incidental'}}});
+ assert.equal(decodeURIComponent(context.location.hash.slice(6)),requestedId,'incidental clicks do not cancel the request');
+ for(const handler of documentEvents.get('click')||[])handler({target:{classList:{contains:name=>name==='bm-back'}}});
+ assert.equal(context.location.hash,'');finishMap(ok(live));await flush();assert.equal(selections.length,before);
+}
+if(ACTION!=='back'){finishMap(ok(live));await flush();}
+if(['node','url'].includes(ACTION)){
+ assert.equal(decodeURIComponent(context.location.hash.slice(6)),otherWork.id);assert.match(inspectorText(),/HUMAN CHOICE/);
+ assert.notEqual(selections.at(-1),requestedId);
+}else{
+ assert.equal(context.location.hash,'');assert.ok(!selections.includes(requestedId)||ACTION==='back');
+ if(ACTION==='mode')assert.equal(activeMode,'governance');
+ if(ACTION==='filter')assert.equal(activeQuery,'human choice');
+ assert.doesNotMatch(inspectorText(),/bookmark is retained for retry/i);
+}
+""".replace("ACTION", json.dumps(action)))
+
+
+@pytest.mark.parametrize("requested_id", ["work:fixture:requested", "spawn-range"])
+@pytest.mark.parametrize("action", ["button", "keyboard", "boundary", "input"])
+def test_graph_activity_window_navigation_supersedes_pending_bookmark(requested_id, action):
+    run_graph_pending(r"""
+const saved=graph([otherWork], 'complete');
+const target=requestedId.startsWith('work:')?requestedWork:requestedLegacy;
+const live=requestedId.startsWith('work:')?graph([target,otherWork], 'complete'):
+ graph([otherWork], 'complete',[target]);
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=saved;let finishMap;
+context.fetch=path=>path==='api/summary'?Promise.resolve(ok(fixture)):new Promise(resolve=>{finishMap=resolve;});
+boot();await flush();
+assert.equal(decodeURIComponent(context.location.hash.slice(6)),requestedId);
+assert.equal(mounts.at(-1).windowDays,7);
+if(ACTION==='button')elements.get('stepper').children[0].listeners.click();
+else for(const handler of documentEvents.get('keydown')||[])handler({
+ key:ACTION==='boundary'?'ArrowRight':'ArrowLeft',target:{tagName:ACTION==='input'?'INPUT':'BODY'}});
+const changed=ACTION==='button'||ACTION==='keyboard';
+assert.equal(mounts.at(-1).windowDays,changed?6:7,'execute the actual admitted window handler');
+if(changed){assert.equal(context.location.hash,'','changing the window cancels older pending bookmark intent');
+ assert.doesNotMatch(inspectorText(),/bookmark is retained for retry/i);}
+else assert.equal(decodeURIComponent(context.location.hash.slice(6)),requestedId,'a no-op or input key leaves intent intact');
+finishMap(ok(live));await flush();
+if(changed){
+ assert.equal(context.location.hash,'');assert.ok(!selections.includes(requestedId));
+ assert.doesNotMatch(inspectorText(),/REQUESTED TARGET/);
+}else{
+ assert.equal(decodeURIComponent(context.location.hash.slice(6)),requestedId);
+ assert.match(inspectorText(),/REQUESTED TARGET/);
+}
+""".replace("ACTION", json.dumps(action)), requested_id)
+
+
+@pytest.mark.parametrize("requested_id", ["work:fixture:requested", "spawn-new-url"])
+@pytest.mark.parametrize("event_name", ["hashchange", "popstate"])
+@pytest.mark.parametrize("timing", ["before-refresh", "during-refresh"])
+@pytest.mark.parametrize("found", [True, False])
+def test_graph_new_url_requires_subsequent_live_map_to_qualify_absence(requested_id, event_name, timing, found):
+    run_graph_pending(r"""
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=graph([otherWork], 'complete');
+context.fetch=async path=>ok(path==='api/summary'?fixture:graph([otherWork], 'complete'));
+boot();await flush();assert.equal(context.location.hash,'');
+let finishMap,refreshing;context.fetch=path=>path==='api/summary'?Promise.resolve(ok(fixture)):
+ new Promise(resolve=>{finishMap=resolve;});
+if(TIMING==='during-refresh'){refreshing=[...activeIntervals.values()][0]();await flush();}
+context.location.hash='#node='+encodeURIComponent(requestedId);
+for(const handler of events.get(EVENT_NAME)||[])handler({});
+assert.equal(decodeURIComponent(context.location.hash.slice(6)),requestedId,
+ 'a prior live map cannot erase a newer explicit URL bookmark');
+assert.match(inspectorText(),/bookmark is retained for retry/i);
+if(TIMING==='before-refresh'){refreshing=[...activeIntervals.values()][0]();await flush();}
+const target=requestedId.startsWith('work:')?requestedWork:requestedLegacy;
+const present=requestedId.startsWith('work:')?graph([target,otherWork], 'complete'):
+ graph([otherWork], 'complete',[target]);
+finishMap(ok(FOUND?present:graph([otherWork], 'complete')));await refreshing;await flush();
+if(FOUND){
+ assert.equal(decodeURIComponent(context.location.hash.slice(6)),requestedId);
+ assert.match(inspectorText(),/REQUESTED TARGET/);
+}else{
+ assert.equal(context.location.hash,'');
+ assert.match(inspectorText(),/requested record is unavailable in the current live map response/i);
+ assert.doesNotMatch(inspectorText(),/bookmark is retained for retry/i);
+}
+""".replace("EVENT_NAME", json.dumps(event_name)).replace("TIMING", json.dumps(timing))
+       .replace("FOUND", json.dumps(found)), requested_id)
