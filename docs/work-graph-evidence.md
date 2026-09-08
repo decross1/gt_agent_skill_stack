@@ -77,7 +77,13 @@ record fields. It does not join task and child IDs, choose among repeated IDs,
 or infer dependencies from prose, roles, ordering, or time.
 
 Each file is limited to 1,048,576 captured bytes, 2,048 nonblank rows, and
-65,536 bytes per row. A read error, malformed/non-object JSON row, or file/row
+65,536 physical bytes per nonblank row (before whitespace normalization,
+excluding CR/LF line terminators), and 64 nested JSON containers (root mapping
+counts as depth 1). Nesting is checked iteratively after parsing; a parser
+RecursionError or excessive nesting is reported as `json_nesting_exceeded`.
+Rejected rows retain their file digest/byte/row receipt and make work
+unavailable; they are not passed into legacy attribution or converted to
+verified empty work. A read error, malformed/non-object JSON row, or file/row
 overflow omits `map.work` and returns a small sibling `map.work_capture` with
 `state: unavailable`, the reason, and the per-file capture descriptors. A byte
 overflow labels the capped read as `captured_prefix_sha256` and

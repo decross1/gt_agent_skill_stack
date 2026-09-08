@@ -83,6 +83,7 @@ MAX_TOTAL_BYTES = 1_500_000
 WORK_FILE_MAX_BYTES = 1_048_576
 WORK_FILE_MAX_ROWS = 2_048
 WORK_ROW_MAX_BYTES = 65_536
+WORK_JSON_MAX_DEPTH = 64
 WORK_RECORD_CAP = 2_048
 WORK_NODE_CAP = 640
 WORK_EDGE_CAP = 2_048
@@ -151,7 +152,7 @@ def _capture_jsonl(path: Path, locator: str) -> tuple[list[dict], dict]:
             "reason": "file_byte_cap_exceeded",
         }
 
-    lines = [(line_number, line.strip())
+    lines = [(line_number, line)
              for line_number, line in enumerate(raw.splitlines(), 1)
              if line.strip()]
     descriptor = {
@@ -173,23 +174,44 @@ def _capture_jsonl(path: Path, locator: str) -> tuple[list[dict], dict]:
     rows: list[dict] = []
     malformed = 0
     non_objects = 0
+    excessive_nesting = 0
     for line_number, line in lines:
         try:
             row = json.loads(line)
+        except RecursionError:
+            excessive_nesting += 1
+            continue
         except (json.JSONDecodeError, UnicodeDecodeError):
             malformed += 1
             continue
         if not isinstance(row, dict):
             non_objects += 1
             continue
+        # Iterative admission prevents parser/library recursive-shape failures.
+        pending = [(row, 1)]
+        too_deep = False
+        while pending:
+            value, depth = pending.pop()
+            if not isinstance(value, (dict, list)):
+                continue
+            if depth > WORK_JSON_MAX_DEPTH:
+                too_deep = True
+                break
+            children = value.values() if isinstance(value, dict) else value
+            pending.extend((child, depth + 1) for child in children
+                           if isinstance(child, (dict, list)))
+        if too_deep:
+            excessive_nesting += 1
+            continue
         row["_source_line"] = line_number
         rows.append(row)
-    if malformed or non_objects:
-        reason = "malformed_jsonl" if malformed else "non_object_json"
+    if malformed or non_objects or excessive_nesting:
+        reason = ("json_nesting_exceeded" if excessive_nesting else
+                  "malformed_jsonl" if malformed else "non_object_json")
         descriptor.update(
             availability="unavailable",
             reason=reason,
-            invalid_rows=malformed + non_objects,
+            invalid_rows=malformed + non_objects + excessive_nesting,
         )
     return rows, descriptor
 
@@ -234,6 +256,7 @@ def _capture_framework_work() -> dict:
                 "file_bytes": WORK_FILE_MAX_BYTES,
                 "file_rows": WORK_FILE_MAX_ROWS,
                 "row_bytes": WORK_ROW_MAX_BYTES,
+                "json_container_depth": WORK_JSON_MAX_DEPTH,
             },
             "files": files,
         },

@@ -397,7 +397,7 @@ def test_recorded_work_maps_only_explicit_fields_from_once_read_sources(
             "captured_at": "2026-09-07T23:00:00Z",
             "atomic": False,
             "limits": {"file_bytes": 1_048_576, "file_rows": 2_048,
-                       "row_bytes": 65_536},
+                       "row_bytes": 65_536, "json_container_depth": 64},
             "files": [
                 {"locator": "run_state/framework.run.jsonl",
                  "sha256": hashlib.sha256(run_raw).hexdigest(),
@@ -559,3 +559,34 @@ def test_emit_ignores_only_capture_timestamp_and_keeps_content_changes(
     third = pm.build_map()
     assert pm.emit(third) is True
     assert "second" in pm.OUT_JS.read_text()
+
+
+@pytest.mark.parametrize("depth", [65, 1005])
+def test_capture_amendment_deep_json_is_unavailable(framework, monkeypatch, depth):
+    raw = b'{"task_id":"x","status":' + b'[' * depth + b'0' + b']' * depth + b'}\n'
+    run = _OneReadPath(raw)
+    spawn = _OneReadPath(b'')
+    monkeypatch.setattr(pm, "FW_RUN", run)
+    monkeypatch.setattr(pm, "SPAWN_LEDGER", spawn)
+    result = pm.build_map()
+    assert "work" not in result
+    failure = result["work_capture"]
+    assert failure["state"] == "unavailable"
+    source = failure["source"]["capture_basis"]["files"][0]
+    assert source["reason"] == "json_nesting_exceeded"
+    assert source["sha256"] == hashlib.sha256(raw).hexdigest()
+    assert source["bytes"] == len(raw)
+    assert run.reads == spawn.reads == 1
+
+
+def test_capture_amendment_physical_row_before_strip(framework, monkeypatch):
+    raw = b' ' * 65536 + b'{"task_id":"x"}\n'
+    run = _OneReadPath(raw)
+    monkeypatch.setattr(pm, "FW_RUN", run)
+    monkeypatch.setattr(pm, "SPAWN_LEDGER", _OneReadPath(b''))
+    result = pm.build_map()
+    assert "work" not in result
+    source = result["work_capture"]["source"]["capture_basis"]["files"][0]
+    assert source["reason"] == "row_byte_cap_exceeded"
+    assert source["sha256"] == hashlib.sha256(raw).hexdigest()
+    assert source["bytes"] == len(raw)
