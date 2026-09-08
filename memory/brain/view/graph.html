@@ -339,10 +339,15 @@ document.addEventListener("keydown", event => {
   if (event.key === "ArrowRight") setWindow(windowDays + 1);
 });
 
-function mountMap() {
+function mountMap(preserveFocus = false) {
   if (!M || typeof window.BrainMap === "undefined") return;
+  const previousFocus = preserveFocus && !pendingRequestedId && selectedId && instance
+    ? instance.focusId : null;
   instance = BrainMap.mount($("map"), { summary: D, map: M, windowDays, embedded: false,
     mode, query, type, onSelect: openNode });
+  if (typeof previousFocus === "string" && previousFocus &&
+      typeof instance.getNodeById === "function" && instance.getNodeById(previousFocus) &&
+      typeof instance.egoMode === "function") instance.egoMode(previousFocus, false);
   renderBrowser(); updateZoom(); renderWorkState();
   if (pendingRequestedId) { resolvePendingRequest(); return; }
   if (!selectedId) return;
@@ -819,7 +824,7 @@ async function refreshData(current) {
     D = summarySource.data; M = mapSource.data; showSources();
     if (changed) { applyData(); renderStepper(); }
     const signature = mapSig();
-    if (signature !== lastMapSig) { lastMapSig = signature; mountMap(); }
+    if (signature !== lastMapSig) { lastMapSig = signature; mountMap(true); }
     if (source === "map") resolvePendingRequest(true);
     return changed;
   };

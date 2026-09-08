@@ -111,3 +111,9 @@ an input, leaves it pending. This protects newer navigation when saved data
 lacks a target that a delayed live response later supplies. The source and
 browser checks qualify bookmark behavior only, not graph completeness or actor
 liveness.
+
+Automatic data refresh preserves an already focused, still-admitted record's
+neighborhood, including when a changed summary arrives after the live map.
+It does not restore focus cleared by Back, filtering, a mode or activity-window
+change, or a map response that no longer contains the record. A new pending
+bookmark takes precedence over the previous focus.

@@ -1260,3 +1260,67 @@ if(FOUND){
 }
 """.replace("EVENT_NAME", json.dumps(event_name)).replace("TIMING", json.dumps(timing))
        .replace("FOUND", json.dumps(found)), requested_id)
+
+
+@pytest.mark.parametrize("node_type", ["work", "spawn"])
+@pytest.mark.parametrize("later_action", ["none", "back", "filter", "window", "mode", "removed"])
+def test_graph_automatic_remount_preserves_existing_focus_without_reversing_navigation(node_type, later_action):
+    run_graph_pending(r"""
+const target=NODE_TYPE==='work'?requestedWork:requestedLegacy;
+const other=NODE_TYPE==='work'?otherWork:legacyNode('spawn:other','OTHER RECORD');
+const packet=nodes=>NODE_TYPE==='work'?graph(nodes):graph([], 'complete',nodes);
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=packet([other]);
+// Match the renderer's bounded default subset and explicit ego mode. A node
+// may exist in getNodeById while absent from the initial visible subset.
+context.BrainMap={mount(_canvas,options){mounts.push(options);activeMode=options.mode;
+ const nodes=()=>activeMode==='work'?projected(options):options.map.nodes.filter(allowedBase);
+ const permitted=()=>nodes().filter(node=>(activeType==='all'||node.type===activeType)&&
+  (!activeQuery||[node.id,node.label,node.record_id].join(' ').toLowerCase().includes(activeQuery.toLowerCase())));
+ active={focusId:null,selected:null,
+  getVisibleNodes(){return this.focusId?nodes().filter(node=>node.id===this.focusId):permitted().slice(0,1);},
+  getHiddenCount(){return nodes().length-this.getVisibleNodes().length;},getZoom(){return 1;},
+  getConnections(){return [];},getWorkState(){return classify(options.map.work);},
+  getNodeById(id){return nodes().find(node=>node.id===id)||null;},
+  setMode(next){activeMode=next;activeType='all';this.focusId=null;this.selected=null;return this;},
+  setFilter(filter){activeQuery=filter.query||'';activeType=filter.type||'all';this.focusId=null;return this;},
+  egoMode(id,emit){if(!this.getNodeById(id))return false;this.focusId=id;return this.selectById(id,emit);},
+  exitEgo(){this.focusId=null;},fit(){},zoomBy(){},
+  selectById(id,emit){const node=this.getNodeById(id);if(!node)return false;
+   if(!this.getVisibleNodes().some(item=>item.id===id))return this.egoMode(id,emit);
+   this.selected=node;selections.push(id);if(emit!==false)options.onSelect(node);return true;}};
+ return active;}};
+let finishSummary,currentMap=packet([other,target]);
+context.fetch=path=>path==='api/map'?Promise.resolve(ok(currentMap)):
+ new Promise(resolve=>{finishSummary=resolve;});
+boot();await flush();
+assert.equal(active.focusId,requestedId,'live map resolves the bookmark outside the initial subset into ego mode');
+assert.equal(decodeURIComponent(context.location.hash.slice(6)),requestedId);
+assert.match(inspectorText(),/REQUESTED TARGET/);
+if(ACTION==='back'){
+ for(const handler of documentEvents.get('click')||[])handler({target:{classList:{contains:name=>name==='bm-back'}}});
+ active.exitEgo();
+}else if(ACTION==='filter')elements.get('graph-search').listeners.input({target:{value:'OTHER'}});
+else if(ACTION==='window')elements.get('stepper').children[0].listeners.click();
+else if(ACTION==='mode')modeButtons.find(button=>button['data-graph-mode']==='usage').listeners.click();
+const beforeSummary=mounts.length;
+// An actually changed summary is essential: the old test's identical summary
+// never remounted the map, so it could not expose this live ordering failure.
+finishSummary(ok({...fixture,window:{...fixture.window,newest_event:'2026-08-03T00:00:00Z'}}));
+await flush();assert.ok(mounts.length>beforeSummary,'the late summary actually remounted the renderer');
+if(ACTION==='none'||ACTION==='removed'){
+ assert.equal(active.focusId,requestedId,'automatic remount preserves actual prior focus');
+ assert.equal(active.selected.id,requestedId);assert.equal(decodeURIComponent(context.location.hash.slice(6)),requestedId);
+ assert.match(inspectorText(),/REQUESTED TARGET/);
+ if(ACTION==='removed'){
+  currentMap=packet([other]);context.fetch=async path=>ok(path==='api/map'?currentMap:
+   {...fixture,window:{...fixture.window,newest_event:'2026-08-03T00:00:00Z'}});
+  await [...activeIntervals.values()][0]();await flush();
+  assert.equal(active.focusId,null);assert.equal(context.location.hash,'');
+  assert.match(inspectorText(),/unavailable in the current map response/i);
+ }
+}else{
+ assert.equal(active.focusId,null,'automatic remount must not recreate focus cancelled by user navigation');
+ assert.equal(context.location.hash,'');assert.doesNotMatch(inspectorText(),/bookmark is retained for retry/i);
+}
+""".replace("NODE_TYPE", json.dumps(node_type)).replace("ACTION", json.dumps(later_action)),
+        "work:fixture:outside-seed" if node_type == "work" else "spawn:outside-seed")
