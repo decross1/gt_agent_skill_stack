@@ -26,16 +26,22 @@ labels canonicalize via project_pages.canonicalize_agent; workflow:<role>
 collapses to the single map actor `workflow` (one node, m1 layout slot).
 
 cards = one-line summaries (≤220 chars) + page path — NO markdown bodies.
-Budget: ≤400 nodes, <300 KB. Deterministic; compare-before-write excludes
-generated_at so an unchanged rerun touches nothing. Read-only on the consumer
-(brain firewall). Consumer resolution: $BRAIN_CONSUMER_ROOT if set, else a
-walk-up from this script's location for a sibling a_bgt_rsi containing
-memory/loop_memory.jsonl — never REPO.parent (worktrees resolve to a void).
+The legacy governance payload remains ≤400 nodes and <300 KB. Optional recorded
+work has separate item and 1.2 MB encoded-byte caps; the combined payload stays
+<1.5 MB. Deterministic; compare-before-write excludes generated_at and the
+known capture timestamp fields so an unchanged rerun touches nothing. Read-only
+on the consumer (brain firewall). Consumer resolution: $BRAIN_CONSUMER_ROOT if
+set, else a walk-up from this script's location for a sibling a_bgt_rsi
+containing memory/loop_memory.jsonl — never REPO.parent (worktrees resolve to a
+void).
 """
 from __future__ import annotations
 
 import argparse
+from copy import deepcopy
+import hashlib
 import json
+import math
 import os
 import re
 import sys
@@ -64,6 +70,7 @@ from project_pages import (  # noqa: E402
     narrative_slug,
     slugify,
 )
+from work_graph import build_work_graph  # noqa: E402
 
 OUT_JS = REPO / "memory" / "brain" / "view" / "map_data.js"
 PAGES_DIR = REPO / "memory" / "brain" / "pages"
@@ -72,8 +79,21 @@ CONFORMANCE = REPO / "memory" / "conformance.md"
 
 MAX_NODES = 400
 MAX_BYTES = 300_000
+WORK_MAX_BYTES = 1_200_000
+MAX_TOTAL_BYTES = 1_500_000
+WORK_FILE_MAX_BYTES = 1_048_576
+WORK_FILE_MAX_ROWS = 2_048
+WORK_ROW_MAX_BYTES = 65_536
+WORK_JSON_MAX_DEPTH = 64
+WORK_RECORD_CAP = 2_048
+WORK_NODE_CAP = 640
+WORK_EDGE_CAP = 2_048
+WORK_DIAGNOSTIC_CAP = 512
 RECENT_SPAWN_DAYS = 45
 ONE_LINE_CAP = 220
+
+FW_RUN_LOCATOR = "run_state/framework.run.jsonl"
+SPAWN_LOCATOR = "run_state/spawn.jsonl"
 
 EXCLUDED_TYPES = {"stage", "llm_call", "apparatus_event", "orchestrator_event",
                   "iteration", "run_log_entry"}
@@ -92,6 +112,296 @@ STATUS_TO_SKILL = {
 
 EXTENDS_RE = re.compile(r"extends\s+(?:the\s+)?\[\[([a-z0-9-]+)\]\]")
 DECISION_HEAD_RE = re.compile(r"^(D-\d+|\d{4}-\d{2}-\d{2})$")
+
+
+class MapBudgetError(RuntimeError):
+    """A returned map would exceed one of its declared encoded-byte caps."""
+
+
+def _capture_time() -> str:
+    return datetime.now(timezone.utc).isoformat().replace("+00:00", "Z")
+
+
+def _encoded_json_bytes(value: object) -> int:
+    return len(json.dumps(value, indent=1, ensure_ascii=False).encode("utf-8"))
+
+
+def _capture_jsonl(path: Path, locator: str) -> tuple[list[dict], dict]:
+    """Read one bounded byte string and parse mapping rows for both consumers."""
+    try:
+        with path.open("rb") as source:
+            raw = source.read(WORK_FILE_MAX_BYTES + 1)
+    except OSError:
+        return [], {
+            "locator": locator,
+            "sha256": None,
+            "bytes": None,
+            "rows": None,
+            "availability": "unavailable",
+            "reason": "source_unreadable",
+        }
+
+    if len(raw) > WORK_FILE_MAX_BYTES:
+        return [], {
+            "locator": locator,
+            "sha256": None,
+            "bytes": None,
+            "rows": None,
+            "captured_prefix_sha256": hashlib.sha256(raw).hexdigest(),
+            "captured_prefix_bytes": len(raw),
+            "availability": "unavailable",
+            "reason": "file_byte_cap_exceeded",
+        }
+
+    lines = [(line_number, line)
+             for line_number, line in enumerate(raw.splitlines(), 1)
+             if line.strip()]
+    descriptor = {
+        "locator": locator,
+        "sha256": hashlib.sha256(raw).hexdigest(),
+        "bytes": len(raw),
+        "rows": len(lines),
+        "availability": "available",
+    }
+    if len(lines) > WORK_FILE_MAX_ROWS:
+        descriptor.update(availability="unavailable",
+                          reason="file_row_cap_exceeded")
+        return [], descriptor
+    if any(len(line) > WORK_ROW_MAX_BYTES for _, line in lines):
+        descriptor.update(availability="unavailable",
+                          reason="row_byte_cap_exceeded")
+        return [], descriptor
+
+    rows: list[dict] = []
+    malformed = 0
+    non_objects = 0
+    excessive_nesting = 0
+    invalid_utf8 = 0
+    non_finite_numbers = 0
+    rejected_values = 0
+    for line_number, line in lines:
+        try:
+            row = json.loads(line)
+        except RecursionError:
+            excessive_nesting += 1
+            continue
+        except (json.JSONDecodeError, UnicodeDecodeError):
+            malformed += 1
+            continue
+        except ValueError:
+            # json.loads can reject an otherwise bounded integer at Python's
+            # conversion limit. Keep this distinct from malformed JSON text.
+            rejected_values += 1
+            continue
+        if not isinstance(row, dict):
+            non_objects += 1
+            continue
+        # Validate keys and values before either typed or legacy projection.
+        # JSON escapes can decode to unpaired surrogates even from ASCII input.
+        # Keep container depth bounded without recursively walking the row.
+        pending = [(row, 1)]
+        too_deep = False
+        invalid_text = False
+        non_finite_number = False
+        while pending:
+            value, depth = pending.pop()
+            if isinstance(value, float) and not math.isfinite(value):
+                non_finite_number = True
+                break
+            if isinstance(value, str):
+                try:
+                    value.encode("utf-8")
+                except UnicodeEncodeError:
+                    invalid_text = True
+                    break
+                continue
+            if not isinstance(value, (dict, list)):
+                continue
+            if depth > WORK_JSON_MAX_DEPTH:
+                too_deep = True
+                break
+            if isinstance(value, dict):
+                pending.extend((key, depth + 1) for key in value)
+                children = value.values()
+            else:
+                children = value
+            pending.extend((child, depth + 1) for child in children
+                           if isinstance(child, (str, float, dict, list)))
+        if too_deep:
+            excessive_nesting += 1
+            continue
+        if invalid_text:
+            invalid_utf8 += 1
+            continue
+        if non_finite_number:
+            non_finite_numbers += 1
+            continue
+        row["_source_line"] = line_number
+        rows.append(row)
+    if (malformed or non_objects or excessive_nesting or invalid_utf8
+            or non_finite_numbers or rejected_values):
+        reason = ("json_nesting_exceeded" if excessive_nesting else
+                  "invalid_utf8_scalar" if invalid_utf8 else
+                  "non_finite_json_number" if non_finite_numbers else
+                  "json_value_rejected" if rejected_values else
+                  "malformed_jsonl" if malformed else "non_object_json")
+        descriptor.update(
+            availability="unavailable",
+            reason=reason,
+            invalid_rows=(malformed + non_objects + excessive_nesting
+                          + invalid_utf8 + non_finite_numbers + rejected_values),
+        )
+    return rows, descriptor
+
+
+def _work_record(row: dict, *, kind: str, id_key: str,
+                 locator: str) -> dict:
+    """Map only the explicit fields frozen by the AS029 comparison."""
+    record = {
+        "id": row.get(id_key),
+        "kind": kind,
+        "raw_status": row.get("status"),
+        "source_locator": f"{locator}:L{row['_source_line']}",
+    }
+    if "agent" in row:
+        record["role"] = row["agent"]
+    if "parent_task_id" in row:
+        record["parent_id"] = row["parent_task_id"]
+    if "child_task_id" in row:
+        record["spawn_assignments"] = [row["child_task_id"]]
+    if "skill_used" in row:
+        record["observed_skills"] = [row["skill_used"]]
+    contract = row.get("contract")
+    if isinstance(contract, dict) and "skill_subset" in contract:
+        record["allowed_skills"] = contract["skill_subset"]
+    if "dependencies" in row:
+        record["dependencies"] = row["dependencies"]
+    return record
+
+
+def _capture_framework_work() -> dict:
+    captured_at = _capture_time()
+    run_rows, run_file = _capture_jsonl(FW_RUN, FW_RUN_LOCATOR)
+    spawn_rows, spawn_file = _capture_jsonl(SPAWN_LEDGER, SPAWN_LOCATOR)
+    files = [run_file, spawn_file]
+    source = {
+        "namespace": "agent_system/framework",
+        "locator": "framework:run-and-spawn",
+        "capture_basis": {
+            "captured_at": captured_at,
+            "atomic": False,
+            "limits": {
+                "file_bytes": WORK_FILE_MAX_BYTES,
+                "file_rows": WORK_FILE_MAX_ROWS,
+                "row_bytes": WORK_ROW_MAX_BYTES,
+                "json_container_depth": WORK_JSON_MAX_DEPTH,
+            },
+            "files": files,
+        },
+    }
+    for descriptor in files:
+        if descriptor["availability"] != "available":
+            print(f"warn: recorded work unavailable: {descriptor['locator']} "
+                  f"{descriptor['reason']}", file=sys.stderr)
+    records = [
+        *(_work_record(row, kind="run", id_key="task_id",
+                       locator=FW_RUN_LOCATOR) for row in run_rows),
+        *(_work_record(row, kind="spawn", id_key="spawn_id",
+                       locator=SPAWN_LOCATOR) for row in spawn_rows),
+    ]
+    return {
+        "available": all(item["availability"] == "available" for item in files),
+        "source": source,
+        "rows": {FW_RUN_LOCATOR: run_rows, SPAWN_LOCATOR: spawn_rows},
+        "records": records,
+    }
+
+
+def _legacy_payload(payload: dict) -> dict:
+    return {key: value for key, value in payload.items()
+            if key not in {"work", "work_capture"}}
+
+
+def _attach_recorded_work(payload: dict, capture: dict) -> dict:
+    legacy_bytes = _encoded_json_bytes(_legacy_payload(payload))
+    if legacy_bytes >= MAX_BYTES:
+        raise MapBudgetError(
+            f"legacy payload {legacy_bytes} B >= cap {MAX_BYTES} B")
+
+    if not capture["available"]:
+        payload["work_capture"] = {
+            "state": "unavailable",
+            "reason": "framework_source_unavailable",
+            "source": capture["source"],
+        }
+    else:
+        work = build_work_graph(
+            capture["records"],
+            source=capture["source"],
+            record_cap=WORK_RECORD_CAP,
+            node_cap=WORK_NODE_CAP,
+            edge_cap=WORK_EDGE_CAP,
+            diagnostic_cap=WORK_DIAGNOSTIC_CAP,
+        )
+        work_bytes = _encoded_json_bytes(work)
+        if work_bytes >= WORK_MAX_BYTES:
+            print(f"warn: recorded work unavailable: output {work_bytes} B >= "
+                  f"cap {WORK_MAX_BYTES} B", file=sys.stderr)
+            payload["work_capture"] = {
+                "state": "unavailable",
+                "reason": "work_output_byte_cap_exceeded",
+                "source": capture["source"],
+                "limits": {"work_bytes": WORK_MAX_BYTES,
+                           "observed_work_bytes": work_bytes},
+            }
+        else:
+            payload["work"] = work
+
+    total_bytes = _encoded_json_bytes(payload)
+    if total_bytes >= MAX_TOTAL_BYTES and "work" in payload:
+        work_bytes = _encoded_json_bytes(payload.pop("work"))
+        print(f"warn: recorded work unavailable: combined output {total_bytes} B >= "
+              f"cap {MAX_TOTAL_BYTES} B", file=sys.stderr)
+        payload["work_capture"] = {
+            "state": "unavailable",
+            "reason": "combined_output_byte_cap_exceeded",
+            "source": capture["source"],
+            "limits": {"work_bytes": WORK_MAX_BYTES,
+                       "observed_work_bytes": work_bytes,
+                       "total_bytes": MAX_TOTAL_BYTES,
+                       "observed_total_bytes": total_bytes},
+        }
+        total_bytes = _encoded_json_bytes(payload)
+    if total_bytes >= MAX_TOTAL_BYTES:
+        raise MapBudgetError(
+            f"combined payload {total_bytes} B >= cap {MAX_TOTAL_BYTES} B")
+    return payload
+
+
+def _without_volatile_capture_times(payload: dict) -> dict:
+    """Strip only projector-owned capture clocks used by compare-before-write."""
+    comparable = deepcopy(payload)
+    comparable["generated_at"] = None
+
+    def strip_source(source: object) -> None:
+        if not isinstance(source, dict):
+            return
+        basis = source.get("capture_basis")
+        if isinstance(basis, dict):
+            basis.pop("captured_at", None)
+
+    work = comparable.get("work")
+    if isinstance(work, dict):
+        strip_source(work.get("source"))
+        for collection in (work.get("nodes"), work.get("edges")):
+            if isinstance(collection, list):
+                for item in collection:
+                    if isinstance(item, dict):
+                        strip_source(item.get("source_metadata"))
+    failure = comparable.get("work_capture")
+    if isinstance(failure, dict):
+        strip_source(failure.get("source"))
+    return comparable
 
 
 def resolve_consumer() -> Path | None:
@@ -137,7 +447,8 @@ def ladder_attribution(row: dict) -> tuple[str | None, bool]:
     sk = (row.get("skill_used") or "").strip()
     if sk:
         return sk, True
-    st = (row.get("status") or "").strip()
+    raw_status = row.get("status")
+    st = raw_status.strip() if isinstance(raw_status, str) else ""
     if st in STATUS_TO_SKILL:
         return STATUS_TO_SKILL[st], False
     task = (row.get("task_id") or "").strip()
@@ -183,6 +494,7 @@ def collapse_by_id(rows: list[dict], key: str) -> dict[str, list[dict]]:
 # ---------------------------------------------------------------------------
 
 def build_map() -> dict:
+    framework_capture = _capture_framework_work()
     consumer = resolve_consumer()
     if consumer is None:
         print("warn: consumer not resolved — framework-side sources only",
@@ -207,7 +519,8 @@ def build_map() -> dict:
                       "one_line": one_line(line), "source": source, "page": page}
 
     def add_edge(src: str, dst: str, etype: str, *, e: int = 0, i: int = 0,
-                 agent: str | None = None) -> None:
+                 agent: str | None = None,
+                 source_ref: str | None = None) -> None:
         edge: dict = {"src": src, "dst": dst, "type": etype}
         if e:
             edge["weight_e"] = e
@@ -215,6 +528,9 @@ def build_map() -> dict:
             edge["weight_i"] = i
         if agent:
             edge["agent"] = agent
+        if source_ref is not None:
+            edge["source_ref"] = source_ref
+            edge["source_refs"] = [source_ref]
         edges.append(edge)
 
     # ---- skills (all 24, the map's fixed cluster anatomy) -----------------
@@ -230,9 +546,12 @@ def build_map() -> dict:
     skill_id = {name: slugify(f"skill-{name}") for name in skill_names}
 
     # ---- run-log attribution (rungs 1-3) ----------------------------------
-    runlogs: list[tuple[str, Path]] = [("claude-code-main", FW_RUN)]
+    runlogs: list[tuple[str, list[dict]]] = [
+        ("claude-code-main", framework_capture["rows"][FW_RUN_LOCATOR])
+    ]
     if consumer is not None:
-        runlogs.insert(0, ("nara", consumer / "run_state" / "week1.run.jsonl"))
+        runlogs.insert(0, (
+            "nara", load_jsonl(consumer / "run_state" / "week1.run.jsonl")))
 
     cells: dict[tuple[str, str], dict] = {}   # (agent, skill) -> {e,i,last}
     agent_seen: dict[str, dict] = {}          # agent -> {first,last,rows}
@@ -251,8 +570,8 @@ def build_map() -> dict:
         c["e" if explicit else "i"] += 1
         c["last"] = max(c["last"], date_of(ts))
 
-    for default, path in runlogs:
-        for row in load_jsonl(path):
+    for default, rows in runlogs:
+        for row in rows:
             agent = map_agent(row.get("agent"), default)
             ts = row.get("timestamp") or ""
             touch_agent(agent, ts)
@@ -267,7 +586,10 @@ def build_map() -> dict:
                   (f.get("date") or "") + "T00:00:00Z", False)
 
     # ---- spawns (both ledgers, recent window) ------------------------------
-    spawn_rows: list[tuple[str, dict]] = [("framework", r) for r in load_jsonl(SPAWN_LEDGER)]
+    spawn_rows: list[tuple[str, dict]] = [
+        ("framework", row)
+        for row in framework_capture["rows"][SPAWN_LOCATOR]
+    ]
     if consumer is not None:
         spawn_rows += [("apparatus", r)
                        for r in load_jsonl(consumer / "run_state" / "spawn.jsonl")]
@@ -369,11 +691,22 @@ def build_map() -> dict:
             add_edge(proposal_id_map[pid], rule_id_map[cited], "references", e=1)
 
     # ---- harvest findings --------------------------------------------------
-    finding_by_hid: dict[str, str] = {}
+    # Index the exact source identities emitted by draft_proposals.py. A
+    # harvest can contain many findings, and even the same ref can occur on
+    # more than one skill, so every identity retains all of its candidates.
+    finding_by_reference: dict[str, list[tuple[str, dict]]] = defaultdict(list)
     for f in feedback_rows:
         hid = f["harvest_id"]
         nid = slugify(f"harvest-{hid}-l{f.get('_source_line', 0)}")
-        finding_by_hid.setdefault(hid, nid)
+        if isinstance(hid, str) and hid.strip():
+            legacy_ref = f"feedback.jsonl:{hid.strip()}"
+            finding_by_reference[legacy_ref].append((nid, f))
+            source_ref = f.get("ref")
+            if isinstance(source_ref, str) and source_ref.strip():
+                # Split nothing from the finding's ref: its complete value is
+                # source provenance and therefore part of the exact identity.
+                structured_ref = f"{legacy_ref}:{source_ref.strip()}"
+                finding_by_reference[structured_ref].append((nid, f))
         d = f.get("date") or ""
         add_node(nid, "harvest_finding", f"{hid}:{f.get('class', '?')}", date=d)
         add_card(nid, f"{hid} — {f.get('skill', '')}:{f.get('class', '')}", d,
@@ -383,13 +716,41 @@ def build_map() -> dict:
         if sk in skill_names:
             add_edge(nid, skill_id[sk], "about", e=1)
 
-    # finding → becomes → proposal (references carrying feedback.jsonl:HXXX)
+    def resolve_finding(reference: str, proposal: dict) -> str | None:
+        candidates = finding_by_reference.get(reference, [])
+        if len(candidates) == 1:
+            return candidates[0][0]
+        if len(candidates) < 2:
+            return None
+
+        # The proposal's governed skill target can disambiguate two findings
+        # that deliberately share a source ref (H008:D-042 is the live case).
+        # More than one exact target match remains ambiguous and is rejected.
+        target_type = proposal.get("target_type")
+        target = proposal.get("target")
+        if not (isinstance(target_type, str)
+                and target_type.strip() == "skill"
+                and isinstance(target, str)
+                and target.strip()):
+            return None
+        target = target.strip()
+        matches = [
+            nid for nid, finding in candidates
+            if isinstance(finding.get("skill"), str)
+            and finding["skill"].strip() == target
+        ]
+        return matches[0] if len(matches) == 1 else None
+
+    # finding → becomes → proposal. This edge records exact source provenance;
+    # proposal lifecycle, enactment, and healing are represented elsewhere.
     for pid, hist in proposals.items():
         for ref in hist[0].get("references") or []:
-            if isinstance(ref, str) and ref.startswith("feedback.jsonl:"):
-                hid = ref.split(":", 1)[1]
-                if hid in finding_by_hid:
-                    add_edge(finding_by_hid[hid], proposal_id_map[pid], "becomes", e=1)
+            if not isinstance(ref, str):
+                continue
+            finding = resolve_finding(ref, hist[0])
+            if finding is not None:
+                add_edge(finding, proposal_id_map[pid], "becomes", e=1,
+                         source_ref=ref)
 
     # ---- decisions / corrections -------------------------------------------
     fw_dec = load_decisions(FW_DECISIONS, "framework")
@@ -512,6 +873,11 @@ def build_map() -> dict:
             m = merged[key]
             m["weight_e"] = m.get("weight_e", 0) + e.get("weight_e", 0)
             m["weight_i"] = m.get("weight_i", 0) + e.get("weight_i", 0)
+            if "source_refs" in e:
+                source_refs = set(m.get("source_refs", []))
+                source_refs.update(e["source_refs"])
+                m["source_refs"] = sorted(source_refs)
+                m["source_ref"] = m["source_refs"][0]
             for k in ("weight_e", "weight_i"):
                 if not m.get(k):
                     m.pop(k, None)
@@ -523,8 +889,9 @@ def build_map() -> dict:
 
     generated_at = datetime.now(timezone.utc).replace(microsecond=0) \
         .isoformat().replace("+00:00", "Z")
-    return {"generated_at": generated_at, "nodes": node_list,
-            "edges": edge_list, "cards": card_map}
+    payload = {"generated_at": generated_at, "nodes": node_list,
+               "edges": edge_list, "cards": card_map}
+    return _attach_recorded_work(payload, framework_capture)
 
 
 # ---------------------------------------------------------------------------
@@ -546,9 +913,8 @@ def emit(payload: dict) -> bool:
     if OUT_JS.exists():
         old = parse_map_js(OUT_JS.read_text())
         if old is not None:
-            a, b = dict(old), dict(payload)
-            a["generated_at"] = b["generated_at"] = None
-            if a == b:
+            if (_without_volatile_capture_times(old)
+                    == _without_volatile_capture_times(payload)):
                 return False
     # Atomic write (tmp + os.replace): a verdict-triggered regen can run while the
     # HTTP server serves map_data.js; a plain truncate-then-write risks a torn read.
@@ -568,7 +934,11 @@ def main() -> int:
                         help="Print the rollup; write nothing.")
     args = parser.parse_args()
 
-    payload = build_map()
+    try:
+        payload = build_map()
+    except MapBudgetError as exc:
+        print(f"ERROR: {exc}", file=sys.stderr)
+        return 1
     bad = [n for n in payload["nodes"] if n["type"] in EXCLUDED_TYPES]
     if bad:
         print(f"ERROR: {len(bad)} excluded-type nodes leaked: "
@@ -578,9 +948,9 @@ def main() -> int:
         print(f"ERROR: {len(payload['nodes'])} nodes > cap {MAX_NODES}", file=sys.stderr)
         return 1
     blob = json.dumps(payload, indent=1, ensure_ascii=False)
-    if len(blob) >= MAX_BYTES:
-        print(f"ERROR: payload {len(blob)} B ≥ cap {MAX_BYTES} B", file=sys.stderr)
-        return 1
+    legacy_bytes = _encoded_json_bytes(_legacy_payload(payload))
+    work_bytes = _encoded_json_bytes(payload["work"]) if "work" in payload else 0
+    total_bytes = len(blob.encode("utf-8"))
 
     by_type = defaultdict(int)
     for n in payload["nodes"]:
@@ -594,7 +964,8 @@ def main() -> int:
           + "  ".join(f"{t}={c}" for t, c in sorted(by_type.items())))
     print(f"  edges: {len(payload['edges'])}  "
           + "  ".join(f"{t}={c}" for t, c in sorted(by_edge.items())))
-    print(f"  cards: {len(payload['cards'])}  bytes: {len(blob)}")
+    print(f"  cards: {len(payload['cards'])}  legacy bytes: {legacy_bytes}  "
+          f"work bytes: {work_bytes}  total bytes: {total_bytes}")
     if args.dry_run:
         print("DRY RUN — nothing written.")
         return 0
