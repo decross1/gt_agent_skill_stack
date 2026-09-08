@@ -41,6 +41,7 @@ import argparse
 from copy import deepcopy
 import hashlib
 import json
+import math
 import os
 import re
 import sys
@@ -176,6 +177,8 @@ def _capture_jsonl(path: Path, locator: str) -> tuple[list[dict], dict]:
     non_objects = 0
     excessive_nesting = 0
     invalid_utf8 = 0
+    non_finite_numbers = 0
+    rejected_values = 0
     for line_number, line in lines:
         try:
             row = json.loads(line)
@@ -184,6 +187,11 @@ def _capture_jsonl(path: Path, locator: str) -> tuple[list[dict], dict]:
             continue
         except (json.JSONDecodeError, UnicodeDecodeError):
             malformed += 1
+            continue
+        except ValueError:
+            # json.loads can reject an otherwise bounded integer at Python's
+            # conversion limit. Keep this distinct from malformed JSON text.
+            rejected_values += 1
             continue
         if not isinstance(row, dict):
             non_objects += 1
@@ -194,8 +202,12 @@ def _capture_jsonl(path: Path, locator: str) -> tuple[list[dict], dict]:
         pending = [(row, 1)]
         too_deep = False
         invalid_text = False
+        non_finite_number = False
         while pending:
             value, depth = pending.pop()
+            if isinstance(value, float) and not math.isfinite(value):
+                non_finite_number = True
+                break
             if isinstance(value, str):
                 try:
                     value.encode("utf-8")
@@ -214,23 +226,30 @@ def _capture_jsonl(path: Path, locator: str) -> tuple[list[dict], dict]:
             else:
                 children = value
             pending.extend((child, depth + 1) for child in children
-                           if isinstance(child, (str, dict, list)))
+                           if isinstance(child, (str, float, dict, list)))
         if too_deep:
             excessive_nesting += 1
             continue
         if invalid_text:
             invalid_utf8 += 1
             continue
+        if non_finite_number:
+            non_finite_numbers += 1
+            continue
         row["_source_line"] = line_number
         rows.append(row)
-    if malformed or non_objects or excessive_nesting or invalid_utf8:
+    if (malformed or non_objects or excessive_nesting or invalid_utf8
+            or non_finite_numbers or rejected_values):
         reason = ("json_nesting_exceeded" if excessive_nesting else
                   "invalid_utf8_scalar" if invalid_utf8 else
+                  "non_finite_json_number" if non_finite_numbers else
+                  "json_value_rejected" if rejected_values else
                   "malformed_jsonl" if malformed else "non_object_json")
         descriptor.update(
             availability="unavailable",
             reason=reason,
-            invalid_rows=malformed + non_objects + excessive_nesting + invalid_utf8,
+            invalid_rows=(malformed + non_objects + excessive_nesting
+                          + invalid_utf8 + non_finite_numbers + rejected_values),
         )
     return rows, descriptor
 

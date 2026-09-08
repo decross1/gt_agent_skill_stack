@@ -90,6 +90,15 @@ during the same bounded iterative traversal. An escaped unpaired surrogate,
 even in an otherwise ASCII JSONL row or nested metadata, is rejected as
 `invalid_utf8_scalar`; it is not replaced or escaped into apparent success.
 Valid non-ASCII text and legitimately decoded surrogate pairs are preserved.
+The same traversal rejects non-finite decoded floats as
+`non_finite_json_number`, including Python's accepted `NaN`/`Infinity`
+extensions, exponent overflow, and values in otherwise unused metadata.
+An integer exceeding the active Python parser's conversion limit is reported
+as `json_value_rejected`; a bounded row can still contain an unrepresentable
+value. Neither case reaches legacy attribution or becomes an available
+capture. Finite numbers, supported integers, booleans and null remain intact.
+This is parser/serialization admission, not a numeric precision or scientific
+validity guarantee. No global parser limit or source value is changed.
 
 Rejected rows retain their file digest/byte/row receipt and make work
 unavailable; they are not passed into legacy attribution or converted to

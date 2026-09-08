@@ -1443,3 +1443,51 @@ def test_operations_reported_verification_does_not_establish_execution(operation
     assert observed["value"]["unverified_or_pending"] == 1
     assert "execution verification is not performed" in observed["uncertainty"]
     assert operations.proposals.read_bytes() == before
+
+
+@pytest.mark.parametrize("field,reason", [
+    (b'"status":NaN', "non_finite_json_number"),
+    (b'"status":Infinity', "non_finite_json_number"),
+    (b'"status":-Infinity', "non_finite_json_number"),
+    (b'"status":1e309', "non_finite_json_number"),
+    (b'"status":{"nested":[-1e309]}', "non_finite_json_number"),
+    (b'"status":[Infinity]', "non_finite_json_number"),
+    (b'"status":"failed","extra":NaN', "non_finite_json_number"),
+    (b'"status":' + b'9' * 5000, "json_value_rejected"),
+])
+def test_map_handler_numeric_capture_failure_is_unavailable_not_500(
+        brain, monkeypatch, field, reason):
+    healthy = b'{"task_id":"healthy","agent":"claude-code-main","skill_used":"validate"}\n'
+    raw = healthy + b'{"task_id":"validate-rejected",' + field + b'}\n'
+    root = _private_map_sources(brain, monkeypatch, raw)
+    before = {path: path.read_bytes() for path in root.iterdir()}
+    code, result = _get_serialized_map()
+    assert code == 200
+    assert "work" not in result
+    capture = result["work_capture"]
+    assert capture["state"] == "unavailable" and capture["reason"] == "framework_source_unavailable"
+    assert capture["source"]["capture_basis"]["files"][0] == {
+        "locator": "run_state/framework.run.jsonl", "sha256": hashlib.sha256(raw).hexdigest(),
+        "bytes": len(raw), "rows": 2, "availability": "unavailable",
+        "reason": reason, "invalid_rows": 1}
+    used = [edge for edge in result["edges"]
+            if edge["type"] == "used" and edge["src"] == "agent-claude-code-main"
+            and edge["dst"] == "skill-validate"]
+    assert len(used) == 1 and used[0]["weight_e"] == 1 and used[0].get("weight_i", 0) == 0
+    json.dumps(result, allow_nan=False, ensure_ascii=False).encode("utf-8")
+    assert before == {path: path.read_bytes() for path in root.iterdir()}
+    assert brain.gemma.calls == 0
+
+
+def test_map_handler_preserves_supported_numeric_and_falsy_values(brain, monkeypatch):
+    status = {"values": [0, -1, 1.25, 1e100, True, False, None, 10**100]}
+    raw = (json.dumps({"task_id": "finite", "status": status}, allow_nan=False) + "\n").encode()
+    root = _private_map_sources(brain, monkeypatch, raw)
+    before = {path: path.read_bytes() for path in root.iterdir()}
+    code, result = _get_serialized_map()
+    assert code == 200 and "work_capture" not in result
+    node = next(node for node in result["work"]["nodes"] if node.get("record_id") == "finite")
+    assert node["raw_status"] == status
+    json.dumps(result, allow_nan=False, ensure_ascii=False).encode("utf-8")
+    assert before == {path: path.read_bytes() for path in root.iterdir()}
+    assert brain.gemma.calls == 0

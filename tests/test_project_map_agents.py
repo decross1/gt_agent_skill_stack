@@ -639,3 +639,52 @@ def test_capture_preserves_valid_unicode_and_decoded_surrogate_pairs(framework, 
     assert node["raw_status"] == json.loads(raw)["status"]
     assert result["work"]["source"]["capture_basis"]["files"][0]["sha256"] == hashlib.sha256(raw).hexdigest()
     json.dumps(result, ensure_ascii=False).encode("utf-8")
+
+
+_NUMERIC_CAPTURE_CASES = [
+    (b'"status":NaN', "non_finite_json_number"),
+    (b'"status":Infinity', "non_finite_json_number"),
+    (b'"status":-Infinity', "non_finite_json_number"),
+    (b'"status":1e309', "non_finite_json_number"),
+    (b'"status":{"nested":[-1e309]}', "non_finite_json_number"),
+    (b'"status":[Infinity]', "non_finite_json_number"),
+    (b'"status":"failed","extra":NaN', "non_finite_json_number"),
+    (b'"status":' + b'9' * 5000, "json_value_rejected"),
+]
+
+
+@pytest.mark.parametrize("field,reason", _NUMERIC_CAPTURE_CASES)
+def test_capture_rejects_unsupported_numeric_values_before_all_projection(
+        framework, monkeypatch, field, reason):
+    healthy = b'{"task_id":"healthy","agent":"claude-code-main","skill_used":"validate"}\n'
+    raw = healthy + b'{"task_id":"validate-rejected",' + field + b'}\n'
+    source = _OneReadPath(raw)
+    rows, descriptor = pm._capture_jsonl(source, pm.FW_RUN_LOCATOR)
+    assert [row["task_id"] for row in rows] == ["healthy"]
+    assert rows[0]["_source_line"] == 1 and source.reads == 1
+    assert descriptor == {"locator": pm.FW_RUN_LOCATOR,
+        "sha256": hashlib.sha256(raw).hexdigest(), "bytes": len(raw), "rows": 2,
+        "availability": "unavailable", "reason": reason, "invalid_rows": 1}
+    monkeypatch.setattr(pm, "FW_RUN", _OneReadPath(raw))
+    monkeypatch.setattr(pm, "SPAWN_LEDGER", _OneReadPath(b""))
+    result = pm.build_map()
+    assert "work" not in result
+    assert result["work_capture"]["source"]["capture_basis"]["files"][0] == descriptor
+    used = [edge for edge in result["edges"]
+            if edge["type"] == "used" and edge["src"] == "agent-claude-code-main"
+            and edge["dst"] == "skill-validate"]
+    assert len(used) == 1 and used[0]["weight_e"] == 1 and used[0].get("weight_i", 0) == 0
+    json.dumps(result, allow_nan=False, ensure_ascii=False).encode("utf-8")
+    assert pm.FW_RUN.reads == pm.SPAWN_LEDGER.reads == 1
+
+
+def test_capture_preserves_supported_numeric_and_falsy_values(framework, monkeypatch):
+    status = {"values": [0, -1, 1.25, 1e100, True, False, None, 10**100]}
+    raw = _rows_bytes([{"task_id": "finite", "status": status}])
+    monkeypatch.setattr(pm, "FW_RUN", _OneReadPath(raw))
+    monkeypatch.setattr(pm, "SPAWN_LEDGER", _OneReadPath(b""))
+    result = pm.build_map()
+    assert "work_capture" not in result
+    node = next(node for node in result["work"]["nodes"] if node.get("record_id") == "finite")
+    assert node["raw_status"] == status
+    json.dumps(result, allow_nan=False, ensure_ascii=False).encode("utf-8")
