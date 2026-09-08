@@ -292,6 +292,8 @@ let M = window.BRAIN_MAP || null;
 let instance = null;
 let mode = "work", query = "", type = "all";
 let selectedId = "";
+let pendingRequestedId = deepLinkId();
+let internalSelectionDepth = 0;
 let WIN_MIN = 1, WIN_MAX = 7, windowDays = 7, asof = "";
 const NODE_TYPE_LABEL = { agent: "actor", spawn: "contract record", skill: "skill",
   work: "work record", proposal: "proposal", rule: "rule", harvest_finding: "finding", correction: "correction",
@@ -325,6 +327,7 @@ function renderStepper() {
 }
 function setWindow(next) {
   if (next === windowDays || next < WIN_MIN || next > WIN_MAX) return;
+  cancelPendingRequest(true);
   windowDays = next;
   try { localStorage.setItem("brain.windowDays", String(next)); } catch (_) {}
   renderStepper(); mountMap();
@@ -341,15 +344,13 @@ function mountMap() {
   instance = BrainMap.mount($("map"), { summary: D, map: M, windowDays, embedded: false,
     mode, query, type, onSelect: openNode });
   renderBrowser(); updateZoom(); renderWorkState();
-  const retainedSelection = !!selectedId;
-  const requested = selectedId || deepLinkId();
-  if (!requested) return;
-  if (!retainedSelection) routeInitialDeepLink(requested);
+  if (pendingRequestedId) { resolvePendingRequest(); return; }
+  if (!selectedId) return;
+  const requested = selectedId;
   const current = currentTypedNode(requested);
-  const selectable = current && (!retainedSelection || currentVisibleTypedNode(requested));
-  if (selectable && instance && typeof instance.selectById === "function" && instance.selectById(requested) !== false) return;
+  if (current && currentVisibleTypedNode(requested) && selectFromPage(requested)) return;
   selectedId = "";
-  clearInspector(current && retainedSelection ? "The selected record is unavailable in the current view." :
+  clearInspector(current ? "The selected record is unavailable in the current view." :
     "The selected record is unavailable in the current map response.", requested);
   clearDeepLink();
 }
@@ -383,6 +384,57 @@ function clearDeepLink() {
   if (!window.history || typeof window.history.replaceState !== "function") return;
   history.replaceState(null, "", location.pathname + location.search);
 }
+function selectFromPage(id) {
+  if (!instance || typeof instance.selectById !== "function") return false;
+  internalSelectionDepth++;
+  try { return instance.selectById(id) !== false; }
+  finally { internalSelectionDepth--; }
+}
+function cancelPendingRequest(clearUrl) {
+  const requested = pendingRequestedId;
+  pendingRequestedId = "";
+  if (requested && clearUrl) clearDeepLink();
+  return requested;
+}
+function qualifiedLiveMap() {
+  return mapSource && mapSource.source === "live" && !mapSource.error && mapSource.data === M;
+}
+function typedWorkRequest(id) { return typeof id === "string" && id.startsWith("work:"); }
+function qualifiedPendingAbsence(id) {
+  if (!qualifiedLiveMap()) return false;
+  return !typedWorkRequest(id) || currentWorkState().state === "complete";
+}
+function pendingRequestMessage(id) {
+  if (mapSource && mapSource.error) return "The requested record is not present in the saved map. " +
+    "The live map refresh failed (" + evidenceText(mapSource.error) + "); the bookmark is retained for retry.";
+  if (qualifiedLiveMap() && typedWorkRequest(id)) {
+    const state = currentWorkState();
+    return "The requested typed work record is not present in the current map response, but its work projection is " +
+      evidenceText(state.state || "unavailable") + " (" + evidenceText(state.reason || "reason unavailable") +
+      "). The bookmark is retained for retry.";
+  }
+  return "The requested record is not present in the saved map. Waiting for a qualified live map response; " +
+    "the bookmark is retained for retry.";
+}
+function resolvePendingRequest() {
+  const requested = pendingRequestedId;
+  if (!requested || !instance) return false;
+  routeInitialDeepLink(requested);
+  if (currentTypedNode(requested) && selectFromPage(requested)) {
+    if (qualifiedLiveMap()) pendingRequestedId = "";
+    return true;
+  }
+  if (qualifiedPendingAbsence(requested)) {
+    pendingRequestedId = "";
+    if (selectedId === requested) selectedId = "";
+    clearInspector("The requested record is unavailable in the current live map response.", requested);
+    clearDeepLink();
+    return false;
+  }
+  if (selectedId === requested) selectedId = "";
+  clearInspector(pendingRequestMessage(requested), requested);
+  return false;
+}
 function currentTypedNode(id) {
   const rendered = instance && typeof instance.getNodeById === "function" ? instance.getNodeById(id) : null;
   if (rendered && typeof rendered.type === "string" && rendered.type.length > 0) return rendered;
@@ -398,8 +450,7 @@ function currentVisibleTypedNode(id) {
 function revalidateSelectionForView() {
   if (!selectedId) return;
   const requested = selectedId;
-  if (currentVisibleTypedNode(requested) && instance && typeof instance.selectById === "function" &&
-      instance.selectById(requested) !== false) return;
+  if (currentVisibleTypedNode(requested) && selectFromPage(requested)) return;
   selectedId = "";
   clearInspector("The selected record is unavailable in the current view.", requested);
   clearDeepLink();
@@ -483,6 +534,7 @@ function clearInspector(message, id) {
 }
 function openNode(node) {
   if (!node || !M) return;
+  if (internalSelectionDepth === 0) cancelPendingRequest(false);
   const current = currentTypedNode(node.id);
   if (!current) {
     selectedId = "";
@@ -698,6 +750,7 @@ function updateZoom() {
 }
 function setMode(next) {
   if (!["work", "governance", "usage"].includes(next)) return;
+  cancelPendingRequest(true);
   mode = next; type = "all"; $("graph-type").value = "all";
   renderModeControls();
   if (instance && typeof instance.setMode === "function") instance.setMode(mode);
@@ -710,12 +763,14 @@ function renderModeControls() {
 }
 document.querySelectorAll("[data-graph-mode]").forEach(button => button.addEventListener("click", () => setMode(button.getAttribute("data-graph-mode"))));
 $("graph-search").addEventListener("input", event => {
+  cancelPendingRequest(true);
   query = String(event.target.value || "");
   if (instance && typeof instance.setFilter === "function") instance.setFilter({ query, type });
   revalidateSelectionForView();
   renderBrowser();
 });
 $("graph-type").addEventListener("change", event => {
+  cancelPendingRequest(true);
   type = String(event.target.value || "all");
   if (instance && typeof instance.setFilter === "function") instance.setFilter({ query, type });
   revalidateSelectionForView();
@@ -728,6 +783,20 @@ document.querySelectorAll("[data-graph-zoom]").forEach(button => button.addEvent
   if (instance && typeof instance.zoomBy === "function") instance.zoomBy(button.getAttribute("data-graph-zoom") === "in" ? .14 : -.14);
   updateZoom();
 }));
+document.addEventListener("click", event => {
+  const target = event && event.target;
+  if (!target || !target.classList || !target.classList.contains("bm-back")) return;
+  const requested = cancelPendingRequest(true);
+  if (requested && selectedId === requested) selectedId = "";
+}, true);
+function followLocationNavigation() {
+  pendingRequestedId = deepLinkId();
+  selectedId = "";
+  if (pendingRequestedId) resolvePendingRequest();
+  else clearInspector("No bookmarked record is selected.");
+}
+window.addEventListener("hashchange", followLocationNavigation);
+window.addEventListener("popstate", followLocationNavigation);
 
 const summarySource = U.dataSource(D, U.usableSummary);
 const mapSource = U.dataSource(M, U.usableMap);
@@ -739,15 +808,17 @@ function showSources() {
 }
 async function refreshData(current) {
   if (!summarySource || !mapSource) return [false, false];
-  const update = changed => {
+  const update = (source, changed) => {
     if (!current()) return changed;
     D = summarySource.data; M = mapSource.data; showSources();
     if (changed) { applyData(); renderStepper(); }
     const signature = mapSig();
     if (signature !== lastMapSig) { lastMapSig = signature; mountMap(); }
+    if (source === "map") resolvePendingRequest();
     return changed;
   };
-  return Promise.all([summarySource.refresh("api/summary").then(update), mapSource.refresh("api/map").then(update)]);
+  return Promise.all([summarySource.refresh("api/summary").then(changed => update("summary", changed)),
+    mapSource.refresh("api/map").then(changed => update("map", changed))]);
 }
 function mapSig() { return JSON.stringify([M && [M.nodes, M.edges, M.cards, M.work, M.work_capture],
   D && [D.skills, D.matrix, D.agents, D.window]]); }

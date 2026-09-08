@@ -80,6 +80,15 @@ data states distinct from passing checks. Exercise automatic page bootstrap,
 keyboard selection, filtering, paging, detail opening and old deep links in
 normal Firefox. Tests alone do not establish visual usability.
 
+On HTTP startup, a bookmarked graph record is kept independently while the
+older saved map paints. A successful live map may resolve it; a complete live
+response may instead label it unavailable. A failed or malformed refresh, and
+an unavailable, malformed or partial typed-work projection, cannot turn an
+unresolved typed bookmark into a current-absence claim, so the URL remains
+retryable. A later node choice, Back action, mode or filter change, or browser
+URL navigation supersedes that pending startup request. The source status still
+distinguishes saved evidence, a current live response and a failed refresh.
+
 The existing managed Brain launcher fingerprints `memory/brain/view` as well
 as executable scripts. Adopting a reviewed UI commit can therefore trigger a
 managed restart. Follow the existing deployment contract: reconcile the applied
@@ -92,3 +101,10 @@ must be reported as deferred.
 Source rollback is a reviewed revert through the same maintenance route.
 Preserve unrelated operator changes and append-only evidence; do not reset,
 discard or rewrite them to make the source tree appear clean.
+
+An activity-window change through the stepper or page arrow keys also cancels
+an unresolved startup bookmark. A boundary no-op, or an arrow key used inside
+an input, leaves it pending. This protects newer navigation when saved data
+lacks a target that a delayed live response later supplies. The source and
+browser checks qualify bookmark behavior only, not graph completeness or actor
+liveness.
