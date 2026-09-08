@@ -183,7 +183,7 @@ instance.selectById('actor');drawnText.length=0;instance._draw();
 assert.equal(drawnText.filter(value=>value.includes('skill attribution')).length,1,
  'a selected actor gets one counted relation label instead of overlapping edge labels');
 instance.setMode('governance');
-assert.deepEqual(instance.getVisibleEdges().map(edge=>edge.type),['enacts']);
+assert.deepEqual([...new Set(instance.getVisibleEdges().map(edge=>edge.type))].sort(),['enacts','launched','uses']);
 assert.ok(instance.getVisibleNodes().some(node=>node.id==='proposal'));
 instance.setFilter({query:'P-1',type:'all'});
 assert.ok(instance.getVisibleNodes().some(node=>node.id==='proposal'));
@@ -286,7 +286,7 @@ const work={schema_version:'work-graph/v1',source:capture,
   edge('observed_skill',check.id,skill.id,{assertion_basis:'caller_supplied'}),
   edge('spawn_assignment',review.id,review.id)],
  unresolved:[{reason:'duplicate_id',record_id:'held-duplicate',occurrences:2}],
- cycles:[{node_ids:[review.id,check.id]}]};
+ cycles:[{type:'dependency',node_ids:[review.id,check.id]}]};
 const legacy={generated_at:'2026-09-07T23:30:01Z',
  nodes:[{id:'legacy-agent',type:'agent',label:'legacy actor'},
   {id:'legacy-spawn',type:'spawn',label:'legacy contract'},
@@ -322,7 +322,8 @@ instance.destroy();
 
 for(const [map,state] of [
  [{...legacy,work:undefined},'missing'],
- [{...legacy,work:{...work,projection_state:{state:'unavailable',reason:'capture_failed'},nodes:[],edges:[]}},'unavailable'],
+ [{...legacy,work:{...work,projection_state:{state:'unavailable',reason:'capture_failed'},nodes:[],edges:[],
+ limits:{...work.limits,node_candidates:0,edge_candidates:0}}},'unavailable'],
  [{...legacy,work:{...work,edges:[edge('dependency',check.id,'missing')]}},'malformed'],
  [{...legacy,work:{...work,schema_version:'work-graph/v0'}},'malformed'],
 ]){
@@ -355,3 +356,83 @@ def test_recorded_work_renderer_admits_typed_projection_without_legacy_fallback(
         capture_output=True, text=True, timeout=15,
     )
     assert result.returncode == 0, result.stdout + result.stderr
+
+
+# Each probe executes the shipped renderer; the baseline prefix is a fully
+# attributed v1 envelope, including parallel and self-assignment relations.
+def run_work_probe(probe):
+    if not NODE:
+        pytest.fail("Node is required for work-graph admission and geometry")
+    setup = WORK_RENDERER_CHECK.split("const before=JSON.stringify(work)", 1)[0]
+    result = subprocess.run([NODE, "-e", setup + probe, str(VIEW / "map.js")],
+                            capture_output=True, text=True, timeout=15)
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
+@pytest.mark.parametrize("mutation", [
+    "candidate.source.capture_basis = {}",
+    "delete candidate.nodes[0].source_locator",
+    "candidate.nodes[0].source_locator = null",
+    "delete candidate.nodes[0].source_metadata",
+    "candidate.nodes[0].source_metadata.capture_basis = {}",
+    "delete candidate.nodes[2].source_locator",
+    "delete candidate.edges[0].id",
+    "candidate.edges[1].id = candidate.edges[0].id",
+    "delete candidate.edges[0].source_locator",
+    "delete candidate.edges[0].source_metadata",
+    "delete candidate.edges[4].assertion_basis",
+    "candidate.edges[4].assertion_basis = 'verified'",
+    "delete candidate.limits.record_cap",
+    "candidate.limits.node_cap = 1",
+    "candidate.limits.edge_cap = -1",
+    "candidate.limits.diagnostic_cap = 0",
+    "candidate.limits.unit = 'bytes'",
+    "candidate.limits.node_candidates = 99",
+    "candidate.projection_state.state = 'complete'",
+    "candidate.projection_state.state = 'unavailable'",
+    "delete candidate.unresolved[0].reason",
+    "delete candidate.cycles[0].type",
+    "candidate.cycles[0].node_ids = []",
+    "candidate.edges[0].source = candidate.nodes[2].id",
+    "candidate.edges[4].target = candidate.nodes[0].id",
+])
+def test_work_v1_rejects_missing_or_invalid_mandatory_evidence(mutation):
+    run_work_probe("const candidate=JSON.parse(JSON.stringify(work));\n" + mutation + ";\n" + r"""
+const item=mount({...legacy,work:candidate});
+assert.equal(item.getWorkState().state,'malformed');
+assert.equal(item.getVisibleNodes().length,0);
+assert.equal(item.getVisibleEdges().length,0);
+item.destroy();
+""")
+
+
+def test_legacy_spawn_remains_selectable_without_becoming_typed_work():
+    run_work_probe(r"""
+const item=mount(legacy);item.setMode('governance');
+assert.ok(item.getVisibleNodes().some(node=>node.id==='legacy-spawn'));
+assert.equal(item.selectById('legacy-spawn'),true);
+assert.equal(item.selected.type,'spawn');
+assert.equal(item.selected._workProjection,undefined);
+assert.ok(item.getConnections('legacy-spawn').some(row=>row.edge.type==='launched'));
+item.setMode('work');assert.ok(item.getVisibleNodes().every(row=>row.type!=='spawn'));
+item.destroy();
+""")
+
+
+def test_directed_edge_tip_stays_outside_opaque_destination_card():
+    run_work_probe(r"""
+const item=mount(legacy), tips=[];
+item._drawArrow=(x,y,angle)=>tips.push({x,y,angle});
+for(const relation of item.visibleEdges.filter(edge=>edge.src!==edge.dst)){
+ const target=item.visibleById.get(relation.dst);tips.length=0;item._drawEdge(relation);
+ assert.equal(tips.length,1);const tip=tips[0];
+ assert.ok(Math.abs(tip.x-target.x)>=target.width/2+1 ||
+           Math.abs(tip.y-target.y)>=target.height/2+1,
+           'arrow tip must remain visibly beyond the destination fill');
+ const towardX=target.x-tip.x,towardY=target.y-tip.y;
+ assert.ok(towardX*Math.cos(tip.angle)+towardY*Math.sin(tip.angle)>0,
+           'arrow must point toward its actual destination');
+}
+assert.equal(item.getRenderMetrics().selfLoopEdges,1);
+assert.equal(item.getRenderMetrics().parallelRelationPairs,1);item.destroy();
+""")

@@ -899,6 +899,7 @@ assert.equal(elements.get('work-state')['data-dependency-state'],'unavailable');
 @pytest.mark.parametrize(("node_type", "expected_mode"), [
     ("proposal", "governance"),
     ("agent", "usage"),
+    ("spawn", "governance"),
 ])
 def test_graph_legacy_deep_link_routes_to_existing_mode_and_preserves_query(node_type, expected_mode):
     run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
@@ -910,7 +911,7 @@ const node={id,type:NODE_TYPE,label:'legacy linked record',date:'2026-08-01'};
 const graph={...map,nodes:[node],cards:{[id]:{title:'Legacy linked record',one_line:'preserved source',source:'legacy',page:''}}};
 context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP=graph;let activeMode='work';
 const allowed=()=>activeMode==='usage'?['agent','skill']:
- activeMode==='governance'?['proposal','rule','harvest_finding','correction','anomaly','decision','agent','skill']:['work'];
+ activeMode==='governance'?['proposal','rule','harvest_finding','correction','anomaly','decision','agent','skill','spawn']:['work'];
 context.BrainMap={mount(_canvas,options){activeMode=options.mode;return{
  getVisibleNodes(){return allowed().includes(node.type)?[node]:[];},getHiddenCount(){return 0;},getZoom(){return 1;},
  getWorkState(){return {state:'missing',reason:'work_projection_missing',projection:null};},

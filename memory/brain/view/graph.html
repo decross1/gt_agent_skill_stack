@@ -206,7 +206,7 @@ html[data-atlas][data-theme="dark"] .graph-inspector .source-action{color:#17233
 <script defer src="summary_data.js"></script>
 <script defer src="map_data.js"></script>
 <script defer src="ui.js?v=5dcf781d655c42b38ddfe704a6ca133db13ab339e66fc74ed5413e1f3873d664"></script>
-<script defer src="map.js?v=4c89f2b6178d57f45f8c24c922c5ac829fd9eb8876f72f924b8deb64ad8e6a97"></script>
+<script defer src="map.js?v=2d60e5fb32ba907d973f6992770e3f3d4d7d74d0572207b7b48bd52c27bfaa3b"></script>
 <script async src="atlas.js?v=20260907-a"></script>
 <script>
 (function () {
@@ -362,7 +362,7 @@ function routeInitialDeepLink(id) {
   const node = baseNode(id);
   if (!node) return;
   const next = ["agent", "skill"].includes(node.type) ? "usage" :
-    ["proposal", "rule", "harvest_finding", "correction", "anomaly", "decision"].includes(node.type) ?
+    ["proposal", "rule", "harvest_finding", "correction", "anomaly", "decision", "spawn"].includes(node.type) ?
       "governance" : "";
   if (!next || next === mode || typeof instance.setMode !== "function") return;
   mode = next; type = "all"; $("graph-type").value = "all";
@@ -481,11 +481,13 @@ function openNode(node) {
   selectedId = node.id;
   const card = (M.cards && M.cards[node.id]) || {};
   const body = $("inspector-body"); body.innerHTML = "";
-  const kind = make("div", "node-kind", ({ spawn: "recorded contract", agent: "recorded actor",
+  const kind = make("div", "node-kind", ({ spawn: "legacy recorded contract", agent: "recorded actor",
     work: "recorded work", harvest_finding: "harvest finding" }[node.type] ||
     (fromWork && node.type === "skill" ? "work skill reference" : node.type) || "record"));
   const title = make("h3", "node-title", card.title || node.label || node.record_id || node.skill_id || node.id);
   body.appendChild(kind); body.appendChild(title);
+  if (node.type === "spawn" && !fromWork) body.appendChild(make("p", "node-summary",
+    "Legacy contract evidence. It is not a typed execution record or proof of a child running."));
   if (card.one_line) body.appendChild(make("p", "node-summary", card.one_line));
   const facts = make("dl", "facts");
   addFact(facts, "Record ID", node.id); addFact(facts, "Date", node.date || card.date || "Unavailable");

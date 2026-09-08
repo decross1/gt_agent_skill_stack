@@ -19,13 +19,13 @@ const NORMAL_EDGE_ALPHA = 0.92;
 const MODE_EDGE_TYPES = {
   work: new Set(["parent", "spawn_assignment", "dependency", "allowed_skill", "observed_skill"]),
   governance: new Set(["about", "targets", "becomes", "produces", "enacts", "extends",
-    "references", "authored", "filed", "linked_to"]),
+    "references", "authored", "filed", "linked_to", "launched", "uses"]),
   usage: new Set(["used"]),
 };
 const MODE_NODE_TYPES = {
   work: new Set(["work", "skill"]),
   governance: new Set(["skill", "proposal", "rule", "harvest_finding", "correction",
-    "anomaly", "decision", "agent"]),
+    "anomaly", "decision", "agent", "spawn"]),
   usage: new Set(["agent", "skill"]),
 };
 const TYPE_LABEL = {
@@ -81,6 +81,14 @@ function agentColor(id) {
 }
 function safeRows(value) { return Array.isArray(value) ? value.filter(row => row && typeof row === "object") : []; }
 function record(value) { return !!value && typeof value === "object" && !Array.isArray(value); }
+function exactString(value) { return typeof value === "string" && value.length > 0; }
+function sourceMetadata(value) {
+  return record(value) && exactString(value.namespace) && exactString(value.locator) &&
+    record(value.capture_basis) && Object.keys(value.capture_basis).length > 0;
+}
+function sourceLocator(value) {
+  return exactString(value) || (record(value) && Object.keys(value).length > 0);
+}
 function safeJson(value) {
   try { const encoded = JSON.stringify(value); return typeof encoded === "string" ? encoded : ""; }
   catch (_) { return ""; }
@@ -95,10 +103,8 @@ function workProjection(map) {
   }
   const value = map.work;
   const malformed = reason => ({ state: "malformed", reason, projection: null, capture });
-  if (!record(value) || value.schema_version !== "work-graph/v1" || !record(value.source) ||
-      typeof value.source.namespace !== "string" || !value.source.namespace ||
-      typeof value.source.locator !== "string" || !value.source.locator ||
-      !record(value.source.capture_basis) || !record(value.projection_state) ||
+  if (!record(value) || value.schema_version !== "work-graph/v1" || !sourceMetadata(value.source) ||
+      !record(value.projection_state) ||
       !record(value.dependency_availability) || !record(value.limits) ||
       !Array.isArray(value.nodes) || !Array.isArray(value.edges) ||
       !Array.isArray(value.unresolved) || !Array.isArray(value.cycles)) {
@@ -111,23 +117,53 @@ function workProjection(map) {
       value.nodes.length > WORK_NODE_LIMIT || value.edges.length > WORK_EDGE_LIMIT ||
       value.unresolved.length > WORK_DIAGNOSTIC_LIMIT || value.cycles.length > WORK_DIAGNOSTIC_LIMIT ||
       !value.unresolved.every(record) || !value.cycles.every(record)) return malformed("invalid_work_projection");
-  const limitFields = ["record_count", "node_candidates", "edge_candidates", "unresolved_candidates",
+  const limitFields = ["record_cap", "node_cap", "edge_cap", "diagnostic_cap", "record_count", "node_candidates", "edge_candidates", "unresolved_candidates",
     "cycle_candidates", "nodes_omitted", "edges_omitted", "unresolved_omitted", "cycles_omitted"];
-  if (limitFields.some(key => !Number.isSafeInteger(value.limits[key]) || value.limits[key] < 0))
+  if (value.limits.unit !== "items" ||
+      limitFields.some(key => !Number.isSafeInteger(value.limits[key]) || value.limits[key] < 0) ||
+      value.limits.record_cap > 10000 || value.limits.node_cap > WORK_NODE_LIMIT ||
+      value.limits.edge_cap > WORK_EDGE_LIMIT || value.limits.diagnostic_cap > WORK_DIAGNOSTIC_LIMIT ||
+      value.nodes.length > value.limits.node_cap || value.edges.length > value.limits.edge_cap ||
+      value.unresolved.length > value.limits.diagnostic_cap || value.cycles.length > value.limits.diagnostic_cap ||
+      (value.limits.record_count > value.limits.record_cap && value.projection_state.state !== "unavailable"))
     return malformed("invalid_work_limits");
+  const countPairs = [["nodes", "node_candidates", "nodes_omitted"],
+    ["edges", "edge_candidates", "edges_omitted"],
+    ["unresolved", "unresolved_candidates", "unresolved_omitted"],
+    ["cycles", "cycle_candidates", "cycles_omitted"]];
+  if (countPairs.some(([rows, candidates, omitted]) =>
+      value[rows].length + value.limits[omitted] !== value.limits[candidates]) ||
+      (value.projection_state.state === "complete" && (value.unresolved.length ||
+        countPairs.some(([_rows, _candidates, omitted]) => value.limits[omitted] > 0))) ||
+      (value.projection_state.state === "unavailable" && (value.nodes.length || value.edges.length)))
+    return malformed("invalid_work_limits");
+  if (!value.unresolved.every(row => exactString(row.reason)) ||
+      !value.cycles.every(row => row.type === "dependency" && Array.isArray(row.node_ids) &&
+        row.node_ids.length > 0 && row.node_ids.every(exactString)))
+    return malformed("invalid_work_diagnostics");
   const ids = new Set();
+  const types = new Map();
   for (const node of value.nodes) {
-    if (!record(node) || typeof node.id !== "string" || !node.id || !["work", "skill"].includes(node.type) ||
+    if (!record(node) || !exactString(node.id) || !["work", "skill"].includes(node.type) ||
+        !sourceLocator(node.source_locator) || !sourceMetadata(node.source_metadata) ||
         (node.type === "work" && (typeof node.record_id !== "string" || !node.record_id ||
           typeof node.kind !== "string" || !node.kind)) ||
         (node.type === "skill" && (typeof node.skill_id !== "string" || !node.skill_id)) || ids.has(node.id))
       return malformed("invalid_work_nodes");
-    ids.add(node.id);
+    ids.add(node.id); types.set(node.id, node.type);
   }
   const edgeTypes = MODE_EDGE_TYPES.work;
-  if (value.edges.some(edge => !record(edge) || typeof edge.source !== "string" ||
-      typeof edge.target !== "string" || !edgeTypes.has(edge.type) ||
-      !ids.has(edge.source) || !ids.has(edge.target))) return malformed("invalid_work_edges");
+  const edgeIds = new Set();
+  for (const edge of value.edges) {
+    if (!record(edge) || !exactString(edge.id) || edgeIds.has(edge.id) ||
+        !sourceLocator(edge.source_locator) || !sourceMetadata(edge.source_metadata) ||
+        !exactString(edge.source) || !exactString(edge.target) || !edgeTypes.has(edge.type) ||
+        !ids.has(edge.source) || !ids.has(edge.target) || types.get(edge.source) !== "work" ||
+        types.get(edge.target) !== (["allowed_skill", "observed_skill"].includes(edge.type) ? "skill" : "work") ||
+        (edge.type === "observed_skill" && edge.assertion_basis !== "caller_supplied"))
+      return malformed("invalid_work_edges");
+    edgeIds.add(edge.id);
+  }
   if (value.projection_state.state === "unavailable") return {
     state: "unavailable", reason: value.projection_state.reason || "projection_unavailable",
     projection: value, capture: value.source, nodes: [], edges: [],
@@ -749,8 +785,14 @@ class BrainMap {
       const canonical = edge.src.localeCompare(edge.dst) <= 0 ? 1 : -1;
       const mx = (from.x + to.x) / 2 - canonical * dy / length * parallel;
       const my = (from.y + to.y) / 2 + canonical * dx / length * parallel;
-      ctx.beginPath(); ctx.moveTo(from.x, from.y); ctx.quadraticCurveTo(mx, my, to.x, to.y); ctx.stroke();
-      this._drawArrow(to.x, to.y, Math.atan2(to.y - my, to.x - mx), stroke);
+      // Intersect the final tangent with the destination rectangle plus a
+      // visible gap. Nodes paint after edges, so center-ended heads disappear.
+      const tx = to.x - mx, ty = to.y - my;
+      const inset = Math.min(tx ? (to.width / 2 + 4) / Math.abs(tx) : Infinity,
+        ty ? (to.height / 2 + 4) / Math.abs(ty) : Infinity);
+      const endX = to.x - tx * inset, endY = to.y - ty * inset;
+      ctx.beginPath(); ctx.moveTo(from.x, from.y); ctx.quadraticCurveTo(mx, my, endX, endY); ctx.stroke();
+      this._drawArrow(endX, endY, Math.atan2(ty, tx), stroke);
     }
     ctx.restore();
   }
