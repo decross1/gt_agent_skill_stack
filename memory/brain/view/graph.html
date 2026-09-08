@@ -410,9 +410,23 @@ function safePage(raw) {
   const rest = value.replace(/^\.\.\/pages\//, "").replace(/^pages\//, "");
   return rest.split("/").includes("..") ? "" : value;
 }
-function relationReason(edge, direction, selectedId) {
+function relationDirection(edge, selectedId, relatedId) {
+  const has = key => Object.prototype.hasOwnProperty.call(edge, key);
+  const typed = has("source") || has("target"), legacy = has("src") || has("dst");
+  const source = typed ? edge.source : edge.src, target = typed ? edge.target : edge.dst;
+  const validId = value => typeof value === "string" && value.trim().length > 0;
+  // Never equate absent endpoints, or use a second schema to repair a partial
+  // or conflicting raw pair. The displayed neighbor must match the evidence.
+  if (![source, target, selectedId, relatedId].every(validId) ||
+      (typed && legacy && (edge.src !== source || edge.dst !== target))) return "unknown";
+  if (source === selectedId && target === relatedId) return source === target ? "self" : "out";
+  if (target === selectedId && source === relatedId) return "in";
+  return "unknown";
+}
+function relationReason(edge, direction) {
   const explicit = Number(edge.weight_e) || 0, inferred = Number(edge.weight_i) || 0;
-  if (edge.source === edge.target && edge.type === "spawn_assignment")
+  if (direction === "unknown") return "Relation endpoints are unavailable or inconsistent with the selected records; direction is not inferred.";
+  if (direction === "self" && edge.type === "spawn_assignment")
     return "Self-assignment: the recorded assignment targets the same source record; this is not a child execution receipt.";
   if (edge.type === "parent") return direction === "out" ?
     "Recorded parent: the selected record is the supplied parent of this child record." :
@@ -542,12 +556,13 @@ function openNode(node) {
     const button = make("button", "relation-row"); button.type = "button";
     button.setAttribute("data-related-id", row.node.id);
     button.appendChild(make("strong", "", row.node.label || row.node.record_id || row.node.skill_id || row.node.id));
-    button.appendChild(make("span", "", relationReason(row.edge, row.direction, node.id)));
+    const direction = relationDirection(row.edge, node.id, row.node.id);
+    button.appendChild(make("span", "", relationReason(row.edge, direction)));
     const relationType = ({ parent: "recorded parent", spawn_assignment: "recorded assignment",
       dependency: "explicit dependency", allowed_skill: "allowed skill",
       observed_skill: "caller-reported use" }[row.edge.type] || row.edge.type || "unknown relation");
     button.appendChild(make("span", "", relationType + " · " +
-      (row.edge.source === row.edge.target ? "self" : row.direction === "out" ? "outgoing" : "incoming")));
+      ({self: "self", out: "outgoing", in: "incoming", unknown: "direction unavailable"}[direction])));
     if (Object.prototype.hasOwnProperty.call(row.edge, "source_locator"))
       button.appendChild(make("span", "", "Source locator: " + evidenceText(row.edge.source_locator)));
     const refs = Array.isArray(row.edge.source_refs) ? row.edge.source_refs.filter(ref => typeof ref === "string") :

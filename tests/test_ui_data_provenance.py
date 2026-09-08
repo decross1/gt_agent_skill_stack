@@ -832,6 +832,61 @@ assert.equal(elements.get('work-state')['data-dependency-state'],'available');
 """)
 
 
+@pytest.mark.parametrize(("edge", "related_id", "expected"), [
+    ({"src": "selected", "dst": "other"}, "other", "outgoing"),
+    ({"src": "other", "dst": "selected"}, "other", "incoming"),
+    ({"src": "selected", "dst": "selected"}, "selected", "self"),
+    ({"source": "selected", "target": "other"}, "other", "outgoing"),
+    ({"source": "other", "target": "selected"}, "other", "incoming"),
+    ({"source": "selected", "target": "selected"}, "selected", "self"),
+    ({}, "other", "direction unavailable"),
+    ({"src": "selected"}, "other", "direction unavailable"),
+    ({"source": "selected"}, "other", "direction unavailable"),
+    ({"src": None, "dst": None}, "selected", "direction unavailable"),
+    ({"source": None, "target": None}, "selected", "direction unavailable"),
+    ({"src": "", "dst": ""}, "selected", "direction unavailable"),
+    ({"source": 0, "target": 0}, "selected", "direction unavailable"),
+    ({"src": [], "dst": {}}, "other", "direction unavailable"),
+    ({"source": "elsewhere", "target": "other"}, "other", "direction unavailable"),
+    ({"src": "selected", "dst": "selected"}, "other", "direction unavailable"),
+    ({"src": "selected", "dst": "other", "source": "selected"}, "other", "direction unavailable"),
+    ({"src": "selected", "dst": "other", "source": "other", "target": "selected"}, "other", "direction unavailable"),
+    ({"src": "selected", "dst": "other", "source": "selected", "target": "other"}, "other", "outgoing"),
+])
+def test_graph_inspector_qualifies_actual_relation_endpoints(edge, related_id, expected):
+    """The shipped inspector must not infer a self-link from absent raw fields."""
+    run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
+context.location.protocol='file:';
+const selected={id:'selected',type:'agent',label:'Selected record'};
+const other={id:'other',type:'skill',label:'Other record'};
+const nodes=[selected,other], raw={type:'spawn_assignment',...EDGE};
+const related=nodes.find(node=>node.id===RELATED_ID);
+context.BRAIN_SUMMARY=fixture;context.BRAIN_MAP={...map,nodes,edges:[]};
+let choose,clicked;
+context.BrainMap={mount(_canvas,options){choose=options.onSelect;return{
+ getVisibleNodes(){return nodes;},getHiddenCount(){return 0;},getZoom(){return 1;},
+ getWorkState(){return {state:'missing',reason:'work_projection_missing',projection:null};},
+ getNodeById(id){return nodes.find(node=>node.id===id)||null;},
+ // A normalized row is not proof of valid raw endpoints: use deliberately
+ // misleading direction to ensure the inspector checks its actual evidence.
+ getConnections(){return [{edge:raw,node:related,direction:'out'}];},
+ selectById(id){clicked=id;return true;},egoMode(){return true;}
+};}};
+boot();await flush();choose(selected);
+const walk=root=>[root,...root.children.flatMap(walk)];
+const rows=walk(elements.get('inspector-body')).filter(node=>node.className==='relation-row');
+assert.equal(rows.length,1);
+const row=rows[0], texts=row.children.map(child=>child.textContent);
+assert.equal(texts[2],'recorded assignment · '+EXPECTED);
+if(EXPECTED==='self') assert.match(texts[1],/Self-assignment/);
+else assert.doesNotMatch(texts[1],/Self-assignment/);
+if(EXPECTED==='direction unavailable') assert.match(texts[1],/endpoints.*unavailable|unavailable.*endpoints/i);
+if(EXPECTED==='outgoing') assert.match(texts[1],/selected record names the related record/);
+if(EXPECTED==='incoming') assert.match(texts[1],/related record names the selected record/);
+row.listeners.click();assert.equal(clicked,RELATED_ID,'the related-record interaction remains available');
+""".replace("EDGE", json.dumps(edge)).replace("RELATED_ID", json.dumps(related_id)).replace("EXPECTED", json.dumps(expected)))
+
+
 def test_graph_current_malformed_work_refresh_clears_prior_selection():
     run_js(FAKE_CLOCK + PAGE_DATA.replace("PAGE", "'graph.html'") + r"""
 const capture={namespace:'agent_system/framework',locator:'framework:run-and-spawn',capture_basis:{captured_at:stamp,files:[]}};
