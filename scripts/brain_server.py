@@ -163,8 +163,17 @@ def gemma(messages: list[dict], max_tokens: int = 700, temperature: float = 0.3)
     The function name is retained for compatibility; routing is controlled by
     ``BRAIN_LLM_BASE_URL`` and ``BRAIN_LLM_MODEL``.
     """
-    body = json.dumps({"model": MODEL, "messages": messages,
-                       "max_tokens": max_tokens, "temperature": temperature}).encode()
+    body = json.dumps({
+        "model": MODEL,
+        "messages": messages,
+        "max_tokens": max_tokens,
+        "temperature": temperature,
+        # Brain calls are short drafting/extraction actions. Flash defaults to
+        # a deep thinking mode that can consume this bounded output budget
+        # before emitting a final answer, so keep these calls explicitly
+        # non-thinking. Research roles select their own policy elsewhere.
+        "chat_template_kwargs": {"enable_thinking": False},
+    }).encode()
     req = urllib.request.Request(DRAFTING_URL, data=body,
                                  headers={"Content-Type": "application/json"})
     try:

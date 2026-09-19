@@ -270,7 +270,9 @@ def _work_record(row: dict, *, kind: str, id_key: str,
     if "child_task_id" in row:
         record["spawn_assignments"] = [row["child_task_id"]]
     if "skill_used" in row:
-        record["observed_skills"] = [row["skill_used"]]
+        skills = skill_used_values(row["skill_used"])
+        if skills:
+            record["observed_skills"] = skills
     contract = row.get("contract")
     if isinstance(contract, dict) and "skill_subset" in contract:
         record["allowed_skills"] = contract["skill_subset"]
@@ -442,9 +444,22 @@ def map_agent(raw: str | None, default: str) -> str:
     return c
 
 
+def skill_used_values(value) -> list[str]:
+    """Normalize legacy string and ordered-list run-log skill values."""
+    raw = [value] if isinstance(value, str) else value if isinstance(value, list) else []
+    out: list[str] = []
+    for item in raw:
+        if isinstance(item, str):
+            skill = item.strip()
+            if skill and skill not in out:
+                out.append(skill)
+    return out
+
+
 def ladder_attribution(row: dict) -> tuple[str | None, bool]:
     """(skill, explicit?) for one run-log row — rungs 1-3. None = no rung."""
-    sk = (row.get("skill_used") or "").strip()
+    skills = skill_used_values(row.get("skill_used"))
+    sk = skills[0] if skills else ""
     if sk:
         return sk, True
     raw_status = row.get("status")
@@ -633,7 +648,16 @@ def build_map() -> dict:
         contract = first.get("contract") or {}
         d = date_of(first.get("timestamp"))
         agent = spawn_agent(sid, surface)
-        check = ((latest.get("result") or {}).get("done_condition_check")) or "—"
+        result = latest.get("result")
+        if isinstance(result, dict):
+            check = result.get("done_condition_check") or "—"
+        elif isinstance(result, str) and result.strip():
+            # Early spawn ledgers stored a human-readable completion summary
+            # directly in ``result``. It is evidence that a result was reported,
+            # but it is not the later structured done-condition verdict.
+            check = "reported"
+        else:
+            check = "—"
         add_node(nid, "spawn", sid, date=d)
         add_card(nid, f"{sid} — {first.get('child_task_id', 'spawn')}", d,
                  f"status {latest.get('status', '?')} · check {check} · "

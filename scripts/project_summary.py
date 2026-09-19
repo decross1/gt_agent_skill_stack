@@ -630,10 +630,27 @@ def _review_or_propose(task: str) -> str:
     return "review-proposal" if "review" in task else "propose"
 
 
+def primary_skill_used(value) -> str:
+    """Return one deterministic primary skill from a run-log value.
+
+    The original schema used a string. Newer harnesses may record an ordered
+    list when a step applies more than one skill. The v2 attribution matrix is
+    intentionally one-skill-per-row, so preserve its counting contract by
+    choosing the first non-empty string while tolerating malformed values.
+    """
+    if isinstance(value, str):
+        return value.strip()
+    if isinstance(value, list):
+        for item in value:
+            if isinstance(item, str) and item.strip():
+                return item.strip()
+    return ""
+
+
 def ladder_attribution(obj: dict) -> tuple[str | None, str | None]:
     """(skill, method) for one run-log row — rungs 1-3 of the ladder.
     method ∈ {skill_used, status, task}; (None, None) when no rung matches."""
-    sk = (obj.get("skill_used") or "").strip()
+    sk = primary_skill_used(obj.get("skill_used"))
     if sk:
         return sk, "skill_used"
     st = (obj.get("status") or "").strip()
