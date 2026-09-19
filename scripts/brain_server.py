@@ -5,15 +5,15 @@ makes proposal review conversational and frictionless.
 Smallest-slice scope (S25): one focused proposal-review loop —
   GET  /api/proposals                 list open framework proposals
   GET  /api/proposal/<id>             proposal + card + discussion + amended_draft
-  POST /api/proposal/<id>/discuss     {message}  -> Gemma turn (amend dialogue)
-  POST /api/proposal/<id>/synthesize  -> Gemma turns the discussion into a crisp
+  POST /api/proposal/<id>/discuss     {message}  -> local drafting-model turn
+  POST /api/proposal/<id>/synthesize  -> local model turns the discussion into a crisp
                                          amended proposal 'change'; persists it
   POST /api/proposal/<id>/verdict     {verdict,note,basis,actor_id,amended_change?} -> exec
                                          blessed CLI; on accept auto-writes handoff
   POST /api/proposal/<id>/handoff     {basis,actor_id} -> write handoffs/<id>.md
 
 Design invariants (keep the brain honest while making it dynamic):
-- Files stay canonical. Gemma is a drafting assistant; every output is written
+- Files stay canonical. The local model is a drafting assistant; every output is written
   through to append-only ledgers (proposal_cards.jsonl) — projection/regen reads
   the stored fields, never calls the model.
 - Verdicts go through the blessed CLI (review_proposal_cli.py) via argv, no shell.
@@ -61,8 +61,13 @@ WATCH_PID = ROOT / "run_state" / "brain-watch.pid"
 WATCH_LOG = ROOT / "run_state" / "brain-watch.log"
 SUMMARY_JSON = VIEW / "summary.json"
 
-GEMMA_URL = "http://127.0.0.1:8000/v1/chat/completions"
-MODEL = "gemma-4-26b-a4b"
+DEFAULT_DRAFTING_BASE_URL = "http://127.0.0.1:30080/v1"
+DEFAULT_DRAFTING_MODEL = "nvidia/Qwen3.8-Flash-Next-NVFP4"
+DRAFTING_BASE_URL = os.environ.get(
+    "BRAIN_LLM_BASE_URL", DEFAULT_DRAFTING_BASE_URL
+).rstrip("/")
+DRAFTING_URL = f"{DRAFTING_BASE_URL}/chat/completions"
+MODEL = os.environ.get("BRAIN_LLM_MODEL", DEFAULT_DRAFTING_MODEL)
 PID_RE = re.compile(r"^P-\d+$")
 
 # The review UI is an assertion surface, not an authentication boundary.  Keep
@@ -123,9 +128,13 @@ _ops_cache = {"mono": 0.0, "data": None}
 
 
 class GemmaError(RuntimeError):
-    """Raised when the Gemma drafting assistant is unreachable, times out, or
+    """Raised when the local drafting assistant is unreachable, times out, or
     returns an unusable response. Carries a client-safe message only — the raw
-    exception detail (URLs, stack) is logged server-side, never surfaced."""
+    exception detail (URLs, stack) is logged server-side, never surfaced.
+
+    The class name is retained as an internal compatibility surface for existing
+    Brain tests and extensions; it no longer identifies the selected model.
+    """
 
 # project_summary supplies the framework/research scope classifier + live summary;
 # project_map supplies the live cluster-map projection. Both read the ledgers
@@ -146,13 +155,17 @@ def jsonl(path: Path) -> list[dict]:
 
 
 def gemma(messages: list[dict], max_tokens: int = 700, temperature: float = 0.3) -> str:
-    """Call the Gemma drafting assistant (OpenAI-compatible chat) and return the
+    """Call the selected local drafting model (OpenAI-compatible chat) and return the
     reply text. Any transport, timeout, HTTP, or malformed-response failure is
     re-raised as GemmaError with a client-safe message so callers can map it to a
-    clean JSON 5xx instead of crashing the request thread or leaking internals."""
+    clean JSON 5xx instead of crashing the request thread or leaking internals.
+
+    The function name is retained for compatibility; routing is controlled by
+    ``BRAIN_LLM_BASE_URL`` and ``BRAIN_LLM_MODEL``.
+    """
     body = json.dumps({"model": MODEL, "messages": messages,
                        "max_tokens": max_tokens, "temperature": temperature}).encode()
-    req = urllib.request.Request(GEMMA_URL, data=body,
+    req = urllib.request.Request(DRAFTING_URL, data=body,
                                  headers={"Content-Type": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=180) as r:
@@ -160,13 +173,13 @@ def gemma(messages: list[dict], max_tokens: int = 700, temperature: float = 0.3)
         return d["choices"][0]["message"]["content"]
     except urllib.error.HTTPError as e:
         # Server-side detail to stderr; client sees only the generic message.
-        print(f"gemma: upstream HTTP {e.code}", file=sys.stderr)
+        print(f"drafting-model: upstream HTTP {e.code}", file=sys.stderr)
         raise GemmaError("drafting assistant returned an error") from e
     except (urllib.error.URLError, TimeoutError, ConnectionError, OSError) as e:
-        print(f"gemma: unreachable ({type(e).__name__})", file=sys.stderr)
+        print(f"drafting-model: unreachable ({type(e).__name__})", file=sys.stderr)
         raise GemmaError("drafting assistant unavailable") from e
     except (KeyError, IndexError, ValueError, json.JSONDecodeError) as e:
-        print(f"gemma: bad response ({type(e).__name__})", file=sys.stderr)
+        print(f"drafting-model: bad response ({type(e).__name__})", file=sys.stderr)
         raise GemmaError("drafting assistant returned an unusable response") from e
 
 
@@ -355,7 +368,7 @@ def context_for(first: dict) -> str:
 
 
 def generate_card(first: dict) -> dict:
-    """Draft a review card for a proposal via Gemma and append it to
+    """Draft a review card for a proposal via the local model and append it to
     proposal_cards.jsonl exactly once. A re-GET reads the stored card (see
     stored_card) and never calls the model again. The _CARD_LOCK guard makes the
     read-then-append atomic so concurrent first-GETs do not double-write; a raised
@@ -477,7 +490,7 @@ def _strip_proposal_scaffold(text: str) -> str:
 
 
 def synthesize_amended(first: dict) -> str:
-    """Ask Gemma to fold the ORIGINAL proposal change + the discussion thread into
+    """Ask the local model to fold the ORIGINAL proposal change + the discussion into
     a CRISP, self-contained amended proposal 'change' — plain prose, the final
     proposal text only (no chat framing, no "here's how to rewrite"). Persists an
     amended_draft entry (append-only) and returns the change text. A GemmaError

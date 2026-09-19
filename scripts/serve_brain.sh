@@ -18,9 +18,10 @@
 # human:ui (D-046), so it cannot be coerced into arbitrary writes; broader/public
 # network exposure beyond the trusted LAN remains the user's call.
 #
-# The proposal-review loop's discussion/card features call a local Gemma server
-# (http://127.0.0.1:8000); `start` runs a non-fatal preflight and warns if it is
-# unreachable. The static view + the blessed verdict CLI work without Gemma.
+# The proposal-review loop's discussion/card features call the permanent local
+# Flash endpoint (http://127.0.0.1:30080/v1 by default); `start` runs a non-fatal
+# preflight and warns if it is unreachable. The static view + the blessed verdict
+# CLI continue to work without the drafting model.
 
 set -euo pipefail
 
@@ -31,7 +32,9 @@ PIDFILE="${BRAIN_PIDFILE:-$REPO/run_state/brain-http.pid}"
 LOGFILE="${BRAIN_LOGFILE:-$REPO/run_state/brain-http.log}"
 PORT="${BRAIN_PORT:-5180}"
 BIND="${BRAIN_BIND:-0.0.0.0}"
-GEMMA_URL="${GEMMA_URL:-http://127.0.0.1:8000}"
+BRAIN_LLM_BASE_URL="${BRAIN_LLM_BASE_URL:-http://127.0.0.1:30080/v1}"
+BRAIN_LLM_MODEL="${BRAIN_LLM_MODEL:-nvidia/Qwen3.8-Flash-Next-NVFP4}"
+export BRAIN_LLM_BASE_URL BRAIN_LLM_MODEL
 
 usage() {
   cat <<EOF
@@ -55,7 +58,8 @@ Configurable via env or flags:
   BRAIN_BIND=$BIND       --bind ADDR   (use 0.0.0.0 to expose on LAN)
   BRAIN_PIDFILE=$PIDFILE
   BRAIN_LOGFILE=$LOGFILE
-  GEMMA_URL=$GEMMA_URL   (preflighted at <url>/v1/models; warn-only)
+  BRAIN_LLM_BASE_URL=$BRAIN_LLM_BASE_URL   (OpenAI-compatible /v1 base; warn-only)
+  BRAIN_LLM_MODEL=$BRAIN_LLM_MODEL
 
 Examples:
   $(basename "$0") start                       # 0.0.0.0:5180 (LAN-accessible)
@@ -84,13 +88,13 @@ is_running() {
 
 url() { echo "http://$BIND:$PORT/proposal_review.html"; }
 
-# Non-fatal preflight: the discussion/card API needs Gemma, but the static view
+# Non-fatal preflight: the discussion/card API needs the local model, but the static view
 # and the blessed verdict CLI do not. Warn, never block.
-preflight_gemma() {
-  if curl -s -m 3 "$GEMMA_URL/v1/models" >/dev/null 2>&1; then
-    echo "  gemma: reachable at $GEMMA_URL"
+preflight_drafting_model() {
+  if curl -s -m 3 "$BRAIN_LLM_BASE_URL/models" >/dev/null 2>&1; then
+    echo "  drafting model: $BRAIN_LLM_MODEL reachable at $BRAIN_LLM_BASE_URL"
   else
-    echo "  warn: gemma not reachable at $GEMMA_URL/v1/models — discussion & card" >&2
+    echo "  warn: drafting model not reachable at $BRAIN_LLM_BASE_URL/models — discussion & card" >&2
     echo "        generation will be unavailable; static view + verdict CLI still work." >&2
   fi
 }
@@ -103,7 +107,7 @@ cmd_start() {
   [[ -f "$SERVER" ]] || { echo "error: backend not found: $SERVER" >&2; exit 1; }
   [[ -d "$VIEW_DIR" ]] || { echo "error: view dir not found: $VIEW_DIR" >&2; exit 1; }
   [[ -f "$VIEW_DIR/proposal_review.html" ]] || { echo "warn: $VIEW_DIR/proposal_review.html missing — the view pages are tracked static assets; check your checkout" >&2; }
-  preflight_gemma
+  preflight_drafting_model
   mkdir -p "$(dirname "$PIDFILE")" "$(dirname "$LOGFILE")"
   rm -f "$PIDFILE"
   {
