@@ -41,6 +41,30 @@ def test_permanent_local_drafting_defaults_point_to_flash():
     assert bs.DEFAULT_DRAFTING_MODEL == "nvidia/Qwen3.8-Flash-Next-NVFP4"
     assert bs.DRAFTING_URL == f"{bs.DRAFTING_BASE_URL}/chat/completions"
 
+
+def test_flash_drafting_call_explicitly_disables_thinking(monkeypatch):
+    captured = {}
+
+    class Response:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, *_args):
+            return False
+
+        def read(self):
+            return b'{"choices":[{"message":{"content":"draft"}}]}'
+
+    def fake_urlopen(request, timeout):
+        captured.update(json.loads(request.data))
+        assert timeout == 180
+        return Response()
+
+    monkeypatch.setattr(bs.urllib.request, "urlopen", fake_urlopen)
+    assert bs.gemma([{"role": "user", "content": "draft this"}]) == "draft"
+    assert captured["chat_template_kwargs"] == {"enable_thinking": False}
+
+
 REAL_CLI = REPO / "scripts" / "review_proposal_cli.py"
 
 

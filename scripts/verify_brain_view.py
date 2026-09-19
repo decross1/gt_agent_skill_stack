@@ -273,7 +273,8 @@ def check_cross(s: dict, consumer: Path | None) -> None:
     used = 0
     for path in ([consumer / "run_state" / "week1.run.jsonl"] if consumer else []) + \
                 [ps.REPO / "run_state" / "framework.run.jsonl"]:
-        used += sum(1 for r in jsonl(path) if (r.get("skill_used") or "").strip())
+        used += sum(1 for r in jsonl(path)
+                    if ps.primary_skill_used(r.get("skill_used")))
     explicit = sum(c["explicit"] for c in s["matrix"]["cells"])
     check("cross: explicit matrix total == skill_used rows in both run logs",
           explicit == used == s["attribution"]["skill_used_rows"],

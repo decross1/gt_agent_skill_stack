@@ -18,6 +18,13 @@ def build(run=(), feedback=(), contracts=()):
     )
 
 
+def test_attribution_accepts_ordered_multi_skill_runlog_value():
+    assert ps.ladder_attribution({
+        "skill_used": [" product-design:audit ", "deep-research"],
+    }) == ("product-design:audit", "skill_used")
+    assert ps.ladder_attribution({"skill_used": [None, "", 3]}) == (None, None)
+
+
 @pytest.mark.parametrize("source", ["harvest", "contract"])
 def test_reference_only_agent_resolves_without_observed_run_presence(source):
     feedback = [HARVEST] if source == "harvest" else []

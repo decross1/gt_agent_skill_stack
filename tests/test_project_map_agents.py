@@ -111,6 +111,39 @@ def test_unknown_harvest_skill_does_not_create_presence(framework):
     assert not any(e["type"] == "used" for e in result["edges"])
 
 
+def test_runlog_multi_skill_value_is_flattened_and_has_stable_primary():
+    row = {
+        "_source_line": 7,
+        "task_id": "fixture",
+        "skill_used": [" validate ", "fallback", "validate", None],
+    }
+    record = pm._work_record(
+        row, kind="run_log_entry", id_key="task_id", locator="fixture.jsonl",
+    )
+    assert record["observed_skills"] == ["validate", "fallback"]
+    assert pm.ladder_attribution(row) == ("validate", True)
+
+
+def test_legacy_string_spawn_result_does_not_break_map(framework):
+    _write_jsonl(pm.SPAWN_LEDGER, [
+        {
+            "timestamp": "2026-08-02T01:00:00Z",
+            "spawn_id": "SP-legacy-result",
+            "status": "completed",
+            "contract": {"task_statement": "legacy fixture", "skill_subset": []},
+        },
+        {
+            "timestamp": "2026-08-02T01:01:00Z",
+            "spawn_id": "SP-legacy-result",
+            "status": "completed",
+            "result": "Legacy completion summary.",
+        },
+    ])
+    result = pm.build_map()
+    card = result["cards"]["spawn-sp-legacy-result"]
+    assert "check reported" in card["one_line"]
+
+
 def test_historical_reference_keeps_recorded_presence_and_explicit_weight(framework):
     pm.FW_RUN.write_text(json.dumps({
         "timestamp": "2026-08-02T01:00:00Z", "agent": "nara",
