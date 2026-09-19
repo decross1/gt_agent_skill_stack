@@ -35,6 +35,12 @@ sys.path.insert(0, str(REPO / "scripts"))
 
 import brain_server as bs  # noqa: E402
 
+
+def test_permanent_local_drafting_defaults_point_to_flash():
+    assert bs.DEFAULT_DRAFTING_BASE_URL == "http://127.0.0.1:30080/v1"
+    assert bs.DEFAULT_DRAFTING_MODEL == "nvidia/Qwen3.8-Flash-Next-NVFP4"
+    assert bs.DRAFTING_URL == f"{bs.DRAFTING_BASE_URL}/chat/completions"
+
 REAL_CLI = REPO / "scripts" / "review_proposal_cli.py"
 
 
