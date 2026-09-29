@@ -68,6 +68,7 @@ DRAFTING_BASE_URL = os.environ.get(
 ).rstrip("/")
 DRAFTING_URL = f"{DRAFTING_BASE_URL}/chat/completions"
 MODEL = os.environ.get("BRAIN_LLM_MODEL", DEFAULT_DRAFTING_MODEL)
+DEFAULT_LAB_ROOT = Path("/home/decross1/projects/a_bgt_rsi")
 PID_RE = re.compile(r"^P-\d+$")
 
 # The review UI is an assertion surface, not an authentication boundary.  Keep
@@ -154,6 +155,151 @@ def jsonl(path: Path) -> list[dict]:
     return [json.loads(l) for l in path.read_text().splitlines() if l.strip()]
 
 
+def drafting_config() -> dict:
+    """Resolve the actual selected local context window for each draft call.
+
+    The normal route is the lab deployment manifest. An explicitly overridden
+    endpoint must either declare its context or expose it in a backend probe;
+    guessing a small context would silently discard useful brain evidence.
+    """
+    override_url = os.environ.get("BRAIN_LLM_BASE_URL")
+    override_model = os.environ.get("BRAIN_LLM_MODEL")
+    explicit_context = os.environ.get("BRAIN_LLM_CONTEXT_LENGTH")
+    if ((override_url in {None, DEFAULT_DRAFTING_BASE_URL})
+            and (override_model in {None, DEFAULT_DRAFTING_MODEL})):
+        root = Path(os.environ.get("ORACLE_LAB", DEFAULT_LAB_ROOT))
+        try:
+            manifest = json.loads((root / "config" / "model_deployment.json").read_text())
+            return _validated_drafting_config(manifest)
+        except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
+            raise GemmaError("selected local deployment configuration is unavailable") from exc
+    base_url = override_url or DEFAULT_DRAFTING_BASE_URL
+    model = override_model or DEFAULT_DRAFTING_MODEL
+    if explicit_context:
+        try:
+            context_length = int(explicit_context)
+        except ValueError as exc:
+            raise GemmaError("BRAIN_LLM_CONTEXT_LENGTH must be an integer") from exc
+        return _validated_drafting_config({
+            "base_url": base_url, "model": model, "context_length": context_length,
+        })
+    for path in ("/get_server_info", "/health"):
+        try:
+            req = urllib.request.Request(base_url.removesuffix("/v1") + path)
+            with urllib.request.urlopen(req, timeout=3) as response:
+                info = json.loads(response.read())
+            return _validated_drafting_config({
+                "base_url": base_url, "model": model,
+                "context_length": info["context_length"],
+            })
+        except (urllib.error.URLError, OSError, KeyError, TypeError, ValueError,
+                json.JSONDecodeError, GemmaError):
+            continue
+    raise GemmaError("custom drafting endpoint did not provide a trustworthy context length")
+
+
+def _validated_drafting_config(config: dict) -> dict:
+    """Validate the deployment selection before it becomes a request target."""
+    if not isinstance(config, dict):
+        raise GemmaError("drafting deployment configuration must be an object")
+    context_length = config.get("context_length")
+    if (isinstance(context_length, bool) or not isinstance(context_length, int)
+            or context_length <= 0):
+        raise GemmaError("drafting deployment context length must be positive")
+    model = config.get("model")
+    if not isinstance(model, str) or not model.strip():
+        raise GemmaError("drafting deployment has no valid model id")
+    base_url = config.get("base_url")
+    if not isinstance(base_url, str):
+        raise GemmaError("drafting deployment has no valid endpoint")
+    parsed = urlsplit(base_url.rstrip("/"))
+    if (parsed.scheme not in {"http", "https"} or not parsed.hostname
+            or parsed.username is not None or parsed.password is not None
+            or parsed.query or parsed.fragment or parsed.path.rstrip("/") != "/v1"):
+        raise GemmaError("drafting deployment has no valid endpoint")
+    return {
+        "base_url": urlunsplit((parsed.scheme, parsed.netloc, "/v1", "", "")),
+        "model": model.strip(),
+        "context_length": context_length,
+    }
+
+
+_TOKENIZE_TEMPLATE_MARGIN_BYTES = 512
+
+
+def _fallback_tokens(payload: dict) -> int:
+    # This is deliberately a byte upper bound, not a chars/4 estimate.  The
+    # fixed margin leaves room for the server's chat-template framing when its
+    # message-aware /tokenize endpoint is unavailable.
+    return (len(json.dumps(payload, ensure_ascii=False, separators=(",", ":")).encode("utf-8"))
+            + _TOKENIZE_TEMPLATE_MARGIN_BYTES)
+
+
+def message_tokens(messages: list[dict], config: dict) -> int:
+    """Ask the selected server to tokenize the actual message payload.
+
+    SGLang's /tokenize is optional across compatible backends, so the explicit
+    byte upper bound is the safe fallback rather than a fictitious token count.
+    """
+    payload = {
+        "model": config["model"],
+        "messages": messages,
+        "chat_template_kwargs": {"enable_thinking": False},
+        "add_generation_prompt": True,
+    }
+    try:
+        req = urllib.request.Request(
+            config["base_url"].removesuffix("/v1") + "/tokenize",
+            data=json.dumps(payload).encode(), headers={"Content-Type": "application/json"})
+        with urllib.request.urlopen(req, timeout=3) as response:
+            value = json.loads(response.read())
+        count = value.get("count") if isinstance(value, dict) else None
+        if isinstance(count, int) and not isinstance(count, bool) and count >= 0:
+            return count
+        if not isinstance(value, dict):
+            raise ValueError("tokenizer response is not an object")
+        tokens = value.get("tokens")
+        if isinstance(tokens, list):
+            return len(tokens)
+        if isinstance(value.get("token_ids"), list):
+            return len(value["token_ids"])
+    except (urllib.error.URLError, OSError, ValueError, TypeError, json.JSONDecodeError):
+        pass
+    return _fallback_tokens(payload)
+
+
+def fit_context(messages: list[dict], *, max_tokens: int, config: dict) -> list[dict]:
+    """Keep the complete prompt unless its selected-model input budget is full."""
+    budget = config["context_length"] - max_tokens
+    if budget <= 0:
+        raise GemmaError("draft output reserve leaves no input context")
+    fitted = [dict(message) for message in messages]
+    while message_tokens(fitted, config) > budget:
+        # Retire only the oldest discussion turn first. The system instruction
+        # and current user request remain intact unless they alone exceed the
+        # real deployed window.
+        first_history = 1
+        current_index = len(fitted) - 1
+        if first_history < current_index:
+            # A discussion is stored as user/assistant turns.  Retire a whole
+            # oldest pair so the model never sees an orphaned assistant reply.
+            if fitted[first_history].get("role") == "user":
+                if (first_history + 1 < current_index
+                        and fitted[first_history + 1].get("role") == "assistant"):
+                    del fitted[first_history:first_history + 2]
+                else:
+                    # The initial card prompt is a standalone user message.
+                    fitted.pop(first_history)
+            else:
+                raise GemmaError("drafting history has an orphan assistant response")
+            continue
+        # Never alter the active request or retained system instruction.  A
+        # caller must explicitly shorten an overlarge request rather than get
+        # a silently corrupted artifact or proposal discussion.
+        raise GemmaError("retained system and current drafting request exceed selected context")
+    return fitted
+
+
 def gemma(messages: list[dict], max_tokens: int = 700, temperature: float = 0.3) -> str:
     """Call the selected local drafting model (OpenAI-compatible chat) and return the
     reply text. Any transport, timeout, HTTP, or malformed-response failure is
@@ -163,9 +309,10 @@ def gemma(messages: list[dict], max_tokens: int = 700, temperature: float = 0.3)
     The function name is retained for compatibility; routing is controlled by
     ``BRAIN_LLM_BASE_URL`` and ``BRAIN_LLM_MODEL``.
     """
+    config = drafting_config()
     body = json.dumps({
-        "model": MODEL,
-        "messages": messages,
+        "model": config["model"],
+        "messages": fit_context(messages, max_tokens=max_tokens, config=config),
         "max_tokens": max_tokens,
         "temperature": temperature,
         # Brain calls are short drafting/extraction actions. Flash defaults to
@@ -174,7 +321,7 @@ def gemma(messages: list[dict], max_tokens: int = 700, temperature: float = 0.3)
         # non-thinking. Research roles select their own policy elsewhere.
         "chat_template_kwargs": {"enable_thinking": False},
     }).encode()
-    req = urllib.request.Request(DRAFTING_URL, data=body,
+    req = urllib.request.Request(config["base_url"] + "/chat/completions", data=body,
                                  headers={"Content-Type": "application/json"})
     try:
         with urllib.request.urlopen(req, timeout=180) as r:
@@ -366,13 +513,13 @@ def context_for(first: dict) -> str:
     target, ttype = first.get("target", ""), first.get("target_type", "")
     skill_md = SKILLS / target / "SKILL.md"
     if ttype == "skill" and skill_md.exists():
-        parts.append(f"=== TARGET SKILL ({target}) ===\n" + skill_md.read_text()[:3000])
+        parts.append(f"=== TARGET SKILL ({target}) ===\n" + skill_md.read_text())
     findings = [f for f in jsonl(FEEDBACK) if f.get("skill") == target]
     if findings:
-        ev = "\n".join(f"- [{f['class']}] {f['evidence'][:200]}" for f in findings[-8:])
+        ev = "\n".join(f"- [{f['class']}] {f['evidence']}" for f in findings)
         parts.append(f"=== DRIFT EVIDENCE (harvest findings on {target}) ===\n" + ev)
     if RULES.exists():
-        parts.append("=== ACTIVE RULES ===\n" + RULES.read_text()[:1500])
+        parts.append("=== ACTIVE RULES ===\n" + RULES.read_text())
     return "\n\n".join(parts) or "(no extra context)"
 
 

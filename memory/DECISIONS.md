@@ -731,3 +731,19 @@ dependency visible in the meantime.
 
 **Supersedes:** none — narrows and operationalizes the mixed-schema warning in
 the preceding 2026-08-18 truthful-cockpit decision.
+
+## 2026-09-29 — Brain context follows the selected resident
+
+Owner instruction: every local model consumer should use the maximum actually
+deployed context, with task-usage tuning deferred. Replace Brain's fixed
+3,000-character skill, eight short findings and 1,500-character rules clips with
+message-aware input budgeting from the selected deployment. Keep output limits
+separate, retire coherent old discussion turns only when needed, and never
+silently cut an oversized current request. Unknown custom endpoint capacity is
+an explicit error rather than a guessed small window.
+
+Observed verification: 107 focused tests; full suite 1,044 passed and one
+pre-existing optional live-fixture skip. Current lab capacity is 32,768; 262,144
+is tested profile coverage only. Source delivery does not activate a service or
+supersede the canonical checkout's unrelated uncommitted work. Reversible by
+reverting this isolated source change; no ledger or research result changed.
