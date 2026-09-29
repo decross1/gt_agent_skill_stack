@@ -56,6 +56,12 @@ def test_flash_drafting_call_explicitly_disables_thinking(monkeypatch):
             return b'{"choices":[{"message":{"content":"draft"}}]}'
 
     def fake_urlopen(request, timeout):
+        if timeout == 3:
+            return type("TokenResponse", (), {
+                "__enter__": lambda self: self,
+                "__exit__": lambda self, *_args: False,
+                "read": lambda self: b'{"count":3}',
+            })()
         captured.update(json.loads(request.data))
         assert timeout == 180
         return Response()
