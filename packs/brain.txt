@@ -1,0 +1,5 @@
+# Complete dev-time brain pack: Layer B, runtime-safe false.
+brain-recall
+narrate
+propose
+review-proposal

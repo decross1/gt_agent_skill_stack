@@ -1,0 +1,8 @@
+# Runtime-safe Layer-A projection of core, as declared by BOUNDARY.md.
+# Dev-only core extensions (currently slip-ladder) stay outside these manifests.
+fallback
+gate-check
+resume-state
+run-log
+spawn-contract
+validate
