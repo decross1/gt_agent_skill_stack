@@ -1,0 +1,9 @@
+# Complete dev-time research pack: Layer B, runtime-safe false.
+auto-experiment
+code-review
+experiment
+health
+investigate
+plan-research
+repro-check
+ship
