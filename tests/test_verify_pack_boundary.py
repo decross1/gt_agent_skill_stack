@@ -21,6 +21,7 @@ def repo(tmp_path):
     root.mkdir()
     shutil.copy2(REPO / "BOUNDARY.md", root / "BOUNDARY.md")
     shutil.copytree(REPO / ".agents/skills", root / ".agents/skills")
+    shutil.copy2(REPO / ".agents/PACKS.md", root / ".agents/PACKS.md")
     shutil.copytree(REPO / "packs", root / "packs")
     return root
 
@@ -43,7 +44,7 @@ def test_read_only_deterministic_result_binds_consumed_bytes(repo):
     before = {str(p.relative_to(repo)): p.read_bytes() for p in repo.rglob("*") if p.is_file()}
     result = verifier.verify_pack_boundary(repo)
     assert result == verifier.verify_pack_boundary(repo)
-    assert len(result["input_sha256"]) == 29
+    assert len(result["input_sha256"]) == 30
     for name, digest in result["input_sha256"].items():
         assert digest == hashlib.sha256(before[name]).hexdigest()
     assert before == {str(p.relative_to(repo)): p.read_bytes() for p in repo.rglob("*") if p.is_file()}
@@ -172,7 +173,7 @@ def test_boundary_declaration_tampering_fails_closed(repo, kind):
 
 
 @pytest.mark.parametrize("relative", [
-    "BOUNDARY.md", "packs", "packs/core.txt", ".agents/skills",
+    "BOUNDARY.md", "packs", "packs/core.txt", ".agents", ".agents/PACKS.md", ".agents/skills",
     ".agents/skills/fallback", ".agents/skills/fallback/SKILL.md",
 ])
 def test_symlink_escape_is_refused_even_with_identical_target_bytes(repo, tmp_path, relative):
@@ -225,3 +226,102 @@ def test_cli_portability_valid_failure_and_fifo_refusal(repo, tmp_path):
                          capture_output=True, text=True, timeout=5)
     assert bad.returncode != 0 and json.loads(bad.stdout)["ok"] is False
     assert bad.stderr == ""
+
+
+@pytest.mark.parametrize("skill,pack", [
+    ("health", "research"), ("context-save", "meta"), ("brain-recall", "brain"),
+    ("slip-ladder", None),
+])
+def test_skill_and_matching_manifest_deletion_cannot_hide_missing_members(repo, skill, pack):
+    shutil.rmtree(repo / ".agents/skills" / skill)
+    if pack:
+        path = repo / "packs" / (pack + ".txt")
+        path.write_text("\n".join(line for line in path.read_text().splitlines() if line != skill) + "\n")
+    with pytest.raises(verifier.BoundaryError, match="inventory"):
+        verifier.verify_pack_boundary(repo)
+
+
+@pytest.mark.parametrize("kind", ["missing", "duplicate", "member", "count", "total", "heading"])
+def test_documented_inventory_must_agree_with_frontmatter_and_manifests(repo, kind):
+    path = repo / ".agents/PACKS.md"
+    text = path.read_text()
+    tick = chr(96)
+    if kind == "missing":
+        path.unlink()
+    else:
+        if kind == "duplicate":
+            text += "\n" + text
+        elif kind == "member":
+            text = text.replace("- " + tick + "health" + tick, "- " + tick + "missing-skill" + tick)
+        elif kind == "count":
+            text = text.replace("| 8 |", "| 7 |")
+        elif kind == "total":
+            text = text.replace("Total: 24", "Total: 23")
+        else:
+            text = text.replace("### " + tick + "research" + tick, "### Unknown")
+        path.write_text(text)
+    with pytest.raises(verifier.BoundaryError):
+        verifier.verify_pack_boundary(repo)
+
+
+def test_coordinated_frontmatter_and_manifest_relabeling_cannot_override_pack_document(repo):
+    skill = repo / ".agents/skills/health/SKILL.md"
+    skill.write_text(skill.read_text().replace("layer: B", "layer: C").replace("pack: research", "pack: meta"))
+    research = repo / "packs/research.txt"
+    research.write_text(research.read_text().replace("health\n", ""))
+    meta = repo / "packs/meta.txt"
+    meta.write_text(meta.read_text() + "health\n")
+    with pytest.raises(verifier.BoundaryError, match="documented pack"):
+        verifier.verify_pack_boundary(repo)
+
+
+@pytest.mark.parametrize("kind", ["skill-addition", "pack-addition", "inventory-replacement"])
+def test_directory_changes_after_listing_fail_closed(repo, monkeypatch, kind):
+    original = verifier._Snapshot.entries
+
+    def change_after_listing(snapshot, parts):
+        names = original(snapshot, parts)
+        if kind == "skill-addition" and parts == (".agents", "skills"):
+            (repo / ".agents/skills/extra").mkdir()
+        elif kind == "pack-addition" and parts == ("packs",):
+            (repo / "packs/extra.txt").write_text("health\n")
+        elif kind == "inventory-replacement" and parts == (".agents", "skills"):
+            directory = repo / ".agents/skills"
+            old = directory.with_name("skills-old")
+            directory.rename(old)
+            shutil.copytree(old, directory)
+        return names
+
+    monkeypatch.setattr(verifier._Snapshot, "entries", change_after_listing)
+    with pytest.raises(verifier.BoundaryError, match="changed during capture"):
+        verifier.verify_pack_boundary(repo)
+
+
+@pytest.mark.parametrize("kind", ["file-change", "file-replacement", "skill-replacement", "root-replacement"])
+def test_late_input_or_path_replacement_fails_closed(repo, monkeypatch, kind):
+    original = verifier._Snapshot.read
+
+    def change_after_last_read(snapshot, parts):
+        text = original(snapshot, parts)
+        if parts == ("packs", "brain.txt"):
+            if kind == "file-change":
+                path = repo / "BOUNDARY.md"
+                path.write_text(path.read_text() + "\n")
+            elif kind == "file-replacement":
+                path = repo / "BOUNDARY.md"
+                path.rename(repo / "old-boundary")
+                shutil.copy2(repo / "old-boundary", path)
+            elif kind == "skill-replacement":
+                path = repo / ".agents/skills/health"
+                old = path.with_name("health-old")
+                path.rename(old)
+                shutil.copytree(old, path)
+            else:
+                old = repo.with_name("old-root")
+                repo.rename(old)
+                shutil.copytree(old, repo)
+        return text
+
+    monkeypatch.setattr(verifier._Snapshot, "read", change_after_last_read)
+    with pytest.raises(verifier.BoundaryError, match="changed during capture"):
+        verifier.verify_pack_boundary(repo)

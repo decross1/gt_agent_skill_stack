@@ -25,48 +25,76 @@ class BoundaryError(ValueError):
     pass
 
 
-def _open_at(root_fd: int, parts: tuple[str, ...], *, directory=False) -> int:
-    parent = os.dup(root_fd)
-    try:
-        for part in parts[:-1]:
-            child = os.open(part, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW | os.O_CLOEXEC,
-                            dir_fd=parent)
-            os.close(parent)
-            parent = child
-        flags = os.O_RDONLY | os.O_NOFOLLOW | os.O_CLOEXEC
-        flags |= os.O_DIRECTORY if directory else os.O_NONBLOCK
-        return os.open(parts[-1], flags, dir_fd=parent)
-    finally:
-        os.close(parent)
+def _identity(info: os.stat_result) -> tuple:
+    return (info.st_dev, info.st_ino, info.st_size, info.st_mtime_ns, info.st_ctime_ns)
 
 
-def _entries(root_fd: int, parts: tuple[str, ...]) -> list[str]:
-    fd = _open_at(root_fd, parts, directory=True)
-    try:
-        with os.scandir(fd) as entries:
-            names = []
-            for entry in entries:
-                if len(names) >= MAX_ENTRIES:
-                    raise BoundaryError("directory entry limit exceeded")
-                names.append(entry.name)
-        return sorted(names)
-    finally:
-        os.close(fd)
+def _scan(fd: int) -> list[str]:
+    with os.scandir(fd) as entries:
+        names = []
+        for entry in entries:
+            if len(names) >= MAX_ENTRIES:
+                raise BoundaryError("directory entry limit exceeded")
+            names.append(entry.name)
+    return sorted(names)
 
 
-def _read(root_fd: int, parts: tuple[str, ...], receipts: dict) -> str:
-    fd = _open_at(root_fd, parts)
-    with os.fdopen(fd, "rb") as stream:
-        before = os.fstat(stream.fileno())
-        if not stat.S_ISREG(before.st_mode) or before.st_size > MAX_FILE_BYTES:
-            raise BoundaryError("input is not a bounded regular file")
-        raw = stream.read(MAX_FILE_BYTES + 1)
-        after = os.fstat(stream.fileno())
-        identity = lambda s: (s.st_dev, s.st_ino, s.st_size, s.st_mtime_ns, s.st_ctime_ns)
-        if len(raw) > MAX_FILE_BYTES or len(raw) != before.st_size or identity(before) != identity(after):
-            raise BoundaryError("input exceeded its bound or changed during capture")
-    receipts["/".join(parts)] = hashlib.sha256(raw).hexdigest()
-    return raw.decode("utf-8")
+class _Snapshot:
+    def __init__(self, root: str | Path):
+        self.root = root
+        fd = os.open(root, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW | os.O_CLOEXEC)
+        self.directories = {(): (fd, _identity(os.fstat(fd)))}
+        self.files = {}
+        self.listings = {}
+        self.receipts = {}
+
+    def directory(self, parts: tuple[str, ...]) -> int:
+        if parts not in self.directories:
+            parent = self.directory(parts[:-1])
+            fd = os.open(parts[-1], os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW | os.O_CLOEXEC,
+                         dir_fd=parent)
+            self.directories[parts] = (fd, _identity(os.fstat(fd)))
+        return self.directories[parts][0]
+
+    def entries(self, parts: tuple[str, ...]) -> list[str]:
+        fd = self.directory(parts)
+        names = _scan(fd)
+        if _identity(os.fstat(fd)) != self.directories[parts][1]:
+            raise BoundaryError("directory changed during capture")
+        self.listings[parts] = names
+        return names
+
+    def read(self, parts: tuple[str, ...]) -> str:
+        fd = os.open(parts[-1], os.O_RDONLY | os.O_NOFOLLOW | os.O_CLOEXEC | os.O_NONBLOCK,
+                     dir_fd=self.directory(parts[:-1]))
+        with os.fdopen(fd, "rb") as stream:
+            before = os.fstat(stream.fileno())
+            if not stat.S_ISREG(before.st_mode) or before.st_size > MAX_FILE_BYTES:
+                raise BoundaryError("input is not a bounded regular file")
+            raw = stream.read(MAX_FILE_BYTES + 1)
+            after = os.fstat(stream.fileno())
+            if len(raw) > MAX_FILE_BYTES or len(raw) != before.st_size or _identity(before) != _identity(after):
+                raise BoundaryError("input exceeded its bound or changed during capture")
+        self.files[parts] = _identity(before)
+        self.receipts["/".join(parts)] = hashlib.sha256(raw).hexdigest()
+        return raw.decode("utf-8")
+
+    def check(self) -> None:
+        for parts, identity in self.files.items():
+            info = os.stat(parts[-1], dir_fd=self.directory(parts[:-1]), follow_symlinks=False)
+            if _identity(info) != identity:
+                raise BoundaryError("input pathname changed during capture")
+        for parts, (fd, identity) in self.directories.items():
+            info = (os.stat(parts[-1], dir_fd=self.directory(parts[:-1]), follow_symlinks=False)
+                    if parts else os.stat(self.root, follow_symlinks=False))
+            if _identity(info) != identity or _identity(os.fstat(fd)) != identity:
+                raise BoundaryError("directory pathname changed during capture")
+            if parts in self.listings and _scan(fd) != self.listings[parts]:
+                raise BoundaryError("directory inventory changed during capture")
+
+    def close(self) -> None:
+        for fd, _ in self.directories.values():
+            os.close(fd)
 
 
 def _frontmatter(text: str, skill: str) -> dict[str, str]:
@@ -128,27 +156,72 @@ def _manifest(text: str) -> set[str]:
     return names
 
 
+def _documented_packs(text: str) -> dict[str, set[str]]:
+    """Require agreement with the documented inventory, including dev core."""
+    declared = {}
+    counts = {}
+    section = None
+    tick = chr(96)
+    for line in text.splitlines():
+        if line.startswith("|"):
+            cells = [cell.strip() for cell in line.split("|")[1:-1]]
+            if cells and cells[0] in {tick + pack + tick for pack in PACKS}:
+                pack = cells[0][1:-1]
+                if len(cells) != 5 or pack in counts or not cells[3].isdigit():
+                    raise BoundaryError("malformed or duplicate documented pack count")
+                counts[pack] = int(cells[3])
+        if line.startswith("## "):
+            section = None
+        elif line.startswith("### "):
+            match = re.fullmatch("### " + tick + r"([a-z]+)" + tick + r" \([^)]+\)", line)
+            section = match[1] if match and match[1] in PACKS else None
+            if section:
+                if section in declared:
+                    raise BoundaryError("duplicate documented pack section")
+                declared[section] = set()
+        elif section and line.startswith("- "):
+            match = re.fullmatch("- " + tick + r"([a-z][a-z0-9-]{0,63})" + tick
+                                 + r"(?: \([ABC]\))? — .+", line)
+            if not match or match[1] in set().union(*declared.values()):
+                raise BoundaryError("malformed or duplicate documented skill")
+            declared[section].add(match[1])
+    if set(declared) != set(PACKS) or set(counts) != set(PACKS):
+        raise BoundaryError("four documented pack sections and counts are required")
+    if any(not names or len(names) != counts[pack] for pack, names in declared.items()):
+        raise BoundaryError("documented pack count differs from its membership")
+    totals = re.findall(r"^Total: ([0-9]+) skills today\.$", text, re.MULTILINE)
+    if len(totals) != 1 or int(totals[0]) != sum(counts.values()):
+        raise BoundaryError("documented total differs from pack counts")
+    return declared
+
+
 def verify_pack_boundary(repo_root: str | Path) -> dict:
     """Read only regular, nonsymlink inputs beneath one opened repository root."""
     try:
-        root_fd = os.open(repo_root, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW | os.O_CLOEXEC)
+        snapshot = _Snapshot(repo_root)
     except OSError as exc:
         raise BoundaryError("repository root unavailable or symlinked") from exc
     try:
-        receipts = {}
-        expected_core = _boundary_core(_read(root_fd, ("BOUNDARY.md",), receipts))
-        if set(_entries(root_fd, ("packs",))) != {pack + ".txt" for pack in PACKS}:
+        expected_core = _boundary_core(snapshot.read(("BOUNDARY.md",)))
+        declared = _documented_packs(snapshot.read((".agents", "PACKS.md")))
+        if not expected_core <= declared["core"]:
+            raise BoundaryError("documented core omits required runtime skills")
+        if set(snapshot.entries(("packs",))) != {pack + ".txt" for pack in PACKS}:
             raise BoundaryError("exactly four pack manifests are required")
         expected = {pack: set() for pack in PACKS}
         excluded = []
-        skill_names = _entries(root_fd, (".agents", "skills"))
+        skill_names = snapshot.entries((".agents", "skills"))
+        if set(skill_names) != set().union(*declared.values()):
+            raise BoundaryError("skill inventory differs from documented pack membership")
         for skill in skill_names:
             if NAME.fullmatch(skill) is None:
                 raise BoundaryError("invalid skill directory name")
-            fields = _frontmatter(_read(root_fd, (".agents", "skills", skill, "SKILL.md"), receipts), skill)
+            fields = _frontmatter(snapshot.read((".agents", "skills", skill, "SKILL.md")), skill)
             layer, safe, pack = (fields[key] for key in ("layer", "runtime-safe", "pack"))
             if pack not in PACKS or layer not in ("A", "B", "C") or safe not in ("true", "false"):
                 raise BoundaryError(f"{skill}: invalid classification")
+            if skill not in declared[pack]:
+                raise BoundaryError(f"{skill}: frontmatter disagrees with documented pack")
             if layer == "A":
                 if safe != "true" or pack != "core" or skill not in expected_core:
                     raise BoundaryError(f"{skill}: invalid runtime-core classification")
@@ -165,21 +238,22 @@ def verify_pack_boundary(repo_root: str | Path) -> dict:
         seen = set()
         manifests = {}
         for pack in PACKS:
-            names = _manifest(_read(root_fd, ("packs", pack + ".txt"), receipts))
+            names = _manifest(snapshot.read(("packs", pack + ".txt")))
             if seen & names:
                 raise BoundaryError("skill occurs in multiple manifests")
             seen.update(names)
             if names != expected[pack]:
                 raise BoundaryError(f"{pack}: manifest differs from its required skill projection")
             manifests[pack] = sorted(names)
+        snapshot.check()
         return {"ok": True, "packs": manifests, "total_skills": len(skill_names),
                 "manifested_skills": len(seen), "excluded_dev_core": sorted(excluded),
                 "scope": "manifest composition only; core is the runtime-safe projection",
-                "runtime_conformance_verified": False, "input_sha256": receipts}
+                "runtime_conformance_verified": False, "input_sha256": snapshot.receipts}
     except (OSError, UnicodeError) as exc:
         raise BoundaryError("unreadable or unsafe repository input") from exc
     finally:
-        os.close(root_fd)
+        snapshot.close()
 
 
 def main(argv: list[str] | None = None) -> int:
