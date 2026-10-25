@@ -82,9 +82,9 @@ def test_valid_chain_reports_unique_version_bound_skills(repo, tmp_path):
     done, report = _run(tmp_path, root, rows)
     assert done.returncode == 0 and report["valid_count"] == 3 and not report["errors"]
     assert report["chain_tip_sha256"] == rows[-1]["row_sha256"]
-    assert [(item["skill_commit"], item["skill_blob_sha"]) for item in report["qualified_skills"]] == [
+    assert [(item["skill_commit"], item["skill_blob_sha"]) for item in report["qualified_skills"]] == sorted([
         (base, _git(root, "rev-parse", f"{base}:skills/SKILL.md")),
-        (candidate, _git(root, "rev-parse", f"{candidate}:skills/SKILL.md"))]
+        (candidate, _git(root, "rev-parse", f"{candidate}:skills/SKILL.md"))])
 
 
 def test_broken_previous_and_row_hash_fail_independently(repo, tmp_path):
