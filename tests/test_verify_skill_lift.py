@@ -46,8 +46,8 @@ def _row(repo, base, candidate, task, arm, passed):
 
 def _run(tmp_path, repo, rows):
     receipt = tmp_path / "receipts.jsonl"
-    receipt.write_text("\n".join(row if isinstance(row, str) else json.dumps(row)
-                                 for row in rows) + "\n")
+    receipt.write_text("".join((row if isinstance(row, str) else json.dumps(row)) + "\n"
+                               for row in rows))
     done = subprocess.run([sys.executable, str(SCRIPT), "--repo", str(repo), str(receipt)],
                           text=True, capture_output=True)
     return done, json.loads(done.stdout)
@@ -59,7 +59,7 @@ def _pairs(repo, base, candidate, count, base_pass=False, candidate_pass=True):
         _row(repo, base, candidate, str(number), "candidate", candidate_pass))]
 
 
-def test_five_lifts_are_eligible(repo, tmp_path):
+def test_five_lifts_are_eligible(repo, tmp_path, monkeypatch):
     root, base, candidate = repo
     before = {str(p): p.read_bytes() for p in root.rglob("*") if p.is_file()}
     done, report = _run(tmp_path, root, _pairs(root, base, candidate, 5))
@@ -68,6 +68,11 @@ def test_five_lifts_are_eligible(repo, tmp_path):
                       "b": 0, "c": 5, "eligible_for_steward_review": True,
                       "errors": []}
     assert _run(tmp_path, root, _pairs(root, base, candidate, 5))[1] == report
+    rows = _pairs(root, base, candidate, 5)
+    with monkeypatch.context() as context:
+        context.setenv("GIT_DIR", str(tmp_path / "wrong.git"))
+        redirected, result = _run(tmp_path, root, rows)
+        assert redirected.returncode == 0 and result == report
     assert {str(p): p.read_bytes() for p in root.rglob("*") if p.is_file()} == before
 
 
@@ -104,8 +109,9 @@ def test_tampered_blob_fails_closed(repo, tmp_path):
         done, report = _run(tmp_path, root, rows)
         assert done.returncode == 1 and report["errors"]
     rows = _pairs(root, base, candidate, 5)
-    rows[1].update(skill_path="skills",
-                   skill_blob_sha=_git(root, "rev-parse", f"{candidate}:skills"))
+    for row in rows:
+        row.update(skill_path="skills", skill_blob_sha=_git(
+            root, "rev-parse", f'{row["skill_commit"]}:skills'))
     done, report = _run(tmp_path, root, rows)
     assert done.returncode == 1 and report["errors"]
 
@@ -136,13 +142,15 @@ def test_extra_and_duplicate_json_keys_fail_closed(repo, tmp_path):
     extra = dict(rows[0], unexpected=True)
     done, report = _run(tmp_path, root, [extra, *rows[1:]])
     assert done.returncode == 1 and report["errors"]
-    duplicate = json.dumps(rows[0])[:-1] + ',"task_id":"again"}'
+    duplicate = json.dumps(rows[0])[:-1] + ',"task_id":"0"}'
     done, report = _run(tmp_path, root, [duplicate, *rows[1:]])
     assert done.returncode == 1 and report["errors"]
     for malformed in [{"passed": True}, [], {}, "", "not-json"]:
         done, report = _run(tmp_path, root, [malformed, *rows[1:]])
         assert done.returncode == 1 and report["errors"]
     done, report = _run(tmp_path, root, [])
+    assert done.returncode == 1 and report["errors"]
+    done, report = _run(tmp_path, root, [*rows, {"passed": True}])
     assert done.returncode == 1 and report["errors"]
 
 

@@ -2,6 +2,7 @@
 """Check paired RC1 skill receipts for eligibility for steward review."""
 import argparse
 import json
+import os
 from pathlib import Path
 import subprocess
 
@@ -17,9 +18,11 @@ def unique_keys(pairs):
 
 
 def git(repo, *args):
+    env = {key: value for key, value in os.environ.items() if not key.startswith("GIT_")}
+    env.update(GIT_NO_LAZY_FETCH="1", GIT_ALLOW_PROTOCOL="")
     return subprocess.check_output(
         ["git", "--no-replace-objects", "-C", str(repo), *args],
-        text=True, stderr=subprocess.PIPE, timeout=10).strip()
+        text=True, stderr=subprocess.PIPE, timeout=10, env=env).strip()
 
 
 def verify_skill_lift(receipts, repo):
