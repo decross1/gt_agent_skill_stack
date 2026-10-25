@@ -146,6 +146,8 @@ def test_empty_malformed_and_missing_git_evidence_fail_closed(repo, tmp_path):
     done, report = _run(tmp_path, root, [])
     assert done.returncode == 1 and report["valid_count"] == 0 and not report["errors"]
     _invalid(*_run(tmp_path, root, ["not-json\n"]))
-    rows = [_row(root, base)]
-    rows[0]["skill_commit"] = "0" * 40
-    _invalid(*_run(tmp_path, root, _seal(rows)))
+    for key, value in (("skill_commit", "0" * 40), ("skill_commit", "HEAD"),
+                       ("skill_path", "./skills/SKILL.md")):
+        rows = [_row(root, base)]
+        rows[0][key] = value
+        _invalid(*_run(tmp_path, root, _seal(rows)))

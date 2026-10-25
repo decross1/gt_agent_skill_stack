@@ -63,7 +63,11 @@ def verify_qualifications(path, repo):
                 if (row["prev_sha256"] != report["chain_tip_sha256"]
                         or row["row_sha256"] != hashlib.sha256(raw).hexdigest()):
                     raise ValueError(f"line {number}: broken qualification hash chain")
+                if any(part in ("", ".", "..") for part in row["skill_path"].split("/")):
+                    raise ValueError(f"line {number}: canonical repository-relative skill path required")
                 commit = git(repo, "rev-parse", "--verify", "--end-of-options", row["skill_commit"] + "^{commit}")
+                if commit != row["skill_commit"]:
+                    raise ValueError(f"line {number}: full immutable commit id required")
                 blob = git(repo, "rev-parse", "--verify", "--end-of-options", commit + ":" + row["skill_path"])
                 if blob != row["skill_blob_sha"] or git(repo, "cat-file", "-t", blob) != "blob":
                     raise ValueError(f"line {number}: committed skill blob mismatch")
