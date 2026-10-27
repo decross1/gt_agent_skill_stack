@@ -64,3 +64,11 @@ def test_historical_reference_preserves_recorded_agent_presence():
     assert after[0]["runs_by_day"] == {"2026-08-02": 1}
     assert matrix["cells"][0]["explicit"] == 1
     assert matrix["cells"][0]["inferred"] == 1
+
+
+def test_trim_handles_structured_authority_cap_without_error():
+    cap = {"standing_maintenance_authority": "allowed", "explicit_assignment": "read-only"}
+    rendered = ps._trim(cap, 80)
+    assert isinstance(rendered, str)
+    assert "standing_maintenance_authority" in rendered
+    assert len(rendered) <= 80
