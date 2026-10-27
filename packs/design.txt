@@ -1,0 +1,6 @@
+# design pack manifest (Layer-B dev-only UI/UX & representation skills)
+agent-viz
+lab-ui-build
+lab-ui-plan
+lab-ui-review
+trace-and-distill

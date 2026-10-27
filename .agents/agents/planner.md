@@ -19,6 +19,8 @@ were left.
 ## Skills it leans on
 
 - [[plan-research]] — design a falsifiable plan: hypothesis, baseline, metric.
+- [[lab-ui-plan]] — design a Munzner Nested Model screen brief and spatial topology graph before UI work.
+- [[agent-viz]] — route domain questions and data shapes to canonical representations (`design/references/`).
 - [[resume-state]] — resume a plan-driven project from its state file.
 - [[gate-check]] — surface human gates and irreversible steps in the plan.
 

@@ -1,0 +1,50 @@
+{
+  "schema": "lab-eval-fixture/experiments/v1",
+  "evaluation_task": "Select a valid comparison, describe the configuration difference, inspect uncertainty, and avoid treating incompatible evaluations as equivalent.",
+  "runs": [
+    {
+      "run_id": "exp-base-v2",
+      "config": "baseline_default",
+      "controlled_diff": "none (baseline)",
+      "eval_version": "eval-v2.1",
+      "n_seeds": 5,
+      "brier_mean": 0.168,
+      "brier_ci95": 0.009,
+      "latency_ms": 410,
+      "epistemic_label": "observed"
+    },
+    {
+      "run_id": "exp-cand-reharness-v2",
+      "config": "reharness_n_eff_5",
+      "controlled_diff": "+backward_qualification (n_eff >= 5)",
+      "eval_version": "eval-v2.1",
+      "n_seeds": 5,
+      "brier_mean": 0.141,
+      "brier_ci95": 0.011,
+      "latency_ms": 425,
+      "epistemic_label": "observed"
+    },
+    {
+      "run_id": "exp-cand-noisy-v2",
+      "config": "aggressive_switch",
+      "controlled_diff": "+low_threshold_0.05",
+      "eval_version": "eval-v2.1",
+      "n_seeds": 2,
+      "brier_mean": 0.135,
+      "brier_ci95": 0.048,
+      "latency_ms": null,
+      "epistemic_label": "observed"
+    },
+    {
+      "run_id": "exp-legacy-v1",
+      "config": "legacy_scorer",
+      "controlled_diff": "uncalibrated v1 metric",
+      "eval_version": "eval-v1.0",
+      "n_seeds": 5,
+      "brier_mean": 0.11,
+      "brier_ci95": 0.008,
+      "latency_ms": 380,
+      "epistemic_label": "observed"
+    }
+  ]
+}

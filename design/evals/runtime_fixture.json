@@ -1,0 +1,54 @@
+{
+  "schema": "lab-eval-fixture/runtime/v1",
+  "evaluation_task": "Locate the run needing attention, explain the evidence, distinguish confirmed failure from stale observation, and inspect the relevant attempt.",
+  "agents": [
+    {
+      "agent_id": "argon",
+      "status": "active",
+      "last_seen_at": "2026-10-27T03:20:00Z",
+      "heartbeat_age_sec": 30,
+      "active_attempt_id": "att-901",
+      "quota_used_pct": 34.0,
+      "reserve_floor_pct": 15.0,
+      "epistemic_label": "observed"
+    },
+    {
+      "agent_id": "codex",
+      "status": "failed",
+      "last_seen_at": "2026-10-27T03:18:10Z",
+      "heartbeat_age_sec": 140,
+      "active_attempt_id": "att-884-retry-2",
+      "failure_code": "EXIT_SCHEMA_MISMATCH",
+      "quota_used_pct": 52.0,
+      "reserve_floor_pct": 15.0,
+      "epistemic_label": "observed"
+    },
+    {
+      "agent_id": "opus",
+      "status": "stale",
+      "last_seen_at": "2026-10-26T21:00:00Z",
+      "heartbeat_age_sec": 22800,
+      "active_attempt_id": "att-710",
+      "note": "Heartbeat older than 6h threshold; true runtime state is unknown.",
+      "quota_used_pct": null,
+      "reserve_floor_pct": 20.0,
+      "epistemic_label": "inferred"
+    }
+  ],
+  "attempts": [
+    {
+      "attempt_id": "att-884-retry-1",
+      "agent_id": "codex",
+      "status": "retried",
+      "duration_ms": 3100,
+      "reason": "transient lock"
+    },
+    {
+      "attempt_id": "att-884-retry-2",
+      "agent_id": "codex",
+      "status": "failed",
+      "duration_ms": 1450,
+      "reason": "EXIT_SCHEMA_MISMATCH at line 699"
+    }
+  ]
+}

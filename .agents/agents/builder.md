@@ -18,6 +18,8 @@ does not redesign the task.
 ## Skills it leans on
 
 - [[investigate]] — evidence-based debugging when something breaks.
+- [[lab-ui-build]] — build token-compliant, Tufte high-density lab UIs (`design/system.md`).
+- [[agent-viz]] — implement canonical domain representations and bitemporal/spatial views.
 - [[code-review]] — review the diff before it lands, as an adversary.
 - [[ship]] — the mechanical last mile: test, commit, PR.
 

@@ -25,7 +25,7 @@ Skip `propose` for one-off comments (those go in [[narrate]]'s
 `would_do_differently` field) or for trivial fixes inside the agent's own
 work (those are part of the task itself).
 
-Pairs with [[narrate]] (a reflection that ends with a proposal references
+Pairs with [[trace-and-distill]] (which distills `qa_gate.py` and UI review findings into skill/reference proposals), [[narrate]] (a reflection that ends with a proposal references
 the proposal id), [[decision-log]] (an *accepted* proposal that changes a
 rule materializes as a new `correction:`-flagged decision), and
 [[review-proposal]] (the next step in the loop).

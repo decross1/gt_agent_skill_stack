@@ -24,7 +24,8 @@ agent_system/
 ├── AGENTS.md            canonical context file  (CLAUDE.md → symlink)
 ├── BOUNDARY.md          dev-time vs project-runtime scope boundary
 ├── install.sh           wires the system into Pi and/or Claude Code
-├── .agents/PACKS.md     skill-pack matrix (core / research / meta / brain)
+├── .agents/PACKS.md     skill-pack matrix (core / research / meta / brain / design)
+├── design/              canonical UI/UX & visualization specs, qa_gate.py, evals
 ├── .agents/skills/      canonical skills  (.claude/skills → symlink)
 │   ├── resume-state/    resume a plan-driven project from its state file
 │   ├── gate-check/      halt at human gates / irreversible actions

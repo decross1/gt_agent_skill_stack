@@ -13,7 +13,7 @@ from pathlib import Path
 import re
 import stat
 
-PACKS = ("core", "meta", "research", "brain")
+PACKS = ("core", "meta", "research", "brain", "design")
 RUNTIME_CORE = frozenset({"resume-state", "gate-check", "validate", "fallback",
                           "run-log", "spawn-contract"})
 MAX_FILE_BYTES = 64 * 1024
@@ -186,7 +186,7 @@ def _documented_packs(text: str) -> dict[str, set[str]]:
                 raise BoundaryError("malformed or duplicate documented skill")
             declared[section].add(match[1])
     if set(declared) != set(PACKS) or set(counts) != set(PACKS):
-        raise BoundaryError("four documented pack sections and counts are required")
+        raise BoundaryError("five documented pack sections and counts are required")
     if any(not names or len(names) != counts[pack] for pack, names in declared.items()):
         raise BoundaryError("documented pack count differs from its membership")
     totals = re.findall(r"^Total: ([0-9]+) skills today\.$", text, re.MULTILINE)
@@ -207,7 +207,7 @@ def verify_pack_boundary(repo_root: str | Path) -> dict:
         if not expected_core <= declared["core"]:
             raise BoundaryError("documented core omits required runtime skills")
         if set(snapshot.entries(("packs",))) != {pack + ".txt" for pack in PACKS}:
-            raise BoundaryError("exactly four pack manifests are required")
+            raise BoundaryError("exactly five pack manifests are required")
         expected = {pack: set() for pack in PACKS}
         excluded = []
         skill_names = snapshot.entries((".agents", "skills"))
