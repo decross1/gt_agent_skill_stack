@@ -12,7 +12,7 @@ when relevant), not here.
 
 Located in `.agents/skills/`, each a `SKILL.md`. Every skill carries three
 frontmatter fields — `layer` (A/B/C), `runtime-safe` (true/false), and `pack`
-(`core`/`research`/`meta`/`brain`, see `.agents/PACKS.md`) — 24 skills across
+(`core`/`research`/`meta`/`brain`/`design`, see `.agents/PACKS.md`) — 29 skills across
 three layers.
 
 ### Layer A — Core discipline
@@ -53,6 +53,11 @@ Vertical skills for research / ML-pipeline engineering — the `research` and
 | `propose` | File a durable, reviewable proposal to improve a brain page, rule, or skill. |
 | `review-proposal` | Route an open proposal to accept/reject/human-review against active rules. |
 | `slip-ladder` | Bounded logged deadline extensions (same approach, stated cap) when fallback does not fit. |
+| `lab-ui-plan` | Pre-flight Munzner Nested Model screen brief and Component & State Topology Graph (`design/`). |
+| `agent-viz` | Route research-lab data shapes and user questions to canonical representations (`design/references/`). |
+| `lab-ui-build` | Build high-density, token-compliant lab UIs with explicit epistemic and missingness semantics. |
+| `lab-ui-review` | Run blocking `design/scripts/qa_gate.py` verification and structured 4-pass UI/UX critique. |
+| `trace-and-distill` | Record Agent Trace 5-tuples and distill UI corrections into harvest findings and ReHarness qualifications. |
 
 ### Layer C — Orchestration & meta
 
@@ -83,10 +88,10 @@ routes its parts to these agents.
 
 | Agent | Role | Leans on |
 |---|---|---|
-| `planner` | Decompose, sequence, design falsifiable plans | `plan-research`, `resume-state`, `gate-check` |
-| `builder` | Write, debug, and land code | `investigate`, `code-review`, `ship` |
+| `planner` | Decompose, sequence, design falsifiable plans | `plan-research`, `lab-ui-plan`, `agent-viz`, `resume-state`, `gate-check` |
+| `builder` | Write, debug, and land code | `investigate`, `lab-ui-build`, `agent-viz`, `code-review`, `ship` |
 | `experimenter` | Run and log experiments | `experiment`, `repro-check`, `run-log` |
-| `auditor` | Independently verify work and project health | `validate`, `repro-check`, `health`, `gate-check` |
+| `auditor` | Independently verify work and project health | `validate`, `lab-ui-review`, `trace-and-distill`, `repro-check`, `health`, `gate-check` |
 
 These coordinate the agents that *help build* a project — they are not a
 project's own runtime agents. See `BOUNDARY.md`.

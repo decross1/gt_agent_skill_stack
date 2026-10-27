@@ -19,6 +19,8 @@ point: it must not be the same pass that produced the work.
 ## Skills it leans on
 
 - [[validate]] — run acceptance criteria as independent pass/fail checks.
+- [[lab-ui-review]] — run deterministic `design/scripts/qa_gate.py` checks and 4-pass UI critique.
+- [[trace-and-distill]] — record Agent Trace 5-tuples and distill UI findings into ReHarness qualifications.
 - [[repro-check]] — confirm a result reproduces before it is trusted.
 - [[health]] — periodic whole-project checkup.
 - [[gate-check]] — confirm no human gate was crossed without clearance.

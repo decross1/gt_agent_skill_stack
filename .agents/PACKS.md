@@ -16,8 +16,9 @@ session may automate regeneration). Authoritative source: the frontmatter.
 | `meta`     | yes — every consumer | C                                  | 5 | Framework-internal infrastructure: session memory, decision log, harvest loop, orchestration. |
 | `research` | opt-in              | B                                  | 8 | The research lifecycle: plan → run → reproduce → investigate → review → ship. |
 | `brain`    | opt-in              | B                                  | 4 | Observation, reflection, and proposal-review against a typed brain graph. |
+| `design`   | opt-in              | B                                  | 5 | Research-lab UI/UX & visual representation lifecycle: Munzner screen planning, domain visualization routing, token/Tufte build craft, deterministic QA gate, and Agent Trace distillation. |
 
-Total: 24 skills today.
+Total: 29 skills today.
 
 ## Pack contents
 
@@ -68,6 +69,16 @@ the project benefits from a typed knowledge graph over its own activity.
 - `brain-recall` — bounded query into the brain for grounding.
 - `propose` — file a proposal to change a brain page, rule, or skill.
 - `review-proposal` — evaluate proposals against active rules.
+
+### `design` (opt-in vertical)
+
+Research-lab UI/UX, spatial representation routing, deterministic QA gates, and post-session trace distillation. Canonical references live in `design/`.
+
+- `lab-ui-plan` — pre-flight Munzner Nested Model screen brief and Component & State Topology Graph.
+- `agent-viz` — route domain questions and data shapes to canonical representations (`design/references/*.md`).
+- `lab-ui-build` — implement interfaces with `SHARED TOKENS v1`, Tufte data-ink density, and honest missingness.
+- `lab-ui-review` — run blocking `design/scripts/qa_gate.py` checks followed by structured 4-pass critique.
+- `trace-and-distill` — log Agent Trace 5-tuples and distill UI feedback into harvest findings and ReHarness qualifications.
 
 ## How to install (today)
 

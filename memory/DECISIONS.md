@@ -747,3 +747,11 @@ pre-existing optional live-fixture skip. Current lab capacity is 32,768; 262,144
 is tested profile coverage only. Source delivery does not activate a service or
 supersede the canonical checkout's unrelated uncommitted work. Reversible by
 reverting this isolated source change; no ledger or research result changed.
+
+## 2026-10-27 — Adopt canonical `design` UI/UX skill pack and `qa_gate.py` ReHarness loop
+
+**Decision:** Add the 5-skill `design` vertical pack (`lab-ui-plan`, `agent-viz`, `lab-ui-build`, `lab-ui-review`, `trace-and-distill`; all `layer: B`, `runtime-safe: false`, `pack: design`) backed by one canonical `design/` knowledge base (`product.md`, `system.md`, `reference-index.md`, `harness-integration.md`, 8 `references/*.md` specs, `scripts/{qa_gate.py,linearize_context.py,record_agent_trace.py}`, and `evals/`). Wire `install.sh` across `claude-code`, `codex`, `argon`, and `pi` (`filter=runtime-safe` preserves the `BOUNDARY.md` firewall). Wire `qa_gate.py` metrics (`unknown_badge_ratio <= 0.05`, `dl_term_count <= 24`, `overflow_px == 0`, `external_cdn_count == 0`) into ReHarness backward qualifications and `harvest`/`draft_proposals.py`.
+
+**Rationale:** Live inspection of the initial Oracle Portal (`:8790`) showed that without explicit Munzner question-to-representation routing and a deterministic anti-slop DOM gate, coding agents default to raw `<dl>` key-value dumps and blanket `"UNKNOWN"` badges. Separating craft (`lab-ui-build`), representation routing (`agent-viz`), deterministic verification (`qa_gate.py`), and post-session trace distillation (`trace-and-distill`) fixes both representation selection and same-model self-grading.
+
+**Reversibility:** Easy — revert the `design` pack files and manifest entry; append-only ledgers remain intact.

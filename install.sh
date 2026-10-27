@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # install.sh — install this agent framework into one or more skill-discovery
-# targets (Claude Code, Pi, or any directory a harness reads from).
+# targets (Claude Code, Codex, Argon, Pi, or any directory a harness reads from).
 #
 # Source of truth in this repo:
 #   .agents/skills/   the skills (Agent Skills standard, one dir per skill)
@@ -10,6 +10,8 @@
 #
 # Registered targets (the manifest, defined as bash assoc arrays below):
 #   claude-code   path=~/.claude/skills          filter=all          agents=~/.claude/agents
+#   codex         path=~/.codex/skills           filter=all          agents=(none)
+#   argon         path=~/.gemini/config/skills   filter=all          agents=(none)
 #   pi            path=~/.pi/agent/skills        filter=runtime-safe agents=(none)
 #
 # Filters:
@@ -42,14 +44,20 @@ AGENT_PROFILES="$ROOT/.agents/agents"
 # ── target manifest ──────────────────────────────────────────────────────────
 declare -A TARGET_PATHS=(
   [claude-code]="$HOME/.claude/skills"
+  [codex]="$HOME/.codex/skills"
+  [argon]="$HOME/.gemini/config/skills"
   [pi]="$HOME/.pi/agent/skills"
 )
 declare -A TARGET_FILTERS=(
   [claude-code]="all"
+  [codex]="all"
+  [argon]="all"
   [pi]="runtime-safe"
 )
 declare -A TARGET_AGENT_DIRS=(
   [claude-code]="$HOME/.claude/agents"
+  [codex]=""
+  [argon]=""
   [pi]=""
 )
 

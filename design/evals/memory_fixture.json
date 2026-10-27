@@ -1,0 +1,71 @@
+{
+  "schema": "lab-eval-fixture/memory/v1",
+  "evaluation_task": "Identify the currently supported claim and its source; inspect the historical claim; recognize unresolved conflict and missing evidence.",
+  "bitemporal_claims": [
+    {
+      "claim_id": "clm-101",
+      "subject": "service:brain_5180",
+      "predicate": "port_status",
+      "object": "HTTP 500 on /api/summary",
+      "edge_layer": "Temporal",
+      "epistemic_label": "observed",
+      "valid_from": "2026-10-26T18:00:00Z",
+      "valid_to": "2026-10-27T02:47:00Z",
+      "created_at": "2026-10-26T18:00:05Z",
+      "expired_at": "2026-10-27T02:47:05Z",
+      "superseded_by": "clm-102",
+      "source_episode": "evt_sha256_prior_bug"
+    },
+    {
+      "claim_id": "clm-102",
+      "subject": "service:brain_5180",
+      "predicate": "port_status",
+      "object": "HTTP 200 match at 48ae6f8",
+      "edge_layer": "Causal",
+      "epistemic_label": "observed",
+      "valid_from": "2026-10-27T02:47:00Z",
+      "valid_to": null,
+      "created_at": "2026-10-27T02:47:05Z",
+      "expired_at": null,
+      "superseded_by": null,
+      "source_episode": "git:48ae6f8716db823e405104e6a36fe2af6dc3ff03"
+    },
+    {
+      "claim_id": "clm-103-conflict-a",
+      "subject": "experiment:alpha_ threshold",
+      "predicate": "optimal_floor",
+      "object": "0.15",
+      "edge_layer": "Semantic",
+      "epistemic_label": "inferred",
+      "valid_from": "2026-10-26T10:00:00Z",
+      "valid_to": null,
+      "created_at": "2026-10-26T10:00:00Z",
+      "expired_at": null,
+      "superseded_by": null,
+      "conflict_with": "clm-103-conflict-b",
+      "source_episode": "run:wk1-44"
+    },
+    {
+      "claim_id": "clm-104-no-prov",
+      "subject": "agent:sonnet",
+      "predicate": "burn_rate_pct_hr",
+      "object": "4.2",
+      "edge_layer": "Entity",
+      "epistemic_label": "unknown",
+      "valid_from": "2026-10-27T00:00:00Z",
+      "valid_to": null,
+      "created_at": "2026-10-27T00:00:00Z",
+      "expired_at": null,
+      "superseded_by": null,
+      "source_episode": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "clm-101",
+      "target": "clm-102",
+      "layer": "Causal",
+      "label": "fixed_by_pr_25"
+    }
+  ]
+}

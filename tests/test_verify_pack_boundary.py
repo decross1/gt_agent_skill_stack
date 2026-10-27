@@ -31,11 +31,11 @@ def test_real_checkout_and_fixture_have_exact_runtime_projection(repo):
         result = verifier.verify_pack_boundary(root)
         assert result["ok"] is True
         assert {k: len(v) for k, v in result["packs"].items()} == {
-            "core": 6, "meta": 5, "research": 8, "brain": 4}
+            "core": 6, "meta": 5, "research": 8, "brain": 4, "design": 5}
         assert result["packs"]["core"] == [
             "fallback", "gate-check", "resume-state", "run-log", "spawn-contract", "validate"]
-        assert result["total_skills"] == 24
-        assert result["manifested_skills"] == 23
+        assert result["total_skills"] == 29
+        assert result["manifested_skills"] == 28
         assert result["excluded_dev_core"] == ["slip-ladder"]
         assert result["runtime_conformance_verified"] is False
 
@@ -44,13 +44,13 @@ def test_read_only_deterministic_result_binds_consumed_bytes(repo):
     before = {str(p.relative_to(repo)): p.read_bytes() for p in repo.rglob("*") if p.is_file()}
     result = verifier.verify_pack_boundary(repo)
     assert result == verifier.verify_pack_boundary(repo)
-    assert len(result["input_sha256"]) == 30
+    assert len(result["input_sha256"]) == 36
     for name, digest in result["input_sha256"].items():
         assert digest == hashlib.sha256(before[name]).hexdigest()
     assert before == {str(p.relative_to(repo)): p.read_bytes() for p in repo.rglob("*") if p.is_file()}
 
 
-@pytest.mark.parametrize("pack", ["core", "meta", "research", "brain"])
+@pytest.mark.parametrize("pack", ["core", "meta", "research", "brain", "design"])
 def test_missing_empty_or_incomplete_manifest_fails_closed(repo, pack):
     path = repo / "packs" / (pack + ".txt")
     original = path.read_text()
@@ -67,7 +67,7 @@ def test_missing_empty_or_incomplete_manifest_fails_closed(repo, pack):
         verifier.verify_pack_boundary(repo)
 
 
-@pytest.mark.parametrize("pack", ["core", "meta", "research", "brain"])
+@pytest.mark.parametrize("pack", ["core", "meta", "research", "brain", "design"])
 def test_duplicate_manifest_entries_fail_closed(repo, pack):
     path = repo / "packs" / (pack + ".txt")
     text = path.read_text()
@@ -256,7 +256,7 @@ def test_documented_inventory_must_agree_with_frontmatter_and_manifests(repo, ki
         elif kind == "count":
             text = text.replace("| 8 |", "| 7 |")
         elif kind == "total":
-            text = text.replace("Total: 24", "Total: 23")
+            text = text.replace("Total: 29", "Total: 28")
         else:
             text = text.replace("### " + tick + "research" + tick, "### Unknown")
         path.write_text(text)
@@ -303,7 +303,7 @@ def test_late_input_or_path_replacement_fails_closed(repo, monkeypatch, kind):
 
     def change_after_last_read(snapshot, parts):
         text = original(snapshot, parts)
-        if parts == ("packs", "brain.txt"):
+        if parts == ("packs", "design.txt"):
             if kind == "file-change":
                 path = repo / "BOUNDARY.md"
                 path.write_text(path.read_text() + "\n")

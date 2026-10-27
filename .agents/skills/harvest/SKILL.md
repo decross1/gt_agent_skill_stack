@@ -41,7 +41,7 @@ a consumer's entire history.
    `last_decision`. If nothing is new, stop — there is nothing to harvest.
 3. **For each new item, find the skill it bears on.** A logged validation bears
    on [[validate]]; a logged fallback on [[fallback]]; a state-file resume on
-   [[resume-state]]; an audit or review on [[code-review]]; a logged step on
+   [[resume-state]]; an audit or review on [[code-review]] or [[lab-ui-review]]; a UI/UX build or representation choice on [[lab-ui-plan]], [[agent-viz]], [[lab-ui-build]], or [[trace-and-distill]]; a logged step on
    [[run-log]]. One item may bear on more than one skill — that is more than one
    finding.
 4. **Classify each finding** by the rubric below.

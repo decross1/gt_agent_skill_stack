@@ -1,0 +1,69 @@
+{
+  "schema": "design-skill-eval/v1",
+  "pilot_id": "oracle-portal-8790-overhaul-20261027",
+  "surface": {
+    "name": "Oracle Portal",
+    "port": 8790,
+    "repo": "oracle_system",
+    "bundle_paths": [
+      "oracle_harness/portal_view/index.html",
+      "oracle_harness/portal_view/styles.css",
+      "oracle_harness/portal_view/app.js"
+    ]
+  },
+  "skills_exercised": [
+    "lab-ui-plan",
+    "agent-viz",
+    "lab-ui-build",
+    "lab-ui-review",
+    "trace-and-distill"
+  ],
+  "baseline_before_skills": {
+    "commit": "e61e26f",
+    "diagnosis": "Initial portal view rendered 18+ raw <dl> key-value dumps across Command, Insights, and HOURGLASS tabs, surfaced 30+ blanket 'UNKNOWN' strings whenever optional producers were unconfigured, lacked SHARED TOKENS v1 variables and tabular-nums alignment, and had no viewport zoom/pan/fit or 1-hop ego highlighting on the Spatial Essence Atlas.",
+    "metrics": {
+      "unknown_badge_ratio": 0.48,
+      "dl_term_count": 78,
+      "external_cdn_count": 0,
+      "missing_css_token_count": 11,
+      "tabular_nums": false,
+      "atlas_viewport_controls": false
+    }
+  },
+  "post_overhaul_with_skills": {
+    "qa_gate_passed": true,
+    "metrics": {
+      "unknown_badge_ratio": 0.0,
+      "raw_unknown_count": 0,
+      "dl_term_count": 0,
+      "external_cdn_count": 0,
+      "missing_css_token_count": 0,
+      "tabular_nums": true,
+      "overflow_px": 0,
+      "tab_count": 6,
+      "tabpanel_count": 6,
+      "atlas_viewport_controls": true,
+      "quota_bullet_bars": true,
+      "atlas_ego_highlighting": true
+    },
+    "contract_tests": {
+      "test_portal_view_py": "5 passed",
+      "test_portal_ui_py": "15 passed",
+      "test_portal_obsidian_py": "8 passed",
+      "test_portal_insights_py": "6 passed",
+      "test_ui_release_py": "5 passed"
+    }
+  },
+  "distilled_lessons": [
+    {
+      "skill": "agent-viz",
+      "class": "confirmed",
+      "evidence": "Routing /overview, /insights, /hourglass, /atlas, and /obsidian through Munzner question-to-representation tables replaced 78 raw <dt> terms with scannable KPI strips, aligned tabular-nums data tables, visual quota bullet bars (.bullet-track/.bullet-fill/.bullet-floor-tick), a 7-stage execution pipeline stepper, and an interactive pan/zoom/fit + 1-hop ego-highlighted SVG Essence Atlas."
+    },
+    {
+      "skill": "lab-ui-review",
+      "class": "confirmed",
+      "evidence": "Static + live DOM verification in design/scripts/qa_gate.py deterministically catches raw <dl> dumps (dl_term_count > 24), blanket UNKNOWN badge spam (unknown_badge_ratio > 0.05), and missing SHARED TOKENS v1 variables before human inspection."
+    }
+  ]
+}
