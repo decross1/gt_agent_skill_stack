@@ -178,8 +178,12 @@ def _days_between(older: str, newer: str) -> int | None:
     return (b - a).days
 
 
-def _trim(s: str | None, n: int = 100) -> str:
-    s = " ".join((s or "").split())
+def _trim(s: str | dict | list | None, n: int = 100) -> str:
+    if s is None:
+        return ""
+    if not isinstance(s, str):
+        s = json.dumps(s, ensure_ascii=False, sort_keys=True) if isinstance(s, (dict, list)) else str(s)
+    s = " ".join(s.split())
     return s if len(s) <= n else s[: n - 1] + "…"
 
 
